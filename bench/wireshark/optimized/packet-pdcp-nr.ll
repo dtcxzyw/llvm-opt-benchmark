@@ -3481,7 +3481,7 @@ look_up_keys_record.exit.thread.i:                ; preds = %1017, %proto_item_s
   br label %.thread.sink.split.i
 
 1167:                                             ; preds = %1163
-  %1168 = add i32 %.0351, %.0498528531
+  %1168 = add nuw nsw i32 %.0351, %.0498528531
   %1169 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1168)
   %1170 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1171 = load ptr, ptr %1170, align 8
@@ -3613,7 +3613,7 @@ decipher_payload.exit.thread:                     ; preds = %1121, %1121, %1122,
   %1237 = zext i32 %1213 to i64
   %1238 = call ptr @tvb_memcpy(ptr noundef %1199, ptr noundef %1236, i32 noundef 0, i64 noundef %1237)
   %1239 = getelementptr i8, ptr %1236, i64 %1237
-  %1240 = add i32 %.7536, %.0351
+  %1240 = add nuw nsw i32 %.7536, %.0351
   %1241 = sub i32 %1215, %.0351
   %1242 = zext i32 %1241 to i64
   %1243 = call ptr @tvb_memcpy(ptr noundef %.061.i539, ptr noundef %1239, i32 noundef %1240, i64 noundef %1242)
@@ -3889,7 +3889,7 @@ lookup_rrc_dissector_handle.exit.thread:          ; preds = %1306, %lookup_rrc_d
   %1395 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1371, i32 noundef %1394, ptr noundef %0, i32 noundef %.0498528531, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %20)
   %not.545 = xor i1 %1182, true
   %1396 = zext i1 %not.545 to i32
-  %.6 = add i32 %.7536, %1396
+  %.6 = add nuw nsw i32 %.7536, %1396
   %1397 = sext i1 %not.545 to i32
   %.1344 = add i32 %1366, %1397
   %1398 = load i32, ptr %20, align 4

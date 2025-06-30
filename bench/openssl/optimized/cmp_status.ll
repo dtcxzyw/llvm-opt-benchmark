@@ -122,7 +122,7 @@ define ptr @ossl_cmp_pkisi_get0_statusString(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_pkisi_get_pkifailureinfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @ossl_cmp_pkisi_get_pkifailureinfo(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2, !prof !10
 

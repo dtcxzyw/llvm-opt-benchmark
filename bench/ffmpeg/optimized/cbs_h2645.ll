@@ -7409,7 +7409,7 @@ cbs_h2645_unit_requires_zero_byte.exit.thread:    ; preds = %52, %49, %46, %cbs_
 
 71:                                               ; preds = %66
   %72 = icmp eq i8 %70, 0
-  %73 = add nsw i32 %.05792, 1
+  %73 = add nuw nsw i32 %.05792, 1
   %spec.select = select i1 %72, i32 %73, i32 0
   br label %83
 

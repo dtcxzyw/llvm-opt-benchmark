@@ -2205,7 +2205,7 @@ switch.lookup:                                    ; preds = %46
 
 114:                                              ; preds = %96, %91
   %115 = load ptr, ptr %25, align 8, !alias.scope !315, !noalias !318, !nonnull !3, !noundef !3
-  %116 = getelementptr inbounds { i64, [2 x i64] }, ptr %115, i64 %72
+  %116 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %115, i64 %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %117 = add nuw nsw i64 %72, 1
   store i64 %117, ptr %26, align 8, !alias.scope !315, !noalias !318

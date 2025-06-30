@@ -115932,8 +115932,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h27566972
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -115999,8 +115999,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h27566972
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -116559,8 +116559,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h92bd76f8
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -116626,8 +116626,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h92bd76f8
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -117186,8 +117186,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h9bc7edc2
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -117253,8 +117253,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h9bc7edc2
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -117813,8 +117813,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58630d0
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -117880,8 +117880,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58630d0
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -118440,8 +118440,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58aee76
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -118507,8 +118507,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58aee76
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -119067,8 +119067,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha6bb49b6
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -119134,8 +119134,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha6bb49b6
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -119694,8 +119694,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hb876f8b7
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -119761,8 +119761,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hb876f8b7
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -120321,8 +120321,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hba7de456
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -120388,8 +120388,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hba7de456
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -120948,8 +120948,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf2942c3e
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -121015,8 +121015,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf2942c3e
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -121575,8 +121575,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf82102c8
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -121642,8 +121642,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf82102c8
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192
@@ -122202,8 +122202,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hfec7abcc
 
 ._crit_edge.us:                                   ; preds = %175, %167, %163
   %.sroa.025.1.us = phi i64 [ %.sroa.025.0114.us, %163 ], [ %.sroa.048.1117.us, %167 ], [ %.sroa.048.1117.us, %175 ]
-  %177 = icmp ult i64 %.sroa.048.1117.us, %144
-  %178 = add i64 %.sroa.048.1117.us, 1
+  %177 = icmp samesign ult i64 %.sroa.048.1117.us, %144
+  %178 = add nuw nsw i64 %.sroa.048.1117.us, 1
   br i1 %177, label %.lr.ph119.split.us, label %._crit_edge120
 
 .loopexit.split-lp102.split.us:                   ; preds = %162
@@ -122269,8 +122269,8 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hfec7abcc
 196:                                              ; preds = %._crit_edge, %192
   %.sroa.025.1 = phi i64 [ %.sroa.048.1117, %._crit_edge ], [ %.sroa.025.0114, %192 ]
   %.sroa.03.2 = phi i64 [ %.sroa.03.3.lcssa, %._crit_edge ], [ %.sroa.03.1116, %192 ]
-  %197 = icmp ult i64 %.sroa.048.1117, %144
-  %198 = add i64 %.sroa.048.1117, 1
+  %197 = icmp samesign ult i64 %.sroa.048.1117, %144
+  %198 = add nuw nsw i64 %.sroa.048.1117, 1
   br i1 %197, label %.lr.ph119.split, label %._crit_edge120
 
 199:                                              ; preds = %192

@@ -42968,7 +42968,7 @@ select.unfold.i53:                                ; preds = %._crit_edge.i.i.i52
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4fish20env_universal_common12EnvUniversal19populate_1_variable17hf74272b572c5b2a4E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %1, i8 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4fish20env_universal_common12EnvUniversal19populate_1_variable17hf74272b572c5b2a4E(ptr noalias noundef nonnull readonly align 4 %0, i64 noundef %1, i8 noundef range(i8 0, 8) %2, ptr noalias noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [4 x i8], align 4

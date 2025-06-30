@@ -92600,15 +92600,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   %.033.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.013.i.i.i, %30 ]
   %33 = shl i64 %.033.i.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %34
   %gep.i.i.i.i = getelementptr %struct.BranchFunnelTarget, ptr %15, i64 %33
   %.val.i.i.i.i = load i64, ptr %35, align 8, !tbaa !2322
   %.val28.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !2322
   %36 = icmp slt i64 %.val.i.i.i.i, %.val28.i.i.i.i
   %37 = or disjoint i64 %33, 1
   %spec.select.i.i.i.i = select i1 %36, i64 %37, i64 %34
-  %38 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %spec.select.i.i.i.i
-  %39 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.033.i.i.i.i
+  %38 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %spec.select.i.i.i.i
+  %39 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.033.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false), !tbaa.struct !2427
   %40 = icmp slt i64 %spec.select.i.i.i.i, %24
   br i1 %40, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !2904
@@ -92632,7 +92632,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %47 ], [ %.127.i.i.i.i, %43 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %45 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.04.i.i.i.i.i
+  %45 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load i64, ptr %45, align 8, !tbaa !2322
   %46 = icmp slt i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
   br i1 %46, label %47, label %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
@@ -92645,7 +92645,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
 
 "_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i": ; preds = %47, %.lr.ph.i.i.i.i.i, %43
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %43 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %47 ]
-  %50 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %50 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i64 %.sroa.02.0.copyload.i.i.i, ptr %50, align 8, !tbaa !53
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i.i, i64 16, i1 false)
@@ -92674,15 +92674,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   %.033.i.i.i26.i = phi i64 [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i25.i ], [ 0, %.lr.ph.i6.i ]
   %59 = shl i64 %.033.i.i.i26.i, 1
   %60 = add i64 %59, 2
-  %61 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %60
   %gep.i.i.i27.i = getelementptr %struct.BranchFunnelTarget, ptr %15, i64 %59
   %.val.i.i.i28.i = load i64, ptr %61, align 8, !tbaa !2322
   %.val28.i.i.i29.i = load i64, ptr %gep.i.i.i27.i, align 8, !tbaa !2322
   %62 = icmp slt i64 %.val.i.i.i28.i, %.val28.i.i.i29.i
   %63 = or disjoint i64 %59, 1
   %spec.select.i.i.i30.i = select i1 %62, i64 %63, i64 %60
-  %64 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %spec.select.i.i.i30.i
-  %65 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.033.i.i.i26.i
+  %64 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %spec.select.i.i.i30.i
+  %65 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.033.i.i.i26.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false), !tbaa.struct !2427
   %66 = icmp slt i64 %spec.select.i.i.i30.i, %57
   br i1 %66, label %.lr.ph.i.i.i25.i, label %._crit_edge.i.i.i10.i, !llvm.loop !2904
@@ -92703,7 +92703,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   %73 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
   %74 = or disjoint i64 %73, 1
   %75 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %74
-  %76 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.0.lcssa.i.i.i11.i
+  %76 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.0.lcssa.i.i.i11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false), !tbaa.struct !2427
   br label %.lr.ph.i.i.i.i15.i.preheader
 
@@ -92732,7 +92732,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
 
 "_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i20.i": ; preds = %80, %.lr.ph.i.i.i.i15.i, %77
   %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %77 ], [ %.0133.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %80 ]
-  %82 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.013.lcssa.i.i.i.i21.i
+  %82 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.013.lcssa.i.i.i.i21.i
   store i64 %.sroa.02.0.copyload.i.i8.i, ptr %82, align 8, !tbaa !53
   %.sroa.5.0..sroa_idx.i.i.i22.i = getelementptr inbounds nuw i8, ptr %82, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i22.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i5.i, i64 16, i1 false)

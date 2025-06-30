@@ -318,8 +318,8 @@ _ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit75: ; preds = %77, %_ZN5zxi
   br label %92
 
 80:                                               ; preds = %62
-  %81 = add nsw i32 %.041100, 1
-  %82 = sext i32 %81 to i64
+  %81 = add nuw nsw i32 %.041100, 1
+  %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds nuw i32, ptr %13, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !27
   %85 = add nsw i32 %84, 1
@@ -329,7 +329,7 @@ _ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit75: ; preds = %77, %_ZN5zxi
 86:                                               ; preds = %.lr.ph101
   %87 = icmp eq i32 %.041100, 1
   %spec.select = select i1 %87, i32 2, i32 %.041100
-  %88 = sext i32 %spec.select to i64
+  %88 = zext nneg i32 %spec.select to i64
   %89 = getelementptr inbounds nuw i32, ptr %13, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !27
   %91 = add nsw i32 %90, 1

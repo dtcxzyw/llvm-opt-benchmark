@@ -3047,7 +3047,7 @@ _ZNSt6vectorIN4llvm8ArrayRefIhEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6v
   br i1 %.not22.i.i, label %.loopexit.loopexit, label %.preheader.i.i, !llvm.loop !143
 
 .loopexit.loopexit:                               ; preds = %.preheader.i.i
-  %105 = sext i32 %.1.i.i to i64
+  %105 = zext nneg i32 %.1.i.i to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.thread, %.preheader, %.loopexit.loopexit, %.split

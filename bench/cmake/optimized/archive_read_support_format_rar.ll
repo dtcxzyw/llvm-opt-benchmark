@@ -5179,7 +5179,7 @@ membr_bits.exit167.i.i:                           ; preds = %389, %membr_fill.ex
 
 409:                                              ; preds = %407
   store ptr %.2.i.i, ptr %408, align 8, !tbaa !229
-  %410 = tail call i32 @llvm.umax.i32(i32 %.0112.i.i, i32 64)
+  %410 = tail call i32 @llvm.umax.i32(i32 range(i32 0, 8129) %.0112.i.i, i32 64)
   %411 = getelementptr inbounds nuw i8, ptr %408, i64 48
   store i32 %410, ptr %411, align 8, !tbaa !230
   %412 = zext nneg i32 %410 to i64

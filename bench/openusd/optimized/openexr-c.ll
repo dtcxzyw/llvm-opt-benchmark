@@ -31949,7 +31949,7 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   %.0852 = phi i32 [ %429, %428 ], [ %320, %.preheader1022.preheader ]
   %350 = sext i32 %.0854 to i64
   %351 = getelementptr inbounds i8, ptr %.5829, i64 %350
-  %352 = zext i32 %.0864 to i64
+  %352 = zext nneg i32 %.0864 to i64
   %353 = getelementptr inbounds nuw i8, ptr %351, i64 %352
   %354 = load i8, ptr %353, align 1
   %355 = getelementptr inbounds nuw i8, ptr %321, i64 %352
@@ -31958,13 +31958,13 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   br i1 %357, label %358, label %416
 
 358:                                              ; preds = %.preheader1022
-  %359 = add i32 %.0864, 1
-  %360 = sub i32 %.5911, %359
+  %359 = add nuw nsw i32 %.0864, 1
+  %360 = sub nsw i32 %.5911, %359
   %361 = icmp ugt i32 %360, 31
   br i1 %361, label %362, label %.preheader1235
 
 362:                                              ; preds = %358
-  %363 = zext i32 %359 to i64
+  %363 = zext nneg i32 %359 to i64
   %364 = getelementptr inbounds nuw i8, ptr %351, i64 %363
   %.0.copyload514 = load i64, ptr %364, align 1
   %365 = getelementptr inbounds nuw i8, ptr %321, i64 %363
@@ -31974,8 +31974,8 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   br i1 %.not963, label %367, label %403
 
 367:                                              ; preds = %362
-  %368 = add i32 %.0864, 9
-  %369 = zext i32 %368 to i64
+  %368 = add nuw nsw i32 %.0864, 9
+  %369 = zext nneg i32 %368 to i64
   %370 = getelementptr inbounds nuw i8, ptr %351, i64 %369
   %.0.copyload508 = load i64, ptr %370, align 1
   %371 = getelementptr inbounds nuw i8, ptr %321, i64 %369
@@ -31985,8 +31985,8 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   br i1 %.not964, label %373, label %403
 
 373:                                              ; preds = %367
-  %374 = add i32 %.0864, 17
-  %375 = zext i32 %374 to i64
+  %374 = add nuw nsw i32 %.0864, 17
+  %375 = zext nneg i32 %374 to i64
   %376 = getelementptr inbounds nuw i8, ptr %351, i64 %375
   %.0.copyload502 = load i64, ptr %376, align 1
   %377 = getelementptr inbounds nuw i8, ptr %321, i64 %375
@@ -31996,8 +31996,8 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   br i1 %.not965, label %379, label %403
 
 379:                                              ; preds = %373
-  %380 = add i32 %.0864, 25
-  %381 = zext i32 %380 to i64
+  %380 = add nuw nsw i32 %.0864, 25
+  %381 = zext nneg i32 %380 to i64
   %382 = getelementptr inbounds nuw i8, ptr %351, i64 %381
   %.0.copyload496 = load i64, ptr %382, align 1
   %383 = getelementptr inbounds nuw i8, ptr %321, i64 %381
@@ -32007,7 +32007,7 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   br i1 %.not966, label %385, label %403
 
 385:                                              ; preds = %379
-  %386 = add i32 %.0864, 33
+  %386 = add nuw nsw i32 %.0864, 33
   br label %.preheader1235
 
 .preheader1235:                                   ; preds = %385, %358
@@ -55148,14 +55148,14 @@ define internal fastcc range(i32 0, 24) i32 @LossyDctDecoder_execute(ptr noundef
 
 154:                                              ; preds = %152
   %155 = and i32 %148, 255
-  %156 = add nsw i32 %155, %.02531.i
+  %156 = add nuw nsw i32 %155, %.02531.i
   br label %161
 
 157:                                              ; preds = %152
-  %158 = sext i32 %.02531.i to i64
-  %159 = getelementptr inbounds i16, ptr %136, i64 %158
+  %158 = zext nneg i32 %.02531.i to i64
+  %159 = getelementptr inbounds nuw i16, ptr %136, i64 %158
   store i16 %147, ptr %159, align 2
-  %160 = add nsw i32 %.02531.i, 1
+  %160 = add nuw nsw i32 %.02531.i, 1
   br label %161
 
 161:                                              ; preds = %157, %154

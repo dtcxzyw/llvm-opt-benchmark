@@ -4226,7 +4226,7 @@ _ZN5folly3f146detail13DenseMaskIter4nextEv.exit64: ; preds = %.lr.ph152, %50
   br label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i
 
 _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = %73, %.lr.ph.i
-  %75 = add nuw i64 %61, %70
+  %75 = add i64 %61, %70
   %76 = and i64 %75, %64
   %77 = getelementptr inbounds nuw i8, ptr %.0127, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !46

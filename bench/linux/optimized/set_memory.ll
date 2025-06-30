@@ -513,7 +513,7 @@ define dso_local range(i64 0, 4503599627370496) i64 @slow_virt_to_phys(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @__set_memory_prot(i64 noundef %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @__set_memory_prot(i64 noundef %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   %5 = xor i64 %2, -1
@@ -522,7 +522,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__set_memory_prot(i64 noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(ptr noundef %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 9) %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @change_page_attr_set_clr(ptr noundef %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 9) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
@@ -822,7 +822,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @_set_memory_uc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @_set_memory_uc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = tail call i64 @cachemode2protval(i32 noundef 2) #11
@@ -878,7 +878,7 @@ declare dso_local i32 @memtype_reserve(i64 noundef, i64 noundef, i32 noundef, pt
 declare dso_local i32 @memtype_free(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @_set_memory_wc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @_set_memory_wc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = tail call i64 @cachemode2protval(i32 noundef 2) #11
@@ -949,7 +949,7 @@ define dso_local i32 @set_memory_wc(i64 noundef %0, i32 noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @_set_memory_wt(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @_set_memory_wt(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = tail call i64 @cachemode2protval(i32 noundef 4) #11
@@ -958,7 +958,7 @@ define dso_local range(i32 -2147483648, 1) i32 @_set_memory_wt(i64 noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @_set_memory_wb(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @_set_memory_wb(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 152, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -966,7 +966,7 @@ define dso_local range(i32 -2147483648, 1) i32 @_set_memory_wb(i64 noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_wb(i64 noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @set_memory_wb(i64 noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %0, ptr %3, align 8
@@ -994,7 +994,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_wb(i64 noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_mce_nospec(i64 noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_mce_nospec(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = shl i64 %0, 12
   %4 = load i64, ptr @page_offset_base, align 8
@@ -1016,7 +1016,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_mce_nospec(i64 noundef %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_np(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_np(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 1, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1027,7 +1027,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_np(i64 noundef %0, i3
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @clear_mce_nospec(i64 noundef %0) #0 align 16 {
+define dso_local i32 @clear_mce_nospec(i64 noundef %0) #0 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   %3 = shl i64 %0, 12
@@ -1040,7 +1040,7 @@ define dso_local range(i32 -2147483648, 1) i32 @clear_mce_nospec(i64 noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_x(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_x(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = load i64, ptr @__supported_pte_mask, align 8
@@ -1057,7 +1057,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_x(i64 noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_nx(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_nx(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = load i64, ptr @__supported_pte_mask, align 8
@@ -1074,7 +1074,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_nx(i64 noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_ro(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_ro(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 66, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1082,7 +1082,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_ro(i64 noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_rox(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_rox(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = load i64, ptr @__supported_pte_mask, align 8
@@ -1093,7 +1093,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_rox(i64 noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_rw(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_rw(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 2, i64 0, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1101,7 +1101,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_rw(i64 noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_np_noalias(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_np_noalias(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 1, i32 noundef 0, i32 noundef 8, ptr noundef null)
@@ -1109,7 +1109,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_np_noalias(i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_4k(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_4k(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 0, i32 noundef 1, i32 noundef 0, ptr noundef null)
@@ -1117,7 +1117,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_4k(i64 noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_nonglobal(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_nonglobal(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 0, i64 256, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1125,7 +1125,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_memory_nonglobal(i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_memory_global(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_memory_global(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %0, ptr %3, align 8
   %4 = call fastcc i32 @change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef %1, i64 256, i64 0, i32 noundef 0, i32 noundef 0, ptr noundef null)
@@ -1246,7 +1246,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_pages_array_wc(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_pages_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @set_pages_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i64, ptr @vmemmap_base, align 8
   %5 = ptrtoint ptr %0 to i64
@@ -1280,7 +1280,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_pages_wb(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_pages_array_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @set_pages_array_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @change_page_attr_set_clr(ptr noundef null, i32 noundef %1, i64 0, i64 152, i32 noundef 0, i32 noundef 4, ptr noundef %0)
   %4 = icmp eq i32 %3, 0
   %5 = icmp sgt i32 %1, 0
@@ -1310,7 +1310,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_pages_array_wb(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_pages_ro(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_pages_ro(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i64, ptr @vmemmap_base, align 8
   %5 = ptrtoint ptr %0 to i64
@@ -1326,7 +1326,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_pages_ro(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_pages_rw(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_pages_rw(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i64, ptr @vmemmap_base, align 8
   %5 = ptrtoint ptr %0 to i64
@@ -1342,7 +1342,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_pages_rw(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_direct_map_invalid_noflush(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_direct_map_invalid_noflush(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.cpa_data, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
@@ -1376,7 +1376,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_direct_map_invalid_noflush(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @set_direct_map_default_noflush(ptr noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @set_direct_map_default_noflush(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.cpa_data, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
@@ -1436,7 +1436,7 @@ define dso_local zeroext i1 @kernel_page_present(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local range(i32 -2147483648, 1) i32 @kernel_map_pages_in_pgd(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #5 section ".init.text" align 16 {
+define dso_local i32 @kernel_map_pages_in_pgd(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #5 section ".init.text" align 16 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.cpa_data, align 8
   store i64 %2, ptr %6, align 8
@@ -1504,7 +1504,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__change_page_attr_set_clr(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.cpa_data, align 8
   %5 = alloca i64, align 8
@@ -2526,7 +2526,7 @@ static_protections.exit.thread:                   ; preds = %static_protections.
 declare dso_local void @__flush_tlb_all() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local range(i32 -2147483648, 1) i32 @kernel_unmap_pages_in_pgd(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 section ".init.text" align 16 {
+define dso_local i32 @kernel_unmap_pages_in_pgd(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 section ".init.text" align 16 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.cpa_data, align 8
   store i64 %1, ptr %4, align 8

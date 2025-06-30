@@ -234621,7 +234621,7 @@ _ZL20is_consonant_myanmarRK15hb_glyph_info_t.exit._crit_edge.i.i: ; preds = %_ZL
   br label %111
 
 .critedge136.i.i:                                 ; preds = %102
-  %110 = trunc nsw i32 %.0118186.i.i to i8
+  %110 = trunc nuw nsw i32 %.0118186.i.i to i8
   store i8 %110, ptr %104, align 1, !tbaa !219
   br label %111
 

@@ -18110,7 +18110,7 @@ define internal fastcc void @_ZSt16__introsort_loopIP8ImmChecklN9__gnu_cxx5__ops
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %47 ], [ %.1.i.i.i.i, %43 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %45 = getelementptr inbounds %class.ImmCheck, ptr %0, i64 %.04.i.i.i.i.i
+  %45 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load i32, ptr %45, align 4, !tbaa !200
   %46 = icmp slt i32 %.val.i.i.i.i.i, %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i
   br i1 %46, label %47, label %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i
@@ -18123,7 +18123,7 @@ define internal fastcc void @_ZSt16__introsort_loopIP8ImmChecklN9__gnu_cxx5__ops
 
 _ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i: ; preds = %47, %.lr.ph.i.i.i.i.i, %43
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %43 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %47 ]
-  %50 = getelementptr inbounds %class.ImmCheck, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %50 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i64 %.sroa.02.0.copyload.i.i.i, ptr %50, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 4
@@ -18209,7 +18209,7 @@ _ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL
 
 _ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i: ; preds = %80, %.lr.ph.i.i.i.i13.i, %77
   %.013.lcssa.i.i.i.i17.i = phi i64 [ 0, %77 ], [ %.0133.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ], [ 0, %80 ]
-  %82 = getelementptr inbounds %class.ImmCheck, ptr %0, i64 %.013.lcssa.i.i.i.i17.i
+  %82 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.013.lcssa.i.i.i.i17.i
   store i64 %.sroa.02.0.copyload.i.i7.i, ptr %82, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 %.sroa.4.0.copyload.i.i9.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i18.i, align 4

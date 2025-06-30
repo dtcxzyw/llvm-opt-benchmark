@@ -5874,7 +5874,7 @@ define internal noundef zeroext i1 @_ZN10open_spiel26bridge_uncontested_bidding1
   %12 = icmp sgt i32 %5, 35
   %13 = add nsw i32 %7, -8
   %14 = select i1 %12, i32 %13, i32 0
-  %.1 = add nsw i32 %14, %.016
+  %.1 = add nuw nsw i32 %14, %.016
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond.not, label %15, label %3, !llvm.loop !38

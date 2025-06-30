@@ -1339,7 +1339,7 @@ define internal fastcc void @apply_film_grain_16(ptr noundef readonly captures(n
   %69 = icmp slt i32 %68, %35
   %..i.us.us88.i = tail call i32 @llvm.smin.i32(i32 %68, i32 %36)
   %.0.i.us.us89.i = select i1 %69, i32 %35, i32 %..i.us.us88.i
-  %70 = trunc i32 %.0.i.us.us89.i to i16
+  %70 = trunc nsw i32 %.0.i.us.us89.i to i16
   store i16 %70, ptr %63, align 2, !tbaa !44
   %indvars.iv.next119.i = add nuw nsw i64 %indvars.iv118.i, 1
   %exitcond121.not.i = icmp eq i64 %indvars.iv.next119.i, 79
@@ -1400,7 +1400,7 @@ define internal fastcc void @apply_film_grain_16(ptr noundef readonly captures(n
   %97 = icmp slt i32 %96, %35
   %..i.i = tail call i32 @llvm.smin.i32(i32 %96, i32 %36)
   %.0.i.i = select i1 %97, i32 %35, i32 %..i.i
-  %98 = trunc i32 %.0.i.i to i16
+  %98 = trunc nsw i32 %.0.i.i to i16
   store i16 %98, ptr %93, align 2, !tbaa !44
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
   %exitcond106.not.i = icmp eq i64 %indvars.iv.next104.i, 79
@@ -1755,7 +1755,7 @@ generate_grain_y_c_16.exit:                       ; preds = %.split.i, %.split.u
   %294 = icmp slt i32 %293, %.0.i54
   %..i240.i = tail call i32 @llvm.smin.i32(i32 %293, i32 %.0212.i)
   %.0.i241.i = select i1 %294, i32 %.0.i54, i32 %..i240.i
-  %295 = trunc i32 %.0.i241.i to i16
+  %295 = trunc nsw i32 %.0.i241.i to i16
   store i16 %295, ptr %gep254.i, align 2, !tbaa !44
   %indvars.iv.next356.i = add nuw nsw i64 %indvars.iv355.i, 1
   %296 = icmp samesign ult i64 %indvars.iv.next356.i, %223
@@ -1806,7 +1806,7 @@ generate_grain_y_c_16.exit:                       ; preds = %.split.i, %.split.u
   %327 = icmp slt i32 %326, %.0.i54
   %..i236.i = tail call i32 @llvm.smin.i32(i32 %326, i32 %.0212.i)
   %.0.i237.i = select i1 %327, i32 %.0.i54, i32 %..i236.i
-  %328 = trunc i32 %.0.i237.i to i16
+  %328 = trunc nsw i32 %.0.i237.i to i16
   store i16 %328, ptr %gep264.i, align 2, !tbaa !44
   %indvars.iv.next359.i = add nuw nsw i64 %indvars.iv358.i, 1
   %exitcond362.not.i = icmp eq i64 %indvars.iv.next359.i, %222
@@ -1896,7 +1896,7 @@ generate_grain_y_c_16.exit:                       ; preds = %.split.i, %.split.u
   %383 = icmp slt i32 %382, %.0.i54
   %..i232.i = tail call i32 @llvm.smin.i32(i32 %382, i32 %.0212.i)
   %.0.i233.i = select i1 %383, i32 %.0.i54, i32 %..i232.i
-  %384 = trunc i32 %.0.i233.i to i16
+  %384 = trunc nsw i32 %.0.i233.i to i16
   store i16 %384, ptr %gep292.i, align 2, !tbaa !44
   %indvars.iv.next369.i = add nuw nsw i64 %indvars.iv368.i, 1
   %385 = icmp samesign ult i64 %indvars.iv.next369.i, %260
@@ -1973,7 +1973,7 @@ generate_grain_y_c_16.exit:                       ; preds = %.split.i, %.split.u
   %436 = icmp slt i32 %435, %.0.i54
   %..i.i55 = tail call i32 @llvm.smin.i32(i32 %435, i32 %.0212.i)
   %.0.i.i56 = select i1 %436, i32 %.0.i54, i32 %..i.i55
-  %437 = trunc i32 %.0.i.i56 to i16
+  %437 = trunc nsw i32 %.0.i.i56 to i16
   store i16 %437, ptr %gep311.i, align 2, !tbaa !44
   %indvars.iv.next372.i = add nuw nsw i64 %indvars.iv371.i, 1
   %exitcond375.not.i = icmp eq i64 %indvars.iv.next372.i, %259
@@ -4506,7 +4506,7 @@ define internal fastcc void @generate_grain_uv_c_16(ptr noundef nonnull captures
   %94 = icmp slt i32 %93, %24
   %..i.us.us145.us = tail call i32 @llvm.smin.i32(i32 %93, i32 %25)
   %.0.i.us.us146.us = select i1 %94, i32 %24, i32 %..i.us.us145.us
-  %95 = trunc i32 %.0.i.us.us146.us to i16
+  %95 = trunc nsw i32 %.0.i.us.us146.us to i16
   store i16 %95, ptr %88, align 2, !tbaa !44
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count198
@@ -4530,7 +4530,7 @@ define internal fastcc void @generate_grain_uv_c_16(ptr noundef nonnull captures
   %101 = icmp slt i32 %100, %24
   %..i.us139 = tail call i32 @llvm.smin.i32(i32 %100, i32 %25)
   %.0.i.us140 = select i1 %101, i32 %24, i32 %..i.us139
-  %102 = trunc i32 %.0.i.us140 to i16
+  %102 = trunc nsw i32 %.0.i.us140 to i16
   store i16 %102, ptr %97, align 2, !tbaa !44
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -5089,7 +5089,7 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %226 = icmp slt i32 %225, %.0
   %..i406 = tail call i32 @llvm.smin.i32(i32 %225, i32 %.0352)
   %.0.i407 = select i1 %226, i32 %.0, i32 %..i406
-  %227 = trunc i32 %.0.i407 to i16
+  %227 = trunc nsw i32 %.0.i407 to i16
   store i16 %227, ptr %203, align 2, !tbaa !44
   %indvars.iv.next501 = add nsw i64 %indvars.iv500, 1
   %228 = icmp slt i64 %indvars.iv.next501, %107
@@ -5185,7 +5185,7 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %288 = icmp slt i32 %287, %.0
   %..i400 = tail call i32 @llvm.smin.i32(i32 %287, i32 %.0352)
   %.0.i401 = select i1 %288, i32 %.0, i32 %..i400
-  %289 = trunc i32 %.0.i401 to i16
+  %289 = trunc nsw i32 %.0.i401 to i16
   store i16 %289, ptr %265, align 2, !tbaa !44
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
   %exitcond507.not = icmp eq i64 %indvars.iv.next504, %wide.trip.count506
@@ -5331,7 +5331,7 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %382 = icmp slt i32 %381, %.0
   %..i394 = tail call i32 @llvm.smin.i32(i32 %381, i32 %.0352)
   %.0.i395 = select i1 %382, i32 %.0, i32 %..i394
-  %383 = trunc i32 %.0.i395 to i16
+  %383 = trunc nsw i32 %.0.i395 to i16
   store i16 %383, ptr %359, align 2, !tbaa !44
   %indvars.iv.next514 = add nsw i64 %indvars.iv513, 1
   %384 = icmp slt i64 %indvars.iv.next514, %153
@@ -5453,7 +5453,7 @@ define internal fastcc void @fguv_32x32xn_c_16(ptr noundef writeonly captures(no
   %464 = icmp slt i32 %463, %.0
   %..i = tail call i32 @llvm.smin.i32(i32 %463, i32 %.0352)
   %.0.i = select i1 %464, i32 %.0, i32 %..i
-  %465 = trunc i32 %.0.i to i16
+  %465 = trunc nsw i32 %.0.i to i16
   store i16 %465, ptr %441, align 2, !tbaa !44
   %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
   %exitcond520.not = icmp eq i64 %indvars.iv.next517, %wide.trip.count519

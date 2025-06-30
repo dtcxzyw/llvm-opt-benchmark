@@ -7745,7 +7745,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread._crit_edge: ; preds = %rbimpl_RB_TYPE_P_fa
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load i64, ptr %43, align 8, !tbaa !27
   %45 = getelementptr i8, ptr %42, i64 %44
-  %46 = tail call i64 @rb_str_new(ptr noundef %45, i64 noundef %0) #22
+  %46 = tail call i64 @rb_str_new(ptr noundef %45, i64 noundef range(i64 1, 0) %0) #22
   %47 = load i64, ptr %43, align 8, !tbaa !27
   %48 = add i64 %47, %0
   store i64 %48, ptr %43, align 8, !tbaa !27
@@ -7884,7 +7884,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %102, %RSTRING_PTR.e
   br label %rb_long2num_inline.exit.i22
 
 109:                                              ; preds = %104
-  %110 = tail call i64 @rb_int2big(i64 noundef %0) #22
+  %110 = tail call i64 @rb_int2big(i64 noundef range(i64 1, 0) %0) #22
   %.pre = load i64, ptr %1, align 8, !tbaa !22
   br label %rb_long2num_inline.exit.i22
 

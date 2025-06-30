@@ -548,7 +548,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %7 = alloca [256 x i8], align 16
   %8 = load i32, ptr %4, align 4, !tbaa !24
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %110
+  br i1 %9, label %10, label %111
 
 10:                                               ; preds = %5
   switch i32 %3, label %19 [
@@ -570,7 +570,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   store i32 0, ptr %17, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %18, align 8, !tbaa !26
-  br label %110
+  br label %111
 
 19:                                               ; preds = %10, %11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15
@@ -581,12 +581,12 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
 20:                                               ; preds = %19
   %21 = load i32, ptr %4, align 4, !tbaa !24
   %22 = icmp slt i32 %21, 1
-  br i1 %22, label %25, label %109
+  br i1 %22, label %25, label %110
 
 23:                                               ; preds = %19
   %24 = landingpad { ptr, i32 }
           cleanup
-  br label %113
+  br label %114
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -603,7 +603,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   store i32 0, ptr %32, align 8, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %33, align 8, !tbaa !26
-  br label %109
+  br label %110
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -628,9 +628,9 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   br i1 %44, label %.lr.ph69.preheader, label %._crit_edge70
 
 .lr.ph69.preheader:                               ; preds = %34, %.preheader
-  %.048.lcssa85 = phi i32 [ %.1, %.preheader ], [ -1, %34 ]
-  %.049.lcssa83 = phi i32 [ %.2, %.preheader ], [ 0, %34 ]
-  %45 = zext nneg i32 %.049.lcssa83 to i64
+  %.048.lcssa84 = phi i32 [ %.1, %.preheader ], [ -1, %34 ]
+  %.049.lcssa82 = phi i32 [ %.2, %.preheader ], [ 0, %34 ]
+  %45 = zext nneg i32 %.049.lcssa82 to i64
   br label %.lr.ph69
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %62
@@ -684,123 +684,123 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %.lr.ph69
   %indvars.iv77 = phi i64 [ %45, %.lr.ph69.preheader ], [ %indvars.iv.next78, %.lr.ph69 ]
-  %63 = trunc i64 %indvars.iv77 to i8
-  %64 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv77
-  store i8 %63, ptr %64, align 1, !tbaa !33
+  %63 = trunc nuw i64 %indvars.iv77 to i32
+  %64 = trunc i64 %indvars.iv77 to i8
+  %65 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv77
+  store i8 %64, ptr %65, align 1, !tbaa !33
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %65 = and i64 %indvars.iv.next78, 4294967295
-  %exitcond80.not = icmp eq i64 %65, 256
-  br i1 %exitcond80.not, label %._crit_edge70, label %.lr.ph69, !llvm.loop !41
+  %66 = icmp slt i32 %63, 255
+  br i1 %66, label %.lr.ph69, label %._crit_edge70, !llvm.loop !41
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %.preheader
-  %.048.lcssa84 = phi i32 [ %.1, %.preheader ], [ %.048.lcssa85, %.lr.ph69 ]
-  %66 = icmp slt i32 %.048.lcssa84, 0
-  %67 = sub nsw i32 %27, %.048.lcssa84
-  %.052 = select i1 %66, i32 0, i32 %67
-  %narrow = call i32 @llvm.smax.i32(i32 %.048.lcssa84, i32 0)
+  %.048.lcssa83 = phi i32 [ %.1, %.preheader ], [ %.048.lcssa84, %.lr.ph69 ]
+  %67 = icmp slt i32 %.048.lcssa83, 0
+  %68 = sub nsw i32 %27, %.048.lcssa83
+  %.052 = select i1 %67, i32 0, i32 %68
+  %narrow = call i32 @llvm.smax.i32(i32 %.048.lcssa83, i32 0)
   %.051.idx = zext nneg i32 %narrow to i64
   %.051 = getelementptr inbounds nuw i32, ptr %36, i64 %.051.idx
-  %68 = add nsw i32 %.052, %3
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %70 = load i32, ptr %69, align 4, !tbaa !27
-  %.not27.i = icmp sgt i32 %68, %70
-  br i1 %.not27.i, label %74, label %71
+  %69 = add nsw i32 %.052, %3
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %71 = load i32, ptr %70, align 4, !tbaa !27
+  %.not27.i = icmp sgt i32 %69, %71
+  br i1 %.not27.i, label %75, label %72
 
-71:                                               ; preds = %._crit_edge70
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %73 = load ptr, ptr %72, align 8, !tbaa !28
-  br label %90
+72:                                               ; preds = %._crit_edge70
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %74 = load ptr, ptr %73, align 8, !tbaa !28
+  br label %91
 
-74:                                               ; preds = %._crit_edge70
-  %75 = add nsw i32 %68, 3
-  %76 = and i32 %75, -4
-  %77 = shl nsw i32 %76, 2
-  %78 = add nsw i32 %77, 256
-  %79 = sext i32 %78 to i64
-  %80 = invoke noalias ptr @uprv_malloc_77(i64 noundef %79) #16
-          to label %.noexc unwind label %111
+75:                                               ; preds = %._crit_edge70
+  %76 = add nsw i32 %69, 3
+  %77 = and i32 %76, -4
+  %78 = shl nsw i32 %77, 2
+  %79 = add nsw i32 %78, 256
+  %80 = sext i32 %79 to i64
+  %81 = invoke noalias ptr @uprv_malloc_77(i64 noundef %80) #16
+          to label %.noexc unwind label %112
 
-.noexc:                                           ; preds = %74
-  %.not29.i = icmp eq ptr %80, null
-  br i1 %.not29.i, label %.thread.i, label %84
+.noexc:                                           ; preds = %75
+  %.not29.i = icmp eq ptr %81, null
+  br i1 %.not29.i, label %.thread.i, label %85
 
 .thread.i:                                        ; preds = %.noexc
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %81, align 8, !tbaa !19
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr null, ptr %82, align 8, !tbaa !19
   store i32 0, ptr %42, align 8, !tbaa !20
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %82, align 8, !tbaa !22
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %83, align 8, !tbaa !26
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %83, align 8, !tbaa !22
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %84, align 8, !tbaa !26
   store i32 7, ptr %4, align 4, !tbaa !24
   br label %_ZN6icu_7717CollationSettings16setReorderArraysEPKiiPKjiPKhR10UErrorCode.exit
 
-84:                                               ; preds = %.noexc
-  %85 = load i32, ptr %69, align 4, !tbaa !27
-  %.not28.i = icmp eq i32 %85, 0
-  br i1 %.not28.i, label %.noexc59, label %86
+85:                                               ; preds = %.noexc
+  %86 = load i32, ptr %70, align 4, !tbaa !27
+  %.not28.i = icmp eq i32 %86, 0
+  br i1 %.not28.i, label %.noexc59, label %87
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %88 = load ptr, ptr %87, align 8, !tbaa !28
-  invoke void @uprv_free_77(ptr noundef %88)
-          to label %.noexc59 unwind label %111
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %89 = load ptr, ptr %88, align 8, !tbaa !28
+  invoke void @uprv_free_77(ptr noundef %89)
+          to label %.noexc59 unwind label %112
 
-.noexc59:                                         ; preds = %86, %84
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %80, ptr %89, align 8, !tbaa !28
-  store i32 %76, ptr %69, align 4, !tbaa !27
-  br label %90
+.noexc59:                                         ; preds = %87, %85
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %81, ptr %90, align 8, !tbaa !28
+  store i32 %77, ptr %70, align 4, !tbaa !27
+  br label %91
 
-90:                                               ; preds = %.noexc59, %71
-  %91 = phi i32 [ %70, %71 ], [ %76, %.noexc59 ]
-  %.024.i = phi ptr [ %73, %71 ], [ %80, %.noexc59 ]
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i32, ptr %.024.i, i64 %92
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %93, ptr noundef nonnull readonly align 16 dereferenceable(256) %7, i64 256, i1 false)
-  %94 = shl nsw i32 %3, 2
-  %95 = sext i32 %94 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.024.i, ptr readonly align 4 %2, i64 %95, i1 false)
-  %96 = sext i32 %3 to i64
-  %97 = getelementptr inbounds i32, ptr %.024.i, i64 %96
-  %98 = shl nsw i32 %.052, 2
-  %99 = sext i32 %98 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %97, ptr readonly align 4 %.051, i64 %99, i1 false)
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %101 = load ptr, ptr %100, align 8, !tbaa !28
-  %102 = load i32, ptr %69, align 4, !tbaa !27
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr %101, i64 %103
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %104, ptr %105, align 8, !tbaa !19
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %3, ptr %106, align 8, !tbaa !26
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %97, ptr %107, align 8, !tbaa !21
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %.052, ptr %108, align 8, !tbaa !22
+91:                                               ; preds = %.noexc59, %72
+  %92 = phi i32 [ %71, %72 ], [ %77, %.noexc59 ]
+  %.024.i = phi ptr [ %74, %72 ], [ %81, %.noexc59 ]
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds i32, ptr %.024.i, i64 %93
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %94, ptr noundef nonnull readonly align 16 dereferenceable(256) %7, i64 256, i1 false)
+  %95 = shl nsw i32 %3, 2
+  %96 = sext i32 %95 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.024.i, ptr readonly align 4 %2, i64 %96, i1 false)
+  %97 = sext i32 %3 to i64
+  %98 = getelementptr inbounds i32, ptr %.024.i, i64 %97
+  %99 = shl nsw i32 %.052, 2
+  %100 = sext i32 %99 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %98, ptr readonly align 4 %.051, i64 %100, i1 false)
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %102 = load ptr, ptr %101, align 8, !tbaa !28
+  %103 = load i32, ptr %70, align 4, !tbaa !27
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i32, ptr %102, i64 %104
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %105, ptr %106, align 8, !tbaa !19
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %3, ptr %107, align 8, !tbaa !26
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %98, ptr %108, align 8, !tbaa !21
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %.052, ptr %109, align 8, !tbaa !22
   br label %_ZN6icu_7717CollationSettings16setReorderArraysEPKiiPKjiPKhR10UErrorCode.exit
 
-_ZN6icu_7717CollationSettings16setReorderArraysEPKiiPKjiPKhR10UErrorCode.exit: ; preds = %90, %.thread.i
+_ZN6icu_7717CollationSettings16setReorderArraysEPKiiPKjiPKhR10UErrorCode.exit: ; preds = %91, %.thread.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #15
-  br label %109
-
-109:                                              ; preds = %29, %_ZN6icu_7717CollationSettings16setReorderArraysEPKiiPKjiPKhR10UErrorCode.exit, %20
-  call void @_ZN6icu_779UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
   br label %110
 
-110:                                              ; preds = %5, %109, %14
+110:                                              ; preds = %29, %_ZN6icu_7717CollationSettings16setReorderArraysEPKiiPKjiPKhR10UErrorCode.exit, %20
+  call void @_ZN6icu_779UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
+  br label %111
+
+111:                                              ; preds = %5, %110, %14
   ret void
 
-111:                                              ; preds = %86, %74
-  %112 = landingpad { ptr, i32 }
+112:                                              ; preds = %87, %75
+  %113 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #15
-  br label %113
+  br label %114
 
-113:                                              ; preds = %111, %23
-  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %24, %23 ]
+114:                                              ; preds = %112, %23
+  %.pn = phi { ptr, i32 } [ %113, %112 ], [ %24, %23 ]
   call void @_ZN6icu_779UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15
   resume { ptr, i32 } %.pn

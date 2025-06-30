@@ -9747,17 +9747,16 @@ define internal i32 @neightbl_dump_info(ptr noundef %0, ptr noundef captures(non
 .thread25:                                        ; preds = %90, %97, %102, %.loopexit, %273, %280, %285, %322
   %332 = phi i32 [ %324, %322 ], [ %267, %285 ], [ %267, %280 ], [ %267, %273 ], [ %80, %90 ], [ %80, %97 ], [ %80, %102 ], [ %.ph, %.loopexit ]
   %333 = phi i64 [ %78, %322 ], [ %78, %285 ], [ %78, %280 ], [ %78, %273 ], [ %78, %90 ], [ %78, %97 ], [ %78, %102 ], [ 3, %.loopexit ]
-  %334 = and i64 %333, 4294967295
-  store i64 %334, ptr %15, align 8
-  %335 = sext i32 %332 to i64
-  store i64 %335, ptr %17, align 8
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %337 = load i32, ptr %336, align 8
+  store i64 %333, ptr %15, align 8
+  %334 = sext i32 %332 to i64
+  store i64 %334, ptr %17, align 8
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %336 = load i32, ptr %335, align 8
   br label %.thread
 
 .thread:                                          ; preds = %44, %42, %38, %28, %.thread25
-  %338 = phi i32 [ %337, %.thread25 ], [ -22, %28 ], [ -22, %38 ], [ -22, %42 ], [ -22, %44 ]
-  ret i32 %338
+  %337 = phi i32 [ %336, %.thread25 ], [ -22, %28 ], [ -22, %38 ], [ -22, %42 ], [ -22, %44 ]
+  ret i32 %337
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

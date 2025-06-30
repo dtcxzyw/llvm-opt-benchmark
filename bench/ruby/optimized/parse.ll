@@ -6523,7 +6523,7 @@ default.unreachable3684:                          ; preds = %2599
   %2638 = icmp ne i8 %2636, 32
   %2639 = add nsw i32 %2637, -14
   %2640 = icmp ult i32 %2639, -5
-  %narrow.i.not = and i1 %2638, %2640
+  %narrow.i.not = select i1 %2638, i1 %2640, i1 false
   br i1 %narrow.i.not, label %.critedge, label %2641
 
 2641:                                             ; preds = %.lr.ph
@@ -33280,7 +33280,7 @@ declare ptr @rb_ruby_verbose_ptr() local_unnamed_addr #2
 declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pushback(ptr noundef captures(none) %0, i32 noundef range(i32 -1, 256) %1) unnamed_addr #23 {
+define internal fastcc void @pushback(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #23 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %22, label %4
 
@@ -35879,7 +35879,7 @@ parser_set_lex_state.exit.i:                      ; preds = %90, %heredoc_restor
   %135 = icmp ne i8 %133, 32
   %136 = add nsw i32 %134, -14
   %137 = icmp ult i32 %136, -5
-  %narrow.i.not.i.i = and i1 %135, %137
+  %narrow.i.not.i.i = select i1 %135, i1 %137, i1 false
   br i1 %narrow.i.not.i.i, label %whole_match_p.exit.i, label %138
 
 138:                                              ; preds = %.lr.ph.i.i
@@ -36294,7 +36294,7 @@ rb_parser_string_free.exit.i:                     ; preds = %.critedge.i195.i
   %322 = icmp ne i8 %320, 32
   %323 = add nsw i32 %321, -14
   %324 = icmp ult i32 %323, -5
-  %narrow.i.not.i213.i = and i1 %322, %324
+  %narrow.i.not.i213.i = select i1 %322, i1 %324, i1 false
   br i1 %narrow.i.not.i213.i, label %.critedge.i209.i, label %325
 
 325:                                              ; preds = %.lr.ph.i211.i
@@ -36840,7 +36840,7 @@ tokadd.exit243.i:                                 ; preds = %524, %nextc0.exit24
   %586 = icmp ne i8 %584, 32
   %587 = add nsw i32 %585, -14
   %588 = icmp ult i32 %587, -5
-  %narrow.i.not.i262.i = and i1 %586, %588
+  %narrow.i.not.i262.i = select i1 %586, i1 %588, i1 false
   br i1 %narrow.i.not.i262.i, label %.critedge.i258.i, label %589
 
 589:                                              ; preds = %.lr.ph.i260.i
@@ -37195,7 +37195,7 @@ nextc0.exit115.i:                                 ; preds = %753, %751, %745, %.
   %757 = icmp eq i32 %.011.i110.i, 32
   %758 = add nsw i32 %.011.i110.i, -9
   %759 = icmp ult i32 %758, 5
-  %narrow.i116.i = or i1 %757, %759
+  %narrow.i116.i = select i1 %757, i1 true, i1 %759
   %760 = icmp ne i32 %.011.i110.i, 10
   %or.cond3.i = and i1 %760, %narrow.i116.i
   br i1 %or.cond3.i, label %735, label %.critedge.i878, !llvm.loop !580
@@ -38487,7 +38487,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1291, %1283, %1321,
   %1328 = icmp ne i8 %1325, 32
   %1329 = add nsw i32 %1327, -14
   %1330 = icmp ult i32 %1329, -5
-  %narrow.i.not.i = and i1 %1328, %1330
+  %narrow.i.not.i = select i1 %1328, i1 %1330, i1 false
   br i1 %narrow.i.not.i, label %.lr.ph.i923.preheader, label %1331
 
 1331:                                             ; preds = %1326, %1324, %1324, %1324, %1324
@@ -38515,7 +38515,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1291, %1283, %1321,
   %1338 = icmp ne i8 %1335, 32
   %1339 = add nsw i32 %1337, -14
   %1340 = icmp ult i32 %1339, -5
-  %narrow.i215.not.i = and i1 %1338, %1340
+  %narrow.i215.not.i = select i1 %1338, i1 %1340, i1 false
   br i1 %narrow.i215.not.i, label %1341, label %.lr.ph329.i.preheader
 
 1341:                                             ; preds = %1336
@@ -38532,7 +38532,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1291, %1283, %1321,
   %1347 = icmp ne i8 %1345, 32
   %1348 = add nsw i32 %1346, -14
   %1349 = icmp ult i32 %1348, -5
-  %narrow.i216.not.i = and i1 %1347, %1349
+  %narrow.i216.not.i = select i1 %1347, i1 %1349, i1 false
   br i1 %narrow.i216.not.i, label %.critedge2.thread.i, label %1350
 
 1350:                                             ; preds = %.lr.ph329.i
@@ -38568,7 +38568,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1291, %1283, %1321,
   %1363 = icmp ne i8 %1361, 32
   %1364 = add nsw i32 %1362, -14
   %1365 = icmp ult i32 %1364, -5
-  %narrow.i217.not.i = and i1 %1363, %1365
+  %narrow.i217.not.i = select i1 %1363, i1 %1365, i1 false
   br i1 %narrow.i217.not.i, label %.critedge4.thread.i, label %.preheader276.i, !llvm.loop !590
 
 .critedge4.i:                                     ; preds = %.preheader276.i
@@ -38647,7 +38647,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1291, %1283, %1321,
   %1388 = icmp ne i8 %1385, 32
   %1389 = add nsw i32 %1387, -14
   %1390 = icmp ult i32 %1389, -5
-  %narrow.i218.not.i = and i1 %1388, %1390
+  %narrow.i218.not.i = select i1 %1388, i1 %1390, i1 false
   br i1 %narrow.i218.not.i, label %1391, label %.critedge8.i
 
 1391:                                             ; preds = %1386
@@ -38690,7 +38690,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1291, %1283, %1321,
   %1400 = icmp ne i8 %1396, 32
   %1401 = add nsw i32 %1399, -14
   %1402 = icmp ult i32 %1401, -5
-  %narrow.i219.not.i = and i1 %1400, %1402
+  %narrow.i219.not.i = select i1 %1400, i1 %1402, i1 false
   br i1 %narrow.i219.not.i, label %.critedge10.i, label %.critedge12.i
 
 .critedge12.i:                                    ; preds = %1398, %.lr.ph355.i
@@ -38707,7 +38707,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1291, %1283, %1321,
   %1408 = icmp ne i8 %1406, 32
   %1409 = add nsw i32 %1407, -14
   %1410 = icmp ult i32 %1409, -5
-  %narrow.i220.not.i = and i1 %1408, %1410
+  %narrow.i220.not.i = select i1 %1408, i1 %1410, i1 false
   br i1 %narrow.i220.not.i, label %.loopexit, label %1411
 
 1411:                                             ; preds = %.lr.ph363.i
@@ -38966,7 +38966,7 @@ comment_at_top.exit:                              ; preds = %.loopexit
   %1509 = icmp ne i8 %1493, 32
   %1510 = add nsw i32 %1508, -14
   %1511 = icmp ult i32 %1510, -5
-  %narrow.i.not.i943 = and i1 %1509, %1511
+  %narrow.i.not.i943 = select i1 %1509, i1 %1511, i1 false
   br i1 %narrow.i.not.i943, label %.backedge.i933, label %1512
 
 1512:                                             ; preds = %1507, %.lr.ph.i932, %.lr.ph.i932
@@ -38992,7 +38992,7 @@ comment_at_top.exit:                              ; preds = %.loopexit
   %1521 = icmp ne i8 %1519, 32
   %1522 = add nsw i32 %1520, -14
   %1523 = icmp ult i32 %1522, -5
-  %narrow.i53.not.i = and i1 %1521, %1523
+  %narrow.i53.not.i = select i1 %1521, i1 %1523, i1 false
   br i1 %narrow.i53.not.i, label %1524, label %1516, !llvm.loop !613
 
 1524:                                             ; preds = %1518
@@ -46744,7 +46744,7 @@ define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.72.val, ptr %.88
   %32 = icmp ne i8 %30, 32
   %33 = add nsw i32 %31, -14
   %34 = icmp ult i32 %33, -5
-  %narrow.i.not = and i1 %32, %34
+  %narrow.i.not = select i1 %32, i1 %34, i1 false
   br i1 %narrow.i.not, label %.critedge, label %35
 
 35:                                               ; preds = %.lr.ph

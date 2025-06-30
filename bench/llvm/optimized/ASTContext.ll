@@ -155665,7 +155665,7 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit.i.i: 
 
 66:                                               ; preds = %60, %56, %._crit_edge
   %.128 = phi i64 [ %62, %60 ], [ %.0.lcssa, %56 ], [ %.0.lcssa, %._crit_edge ]
-  %67 = icmp sgt i64 %.128, %1
+  %67 = icmp samesign ugt i64 %.128, %1
   br i1 %67, label %.lr.ph.i, label %"_ZSt11__push_heapIPPN5clang13CXXRecordDeclElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %66
@@ -155678,7 +155678,7 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit.i.i: 
   %.0133.i = phi i64 [ %.128, %.lr.ph.i ], [ %.04.i, %102 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %72 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %72, align 8, !tbaa !1277
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %73 = getelementptr inbounds nuw i8, ptr %.val.i, i64 128
@@ -155748,7 +155748,7 @@ _ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE.exit.i.i.i
 
 "_ZSt11__push_heapIPPN5clang13CXXRecordDeclElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKN5clang10ASTContextEPKNS2_10RecordDeclEbE3$_0EclIPPNS2_13CXXRecordDeclESD_EEbT_RT0_.exit.i", %102, %66
   %.013.lcssa.i = phi i64 [ %.128, %66 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKN5clang10ASTContextEPKNS2_10RecordDeclEbE3$_0EclIPPNS2_13CXXRecordDeclESD_EEbT_RT0_.exit.i" ], [ %.04.i, %102 ]
-  %106 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %106, align 8, !tbaa !1277
   ret void
 }

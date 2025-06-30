@@ -2701,7 +2701,7 @@ Gia_ObjFaninId2p.exit:                            ; preds = %2, %22
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Gia_MuxMffcSize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -2147483647, -2147483648) i32 @Gia_MuxMffcSize(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %3, align 8, !tbaa !32
   %.not.i = icmp eq ptr %.val, null
@@ -3991,14 +3991,13 @@ Vec_StrPush.exit29:                               ; preds = %.Vec_StrGrow.exit10
   %indvars.iv45 = phi i32 [ 1, %72 ], [ %indvars.iv.next46, %73 ]
   %indvars.iv = phi i64 [ 0, %72 ], [ %indvars.iv.next, %73 ]
   %.12138 = phi i32 [ %.020, %72 ], [ %77, %73 ]
-  %74 = srem i32 %.12138, 10
-  %75 = trunc nsw i32 %74 to i8
+  %74 = urem i32 %.12138, 10
+  %75 = trunc nuw nsw i32 %74 to i8
   %76 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 0, i64 %indvars.iv
   store i8 %75, ptr %76, align 1, !tbaa !72
-  %77 = sdiv i32 %.12138, 10
+  %77 = udiv i32 %.12138, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.12138.off = add i32 %.12138, 9
-  %.not = icmp ult i32 %.12138.off, 19
+  %.not = icmp ult i32 %.12138, 10
   %indvars.iv.next46 = add nuw i32 %indvars.iv45, 1
   br i1 %.not, label %.lr.ph, label %73, !llvm.loop !74
 

@@ -231,12 +231,12 @@ define hidden noundef signext i8 @nfaExecLbrDot_initCompressedState(ptr noundef 
   %10 = load i8, ptr %9, align 4
   switch i8 %10, label %.split.i [
     i8 0, label %.split.i.thread
-    i8 3, label %.split.i.thread20
+    i8 3, label %.split.i.thread21
     i8 1, label %clearRepeat.exit
     i8 2, label %clearRepeat.exit
-    i8 4, label %.split.i.thread21
-    i8 5, label %.split.i.thread22
-    i8 6, label %.split.i.thread23
+    i8 4, label %.split.i.thread22
+    i8 5, label %.split.i.thread23
+    i8 6, label %.split.i.thread24
     i8 7, label %lbrTop.exit
   ]
 
@@ -250,7 +250,7 @@ define hidden noundef signext i8 @nfaExecLbrDot_initCompressedState(ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %39
 
-.split.i.thread20:                                ; preds = %4
+.split.i.thread21:                                ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -266,13 +266,13 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %cond = icmp eq i8 %10, 7
   br i1 %cond, label %lbrTop.exit, label %.split.i
 
-.split.i.thread21:                                ; preds = %4
+.split.i.thread22:                                ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %47
 
-.split.i.thread22:                                ; preds = %4
+.split.i.thread23:                                ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -282,7 +282,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %49
 
-.split.i.thread23:                                ; preds = %4
+.split.i.thread24:                                ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -318,25 +318,25 @@ clearRepeat.exit:                                 ; preds = %4, %4
   store i64 %1, ptr %38, align 8
   br label %lbrTop.exit
 
-44:                                               ; preds = %.split.i.thread20, %.split.i
-  %45 = phi ptr [ %22, %.split.i.thread20 ], [ %38, %.split.i ]
-  %46 = phi ptr [ %21, %.split.i.thread20 ], [ %37, %.split.i ]
+44:                                               ; preds = %.split.i.thread21, %.split.i
+  %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
+  %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
   call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-47:                                               ; preds = %.split.i.thread21, %.split.i
-  %48 = phi ptr [ %25, %.split.i.thread21 ], [ %38, %.split.i ]
+47:                                               ; preds = %.split.i.thread22, %.split.i
+  %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
   call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-49:                                               ; preds = %.split.i.thread22, %.split.i
-  %50 = phi ptr [ %31, %.split.i.thread22 ], [ %38, %.split.i ]
-  %51 = phi ptr [ %30, %.split.i.thread22 ], [ %37, %.split.i ]
+49:                                               ; preds = %.split.i.thread23, %.split.i
+  %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
+  %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-52:                                               ; preds = %.split.i.thread23, %.split.i
-  %53 = phi ptr [ %33, %.split.i.thread23 ], [ %38, %.split.i ]
+52:                                               ; preds = %.split.i.thread24, %.split.i
+  %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
   call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
@@ -402,12 +402,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrDot_Q(ptr noundef %0, ptr nou
   %40 = getelementptr i8, ptr %39, i64 %.idx.i120.i
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
-  %storemerge.i94 = add i32 %31, 1
-  store i32 %storemerge.i94, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i94, %33
-  br i1 %43, label %.lr.ph97, label %._crit_edge
+  %storemerge.i97 = add i32 %31, 1
+  store i32 %storemerge.i97, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i97, %33
+  br i1 %43, label %.lr.ph100, label %._crit_edge
 
-.lr.ph97:                                         ; preds = %35
+.lr.ph100:                                        ; preds = %35
   %.0.shrunk.i122.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -416,12 +416,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrDot_Q(ptr noundef %0, ptr nou
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %49
 
-49:                                               ; preds = %.lr.ph97, %lbrTop.exit.i
-  %50 = phi i64 [ %37, %.lr.ph97 ], [ %222, %lbrTop.exit.i ]
-  %storemerge.i96 = phi i32 [ %storemerge.i94, %.lr.ph97 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i95 = phi i64 [ %42, %.lr.ph97 ], [ %227, %lbrTop.exit.i ]
+49:                                               ; preds = %.lr.ph100, %lbrTop.exit.i
+  %50 = phi i64 [ %37, %.lr.ph100 ], [ %222, %lbrTop.exit.i ]
+  %storemerge.i99 = phi i32 [ %storemerge.i97, %.lr.ph100 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i98 = phi i64 [ %42, %.lr.ph100 ], [ %227, %lbrTop.exit.i ]
   %51 = load i8, ptr %7, align 4
-  switch i8 %51, label %repeatIsDead.exit124.i.thread35 [
+  switch i8 %51, label %repeatIsDead.exit124.i.thread38 [
     i8 0, label %repeatIsDead.exit124.i
     i8 3, label %repeatIsDead.exit124.i
     i8 1, label %repeatIsDead.exit124.i
@@ -435,18 +435,18 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrDot_Q(ptr noundef %0, ptr nou
 repeatIsDead.exit124.i:                           ; preds = %49, %49, %49, %49, %49, %49, %49
   %.0.shrunk.i122.i.in = load i64, ptr %.0.shrunk.i122.i.in.in, align 8
   %.0.shrunk.i122.i.not = icmp eq i64 %.0.shrunk.i122.i.in, -1
-  br i1 %.0.shrunk.i122.i.not, label %repeatIsDead.exit124.i.thread35, label %repeatIsDead.exit124.i.thread
+  br i1 %.0.shrunk.i122.i.not, label %repeatIsDead.exit124.i.thread38, label %repeatIsDead.exit124.i.thread
 
 repeatIsDead.exit124.i.thread:                    ; preds = %49, %repeatIsDead.exit124.i
-  %52 = zext i32 %storemerge.i96 to i64
+  %52 = zext i32 %storemerge.i99 to i64
   %.idx.i119.i = mul nuw nsw i64 %52, 24
   %53 = getelementptr i8, ptr %39, i64 %.idx.i119.i
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %50
   %56 = add i64 %50, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %55, i64 %56)
-  %57 = icmp ult i64 %.0101.i95, %..i
-  br i1 %57, label %58, label %repeatIsDead.exit124.i.thread35
+  %57 = icmp ult i64 %.0101.i98, %..i
+  br i1 %57, label %58, label %repeatIsDead.exit124.i.thread38
 
 58:                                               ; preds = %repeatIsDead.exit124.i.thread
   %59 = load ptr, ptr %44, align 8
@@ -464,9 +464,9 @@ repeatIsDead.exit124.i.thread:                    ; preds = %49, %repeatIsDead.e
   br label %71
 
 71:                                               ; preds = %99, %58
-  %.0.i19 = phi i64 [ %.0101.i95, %58 ], [ %.0.i29, %99 ]
+  %.0.i22 = phi i64 [ %.0101.i98, %58 ], [ %.0.i32, %99 ]
   %72 = load i8, ptr %64, align 4
-  switch i8 %72, label %repeatIsDead.exit124.i.thread35.loopexit [
+  switch i8 %72, label %repeatIsDead.exit124.i.thread38.loopexit [
     i8 0, label %73
     i8 1, label %75
     i8 2, label %75
@@ -478,7 +478,7 @@ repeatIsDead.exit124.i.thread:                    ; preds = %49, %repeatIsDead.e
   ]
 
 73:                                               ; preds = %71
-  %74 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %68, i64 noundef %.0.i19) #8
+  %74 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %68, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 75:                                               ; preds = %71, %71
@@ -486,7 +486,7 @@ repeatIsDead.exit124.i.thread:                    ; preds = %49, %repeatIsDead.e
   %77 = load i32, ptr %69, align 4
   %78 = zext i32 %77 to i64
   %79 = add i64 %76, %78
-  %80 = icmp ult i64 %.0.i19, %79
+  %80 = icmp ult i64 %.0.i22, %79
   br i1 %80, label %repeatNextMatch.exit, label %81
 
 81:                                               ; preds = %75
@@ -494,58 +494,58 @@ repeatIsDead.exit124.i.thread:                    ; preds = %49, %repeatIsDead.e
   %83 = icmp eq i32 %82, 65535
   %84 = zext i32 %82 to i64
   %85 = add i64 %76, %84
-  %86 = icmp ult i64 %.0.i19, %85
-  %or.cond.i30 = or i1 %83, %86
-  %87 = add i64 %.0.i19, 1
-  %spec.select.i = select i1 %or.cond.i30, i64 %87, i64 0
+  %86 = icmp ult i64 %.0.i22, %85
+  %or.cond.i33 = or i1 %83, %86
+  %87 = add i64 %.0.i22, 1
+  %spec.select.i = select i1 %or.cond.i33, i64 %87, i64 0
   br label %repeatNextMatch.exit
 
 88:                                               ; preds = %71
-  %89 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %68, i64 noundef %.0.i19) #8
+  %89 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %68, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 90:                                               ; preds = %71
-  %91 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %.0.i19) #8
+  %91 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 92:                                               ; preds = %71
-  %93 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %68, i64 noundef %.0.i19) #8
+  %93 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %68, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 94:                                               ; preds = %71
-  %95 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %.0.i19) #8
+  %95 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %64, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 96:                                               ; preds = %71
-  %97 = add i64 %.0.i19, 1
+  %97 = add i64 %.0.i22, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %81, %75, %73, %88, %90, %92, %94, %96
-  %.0.i29 = phi i64 [ %74, %73 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %79, %75 ], [ %spec.select.i, %81 ]
-  %98 = add i64 %.0.i29, -1
-  %or.cond.i20.not = icmp ult i64 %98, %..i
-  br i1 %or.cond.i20.not, label %99, label %repeatIsDead.exit124.i.thread35.loopexit
+  %.0.i32 = phi i64 [ %74, %73 ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %79, %75 ], [ %spec.select.i, %81 ]
+  %98 = add i64 %.0.i32, -1
+  %or.cond.i23.not = icmp ult i64 %98, %..i
+  br i1 %or.cond.i23.not, label %99, label %repeatIsDead.exit124.i.thread38.loopexit
 
 99:                                               ; preds = %repeatNextMatch.exit
   %100 = load i32, ptr %47, align 4
-  %101 = tail call i32 %60(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %100, ptr noundef %61) #8
+  %101 = tail call i32 %60(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %100, ptr noundef %61) #8
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %nfaExecLbrDot_Q_i.exit, label %71
 
-repeatIsDead.exit124.i.thread35.loopexit:         ; preds = %repeatNextMatch.exit, %71
+repeatIsDead.exit124.i.thread38.loopexit:         ; preds = %repeatNextMatch.exit, %71
   %.pre = load i32, ptr %30, align 8
-  br label %repeatIsDead.exit124.i.thread35
+  br label %repeatIsDead.exit124.i.thread38
 
-repeatIsDead.exit124.i.thread35:                  ; preds = %repeatIsDead.exit124.i.thread35.loopexit, %49, %repeatIsDead.exit124.i.thread, %repeatIsDead.exit124.i
-  %103 = phi i32 [ %.pre, %repeatIsDead.exit124.i.thread35.loopexit ], [ %storemerge.i96, %49 ], [ %storemerge.i96, %repeatIsDead.exit124.i.thread ], [ %storemerge.i96, %repeatIsDead.exit124.i ]
+repeatIsDead.exit124.i.thread38:                  ; preds = %repeatIsDead.exit124.i.thread38.loopexit, %49, %repeatIsDead.exit124.i.thread, %repeatIsDead.exit124.i
+  %103 = phi i32 [ %.pre, %repeatIsDead.exit124.i.thread38.loopexit ], [ %storemerge.i99, %49 ], [ %storemerge.i99, %repeatIsDead.exit124.i.thread ], [ %storemerge.i99, %repeatIsDead.exit124.i ]
   %104 = zext i32 %103 to i64
-  %.idx.i22 = mul nuw nsw i64 %104, 24
-  %105 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %104, 24
+  %105 = getelementptr i8, ptr %39, i64 %.idx.i25
   %106 = load i64, ptr %105, align 8
   %107 = icmp sgt i64 %106, %2
   br i1 %107, label %108, label %114
 
-108:                                              ; preds = %repeatIsDead.exit124.i.thread35
+108:                                              ; preds = %repeatIsDead.exit124.i.thread38
   %109 = add i32 %103, -1
   store i32 %109, ptr %30, align 8
   %110 = zext i32 %109 to i64
@@ -557,9 +557,9 @@ repeatIsDead.exit124.i.thread35:                  ; preds = %repeatIsDead.exit12
   store i64 %2, ptr %113, align 8
   br label %nfaExecLbrDot_Q_i.exit
 
-114:                                              ; preds = %repeatIsDead.exit124.i.thread35
+114:                                              ; preds = %repeatIsDead.exit124.i.thread38
   %115 = load i8, ptr %7, align 4
-  switch i8 %115, label %repeatIsDead.exit.i.thread51 [
+  switch i8 %115, label %repeatIsDead.exit.i.thread54 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -573,48 +573,48 @@ repeatIsDead.exit124.i.thread35:                  ; preds = %repeatIsDead.exit12
 repeatIsDead.exit.i:                              ; preds = %114, %114, %114, %114, %114, %114, %114
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i122.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread51, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread54, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread51:                     ; preds = %114, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread54:                     ; preds = %114, %repeatIsDead.exit.i
   %116 = load i64, ptr %36, align 8
   %117 = load ptr, ptr %8, align 8
   %118 = load i32, ptr %32, align 4
   %119 = icmp ult i32 %103, %118
   br i1 %119, label %.lr.ph.preheader, label %nfaExecLbrDot_TopScan.exit
 
-.lr.ph.preheader:                                 ; preds = %repeatIsDead.exit.i.thread51
+.lr.ph.preheader:                                 ; preds = %repeatIsDead.exit.i.thread54
   %wide.trip.count = zext i32 %118 to i64
-  %.idx.i132 = mul nuw nsw i64 %104, 24
-  %120 = getelementptr i8, ptr %39, i64 %.idx.i132
+  %.idx.i135 = mul nuw nsw i64 %104, 24
+  %120 = getelementptr i8, ptr %39, i64 %.idx.i135
   %121 = load i64, ptr %120, align 8
-  %.not.i2133 = icmp sgt i64 %121, %2
-  br i1 %.not.i2133, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph135
+  %.not.i2136 = icmp sgt i64 %121, %2
+  br i1 %.not.i2136, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph138
 
 .lr.ph:                                           ; preds = %130
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %122 = getelementptr i8, ptr %39, i64 %.idx.i
   %123 = load i64, ptr %122, align 8
   %.not.i2 = icmp sgt i64 %123, %2
-  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph135
+  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph138
 
-.lr.ph135:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph138:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %124 = phi i64 [ %123, %.lr.ph ], [ %121, %.lr.ph.preheader ]
-  %indvars.iv134 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %104, %.lr.ph.preheader ]
-  %125 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv134
+  %indvars.iv137 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %104, %.lr.ph.preheader ]
+  %125 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv137
   %126 = load i32, ptr %125, align 8
   switch i32 %126, label %130 [
     i32 4, label %127
     i32 2, label %127
   ]
 
-127:                                              ; preds = %.lr.ph135, %.lr.ph135
+127:                                              ; preds = %.lr.ph138, %.lr.ph138
   %128 = add i64 %124, %116
   %129 = load i64, ptr %117, align 8
   %.not56.i = icmp ult i64 %128, %129
   br i1 %.not56.i, label %130, label %132
 
-130:                                              ; preds = %.lr.ph135, %127
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv134, 1
+130:                                              ; preds = %.lr.ph138, %127
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv137, 1
   %131 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %131, ptr %30, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -638,10 +638,10 @@ repeatIsDead.exit.i.thread51:                     ; preds = %114, %repeatIsDead.
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread64
+    i8 7, label %.thread67
   ]
 
-.thread64:                                        ; preds = %132
+.thread67:                                        ; preds = %132
   %142 = getelementptr inbounds nuw i8, ptr %117, i64 8
   br label %repeatLastTop.exit
 
@@ -725,9 +725,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %132, %132, %132, %1
 default.unreachable:                              ; preds = %151
   unreachable
 
-repeatLastTop.exit:                               ; preds = %151, %151, %.thread64, %152, %154, %156, %158, %160
-  %162 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %152 ], [ %.0.shrunk.i.i.i6.in.in, %154 ], [ %.0.shrunk.i.i.i6.in.in, %156 ], [ %.0.shrunk.i.i.i6.in.in, %158 ], [ %.0.shrunk.i.i.i6.in.in, %160 ], [ %142, %.thread64 ], [ %.0.shrunk.i.i.i6.in.in, %151 ], [ %.0.shrunk.i.i.i6.in.in, %151 ]
-  %.0.i13 = phi i64 [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ 0, %.thread64 ], [ %.0.shrunk.i.i.i6.in, %151 ], [ %.0.shrunk.i.i.i6.in, %151 ]
+repeatLastTop.exit:                               ; preds = %151, %151, %.thread67, %152, %154, %156, %158, %160
+  %162 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %152 ], [ %.0.shrunk.i.i.i6.in.in, %154 ], [ %.0.shrunk.i.i.i6.in.in, %156 ], [ %.0.shrunk.i.i.i6.in.in, %158 ], [ %.0.shrunk.i.i.i6.in.in, %160 ], [ %142, %.thread67 ], [ %.0.shrunk.i.i.i6.in.in, %151 ], [ %.0.shrunk.i.i.i6.in.in, %151 ]
+  %.0.i13 = phi i64 [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ 0, %.thread67 ], [ %.0.shrunk.i.i.i6.in, %151 ], [ %.0.shrunk.i.i.i6.in, %151 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %128
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -766,15 +766,15 @@ repeatLastTop.exit:                               ; preds = %151, %151, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %136, ptr noundef nonnull %162, i64 noundef %128, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread51, %.lr.ph.preheader, %.lr.ph, %130
-  %170 = phi i32 [ %131, %130 ], [ %131, %.lr.ph ], [ %103, %.lr.ph.preheader ], [ %103, %repeatIsDead.exit.i.thread51 ]
+nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread54, %.lr.ph.preheader, %.lr.ph, %130
+  %170 = phi i32 [ %131, %130 ], [ %131, %.lr.ph ], [ %103, %.lr.ph.preheader ], [ %103, %repeatIsDead.exit.i.thread54 ]
   %171 = icmp ult i32 %170, %118
   br i1 %171, label %172, label %nfaExecLbrDot_Q_i.exit
 
 172:                                              ; preds = %nfaExecLbrDot_TopScan.exit
   %173 = zext i32 %170 to i64
-  %.idx.i21 = mul nuw nsw i64 %173, 24
-  %174 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %173, 24
+  %174 = getelementptr i8, ptr %39, i64 %.idx.i24
   %175 = load i64, ptr %174, align 8
   %176 = icmp sgt i64 %175, %2
   br i1 %176, label %177, label %nfaExecLbrDot_Q_i.exit
@@ -828,7 +828,7 @@ repeatIsDead.exit.i.i:                            ; preds = %185, %185, %185, %1
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %204
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %196, label %default.unreachable107 [
+  switch i8 %196, label %default.unreachable110 [
     i8 0, label %197
     i8 1, label %198
     i8 2, label %199
@@ -867,7 +867,7 @@ repeatIsDead.exit.i.i:                            ; preds = %185, %185, %185, %1
   br label %lbrTop.exit.i
 
 204:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %196, label %default.unreachable82 [
+  switch i8 %196, label %default.unreachable85 [
     i8 0, label %205
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -897,7 +897,7 @@ repeatIsDead.exit.i.i:                            ; preds = %185, %185, %185, %1
   %214 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i122.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable82:                            ; preds = %204
+default.unreachable85:                            ; preds = %204
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %204, %204, %185, %205, %207, %209, %211, %213
@@ -940,7 +940,7 @@ repeatLastTop.exit15:                             ; preds = %204, %204, %185, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %188, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable107:                           ; preds = %.split.i.i
+default.unreachable110:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %185, %repeatLastTop.exit, %.split.i.i9, %144, %145, %146, %147, %148, %149, %150, %.split16.i.i12, %164, %165, %166, %167, %168, %169, %repeatLastTop.exit15, %197, %198, %199, %200, %201, %202, %203, %.split16.i.i, %216, %217, %218, %219, %220, %221, %repeatIsDead.exit.i.thread
@@ -966,29 +966,29 @@ lbrTop.exit.i:                                    ; preds = %185, %repeatLastTop
   %234 = getelementptr inbounds nuw i8, ptr %4, i64 %233
   %235 = load i8, ptr %234, align 4
   switch i8 %235, label %nfaExecLbrDot_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i23
-    i8 3, label %repeatIsDead.exit.i23
-    i8 1, label %repeatIsDead.exit.i23
-    i8 2, label %repeatIsDead.exit.i23
-    i8 4, label %repeatIsDead.exit.i23
-    i8 5, label %repeatIsDead.exit.i23
-    i8 6, label %repeatIsDead.exit.i23
-    i8 7, label %repeatIsDead.exit.i23.thread
+    i8 0, label %repeatIsDead.exit.i26
+    i8 3, label %repeatIsDead.exit.i26
+    i8 1, label %repeatIsDead.exit.i26
+    i8 2, label %repeatIsDead.exit.i26
+    i8 4, label %repeatIsDead.exit.i26
+    i8 5, label %repeatIsDead.exit.i26
+    i8 6, label %repeatIsDead.exit.i26
+    i8 7, label %repeatIsDead.exit.i26.thread
   ]
 
-repeatIsDead.exit.i23:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i24.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i24.in = load i64, ptr %.0.shrunk.i.i24.in.in, align 8
-  %.0.shrunk.i.i24.not = icmp eq i64 %.0.shrunk.i.i24.in, -1
-  br i1 %.0.shrunk.i.i24.not, label %nfaExecLbrDot_Q_i.exit, label %repeatIsDead.exit.i23.thread
+repeatIsDead.exit.i26:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i27.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i27.in = load i64, ptr %.0.shrunk.i.i27.in.in, align 8
+  %.0.shrunk.i.i27.not = icmp eq i64 %.0.shrunk.i.i27.in, -1
+  br i1 %.0.shrunk.i.i27.not, label %nfaExecLbrDot_Q_i.exit, label %repeatIsDead.exit.i26.thread
 
-repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i23
+repeatIsDead.exit.i26.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i26
   %236 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %237 = load i32, ptr %236, align 4
   %238 = icmp eq i32 %237, 65535
   br i1 %238, label %nfaExecLbrDot_Q_i.exit, label %239
 
-239:                                              ; preds = %repeatIsDead.exit.i23.thread
+239:                                              ; preds = %repeatIsDead.exit.i26.thread
   %240 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %241 = load i32, ptr %240, align 4
   %242 = zext i32 %241 to i64
@@ -1034,11 +1034,11 @@ repeatLastTop.exit.i:                             ; preds = %255, %253, %251, %2
   %258 = zext i32 %257 to i64
   %259 = add i64 %.0.i12.i, %258
   %260 = icmp ult i64 %.0101.i.lcssa, %259
-  %..i28 = zext i1 %260 to i8
+  %..i31 = zext i1 %260 to i8
   br label %nfaExecLbrDot_Q_i.exit
 
-nfaExecLbrDot_Q_i.exit:                           ; preds = %99, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i23.thread, %repeatIsDead.exit.i23, %12, %29, %108, %nfaExecLbrDot_TopScan.exit, %172, %177
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %108 ], [ 1, %177 ], [ 0, %172 ], [ 0, %nfaExecLbrDot_TopScan.exit ], [ %..i28, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i23 ], [ 1, %repeatIsDead.exit.i23.thread ], [ 0, %._crit_edge ], [ 0, %99 ]
+nfaExecLbrDot_Q_i.exit:                           ; preds = %99, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i26.thread, %repeatIsDead.exit.i26, %12, %29, %108, %nfaExecLbrDot_TopScan.exit, %172, %177
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %108 ], [ 1, %177 ], [ 0, %172 ], [ 0, %nfaExecLbrDot_TopScan.exit ], [ %..i31, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i26 ], [ 1, %repeatIsDead.exit.i26.thread ], [ 0, %._crit_edge ], [ 0, %99 ]
   ret i8 %.2.i
 }
 
@@ -1094,23 +1094,23 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrDot_Q2(ptr noundef %0, ptr no
   %40 = getelementptr i8, ptr %39, i64 %.idx.i120.i
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
-  %storemerge.i104 = add i32 %31, 1
-  store i32 %storemerge.i104, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i104, %33
-  br i1 %43, label %.lr.ph107, label %._crit_edge
+  %storemerge.i107 = add i32 %31, 1
+  store i32 %storemerge.i107, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i107, %33
+  br i1 %43, label %.lr.ph110, label %._crit_edge
 
-.lr.ph107:                                        ; preds = %35
+.lr.ph110:                                        ; preds = %35
   %.0.shrunk.i122.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %46
 
-46:                                               ; preds = %.lr.ph107, %lbrTop.exit.i
-  %47 = phi i64 [ %37, %.lr.ph107 ], [ %220, %lbrTop.exit.i ]
-  %storemerge.i106 = phi i32 [ %storemerge.i104, %.lr.ph107 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i105 = phi i64 [ %42, %.lr.ph107 ], [ %225, %lbrTop.exit.i ]
+46:                                               ; preds = %.lr.ph110, %lbrTop.exit.i
+  %47 = phi i64 [ %37, %.lr.ph110 ], [ %220, %lbrTop.exit.i ]
+  %storemerge.i109 = phi i32 [ %storemerge.i107, %.lr.ph110 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i108 = phi i64 [ %42, %.lr.ph110 ], [ %225, %lbrTop.exit.i ]
   %48 = load i8, ptr %7, align 4
-  switch i8 %48, label %repeatIsDead.exit124.i.thread36 [
+  switch i8 %48, label %repeatIsDead.exit124.i.thread39 [
     i8 0, label %repeatIsDead.exit124.i
     i8 3, label %repeatIsDead.exit124.i
     i8 1, label %repeatIsDead.exit124.i
@@ -1124,18 +1124,18 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrDot_Q2(ptr noundef %0, ptr no
 repeatIsDead.exit124.i:                           ; preds = %46, %46, %46, %46, %46, %46, %46
   %.0.shrunk.i122.i.in = load i64, ptr %.0.shrunk.i122.i.in.in, align 8
   %.0.shrunk.i122.i.not = icmp eq i64 %.0.shrunk.i122.i.in, -1
-  br i1 %.0.shrunk.i122.i.not, label %repeatIsDead.exit124.i.thread36, label %repeatIsDead.exit124.i.thread
+  br i1 %.0.shrunk.i122.i.not, label %repeatIsDead.exit124.i.thread39, label %repeatIsDead.exit124.i.thread
 
 repeatIsDead.exit124.i.thread:                    ; preds = %46, %repeatIsDead.exit124.i
-  %49 = zext i32 %storemerge.i106 to i64
+  %49 = zext i32 %storemerge.i109 to i64
   %.idx.i119.i = mul nuw nsw i64 %49, 24
   %50 = getelementptr i8, ptr %39, i64 %.idx.i119.i
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, %47
   %53 = add i64 %47, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %52, i64 %53)
-  %54 = icmp ult i64 %.0101.i105, %..i
-  br i1 %54, label %55, label %repeatIsDead.exit124.i.thread36
+  %54 = icmp ult i64 %.0101.i108, %..i
+  br i1 %54, label %55, label %repeatIsDead.exit124.i.thread39
 
 55:                                               ; preds = %repeatIsDead.exit124.i.thread
   %56 = load ptr, ptr %44, align 8
@@ -1147,7 +1147,7 @@ repeatIsDead.exit124.i.thread:                    ; preds = %46, %repeatIsDead.e
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 %62
   %64 = load i8, ptr %59, align 4
-  switch i8 %64, label %repeatIsDead.exit124.i.thread36 [
+  switch i8 %64, label %repeatIsDead.exit124.i.thread39 [
     i8 0, label %65
     i8 1, label %67
     i8 2, label %67
@@ -1159,7 +1159,7 @@ repeatIsDead.exit124.i.thread:                    ; preds = %46, %repeatIsDead.e
   ]
 
 65:                                               ; preds = %55
-  %66 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %63, i64 noundef %.0101.i105) #8
+  %66 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %63, i64 noundef %.0101.i108) #8
   br label %repeatNextMatch.exit
 
 67:                                               ; preds = %55, %55
@@ -1168,7 +1168,7 @@ repeatIsDead.exit124.i.thread:                    ; preds = %46, %repeatIsDead.e
   %70 = load i32, ptr %69, align 4
   %71 = zext i32 %70 to i64
   %72 = add i64 %68, %71
-  %73 = icmp ult i64 %.0101.i105, %72
+  %73 = icmp ult i64 %.0101.i108, %72
   br i1 %73, label %repeatNextMatch.exit, label %74
 
 74:                                               ; preds = %67
@@ -1177,38 +1177,38 @@ repeatIsDead.exit124.i.thread:                    ; preds = %46, %repeatIsDead.e
   %77 = icmp eq i32 %76, 65535
   %78 = zext i32 %76 to i64
   %79 = add i64 %68, %78
-  %80 = icmp ult i64 %.0101.i105, %79
-  %or.cond.i31 = or i1 %77, %80
-  %81 = add nuw i64 %.0101.i105, 1
-  %spec.select.i = select i1 %or.cond.i31, i64 %81, i64 0
+  %80 = icmp ult i64 %.0101.i108, %79
+  %or.cond.i34 = or i1 %77, %80
+  %81 = add nuw i64 %.0101.i108, 1
+  %spec.select.i = select i1 %or.cond.i34, i64 %81, i64 0
   br label %repeatNextMatch.exit
 
 82:                                               ; preds = %55
-  %83 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %63, i64 noundef %.0101.i105) #8
+  %83 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %63, i64 noundef %.0101.i108) #8
   br label %repeatNextMatch.exit
 
 84:                                               ; preds = %55
-  %85 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %.0101.i105) #8
+  %85 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %.0101.i108) #8
   br label %repeatNextMatch.exit
 
 86:                                               ; preds = %55
-  %87 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %63, i64 noundef %.0101.i105) #8
+  %87 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, ptr noundef %63, i64 noundef %.0101.i108) #8
   br label %repeatNextMatch.exit
 
 88:                                               ; preds = %55
-  %89 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %.0101.i105) #8
+  %89 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %59, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %.0101.i108) #8
   br label %repeatNextMatch.exit
 
 90:                                               ; preds = %55
-  %91 = add nuw i64 %.0101.i105, 1
+  %91 = add nuw i64 %.0101.i108, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %74, %67, %65, %82, %84, %86, %88, %90
-  %.0.i30 = phi i64 [ %66, %65 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %72, %67 ], [ %spec.select.i, %74 ]
-  %92 = add i64 %.0.i30, -1
-  %or.cond.i19.not = icmp ult i64 %92, %..i
+  %.0.i33 = phi i64 [ %66, %65 ], [ %83, %82 ], [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %91, %90 ], [ %72, %67 ], [ %spec.select.i, %74 ]
+  %92 = add i64 %.0.i33, -1
+  %or.cond.i22.not = icmp ult i64 %92, %..i
   %.pre = load i32, ptr %30, align 8
-  br i1 %or.cond.i19.not, label %93, label %repeatIsDead.exit124.i.thread36
+  br i1 %or.cond.i22.not, label %93, label %repeatIsDead.exit124.i.thread39
 
 93:                                               ; preds = %repeatNextMatch.exit
   %94 = add i32 %.pre, -1
@@ -1217,23 +1217,23 @@ repeatNextMatch.exit:                             ; preds = %74, %67, %65, %82, 
   %96 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %95
   store i32 0, ptr %96, align 8
   %97 = load i64, ptr %36, align 8
-  %98 = sub i64 %.0.i30, %97
+  %98 = sub i64 %.0.i33, %97
   %.idx.i = mul nuw nsw i64 %95, 24
   %99 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i64 %98, ptr %100, align 8
   br label %nfaExecLbrDot_Q_i.exit
 
-repeatIsDead.exit124.i.thread36:                  ; preds = %55, %repeatNextMatch.exit, %46, %repeatIsDead.exit124.i.thread, %repeatIsDead.exit124.i
-  %101 = phi i32 [ %storemerge.i106, %55 ], [ %.pre, %repeatNextMatch.exit ], [ %storemerge.i106, %46 ], [ %storemerge.i106, %repeatIsDead.exit124.i.thread ], [ %storemerge.i106, %repeatIsDead.exit124.i ]
+repeatIsDead.exit124.i.thread39:                  ; preds = %55, %repeatNextMatch.exit, %46, %repeatIsDead.exit124.i.thread, %repeatIsDead.exit124.i
+  %101 = phi i32 [ %storemerge.i109, %55 ], [ %.pre, %repeatNextMatch.exit ], [ %storemerge.i109, %46 ], [ %storemerge.i109, %repeatIsDead.exit124.i.thread ], [ %storemerge.i109, %repeatIsDead.exit124.i ]
   %102 = zext i32 %101 to i64
-  %.idx.i23 = mul nuw nsw i64 %102, 24
-  %103 = getelementptr i8, ptr %39, i64 %.idx.i23
+  %.idx.i26 = mul nuw nsw i64 %102, 24
+  %103 = getelementptr i8, ptr %39, i64 %.idx.i26
   %104 = load i64, ptr %103, align 8
   %105 = icmp sgt i64 %104, %2
   br i1 %105, label %106, label %112
 
-106:                                              ; preds = %repeatIsDead.exit124.i.thread36
+106:                                              ; preds = %repeatIsDead.exit124.i.thread39
   %107 = add i32 %101, -1
   store i32 %107, ptr %30, align 8
   %108 = zext i32 %107 to i64
@@ -1245,9 +1245,9 @@ repeatIsDead.exit124.i.thread36:                  ; preds = %55, %repeatNextMatc
   store i64 %2, ptr %111, align 8
   br label %nfaExecLbrDot_Q_i.exit
 
-112:                                              ; preds = %repeatIsDead.exit124.i.thread36
+112:                                              ; preds = %repeatIsDead.exit124.i.thread39
   %113 = load i8, ptr %7, align 4
-  switch i8 %113, label %repeatIsDead.exit.i.thread61 [
+  switch i8 %113, label %repeatIsDead.exit.i.thread64 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -1261,48 +1261,48 @@ repeatIsDead.exit124.i.thread36:                  ; preds = %55, %repeatNextMatc
 repeatIsDead.exit.i:                              ; preds = %112, %112, %112, %112, %112, %112, %112
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i122.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread61, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread64, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread61:                     ; preds = %112, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread64:                     ; preds = %112, %repeatIsDead.exit.i
   %114 = load i64, ptr %36, align 8
   %115 = load ptr, ptr %8, align 8
   %116 = load i32, ptr %32, align 4
   %117 = icmp ult i32 %101, %116
   br i1 %117, label %.lr.ph.preheader, label %nfaExecLbrDot_TopScan.exit
 
-.lr.ph.preheader:                                 ; preds = %repeatIsDead.exit.i.thread61
+.lr.ph.preheader:                                 ; preds = %repeatIsDead.exit.i.thread64
   %wide.trip.count = zext i32 %116 to i64
-  %.idx.i21142 = mul nuw nsw i64 %102, 24
-  %118 = getelementptr i8, ptr %39, i64 %.idx.i21142
+  %.idx.i24145 = mul nuw nsw i64 %102, 24
+  %118 = getelementptr i8, ptr %39, i64 %.idx.i24145
   %119 = load i64, ptr %118, align 8
-  %.not.i2143 = icmp sgt i64 %119, %2
-  br i1 %.not.i2143, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph145
+  %.not.i2146 = icmp sgt i64 %119, %2
+  br i1 %.not.i2146, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph148
 
 .lr.ph:                                           ; preds = %128
-  %.idx.i21 = mul nuw nsw i64 %indvars.iv.next, 24
-  %120 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
+  %120 = getelementptr i8, ptr %39, i64 %.idx.i24
   %121 = load i64, ptr %120, align 8
   %.not.i2 = icmp sgt i64 %121, %2
-  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph145
+  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph148
 
-.lr.ph145:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph148:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %122 = phi i64 [ %121, %.lr.ph ], [ %119, %.lr.ph.preheader ]
-  %indvars.iv144 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %102, %.lr.ph.preheader ]
-  %123 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %indvars.iv144
+  %indvars.iv147 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %102, %.lr.ph.preheader ]
+  %123 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %45, i64 0, i64 %indvars.iv147
   %124 = load i32, ptr %123, align 8
   switch i32 %124, label %128 [
     i32 4, label %125
     i32 2, label %125
   ]
 
-125:                                              ; preds = %.lr.ph145, %.lr.ph145
+125:                                              ; preds = %.lr.ph148, %.lr.ph148
   %126 = add i64 %122, %114
   %127 = load i64, ptr %115, align 8
   %.not56.i = icmp ult i64 %126, %127
   br i1 %.not56.i, label %128, label %130
 
-128:                                              ; preds = %.lr.ph145, %125
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv144, 1
+128:                                              ; preds = %.lr.ph148, %125
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv147, 1
   %129 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %129, ptr %30, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1326,10 +1326,10 @@ repeatIsDead.exit.i.thread61:                     ; preds = %112, %repeatIsDead.
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread74
+    i8 7, label %.thread77
   ]
 
-.thread74:                                        ; preds = %130
+.thread77:                                        ; preds = %130
   %140 = getelementptr inbounds nuw i8, ptr %115, i64 8
   br label %repeatLastTop.exit
 
@@ -1413,9 +1413,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %130, %130, %130, %1
 default.unreachable:                              ; preds = %149
   unreachable
 
-repeatLastTop.exit:                               ; preds = %149, %149, %.thread74, %150, %152, %154, %156, %158
-  %160 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %150 ], [ %.0.shrunk.i.i.i6.in.in, %152 ], [ %.0.shrunk.i.i.i6.in.in, %154 ], [ %.0.shrunk.i.i.i6.in.in, %156 ], [ %.0.shrunk.i.i.i6.in.in, %158 ], [ %140, %.thread74 ], [ %.0.shrunk.i.i.i6.in.in, %149 ], [ %.0.shrunk.i.i.i6.in.in, %149 ]
-  %.0.i13 = phi i64 [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ 0, %.thread74 ], [ %.0.shrunk.i.i.i6.in, %149 ], [ %.0.shrunk.i.i.i6.in, %149 ]
+repeatLastTop.exit:                               ; preds = %149, %149, %.thread77, %150, %152, %154, %156, %158
+  %160 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %150 ], [ %.0.shrunk.i.i.i6.in.in, %152 ], [ %.0.shrunk.i.i.i6.in.in, %154 ], [ %.0.shrunk.i.i.i6.in.in, %156 ], [ %.0.shrunk.i.i.i6.in.in, %158 ], [ %140, %.thread77 ], [ %.0.shrunk.i.i.i6.in.in, %149 ], [ %.0.shrunk.i.i.i6.in.in, %149 ]
+  %.0.i13 = phi i64 [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ 0, %.thread77 ], [ %.0.shrunk.i.i.i6.in, %149 ], [ %.0.shrunk.i.i.i6.in, %149 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %126
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -1454,15 +1454,15 @@ repeatLastTop.exit:                               ; preds = %149, %149, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %134, ptr noundef nonnull %160, i64 noundef %126, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread61, %.lr.ph.preheader, %.lr.ph, %128
-  %168 = phi i32 [ %129, %128 ], [ %129, %.lr.ph ], [ %101, %.lr.ph.preheader ], [ %101, %repeatIsDead.exit.i.thread61 ]
+nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread64, %.lr.ph.preheader, %.lr.ph, %128
+  %168 = phi i32 [ %129, %128 ], [ %129, %.lr.ph ], [ %101, %.lr.ph.preheader ], [ %101, %repeatIsDead.exit.i.thread64 ]
   %169 = icmp ult i32 %168, %116
   br i1 %169, label %170, label %nfaExecLbrDot_Q_i.exit
 
 170:                                              ; preds = %nfaExecLbrDot_TopScan.exit
   %171 = zext i32 %168 to i64
-  %.idx.i22 = mul nuw nsw i64 %171, 24
-  %172 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %171, 24
+  %172 = getelementptr i8, ptr %39, i64 %.idx.i25
   %173 = load i64, ptr %172, align 8
   %174 = icmp sgt i64 %173, %2
   br i1 %174, label %175, label %nfaExecLbrDot_Q_i.exit
@@ -1516,7 +1516,7 @@ repeatIsDead.exit.i.i:                            ; preds = %183, %183, %183, %1
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %202
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %194, label %default.unreachable117 [
+  switch i8 %194, label %default.unreachable120 [
     i8 0, label %195
     i8 1, label %196
     i8 2, label %197
@@ -1555,7 +1555,7 @@ repeatIsDead.exit.i.i:                            ; preds = %183, %183, %183, %1
   br label %lbrTop.exit.i
 
 202:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %194, label %default.unreachable92 [
+  switch i8 %194, label %default.unreachable95 [
     i8 0, label %203
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -1585,7 +1585,7 @@ repeatIsDead.exit.i.i:                            ; preds = %183, %183, %183, %1
   %212 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %189, ptr noundef nonnull %.0.shrunk.i122.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable92:                            ; preds = %202
+default.unreachable95:                            ; preds = %202
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %202, %202, %183, %203, %205, %207, %209, %211
@@ -1628,7 +1628,7 @@ repeatLastTop.exit15:                             ; preds = %202, %202, %183, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %189, ptr noundef nonnull %.0.shrunk.i122.i.in.in, i64 noundef %186, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable117:                           ; preds = %.split.i.i
+default.unreachable120:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %183, %repeatLastTop.exit, %.split.i.i9, %142, %143, %144, %145, %146, %147, %148, %.split16.i.i12, %162, %163, %164, %165, %166, %167, %repeatLastTop.exit15, %195, %196, %197, %198, %199, %200, %201, %.split16.i.i, %214, %215, %216, %217, %218, %219, %repeatIsDead.exit.i.thread
@@ -1654,29 +1654,29 @@ lbrTop.exit.i:                                    ; preds = %183, %repeatLastTop
   %232 = getelementptr inbounds nuw i8, ptr %4, i64 %231
   %233 = load i8, ptr %232, align 4
   switch i8 %233, label %nfaExecLbrDot_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i24
-    i8 3, label %repeatIsDead.exit.i24
-    i8 1, label %repeatIsDead.exit.i24
-    i8 2, label %repeatIsDead.exit.i24
-    i8 4, label %repeatIsDead.exit.i24
-    i8 5, label %repeatIsDead.exit.i24
-    i8 6, label %repeatIsDead.exit.i24
-    i8 7, label %repeatIsDead.exit.i24.thread
+    i8 0, label %repeatIsDead.exit.i27
+    i8 3, label %repeatIsDead.exit.i27
+    i8 1, label %repeatIsDead.exit.i27
+    i8 2, label %repeatIsDead.exit.i27
+    i8 4, label %repeatIsDead.exit.i27
+    i8 5, label %repeatIsDead.exit.i27
+    i8 6, label %repeatIsDead.exit.i27
+    i8 7, label %repeatIsDead.exit.i27.thread
   ]
 
-repeatIsDead.exit.i24:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i25.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i25.in = load i64, ptr %.0.shrunk.i.i25.in.in, align 8
-  %.0.shrunk.i.i25.not = icmp eq i64 %.0.shrunk.i.i25.in, -1
-  br i1 %.0.shrunk.i.i25.not, label %nfaExecLbrDot_Q_i.exit, label %repeatIsDead.exit.i24.thread
+repeatIsDead.exit.i27:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i28.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i28.in = load i64, ptr %.0.shrunk.i.i28.in.in, align 8
+  %.0.shrunk.i.i28.not = icmp eq i64 %.0.shrunk.i.i28.in, -1
+  br i1 %.0.shrunk.i.i28.not, label %nfaExecLbrDot_Q_i.exit, label %repeatIsDead.exit.i27.thread
 
-repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i24
+repeatIsDead.exit.i27.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i27
   %234 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %235 = load i32, ptr %234, align 4
   %236 = icmp eq i32 %235, 65535
   br i1 %236, label %nfaExecLbrDot_Q_i.exit, label %237
 
-237:                                              ; preds = %repeatIsDead.exit.i24.thread
+237:                                              ; preds = %repeatIsDead.exit.i27.thread
   %238 = getelementptr inbounds nuw i8, ptr %232, i64 16
   %239 = load i32, ptr %238, align 4
   %240 = zext i32 %239 to i64
@@ -1722,11 +1722,11 @@ repeatLastTop.exit.i:                             ; preds = %253, %251, %249, %2
   %256 = zext i32 %255 to i64
   %257 = add i64 %.0.i12.i, %256
   %258 = icmp ult i64 %.0101.i.lcssa, %257
-  %..i29 = zext i1 %258 to i8
+  %..i32 = zext i1 %258 to i8
   br label %nfaExecLbrDot_Q_i.exit
 
-nfaExecLbrDot_Q_i.exit:                           ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i24.thread, %repeatIsDead.exit.i24, %93, %12, %29, %106, %nfaExecLbrDot_TopScan.exit, %170, %175
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %106 ], [ 1, %175 ], [ 2, %93 ], [ 0, %170 ], [ 0, %nfaExecLbrDot_TopScan.exit ], [ %..i29, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i24 ], [ 1, %repeatIsDead.exit.i24.thread ], [ 0, %._crit_edge ]
+nfaExecLbrDot_Q_i.exit:                           ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i27.thread, %repeatIsDead.exit.i27, %93, %12, %29, %106, %nfaExecLbrDot_TopScan.exit, %170, %175
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %106 ], [ 1, %175 ], [ 2, %93 ], [ 0, %170 ], [ 0, %nfaExecLbrDot_TopScan.exit ], [ %..i32, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i27 ], [ 1, %repeatIsDead.exit.i27.thread ], [ 0, %._crit_edge ]
   ret i8 %.2.i
 }
 
@@ -1762,20 +1762,20 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrDot_QR(ptr noundef %0, ptr no
   %26 = getelementptr i8, ptr %13, i64 %.idx.i86
   %27 = load i64, ptr %26, align 8
   %28 = icmp ult i32 %17, %7
-  br i1 %28, label %.lr.ph192, label %135
+  br i1 %28, label %.lr.ph195, label %135
 
-.lr.ph192:                                        ; preds = %9
+.lr.ph195:                                        ; preds = %9
   %.0.shrunk.i83.in.in = getelementptr inbounds nuw i8, ptr %23, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %31
 
-31:                                               ; preds = %.lr.ph192, %lbrTop.exit
-  %32 = phi i64 [ %11, %.lr.ph192 ], [ %126, %lbrTop.exit ]
-  %33 = phi i32 [ %7, %.lr.ph192 ], [ %132, %lbrTop.exit ]
-  %34 = phi i32 [ %17, %.lr.ph192 ], [ %131, %lbrTop.exit ]
+31:                                               ; preds = %.lr.ph195, %lbrTop.exit
+  %32 = phi i64 [ %11, %.lr.ph195 ], [ %126, %lbrTop.exit ]
+  %33 = phi i32 [ %7, %.lr.ph195 ], [ %132, %lbrTop.exit ]
+  %34 = phi i32 [ %17, %.lr.ph195 ], [ %131, %lbrTop.exit ]
   %35 = load i8, ptr %21, align 4
-  switch i8 %35, label %repeatIsDead.exit85.thread119 [
+  switch i8 %35, label %repeatIsDead.exit85.thread122 [
     i8 0, label %repeatIsDead.exit85
     i8 3, label %repeatIsDead.exit85
     i8 1, label %repeatIsDead.exit85
@@ -1789,32 +1789,32 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrDot_QR(ptr noundef %0, ptr no
 repeatIsDead.exit85:                              ; preds = %31, %31, %31, %31, %31, %31, %31
   %.0.shrunk.i83.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i83.not = icmp eq i64 %.0.shrunk.i83.in, -1
-  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread119, label %repeatIsDead.exit82
+  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread122, label %repeatIsDead.exit82
 
 repeatIsDead.exit82:                              ; preds = %repeatIsDead.exit85
   %.0.shrunk.i80.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i80.not = icmp eq i64 %.0.shrunk.i80.in, -1
-  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread119, label %repeatIsDead.exit79
+  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread122, label %repeatIsDead.exit79
 
 repeatIsDead.exit79:                              ; preds = %repeatIsDead.exit82
   %.0.shrunk.i77.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i77.not = icmp eq i64 %.0.shrunk.i77.in, -1
-  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread119, label %repeatIsDead.exit79.thread
+  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread122, label %repeatIsDead.exit79.thread
 
-repeatIsDead.exit85.thread119:                    ; preds = %31, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
+repeatIsDead.exit85.thread122:                    ; preds = %31, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
   %36 = load ptr, ptr %22, align 8
   %37 = icmp ult i32 %34, %33
   br i1 %37, label %.lr.ph.preheader, label %nfaExecLbrDot_TopScan.exit
 
-.lr.ph.preheader:                                 ; preds = %repeatIsDead.exit85.thread119
+.lr.ph.preheader:                                 ; preds = %repeatIsDead.exit85.thread122
   %38 = zext i32 %34 to i64
   %wide.trip.count = zext i32 %33 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %47
   %indvars.iv = phi i64 [ %38, %.lr.ph.preheader ], [ %indvars.iv.next, %47 ]
-  %.idx.i112 = mul nuw nsw i64 %indvars.iv, 24
-  %39 = getelementptr i8, ptr %13, i64 %.idx.i112
+  %.idx.i115 = mul nuw nsw i64 %indvars.iv, 24
+  %39 = getelementptr i8, ptr %13, i64 %.idx.i115
   %40 = load i64, ptr %39, align 8
   %.not.i90 = icmp sgt i64 %40, %27
   br i1 %.not.i90, label %nfaExecLbrDot_TopScan.exit, label %41
@@ -1858,10 +1858,10 @@ repeatIsDead.exit85.thread119:                    ; preds = %31, %repeatIsDead.e
     i8 4, label %repeatIsDead.exit.i.i
     i8 5, label %repeatIsDead.exit.i.i
     i8 6, label %repeatIsDead.exit.i.i
-    i8 7, label %.thread145
+    i8 7, label %.thread148
   ]
 
-.thread145:                                       ; preds = %49
+.thread148:                                       ; preds = %49
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 8
   br label %repeatLastTop.exit
 
@@ -1945,9 +1945,9 @@ repeatIsDead.exit.i.i:                            ; preds = %49, %49, %49, %49, 
 default.unreachable:                              ; preds = %68
   unreachable
 
-repeatLastTop.exit:                               ; preds = %68, %68, %.thread145, %69, %71, %73, %75, %77
-  %79 = phi ptr [ %.0.shrunk.i.i.i.in.in, %69 ], [ %.0.shrunk.i.i.i.in.in, %71 ], [ %.0.shrunk.i.i.i.in.in, %73 ], [ %.0.shrunk.i.i.i.in.in, %75 ], [ %.0.shrunk.i.i.i.in.in, %77 ], [ %59, %.thread145 ], [ %.0.shrunk.i.i.i.in.in, %68 ], [ %.0.shrunk.i.i.i.in.in, %68 ]
-  %.0.i106 = phi i64 [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ 0, %.thread145 ], [ %.0.shrunk.i.i.i.in, %68 ], [ %.0.shrunk.i.i.i.in, %68 ]
+repeatLastTop.exit:                               ; preds = %68, %68, %.thread148, %69, %71, %73, %75, %77
+  %79 = phi ptr [ %.0.shrunk.i.i.i.in.in, %69 ], [ %.0.shrunk.i.i.i.in.in, %71 ], [ %.0.shrunk.i.i.i.in.in, %73 ], [ %.0.shrunk.i.i.i.in.in, %75 ], [ %.0.shrunk.i.i.i.in.in, %77 ], [ %59, %.thread148 ], [ %.0.shrunk.i.i.i.in.in, %68 ], [ %.0.shrunk.i.i.i.in.in, %68 ]
+  %.0.i106 = phi i64 [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ 0, %.thread148 ], [ %.0.shrunk.i.i.i.in, %68 ], [ %.0.shrunk.i.i.i.in, %68 ]
   %.not.i.i = icmp eq i64 %.0.i106, %45
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -2026,7 +2026,7 @@ repeatIsDead.exit.i:                              ; preds = %91, %91, %91, %91, 
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %108
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %100, label %default.unreachable214 [
+  switch i8 %100, label %default.unreachable217 [
     i8 0, label %101
     i8 1, label %102
     i8 2, label %103
@@ -2065,7 +2065,7 @@ repeatIsDead.exit.i:                              ; preds = %91, %91, %91, %91, 
   br label %lbrTop.exit
 
 108:                                              ; preds = %repeatIsDead.exit.i
-  switch i8 %100, label %default.unreachable186 [
+  switch i8 %100, label %default.unreachable189 [
     i8 0, label %109
     i8 1, label %repeatLastTop.exit108
     i8 2, label %repeatLastTop.exit108
@@ -2095,7 +2095,7 @@ repeatIsDead.exit.i:                              ; preds = %91, %91, %91, %91, 
   %118 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %95, ptr noundef nonnull %.0.shrunk.i83.in.in) #8
   br label %repeatLastTop.exit108
 
-default.unreachable186:                           ; preds = %108
+default.unreachable189:                           ; preds = %108
   unreachable
 
 repeatLastTop.exit108:                            ; preds = %108, %108, %91, %109, %111, %113, %115, %117
@@ -2138,7 +2138,7 @@ repeatLastTop.exit108:                            ; preds = %108, %108, %91, %10
   tail call void @repeatStoreTrailer(ptr noundef nonnull %95, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %88, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable214:                           ; preds = %.split.i
+default.unreachable217:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %91, %repeatLastTop.exit, %.split.i.i, %61, %62, %63, %64, %65, %66, %67, %.split16.i.i, %81, %82, %83, %84, %85, %86, %repeatLastTop.exit108, %101, %102, %103, %104, %105, %106, %107, %.split16.i, %120, %121, %122, %123, %124, %125, %repeatIsDead.exit79.thread
@@ -2183,17 +2183,17 @@ repeatIsDead.exit.thread:                         ; preds = %135, %repeatIsDead.
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %139 = load i32, ptr %138, align 4
   %.not.i = icmp eq i32 %2, %139
-  %.pre199 = load ptr, ptr %137, align 8
-  %.pre201 = load i32, ptr %18, align 4
+  %.pre202 = load ptr, ptr %137, align 8
+  %.pre204 = load i32, ptr %18, align 4
   br i1 %.not.i, label %140, label %lbrInAccept.exit.thread
 
 140:                                              ; preds = %repeatIsDead.exit.thread
-  %141 = zext i32 %.pre201 to i64
+  %141 = zext i32 %.pre204 to i64
   %142 = getelementptr inbounds nuw i8, ptr %18, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load i32, ptr %143, align 4
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw i8, ptr %.pre199, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr %.pre202, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %148 = load i8, ptr %142, align 4
   switch i8 %148, label %lbrInAccept.exit.thread [
@@ -2261,12 +2261,12 @@ lbrInAccept.exit:                                 ; preds = %176, %174, %172, %1
 
 lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge: ; preds = %165, %lbrInAccept.exit
   %.pre = load ptr, ptr %137, align 8
-  %.pre200 = load i32, ptr %18, align 4
+  %.pre203 = load i32, ptr %18, align 4
   br label %lbrInAccept.exit.thread
 
 lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, %140, %158, %repeatIsDead.exit.thread
-  %178 = phi i32 [ %.pre200, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre201, %140 ], [ %.pre201, %158 ], [ %.pre201, %repeatIsDead.exit.thread ]
-  %179 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre199, %140 ], [ %.pre199, %158 ], [ %.pre199, %repeatIsDead.exit.thread ]
+  %178 = phi i32 [ %.pre203, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre204, %140 ], [ %.pre204, %158 ], [ %.pre204, %repeatIsDead.exit.thread ]
+  %179 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre202, %140 ], [ %.pre202, %158 ], [ %.pre202, %repeatIsDead.exit.thread ]
   %180 = zext i32 %178 to i64
   %181 = getelementptr inbounds nuw i8, ptr %18, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
@@ -2374,9 +2374,9 @@ repeatHasMatch.exit.thread.thread:                ; preds = %204, %190, %197, %r
   %231 = zext i32 %229 to i64
   %232 = add i64 %221, %231
   %233 = icmp ult i64 %.064.lcssa, %232
-  %or.cond.i114 = or i1 %230, %233
+  %or.cond.i117 = or i1 %230, %233
   %234 = add i64 %.064.lcssa, 1
-  br i1 %or.cond.i114, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
+  br i1 %or.cond.i117, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 235:                                              ; preds = %repeatHasMatch.exit.thread
   %236 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %181, ptr noundef nonnull %186, ptr noundef %185, i64 noundef %.064.lcssa) #8
@@ -2399,16 +2399,16 @@ repeatHasMatch.exit.thread.thread:                ; preds = %204, %190, %197, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %227, %219, %235, %237, %239, %241, %243
-  %.0.i113 = phi i64 [ %220, %219 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %234, %227 ]
-  %.0.i113.fr = freeze i64 %.0.i113
-  %.not.i91 = icmp eq i64 %.0.i113.fr, 0
+  %.0.i116 = phi i64 [ %220, %219 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %234, %227 ]
+  %.0.i116.fr = freeze i64 %.0.i116
+  %.not.i91 = icmp eq i64 %.0.i116.fr, 0
   br i1 %.not.i91, label %repeatNextMatch.exit.thread, label %nfaExecLbrDot_TopScan.exit
 
 repeatNextMatch.exit.thread:                      ; preds = %227, %repeatHasMatch.exit.thread, %repeatNextMatch.exit
   br label %nfaExecLbrDot_TopScan.exit
 
-nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit85.thread119, %47, %.lr.ph, %165, %repeatHasMatch.exit.thread.thread, %204, %lbrInAccept.exit.thread, %190, %140, %135, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %135 ], [ 2, %140 ], [ 1, %190 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %204 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %165 ], [ 0, %.lr.ph ], [ 0, %47 ], [ 0, %repeatIsDead.exit85.thread119 ]
+nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit85.thread122, %47, %.lr.ph, %165, %repeatHasMatch.exit.thread.thread, %204, %lbrInAccept.exit.thread, %190, %140, %135, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
+  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %135 ], [ 2, %140 ], [ 1, %190 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %204 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %165 ], [ 0, %.lr.ph ], [ 0, %47 ], [ 0, %repeatIsDead.exit85.thread122 ]
   ret i8 %.0
 }
 
@@ -2629,12 +2629,12 @@ define hidden noundef signext i8 @nfaExecLbrVerm_initCompressedState(ptr noundef
   %10 = load i8, ptr %9, align 4
   switch i8 %10, label %.split.i [
     i8 0, label %.split.i.thread
-    i8 3, label %.split.i.thread20
+    i8 3, label %.split.i.thread21
     i8 1, label %clearRepeat.exit
     i8 2, label %clearRepeat.exit
-    i8 4, label %.split.i.thread21
-    i8 5, label %.split.i.thread22
-    i8 6, label %.split.i.thread23
+    i8 4, label %.split.i.thread22
+    i8 5, label %.split.i.thread23
+    i8 6, label %.split.i.thread24
     i8 7, label %lbrTop.exit
   ]
 
@@ -2648,7 +2648,7 @@ define hidden noundef signext i8 @nfaExecLbrVerm_initCompressedState(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %39
 
-.split.i.thread20:                                ; preds = %4
+.split.i.thread21:                                ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -2664,13 +2664,13 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %cond = icmp eq i8 %10, 7
   br i1 %cond, label %lbrTop.exit, label %.split.i
 
-.split.i.thread21:                                ; preds = %4
+.split.i.thread22:                                ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %47
 
-.split.i.thread22:                                ; preds = %4
+.split.i.thread23:                                ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -2680,7 +2680,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %49
 
-.split.i.thread23:                                ; preds = %4
+.split.i.thread24:                                ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2716,25 +2716,25 @@ clearRepeat.exit:                                 ; preds = %4, %4
   store i64 %1, ptr %38, align 8
   br label %lbrTop.exit
 
-44:                                               ; preds = %.split.i.thread20, %.split.i
-  %45 = phi ptr [ %22, %.split.i.thread20 ], [ %38, %.split.i ]
-  %46 = phi ptr [ %21, %.split.i.thread20 ], [ %37, %.split.i ]
+44:                                               ; preds = %.split.i.thread21, %.split.i
+  %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
+  %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
   call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-47:                                               ; preds = %.split.i.thread21, %.split.i
-  %48 = phi ptr [ %25, %.split.i.thread21 ], [ %38, %.split.i ]
+47:                                               ; preds = %.split.i.thread22, %.split.i
+  %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
   call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-49:                                               ; preds = %.split.i.thread22, %.split.i
-  %50 = phi ptr [ %31, %.split.i.thread22 ], [ %38, %.split.i ]
-  %51 = phi ptr [ %30, %.split.i.thread22 ], [ %37, %.split.i ]
+49:                                               ; preds = %.split.i.thread23, %.split.i
+  %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
+  %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-52:                                               ; preds = %.split.i.thread23, %.split.i
-  %53 = phi ptr [ %33, %.split.i.thread23 ], [ %38, %.split.i ]
+52:                                               ; preds = %.split.i.thread24, %.split.i
+  %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
   call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
@@ -2801,12 +2801,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrVerm_Q(ptr noundef %0, ptr no
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %storemerge.i183 = add i32 %31, 1
-  store i32 %storemerge.i183, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i183, %33
-  br i1 %43, label %.lr.ph186, label %._crit_edge
+  %storemerge.i186 = add i32 %31, 1
+  store i32 %storemerge.i186, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i186, %33
+  br i1 %43, label %.lr.ph189, label %._crit_edge
 
-.lr.ph186:                                        ; preds = %35
+.lr.ph189:                                        ; preds = %35
   %.0.shrunk.i124.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2817,12 +2817,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrVerm_Q(ptr noundef %0, ptr no
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %51
 
-51:                                               ; preds = %.lr.ph186, %lbrTop.exit.i
-  %52 = phi i64 [ %37, %.lr.ph186 ], [ %385, %lbrTop.exit.i ]
-  %storemerge.i185 = phi i32 [ %storemerge.i183, %.lr.ph186 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i184 = phi i64 [ %42, %.lr.ph186 ], [ %390, %lbrTop.exit.i ]
+51:                                               ; preds = %.lr.ph189, %lbrTop.exit.i
+  %52 = phi i64 [ %37, %.lr.ph189 ], [ %385, %lbrTop.exit.i ]
+  %storemerge.i188 = phi i32 [ %storemerge.i186, %.lr.ph189 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i187 = phi i64 [ %42, %.lr.ph189 ], [ %390, %lbrTop.exit.i ]
   %53 = load i8, ptr %7, align 4
-  switch i8 %53, label %repeatIsDead.exit126.i.thread68 [
+  switch i8 %53, label %repeatIsDead.exit126.i.thread71 [
     i8 0, label %repeatIsDead.exit126.i
     i8 3, label %repeatIsDead.exit126.i
     i8 1, label %repeatIsDead.exit126.i
@@ -2836,23 +2836,23 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrVerm_Q(ptr noundef %0, ptr no
 repeatIsDead.exit126.i:                           ; preds = %51, %51, %51, %51, %51, %51, %51
   %.0.shrunk.i124.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i124.i.not = icmp eq i64 %.0.shrunk.i124.i.in, -1
-  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread68, label %repeatIsDead.exit126.i.thread
+  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread71, label %repeatIsDead.exit126.i.thread
 
 repeatIsDead.exit126.i.thread:                    ; preds = %51, %repeatIsDead.exit126.i
-  %54 = zext i32 %storemerge.i185 to i64
+  %54 = zext i32 %storemerge.i188 to i64
   %.idx.i121.i = mul nuw nsw i64 %54, 24
   %55 = getelementptr i8, ptr %39, i64 %.idx.i121.i
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %52
   %58 = add i64 %52, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %57, i64 %58)
-  %59 = icmp ult i64 %.0101.i184, %..i
-  br i1 %59, label %60, label %repeatIsDead.exit126.i.thread68
+  %59 = icmp ult i64 %.0101.i187, %..i
+  br i1 %59, label %60, label %repeatIsDead.exit126.i.thread71
 
 60:                                               ; preds = %repeatIsDead.exit126.i.thread
   %61 = load ptr, ptr %44, align 8
   %62 = sub i64 %..i, %52
-  %63 = sub i64 %.0101.i184, %52
+  %63 = sub i64 %.0101.i187, %52
   %64 = load i8, ptr %45, align 4
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 %63
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 %62
@@ -2860,66 +2860,66 @@ repeatIsDead.exit126.i.thread:                    ; preds = %51, %repeatIsDead.e
   %68 = shufflevector <16 x i8> %67, <16 x i8> poison, <16 x i32> zeroinitializer
   %gepdiff = sub nsw i64 %62, %63
   %69 = icmp slt i64 %gepdiff, 16
-  br i1 %69, label %.preheader153, label %76
+  br i1 %69, label %.preheader156, label %76
 
-.preheader153:                                    ; preds = %60
+.preheader156:                                    ; preds = %60
   %70 = icmp samesign ult i64 %63, %62
-  br i1 %70, label %.lr.ph175, label %vermicelliExec.exit
+  br i1 %70, label %.lr.ph178, label %vermicelliExec.exit
 
-.lr.ph175:                                        ; preds = %.preheader153, %73
-  %.042.i174 = phi ptr [ %74, %73 ], [ %65, %.preheader153 ]
-  %71 = load i8, ptr %.042.i174, align 1
+.lr.ph178:                                        ; preds = %.preheader156, %73
+  %.042.i177 = phi ptr [ %74, %73 ], [ %65, %.preheader156 ]
+  %71 = load i8, ptr %.042.i177, align 1
   %72 = icmp eq i8 %71, %64
   br i1 %72, label %vermicelliExec.exit, label %73
 
-73:                                               ; preds = %.lr.ph175
-  %74 = getelementptr inbounds nuw i8, ptr %.042.i174, i64 1
+73:                                               ; preds = %.lr.ph178
+  %74 = getelementptr inbounds nuw i8, ptr %.042.i177, i64 1
   %75 = icmp ult ptr %74, %66
-  br i1 %75, label %.lr.ph175, label %vermicelliExec.exit
+  br i1 %75, label %.lr.ph178, label %vermicelliExec.exit
 
 76:                                               ; preds = %60
   %77 = ptrtoint ptr %65 to i64
   %78 = and i64 %77, 15
-  %.not.i33 = icmp eq i64 %78, 0
-  br i1 %.not.i33, label %88, label %79
+  %.not.i36 = icmp eq i64 %78, 0
+  br i1 %.not.i36, label %88, label %79
 
 79:                                               ; preds = %76
   %80 = load <16 x i8>, ptr %65, align 1
   %81 = icmp eq <16 x i8> %68, %80
   %82 = bitcast <16 x i1> %81 to i16
-  %.not9.i37 = icmp eq i16 %82, 0
-  br i1 %.not9.i37, label %vermUnalign.exit39.thread, label %vermUnalign.exit39, !prof !5
+  %.not9.i40 = icmp eq i16 %82, 0
+  br i1 %.not9.i40, label %vermUnalign.exit42.thread, label %vermUnalign.exit42, !prof !5
 
-vermUnalign.exit39.thread:                        ; preds = %79
+vermUnalign.exit42.thread:                        ; preds = %79
   %83 = sub nuw nsw i64 16, %78
   %84 = getelementptr inbounds nuw i8, ptr %65, i64 %83
   br label %88
 
-vermUnalign.exit39:                               ; preds = %79
+vermUnalign.exit42:                               ; preds = %79
   %85 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %82, i1 true)
   %86 = zext nneg i16 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %65, i64 %86
   br label %vermicelliExec.exit
 
-88:                                               ; preds = %vermUnalign.exit39.thread, %76
-  %.143.i = phi ptr [ %65, %76 ], [ %84, %vermUnalign.exit39.thread ]
+88:                                               ; preds = %vermUnalign.exit42.thread, %76
+  %.143.i = phi ptr [ %65, %76 ], [ %84, %vermUnalign.exit42.thread ]
   %89 = getelementptr inbounds i8, ptr %66, i64 -1
   %90 = getelementptr inbounds nuw i8, ptr %.143.i, i64 31
   %91 = icmp ult ptr %90, %89
-  br i1 %91, label %.lr.ph, label %.preheader154
+  br i1 %91, label %.lr.ph, label %.preheader157
 
-.preheader154:                                    ; preds = %105, %88
+.preheader157:                                    ; preds = %105, %88
   %.032.i.lcssa = phi ptr [ %.143.i, %88 ], [ %106, %105 ]
   %92 = getelementptr inbounds nuw i8, ptr %.032.i.lcssa, i64 15
   %93 = icmp ult ptr %92, %89
-  br i1 %93, label %.lr.ph173, label %vermSearchAligned.exit.thread
+  br i1 %93, label %.lr.ph176, label %vermSearchAligned.exit.thread
 
 .lr.ph:                                           ; preds = %88, %105
-  %.032.i171 = phi ptr [ %106, %105 ], [ %.143.i, %88 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i171, i64 16) ]
-  %94 = load <16 x i8>, ptr %.032.i171, align 16
+  %.032.i174 = phi ptr [ %106, %105 ], [ %.143.i, %88 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i174, i64 16) ]
+  %94 = load <16 x i8>, ptr %.032.i174, align 16
   %95 = icmp eq <16 x i8> %68, %94
-  %96 = getelementptr inbounds nuw i8, ptr %.032.i171, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.032.i174, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 16) ]
   %97 = load <16 x i8>, ptr %96, align 16
   %98 = icmp eq <16 x i8> %68, %97
@@ -2931,37 +2931,37 @@ vermUnalign.exit39:                               ; preds = %79
 101:                                              ; preds = %.lr.ph
   %102 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %100, i1 true)
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw i8, ptr %.032.i171, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %.032.i174, i64 %103
   br label %vermicelliExec.exit
 
 105:                                              ; preds = %.lr.ph
-  %106 = getelementptr inbounds nuw i8, ptr %.032.i171, i64 32
-  %107 = getelementptr inbounds nuw i8, ptr %.032.i171, i64 63
+  %106 = getelementptr inbounds nuw i8, ptr %.032.i174, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.032.i174, i64 63
   %108 = icmp ult ptr %107, %89
-  br i1 %108, label %.lr.ph, label %.preheader154
+  br i1 %108, label %.lr.ph, label %.preheader157
 
-.lr.ph173:                                        ; preds = %.preheader154, %116
-  %.133.i172 = phi ptr [ %117, %116 ], [ %.032.i.lcssa, %.preheader154 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i172, i64 16) ]
-  %109 = load <16 x i8>, ptr %.133.i172, align 16
+.lr.ph176:                                        ; preds = %.preheader157, %116
+  %.133.i175 = phi ptr [ %117, %116 ], [ %.032.i.lcssa, %.preheader157 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i175, i64 16) ]
+  %109 = load <16 x i8>, ptr %.133.i175, align 16
   %110 = icmp eq <16 x i8> %68, %109
   %111 = bitcast <16 x i1> %110 to i16
   %.not37.i.not = icmp eq i16 %111, 0
   br i1 %.not37.i.not, label %116, label %112, !prof !5
 
-112:                                              ; preds = %.lr.ph173
+112:                                              ; preds = %.lr.ph176
   %113 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %111, i1 true)
   %114 = zext nneg i16 %113 to i64
-  %115 = getelementptr inbounds nuw i8, ptr %.133.i172, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr %.133.i175, i64 %114
   br label %vermicelliExec.exit
 
-116:                                              ; preds = %.lr.ph173
-  %117 = getelementptr inbounds nuw i8, ptr %.133.i172, i64 16
-  %118 = getelementptr inbounds nuw i8, ptr %.133.i172, i64 31
+116:                                              ; preds = %.lr.ph176
+  %117 = getelementptr inbounds nuw i8, ptr %.133.i175, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.133.i175, i64 31
   %119 = icmp ult ptr %118, %89
-  br i1 %119, label %.lr.ph173, label %vermSearchAligned.exit.thread
+  br i1 %119, label %.lr.ph176, label %vermSearchAligned.exit.thread
 
-vermSearchAligned.exit.thread:                    ; preds = %116, %.preheader154
+vermSearchAligned.exit.thread:                    ; preds = %116, %.preheader157
   %120 = getelementptr inbounds i8, ptr %66, i64 -16
   %121 = load <16 x i8>, ptr %120, align 1
   %122 = icmp eq <16 x i8> %68, %121
@@ -2981,17 +2981,17 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
   %128 = select i1 %.not52.i, ptr %66, ptr %.08.i
   br label %vermicelliExec.exit
 
-vermicelliExec.exit:                              ; preds = %.lr.ph175, %73, %.preheader153, %101, %112, %vermUnalign.exit39, %vermUnalign.exit
-  %.0.i34 = phi ptr [ %87, %vermUnalign.exit39 ], [ %128, %vermUnalign.exit ], [ %104, %101 ], [ %115, %112 ], [ %65, %.preheader153 ], [ %.042.i174, %.lr.ph175 ], [ %74, %73 ]
-  %129 = icmp eq ptr %.0.i34, %66
-  %130 = ptrtoint ptr %.0.i34 to i64
+vermicelliExec.exit:                              ; preds = %.lr.ph178, %73, %.preheader156, %101, %112, %vermUnalign.exit42, %vermUnalign.exit
+  %.0.i37 = phi ptr [ %87, %vermUnalign.exit42 ], [ %128, %vermUnalign.exit ], [ %104, %101 ], [ %115, %112 ], [ %65, %.preheader156 ], [ %.042.i177, %.lr.ph178 ], [ %74, %73 ]
+  %129 = icmp eq ptr %.0.i37, %66
+  %130 = ptrtoint ptr %.0.i37 to i64
   %131 = ptrtoint ptr %61 to i64
   %132 = sub i64 %52, %131
   %133 = add i64 %132, %130
   %.0100.i = select i1 %129, i64 %..i, i64 %133
   %134 = load ptr, ptr %46, align 8
   %135 = load ptr, ptr %47, align 8
-  %136 = icmp eq i64 %.0101.i184, %.0100.i
+  %136 = icmp eq i64 %.0101.i187, %.0100.i
   br i1 %136, label %repeatNextMatch.exit.thread, label %137
 
 137:                                              ; preds = %vermicelliExec.exit
@@ -3008,7 +3008,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph175, %73, %.p
   br label %148
 
 148:                                              ; preds = %176, %137
-  %.0.i19 = phi i64 [ %.0101.i184, %137 ], [ %.0.i29, %176 ]
+  %.0.i22 = phi i64 [ %.0101.i187, %137 ], [ %.0.i32, %176 ]
   %149 = load i8, ptr %141, align 4
   switch i8 %149, label %repeatNextMatch.exit.thread [
     i8 0, label %150
@@ -3022,7 +3022,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph175, %73, %.p
   ]
 
 150:                                              ; preds = %148
-  %151 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %145, i64 noundef %.0.i19) #8
+  %151 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %145, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 152:                                              ; preds = %148, %148
@@ -3030,7 +3030,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph175, %73, %.p
   %154 = load i32, ptr %146, align 4
   %155 = zext i32 %154 to i64
   %156 = add i64 %153, %155
-  %157 = icmp ult i64 %.0.i19, %156
+  %157 = icmp ult i64 %.0.i22, %156
   br i1 %157, label %repeatNextMatch.exit, label %158
 
 158:                                              ; preds = %152
@@ -3038,66 +3038,66 @@ vermicelliExec.exit:                              ; preds = %.lr.ph175, %73, %.p
   %160 = icmp eq i32 %159, 65535
   %161 = zext i32 %159 to i64
   %162 = add i64 %153, %161
-  %163 = icmp ult i64 %.0.i19, %162
-  %or.cond.i30 = or i1 %160, %163
-  %164 = add i64 %.0.i19, 1
-  %spec.select.i = select i1 %or.cond.i30, i64 %164, i64 0
+  %163 = icmp ult i64 %.0.i22, %162
+  %or.cond.i33 = or i1 %160, %163
+  %164 = add i64 %.0.i22, 1
+  %spec.select.i = select i1 %or.cond.i33, i64 %164, i64 0
   br label %repeatNextMatch.exit
 
 165:                                              ; preds = %148
-  %166 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %145, i64 noundef %.0.i19) #8
+  %166 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %145, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 167:                                              ; preds = %148
-  %168 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i19) #8
+  %168 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 169:                                              ; preds = %148
-  %170 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %145, i64 noundef %.0.i19) #8
+  %170 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %145, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 171:                                              ; preds = %148
-  %172 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i19) #8
+  %172 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %141, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 173:                                              ; preds = %148
-  %174 = add i64 %.0.i19, 1
+  %174 = add i64 %.0.i22, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %158, %152, %150, %165, %167, %169, %171, %173
-  %.0.i29 = phi i64 [ %151, %150 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %156, %152 ], [ %spec.select.i, %158 ]
-  %175 = add i64 %.0.i29, -1
-  %or.cond.i20.not = icmp ult i64 %175, %.0100.i
-  br i1 %or.cond.i20.not, label %176, label %repeatNextMatch.exit.thread
+  %.0.i32 = phi i64 [ %151, %150 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %156, %152 ], [ %spec.select.i, %158 ]
+  %175 = add i64 %.0.i32, -1
+  %or.cond.i23.not = icmp ult i64 %175, %.0100.i
+  br i1 %or.cond.i23.not, label %176, label %repeatNextMatch.exit.thread
 
 176:                                              ; preds = %repeatNextMatch.exit
   %177 = load i32, ptr %invariant.gep, align 4
-  %178 = tail call i32 %134(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %177, ptr noundef %135) #8
+  %178 = tail call i32 %134(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %177, ptr noundef %135) #8
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %nfaExecLbrVerm_Q_i.exit, label %148
 
 repeatNextMatch.exit.thread:                      ; preds = %148, %repeatNextMatch.exit, %vermicelliExec.exit
-  br i1 %129, label %repeatIsDead.exit126.i.thread68, label %180
+  br i1 %129, label %repeatIsDead.exit126.i.thread71, label %180
 
 180:                                              ; preds = %repeatNextMatch.exit.thread
   %181 = load i8, ptr %7, align 4
   %switch = icmp ult i8 %181, 7
-  br i1 %switch, label %repeatIsDead.exit126.i.thread68.sink.split, label %repeatIsDead.exit126.i.thread68
+  br i1 %switch, label %repeatIsDead.exit126.i.thread71.sink.split, label %repeatIsDead.exit126.i.thread71
 
-repeatIsDead.exit126.i.thread68.sink.split:       ; preds = %180
+repeatIsDead.exit126.i.thread71.sink.split:       ; preds = %180
   store i64 -1, ptr %.0.shrunk.i124.i.in.in, align 8
-  br label %repeatIsDead.exit126.i.thread68
+  br label %repeatIsDead.exit126.i.thread71
 
-repeatIsDead.exit126.i.thread68:                  ; preds = %180, %repeatIsDead.exit126.i.thread68.sink.split, %repeatNextMatch.exit.thread, %51, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
+repeatIsDead.exit126.i.thread71:                  ; preds = %180, %repeatIsDead.exit126.i.thread71.sink.split, %repeatNextMatch.exit.thread, %51, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
   %182 = load i32, ptr %30, align 8
   %183 = zext i32 %182 to i64
-  %.idx.i22 = mul nuw nsw i64 %183, 24
-  %184 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %183, 24
+  %184 = getelementptr i8, ptr %39, i64 %.idx.i25
   %185 = load i64, ptr %184, align 8
   %186 = icmp sgt i64 %185, %2
   br i1 %186, label %187, label %193
 
-187:                                              ; preds = %repeatIsDead.exit126.i.thread68
+187:                                              ; preds = %repeatIsDead.exit126.i.thread71
   %188 = add i32 %182, -1
   store i32 %188, ptr %30, align 8
   %189 = zext i32 %188 to i64
@@ -3109,9 +3109,9 @@ repeatIsDead.exit126.i.thread68:                  ; preds = %180, %repeatIsDead.
   store i64 %2, ptr %192, align 8
   br label %nfaExecLbrVerm_Q_i.exit
 
-193:                                              ; preds = %repeatIsDead.exit126.i.thread68
+193:                                              ; preds = %repeatIsDead.exit126.i.thread71
   %194 = load i8, ptr %7, align 4
-  switch i8 %194, label %repeatIsDead.exit.i.thread100 [
+  switch i8 %194, label %repeatIsDead.exit.i.thread103 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -3125,58 +3125,58 @@ repeatIsDead.exit126.i.thread68:                  ; preds = %180, %repeatIsDead.
 repeatIsDead.exit.i:                              ; preds = %193, %193, %193, %193, %193, %193, %193
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread100, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread103, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread100:                    ; preds = %193, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread103:                    ; preds = %193, %repeatIsDead.exit.i
   %195 = load i64, ptr %36, align 8
   %196 = load ptr, ptr %8, align 8
   %197 = load i32, ptr %32, align 4
   %198 = icmp ult i32 %182, %197
-  br i1 %198, label %.lr.ph179.lr.ph, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %198, label %.lr.ph182.lr.ph, label %nfaExecLbrVerm_TopScan.exit
 
-.lr.ph179.lr.ph:                                  ; preds = %repeatIsDead.exit.i.thread100
+.lr.ph182.lr.ph:                                  ; preds = %repeatIsDead.exit.i.thread103
   %199 = load i32, ptr %4, align 4
   %200 = zext i32 %199 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %200
-  br label %.lr.ph179
+  br label %.lr.ph182
 
-.lr.ph179:                                        ; preds = %.lr.ph179.lr.ph, %287
-  %201 = phi i32 [ %182, %.lr.ph179.lr.ph ], [ %292, %287 ]
-  %202 = phi i32 [ %197, %.lr.ph179.lr.ph ], [ %293, %287 ]
+.lr.ph182:                                        ; preds = %.lr.ph182.lr.ph, %287
+  %201 = phi i32 [ %182, %.lr.ph182.lr.ph ], [ %292, %287 ]
+  %202 = phi i32 [ %197, %.lr.ph182.lr.ph ], [ %293, %287 ]
   %203 = zext i32 %201 to i64
   %204 = zext i32 %202 to i64
-  %.idx.i272 = mul nuw nsw i64 %203, 24
-  %205 = getelementptr i8, ptr %39, i64 %.idx.i272
+  %.idx.i275 = mul nuw nsw i64 %203, 24
+  %205 = getelementptr i8, ptr %39, i64 %.idx.i275
   %206 = load i64, ptr %205, align 8
-  %.not.i2273 = icmp sgt i64 %206, %2
-  br i1 %.not.i2273, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph275
+  %.not.i2276 = icmp sgt i64 %206, %2
+  br i1 %.not.i2276, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph278
 
 207:                                              ; preds = %217
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %208 = getelementptr i8, ptr %39, i64 %.idx.i
   %209 = load i64, ptr %208, align 8
   %.not.i2 = icmp sgt i64 %209, %2
-  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph275
+  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph278
 
-.lr.ph275:                                        ; preds = %.lr.ph179, %207
-  %210 = phi i64 [ %209, %207 ], [ %206, %.lr.ph179 ]
-  %indvars.iv274 = phi i64 [ %indvars.iv.next, %207 ], [ %203, %.lr.ph179 ]
-  %211 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %49, i64 0, i64 %indvars.iv274
+.lr.ph278:                                        ; preds = %.lr.ph182, %207
+  %210 = phi i64 [ %209, %207 ], [ %206, %.lr.ph182 ]
+  %indvars.iv277 = phi i64 [ %indvars.iv.next, %207 ], [ %203, %.lr.ph182 ]
+  %211 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %49, i64 0, i64 %indvars.iv277
   %212 = load i32, ptr %211, align 8
   switch i32 %212, label %217 [
     i32 4, label %213
     i32 2, label %213
   ]
 
-213:                                              ; preds = %.lr.ph275, %.lr.ph275
+213:                                              ; preds = %.lr.ph278, %.lr.ph278
   %214 = load i64, ptr %36, align 8
   %215 = add i64 %214, %210
   %216 = load i64, ptr %196, align 8
   %.not56.i = icmp ult i64 %215, %216
   br i1 %.not56.i, label %217, label %220
 
-217:                                              ; preds = %.lr.ph275, %213
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv274, 1
+217:                                              ; preds = %.lr.ph278, %213
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv277, 1
   %218 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %218, ptr %30, align 8
   %219 = icmp samesign ult i64 %indvars.iv.next, %204
@@ -3193,7 +3193,7 @@ repeatIsDead.exit.i.thread100:                    ; preds = %193, %repeatIsDead.
   %226 = icmp ule i64 %spec.select, %215
   %.not57.i = icmp ult i64 %215, %195
   %or.cond.i = select i1 %226, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread121, label %227
+  br i1 %or.cond.i, label %.thread124, label %227
 
 227:                                              ; preds = %220
   %228 = load ptr, ptr %44, align 8
@@ -3204,8 +3204,8 @@ repeatIsDead.exit.i.thread100:                    ; preds = %193, %repeatIsDead.
   %233 = getelementptr inbounds nuw i8, ptr %228, i64 %229
   %234 = insertelement <16 x i8> poison, i8 %231, i64 0
   %235 = shufflevector <16 x i8> %234, <16 x i8> poison, <16 x i32> zeroinitializer
-  %gepdiff152 = sub nsw i64 %229, %230
-  %236 = icmp slt i64 %gepdiff152, 16
+  %gepdiff155 = sub nsw i64 %229, %230
+  %236 = icmp slt i64 %gepdiff155, 16
   br i1 %236, label %.preheader, label %240
 
 .preheader:                                       ; preds = %227, %237
@@ -3222,18 +3222,18 @@ repeatIsDead.exit.i.thread100:                    ; preds = %193, %repeatIsDead.
 240:                                              ; preds = %227
   %241 = ptrtoint ptr %233 to i64
   %242 = and i64 %241, 15
-  %.not.i48 = icmp eq i64 %242, 0
-  br i1 %.not.i48, label %257, label %243
+  %.not.i51 = icmp eq i64 %242, 0
+  br i1 %.not.i51, label %257, label %243
 
 243:                                              ; preds = %240
   %244 = getelementptr inbounds i8, ptr %233, i64 -16
   %245 = load <16 x i8>, ptr %244, align 1
   %246 = icmp eq <16 x i8> %235, %245
   %247 = bitcast <16 x i1> %246 to i16
-  %.not9.i57 = icmp eq i16 %247, 0
-  br i1 %.not9.i57, label %254, label %.thread108, !prof !5
+  %.not9.i60 = icmp eq i16 %247, 0
+  br i1 %.not9.i60, label %254, label %.thread111, !prof !5
 
-.thread108:                                       ; preds = %243
+.thread111:                                       ; preds = %243
   %248 = zext i16 %247 to i32
   %249 = getelementptr inbounds nuw i8, ptr %233, i64 15
   %250 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %248, i1 true)
@@ -3245,8 +3245,8 @@ repeatIsDead.exit.i.thread100:                    ; preds = %193, %repeatIsDead.
 254:                                              ; preds = %243
   %255 = sub nsw i64 0, %242
   %256 = getelementptr inbounds i8, ptr %233, i64 %255
-  %.not58.i52 = icmp ult ptr %232, %256
-  br i1 %.not58.i52, label %257, label %rvermicelliExec.exit
+  %.not58.i55 = icmp ult ptr %232, %256
+  br i1 %.not58.i55, label %257, label %rvermicelliExec.exit
 
 257:                                              ; preds = %254, %240
   %.147.i = phi ptr [ %256, %254 ], [ %233, %240 ]
@@ -3280,8 +3280,8 @@ rvermSearchAligned.exit:                          ; preds = %261
   %273 = load <16 x i8>, ptr %232, align 1
   %274 = icmp eq <16 x i8> %235, %273
   %275 = bitcast <16 x i1> %274 to i16
-  %.not9.i54 = icmp eq i16 %275, 0
-  br i1 %.not9.i54, label %rvermUnalign.exit, label %276, !prof !5
+  %.not9.i57 = icmp eq i16 %275, 0
+  br i1 %.not9.i57, label %rvermUnalign.exit, label %276, !prof !5
 
 276:                                              ; preds = %272
   %277 = zext i16 %275 to i32
@@ -3293,20 +3293,20 @@ rvermSearchAligned.exit:                          ; preds = %261
   br label %rvermUnalign.exit
 
 rvermUnalign.exit:                                ; preds = %272, %276
-  %.08.i55 = phi ptr [ %282, %276 ], [ null, %272 ]
-  %.not60.i = icmp eq ptr %.08.i55, null
+  %.08.i58 = phi ptr [ %282, %276 ], [ null, %272 ]
+  %.not60.i = icmp eq ptr %.08.i58, null
   %283 = getelementptr inbounds i8, ptr %232, i64 -1
-  %284 = select i1 %.not60.i, ptr %283, ptr %.08.i55
+  %284 = select i1 %.not60.i, ptr %283, ptr %.08.i58
   br label %rvermicelliExec.exit
 
-rvermicelliExec.exit:                             ; preds = %.preheader, %237, %rvermSearchAligned.exit, %.thread108, %254, %rvermUnalign.exit
-  %.0.i51 = phi ptr [ %256, %254 ], [ %284, %rvermUnalign.exit ], [ %271, %rvermSearchAligned.exit ], [ %253, %.thread108 ], [ %.046.i, %237 ], [ %.046.i, %.preheader ]
+rvermicelliExec.exit:                             ; preds = %.preheader, %237, %rvermSearchAligned.exit, %.thread111, %254, %rvermUnalign.exit
+  %.0.i54 = phi ptr [ %256, %254 ], [ %284, %rvermUnalign.exit ], [ %271, %rvermSearchAligned.exit ], [ %253, %.thread111 ], [ %.046.i, %237 ], [ %.046.i, %.preheader ]
   %285 = getelementptr inbounds i8, ptr %232, i64 -1
-  %286 = icmp eq ptr %.0.i51, %285
-  br i1 %286, label %.thread121, label %287
+  %286 = icmp eq ptr %.0.i54, %285
+  br i1 %286, label %.thread124, label %287
 
 287:                                              ; preds = %rvermicelliExec.exit
-  %288 = ptrtoint ptr %.0.i51 to i64
+  %288 = ptrtoint ptr %.0.i54 to i64
   %289 = ptrtoint ptr %228 to i64
   %290 = sub i64 %288, %289
   store i64 %290, ptr %196, align 8
@@ -3315,9 +3315,9 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %237, %
   store i32 %292, ptr %30, align 8
   %293 = load i32, ptr %32, align 4
   %294 = icmp ult i32 %292, %293
-  br i1 %294, label %.lr.ph179, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %294, label %.lr.ph182, label %nfaExecLbrVerm_TopScan.exit
 
-.thread121:                                       ; preds = %rvermicelliExec.exit, %220
+.thread124:                                       ; preds = %rvermicelliExec.exit, %220
   %295 = load ptr, ptr %48, align 8
   %296 = load i32, ptr %4, align 4
   %297 = zext i32 %296 to i64
@@ -3335,20 +3335,20 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %237, %
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread132
+    i8 7, label %.thread135
   ]
 
-.thread132:                                       ; preds = %.thread121
+.thread135:                                       ; preds = %.thread124
   %304 = getelementptr inbounds nuw i8, ptr %196, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i5:                           ; preds = %.thread121, %.thread121, %.thread121, %.thread121, %.thread121, %.thread121, %.thread121
+repeatIsDead.exit.i.i5:                           ; preds = %.thread124, %.thread124, %.thread124, %.thread124, %.thread124, %.thread124, %.thread124
   %.0.shrunk.i.i.i6.in.in = getelementptr inbounds nuw i8, ptr %196, i64 8
   %.0.shrunk.i.i.i6.in = load i64, ptr %.0.shrunk.i.i.i6.in.in, align 8
   %.0.shrunk.i.i.i6.not = icmp eq i64 %.0.shrunk.i.i.i6.in, -1
   br i1 %.0.shrunk.i.i.i6.not, label %.split.i.i9, label %313
 
-.split.i.i9:                                      ; preds = %.thread121, %repeatIsDead.exit.i.i5
+.split.i.i9:                                      ; preds = %.thread124, %repeatIsDead.exit.i.i5
   %305 = getelementptr inbounds nuw i8, ptr %196, i64 8
   switch i8 %303, label %lbrTop.exit.i [
     i8 0, label %306
@@ -3422,9 +3422,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %.thread121, %.threa
 default.unreachable:                              ; preds = %313
   unreachable
 
-repeatLastTop.exit:                               ; preds = %313, %313, %.thread132, %314, %316, %318, %320, %322
-  %324 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %314 ], [ %.0.shrunk.i.i.i6.in.in, %316 ], [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %320 ], [ %.0.shrunk.i.i.i6.in.in, %322 ], [ %304, %.thread132 ], [ %.0.shrunk.i.i.i6.in.in, %313 ], [ %.0.shrunk.i.i.i6.in.in, %313 ]
-  %.0.i13 = phi i64 [ %315, %314 ], [ %317, %316 ], [ %319, %318 ], [ %321, %320 ], [ %323, %322 ], [ 0, %.thread132 ], [ %.0.shrunk.i.i.i6.in, %313 ], [ %.0.shrunk.i.i.i6.in, %313 ]
+repeatLastTop.exit:                               ; preds = %313, %313, %.thread135, %314, %316, %318, %320, %322
+  %324 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %314 ], [ %.0.shrunk.i.i.i6.in.in, %316 ], [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %320 ], [ %.0.shrunk.i.i.i6.in.in, %322 ], [ %304, %.thread135 ], [ %.0.shrunk.i.i.i6.in.in, %313 ], [ %.0.shrunk.i.i.i6.in.in, %313 ]
+  %.0.i13 = phi i64 [ %315, %314 ], [ %317, %316 ], [ %319, %318 ], [ %321, %320 ], [ %323, %322 ], [ 0, %.thread135 ], [ %.0.shrunk.i.i.i6.in, %313 ], [ %.0.shrunk.i.i.i6.in, %313 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %215
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -3463,16 +3463,16 @@ repeatLastTop.exit:                               ; preds = %313, %313, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %298, ptr noundef nonnull %324, i64 noundef %215, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrVerm_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread100, %287, %.lr.ph179, %207, %217
-  %332 = phi i32 [ %202, %217 ], [ %202, %207 ], [ %293, %287 ], [ %202, %.lr.ph179 ], [ %197, %repeatIsDead.exit.i.thread100 ]
-  %333 = phi i32 [ %218, %217 ], [ %218, %207 ], [ %292, %287 ], [ %201, %.lr.ph179 ], [ %182, %repeatIsDead.exit.i.thread100 ]
+nfaExecLbrVerm_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread103, %287, %.lr.ph182, %207, %217
+  %332 = phi i32 [ %202, %217 ], [ %202, %207 ], [ %293, %287 ], [ %202, %.lr.ph182 ], [ %197, %repeatIsDead.exit.i.thread103 ]
+  %333 = phi i32 [ %218, %217 ], [ %218, %207 ], [ %292, %287 ], [ %201, %.lr.ph182 ], [ %182, %repeatIsDead.exit.i.thread103 ]
   %334 = icmp ult i32 %333, %332
   br i1 %334, label %335, label %nfaExecLbrVerm_Q_i.exit
 
 335:                                              ; preds = %nfaExecLbrVerm_TopScan.exit
   %336 = zext i32 %333 to i64
-  %.idx.i21 = mul nuw nsw i64 %336, 24
-  %337 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %336, 24
+  %337 = getelementptr i8, ptr %39, i64 %.idx.i24
   %338 = load i64, ptr %337, align 8
   %339 = icmp sgt i64 %338, %2
   br i1 %339, label %340, label %nfaExecLbrVerm_Q_i.exit
@@ -3526,7 +3526,7 @@ repeatIsDead.exit.i.i:                            ; preds = %348, %348, %348, %3
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %367
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %359, label %default.unreachable211 [
+  switch i8 %359, label %default.unreachable214 [
     i8 0, label %360
     i8 1, label %361
     i8 2, label %362
@@ -3565,7 +3565,7 @@ repeatIsDead.exit.i.i:                            ; preds = %348, %348, %348, %3
   br label %lbrTop.exit.i
 
 367:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %359, label %default.unreachable151 [
+  switch i8 %359, label %default.unreachable154 [
     i8 0, label %368
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -3595,7 +3595,7 @@ repeatIsDead.exit.i.i:                            ; preds = %348, %348, %348, %3
   %377 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %354, ptr noundef nonnull %.0.shrunk.i124.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable151:                           ; preds = %367
+default.unreachable154:                           ; preds = %367
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %367, %367, %348, %368, %370, %372, %374, %376
@@ -3638,7 +3638,7 @@ repeatLastTop.exit15:                             ; preds = %367, %367, %348, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %354, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %351, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable211:                           ; preds = %.split.i.i
+default.unreachable214:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %348, %repeatLastTop.exit, %.split.i.i9, %306, %307, %308, %309, %310, %311, %312, %.split16.i.i12, %326, %327, %328, %329, %330, %331, %repeatLastTop.exit15, %360, %361, %362, %363, %364, %365, %366, %.split16.i.i, %379, %380, %381, %382, %383, %384, %repeatIsDead.exit.i.thread
@@ -3664,29 +3664,29 @@ lbrTop.exit.i:                                    ; preds = %348, %repeatLastTop
   %397 = getelementptr inbounds nuw i8, ptr %4, i64 %396
   %398 = load i8, ptr %397, align 4
   switch i8 %398, label %nfaExecLbrVerm_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i23
-    i8 3, label %repeatIsDead.exit.i23
-    i8 1, label %repeatIsDead.exit.i23
-    i8 2, label %repeatIsDead.exit.i23
-    i8 4, label %repeatIsDead.exit.i23
-    i8 5, label %repeatIsDead.exit.i23
-    i8 6, label %repeatIsDead.exit.i23
-    i8 7, label %repeatIsDead.exit.i23.thread
+    i8 0, label %repeatIsDead.exit.i26
+    i8 3, label %repeatIsDead.exit.i26
+    i8 1, label %repeatIsDead.exit.i26
+    i8 2, label %repeatIsDead.exit.i26
+    i8 4, label %repeatIsDead.exit.i26
+    i8 5, label %repeatIsDead.exit.i26
+    i8 6, label %repeatIsDead.exit.i26
+    i8 7, label %repeatIsDead.exit.i26.thread
   ]
 
-repeatIsDead.exit.i23:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i24.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i24.in = load i64, ptr %.0.shrunk.i.i24.in.in, align 8
-  %.0.shrunk.i.i24.not = icmp eq i64 %.0.shrunk.i.i24.in, -1
-  br i1 %.0.shrunk.i.i24.not, label %nfaExecLbrVerm_Q_i.exit, label %repeatIsDead.exit.i23.thread
+repeatIsDead.exit.i26:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i27.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i27.in = load i64, ptr %.0.shrunk.i.i27.in.in, align 8
+  %.0.shrunk.i.i27.not = icmp eq i64 %.0.shrunk.i.i27.in, -1
+  br i1 %.0.shrunk.i.i27.not, label %nfaExecLbrVerm_Q_i.exit, label %repeatIsDead.exit.i26.thread
 
-repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i23
+repeatIsDead.exit.i26.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i26
   %399 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %400 = load i32, ptr %399, align 4
   %401 = icmp eq i32 %400, 65535
   br i1 %401, label %nfaExecLbrVerm_Q_i.exit, label %402
 
-402:                                              ; preds = %repeatIsDead.exit.i23.thread
+402:                                              ; preds = %repeatIsDead.exit.i26.thread
   %403 = getelementptr inbounds nuw i8, ptr %397, i64 16
   %404 = load i32, ptr %403, align 4
   %405 = zext i32 %404 to i64
@@ -3732,11 +3732,11 @@ repeatLastTop.exit.i:                             ; preds = %418, %416, %414, %4
   %421 = zext i32 %420 to i64
   %422 = add i64 %.0.i12.i, %421
   %423 = icmp ult i64 %.0101.i.lcssa, %422
-  %..i28 = zext i1 %423 to i8
+  %..i31 = zext i1 %423 to i8
   br label %nfaExecLbrVerm_Q_i.exit
 
-nfaExecLbrVerm_Q_i.exit:                          ; preds = %176, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i23.thread, %repeatIsDead.exit.i23, %12, %29, %187, %nfaExecLbrVerm_TopScan.exit, %335, %340
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %187 ], [ 1, %340 ], [ 0, %335 ], [ 0, %nfaExecLbrVerm_TopScan.exit ], [ %..i28, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i23 ], [ 1, %repeatIsDead.exit.i23.thread ], [ 0, %._crit_edge ], [ 0, %176 ]
+nfaExecLbrVerm_Q_i.exit:                          ; preds = %176, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i26.thread, %repeatIsDead.exit.i26, %12, %29, %187, %nfaExecLbrVerm_TopScan.exit, %335, %340
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %187 ], [ 1, %340 ], [ 0, %335 ], [ 0, %nfaExecLbrVerm_TopScan.exit ], [ %..i31, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i26 ], [ 1, %repeatIsDead.exit.i26.thread ], [ 0, %._crit_edge ], [ 0, %176 ]
   ret i8 %.2.i
 }
 
@@ -3793,12 +3793,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrVerm_Q2(ptr noundef %0, ptr n
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %storemerge.i197 = add i32 %31, 1
-  store i32 %storemerge.i197, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i197, %33
-  br i1 %43, label %.lr.ph200, label %._crit_edge
+  %storemerge.i200 = add i32 %31, 1
+  store i32 %storemerge.i200, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i200, %33
+  br i1 %43, label %.lr.ph203, label %._crit_edge
 
-.lr.ph200:                                        ; preds = %35
+.lr.ph203:                                        ; preds = %35
   %.0.shrunk.i124.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3807,12 +3807,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrVerm_Q2(ptr noundef %0, ptr n
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %49
 
-49:                                               ; preds = %.lr.ph200, %lbrTop.exit.i
-  %50 = phi i64 [ %37, %.lr.ph200 ], [ %384, %lbrTop.exit.i ]
-  %storemerge.i199 = phi i32 [ %storemerge.i197, %.lr.ph200 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i198 = phi i64 [ %42, %.lr.ph200 ], [ %389, %lbrTop.exit.i ]
+49:                                               ; preds = %.lr.ph203, %lbrTop.exit.i
+  %50 = phi i64 [ %37, %.lr.ph203 ], [ %384, %lbrTop.exit.i ]
+  %storemerge.i202 = phi i32 [ %storemerge.i200, %.lr.ph203 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i201 = phi i64 [ %42, %.lr.ph203 ], [ %389, %lbrTop.exit.i ]
   %51 = load i8, ptr %7, align 4
-  switch i8 %51, label %repeatIsDead.exit126.i.thread73 [
+  switch i8 %51, label %repeatIsDead.exit126.i.thread76 [
     i8 0, label %repeatIsDead.exit126.i
     i8 3, label %repeatIsDead.exit126.i
     i8 1, label %repeatIsDead.exit126.i
@@ -3826,23 +3826,23 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrVerm_Q2(ptr noundef %0, ptr n
 repeatIsDead.exit126.i:                           ; preds = %49, %49, %49, %49, %49, %49, %49
   %.0.shrunk.i124.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i124.i.not = icmp eq i64 %.0.shrunk.i124.i.in, -1
-  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread73, label %repeatIsDead.exit126.i.thread
+  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread76, label %repeatIsDead.exit126.i.thread
 
 repeatIsDead.exit126.i.thread:                    ; preds = %49, %repeatIsDead.exit126.i
-  %52 = zext i32 %storemerge.i199 to i64
+  %52 = zext i32 %storemerge.i202 to i64
   %.idx.i121.i = mul nuw nsw i64 %52, 24
   %53 = getelementptr i8, ptr %39, i64 %.idx.i121.i
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %50
   %56 = add i64 %50, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %55, i64 %56)
-  %57 = icmp ult i64 %.0101.i198, %..i
-  br i1 %57, label %58, label %repeatIsDead.exit126.i.thread73
+  %57 = icmp ult i64 %.0101.i201, %..i
+  br i1 %57, label %58, label %repeatIsDead.exit126.i.thread76
 
 58:                                               ; preds = %repeatIsDead.exit126.i.thread
   %59 = load ptr, ptr %44, align 8
   %60 = sub i64 %..i, %50
-  %61 = sub i64 %.0101.i198, %50
+  %61 = sub i64 %.0101.i201, %50
   %62 = load i8, ptr %45, align 4
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 %61
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 %60
@@ -3850,66 +3850,66 @@ repeatIsDead.exit126.i.thread:                    ; preds = %49, %repeatIsDead.e
   %66 = shufflevector <16 x i8> %65, <16 x i8> poison, <16 x i32> zeroinitializer
   %gepdiff = sub nsw i64 %60, %61
   %67 = icmp slt i64 %gepdiff, 16
-  br i1 %67, label %.preheader167, label %74
+  br i1 %67, label %.preheader170, label %74
 
-.preheader167:                                    ; preds = %58
+.preheader170:                                    ; preds = %58
   %68 = icmp samesign ult i64 %61, %60
-  br i1 %68, label %.lr.ph189, label %vermicelliExec.exit
+  br i1 %68, label %.lr.ph192, label %vermicelliExec.exit
 
-.lr.ph189:                                        ; preds = %.preheader167, %71
-  %.042.i188 = phi ptr [ %72, %71 ], [ %63, %.preheader167 ]
-  %69 = load i8, ptr %.042.i188, align 1
+.lr.ph192:                                        ; preds = %.preheader170, %71
+  %.042.i191 = phi ptr [ %72, %71 ], [ %63, %.preheader170 ]
+  %69 = load i8, ptr %.042.i191, align 1
   %70 = icmp eq i8 %69, %62
   br i1 %70, label %vermicelliExec.exit, label %71
 
-71:                                               ; preds = %.lr.ph189
-  %72 = getelementptr inbounds nuw i8, ptr %.042.i188, i64 1
+71:                                               ; preds = %.lr.ph192
+  %72 = getelementptr inbounds nuw i8, ptr %.042.i191, i64 1
   %73 = icmp ult ptr %72, %64
-  br i1 %73, label %.lr.ph189, label %vermicelliExec.exit
+  br i1 %73, label %.lr.ph192, label %vermicelliExec.exit
 
 74:                                               ; preds = %58
   %75 = ptrtoint ptr %63 to i64
   %76 = and i64 %75, 15
-  %.not.i34 = icmp eq i64 %76, 0
-  br i1 %.not.i34, label %86, label %77
+  %.not.i37 = icmp eq i64 %76, 0
+  br i1 %.not.i37, label %86, label %77
 
 77:                                               ; preds = %74
   %78 = load <16 x i8>, ptr %63, align 1
   %79 = icmp eq <16 x i8> %66, %78
   %80 = bitcast <16 x i1> %79 to i16
-  %.not9.i38 = icmp eq i16 %80, 0
-  br i1 %.not9.i38, label %vermUnalign.exit40.thread, label %vermUnalign.exit40, !prof !5
+  %.not9.i41 = icmp eq i16 %80, 0
+  br i1 %.not9.i41, label %vermUnalign.exit43.thread, label %vermUnalign.exit43, !prof !5
 
-vermUnalign.exit40.thread:                        ; preds = %77
+vermUnalign.exit43.thread:                        ; preds = %77
   %81 = sub nuw nsw i64 16, %76
   %82 = getelementptr inbounds nuw i8, ptr %63, i64 %81
   br label %86
 
-vermUnalign.exit40:                               ; preds = %77
+vermUnalign.exit43:                               ; preds = %77
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %80, i1 true)
   %84 = zext nneg i16 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %63, i64 %84
   br label %vermicelliExec.exit
 
-86:                                               ; preds = %vermUnalign.exit40.thread, %74
-  %.143.i = phi ptr [ %63, %74 ], [ %82, %vermUnalign.exit40.thread ]
+86:                                               ; preds = %vermUnalign.exit43.thread, %74
+  %.143.i = phi ptr [ %63, %74 ], [ %82, %vermUnalign.exit43.thread ]
   %87 = getelementptr inbounds i8, ptr %64, i64 -1
   %88 = getelementptr inbounds nuw i8, ptr %.143.i, i64 31
   %89 = icmp ult ptr %88, %87
-  br i1 %89, label %.lr.ph, label %.preheader168
+  br i1 %89, label %.lr.ph, label %.preheader171
 
-.preheader168:                                    ; preds = %103, %86
+.preheader171:                                    ; preds = %103, %86
   %.032.i.lcssa = phi ptr [ %.143.i, %86 ], [ %104, %103 ]
   %90 = getelementptr inbounds nuw i8, ptr %.032.i.lcssa, i64 15
   %91 = icmp ult ptr %90, %87
-  br i1 %91, label %.lr.ph187, label %vermSearchAligned.exit.thread
+  br i1 %91, label %.lr.ph190, label %vermSearchAligned.exit.thread
 
 .lr.ph:                                           ; preds = %86, %103
-  %.032.i185 = phi ptr [ %104, %103 ], [ %.143.i, %86 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i185, i64 16) ]
-  %92 = load <16 x i8>, ptr %.032.i185, align 16
+  %.032.i188 = phi ptr [ %104, %103 ], [ %.143.i, %86 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i188, i64 16) ]
+  %92 = load <16 x i8>, ptr %.032.i188, align 16
   %93 = icmp eq <16 x i8> %66, %92
-  %94 = getelementptr inbounds nuw i8, ptr %.032.i185, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.032.i188, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 16) ]
   %95 = load <16 x i8>, ptr %94, align 16
   %96 = icmp eq <16 x i8> %66, %95
@@ -3921,37 +3921,37 @@ vermUnalign.exit40:                               ; preds = %77
 99:                                               ; preds = %.lr.ph
   %100 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %98, i1 true)
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw i8, ptr %.032.i185, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %.032.i188, i64 %101
   br label %vermicelliExec.exit
 
 103:                                              ; preds = %.lr.ph
-  %104 = getelementptr inbounds nuw i8, ptr %.032.i185, i64 32
-  %105 = getelementptr inbounds nuw i8, ptr %.032.i185, i64 63
+  %104 = getelementptr inbounds nuw i8, ptr %.032.i188, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %.032.i188, i64 63
   %106 = icmp ult ptr %105, %87
-  br i1 %106, label %.lr.ph, label %.preheader168
+  br i1 %106, label %.lr.ph, label %.preheader171
 
-.lr.ph187:                                        ; preds = %.preheader168, %114
-  %.133.i186 = phi ptr [ %115, %114 ], [ %.032.i.lcssa, %.preheader168 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i186, i64 16) ]
-  %107 = load <16 x i8>, ptr %.133.i186, align 16
+.lr.ph190:                                        ; preds = %.preheader171, %114
+  %.133.i189 = phi ptr [ %115, %114 ], [ %.032.i.lcssa, %.preheader171 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i189, i64 16) ]
+  %107 = load <16 x i8>, ptr %.133.i189, align 16
   %108 = icmp eq <16 x i8> %66, %107
   %109 = bitcast <16 x i1> %108 to i16
   %.not37.i.not = icmp eq i16 %109, 0
   br i1 %.not37.i.not, label %114, label %110, !prof !5
 
-110:                                              ; preds = %.lr.ph187
+110:                                              ; preds = %.lr.ph190
   %111 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %109, i1 true)
   %112 = zext nneg i16 %111 to i64
-  %113 = getelementptr inbounds nuw i8, ptr %.133.i186, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %.133.i189, i64 %112
   br label %vermicelliExec.exit
 
-114:                                              ; preds = %.lr.ph187
-  %115 = getelementptr inbounds nuw i8, ptr %.133.i186, i64 16
-  %116 = getelementptr inbounds nuw i8, ptr %.133.i186, i64 31
+114:                                              ; preds = %.lr.ph190
+  %115 = getelementptr inbounds nuw i8, ptr %.133.i189, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %.133.i189, i64 31
   %117 = icmp ult ptr %116, %87
-  br i1 %117, label %.lr.ph187, label %vermSearchAligned.exit.thread
+  br i1 %117, label %.lr.ph190, label %vermSearchAligned.exit.thread
 
-vermSearchAligned.exit.thread:                    ; preds = %114, %.preheader168
+vermSearchAligned.exit.thread:                    ; preds = %114, %.preheader171
   %118 = getelementptr inbounds i8, ptr %64, i64 -16
   %119 = load <16 x i8>, ptr %118, align 1
   %120 = icmp eq <16 x i8> %66, %119
@@ -3971,15 +3971,15 @@ vermUnalign.exit:                                 ; preds = %vermSearchAligned.e
   %126 = select i1 %.not52.i, ptr %64, ptr %.08.i
   br label %vermicelliExec.exit
 
-vermicelliExec.exit:                              ; preds = %.lr.ph189, %71, %.preheader167, %99, %110, %vermUnalign.exit40, %vermUnalign.exit
-  %.0.i35 = phi ptr [ %85, %vermUnalign.exit40 ], [ %126, %vermUnalign.exit ], [ %102, %99 ], [ %113, %110 ], [ %63, %.preheader167 ], [ %.042.i188, %.lr.ph189 ], [ %72, %71 ]
-  %127 = icmp eq ptr %.0.i35, %64
-  %128 = ptrtoint ptr %.0.i35 to i64
+vermicelliExec.exit:                              ; preds = %.lr.ph192, %71, %.preheader170, %99, %110, %vermUnalign.exit43, %vermUnalign.exit
+  %.0.i38 = phi ptr [ %85, %vermUnalign.exit43 ], [ %126, %vermUnalign.exit ], [ %102, %99 ], [ %113, %110 ], [ %63, %.preheader170 ], [ %.042.i191, %.lr.ph192 ], [ %72, %71 ]
+  %127 = icmp eq ptr %.0.i38, %64
+  %128 = ptrtoint ptr %.0.i38 to i64
   %129 = ptrtoint ptr %59 to i64
   %130 = sub i64 %50, %129
   %131 = add i64 %130, %128
   %.0100.i = select i1 %127, i64 %..i, i64 %131
-  %132 = icmp eq i64 %.0101.i198, %.0100.i
+  %132 = icmp eq i64 %.0101.i201, %.0100.i
   br i1 %132, label %repeatNextMatch.exit.thread, label %133
 
 133:                                              ; preds = %vermicelliExec.exit
@@ -4004,7 +4004,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph189, %71, %.p
   ]
 
 143:                                              ; preds = %133
-  %144 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %141, i64 noundef %.0101.i198) #8
+  %144 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %141, i64 noundef %.0101.i201) #8
   br label %repeatNextMatch.exit
 
 145:                                              ; preds = %133, %133
@@ -4013,7 +4013,7 @@ vermicelliExec.exit:                              ; preds = %.lr.ph189, %71, %.p
   %148 = load i32, ptr %147, align 4
   %149 = zext i32 %148 to i64
   %150 = add i64 %146, %149
-  %151 = icmp ult i64 %.0101.i198, %150
+  %151 = icmp ult i64 %.0101.i201, %150
   br i1 %151, label %repeatNextMatch.exit, label %152
 
 152:                                              ; preds = %145
@@ -4022,45 +4022,45 @@ vermicelliExec.exit:                              ; preds = %.lr.ph189, %71, %.p
   %155 = icmp eq i32 %154, 65535
   %156 = zext i32 %154 to i64
   %157 = add i64 %146, %156
-  %158 = icmp ult i64 %.0101.i198, %157
-  %or.cond.i31 = or i1 %155, %158
-  %159 = add i64 %.0101.i198, 1
-  %spec.select.i = select i1 %or.cond.i31, i64 %159, i64 0
+  %158 = icmp ult i64 %.0101.i201, %157
+  %or.cond.i34 = or i1 %155, %158
+  %159 = add i64 %.0101.i201, 1
+  %spec.select.i = select i1 %or.cond.i34, i64 %159, i64 0
   br label %repeatNextMatch.exit
 
 160:                                              ; preds = %133
-  %161 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %141, i64 noundef %.0101.i198) #8
+  %161 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %141, i64 noundef %.0101.i201) #8
   br label %repeatNextMatch.exit
 
 162:                                              ; preds = %133
-  %163 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i198) #8
+  %163 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i201) #8
   br label %repeatNextMatch.exit
 
 164:                                              ; preds = %133
-  %165 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %141, i64 noundef %.0101.i198) #8
+  %165 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %141, i64 noundef %.0101.i201) #8
   br label %repeatNextMatch.exit
 
 166:                                              ; preds = %133
-  %167 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i198) #8
+  %167 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %137, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i201) #8
   br label %repeatNextMatch.exit
 
 168:                                              ; preds = %133
-  %169 = add i64 %.0101.i198, 1
+  %169 = add i64 %.0101.i201, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %152, %145, %143, %160, %162, %164, %166, %168
-  %.0.i30 = phi i64 [ %144, %143 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %150, %145 ], [ %spec.select.i, %152 ]
-  %170 = add i64 %.0.i30, -1
-  %or.cond.i19.not = icmp ult i64 %170, %.0100.i
-  br i1 %or.cond.i19.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
+  %.0.i33 = phi i64 [ %144, %143 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %167, %166 ], [ %169, %168 ], [ %150, %145 ], [ %spec.select.i, %152 ]
+  %170 = add i64 %.0.i33, -1
+  %or.cond.i22.not = icmp ult i64 %170, %.0100.i
+  br i1 %or.cond.i22.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
 
 repeatNextMatch.exit.thread:                      ; preds = %133, %vermicelliExec.exit, %repeatNextMatch.exit
-  br i1 %127, label %repeatIsDead.exit126.i.thread73, label %171
+  br i1 %127, label %repeatIsDead.exit126.i.thread76, label %171
 
 171:                                              ; preds = %repeatNextMatch.exit.thread
   %172 = load i8, ptr %7, align 4
   %switch = icmp ult i8 %172, 7
-  br i1 %switch, label %repeatIsDead.exit126.i.thread73.sink.split, label %repeatIsDead.exit126.i.thread73
+  br i1 %switch, label %repeatIsDead.exit126.i.thread76.sink.split, label %repeatIsDead.exit126.i.thread76
 
 clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exit
   %173 = load i32, ptr %30, align 8
@@ -4070,27 +4070,27 @@ clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exi
   %176 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %175
   store i32 0, ptr %176, align 8
   %177 = load i64, ptr %36, align 8
-  %178 = sub i64 %.0.i30, %177
+  %178 = sub i64 %.0.i33, %177
   %.idx.i = mul nuw nsw i64 %175, 24
   %179 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store i64 %178, ptr %180, align 8
   br label %nfaExecLbrVerm_Q_i.exit
 
-repeatIsDead.exit126.i.thread73.sink.split:       ; preds = %171
+repeatIsDead.exit126.i.thread76.sink.split:       ; preds = %171
   store i64 -1, ptr %.0.shrunk.i124.i.in.in, align 8
-  br label %repeatIsDead.exit126.i.thread73
+  br label %repeatIsDead.exit126.i.thread76
 
-repeatIsDead.exit126.i.thread73:                  ; preds = %171, %repeatIsDead.exit126.i.thread73.sink.split, %repeatNextMatch.exit.thread, %49, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
+repeatIsDead.exit126.i.thread76:                  ; preds = %171, %repeatIsDead.exit126.i.thread76.sink.split, %repeatNextMatch.exit.thread, %49, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
   %181 = load i32, ptr %30, align 8
   %182 = zext i32 %181 to i64
-  %.idx.i23 = mul nuw nsw i64 %182, 24
-  %183 = getelementptr i8, ptr %39, i64 %.idx.i23
+  %.idx.i26 = mul nuw nsw i64 %182, 24
+  %183 = getelementptr i8, ptr %39, i64 %.idx.i26
   %184 = load i64, ptr %183, align 8
   %185 = icmp sgt i64 %184, %2
   br i1 %185, label %186, label %192
 
-186:                                              ; preds = %repeatIsDead.exit126.i.thread73
+186:                                              ; preds = %repeatIsDead.exit126.i.thread76
   %187 = add i32 %181, -1
   store i32 %187, ptr %30, align 8
   %188 = zext i32 %187 to i64
@@ -4102,9 +4102,9 @@ repeatIsDead.exit126.i.thread73:                  ; preds = %171, %repeatIsDead.
   store i64 %2, ptr %191, align 8
   br label %nfaExecLbrVerm_Q_i.exit
 
-192:                                              ; preds = %repeatIsDead.exit126.i.thread73
+192:                                              ; preds = %repeatIsDead.exit126.i.thread76
   %193 = load i8, ptr %7, align 4
-  switch i8 %193, label %repeatIsDead.exit.i.thread114 [
+  switch i8 %193, label %repeatIsDead.exit.i.thread117 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -4118,58 +4118,58 @@ repeatIsDead.exit126.i.thread73:                  ; preds = %171, %repeatIsDead.
 repeatIsDead.exit.i:                              ; preds = %192, %192, %192, %192, %192, %192, %192
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread114, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread117, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread114:                    ; preds = %192, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread117:                    ; preds = %192, %repeatIsDead.exit.i
   %194 = load i64, ptr %36, align 8
   %195 = load ptr, ptr %8, align 8
   %196 = load i32, ptr %32, align 4
   %197 = icmp ult i32 %181, %196
-  br i1 %197, label %.lr.ph193.lr.ph, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %197, label %.lr.ph196.lr.ph, label %nfaExecLbrVerm_TopScan.exit
 
-.lr.ph193.lr.ph:                                  ; preds = %repeatIsDead.exit.i.thread114
+.lr.ph196.lr.ph:                                  ; preds = %repeatIsDead.exit.i.thread117
   %198 = load i32, ptr %4, align 4
   %199 = zext i32 %198 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %199
-  br label %.lr.ph193
+  br label %.lr.ph196
 
-.lr.ph193:                                        ; preds = %.lr.ph193.lr.ph, %286
-  %200 = phi i32 [ %181, %.lr.ph193.lr.ph ], [ %291, %286 ]
-  %201 = phi i32 [ %196, %.lr.ph193.lr.ph ], [ %292, %286 ]
+.lr.ph196:                                        ; preds = %.lr.ph196.lr.ph, %286
+  %200 = phi i32 [ %181, %.lr.ph196.lr.ph ], [ %291, %286 ]
+  %201 = phi i32 [ %196, %.lr.ph196.lr.ph ], [ %292, %286 ]
   %202 = zext i32 %200 to i64
   %203 = zext i32 %201 to i64
-  %.idx.i21286 = mul nuw nsw i64 %202, 24
-  %204 = getelementptr i8, ptr %39, i64 %.idx.i21286
+  %.idx.i24289 = mul nuw nsw i64 %202, 24
+  %204 = getelementptr i8, ptr %39, i64 %.idx.i24289
   %205 = load i64, ptr %204, align 8
-  %.not.i2287 = icmp sgt i64 %205, %2
-  br i1 %.not.i2287, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph289
+  %.not.i2290 = icmp sgt i64 %205, %2
+  br i1 %.not.i2290, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph292
 
 206:                                              ; preds = %216
-  %.idx.i21 = mul nuw nsw i64 %indvars.iv.next, 24
-  %207 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
+  %207 = getelementptr i8, ptr %39, i64 %.idx.i24
   %208 = load i64, ptr %207, align 8
   %.not.i2 = icmp sgt i64 %208, %2
-  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph289
+  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph292
 
-.lr.ph289:                                        ; preds = %.lr.ph193, %206
-  %209 = phi i64 [ %208, %206 ], [ %205, %.lr.ph193 ]
-  %indvars.iv288 = phi i64 [ %indvars.iv.next, %206 ], [ %202, %.lr.ph193 ]
-  %210 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv288
+.lr.ph292:                                        ; preds = %.lr.ph196, %206
+  %209 = phi i64 [ %208, %206 ], [ %205, %.lr.ph196 ]
+  %indvars.iv291 = phi i64 [ %indvars.iv.next, %206 ], [ %202, %.lr.ph196 ]
+  %210 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv291
   %211 = load i32, ptr %210, align 8
   switch i32 %211, label %216 [
     i32 4, label %212
     i32 2, label %212
   ]
 
-212:                                              ; preds = %.lr.ph289, %.lr.ph289
+212:                                              ; preds = %.lr.ph292, %.lr.ph292
   %213 = load i64, ptr %36, align 8
   %214 = add i64 %213, %209
   %215 = load i64, ptr %195, align 8
   %.not56.i = icmp ult i64 %214, %215
   br i1 %.not56.i, label %216, label %219
 
-216:                                              ; preds = %.lr.ph289, %212
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv288, 1
+216:                                              ; preds = %.lr.ph292, %212
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv291, 1
   %217 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %217, ptr %30, align 8
   %218 = icmp samesign ult i64 %indvars.iv.next, %203
@@ -4186,7 +4186,7 @@ repeatIsDead.exit.i.thread114:                    ; preds = %192, %repeatIsDead.
   %225 = icmp ule i64 %spec.select, %214
   %.not57.i = icmp ult i64 %214, %194
   %or.cond.i = select i1 %225, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread135, label %226
+  br i1 %or.cond.i, label %.thread138, label %226
 
 226:                                              ; preds = %219
   %227 = load ptr, ptr %44, align 8
@@ -4197,8 +4197,8 @@ repeatIsDead.exit.i.thread114:                    ; preds = %192, %repeatIsDead.
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 %228
   %233 = insertelement <16 x i8> poison, i8 %230, i64 0
   %234 = shufflevector <16 x i8> %233, <16 x i8> poison, <16 x i32> zeroinitializer
-  %gepdiff166 = sub nsw i64 %228, %229
-  %235 = icmp slt i64 %gepdiff166, 16
+  %gepdiff169 = sub nsw i64 %228, %229
+  %235 = icmp slt i64 %gepdiff169, 16
   br i1 %235, label %.preheader, label %239
 
 .preheader:                                       ; preds = %226, %236
@@ -4215,18 +4215,18 @@ repeatIsDead.exit.i.thread114:                    ; preds = %192, %repeatIsDead.
 239:                                              ; preds = %226
   %240 = ptrtoint ptr %232 to i64
   %241 = and i64 %240, 15
-  %.not.i49 = icmp eq i64 %241, 0
-  br i1 %.not.i49, label %256, label %242
+  %.not.i52 = icmp eq i64 %241, 0
+  br i1 %.not.i52, label %256, label %242
 
 242:                                              ; preds = %239
   %243 = getelementptr inbounds i8, ptr %232, i64 -16
   %244 = load <16 x i8>, ptr %243, align 1
   %245 = icmp eq <16 x i8> %234, %244
   %246 = bitcast <16 x i1> %245 to i16
-  %.not9.i58 = icmp eq i16 %246, 0
-  br i1 %.not9.i58, label %253, label %.thread122, !prof !5
+  %.not9.i61 = icmp eq i16 %246, 0
+  br i1 %.not9.i61, label %253, label %.thread125, !prof !5
 
-.thread122:                                       ; preds = %242
+.thread125:                                       ; preds = %242
   %247 = zext i16 %246 to i32
   %248 = getelementptr inbounds nuw i8, ptr %232, i64 15
   %249 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %247, i1 true)
@@ -4238,8 +4238,8 @@ repeatIsDead.exit.i.thread114:                    ; preds = %192, %repeatIsDead.
 253:                                              ; preds = %242
   %254 = sub nsw i64 0, %241
   %255 = getelementptr inbounds i8, ptr %232, i64 %254
-  %.not58.i53 = icmp ult ptr %231, %255
-  br i1 %.not58.i53, label %256, label %rvermicelliExec.exit
+  %.not58.i56 = icmp ult ptr %231, %255
+  br i1 %.not58.i56, label %256, label %rvermicelliExec.exit
 
 256:                                              ; preds = %253, %239
   %.147.i = phi ptr [ %255, %253 ], [ %232, %239 ]
@@ -4273,8 +4273,8 @@ rvermSearchAligned.exit:                          ; preds = %260
   %272 = load <16 x i8>, ptr %231, align 1
   %273 = icmp eq <16 x i8> %234, %272
   %274 = bitcast <16 x i1> %273 to i16
-  %.not9.i55 = icmp eq i16 %274, 0
-  br i1 %.not9.i55, label %rvermUnalign.exit, label %275, !prof !5
+  %.not9.i58 = icmp eq i16 %274, 0
+  br i1 %.not9.i58, label %rvermUnalign.exit, label %275, !prof !5
 
 275:                                              ; preds = %271
   %276 = zext i16 %274 to i32
@@ -4286,20 +4286,20 @@ rvermSearchAligned.exit:                          ; preds = %260
   br label %rvermUnalign.exit
 
 rvermUnalign.exit:                                ; preds = %271, %275
-  %.08.i56 = phi ptr [ %281, %275 ], [ null, %271 ]
-  %.not60.i = icmp eq ptr %.08.i56, null
+  %.08.i59 = phi ptr [ %281, %275 ], [ null, %271 ]
+  %.not60.i = icmp eq ptr %.08.i59, null
   %282 = getelementptr inbounds i8, ptr %231, i64 -1
-  %283 = select i1 %.not60.i, ptr %282, ptr %.08.i56
+  %283 = select i1 %.not60.i, ptr %282, ptr %.08.i59
   br label %rvermicelliExec.exit
 
-rvermicelliExec.exit:                             ; preds = %.preheader, %236, %rvermSearchAligned.exit, %.thread122, %253, %rvermUnalign.exit
-  %.0.i52 = phi ptr [ %255, %253 ], [ %283, %rvermUnalign.exit ], [ %270, %rvermSearchAligned.exit ], [ %252, %.thread122 ], [ %.046.i, %236 ], [ %.046.i, %.preheader ]
+rvermicelliExec.exit:                             ; preds = %.preheader, %236, %rvermSearchAligned.exit, %.thread125, %253, %rvermUnalign.exit
+  %.0.i55 = phi ptr [ %255, %253 ], [ %283, %rvermUnalign.exit ], [ %270, %rvermSearchAligned.exit ], [ %252, %.thread125 ], [ %.046.i, %236 ], [ %.046.i, %.preheader ]
   %284 = getelementptr inbounds i8, ptr %231, i64 -1
-  %285 = icmp eq ptr %.0.i52, %284
-  br i1 %285, label %.thread135, label %286
+  %285 = icmp eq ptr %.0.i55, %284
+  br i1 %285, label %.thread138, label %286
 
 286:                                              ; preds = %rvermicelliExec.exit
-  %287 = ptrtoint ptr %.0.i52 to i64
+  %287 = ptrtoint ptr %.0.i55 to i64
   %288 = ptrtoint ptr %227 to i64
   %289 = sub i64 %287, %288
   store i64 %289, ptr %195, align 8
@@ -4308,9 +4308,9 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %236, %
   store i32 %291, ptr %30, align 8
   %292 = load i32, ptr %32, align 4
   %293 = icmp ult i32 %291, %292
-  br i1 %293, label %.lr.ph193, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %293, label %.lr.ph196, label %nfaExecLbrVerm_TopScan.exit
 
-.thread135:                                       ; preds = %rvermicelliExec.exit, %219
+.thread138:                                       ; preds = %rvermicelliExec.exit, %219
   %294 = load ptr, ptr %46, align 8
   %295 = load i32, ptr %4, align 4
   %296 = zext i32 %295 to i64
@@ -4328,20 +4328,20 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %236, %
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread146
+    i8 7, label %.thread149
   ]
 
-.thread146:                                       ; preds = %.thread135
+.thread149:                                       ; preds = %.thread138
   %303 = getelementptr inbounds nuw i8, ptr %195, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i5:                           ; preds = %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135, %.thread135
+repeatIsDead.exit.i.i5:                           ; preds = %.thread138, %.thread138, %.thread138, %.thread138, %.thread138, %.thread138, %.thread138
   %.0.shrunk.i.i.i6.in.in = getelementptr inbounds nuw i8, ptr %195, i64 8
   %.0.shrunk.i.i.i6.in = load i64, ptr %.0.shrunk.i.i.i6.in.in, align 8
   %.0.shrunk.i.i.i6.not = icmp eq i64 %.0.shrunk.i.i.i6.in, -1
   br i1 %.0.shrunk.i.i.i6.not, label %.split.i.i9, label %312
 
-.split.i.i9:                                      ; preds = %.thread135, %repeatIsDead.exit.i.i5
+.split.i.i9:                                      ; preds = %.thread138, %repeatIsDead.exit.i.i5
   %304 = getelementptr inbounds nuw i8, ptr %195, i64 8
   switch i8 %302, label %lbrTop.exit.i [
     i8 0, label %305
@@ -4415,9 +4415,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %.thread135, %.threa
 default.unreachable:                              ; preds = %312
   unreachable
 
-repeatLastTop.exit:                               ; preds = %312, %312, %.thread146, %313, %315, %317, %319, %321
-  %323 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %313 ], [ %.0.shrunk.i.i.i6.in.in, %315 ], [ %.0.shrunk.i.i.i6.in.in, %317 ], [ %.0.shrunk.i.i.i6.in.in, %319 ], [ %.0.shrunk.i.i.i6.in.in, %321 ], [ %303, %.thread146 ], [ %.0.shrunk.i.i.i6.in.in, %312 ], [ %.0.shrunk.i.i.i6.in.in, %312 ]
-  %.0.i13 = phi i64 [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ 0, %.thread146 ], [ %.0.shrunk.i.i.i6.in, %312 ], [ %.0.shrunk.i.i.i6.in, %312 ]
+repeatLastTop.exit:                               ; preds = %312, %312, %.thread149, %313, %315, %317, %319, %321
+  %323 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %313 ], [ %.0.shrunk.i.i.i6.in.in, %315 ], [ %.0.shrunk.i.i.i6.in.in, %317 ], [ %.0.shrunk.i.i.i6.in.in, %319 ], [ %.0.shrunk.i.i.i6.in.in, %321 ], [ %303, %.thread149 ], [ %.0.shrunk.i.i.i6.in.in, %312 ], [ %.0.shrunk.i.i.i6.in.in, %312 ]
+  %.0.i13 = phi i64 [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ 0, %.thread149 ], [ %.0.shrunk.i.i.i6.in, %312 ], [ %.0.shrunk.i.i.i6.in, %312 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %214
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -4456,16 +4456,16 @@ repeatLastTop.exit:                               ; preds = %312, %312, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %297, ptr noundef nonnull %323, i64 noundef %214, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrVerm_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread114, %286, %.lr.ph193, %206, %216
-  %331 = phi i32 [ %201, %216 ], [ %201, %206 ], [ %292, %286 ], [ %201, %.lr.ph193 ], [ %196, %repeatIsDead.exit.i.thread114 ]
-  %332 = phi i32 [ %217, %216 ], [ %217, %206 ], [ %291, %286 ], [ %200, %.lr.ph193 ], [ %181, %repeatIsDead.exit.i.thread114 ]
+nfaExecLbrVerm_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread117, %286, %.lr.ph196, %206, %216
+  %331 = phi i32 [ %201, %216 ], [ %201, %206 ], [ %292, %286 ], [ %201, %.lr.ph196 ], [ %196, %repeatIsDead.exit.i.thread117 ]
+  %332 = phi i32 [ %217, %216 ], [ %217, %206 ], [ %291, %286 ], [ %200, %.lr.ph196 ], [ %181, %repeatIsDead.exit.i.thread117 ]
   %333 = icmp ult i32 %332, %331
   br i1 %333, label %334, label %nfaExecLbrVerm_Q_i.exit
 
 334:                                              ; preds = %nfaExecLbrVerm_TopScan.exit
   %335 = zext i32 %332 to i64
-  %.idx.i22 = mul nuw nsw i64 %335, 24
-  %336 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %335, 24
+  %336 = getelementptr i8, ptr %39, i64 %.idx.i25
   %337 = load i64, ptr %336, align 8
   %338 = icmp sgt i64 %337, %2
   br i1 %338, label %339, label %nfaExecLbrVerm_Q_i.exit
@@ -4519,7 +4519,7 @@ repeatIsDead.exit.i.i:                            ; preds = %347, %347, %347, %3
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %366
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %358, label %default.unreachable225 [
+  switch i8 %358, label %default.unreachable228 [
     i8 0, label %359
     i8 1, label %360
     i8 2, label %361
@@ -4558,7 +4558,7 @@ repeatIsDead.exit.i.i:                            ; preds = %347, %347, %347, %3
   br label %lbrTop.exit.i
 
 366:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %358, label %default.unreachable165 [
+  switch i8 %358, label %default.unreachable168 [
     i8 0, label %367
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -4588,7 +4588,7 @@ repeatIsDead.exit.i.i:                            ; preds = %347, %347, %347, %3
   %376 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %353, ptr noundef nonnull %.0.shrunk.i124.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable165:                           ; preds = %366
+default.unreachable168:                           ; preds = %366
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %366, %366, %347, %367, %369, %371, %373, %375
@@ -4631,7 +4631,7 @@ repeatLastTop.exit15:                             ; preds = %366, %366, %347, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %353, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %350, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable225:                           ; preds = %.split.i.i
+default.unreachable228:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %347, %repeatLastTop.exit, %.split.i.i9, %305, %306, %307, %308, %309, %310, %311, %.split16.i.i12, %325, %326, %327, %328, %329, %330, %repeatLastTop.exit15, %359, %360, %361, %362, %363, %364, %365, %.split16.i.i, %378, %379, %380, %381, %382, %383, %repeatIsDead.exit.i.thread
@@ -4657,29 +4657,29 @@ lbrTop.exit.i:                                    ; preds = %347, %repeatLastTop
   %396 = getelementptr inbounds nuw i8, ptr %4, i64 %395
   %397 = load i8, ptr %396, align 4
   switch i8 %397, label %nfaExecLbrVerm_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i24
-    i8 3, label %repeatIsDead.exit.i24
-    i8 1, label %repeatIsDead.exit.i24
-    i8 2, label %repeatIsDead.exit.i24
-    i8 4, label %repeatIsDead.exit.i24
-    i8 5, label %repeatIsDead.exit.i24
-    i8 6, label %repeatIsDead.exit.i24
-    i8 7, label %repeatIsDead.exit.i24.thread
+    i8 0, label %repeatIsDead.exit.i27
+    i8 3, label %repeatIsDead.exit.i27
+    i8 1, label %repeatIsDead.exit.i27
+    i8 2, label %repeatIsDead.exit.i27
+    i8 4, label %repeatIsDead.exit.i27
+    i8 5, label %repeatIsDead.exit.i27
+    i8 6, label %repeatIsDead.exit.i27
+    i8 7, label %repeatIsDead.exit.i27.thread
   ]
 
-repeatIsDead.exit.i24:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i25.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i25.in = load i64, ptr %.0.shrunk.i.i25.in.in, align 8
-  %.0.shrunk.i.i25.not = icmp eq i64 %.0.shrunk.i.i25.in, -1
-  br i1 %.0.shrunk.i.i25.not, label %nfaExecLbrVerm_Q_i.exit, label %repeatIsDead.exit.i24.thread
+repeatIsDead.exit.i27:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i28.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i28.in = load i64, ptr %.0.shrunk.i.i28.in.in, align 8
+  %.0.shrunk.i.i28.not = icmp eq i64 %.0.shrunk.i.i28.in, -1
+  br i1 %.0.shrunk.i.i28.not, label %nfaExecLbrVerm_Q_i.exit, label %repeatIsDead.exit.i27.thread
 
-repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i24
+repeatIsDead.exit.i27.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i27
   %398 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %399 = load i32, ptr %398, align 4
   %400 = icmp eq i32 %399, 65535
   br i1 %400, label %nfaExecLbrVerm_Q_i.exit, label %401
 
-401:                                              ; preds = %repeatIsDead.exit.i24.thread
+401:                                              ; preds = %repeatIsDead.exit.i27.thread
   %402 = getelementptr inbounds nuw i8, ptr %396, i64 16
   %403 = load i32, ptr %402, align 4
   %404 = zext i32 %403 to i64
@@ -4725,11 +4725,11 @@ repeatLastTop.exit.i:                             ; preds = %417, %415, %413, %4
   %420 = zext i32 %419 to i64
   %421 = add i64 %.0.i12.i, %420
   %422 = icmp ult i64 %.0101.i.lcssa, %421
-  %..i29 = zext i1 %422 to i8
+  %..i32 = zext i1 %422 to i8
   br label %nfaExecLbrVerm_Q_i.exit
 
-nfaExecLbrVerm_Q_i.exit:                          ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i24.thread, %repeatIsDead.exit.i24, %clearRepeat.exit.i, %12, %29, %186, %nfaExecLbrVerm_TopScan.exit, %334, %339
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %186 ], [ 1, %339 ], [ 2, %clearRepeat.exit.i ], [ 0, %334 ], [ 0, %nfaExecLbrVerm_TopScan.exit ], [ %..i29, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i24 ], [ 1, %repeatIsDead.exit.i24.thread ], [ 0, %._crit_edge ]
+nfaExecLbrVerm_Q_i.exit:                          ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i27.thread, %repeatIsDead.exit.i27, %clearRepeat.exit.i, %12, %29, %186, %nfaExecLbrVerm_TopScan.exit, %334, %339
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %186 ], [ 1, %339 ], [ 2, %clearRepeat.exit.i ], [ 0, %334 ], [ 0, %nfaExecLbrVerm_TopScan.exit ], [ %..i32, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i27 ], [ 1, %repeatIsDead.exit.i27.thread ], [ 0, %._crit_edge ]
   ret i8 %.2.i
 }
 
@@ -4766,9 +4766,9 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrVerm_QR(ptr noundef %0, ptr n
   %27 = load i64, ptr %26, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
   %28 = icmp ult i32 %17, %7
-  br i1 %28, label %.lr.ph340, label %._crit_edge
+  br i1 %28, label %.lr.ph343, label %._crit_edge
 
-.lr.ph340:                                        ; preds = %9
+.lr.ph343:                                        ; preds = %9
   %.0.shrunk.i83.in.in = getelementptr inbounds nuw i8, ptr %23, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -4779,12 +4779,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrVerm_QR(ptr noundef %0, ptr n
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %36
 
-36:                                               ; preds = %.lr.ph340, %lbrTop.exit
-  %37 = phi i64 [ %11, %.lr.ph340 ], [ %386, %lbrTop.exit ]
-  %38 = phi i32 [ %17, %.lr.ph340 ], [ %392, %lbrTop.exit ]
-  %.064339 = phi i64 [ %16, %.lr.ph340 ], [ %391, %lbrTop.exit ]
+36:                                               ; preds = %.lr.ph343, %lbrTop.exit
+  %37 = phi i64 [ %11, %.lr.ph343 ], [ %386, %lbrTop.exit ]
+  %38 = phi i32 [ %17, %.lr.ph343 ], [ %392, %lbrTop.exit ]
+  %.064342 = phi i64 [ %16, %.lr.ph343 ], [ %391, %lbrTop.exit ]
   %39 = load i8, ptr %21, align 4
-  switch i8 %39, label %repeatIsDead.exit85.thread184 [
+  switch i8 %39, label %repeatIsDead.exit85.thread187 [
     i8 0, label %repeatIsDead.exit85
     i8 3, label %repeatIsDead.exit85
     i8 1, label %repeatIsDead.exit85
@@ -4798,7 +4798,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrVerm_QR(ptr noundef %0, ptr n
 repeatIsDead.exit85:                              ; preds = %36, %36, %36, %36, %36, %36, %36
   %.0.shrunk.i83.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i83.not = icmp eq i64 %.0.shrunk.i83.in, -1
-  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread184, label %repeatIsDead.exit85.thread
+  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread187, label %repeatIsDead.exit85.thread
 
 repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.exit85
   %40 = zext i32 %38 to i64
@@ -4806,7 +4806,7 @@ repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.e
   %41 = getelementptr i8, ptr %13, i64 %.idx.i75
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %37
-  %44 = icmp ult i64 %.064339, %37
+  %44 = icmp ult i64 %.064342, %37
   br i1 %44, label %45, label %nfaExecLbrVerm_StreamSilent.exit
 
 45:                                               ; preds = %repeatIsDead.exit85.thread
@@ -4814,147 +4814,147 @@ repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.e
   %46 = load ptr, ptr %29, align 8
   %47 = load i64, ptr %30, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.064339
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.064342
   %50 = sub i64 0, %37
   %51 = getelementptr inbounds i8, ptr %49, i64 %50
   %52 = load i32, ptr %18, align 4
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %18, i64 %53
   %55 = load ptr, ptr %22, align 8
-  %56 = icmp eq i64 %43, %.064339
+  %56 = icmp eq i64 %43, %.064342
   br i1 %56, label %nfaExecLbrVerm_StreamSilent.exit, label %57
 
 57:                                               ; preds = %45
-  %58 = sub i64 %., %.064339
+  %58 = sub i64 %., %.064342
   %59 = load i8, ptr %31, align 4
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 %58
   %61 = insertelement <16 x i8> poison, i8 %59, i64 0
   %62 = shufflevector <16 x i8> %61, <16 x i8> poison, <16 x i32> zeroinitializer
   %63 = icmp slt i64 %58, 16
-  br i1 %63, label %.preheader302, label %69
+  br i1 %63, label %.preheader305, label %69
 
-.preheader302:                                    ; preds = %57
-  %.not342 = icmp eq i64 %., %.064339
-  br i1 %.not342, label %vermicelliExec.exit, label %.lr.ph322
+.preheader305:                                    ; preds = %57
+  %.not345 = icmp eq i64 %., %.064342
+  br i1 %.not345, label %vermicelliExec.exit, label %.lr.ph325
 
-.lr.ph322:                                        ; preds = %.preheader302, %66
-  %.042.i321 = phi ptr [ %67, %66 ], [ %51, %.preheader302 ]
-  %64 = load i8, ptr %.042.i321, align 1
+.lr.ph325:                                        ; preds = %.preheader305, %66
+  %.042.i324 = phi ptr [ %67, %66 ], [ %51, %.preheader305 ]
+  %64 = load i8, ptr %.042.i324, align 1
   %65 = icmp eq i8 %64, %59
   br i1 %65, label %vermicelliExec.exit, label %66
 
-66:                                               ; preds = %.lr.ph322
-  %67 = getelementptr inbounds nuw i8, ptr %.042.i321, i64 1
+66:                                               ; preds = %.lr.ph325
+  %67 = getelementptr inbounds nuw i8, ptr %.042.i324, i64 1
   %68 = icmp ult ptr %67, %60
-  br i1 %68, label %.lr.ph322, label %vermicelliExec.exit
+  br i1 %68, label %.lr.ph325, label %vermicelliExec.exit
 
 69:                                               ; preds = %57
   %70 = ptrtoint ptr %51 to i64
   %71 = and i64 %70, 15
-  %.not.i123 = icmp eq i64 %71, 0
-  br i1 %.not.i123, label %81, label %72
+  %.not.i126 = icmp eq i64 %71, 0
+  br i1 %.not.i126, label %81, label %72
 
 72:                                               ; preds = %69
   %73 = load <16 x i8>, ptr %51, align 1
   %74 = icmp eq <16 x i8> %62, %73
   %75 = bitcast <16 x i1> %74 to i16
-  %.not9.i144 = icmp eq i16 %75, 0
-  br i1 %.not9.i144, label %vermUnalign.exit146.thread, label %vermUnalign.exit146, !prof !5
+  %.not9.i147 = icmp eq i16 %75, 0
+  br i1 %.not9.i147, label %vermUnalign.exit149.thread, label %vermUnalign.exit149, !prof !5
 
-vermUnalign.exit146.thread:                       ; preds = %72
+vermUnalign.exit149.thread:                       ; preds = %72
   %76 = sub nuw nsw i64 16, %71
   %77 = getelementptr inbounds nuw i8, ptr %51, i64 %76
   br label %81
 
-vermUnalign.exit146:                              ; preds = %72
+vermUnalign.exit149:                              ; preds = %72
   %78 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %75, i1 true)
   %79 = zext nneg i16 %78 to i64
   %80 = getelementptr inbounds nuw i8, ptr %51, i64 %79
   br label %vermicelliExec.exit
 
-81:                                               ; preds = %vermUnalign.exit146.thread, %69
-  %.143.i = phi ptr [ %51, %69 ], [ %77, %vermUnalign.exit146.thread ]
+81:                                               ; preds = %vermUnalign.exit149.thread, %69
+  %.143.i = phi ptr [ %51, %69 ], [ %77, %vermUnalign.exit149.thread ]
   %82 = getelementptr inbounds i8, ptr %60, i64 -1
   %83 = getelementptr inbounds nuw i8, ptr %.143.i, i64 31
   %84 = icmp ult ptr %83, %82
-  br i1 %84, label %.lr.ph, label %.preheader303
+  br i1 %84, label %.lr.ph, label %.preheader306
 
-.preheader303:                                    ; preds = %98, %81
-  %.032.i151.lcssa = phi ptr [ %.143.i, %81 ], [ %99, %98 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.032.i151.lcssa, i64 15
+.preheader306:                                    ; preds = %98, %81
+  %.032.i154.lcssa = phi ptr [ %.143.i, %81 ], [ %99, %98 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.032.i154.lcssa, i64 15
   %86 = icmp ult ptr %85, %82
-  br i1 %86, label %.lr.ph320, label %vermSearchAligned.exit163.thread
+  br i1 %86, label %.lr.ph323, label %vermSearchAligned.exit166.thread
 
 .lr.ph:                                           ; preds = %81, %98
-  %.032.i151318 = phi ptr [ %99, %98 ], [ %.143.i, %81 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i151318, i64 16) ]
-  %87 = load <16 x i8>, ptr %.032.i151318, align 16
+  %.032.i154321 = phi ptr [ %99, %98 ], [ %.143.i, %81 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i154321, i64 16) ]
+  %87 = load <16 x i8>, ptr %.032.i154321, align 16
   %88 = icmp eq <16 x i8> %62, %87
-  %89 = getelementptr inbounds nuw i8, ptr %.032.i151318, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.032.i154321, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 16) ]
   %90 = load <16 x i8>, ptr %89, align 16
   %91 = icmp eq <16 x i8> %62, %90
   %92 = shufflevector <16 x i1> %88, <16 x i1> %91, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %93 = bitcast <32 x i1> %92 to i32
-  %.not39.i160.not = icmp eq i32 %93, 0
-  br i1 %.not39.i160.not, label %98, label %94, !prof !5
+  %.not39.i163.not = icmp eq i32 %93, 0
+  br i1 %.not39.i163.not, label %98, label %94, !prof !5
 
 94:                                               ; preds = %.lr.ph
   %95 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %93, i1 true)
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i8, ptr %.032.i151318, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %.032.i154321, i64 %96
   br label %vermicelliExec.exit
 
 98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds nuw i8, ptr %.032.i151318, i64 32
-  %100 = getelementptr inbounds nuw i8, ptr %.032.i151318, i64 63
+  %99 = getelementptr inbounds nuw i8, ptr %.032.i154321, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %.032.i154321, i64 63
   %101 = icmp ult ptr %100, %82
-  br i1 %101, label %.lr.ph, label %.preheader303
+  br i1 %101, label %.lr.ph, label %.preheader306
 
-.lr.ph320:                                        ; preds = %.preheader303, %109
-  %.133.i153319 = phi ptr [ %110, %109 ], [ %.032.i151.lcssa, %.preheader303 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i153319, i64 16) ]
-  %102 = load <16 x i8>, ptr %.133.i153319, align 16
+.lr.ph323:                                        ; preds = %.preheader306, %109
+  %.133.i156322 = phi ptr [ %110, %109 ], [ %.032.i154.lcssa, %.preheader306 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i156322, i64 16) ]
+  %102 = load <16 x i8>, ptr %.133.i156322, align 16
   %103 = icmp eq <16 x i8> %62, %102
   %104 = bitcast <16 x i1> %103 to i16
-  %.not37.i156.not = icmp eq i16 %104, 0
-  br i1 %.not37.i156.not, label %109, label %105, !prof !5
+  %.not37.i159.not = icmp eq i16 %104, 0
+  br i1 %.not37.i159.not, label %109, label %105, !prof !5
 
-105:                                              ; preds = %.lr.ph320
+105:                                              ; preds = %.lr.ph323
   %106 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %104, i1 true)
   %107 = zext nneg i16 %106 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %.133.i153319, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %.133.i156322, i64 %107
   br label %vermicelliExec.exit
 
-109:                                              ; preds = %.lr.ph320
-  %110 = getelementptr inbounds nuw i8, ptr %.133.i153319, i64 16
-  %111 = getelementptr inbounds nuw i8, ptr %.133.i153319, i64 31
+109:                                              ; preds = %.lr.ph323
+  %110 = getelementptr inbounds nuw i8, ptr %.133.i156322, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.133.i156322, i64 31
   %112 = icmp ult ptr %111, %82
-  br i1 %112, label %.lr.ph320, label %vermSearchAligned.exit163.thread
+  br i1 %112, label %.lr.ph323, label %vermSearchAligned.exit166.thread
 
-vermSearchAligned.exit163.thread:                 ; preds = %109, %.preheader303
+vermSearchAligned.exit166.thread:                 ; preds = %109, %.preheader306
   %113 = getelementptr inbounds i8, ptr %60, i64 -16
   %114 = load <16 x i8>, ptr %113, align 1
   %115 = icmp eq <16 x i8> %62, %114
   %116 = bitcast <16 x i1> %115 to i16
-  %.not9.i140 = icmp eq i16 %116, 0
-  br i1 %.not9.i140, label %vermUnalign.exit142, label %117, !prof !5
+  %.not9.i143 = icmp eq i16 %116, 0
+  br i1 %.not9.i143, label %vermUnalign.exit145, label %117, !prof !5
 
-117:                                              ; preds = %vermSearchAligned.exit163.thread
+117:                                              ; preds = %vermSearchAligned.exit166.thread
   %118 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %116, i1 true)
   %119 = zext nneg i16 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr %113, i64 %119
-  br label %vermUnalign.exit142
+  br label %vermUnalign.exit145
 
-vermUnalign.exit142:                              ; preds = %vermSearchAligned.exit163.thread, %117
-  %.08.i141 = phi ptr [ %120, %117 ], [ null, %vermSearchAligned.exit163.thread ]
-  %.not52.i = icmp eq ptr %.08.i141, null
-  %121 = select i1 %.not52.i, ptr %60, ptr %.08.i141
+vermUnalign.exit145:                              ; preds = %vermSearchAligned.exit166.thread, %117
+  %.08.i144 = phi ptr [ %120, %117 ], [ null, %vermSearchAligned.exit166.thread ]
+  %.not52.i = icmp eq ptr %.08.i144, null
+  %121 = select i1 %.not52.i, ptr %60, ptr %.08.i144
   br label %vermicelliExec.exit
 
-vermicelliExec.exit:                              ; preds = %.lr.ph322, %66, %.preheader302, %94, %105, %vermUnalign.exit146, %vermUnalign.exit142
-  %.0.i124 = phi ptr [ %80, %vermUnalign.exit146 ], [ %121, %vermUnalign.exit142 ], [ %97, %94 ], [ %108, %105 ], [ %51, %.preheader302 ], [ %.042.i321, %.lr.ph322 ], [ %67, %66 ]
-  %122 = icmp eq ptr %.0.i124, %60
+vermicelliExec.exit:                              ; preds = %.lr.ph325, %66, %.preheader305, %94, %105, %vermUnalign.exit149, %vermUnalign.exit145
+  %.0.i127 = phi ptr [ %80, %vermUnalign.exit149 ], [ %121, %vermUnalign.exit145 ], [ %97, %94 ], [ %108, %105 ], [ %51, %.preheader305 ], [ %.042.i324, %.lr.ph325 ], [ %67, %66 ]
+  %122 = icmp eq ptr %.0.i127, %60
   br i1 %122, label %nfaExecLbrVerm_StreamSilent.exit, label %123
 
 123:                                              ; preds = %vermicelliExec.exit
@@ -4968,9 +4968,9 @@ nfaExecLbrVerm_StreamSilent.exit.sink.split:      ; preds = %123
   br label %nfaExecLbrVerm_StreamSilent.exit
 
 nfaExecLbrVerm_StreamSilent.exit:                 ; preds = %123, %nfaExecLbrVerm_StreamSilent.exit.sink.split, %vermicelliExec.exit, %45, %repeatIsDead.exit85.thread
-  %.165 = phi i64 [ %.064339, %repeatIsDead.exit85.thread ], [ %., %123 ], [ %., %45 ], [ %., %vermicelliExec.exit ], [ %., %nfaExecLbrVerm_StreamSilent.exit.sink.split ]
+  %.165 = phi i64 [ %.064342, %repeatIsDead.exit85.thread ], [ %., %123 ], [ %., %45 ], [ %., %vermicelliExec.exit ], [ %., %nfaExecLbrVerm_StreamSilent.exit.sink.split ]
   %126 = load i8, ptr %21, align 4
-  switch i8 %126, label %repeatIsDead.exit85.thread184 [
+  switch i8 %126, label %repeatIsDead.exit85.thread187 [
     i8 0, label %repeatIsDead.exit82
     i8 3, label %repeatIsDead.exit82
     i8 1, label %repeatIsDead.exit82
@@ -4984,7 +4984,7 @@ nfaExecLbrVerm_StreamSilent.exit:                 ; preds = %123, %nfaExecLbrVer
 repeatIsDead.exit82:                              ; preds = %nfaExecLbrVerm_StreamSilent.exit, %nfaExecLbrVerm_StreamSilent.exit, %nfaExecLbrVerm_StreamSilent.exit, %nfaExecLbrVerm_StreamSilent.exit, %nfaExecLbrVerm_StreamSilent.exit, %nfaExecLbrVerm_StreamSilent.exit, %nfaExecLbrVerm_StreamSilent.exit
   %.0.shrunk.i80.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i80.not = icmp eq i64 %.0.shrunk.i80.in, -1
-  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread184, label %repeatIsDead.exit82.thread
+  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread187, label %repeatIsDead.exit82.thread
 
 repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrVerm_StreamSilent.exit, %repeatIsDead.exit82
   %127 = icmp ult i64 %.165, %43
@@ -5006,62 +5006,62 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrVerm_Stre
   %141 = insertelement <16 x i8> poison, i8 %139, i64 0
   %142 = shufflevector <16 x i8> %141, <16 x i8> poison, <16 x i32> zeroinitializer
   %143 = icmp slt i64 %138, 16
-  br i1 %143, label %.lr.ph332, label %149
+  br i1 %143, label %.lr.ph335, label %149
 
-.lr.ph332:                                        ; preds = %128, %146
-  %.042.i132331 = phi ptr [ %147, %146 ], [ %133, %128 ]
-  %144 = load i8, ptr %.042.i132331, align 1
+.lr.ph335:                                        ; preds = %128, %146
+  %.042.i135334 = phi ptr [ %147, %146 ], [ %133, %128 ]
+  %144 = load i8, ptr %.042.i135334, align 1
   %145 = icmp eq i8 %144, %139
-  br i1 %145, label %vermicelliExec.exit133, label %146
+  br i1 %145, label %vermicelliExec.exit136, label %146
 
-146:                                              ; preds = %.lr.ph332
-  %147 = getelementptr inbounds nuw i8, ptr %.042.i132331, i64 1
+146:                                              ; preds = %.lr.ph335
+  %147 = getelementptr inbounds nuw i8, ptr %.042.i135334, i64 1
   %148 = icmp ult ptr %147, %140
-  br i1 %148, label %.lr.ph332, label %vermicelliExec.exit133
+  br i1 %148, label %.lr.ph335, label %vermicelliExec.exit136
 
 149:                                              ; preds = %128
   %150 = ptrtoint ptr %133 to i64
   %151 = and i64 %150, 15
-  %.not.i125 = icmp eq i64 %151, 0
-  br i1 %.not.i125, label %161, label %152
+  %.not.i128 = icmp eq i64 %151, 0
+  br i1 %.not.i128, label %161, label %152
 
 152:                                              ; preds = %149
   %153 = load <16 x i8>, ptr %133, align 1
   %154 = icmp eq <16 x i8> %142, %153
   %155 = bitcast <16 x i1> %154 to i16
-  %.not9.i136 = icmp eq i16 %155, 0
-  br i1 %.not9.i136, label %vermUnalign.exit138.thread, label %vermUnalign.exit138, !prof !5
+  %.not9.i139 = icmp eq i16 %155, 0
+  br i1 %.not9.i139, label %vermUnalign.exit141.thread, label %vermUnalign.exit141, !prof !5
 
-vermUnalign.exit138.thread:                       ; preds = %152
+vermUnalign.exit141.thread:                       ; preds = %152
   %156 = sub nuw nsw i64 16, %151
   %157 = getelementptr inbounds nuw i8, ptr %133, i64 %156
   br label %161
 
-vermUnalign.exit138:                              ; preds = %152
+vermUnalign.exit141:                              ; preds = %152
   %158 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %155, i1 true)
   %159 = zext nneg i16 %158 to i64
   %160 = getelementptr inbounds nuw i8, ptr %133, i64 %159
-  br label %vermicelliExec.exit133
+  br label %vermicelliExec.exit136
 
-161:                                              ; preds = %vermUnalign.exit138.thread, %149
-  %.143.i129 = phi ptr [ %133, %149 ], [ %157, %vermUnalign.exit138.thread ]
+161:                                              ; preds = %vermUnalign.exit141.thread, %149
+  %.143.i132 = phi ptr [ %133, %149 ], [ %157, %vermUnalign.exit141.thread ]
   %162 = getelementptr inbounds i8, ptr %140, i64 -1
-  %163 = getelementptr inbounds nuw i8, ptr %.143.i129, i64 31
+  %163 = getelementptr inbounds nuw i8, ptr %.143.i132, i64 31
   %164 = icmp ult ptr %163, %162
-  br i1 %164, label %.lr.ph327, label %.preheader301
+  br i1 %164, label %.lr.ph330, label %.preheader304
 
-.preheader301:                                    ; preds = %178, %161
-  %.032.i.lcssa = phi ptr [ %.143.i129, %161 ], [ %179, %178 ]
+.preheader304:                                    ; preds = %178, %161
+  %.032.i.lcssa = phi ptr [ %.143.i132, %161 ], [ %179, %178 ]
   %165 = getelementptr inbounds nuw i8, ptr %.032.i.lcssa, i64 15
   %166 = icmp ult ptr %165, %162
-  br i1 %166, label %.lr.ph330, label %vermSearchAligned.exit.thread
+  br i1 %166, label %.lr.ph333, label %vermSearchAligned.exit.thread
 
-.lr.ph327:                                        ; preds = %161, %178
-  %.032.i326 = phi ptr [ %179, %178 ], [ %.143.i129, %161 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i326, i64 16) ]
-  %167 = load <16 x i8>, ptr %.032.i326, align 16
+.lr.ph330:                                        ; preds = %161, %178
+  %.032.i329 = phi ptr [ %179, %178 ], [ %.143.i132, %161 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i329, i64 16) ]
+  %167 = load <16 x i8>, ptr %.032.i329, align 16
   %168 = icmp eq <16 x i8> %142, %167
-  %169 = getelementptr inbounds nuw i8, ptr %.032.i326, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %.032.i329, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %169, i64 16) ]
   %170 = load <16 x i8>, ptr %169, align 16
   %171 = icmp eq <16 x i8> %142, %170
@@ -5070,40 +5070,40 @@ vermUnalign.exit138:                              ; preds = %152
   %.not39.i.not = icmp eq i32 %173, 0
   br i1 %.not39.i.not, label %178, label %174, !prof !5
 
-174:                                              ; preds = %.lr.ph327
+174:                                              ; preds = %.lr.ph330
   %175 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %173, i1 true)
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i8, ptr %.032.i326, i64 %176
-  br label %vermicelliExec.exit133
+  %177 = getelementptr inbounds nuw i8, ptr %.032.i329, i64 %176
+  br label %vermicelliExec.exit136
 
-178:                                              ; preds = %.lr.ph327
-  %179 = getelementptr inbounds nuw i8, ptr %.032.i326, i64 32
-  %180 = getelementptr inbounds nuw i8, ptr %.032.i326, i64 63
+178:                                              ; preds = %.lr.ph330
+  %179 = getelementptr inbounds nuw i8, ptr %.032.i329, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %.032.i329, i64 63
   %181 = icmp ult ptr %180, %162
-  br i1 %181, label %.lr.ph327, label %.preheader301
+  br i1 %181, label %.lr.ph330, label %.preheader304
 
-.lr.ph330:                                        ; preds = %.preheader301, %189
-  %.133.i329 = phi ptr [ %190, %189 ], [ %.032.i.lcssa, %.preheader301 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i329, i64 16) ]
-  %182 = load <16 x i8>, ptr %.133.i329, align 16
+.lr.ph333:                                        ; preds = %.preheader304, %189
+  %.133.i332 = phi ptr [ %190, %189 ], [ %.032.i.lcssa, %.preheader304 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i332, i64 16) ]
+  %182 = load <16 x i8>, ptr %.133.i332, align 16
   %183 = icmp eq <16 x i8> %142, %182
   %184 = bitcast <16 x i1> %183 to i16
   %.not37.i.not = icmp eq i16 %184, 0
   br i1 %.not37.i.not, label %189, label %185, !prof !5
 
-185:                                              ; preds = %.lr.ph330
+185:                                              ; preds = %.lr.ph333
   %186 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %184, i1 true)
   %187 = zext nneg i16 %186 to i64
-  %188 = getelementptr inbounds nuw i8, ptr %.133.i329, i64 %187
-  br label %vermicelliExec.exit133
+  %188 = getelementptr inbounds nuw i8, ptr %.133.i332, i64 %187
+  br label %vermicelliExec.exit136
 
-189:                                              ; preds = %.lr.ph330
-  %190 = getelementptr inbounds nuw i8, ptr %.133.i329, i64 16
-  %191 = getelementptr inbounds nuw i8, ptr %.133.i329, i64 31
+189:                                              ; preds = %.lr.ph333
+  %190 = getelementptr inbounds nuw i8, ptr %.133.i332, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %.133.i332, i64 31
   %192 = icmp ult ptr %191, %162
-  br i1 %192, label %.lr.ph330, label %vermSearchAligned.exit.thread
+  br i1 %192, label %.lr.ph333, label %vermSearchAligned.exit.thread
 
-vermSearchAligned.exit.thread:                    ; preds = %189, %.preheader301
+vermSearchAligned.exit.thread:                    ; preds = %189, %.preheader304
   %193 = getelementptr inbounds i8, ptr %140, i64 -16
   %194 = load <16 x i8>, ptr %193, align 1
   %195 = icmp eq <16 x i8> %142, %194
@@ -5119,28 +5119,28 @@ vermSearchAligned.exit.thread:                    ; preds = %189, %.preheader301
 
 vermUnalign.exit:                                 ; preds = %vermSearchAligned.exit.thread, %197
   %.08.i = phi ptr [ %200, %197 ], [ null, %vermSearchAligned.exit.thread ]
-  %.not52.i131 = icmp eq ptr %.08.i, null
-  %201 = select i1 %.not52.i131, ptr %140, ptr %.08.i
-  br label %vermicelliExec.exit133
+  %.not52.i134 = icmp eq ptr %.08.i, null
+  %201 = select i1 %.not52.i134, ptr %140, ptr %.08.i
+  br label %vermicelliExec.exit136
 
-vermicelliExec.exit133:                           ; preds = %.lr.ph332, %146, %174, %185, %vermUnalign.exit138, %vermUnalign.exit
-  %.0.i128 = phi ptr [ %160, %vermUnalign.exit138 ], [ %201, %vermUnalign.exit ], [ %177, %174 ], [ %188, %185 ], [ %.042.i132331, %.lr.ph332 ], [ %147, %146 ]
-  %202 = icmp eq ptr %.0.i128, %140
+vermicelliExec.exit136:                           ; preds = %.lr.ph335, %146, %174, %185, %vermUnalign.exit141, %vermUnalign.exit
+  %.0.i131 = phi ptr [ %160, %vermUnalign.exit141 ], [ %201, %vermUnalign.exit ], [ %177, %174 ], [ %188, %185 ], [ %.042.i135334, %.lr.ph335 ], [ %147, %146 ]
+  %202 = icmp eq ptr %.0.i131, %140
   br i1 %202, label %nfaExecLbrVerm_StreamSilent.exit94, label %203
 
-203:                                              ; preds = %vermicelliExec.exit133
+203:                                              ; preds = %vermicelliExec.exit136
   %204 = load i8, ptr %136, align 4
-  %switch398 = icmp ult i8 %204, 7
-  br i1 %switch398, label %nfaExecLbrVerm_StreamSilent.exit94.sink.split, label %nfaExecLbrVerm_StreamSilent.exit94
+  %switch401 = icmp ult i8 %204, 7
+  br i1 %switch401, label %nfaExecLbrVerm_StreamSilent.exit94.sink.split, label %nfaExecLbrVerm_StreamSilent.exit94
 
 nfaExecLbrVerm_StreamSilent.exit94.sink.split:    ; preds = %203
   %205 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i64 -1, ptr %205, align 8
   br label %nfaExecLbrVerm_StreamSilent.exit94
 
-nfaExecLbrVerm_StreamSilent.exit94:               ; preds = %203, %nfaExecLbrVerm_StreamSilent.exit94.sink.split, %vermicelliExec.exit133, %repeatIsDead.exit82.thread
+nfaExecLbrVerm_StreamSilent.exit94:               ; preds = %203, %nfaExecLbrVerm_StreamSilent.exit94.sink.split, %vermicelliExec.exit136, %repeatIsDead.exit82.thread
   %206 = load i8, ptr %21, align 4
-  switch i8 %206, label %repeatIsDead.exit85.thread184 [
+  switch i8 %206, label %repeatIsDead.exit85.thread187 [
     i8 0, label %repeatIsDead.exit79
     i8 3, label %repeatIsDead.exit79
     i8 1, label %repeatIsDead.exit79
@@ -5154,33 +5154,33 @@ nfaExecLbrVerm_StreamSilent.exit94:               ; preds = %203, %nfaExecLbrVer
 repeatIsDead.exit79:                              ; preds = %nfaExecLbrVerm_StreamSilent.exit94, %nfaExecLbrVerm_StreamSilent.exit94, %nfaExecLbrVerm_StreamSilent.exit94, %nfaExecLbrVerm_StreamSilent.exit94, %nfaExecLbrVerm_StreamSilent.exit94, %nfaExecLbrVerm_StreamSilent.exit94, %nfaExecLbrVerm_StreamSilent.exit94
   %.0.shrunk.i77.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i77.not = icmp eq i64 %.0.shrunk.i77.in, -1
-  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread184, label %repeatIsDead.exit79.thread
+  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread187, label %repeatIsDead.exit79.thread
 
-repeatIsDead.exit85.thread184:                    ; preds = %nfaExecLbrVerm_StreamSilent.exit94, %nfaExecLbrVerm_StreamSilent.exit, %36, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
+repeatIsDead.exit85.thread187:                    ; preds = %nfaExecLbrVerm_StreamSilent.exit94, %nfaExecLbrVerm_StreamSilent.exit, %36, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
   %207 = load i64, ptr %10, align 8
   %208 = load ptr, ptr %22, align 8
   %209 = load i32, ptr %6, align 4
   %210 = load i32, ptr %4, align 8
   %211 = icmp ult i32 %210, %209
-  br i1 %211, label %.lr.ph336.lr.ph, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %211, label %.lr.ph339.lr.ph, label %nfaExecLbrVerm_TopScan.exit
 
-.lr.ph336.lr.ph:                                  ; preds = %repeatIsDead.exit85.thread184
+.lr.ph339.lr.ph:                                  ; preds = %repeatIsDead.exit85.thread187
   %212 = load i32, ptr %18, align 4
   %213 = zext i32 %212 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %213
-  br label %.lr.ph336
+  br label %.lr.ph339
 
-.lr.ph336:                                        ; preds = %.lr.ph336.lr.ph, %298
-  %214 = phi i32 [ %210, %.lr.ph336.lr.ph ], [ %303, %298 ]
-  %215 = phi i32 [ %209, %.lr.ph336.lr.ph ], [ %304, %298 ]
+.lr.ph339:                                        ; preds = %.lr.ph339.lr.ph, %298
+  %214 = phi i32 [ %210, %.lr.ph339.lr.ph ], [ %303, %298 ]
+  %215 = phi i32 [ %209, %.lr.ph339.lr.ph ], [ %304, %298 ]
   %216 = zext i32 %214 to i64
   %217 = zext i32 %215 to i64
   br label %218
 
-218:                                              ; preds = %.lr.ph336, %228
-  %indvars.iv = phi i64 [ %216, %.lr.ph336 ], [ %indvars.iv.next, %228 ]
-  %.idx.i116 = mul nuw nsw i64 %indvars.iv, 24
-  %219 = getelementptr i8, ptr %13, i64 %.idx.i116
+218:                                              ; preds = %.lr.ph339, %228
+  %indvars.iv = phi i64 [ %216, %.lr.ph339 ], [ %indvars.iv.next, %228 ]
+  %.idx.i119 = mul nuw nsw i64 %indvars.iv, 24
+  %219 = getelementptr i8, ptr %13, i64 %.idx.i119
   %220 = load i64, ptr %219, align 8
   %.not.i96 = icmp sgt i64 %220, %27
   br i1 %.not.i96, label %nfaExecLbrVerm_TopScan.exit, label %221
@@ -5218,7 +5218,7 @@ repeatIsDead.exit85.thread184:                    ; preds = %nfaExecLbrVerm_Stre
   %237 = icmp ule i64 %spec.select, %226
   %.not57.i = icmp ult i64 %226, %207
   %or.cond.i = select i1 %237, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread248, label %238
+  br i1 %or.cond.i, label %.thread251, label %238
 
 238:                                              ; preds = %231
   %239 = load ptr, ptr %32, align 8
@@ -5247,18 +5247,18 @@ repeatIsDead.exit85.thread184:                    ; preds = %nfaExecLbrVerm_Stre
 251:                                              ; preds = %238
   %252 = ptrtoint ptr %244 to i64
   %253 = and i64 %252, 15
-  %.not.i165 = icmp eq i64 %253, 0
-  br i1 %.not.i165, label %268, label %254
+  %.not.i168 = icmp eq i64 %253, 0
+  br i1 %.not.i168, label %268, label %254
 
 254:                                              ; preds = %251
   %255 = getelementptr inbounds i8, ptr %244, i64 -16
   %256 = load <16 x i8>, ptr %255, align 1
   %257 = icmp eq <16 x i8> %246, %256
   %258 = bitcast <16 x i1> %257 to i16
-  %.not9.i174 = icmp eq i16 %258, 0
-  br i1 %.not9.i174, label %265, label %.thread235, !prof !5
+  %.not9.i177 = icmp eq i16 %258, 0
+  br i1 %.not9.i177, label %265, label %.thread238, !prof !5
 
-.thread235:                                       ; preds = %254
+.thread238:                                       ; preds = %254
   %259 = zext i16 %258 to i32
   %260 = getelementptr inbounds nuw i8, ptr %244, i64 15
   %261 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %259, i1 true)
@@ -5270,8 +5270,8 @@ repeatIsDead.exit85.thread184:                    ; preds = %nfaExecLbrVerm_Stre
 265:                                              ; preds = %254
   %266 = sub nsw i64 0, %253
   %267 = getelementptr inbounds i8, ptr %244, i64 %266
-  %.not58.i169 = icmp ult ptr %243, %267
-  br i1 %.not58.i169, label %268, label %rvermicelliExec.exit
+  %.not58.i172 = icmp ult ptr %243, %267
+  br i1 %.not58.i172, label %268, label %rvermicelliExec.exit
 
 268:                                              ; preds = %265, %251
   %.147.i = phi ptr [ %267, %265 ], [ %244, %251 ]
@@ -5305,8 +5305,8 @@ rvermSearchAligned.exit:                          ; preds = %272
   %284 = load <16 x i8>, ptr %243, align 1
   %285 = icmp eq <16 x i8> %246, %284
   %286 = bitcast <16 x i1> %285 to i16
-  %.not9.i171 = icmp eq i16 %286, 0
-  br i1 %.not9.i171, label %rvermUnalign.exit, label %287, !prof !5
+  %.not9.i174 = icmp eq i16 %286, 0
+  br i1 %.not9.i174, label %rvermUnalign.exit, label %287, !prof !5
 
 287:                                              ; preds = %283
   %288 = zext i16 %286 to i32
@@ -5318,20 +5318,20 @@ rvermSearchAligned.exit:                          ; preds = %272
   br label %rvermUnalign.exit
 
 rvermUnalign.exit:                                ; preds = %283, %287
-  %.08.i172 = phi ptr [ %293, %287 ], [ null, %283 ]
-  %.not60.i = icmp eq ptr %.08.i172, null
+  %.08.i175 = phi ptr [ %293, %287 ], [ null, %283 ]
+  %.not60.i = icmp eq ptr %.08.i175, null
   %294 = getelementptr inbounds i8, ptr %243, i64 -1
-  %295 = select i1 %.not60.i, ptr %294, ptr %.08.i172
+  %295 = select i1 %.not60.i, ptr %294, ptr %.08.i175
   br label %rvermicelliExec.exit
 
-rvermicelliExec.exit:                             ; preds = %.preheader, %248, %rvermSearchAligned.exit, %.thread235, %265, %rvermUnalign.exit
-  %.0.i168 = phi ptr [ %267, %265 ], [ %295, %rvermUnalign.exit ], [ %282, %rvermSearchAligned.exit ], [ %264, %.thread235 ], [ %.046.i, %248 ], [ %.046.i, %.preheader ]
+rvermicelliExec.exit:                             ; preds = %.preheader, %248, %rvermSearchAligned.exit, %.thread238, %265, %rvermUnalign.exit
+  %.0.i171 = phi ptr [ %267, %265 ], [ %295, %rvermUnalign.exit ], [ %282, %rvermSearchAligned.exit ], [ %264, %.thread238 ], [ %.046.i, %248 ], [ %.046.i, %.preheader ]
   %296 = getelementptr inbounds i8, ptr %243, i64 -1
-  %297 = icmp eq ptr %.0.i168, %296
-  br i1 %297, label %.thread248, label %298
+  %297 = icmp eq ptr %.0.i171, %296
+  br i1 %297, label %.thread251, label %298
 
 298:                                              ; preds = %rvermicelliExec.exit
-  %299 = ptrtoint ptr %.0.i168 to i64
+  %299 = ptrtoint ptr %.0.i171 to i64
   %300 = ptrtoint ptr %239 to i64
   %301 = sub i64 %299, %300
   store i64 %301, ptr %208, align 8
@@ -5340,9 +5340,9 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %248, %
   store i32 %303, ptr %4, align 8
   %304 = load i32, ptr %6, align 4
   %305 = icmp ult i32 %303, %304
-  br i1 %305, label %.lr.ph336, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %305, label %.lr.ph339, label %nfaExecLbrVerm_TopScan.exit
 
-.thread248:                                       ; preds = %rvermicelliExec.exit, %231
+.thread251:                                       ; preds = %rvermicelliExec.exit, %231
   %306 = load ptr, ptr %34, align 8
   %307 = load i32, ptr %18, align 4
   %308 = zext i32 %307 to i64
@@ -5360,20 +5360,20 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %248, %
     i8 4, label %repeatIsDead.exit.i.i
     i8 5, label %repeatIsDead.exit.i.i
     i8 6, label %repeatIsDead.exit.i.i
-    i8 7, label %.thread259
+    i8 7, label %.thread262
   ]
 
-.thread259:                                       ; preds = %.thread248
+.thread262:                                       ; preds = %.thread251
   %315 = getelementptr inbounds nuw i8, ptr %208, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i:                            ; preds = %.thread248, %.thread248, %.thread248, %.thread248, %.thread248, %.thread248, %.thread248
+repeatIsDead.exit.i.i:                            ; preds = %.thread251, %.thread251, %.thread251, %.thread251, %.thread251, %.thread251, %.thread251
   %.0.shrunk.i.i.i.in.in = getelementptr inbounds nuw i8, ptr %208, i64 8
   %.0.shrunk.i.i.i.in = load i64, ptr %.0.shrunk.i.i.i.in.in, align 8
   %.0.shrunk.i.i.i.not = icmp eq i64 %.0.shrunk.i.i.i.in, -1
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %324
 
-.split.i.i:                                       ; preds = %.thread248, %repeatIsDead.exit.i.i
+.split.i.i:                                       ; preds = %.thread251, %repeatIsDead.exit.i.i
   %316 = getelementptr inbounds nuw i8, ptr %208, i64 8
   switch i8 %314, label %lbrTop.exit [
     i8 0, label %317
@@ -5447,9 +5447,9 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread248, %.threa
 default.unreachable:                              ; preds = %324
   unreachable
 
-repeatLastTop.exit:                               ; preds = %324, %324, %.thread259, %325, %327, %329, %331, %333
-  %335 = phi ptr [ %.0.shrunk.i.i.i.in.in, %325 ], [ %.0.shrunk.i.i.i.in.in, %327 ], [ %.0.shrunk.i.i.i.in.in, %329 ], [ %.0.shrunk.i.i.i.in.in, %331 ], [ %.0.shrunk.i.i.i.in.in, %333 ], [ %315, %.thread259 ], [ %.0.shrunk.i.i.i.in.in, %324 ], [ %.0.shrunk.i.i.i.in.in, %324 ]
-  %.0.i110 = phi i64 [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ 0, %.thread259 ], [ %.0.shrunk.i.i.i.in, %324 ], [ %.0.shrunk.i.i.i.in, %324 ]
+repeatLastTop.exit:                               ; preds = %324, %324, %.thread262, %325, %327, %329, %331, %333
+  %335 = phi ptr [ %.0.shrunk.i.i.i.in.in, %325 ], [ %.0.shrunk.i.i.i.in.in, %327 ], [ %.0.shrunk.i.i.i.in.in, %329 ], [ %.0.shrunk.i.i.i.in.in, %331 ], [ %.0.shrunk.i.i.i.in.in, %333 ], [ %315, %.thread262 ], [ %.0.shrunk.i.i.i.in.in, %324 ], [ %.0.shrunk.i.i.i.in.in, %324 ]
+  %.0.i110 = phi i64 [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ 0, %.thread262 ], [ %.0.shrunk.i.i.i.in, %324 ], [ %.0.shrunk.i.i.i.in, %324 ]
   %.not.i.i = icmp eq i64 %.0.i110, %226
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -5530,7 +5530,7 @@ repeatIsDead.exit.i:                              ; preds = %347, %347, %347, %3
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %368
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %360, label %default.unreachable377 [
+  switch i8 %360, label %default.unreachable380 [
     i8 0, label %361
     i8 1, label %362
     i8 2, label %363
@@ -5569,7 +5569,7 @@ repeatIsDead.exit.i:                              ; preds = %347, %347, %347, %3
   br label %lbrTop.exit
 
 368:                                              ; preds = %repeatIsDead.exit.i
-  switch i8 %360, label %default.unreachable299 [
+  switch i8 %360, label %default.unreachable302 [
     i8 0, label %369
     i8 1, label %repeatLastTop.exit112
     i8 2, label %repeatLastTop.exit112
@@ -5599,7 +5599,7 @@ repeatIsDead.exit.i:                              ; preds = %347, %347, %347, %3
   %378 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %355, ptr noundef nonnull %.0.shrunk.i83.in.in) #8
   br label %repeatLastTop.exit112
 
-default.unreachable299:                           ; preds = %368
+default.unreachable302:                           ; preds = %368
   unreachable
 
 repeatLastTop.exit112:                            ; preds = %368, %368, %347, %369, %371, %373, %375, %377
@@ -5642,7 +5642,7 @@ repeatLastTop.exit112:                            ; preds = %368, %368, %347, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %355, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %352, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable377:                           ; preds = %.split.i
+default.unreachable380:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %347, %repeatLastTop.exit, %.split.i.i, %317, %318, %319, %320, %321, %322, %323, %.split16.i.i, %337, %338, %339, %340, %341, %342, %repeatLastTop.exit112, %361, %362, %363, %364, %365, %366, %367, %.split16.i, %380, %381, %382, %383, %384, %385, %repeatIsDead.exit79.thread
@@ -5683,17 +5683,17 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %397 = load i32, ptr %invariant.gep, align 4
   %.not.i = icmp eq i32 %2, %397
-  %.pre367 = load ptr, ptr %396, align 8
-  %.pre369 = load i32, ptr %18, align 4
+  %.pre370 = load ptr, ptr %396, align 8
+  %.pre372 = load i32, ptr %18, align 4
   br i1 %.not.i, label %398, label %lbrInAccept.exit.thread
 
 398:                                              ; preds = %repeatIsDead.exit.thread
-  %399 = zext i32 %.pre369 to i64
+  %399 = zext i32 %.pre372 to i64
   %400 = getelementptr inbounds nuw i8, ptr %18, i64 %399
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 16
   %402 = load i32, ptr %401, align 4
   %403 = zext i32 %402 to i64
-  %404 = getelementptr inbounds nuw i8, ptr %.pre367, i64 %403
+  %404 = getelementptr inbounds nuw i8, ptr %.pre370, i64 %403
   %405 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %406 = load i8, ptr %400, align 4
   switch i8 %406, label %lbrInAccept.exit.thread [
@@ -5761,12 +5761,12 @@ lbrInAccept.exit:                                 ; preds = %434, %432, %430, %4
 
 lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge: ; preds = %423, %lbrInAccept.exit
   %.pre = load ptr, ptr %396, align 8
-  %.pre368 = load i32, ptr %18, align 4
+  %.pre371 = load i32, ptr %18, align 4
   br label %lbrInAccept.exit.thread
 
 lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, %398, %416, %repeatIsDead.exit.thread
-  %436 = phi i32 [ %.pre368, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre369, %398 ], [ %.pre369, %416 ], [ %.pre369, %repeatIsDead.exit.thread ]
-  %437 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre367, %398 ], [ %.pre367, %416 ], [ %.pre367, %repeatIsDead.exit.thread ]
+  %436 = phi i32 [ %.pre371, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre372, %398 ], [ %.pre372, %416 ], [ %.pre372, %repeatIsDead.exit.thread ]
+  %437 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre370, %398 ], [ %.pre370, %416 ], [ %.pre370, %repeatIsDead.exit.thread ]
   %438 = zext i32 %436 to i64
   %439 = getelementptr inbounds nuw i8, ptr %18, i64 %438
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 16
@@ -5874,9 +5874,9 @@ repeatHasMatch.exit.thread.thread:                ; preds = %462, %448, %455, %r
   %489 = zext i32 %487 to i64
   %490 = add i64 %479, %489
   %491 = icmp ult i64 %.064.lcssa, %490
-  %or.cond.i118 = or i1 %488, %491
+  %or.cond.i121 = or i1 %488, %491
   %492 = add i64 %.064.lcssa, 1
-  br i1 %or.cond.i118, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
+  br i1 %or.cond.i121, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 493:                                              ; preds = %repeatHasMatch.exit.thread
   %494 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %439, ptr noundef nonnull %444, ptr noundef %443, i64 noundef %.064.lcssa) #8
@@ -5899,16 +5899,16 @@ repeatHasMatch.exit.thread.thread:                ; preds = %462, %448, %455, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %485, %477, %493, %495, %497, %499, %501
-  %.0.i117 = phi i64 [ %478, %477 ], [ %494, %493 ], [ %496, %495 ], [ %498, %497 ], [ %500, %499 ], [ %502, %501 ], [ %492, %485 ]
-  %.0.i117.fr = freeze i64 %.0.i117
-  %.not.i89 = icmp eq i64 %.0.i117.fr, 0
+  %.0.i120 = phi i64 [ %478, %477 ], [ %494, %493 ], [ %496, %495 ], [ %498, %497 ], [ %500, %499 ], [ %502, %501 ], [ %492, %485 ]
+  %.0.i120.fr = freeze i64 %.0.i120
+  %.not.i89 = icmp eq i64 %.0.i120.fr, 0
   br i1 %.not.i89, label %repeatNextMatch.exit.thread, label %nfaExecLbrVerm_TopScan.exit
 
 repeatNextMatch.exit.thread:                      ; preds = %485, %repeatHasMatch.exit.thread, %repeatNextMatch.exit
   br label %nfaExecLbrVerm_TopScan.exit
 
-nfaExecLbrVerm_TopScan.exit:                      ; preds = %repeatIsDead.exit85.thread184, %298, %228, %218, %423, %repeatHasMatch.exit.thread.thread, %462, %lbrInAccept.exit.thread, %448, %398, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %._crit_edge ], [ 2, %398 ], [ 1, %448 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %462 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %423 ], [ 0, %218 ], [ 0, %228 ], [ 0, %298 ], [ 0, %repeatIsDead.exit85.thread184 ]
+nfaExecLbrVerm_TopScan.exit:                      ; preds = %repeatIsDead.exit85.thread187, %298, %228, %218, %423, %repeatHasMatch.exit.thread.thread, %462, %lbrInAccept.exit.thread, %448, %398, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
+  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %._crit_edge ], [ 2, %398 ], [ 1, %448 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %462 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %423 ], [ 0, %218 ], [ 0, %228 ], [ 0, %298 ], [ 0, %repeatIsDead.exit85.thread187 ]
   ret i8 %.0
 }
 
@@ -6129,12 +6129,12 @@ define hidden noundef signext i8 @nfaExecLbrNVerm_initCompressedState(ptr nounde
   %10 = load i8, ptr %9, align 4
   switch i8 %10, label %.split.i [
     i8 0, label %.split.i.thread
-    i8 3, label %.split.i.thread20
+    i8 3, label %.split.i.thread21
     i8 1, label %clearRepeat.exit
     i8 2, label %clearRepeat.exit
-    i8 4, label %.split.i.thread21
-    i8 5, label %.split.i.thread22
-    i8 6, label %.split.i.thread23
+    i8 4, label %.split.i.thread22
+    i8 5, label %.split.i.thread23
+    i8 6, label %.split.i.thread24
     i8 7, label %lbrTop.exit
   ]
 
@@ -6148,7 +6148,7 @@ define hidden noundef signext i8 @nfaExecLbrNVerm_initCompressedState(ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %39
 
-.split.i.thread20:                                ; preds = %4
+.split.i.thread21:                                ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -6164,13 +6164,13 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %cond = icmp eq i8 %10, 7
   br i1 %cond, label %lbrTop.exit, label %.split.i
 
-.split.i.thread21:                                ; preds = %4
+.split.i.thread22:                                ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %47
 
-.split.i.thread22:                                ; preds = %4
+.split.i.thread23:                                ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -6180,7 +6180,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %49
 
-.split.i.thread23:                                ; preds = %4
+.split.i.thread24:                                ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -6216,25 +6216,25 @@ clearRepeat.exit:                                 ; preds = %4, %4
   store i64 %1, ptr %38, align 8
   br label %lbrTop.exit
 
-44:                                               ; preds = %.split.i.thread20, %.split.i
-  %45 = phi ptr [ %22, %.split.i.thread20 ], [ %38, %.split.i ]
-  %46 = phi ptr [ %21, %.split.i.thread20 ], [ %37, %.split.i ]
+44:                                               ; preds = %.split.i.thread21, %.split.i
+  %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
+  %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
   call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-47:                                               ; preds = %.split.i.thread21, %.split.i
-  %48 = phi ptr [ %25, %.split.i.thread21 ], [ %38, %.split.i ]
+47:                                               ; preds = %.split.i.thread22, %.split.i
+  %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
   call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-49:                                               ; preds = %.split.i.thread22, %.split.i
-  %50 = phi ptr [ %31, %.split.i.thread22 ], [ %38, %.split.i ]
-  %51 = phi ptr [ %30, %.split.i.thread22 ], [ %37, %.split.i ]
+49:                                               ; preds = %.split.i.thread23, %.split.i
+  %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
+  %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-52:                                               ; preds = %.split.i.thread23, %.split.i
-  %53 = phi ptr [ %33, %.split.i.thread23 ], [ %38, %.split.i ]
+52:                                               ; preds = %.split.i.thread24, %.split.i
+  %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
   call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
@@ -6301,12 +6301,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrNVerm_Q(ptr noundef %0, ptr n
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %storemerge.i167 = add i32 %31, 1
-  store i32 %storemerge.i167, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i167, %33
-  br i1 %43, label %.lr.ph170, label %._crit_edge
+  %storemerge.i170 = add i32 %31, 1
+  store i32 %storemerge.i170, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i170, %33
+  br i1 %43, label %.lr.ph173, label %._crit_edge
 
-.lr.ph170:                                        ; preds = %35
+.lr.ph173:                                        ; preds = %35
   %.0.shrunk.i124.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6317,12 +6317,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrNVerm_Q(ptr noundef %0, ptr n
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %51
 
-51:                                               ; preds = %.lr.ph170, %lbrTop.exit.i
-  %52 = phi i64 [ %37, %.lr.ph170 ], [ %390, %lbrTop.exit.i ]
-  %storemerge.i169 = phi i32 [ %storemerge.i167, %.lr.ph170 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i168 = phi i64 [ %42, %.lr.ph170 ], [ %395, %lbrTop.exit.i ]
+51:                                               ; preds = %.lr.ph173, %lbrTop.exit.i
+  %52 = phi i64 [ %37, %.lr.ph173 ], [ %390, %lbrTop.exit.i ]
+  %storemerge.i172 = phi i32 [ %storemerge.i170, %.lr.ph173 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i171 = phi i64 [ %42, %.lr.ph173 ], [ %395, %lbrTop.exit.i ]
   %53 = load i8, ptr %7, align 4
-  switch i8 %53, label %repeatIsDead.exit126.i.thread52 [
+  switch i8 %53, label %repeatIsDead.exit126.i.thread55 [
     i8 0, label %repeatIsDead.exit126.i
     i8 3, label %repeatIsDead.exit126.i
     i8 1, label %repeatIsDead.exit126.i
@@ -6336,23 +6336,23 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrNVerm_Q(ptr noundef %0, ptr n
 repeatIsDead.exit126.i:                           ; preds = %51, %51, %51, %51, %51, %51, %51
   %.0.shrunk.i124.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i124.i.not = icmp eq i64 %.0.shrunk.i124.i.in, -1
-  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread52, label %repeatIsDead.exit126.i.thread
+  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread55, label %repeatIsDead.exit126.i.thread
 
 repeatIsDead.exit126.i.thread:                    ; preds = %51, %repeatIsDead.exit126.i
-  %54 = zext i32 %storemerge.i169 to i64
+  %54 = zext i32 %storemerge.i172 to i64
   %.idx.i121.i = mul nuw nsw i64 %54, 24
   %55 = getelementptr i8, ptr %39, i64 %.idx.i121.i
   %56 = load i64, ptr %55, align 8
   %57 = add i64 %56, %52
   %58 = add i64 %52, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %57, i64 %58)
-  %59 = icmp ult i64 %.0101.i168, %..i
-  br i1 %59, label %60, label %repeatIsDead.exit126.i.thread52
+  %59 = icmp ult i64 %.0101.i171, %..i
+  br i1 %59, label %60, label %repeatIsDead.exit126.i.thread55
 
 60:                                               ; preds = %repeatIsDead.exit126.i.thread
   %61 = load ptr, ptr %44, align 8
   %62 = sub i64 %..i, %52
-  %63 = sub i64 %.0101.i168, %52
+  %63 = sub i64 %.0101.i171, %52
   %64 = load i8, ptr %45, align 4
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 %63
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 %62
@@ -6360,28 +6360,28 @@ repeatIsDead.exit126.i.thread:                    ; preds = %51, %repeatIsDead.e
   %68 = shufflevector <16 x i8> %67, <16 x i8> poison, <16 x i32> zeroinitializer
   %gepdiff = sub nsw i64 %62, %63
   %69 = icmp slt i64 %gepdiff, 16
-  br i1 %69, label %.preheader137, label %75
+  br i1 %69, label %.preheader140, label %75
 
-.preheader137:                                    ; preds = %60
+.preheader140:                                    ; preds = %60
   %70 = icmp samesign ult i64 %63, %62
-  br i1 %70, label %.lr.ph159, label %nvermicelliExec.exit
+  br i1 %70, label %.lr.ph162, label %nvermicelliExec.exit
 
-.lr.ph159:                                        ; preds = %.preheader137, %72
-  %.042.i158 = phi ptr [ %73, %72 ], [ %65, %.preheader137 ]
-  %71 = load i8, ptr %.042.i158, align 1
+.lr.ph162:                                        ; preds = %.preheader140, %72
+  %.042.i161 = phi ptr [ %73, %72 ], [ %65, %.preheader140 ]
+  %71 = load i8, ptr %.042.i161, align 1
   %.not53.i = icmp eq i8 %71, %64
   br i1 %.not53.i, label %72, label %nvermicelliExec.exit
 
-72:                                               ; preds = %.lr.ph159
-  %73 = getelementptr inbounds nuw i8, ptr %.042.i158, i64 1
+72:                                               ; preds = %.lr.ph162
+  %73 = getelementptr inbounds nuw i8, ptr %.042.i161, i64 1
   %74 = icmp ult ptr %73, %66
-  br i1 %74, label %.lr.ph159, label %nvermicelliExec.exit
+  br i1 %74, label %.lr.ph162, label %nvermicelliExec.exit
 
 75:                                               ; preds = %60
   %76 = ptrtoint ptr %65 to i64
   %77 = and i64 %76, 15
-  %.not.i33 = icmp eq i64 %77, 0
-  br i1 %.not.i33, label %88, label %78
+  %.not.i36 = icmp eq i64 %77, 0
+  br i1 %.not.i36, label %88, label %78
 
 78:                                               ; preds = %75
   %79 = load <16 x i8>, ptr %65, align 1
@@ -6407,20 +6407,20 @@ vermUnalign.exit56.i:                             ; preds = %78
   %89 = getelementptr inbounds i8, ptr %66, i64 -1
   %90 = getelementptr inbounds nuw i8, ptr %.143.i, i64 31
   %91 = icmp ult ptr %90, %89
-  br i1 %91, label %.lr.ph, label %.preheader138
+  br i1 %91, label %.lr.ph, label %.preheader141
 
-.preheader138:                                    ; preds = %106, %88
+.preheader141:                                    ; preds = %106, %88
   %.032.i.i.lcssa = phi ptr [ %.143.i, %88 ], [ %107, %106 ]
   %92 = getelementptr inbounds nuw i8, ptr %.032.i.i.lcssa, i64 15
   %93 = icmp ult ptr %92, %89
-  br i1 %93, label %.lr.ph157, label %vermSearchAligned.exit.i.thread
+  br i1 %93, label %.lr.ph160, label %vermSearchAligned.exit.i.thread
 
 .lr.ph:                                           ; preds = %88, %106
-  %.032.i.i155 = phi ptr [ %107, %106 ], [ %.143.i, %88 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i.i155, i64 16) ]
-  %94 = load <16 x i8>, ptr %.032.i.i155, align 16
+  %.032.i.i158 = phi ptr [ %107, %106 ], [ %.143.i, %88 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i.i158, i64 16) ]
+  %94 = load <16 x i8>, ptr %.032.i.i158, align 16
   %95 = icmp eq <16 x i8> %68, %94
-  %96 = getelementptr inbounds nuw i8, ptr %.032.i.i155, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.032.i.i158, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 16) ]
   %97 = load <16 x i8>, ptr %96, align 16
   %98 = icmp eq <16 x i8> %68, %97
@@ -6433,38 +6433,38 @@ vermUnalign.exit56.i:                             ; preds = %78
   %102 = xor i32 %100, -1
   %103 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %102, i1 true)
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %.032.i.i155, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %.032.i.i158, i64 %104
   br label %nvermicelliExec.exit
 
 106:                                              ; preds = %.lr.ph
-  %107 = getelementptr inbounds nuw i8, ptr %.032.i.i155, i64 32
-  %108 = getelementptr inbounds nuw i8, ptr %.032.i.i155, i64 63
+  %107 = getelementptr inbounds nuw i8, ptr %.032.i.i158, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %.032.i.i158, i64 63
   %109 = icmp ult ptr %108, %89
-  br i1 %109, label %.lr.ph, label %.preheader138
+  br i1 %109, label %.lr.ph, label %.preheader141
 
-.lr.ph157:                                        ; preds = %.preheader138, %118
-  %.133.i.i156 = phi ptr [ %119, %118 ], [ %.032.i.i.lcssa, %.preheader138 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i.i156, i64 16) ]
-  %110 = load <16 x i8>, ptr %.133.i.i156, align 16
+.lr.ph160:                                        ; preds = %.preheader141, %118
+  %.133.i.i159 = phi ptr [ %119, %118 ], [ %.032.i.i.lcssa, %.preheader141 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i.i159, i64 16) ]
+  %110 = load <16 x i8>, ptr %.133.i.i159, align 16
   %111 = icmp eq <16 x i8> %68, %110
   %112 = bitcast <16 x i1> %111 to i16
   %.not37.i.i.not = icmp eq i16 %112, -1
   br i1 %.not37.i.i.not, label %118, label %113, !prof !5
 
-113:                                              ; preds = %.lr.ph157
+113:                                              ; preds = %.lr.ph160
   %114 = xor i16 %112, -1
   %115 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %114, i1 true)
   %116 = zext nneg i16 %115 to i64
-  %117 = getelementptr inbounds nuw i8, ptr %.133.i.i156, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %.133.i.i159, i64 %116
   br label %nvermicelliExec.exit
 
-118:                                              ; preds = %.lr.ph157
-  %119 = getelementptr inbounds nuw i8, ptr %.133.i.i156, i64 16
-  %120 = getelementptr inbounds nuw i8, ptr %.133.i.i156, i64 31
+118:                                              ; preds = %.lr.ph160
+  %119 = getelementptr inbounds nuw i8, ptr %.133.i.i159, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %.133.i.i159, i64 31
   %121 = icmp ult ptr %120, %89
-  br i1 %121, label %.lr.ph157, label %vermSearchAligned.exit.i.thread
+  br i1 %121, label %.lr.ph160, label %vermSearchAligned.exit.i.thread
 
-vermSearchAligned.exit.i.thread:                  ; preds = %118, %.preheader138
+vermSearchAligned.exit.i.thread:                  ; preds = %118, %.preheader141
   %122 = getelementptr inbounds i8, ptr %66, i64 -16
   %123 = load <16 x i8>, ptr %122, align 1
   %124 = icmp eq <16 x i8> %68, %123
@@ -6485,17 +6485,17 @@ vermUnalign.exit.i:                               ; preds = %126, %vermSearchAli
   %131 = select i1 %.not52.i, ptr %66, ptr %.08.i.i
   br label %nvermicelliExec.exit
 
-nvermicelliExec.exit:                             ; preds = %.lr.ph159, %72, %.preheader137, %101, %113, %vermUnalign.exit56.i, %vermUnalign.exit.i
-  %.0.i34 = phi ptr [ %87, %vermUnalign.exit56.i ], [ %131, %vermUnalign.exit.i ], [ %105, %101 ], [ %117, %113 ], [ %65, %.preheader137 ], [ %.042.i158, %.lr.ph159 ], [ %73, %72 ]
-  %132 = icmp eq ptr %.0.i34, %66
-  %133 = ptrtoint ptr %.0.i34 to i64
+nvermicelliExec.exit:                             ; preds = %.lr.ph162, %72, %.preheader140, %101, %113, %vermUnalign.exit56.i, %vermUnalign.exit.i
+  %.0.i37 = phi ptr [ %87, %vermUnalign.exit56.i ], [ %131, %vermUnalign.exit.i ], [ %105, %101 ], [ %117, %113 ], [ %65, %.preheader140 ], [ %.042.i161, %.lr.ph162 ], [ %73, %72 ]
+  %132 = icmp eq ptr %.0.i37, %66
+  %133 = ptrtoint ptr %.0.i37 to i64
   %134 = ptrtoint ptr %61 to i64
   %135 = sub i64 %52, %134
   %136 = add i64 %135, %133
   %.0100.i = select i1 %132, i64 %..i, i64 %136
   %137 = load ptr, ptr %46, align 8
   %138 = load ptr, ptr %47, align 8
-  %139 = icmp eq i64 %.0101.i168, %.0100.i
+  %139 = icmp eq i64 %.0101.i171, %.0100.i
   br i1 %139, label %repeatNextMatch.exit.thread, label %140
 
 140:                                              ; preds = %nvermicelliExec.exit
@@ -6512,7 +6512,7 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph159, %72, %.p
   br label %151
 
 151:                                              ; preds = %179, %140
-  %.0.i19 = phi i64 [ %.0101.i168, %140 ], [ %.0.i29, %179 ]
+  %.0.i22 = phi i64 [ %.0101.i171, %140 ], [ %.0.i32, %179 ]
   %152 = load i8, ptr %144, align 4
   switch i8 %152, label %repeatNextMatch.exit.thread [
     i8 0, label %153
@@ -6526,7 +6526,7 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph159, %72, %.p
   ]
 
 153:                                              ; preds = %151
-  %154 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %148, i64 noundef %.0.i19) #8
+  %154 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %148, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 155:                                              ; preds = %151, %151
@@ -6534,7 +6534,7 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph159, %72, %.p
   %157 = load i32, ptr %149, align 4
   %158 = zext i32 %157 to i64
   %159 = add i64 %156, %158
-  %160 = icmp ult i64 %.0.i19, %159
+  %160 = icmp ult i64 %.0.i22, %159
   br i1 %160, label %repeatNextMatch.exit, label %161
 
 161:                                              ; preds = %155
@@ -6542,66 +6542,66 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph159, %72, %.p
   %163 = icmp eq i32 %162, 65535
   %164 = zext i32 %162 to i64
   %165 = add i64 %156, %164
-  %166 = icmp ult i64 %.0.i19, %165
-  %or.cond.i30 = or i1 %163, %166
-  %167 = add i64 %.0.i19, 1
-  %spec.select.i = select i1 %or.cond.i30, i64 %167, i64 0
+  %166 = icmp ult i64 %.0.i22, %165
+  %or.cond.i33 = or i1 %163, %166
+  %167 = add i64 %.0.i22, 1
+  %spec.select.i = select i1 %or.cond.i33, i64 %167, i64 0
   br label %repeatNextMatch.exit
 
 168:                                              ; preds = %151
-  %169 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %148, i64 noundef %.0.i19) #8
+  %169 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %148, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 170:                                              ; preds = %151
-  %171 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i19) #8
+  %171 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 172:                                              ; preds = %151
-  %173 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %148, i64 noundef %.0.i19) #8
+  %173 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %148, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 174:                                              ; preds = %151
-  %175 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i19) #8
+  %175 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %144, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 176:                                              ; preds = %151
-  %177 = add i64 %.0.i19, 1
+  %177 = add i64 %.0.i22, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %161, %155, %153, %168, %170, %172, %174, %176
-  %.0.i29 = phi i64 [ %154, %153 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %159, %155 ], [ %spec.select.i, %161 ]
-  %178 = add i64 %.0.i29, -1
-  %or.cond.i20.not = icmp ult i64 %178, %.0100.i
-  br i1 %or.cond.i20.not, label %179, label %repeatNextMatch.exit.thread
+  %.0.i32 = phi i64 [ %154, %153 ], [ %169, %168 ], [ %171, %170 ], [ %173, %172 ], [ %175, %174 ], [ %177, %176 ], [ %159, %155 ], [ %spec.select.i, %161 ]
+  %178 = add i64 %.0.i32, -1
+  %or.cond.i23.not = icmp ult i64 %178, %.0100.i
+  br i1 %or.cond.i23.not, label %179, label %repeatNextMatch.exit.thread
 
 179:                                              ; preds = %repeatNextMatch.exit
   %180 = load i32, ptr %invariant.gep, align 4
-  %181 = tail call i32 %137(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %180, ptr noundef %138) #8
+  %181 = tail call i32 %137(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %180, ptr noundef %138) #8
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %nfaExecLbrNVerm_Q_i.exit, label %151
 
 repeatNextMatch.exit.thread:                      ; preds = %151, %repeatNextMatch.exit, %nvermicelliExec.exit
-  br i1 %132, label %repeatIsDead.exit126.i.thread52, label %183
+  br i1 %132, label %repeatIsDead.exit126.i.thread55, label %183
 
 183:                                              ; preds = %repeatNextMatch.exit.thread
   %184 = load i8, ptr %7, align 4
   %switch = icmp ult i8 %184, 7
-  br i1 %switch, label %repeatIsDead.exit126.i.thread52.sink.split, label %repeatIsDead.exit126.i.thread52
+  br i1 %switch, label %repeatIsDead.exit126.i.thread55.sink.split, label %repeatIsDead.exit126.i.thread55
 
-repeatIsDead.exit126.i.thread52.sink.split:       ; preds = %183
+repeatIsDead.exit126.i.thread55.sink.split:       ; preds = %183
   store i64 -1, ptr %.0.shrunk.i124.i.in.in, align 8
-  br label %repeatIsDead.exit126.i.thread52
+  br label %repeatIsDead.exit126.i.thread55
 
-repeatIsDead.exit126.i.thread52:                  ; preds = %183, %repeatIsDead.exit126.i.thread52.sink.split, %repeatNextMatch.exit.thread, %51, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
+repeatIsDead.exit126.i.thread55:                  ; preds = %183, %repeatIsDead.exit126.i.thread55.sink.split, %repeatNextMatch.exit.thread, %51, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
   %185 = load i32, ptr %30, align 8
   %186 = zext i32 %185 to i64
-  %.idx.i22 = mul nuw nsw i64 %186, 24
-  %187 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %186, 24
+  %187 = getelementptr i8, ptr %39, i64 %.idx.i25
   %188 = load i64, ptr %187, align 8
   %189 = icmp sgt i64 %188, %2
   br i1 %189, label %190, label %196
 
-190:                                              ; preds = %repeatIsDead.exit126.i.thread52
+190:                                              ; preds = %repeatIsDead.exit126.i.thread55
   %191 = add i32 %185, -1
   store i32 %191, ptr %30, align 8
   %192 = zext i32 %191 to i64
@@ -6613,9 +6613,9 @@ repeatIsDead.exit126.i.thread52:                  ; preds = %183, %repeatIsDead.
   store i64 %2, ptr %195, align 8
   br label %nfaExecLbrNVerm_Q_i.exit
 
-196:                                              ; preds = %repeatIsDead.exit126.i.thread52
+196:                                              ; preds = %repeatIsDead.exit126.i.thread55
   %197 = load i8, ptr %7, align 4
-  switch i8 %197, label %repeatIsDead.exit.i.thread84 [
+  switch i8 %197, label %repeatIsDead.exit.i.thread87 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -6629,58 +6629,58 @@ repeatIsDead.exit126.i.thread52:                  ; preds = %183, %repeatIsDead.
 repeatIsDead.exit.i:                              ; preds = %196, %196, %196, %196, %196, %196, %196
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread84, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread87, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread84:                     ; preds = %196, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread87:                     ; preds = %196, %repeatIsDead.exit.i
   %198 = load i64, ptr %36, align 8
   %199 = load ptr, ptr %8, align 8
   %200 = load i32, ptr %32, align 4
   %201 = icmp ult i32 %185, %200
-  br i1 %201, label %.lr.ph163.lr.ph, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %201, label %.lr.ph166.lr.ph, label %nfaExecLbrNVerm_TopScan.exit
 
-.lr.ph163.lr.ph:                                  ; preds = %repeatIsDead.exit.i.thread84
+.lr.ph166.lr.ph:                                  ; preds = %repeatIsDead.exit.i.thread87
   %202 = load i32, ptr %4, align 4
   %203 = zext i32 %202 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %203
-  br label %.lr.ph163
+  br label %.lr.ph166
 
-.lr.ph163:                                        ; preds = %.lr.ph163.lr.ph, %292
-  %204 = phi i32 [ %185, %.lr.ph163.lr.ph ], [ %297, %292 ]
-  %205 = phi i32 [ %200, %.lr.ph163.lr.ph ], [ %298, %292 ]
+.lr.ph166:                                        ; preds = %.lr.ph166.lr.ph, %292
+  %204 = phi i32 [ %185, %.lr.ph166.lr.ph ], [ %297, %292 ]
+  %205 = phi i32 [ %200, %.lr.ph166.lr.ph ], [ %298, %292 ]
   %206 = zext i32 %204 to i64
   %207 = zext i32 %205 to i64
-  %.idx.i256 = mul nuw nsw i64 %206, 24
-  %208 = getelementptr i8, ptr %39, i64 %.idx.i256
+  %.idx.i259 = mul nuw nsw i64 %206, 24
+  %208 = getelementptr i8, ptr %39, i64 %.idx.i259
   %209 = load i64, ptr %208, align 8
-  %.not.i2257 = icmp sgt i64 %209, %2
-  br i1 %.not.i2257, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph259
+  %.not.i2260 = icmp sgt i64 %209, %2
+  br i1 %.not.i2260, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph262
 
 210:                                              ; preds = %220
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %211 = getelementptr i8, ptr %39, i64 %.idx.i
   %212 = load i64, ptr %211, align 8
   %.not.i2 = icmp sgt i64 %212, %2
-  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph259
+  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph262
 
-.lr.ph259:                                        ; preds = %.lr.ph163, %210
-  %213 = phi i64 [ %212, %210 ], [ %209, %.lr.ph163 ]
-  %indvars.iv258 = phi i64 [ %indvars.iv.next, %210 ], [ %206, %.lr.ph163 ]
-  %214 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %49, i64 0, i64 %indvars.iv258
+.lr.ph262:                                        ; preds = %.lr.ph166, %210
+  %213 = phi i64 [ %212, %210 ], [ %209, %.lr.ph166 ]
+  %indvars.iv261 = phi i64 [ %indvars.iv.next, %210 ], [ %206, %.lr.ph166 ]
+  %214 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %49, i64 0, i64 %indvars.iv261
   %215 = load i32, ptr %214, align 8
   switch i32 %215, label %220 [
     i32 4, label %216
     i32 2, label %216
   ]
 
-216:                                              ; preds = %.lr.ph259, %.lr.ph259
+216:                                              ; preds = %.lr.ph262, %.lr.ph262
   %217 = load i64, ptr %36, align 8
   %218 = add i64 %217, %213
   %219 = load i64, ptr %199, align 8
   %.not56.i = icmp ult i64 %218, %219
   br i1 %.not56.i, label %220, label %223
 
-220:                                              ; preds = %.lr.ph259, %216
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv258, 1
+220:                                              ; preds = %.lr.ph262, %216
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv261, 1
   %221 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %221, ptr %30, align 8
   %222 = icmp samesign ult i64 %indvars.iv.next, %207
@@ -6697,7 +6697,7 @@ repeatIsDead.exit.i.thread84:                     ; preds = %196, %repeatIsDead.
   %229 = icmp ule i64 %spec.select, %218
   %.not57.i = icmp ult i64 %218, %198
   %or.cond.i = select i1 %229, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread105, label %230
+  br i1 %or.cond.i, label %.thread108, label %230
 
 230:                                              ; preds = %223
   %231 = load ptr, ptr %44, align 8
@@ -6708,8 +6708,8 @@ repeatIsDead.exit.i.thread84:                     ; preds = %196, %repeatIsDead.
   %236 = getelementptr inbounds nuw i8, ptr %231, i64 %232
   %237 = insertelement <16 x i8> poison, i8 %234, i64 0
   %238 = shufflevector <16 x i8> %237, <16 x i8> poison, <16 x i32> zeroinitializer
-  %gepdiff136 = sub nsw i64 %232, %233
-  %239 = icmp slt i64 %gepdiff136, 16
+  %gepdiff139 = sub nsw i64 %232, %233
+  %239 = icmp slt i64 %gepdiff139, 16
   br i1 %239, label %.preheader, label %242
 
 .preheader:                                       ; preds = %230, %240
@@ -6726,8 +6726,8 @@ repeatIsDead.exit.i.thread84:                     ; preds = %196, %repeatIsDead.
 242:                                              ; preds = %230
   %243 = ptrtoint ptr %236 to i64
   %244 = and i64 %243, 15
-  %.not.i37 = icmp eq i64 %244, 0
-  br i1 %.not.i37, label %260, label %245
+  %.not.i40 = icmp eq i64 %244, 0
+  br i1 %.not.i40, label %260, label %245
 
 245:                                              ; preds = %242
   %246 = getelementptr inbounds i8, ptr %236, i64 -16
@@ -6735,9 +6735,9 @@ repeatIsDead.exit.i.thread84:                     ; preds = %196, %repeatIsDead.
   %248 = icmp eq <16 x i8> %238, %247
   %249 = bitcast <16 x i1> %248 to i16
   %.not9.i65.i = icmp eq i16 %249, -1
-  br i1 %.not9.i65.i, label %257, label %.thread92, !prof !5
+  br i1 %.not9.i65.i, label %257, label %.thread95, !prof !5
 
-.thread92:                                        ; preds = %245
+.thread95:                                        ; preds = %245
   %250 = xor i16 %249, -1
   %251 = zext i16 %250 to i32
   %252 = getelementptr inbounds nuw i8, ptr %236, i64 15
@@ -6750,8 +6750,8 @@ repeatIsDead.exit.i.thread84:                     ; preds = %196, %repeatIsDead.
 257:                                              ; preds = %245
   %258 = sub nsw i64 0, %244
   %259 = getelementptr inbounds i8, ptr %236, i64 %258
-  %.not58.i46 = icmp ult ptr %235, %259
-  br i1 %.not58.i46, label %260, label %rnvermicelliExec.exit
+  %.not58.i49 = icmp ult ptr %235, %259
+  br i1 %.not58.i49, label %260, label %rnvermicelliExec.exit
 
 260:                                              ; preds = %257, %242
   %.147.i = phi ptr [ %259, %257 ], [ %236, %242 ]
@@ -6786,8 +6786,8 @@ rvermSearchAligned.exit.i:                        ; preds = %264
   %277 = load <16 x i8>, ptr %235, align 1
   %278 = icmp eq <16 x i8> %238, %277
   %279 = bitcast <16 x i1> %278 to i16
-  %.not9.i.i42 = icmp eq i16 %279, -1
-  br i1 %.not9.i.i42, label %rvermUnalign.exit.i, label %280, !prof !5
+  %.not9.i.i45 = icmp eq i16 %279, -1
+  br i1 %.not9.i.i45, label %rvermUnalign.exit.i, label %280, !prof !5
 
 280:                                              ; preds = %276
   %281 = xor i16 %279, -1
@@ -6800,20 +6800,20 @@ rvermSearchAligned.exit.i:                        ; preds = %264
   br label %rvermUnalign.exit.i
 
 rvermUnalign.exit.i:                              ; preds = %280, %276
-  %.08.i.i43 = phi ptr [ %287, %280 ], [ null, %276 ]
-  %.not60.i = icmp eq ptr %.08.i.i43, null
+  %.08.i.i46 = phi ptr [ %287, %280 ], [ null, %276 ]
+  %.not60.i = icmp eq ptr %.08.i.i46, null
   %288 = getelementptr inbounds i8, ptr %235, i64 -1
-  %289 = select i1 %.not60.i, ptr %288, ptr %.08.i.i43
+  %289 = select i1 %.not60.i, ptr %288, ptr %.08.i.i46
   br label %rnvermicelliExec.exit
 
-rnvermicelliExec.exit:                            ; preds = %.preheader, %240, %rvermSearchAligned.exit.i, %.thread92, %257, %rvermUnalign.exit.i
-  %.0.i40 = phi ptr [ %259, %257 ], [ %289, %rvermUnalign.exit.i ], [ %275, %rvermSearchAligned.exit.i ], [ %256, %.thread92 ], [ %.046.i, %240 ], [ %.046.i, %.preheader ]
+rnvermicelliExec.exit:                            ; preds = %.preheader, %240, %rvermSearchAligned.exit.i, %.thread95, %257, %rvermUnalign.exit.i
+  %.0.i43 = phi ptr [ %259, %257 ], [ %289, %rvermUnalign.exit.i ], [ %275, %rvermSearchAligned.exit.i ], [ %256, %.thread95 ], [ %.046.i, %240 ], [ %.046.i, %.preheader ]
   %290 = getelementptr inbounds i8, ptr %235, i64 -1
-  %291 = icmp eq ptr %.0.i40, %290
-  br i1 %291, label %.thread105, label %292
+  %291 = icmp eq ptr %.0.i43, %290
+  br i1 %291, label %.thread108, label %292
 
 292:                                              ; preds = %rnvermicelliExec.exit
-  %293 = ptrtoint ptr %.0.i40 to i64
+  %293 = ptrtoint ptr %.0.i43 to i64
   %294 = ptrtoint ptr %231 to i64
   %295 = sub i64 %293, %294
   store i64 %295, ptr %199, align 8
@@ -6822,9 +6822,9 @@ rnvermicelliExec.exit:                            ; preds = %.preheader, %240, %
   store i32 %297, ptr %30, align 8
   %298 = load i32, ptr %32, align 4
   %299 = icmp ult i32 %297, %298
-  br i1 %299, label %.lr.ph163, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %299, label %.lr.ph166, label %nfaExecLbrNVerm_TopScan.exit
 
-.thread105:                                       ; preds = %rnvermicelliExec.exit, %223
+.thread108:                                       ; preds = %rnvermicelliExec.exit, %223
   %300 = load ptr, ptr %48, align 8
   %301 = load i32, ptr %4, align 4
   %302 = zext i32 %301 to i64
@@ -6842,20 +6842,20 @@ rnvermicelliExec.exit:                            ; preds = %.preheader, %240, %
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread116
+    i8 7, label %.thread119
   ]
 
-.thread116:                                       ; preds = %.thread105
+.thread119:                                       ; preds = %.thread108
   %309 = getelementptr inbounds nuw i8, ptr %199, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i5:                           ; preds = %.thread105, %.thread105, %.thread105, %.thread105, %.thread105, %.thread105, %.thread105
+repeatIsDead.exit.i.i5:                           ; preds = %.thread108, %.thread108, %.thread108, %.thread108, %.thread108, %.thread108, %.thread108
   %.0.shrunk.i.i.i6.in.in = getelementptr inbounds nuw i8, ptr %199, i64 8
   %.0.shrunk.i.i.i6.in = load i64, ptr %.0.shrunk.i.i.i6.in.in, align 8
   %.0.shrunk.i.i.i6.not = icmp eq i64 %.0.shrunk.i.i.i6.in, -1
   br i1 %.0.shrunk.i.i.i6.not, label %.split.i.i9, label %318
 
-.split.i.i9:                                      ; preds = %.thread105, %repeatIsDead.exit.i.i5
+.split.i.i9:                                      ; preds = %.thread108, %repeatIsDead.exit.i.i5
   %310 = getelementptr inbounds nuw i8, ptr %199, i64 8
   switch i8 %308, label %lbrTop.exit.i [
     i8 0, label %311
@@ -6929,9 +6929,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %.thread105, %.threa
 default.unreachable:                              ; preds = %318
   unreachable
 
-repeatLastTop.exit:                               ; preds = %318, %318, %.thread116, %319, %321, %323, %325, %327
-  %329 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %319 ], [ %.0.shrunk.i.i.i6.in.in, %321 ], [ %.0.shrunk.i.i.i6.in.in, %323 ], [ %.0.shrunk.i.i.i6.in.in, %325 ], [ %.0.shrunk.i.i.i6.in.in, %327 ], [ %309, %.thread116 ], [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %318 ]
-  %.0.i13 = phi i64 [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ 0, %.thread116 ], [ %.0.shrunk.i.i.i6.in, %318 ], [ %.0.shrunk.i.i.i6.in, %318 ]
+repeatLastTop.exit:                               ; preds = %318, %318, %.thread119, %319, %321, %323, %325, %327
+  %329 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %319 ], [ %.0.shrunk.i.i.i6.in.in, %321 ], [ %.0.shrunk.i.i.i6.in.in, %323 ], [ %.0.shrunk.i.i.i6.in.in, %325 ], [ %.0.shrunk.i.i.i6.in.in, %327 ], [ %309, %.thread119 ], [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %318 ]
+  %.0.i13 = phi i64 [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ 0, %.thread119 ], [ %.0.shrunk.i.i.i6.in, %318 ], [ %.0.shrunk.i.i.i6.in, %318 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %218
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -6970,16 +6970,16 @@ repeatLastTop.exit:                               ; preds = %318, %318, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %303, ptr noundef nonnull %329, i64 noundef %218, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrNVerm_TopScan.exit:                     ; preds = %repeatIsDead.exit.i.thread84, %292, %.lr.ph163, %210, %220
-  %337 = phi i32 [ %205, %220 ], [ %205, %210 ], [ %298, %292 ], [ %205, %.lr.ph163 ], [ %200, %repeatIsDead.exit.i.thread84 ]
-  %338 = phi i32 [ %221, %220 ], [ %221, %210 ], [ %297, %292 ], [ %204, %.lr.ph163 ], [ %185, %repeatIsDead.exit.i.thread84 ]
+nfaExecLbrNVerm_TopScan.exit:                     ; preds = %repeatIsDead.exit.i.thread87, %292, %.lr.ph166, %210, %220
+  %337 = phi i32 [ %205, %220 ], [ %205, %210 ], [ %298, %292 ], [ %205, %.lr.ph166 ], [ %200, %repeatIsDead.exit.i.thread87 ]
+  %338 = phi i32 [ %221, %220 ], [ %221, %210 ], [ %297, %292 ], [ %204, %.lr.ph166 ], [ %185, %repeatIsDead.exit.i.thread87 ]
   %339 = icmp ult i32 %338, %337
   br i1 %339, label %340, label %nfaExecLbrNVerm_Q_i.exit
 
 340:                                              ; preds = %nfaExecLbrNVerm_TopScan.exit
   %341 = zext i32 %338 to i64
-  %.idx.i21 = mul nuw nsw i64 %341, 24
-  %342 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %341, 24
+  %342 = getelementptr i8, ptr %39, i64 %.idx.i24
   %343 = load i64, ptr %342, align 8
   %344 = icmp sgt i64 %343, %2
   br i1 %344, label %345, label %nfaExecLbrNVerm_Q_i.exit
@@ -7033,7 +7033,7 @@ repeatIsDead.exit.i.i:                            ; preds = %353, %353, %353, %3
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %372
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %364, label %default.unreachable195 [
+  switch i8 %364, label %default.unreachable198 [
     i8 0, label %365
     i8 1, label %366
     i8 2, label %367
@@ -7072,7 +7072,7 @@ repeatIsDead.exit.i.i:                            ; preds = %353, %353, %353, %3
   br label %lbrTop.exit.i
 
 372:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %364, label %default.unreachable135 [
+  switch i8 %364, label %default.unreachable138 [
     i8 0, label %373
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -7102,7 +7102,7 @@ repeatIsDead.exit.i.i:                            ; preds = %353, %353, %353, %3
   %382 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %359, ptr noundef nonnull %.0.shrunk.i124.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable135:                           ; preds = %372
+default.unreachable138:                           ; preds = %372
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %372, %372, %353, %373, %375, %377, %379, %381
@@ -7145,7 +7145,7 @@ repeatLastTop.exit15:                             ; preds = %372, %372, %353, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %359, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %356, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable195:                           ; preds = %.split.i.i
+default.unreachable198:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %353, %repeatLastTop.exit, %.split.i.i9, %311, %312, %313, %314, %315, %316, %317, %.split16.i.i12, %331, %332, %333, %334, %335, %336, %repeatLastTop.exit15, %365, %366, %367, %368, %369, %370, %371, %.split16.i.i, %384, %385, %386, %387, %388, %389, %repeatIsDead.exit.i.thread
@@ -7171,29 +7171,29 @@ lbrTop.exit.i:                                    ; preds = %353, %repeatLastTop
   %402 = getelementptr inbounds nuw i8, ptr %4, i64 %401
   %403 = load i8, ptr %402, align 4
   switch i8 %403, label %nfaExecLbrNVerm_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i23
-    i8 3, label %repeatIsDead.exit.i23
-    i8 1, label %repeatIsDead.exit.i23
-    i8 2, label %repeatIsDead.exit.i23
-    i8 4, label %repeatIsDead.exit.i23
-    i8 5, label %repeatIsDead.exit.i23
-    i8 6, label %repeatIsDead.exit.i23
-    i8 7, label %repeatIsDead.exit.i23.thread
+    i8 0, label %repeatIsDead.exit.i26
+    i8 3, label %repeatIsDead.exit.i26
+    i8 1, label %repeatIsDead.exit.i26
+    i8 2, label %repeatIsDead.exit.i26
+    i8 4, label %repeatIsDead.exit.i26
+    i8 5, label %repeatIsDead.exit.i26
+    i8 6, label %repeatIsDead.exit.i26
+    i8 7, label %repeatIsDead.exit.i26.thread
   ]
 
-repeatIsDead.exit.i23:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i24.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i24.in = load i64, ptr %.0.shrunk.i.i24.in.in, align 8
-  %.0.shrunk.i.i24.not = icmp eq i64 %.0.shrunk.i.i24.in, -1
-  br i1 %.0.shrunk.i.i24.not, label %nfaExecLbrNVerm_Q_i.exit, label %repeatIsDead.exit.i23.thread
+repeatIsDead.exit.i26:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i27.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i27.in = load i64, ptr %.0.shrunk.i.i27.in.in, align 8
+  %.0.shrunk.i.i27.not = icmp eq i64 %.0.shrunk.i.i27.in, -1
+  br i1 %.0.shrunk.i.i27.not, label %nfaExecLbrNVerm_Q_i.exit, label %repeatIsDead.exit.i26.thread
 
-repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i23
+repeatIsDead.exit.i26.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i26
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %405 = load i32, ptr %404, align 4
   %406 = icmp eq i32 %405, 65535
   br i1 %406, label %nfaExecLbrNVerm_Q_i.exit, label %407
 
-407:                                              ; preds = %repeatIsDead.exit.i23.thread
+407:                                              ; preds = %repeatIsDead.exit.i26.thread
   %408 = getelementptr inbounds nuw i8, ptr %402, i64 16
   %409 = load i32, ptr %408, align 4
   %410 = zext i32 %409 to i64
@@ -7239,11 +7239,11 @@ repeatLastTop.exit.i:                             ; preds = %423, %421, %419, %4
   %426 = zext i32 %425 to i64
   %427 = add i64 %.0.i12.i, %426
   %428 = icmp ult i64 %.0101.i.lcssa, %427
-  %..i28 = zext i1 %428 to i8
+  %..i31 = zext i1 %428 to i8
   br label %nfaExecLbrNVerm_Q_i.exit
 
-nfaExecLbrNVerm_Q_i.exit:                         ; preds = %179, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i23.thread, %repeatIsDead.exit.i23, %12, %29, %190, %nfaExecLbrNVerm_TopScan.exit, %340, %345
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %190 ], [ 1, %345 ], [ 0, %340 ], [ 0, %nfaExecLbrNVerm_TopScan.exit ], [ %..i28, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i23 ], [ 1, %repeatIsDead.exit.i23.thread ], [ 0, %._crit_edge ], [ 0, %179 ]
+nfaExecLbrNVerm_Q_i.exit:                         ; preds = %179, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i26.thread, %repeatIsDead.exit.i26, %12, %29, %190, %nfaExecLbrNVerm_TopScan.exit, %340, %345
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %190 ], [ 1, %345 ], [ 0, %340 ], [ 0, %nfaExecLbrNVerm_TopScan.exit ], [ %..i31, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i26 ], [ 1, %repeatIsDead.exit.i26.thread ], [ 0, %._crit_edge ], [ 0, %179 ]
   ret i8 %.2.i
 }
 
@@ -7300,12 +7300,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrNVerm_Q2(ptr noundef %0, ptr 
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %storemerge.i181 = add i32 %31, 1
-  store i32 %storemerge.i181, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i181, %33
-  br i1 %43, label %.lr.ph184, label %._crit_edge
+  %storemerge.i184 = add i32 %31, 1
+  store i32 %storemerge.i184, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i184, %33
+  br i1 %43, label %.lr.ph187, label %._crit_edge
 
-.lr.ph184:                                        ; preds = %35
+.lr.ph187:                                        ; preds = %35
   %.0.shrunk.i124.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7314,12 +7314,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrNVerm_Q2(ptr noundef %0, ptr 
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %49
 
-49:                                               ; preds = %.lr.ph184, %lbrTop.exit.i
-  %50 = phi i64 [ %37, %.lr.ph184 ], [ %389, %lbrTop.exit.i ]
-  %storemerge.i183 = phi i32 [ %storemerge.i181, %.lr.ph184 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i182 = phi i64 [ %42, %.lr.ph184 ], [ %394, %lbrTop.exit.i ]
+49:                                               ; preds = %.lr.ph187, %lbrTop.exit.i
+  %50 = phi i64 [ %37, %.lr.ph187 ], [ %389, %lbrTop.exit.i ]
+  %storemerge.i186 = phi i32 [ %storemerge.i184, %.lr.ph187 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i185 = phi i64 [ %42, %.lr.ph187 ], [ %394, %lbrTop.exit.i ]
   %51 = load i8, ptr %7, align 4
-  switch i8 %51, label %repeatIsDead.exit126.i.thread57 [
+  switch i8 %51, label %repeatIsDead.exit126.i.thread60 [
     i8 0, label %repeatIsDead.exit126.i
     i8 3, label %repeatIsDead.exit126.i
     i8 1, label %repeatIsDead.exit126.i
@@ -7333,23 +7333,23 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrNVerm_Q2(ptr noundef %0, ptr 
 repeatIsDead.exit126.i:                           ; preds = %49, %49, %49, %49, %49, %49, %49
   %.0.shrunk.i124.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i124.i.not = icmp eq i64 %.0.shrunk.i124.i.in, -1
-  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread57, label %repeatIsDead.exit126.i.thread
+  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread60, label %repeatIsDead.exit126.i.thread
 
 repeatIsDead.exit126.i.thread:                    ; preds = %49, %repeatIsDead.exit126.i
-  %52 = zext i32 %storemerge.i183 to i64
+  %52 = zext i32 %storemerge.i186 to i64
   %.idx.i121.i = mul nuw nsw i64 %52, 24
   %53 = getelementptr i8, ptr %39, i64 %.idx.i121.i
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %50
   %56 = add i64 %50, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %55, i64 %56)
-  %57 = icmp ult i64 %.0101.i182, %..i
-  br i1 %57, label %58, label %repeatIsDead.exit126.i.thread57
+  %57 = icmp ult i64 %.0101.i185, %..i
+  br i1 %57, label %58, label %repeatIsDead.exit126.i.thread60
 
 58:                                               ; preds = %repeatIsDead.exit126.i.thread
   %59 = load ptr, ptr %44, align 8
   %60 = sub i64 %..i, %50
-  %61 = sub i64 %.0101.i182, %50
+  %61 = sub i64 %.0101.i185, %50
   %62 = load i8, ptr %45, align 4
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 %61
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 %60
@@ -7357,28 +7357,28 @@ repeatIsDead.exit126.i.thread:                    ; preds = %49, %repeatIsDead.e
   %66 = shufflevector <16 x i8> %65, <16 x i8> poison, <16 x i32> zeroinitializer
   %gepdiff = sub nsw i64 %60, %61
   %67 = icmp slt i64 %gepdiff, 16
-  br i1 %67, label %.preheader151, label %73
+  br i1 %67, label %.preheader154, label %73
 
-.preheader151:                                    ; preds = %58
+.preheader154:                                    ; preds = %58
   %68 = icmp samesign ult i64 %61, %60
-  br i1 %68, label %.lr.ph173, label %nvermicelliExec.exit
+  br i1 %68, label %.lr.ph176, label %nvermicelliExec.exit
 
-.lr.ph173:                                        ; preds = %.preheader151, %70
-  %.042.i172 = phi ptr [ %71, %70 ], [ %63, %.preheader151 ]
-  %69 = load i8, ptr %.042.i172, align 1
+.lr.ph176:                                        ; preds = %.preheader154, %70
+  %.042.i175 = phi ptr [ %71, %70 ], [ %63, %.preheader154 ]
+  %69 = load i8, ptr %.042.i175, align 1
   %.not53.i = icmp eq i8 %69, %62
   br i1 %.not53.i, label %70, label %nvermicelliExec.exit
 
-70:                                               ; preds = %.lr.ph173
-  %71 = getelementptr inbounds nuw i8, ptr %.042.i172, i64 1
+70:                                               ; preds = %.lr.ph176
+  %71 = getelementptr inbounds nuw i8, ptr %.042.i175, i64 1
   %72 = icmp ult ptr %71, %64
-  br i1 %72, label %.lr.ph173, label %nvermicelliExec.exit
+  br i1 %72, label %.lr.ph176, label %nvermicelliExec.exit
 
 73:                                               ; preds = %58
   %74 = ptrtoint ptr %63 to i64
   %75 = and i64 %74, 15
-  %.not.i34 = icmp eq i64 %75, 0
-  br i1 %.not.i34, label %86, label %76
+  %.not.i37 = icmp eq i64 %75, 0
+  br i1 %.not.i37, label %86, label %76
 
 76:                                               ; preds = %73
   %77 = load <16 x i8>, ptr %63, align 1
@@ -7404,20 +7404,20 @@ vermUnalign.exit56.i:                             ; preds = %76
   %87 = getelementptr inbounds i8, ptr %64, i64 -1
   %88 = getelementptr inbounds nuw i8, ptr %.143.i, i64 31
   %89 = icmp ult ptr %88, %87
-  br i1 %89, label %.lr.ph, label %.preheader152
+  br i1 %89, label %.lr.ph, label %.preheader155
 
-.preheader152:                                    ; preds = %104, %86
+.preheader155:                                    ; preds = %104, %86
   %.032.i.i.lcssa = phi ptr [ %.143.i, %86 ], [ %105, %104 ]
   %90 = getelementptr inbounds nuw i8, ptr %.032.i.i.lcssa, i64 15
   %91 = icmp ult ptr %90, %87
-  br i1 %91, label %.lr.ph171, label %vermSearchAligned.exit.i.thread
+  br i1 %91, label %.lr.ph174, label %vermSearchAligned.exit.i.thread
 
 .lr.ph:                                           ; preds = %86, %104
-  %.032.i.i169 = phi ptr [ %105, %104 ], [ %.143.i, %86 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i.i169, i64 16) ]
-  %92 = load <16 x i8>, ptr %.032.i.i169, align 16
+  %.032.i.i172 = phi ptr [ %105, %104 ], [ %.143.i, %86 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i.i172, i64 16) ]
+  %92 = load <16 x i8>, ptr %.032.i.i172, align 16
   %93 = icmp eq <16 x i8> %66, %92
-  %94 = getelementptr inbounds nuw i8, ptr %.032.i.i169, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.032.i.i172, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %94, i64 16) ]
   %95 = load <16 x i8>, ptr %94, align 16
   %96 = icmp eq <16 x i8> %66, %95
@@ -7430,38 +7430,38 @@ vermUnalign.exit56.i:                             ; preds = %76
   %100 = xor i32 %98, -1
   %101 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %100, i1 true)
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i8, ptr %.032.i.i169, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.032.i.i172, i64 %102
   br label %nvermicelliExec.exit
 
 104:                                              ; preds = %.lr.ph
-  %105 = getelementptr inbounds nuw i8, ptr %.032.i.i169, i64 32
-  %106 = getelementptr inbounds nuw i8, ptr %.032.i.i169, i64 63
+  %105 = getelementptr inbounds nuw i8, ptr %.032.i.i172, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %.032.i.i172, i64 63
   %107 = icmp ult ptr %106, %87
-  br i1 %107, label %.lr.ph, label %.preheader152
+  br i1 %107, label %.lr.ph, label %.preheader155
 
-.lr.ph171:                                        ; preds = %.preheader152, %116
-  %.133.i.i170 = phi ptr [ %117, %116 ], [ %.032.i.i.lcssa, %.preheader152 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i.i170, i64 16) ]
-  %108 = load <16 x i8>, ptr %.133.i.i170, align 16
+.lr.ph174:                                        ; preds = %.preheader155, %116
+  %.133.i.i173 = phi ptr [ %117, %116 ], [ %.032.i.i.lcssa, %.preheader155 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i.i173, i64 16) ]
+  %108 = load <16 x i8>, ptr %.133.i.i173, align 16
   %109 = icmp eq <16 x i8> %66, %108
   %110 = bitcast <16 x i1> %109 to i16
   %.not37.i.i.not = icmp eq i16 %110, -1
   br i1 %.not37.i.i.not, label %116, label %111, !prof !5
 
-111:                                              ; preds = %.lr.ph171
+111:                                              ; preds = %.lr.ph174
   %112 = xor i16 %110, -1
   %113 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %112, i1 true)
   %114 = zext nneg i16 %113 to i64
-  %115 = getelementptr inbounds nuw i8, ptr %.133.i.i170, i64 %114
+  %115 = getelementptr inbounds nuw i8, ptr %.133.i.i173, i64 %114
   br label %nvermicelliExec.exit
 
-116:                                              ; preds = %.lr.ph171
-  %117 = getelementptr inbounds nuw i8, ptr %.133.i.i170, i64 16
-  %118 = getelementptr inbounds nuw i8, ptr %.133.i.i170, i64 31
+116:                                              ; preds = %.lr.ph174
+  %117 = getelementptr inbounds nuw i8, ptr %.133.i.i173, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.133.i.i173, i64 31
   %119 = icmp ult ptr %118, %87
-  br i1 %119, label %.lr.ph171, label %vermSearchAligned.exit.i.thread
+  br i1 %119, label %.lr.ph174, label %vermSearchAligned.exit.i.thread
 
-vermSearchAligned.exit.i.thread:                  ; preds = %116, %.preheader152
+vermSearchAligned.exit.i.thread:                  ; preds = %116, %.preheader155
   %120 = getelementptr inbounds i8, ptr %64, i64 -16
   %121 = load <16 x i8>, ptr %120, align 1
   %122 = icmp eq <16 x i8> %66, %121
@@ -7482,15 +7482,15 @@ vermUnalign.exit.i:                               ; preds = %124, %vermSearchAli
   %129 = select i1 %.not52.i, ptr %64, ptr %.08.i.i
   br label %nvermicelliExec.exit
 
-nvermicelliExec.exit:                             ; preds = %.lr.ph173, %70, %.preheader151, %99, %111, %vermUnalign.exit56.i, %vermUnalign.exit.i
-  %.0.i35 = phi ptr [ %85, %vermUnalign.exit56.i ], [ %129, %vermUnalign.exit.i ], [ %103, %99 ], [ %115, %111 ], [ %63, %.preheader151 ], [ %.042.i172, %.lr.ph173 ], [ %71, %70 ]
-  %130 = icmp eq ptr %.0.i35, %64
-  %131 = ptrtoint ptr %.0.i35 to i64
+nvermicelliExec.exit:                             ; preds = %.lr.ph176, %70, %.preheader154, %99, %111, %vermUnalign.exit56.i, %vermUnalign.exit.i
+  %.0.i38 = phi ptr [ %85, %vermUnalign.exit56.i ], [ %129, %vermUnalign.exit.i ], [ %103, %99 ], [ %115, %111 ], [ %63, %.preheader154 ], [ %.042.i175, %.lr.ph176 ], [ %71, %70 ]
+  %130 = icmp eq ptr %.0.i38, %64
+  %131 = ptrtoint ptr %.0.i38 to i64
   %132 = ptrtoint ptr %59 to i64
   %133 = sub i64 %50, %132
   %134 = add i64 %133, %131
   %.0100.i = select i1 %130, i64 %..i, i64 %134
-  %135 = icmp eq i64 %.0101.i182, %.0100.i
+  %135 = icmp eq i64 %.0101.i185, %.0100.i
   br i1 %135, label %repeatNextMatch.exit.thread, label %136
 
 136:                                              ; preds = %nvermicelliExec.exit
@@ -7515,7 +7515,7 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph173, %70, %.p
   ]
 
 146:                                              ; preds = %136
-  %147 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %144, i64 noundef %.0101.i182) #8
+  %147 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %144, i64 noundef %.0101.i185) #8
   br label %repeatNextMatch.exit
 
 148:                                              ; preds = %136, %136
@@ -7524,7 +7524,7 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph173, %70, %.p
   %151 = load i32, ptr %150, align 4
   %152 = zext i32 %151 to i64
   %153 = add i64 %149, %152
-  %154 = icmp ult i64 %.0101.i182, %153
+  %154 = icmp ult i64 %.0101.i185, %153
   br i1 %154, label %repeatNextMatch.exit, label %155
 
 155:                                              ; preds = %148
@@ -7533,45 +7533,45 @@ nvermicelliExec.exit:                             ; preds = %.lr.ph173, %70, %.p
   %158 = icmp eq i32 %157, 65535
   %159 = zext i32 %157 to i64
   %160 = add i64 %149, %159
-  %161 = icmp ult i64 %.0101.i182, %160
-  %or.cond.i31 = or i1 %158, %161
-  %162 = add i64 %.0101.i182, 1
-  %spec.select.i = select i1 %or.cond.i31, i64 %162, i64 0
+  %161 = icmp ult i64 %.0101.i185, %160
+  %or.cond.i34 = or i1 %158, %161
+  %162 = add i64 %.0101.i185, 1
+  %spec.select.i = select i1 %or.cond.i34, i64 %162, i64 0
   br label %repeatNextMatch.exit
 
 163:                                              ; preds = %136
-  %164 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %144, i64 noundef %.0101.i182) #8
+  %164 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %144, i64 noundef %.0101.i185) #8
   br label %repeatNextMatch.exit
 
 165:                                              ; preds = %136
-  %166 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i182) #8
+  %166 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i185) #8
   br label %repeatNextMatch.exit
 
 167:                                              ; preds = %136
-  %168 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %144, i64 noundef %.0101.i182) #8
+  %168 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %144, i64 noundef %.0101.i185) #8
   br label %repeatNextMatch.exit
 
 169:                                              ; preds = %136
-  %170 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i182) #8
+  %170 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %140, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i185) #8
   br label %repeatNextMatch.exit
 
 171:                                              ; preds = %136
-  %172 = add i64 %.0101.i182, 1
+  %172 = add i64 %.0101.i185, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %155, %148, %146, %163, %165, %167, %169, %171
-  %.0.i30 = phi i64 [ %147, %146 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %153, %148 ], [ %spec.select.i, %155 ]
-  %173 = add i64 %.0.i30, -1
-  %or.cond.i19.not = icmp ult i64 %173, %.0100.i
-  br i1 %or.cond.i19.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
+  %.0.i33 = phi i64 [ %147, %146 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %170, %169 ], [ %172, %171 ], [ %153, %148 ], [ %spec.select.i, %155 ]
+  %173 = add i64 %.0.i33, -1
+  %or.cond.i22.not = icmp ult i64 %173, %.0100.i
+  br i1 %or.cond.i22.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
 
 repeatNextMatch.exit.thread:                      ; preds = %136, %nvermicelliExec.exit, %repeatNextMatch.exit
-  br i1 %130, label %repeatIsDead.exit126.i.thread57, label %174
+  br i1 %130, label %repeatIsDead.exit126.i.thread60, label %174
 
 174:                                              ; preds = %repeatNextMatch.exit.thread
   %175 = load i8, ptr %7, align 4
   %switch = icmp ult i8 %175, 7
-  br i1 %switch, label %repeatIsDead.exit126.i.thread57.sink.split, label %repeatIsDead.exit126.i.thread57
+  br i1 %switch, label %repeatIsDead.exit126.i.thread60.sink.split, label %repeatIsDead.exit126.i.thread60
 
 clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exit
   %176 = load i32, ptr %30, align 8
@@ -7581,27 +7581,27 @@ clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exi
   %179 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %178
   store i32 0, ptr %179, align 8
   %180 = load i64, ptr %36, align 8
-  %181 = sub i64 %.0.i30, %180
+  %181 = sub i64 %.0.i33, %180
   %.idx.i = mul nuw nsw i64 %178, 24
   %182 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i64 %181, ptr %183, align 8
   br label %nfaExecLbrNVerm_Q_i.exit
 
-repeatIsDead.exit126.i.thread57.sink.split:       ; preds = %174
+repeatIsDead.exit126.i.thread60.sink.split:       ; preds = %174
   store i64 -1, ptr %.0.shrunk.i124.i.in.in, align 8
-  br label %repeatIsDead.exit126.i.thread57
+  br label %repeatIsDead.exit126.i.thread60
 
-repeatIsDead.exit126.i.thread57:                  ; preds = %174, %repeatIsDead.exit126.i.thread57.sink.split, %repeatNextMatch.exit.thread, %49, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
+repeatIsDead.exit126.i.thread60:                  ; preds = %174, %repeatIsDead.exit126.i.thread60.sink.split, %repeatNextMatch.exit.thread, %49, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
   %184 = load i32, ptr %30, align 8
   %185 = zext i32 %184 to i64
-  %.idx.i23 = mul nuw nsw i64 %185, 24
-  %186 = getelementptr i8, ptr %39, i64 %.idx.i23
+  %.idx.i26 = mul nuw nsw i64 %185, 24
+  %186 = getelementptr i8, ptr %39, i64 %.idx.i26
   %187 = load i64, ptr %186, align 8
   %188 = icmp sgt i64 %187, %2
   br i1 %188, label %189, label %195
 
-189:                                              ; preds = %repeatIsDead.exit126.i.thread57
+189:                                              ; preds = %repeatIsDead.exit126.i.thread60
   %190 = add i32 %184, -1
   store i32 %190, ptr %30, align 8
   %191 = zext i32 %190 to i64
@@ -7613,9 +7613,9 @@ repeatIsDead.exit126.i.thread57:                  ; preds = %174, %repeatIsDead.
   store i64 %2, ptr %194, align 8
   br label %nfaExecLbrNVerm_Q_i.exit
 
-195:                                              ; preds = %repeatIsDead.exit126.i.thread57
+195:                                              ; preds = %repeatIsDead.exit126.i.thread60
   %196 = load i8, ptr %7, align 4
-  switch i8 %196, label %repeatIsDead.exit.i.thread98 [
+  switch i8 %196, label %repeatIsDead.exit.i.thread101 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -7629,58 +7629,58 @@ repeatIsDead.exit126.i.thread57:                  ; preds = %174, %repeatIsDead.
 repeatIsDead.exit.i:                              ; preds = %195, %195, %195, %195, %195, %195, %195
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread98, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread101, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread98:                     ; preds = %195, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread101:                    ; preds = %195, %repeatIsDead.exit.i
   %197 = load i64, ptr %36, align 8
   %198 = load ptr, ptr %8, align 8
   %199 = load i32, ptr %32, align 4
   %200 = icmp ult i32 %184, %199
-  br i1 %200, label %.lr.ph177.lr.ph, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %200, label %.lr.ph180.lr.ph, label %nfaExecLbrNVerm_TopScan.exit
 
-.lr.ph177.lr.ph:                                  ; preds = %repeatIsDead.exit.i.thread98
+.lr.ph180.lr.ph:                                  ; preds = %repeatIsDead.exit.i.thread101
   %201 = load i32, ptr %4, align 4
   %202 = zext i32 %201 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %202
-  br label %.lr.ph177
+  br label %.lr.ph180
 
-.lr.ph177:                                        ; preds = %.lr.ph177.lr.ph, %291
-  %203 = phi i32 [ %184, %.lr.ph177.lr.ph ], [ %296, %291 ]
-  %204 = phi i32 [ %199, %.lr.ph177.lr.ph ], [ %297, %291 ]
+.lr.ph180:                                        ; preds = %.lr.ph180.lr.ph, %291
+  %203 = phi i32 [ %184, %.lr.ph180.lr.ph ], [ %296, %291 ]
+  %204 = phi i32 [ %199, %.lr.ph180.lr.ph ], [ %297, %291 ]
   %205 = zext i32 %203 to i64
   %206 = zext i32 %204 to i64
-  %.idx.i21270 = mul nuw nsw i64 %205, 24
-  %207 = getelementptr i8, ptr %39, i64 %.idx.i21270
+  %.idx.i24273 = mul nuw nsw i64 %205, 24
+  %207 = getelementptr i8, ptr %39, i64 %.idx.i24273
   %208 = load i64, ptr %207, align 8
-  %.not.i2271 = icmp sgt i64 %208, %2
-  br i1 %.not.i2271, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph273
+  %.not.i2274 = icmp sgt i64 %208, %2
+  br i1 %.not.i2274, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph276
 
 209:                                              ; preds = %219
-  %.idx.i21 = mul nuw nsw i64 %indvars.iv.next, 24
-  %210 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
+  %210 = getelementptr i8, ptr %39, i64 %.idx.i24
   %211 = load i64, ptr %210, align 8
   %.not.i2 = icmp sgt i64 %211, %2
-  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph273
+  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph276
 
-.lr.ph273:                                        ; preds = %.lr.ph177, %209
-  %212 = phi i64 [ %211, %209 ], [ %208, %.lr.ph177 ]
-  %indvars.iv272 = phi i64 [ %indvars.iv.next, %209 ], [ %205, %.lr.ph177 ]
-  %213 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv272
+.lr.ph276:                                        ; preds = %.lr.ph180, %209
+  %212 = phi i64 [ %211, %209 ], [ %208, %.lr.ph180 ]
+  %indvars.iv275 = phi i64 [ %indvars.iv.next, %209 ], [ %205, %.lr.ph180 ]
+  %213 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %47, i64 0, i64 %indvars.iv275
   %214 = load i32, ptr %213, align 8
   switch i32 %214, label %219 [
     i32 4, label %215
     i32 2, label %215
   ]
 
-215:                                              ; preds = %.lr.ph273, %.lr.ph273
+215:                                              ; preds = %.lr.ph276, %.lr.ph276
   %216 = load i64, ptr %36, align 8
   %217 = add i64 %216, %212
   %218 = load i64, ptr %198, align 8
   %.not56.i = icmp ult i64 %217, %218
   br i1 %.not56.i, label %219, label %222
 
-219:                                              ; preds = %.lr.ph273, %215
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv272, 1
+219:                                              ; preds = %.lr.ph276, %215
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv275, 1
   %220 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %220, ptr %30, align 8
   %221 = icmp samesign ult i64 %indvars.iv.next, %206
@@ -7697,7 +7697,7 @@ repeatIsDead.exit.i.thread98:                     ; preds = %195, %repeatIsDead.
   %228 = icmp ule i64 %spec.select, %217
   %.not57.i = icmp ult i64 %217, %197
   %or.cond.i = select i1 %228, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread119, label %229
+  br i1 %or.cond.i, label %.thread122, label %229
 
 229:                                              ; preds = %222
   %230 = load ptr, ptr %44, align 8
@@ -7708,8 +7708,8 @@ repeatIsDead.exit.i.thread98:                     ; preds = %195, %repeatIsDead.
   %235 = getelementptr inbounds nuw i8, ptr %230, i64 %231
   %236 = insertelement <16 x i8> poison, i8 %233, i64 0
   %237 = shufflevector <16 x i8> %236, <16 x i8> poison, <16 x i32> zeroinitializer
-  %gepdiff150 = sub nsw i64 %231, %232
-  %238 = icmp slt i64 %gepdiff150, 16
+  %gepdiff153 = sub nsw i64 %231, %232
+  %238 = icmp slt i64 %gepdiff153, 16
   br i1 %238, label %.preheader, label %241
 
 .preheader:                                       ; preds = %229, %239
@@ -7726,8 +7726,8 @@ repeatIsDead.exit.i.thread98:                     ; preds = %195, %repeatIsDead.
 241:                                              ; preds = %229
   %242 = ptrtoint ptr %235 to i64
   %243 = and i64 %242, 15
-  %.not.i38 = icmp eq i64 %243, 0
-  br i1 %.not.i38, label %259, label %244
+  %.not.i41 = icmp eq i64 %243, 0
+  br i1 %.not.i41, label %259, label %244
 
 244:                                              ; preds = %241
   %245 = getelementptr inbounds i8, ptr %235, i64 -16
@@ -7735,9 +7735,9 @@ repeatIsDead.exit.i.thread98:                     ; preds = %195, %repeatIsDead.
   %247 = icmp eq <16 x i8> %237, %246
   %248 = bitcast <16 x i1> %247 to i16
   %.not9.i65.i = icmp eq i16 %248, -1
-  br i1 %.not9.i65.i, label %256, label %.thread106, !prof !5
+  br i1 %.not9.i65.i, label %256, label %.thread109, !prof !5
 
-.thread106:                                       ; preds = %244
+.thread109:                                       ; preds = %244
   %249 = xor i16 %248, -1
   %250 = zext i16 %249 to i32
   %251 = getelementptr inbounds nuw i8, ptr %235, i64 15
@@ -7750,8 +7750,8 @@ repeatIsDead.exit.i.thread98:                     ; preds = %195, %repeatIsDead.
 256:                                              ; preds = %244
   %257 = sub nsw i64 0, %243
   %258 = getelementptr inbounds i8, ptr %235, i64 %257
-  %.not58.i47 = icmp ult ptr %234, %258
-  br i1 %.not58.i47, label %259, label %rnvermicelliExec.exit
+  %.not58.i50 = icmp ult ptr %234, %258
+  br i1 %.not58.i50, label %259, label %rnvermicelliExec.exit
 
 259:                                              ; preds = %256, %241
   %.147.i = phi ptr [ %258, %256 ], [ %235, %241 ]
@@ -7786,8 +7786,8 @@ rvermSearchAligned.exit.i:                        ; preds = %263
   %276 = load <16 x i8>, ptr %234, align 1
   %277 = icmp eq <16 x i8> %237, %276
   %278 = bitcast <16 x i1> %277 to i16
-  %.not9.i.i43 = icmp eq i16 %278, -1
-  br i1 %.not9.i.i43, label %rvermUnalign.exit.i, label %279, !prof !5
+  %.not9.i.i46 = icmp eq i16 %278, -1
+  br i1 %.not9.i.i46, label %rvermUnalign.exit.i, label %279, !prof !5
 
 279:                                              ; preds = %275
   %280 = xor i16 %278, -1
@@ -7800,20 +7800,20 @@ rvermSearchAligned.exit.i:                        ; preds = %263
   br label %rvermUnalign.exit.i
 
 rvermUnalign.exit.i:                              ; preds = %279, %275
-  %.08.i.i44 = phi ptr [ %286, %279 ], [ null, %275 ]
-  %.not60.i = icmp eq ptr %.08.i.i44, null
+  %.08.i.i47 = phi ptr [ %286, %279 ], [ null, %275 ]
+  %.not60.i = icmp eq ptr %.08.i.i47, null
   %287 = getelementptr inbounds i8, ptr %234, i64 -1
-  %288 = select i1 %.not60.i, ptr %287, ptr %.08.i.i44
+  %288 = select i1 %.not60.i, ptr %287, ptr %.08.i.i47
   br label %rnvermicelliExec.exit
 
-rnvermicelliExec.exit:                            ; preds = %.preheader, %239, %rvermSearchAligned.exit.i, %.thread106, %256, %rvermUnalign.exit.i
-  %.0.i41 = phi ptr [ %258, %256 ], [ %288, %rvermUnalign.exit.i ], [ %274, %rvermSearchAligned.exit.i ], [ %255, %.thread106 ], [ %.046.i, %239 ], [ %.046.i, %.preheader ]
+rnvermicelliExec.exit:                            ; preds = %.preheader, %239, %rvermSearchAligned.exit.i, %.thread109, %256, %rvermUnalign.exit.i
+  %.0.i44 = phi ptr [ %258, %256 ], [ %288, %rvermUnalign.exit.i ], [ %274, %rvermSearchAligned.exit.i ], [ %255, %.thread109 ], [ %.046.i, %239 ], [ %.046.i, %.preheader ]
   %289 = getelementptr inbounds i8, ptr %234, i64 -1
-  %290 = icmp eq ptr %.0.i41, %289
-  br i1 %290, label %.thread119, label %291
+  %290 = icmp eq ptr %.0.i44, %289
+  br i1 %290, label %.thread122, label %291
 
 291:                                              ; preds = %rnvermicelliExec.exit
-  %292 = ptrtoint ptr %.0.i41 to i64
+  %292 = ptrtoint ptr %.0.i44 to i64
   %293 = ptrtoint ptr %230 to i64
   %294 = sub i64 %292, %293
   store i64 %294, ptr %198, align 8
@@ -7822,9 +7822,9 @@ rnvermicelliExec.exit:                            ; preds = %.preheader, %239, %
   store i32 %296, ptr %30, align 8
   %297 = load i32, ptr %32, align 4
   %298 = icmp ult i32 %296, %297
-  br i1 %298, label %.lr.ph177, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %298, label %.lr.ph180, label %nfaExecLbrNVerm_TopScan.exit
 
-.thread119:                                       ; preds = %rnvermicelliExec.exit, %222
+.thread122:                                       ; preds = %rnvermicelliExec.exit, %222
   %299 = load ptr, ptr %46, align 8
   %300 = load i32, ptr %4, align 4
   %301 = zext i32 %300 to i64
@@ -7842,20 +7842,20 @@ rnvermicelliExec.exit:                            ; preds = %.preheader, %239, %
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread130
+    i8 7, label %.thread133
   ]
 
-.thread130:                                       ; preds = %.thread119
+.thread133:                                       ; preds = %.thread122
   %308 = getelementptr inbounds nuw i8, ptr %198, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i5:                           ; preds = %.thread119, %.thread119, %.thread119, %.thread119, %.thread119, %.thread119, %.thread119
+repeatIsDead.exit.i.i5:                           ; preds = %.thread122, %.thread122, %.thread122, %.thread122, %.thread122, %.thread122, %.thread122
   %.0.shrunk.i.i.i6.in.in = getelementptr inbounds nuw i8, ptr %198, i64 8
   %.0.shrunk.i.i.i6.in = load i64, ptr %.0.shrunk.i.i.i6.in.in, align 8
   %.0.shrunk.i.i.i6.not = icmp eq i64 %.0.shrunk.i.i.i6.in, -1
   br i1 %.0.shrunk.i.i.i6.not, label %.split.i.i9, label %317
 
-.split.i.i9:                                      ; preds = %.thread119, %repeatIsDead.exit.i.i5
+.split.i.i9:                                      ; preds = %.thread122, %repeatIsDead.exit.i.i5
   %309 = getelementptr inbounds nuw i8, ptr %198, i64 8
   switch i8 %307, label %lbrTop.exit.i [
     i8 0, label %310
@@ -7929,9 +7929,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %.thread119, %.threa
 default.unreachable:                              ; preds = %317
   unreachable
 
-repeatLastTop.exit:                               ; preds = %317, %317, %.thread130, %318, %320, %322, %324, %326
-  %328 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %320 ], [ %.0.shrunk.i.i.i6.in.in, %322 ], [ %.0.shrunk.i.i.i6.in.in, %324 ], [ %.0.shrunk.i.i.i6.in.in, %326 ], [ %308, %.thread130 ], [ %.0.shrunk.i.i.i6.in.in, %317 ], [ %.0.shrunk.i.i.i6.in.in, %317 ]
-  %.0.i13 = phi i64 [ %319, %318 ], [ %321, %320 ], [ %323, %322 ], [ %325, %324 ], [ %327, %326 ], [ 0, %.thread130 ], [ %.0.shrunk.i.i.i6.in, %317 ], [ %.0.shrunk.i.i.i6.in, %317 ]
+repeatLastTop.exit:                               ; preds = %317, %317, %.thread133, %318, %320, %322, %324, %326
+  %328 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %318 ], [ %.0.shrunk.i.i.i6.in.in, %320 ], [ %.0.shrunk.i.i.i6.in.in, %322 ], [ %.0.shrunk.i.i.i6.in.in, %324 ], [ %.0.shrunk.i.i.i6.in.in, %326 ], [ %308, %.thread133 ], [ %.0.shrunk.i.i.i6.in.in, %317 ], [ %.0.shrunk.i.i.i6.in.in, %317 ]
+  %.0.i13 = phi i64 [ %319, %318 ], [ %321, %320 ], [ %323, %322 ], [ %325, %324 ], [ %327, %326 ], [ 0, %.thread133 ], [ %.0.shrunk.i.i.i6.in, %317 ], [ %.0.shrunk.i.i.i6.in, %317 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %217
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -7970,16 +7970,16 @@ repeatLastTop.exit:                               ; preds = %317, %317, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %302, ptr noundef nonnull %328, i64 noundef %217, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrNVerm_TopScan.exit:                     ; preds = %repeatIsDead.exit.i.thread98, %291, %.lr.ph177, %209, %219
-  %336 = phi i32 [ %204, %219 ], [ %204, %209 ], [ %297, %291 ], [ %204, %.lr.ph177 ], [ %199, %repeatIsDead.exit.i.thread98 ]
-  %337 = phi i32 [ %220, %219 ], [ %220, %209 ], [ %296, %291 ], [ %203, %.lr.ph177 ], [ %184, %repeatIsDead.exit.i.thread98 ]
+nfaExecLbrNVerm_TopScan.exit:                     ; preds = %repeatIsDead.exit.i.thread101, %291, %.lr.ph180, %209, %219
+  %336 = phi i32 [ %204, %219 ], [ %204, %209 ], [ %297, %291 ], [ %204, %.lr.ph180 ], [ %199, %repeatIsDead.exit.i.thread101 ]
+  %337 = phi i32 [ %220, %219 ], [ %220, %209 ], [ %296, %291 ], [ %203, %.lr.ph180 ], [ %184, %repeatIsDead.exit.i.thread101 ]
   %338 = icmp ult i32 %337, %336
   br i1 %338, label %339, label %nfaExecLbrNVerm_Q_i.exit
 
 339:                                              ; preds = %nfaExecLbrNVerm_TopScan.exit
   %340 = zext i32 %337 to i64
-  %.idx.i22 = mul nuw nsw i64 %340, 24
-  %341 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %340, 24
+  %341 = getelementptr i8, ptr %39, i64 %.idx.i25
   %342 = load i64, ptr %341, align 8
   %343 = icmp sgt i64 %342, %2
   br i1 %343, label %344, label %nfaExecLbrNVerm_Q_i.exit
@@ -8033,7 +8033,7 @@ repeatIsDead.exit.i.i:                            ; preds = %352, %352, %352, %3
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %371
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %363, label %default.unreachable209 [
+  switch i8 %363, label %default.unreachable212 [
     i8 0, label %364
     i8 1, label %365
     i8 2, label %366
@@ -8072,7 +8072,7 @@ repeatIsDead.exit.i.i:                            ; preds = %352, %352, %352, %3
   br label %lbrTop.exit.i
 
 371:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %363, label %default.unreachable149 [
+  switch i8 %363, label %default.unreachable152 [
     i8 0, label %372
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -8102,7 +8102,7 @@ repeatIsDead.exit.i.i:                            ; preds = %352, %352, %352, %3
   %381 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %358, ptr noundef nonnull %.0.shrunk.i124.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable149:                           ; preds = %371
+default.unreachable152:                           ; preds = %371
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %371, %371, %352, %372, %374, %376, %378, %380
@@ -8145,7 +8145,7 @@ repeatLastTop.exit15:                             ; preds = %371, %371, %352, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %358, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %355, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable209:                           ; preds = %.split.i.i
+default.unreachable212:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %352, %repeatLastTop.exit, %.split.i.i9, %310, %311, %312, %313, %314, %315, %316, %.split16.i.i12, %330, %331, %332, %333, %334, %335, %repeatLastTop.exit15, %364, %365, %366, %367, %368, %369, %370, %.split16.i.i, %383, %384, %385, %386, %387, %388, %repeatIsDead.exit.i.thread
@@ -8171,29 +8171,29 @@ lbrTop.exit.i:                                    ; preds = %352, %repeatLastTop
   %401 = getelementptr inbounds nuw i8, ptr %4, i64 %400
   %402 = load i8, ptr %401, align 4
   switch i8 %402, label %nfaExecLbrNVerm_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i24
-    i8 3, label %repeatIsDead.exit.i24
-    i8 1, label %repeatIsDead.exit.i24
-    i8 2, label %repeatIsDead.exit.i24
-    i8 4, label %repeatIsDead.exit.i24
-    i8 5, label %repeatIsDead.exit.i24
-    i8 6, label %repeatIsDead.exit.i24
-    i8 7, label %repeatIsDead.exit.i24.thread
+    i8 0, label %repeatIsDead.exit.i27
+    i8 3, label %repeatIsDead.exit.i27
+    i8 1, label %repeatIsDead.exit.i27
+    i8 2, label %repeatIsDead.exit.i27
+    i8 4, label %repeatIsDead.exit.i27
+    i8 5, label %repeatIsDead.exit.i27
+    i8 6, label %repeatIsDead.exit.i27
+    i8 7, label %repeatIsDead.exit.i27.thread
   ]
 
-repeatIsDead.exit.i24:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i25.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i25.in = load i64, ptr %.0.shrunk.i.i25.in.in, align 8
-  %.0.shrunk.i.i25.not = icmp eq i64 %.0.shrunk.i.i25.in, -1
-  br i1 %.0.shrunk.i.i25.not, label %nfaExecLbrNVerm_Q_i.exit, label %repeatIsDead.exit.i24.thread
+repeatIsDead.exit.i27:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i28.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i28.in = load i64, ptr %.0.shrunk.i.i28.in.in, align 8
+  %.0.shrunk.i.i28.not = icmp eq i64 %.0.shrunk.i.i28.in, -1
+  br i1 %.0.shrunk.i.i28.not, label %nfaExecLbrNVerm_Q_i.exit, label %repeatIsDead.exit.i27.thread
 
-repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i24
+repeatIsDead.exit.i27.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i27
   %403 = getelementptr inbounds nuw i8, ptr %401, i64 8
   %404 = load i32, ptr %403, align 4
   %405 = icmp eq i32 %404, 65535
   br i1 %405, label %nfaExecLbrNVerm_Q_i.exit, label %406
 
-406:                                              ; preds = %repeatIsDead.exit.i24.thread
+406:                                              ; preds = %repeatIsDead.exit.i27.thread
   %407 = getelementptr inbounds nuw i8, ptr %401, i64 16
   %408 = load i32, ptr %407, align 4
   %409 = zext i32 %408 to i64
@@ -8239,11 +8239,11 @@ repeatLastTop.exit.i:                             ; preds = %422, %420, %418, %4
   %425 = zext i32 %424 to i64
   %426 = add i64 %.0.i12.i, %425
   %427 = icmp ult i64 %.0101.i.lcssa, %426
-  %..i29 = zext i1 %427 to i8
+  %..i32 = zext i1 %427 to i8
   br label %nfaExecLbrNVerm_Q_i.exit
 
-nfaExecLbrNVerm_Q_i.exit:                         ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i24.thread, %repeatIsDead.exit.i24, %clearRepeat.exit.i, %12, %29, %189, %nfaExecLbrNVerm_TopScan.exit, %339, %344
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %189 ], [ 1, %344 ], [ 2, %clearRepeat.exit.i ], [ 0, %339 ], [ 0, %nfaExecLbrNVerm_TopScan.exit ], [ %..i29, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i24 ], [ 1, %repeatIsDead.exit.i24.thread ], [ 0, %._crit_edge ]
+nfaExecLbrNVerm_Q_i.exit:                         ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i27.thread, %repeatIsDead.exit.i27, %clearRepeat.exit.i, %12, %29, %189, %nfaExecLbrNVerm_TopScan.exit, %339, %344
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %189 ], [ 1, %344 ], [ 2, %clearRepeat.exit.i ], [ 0, %339 ], [ 0, %nfaExecLbrNVerm_TopScan.exit ], [ %..i32, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i27 ], [ 1, %repeatIsDead.exit.i27.thread ], [ 0, %._crit_edge ]
   ret i8 %.2.i
 }
 
@@ -8280,9 +8280,9 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrNVerm_QR(ptr noundef %0, ptr 
   %27 = load i64, ptr %26, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
   %28 = icmp ult i32 %17, %7
-  br i1 %28, label %.lr.ph325, label %._crit_edge
+  br i1 %28, label %.lr.ph328, label %._crit_edge
 
-.lr.ph325:                                        ; preds = %9
+.lr.ph328:                                        ; preds = %9
   %.0.shrunk.i83.in.in = getelementptr inbounds nuw i8, ptr %23, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -8293,12 +8293,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrNVerm_QR(ptr noundef %0, ptr 
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %36
 
-36:                                               ; preds = %.lr.ph325, %lbrTop.exit
-  %37 = phi i64 [ %11, %.lr.ph325 ], [ %394, %lbrTop.exit ]
-  %38 = phi i32 [ %17, %.lr.ph325 ], [ %400, %lbrTop.exit ]
-  %.064324 = phi i64 [ %16, %.lr.ph325 ], [ %399, %lbrTop.exit ]
+36:                                               ; preds = %.lr.ph328, %lbrTop.exit
+  %37 = phi i64 [ %11, %.lr.ph328 ], [ %394, %lbrTop.exit ]
+  %38 = phi i32 [ %17, %.lr.ph328 ], [ %400, %lbrTop.exit ]
+  %.064327 = phi i64 [ %16, %.lr.ph328 ], [ %399, %lbrTop.exit ]
   %39 = load i8, ptr %21, align 4
-  switch i8 %39, label %repeatIsDead.exit85.thread169 [
+  switch i8 %39, label %repeatIsDead.exit85.thread172 [
     i8 0, label %repeatIsDead.exit85
     i8 3, label %repeatIsDead.exit85
     i8 1, label %repeatIsDead.exit85
@@ -8312,7 +8312,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrNVerm_QR(ptr noundef %0, ptr 
 repeatIsDead.exit85:                              ; preds = %36, %36, %36, %36, %36, %36, %36
   %.0.shrunk.i83.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i83.not = icmp eq i64 %.0.shrunk.i83.in, -1
-  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread169, label %repeatIsDead.exit85.thread
+  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread172, label %repeatIsDead.exit85.thread
 
 repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.exit85
   %40 = zext i32 %38 to i64
@@ -8320,7 +8320,7 @@ repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.e
   %41 = getelementptr i8, ptr %13, i64 %.idx.i75
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %37
-  %44 = icmp ult i64 %.064324, %37
+  %44 = icmp ult i64 %.064327, %37
   br i1 %44, label %45, label %nfaExecLbrNVerm_StreamSilent.exit
 
 45:                                               ; preds = %repeatIsDead.exit85.thread
@@ -8328,45 +8328,45 @@ repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.e
   %46 = load ptr, ptr %29, align 8
   %47 = load i64, ptr %30, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.064324
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.064327
   %50 = sub i64 0, %37
   %51 = getelementptr inbounds i8, ptr %49, i64 %50
   %52 = load i32, ptr %18, align 4
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %18, i64 %53
   %55 = load ptr, ptr %22, align 8
-  %56 = icmp eq i64 %43, %.064324
+  %56 = icmp eq i64 %43, %.064327
   br i1 %56, label %nfaExecLbrNVerm_StreamSilent.exit, label %57
 
 57:                                               ; preds = %45
-  %58 = sub i64 %., %.064324
+  %58 = sub i64 %., %.064327
   %59 = load i8, ptr %31, align 4
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 %58
   %61 = insertelement <16 x i8> poison, i8 %59, i64 0
   %62 = shufflevector <16 x i8> %61, <16 x i8> poison, <16 x i32> zeroinitializer
   %63 = icmp slt i64 %58, 16
-  br i1 %63, label %.preheader287, label %68
+  br i1 %63, label %.preheader290, label %68
 
-.preheader287:                                    ; preds = %57
-  %.not327 = icmp eq i64 %., %.064324
-  br i1 %.not327, label %nvermicelliExec.exit, label %.lr.ph307
+.preheader290:                                    ; preds = %57
+  %.not330 = icmp eq i64 %., %.064327
+  br i1 %.not330, label %nvermicelliExec.exit, label %.lr.ph310
 
-.lr.ph307:                                        ; preds = %.preheader287, %65
-  %.042.i306 = phi ptr [ %66, %65 ], [ %51, %.preheader287 ]
-  %64 = load i8, ptr %.042.i306, align 1
+.lr.ph310:                                        ; preds = %.preheader290, %65
+  %.042.i309 = phi ptr [ %66, %65 ], [ %51, %.preheader290 ]
+  %64 = load i8, ptr %.042.i309, align 1
   %.not53.i = icmp eq i8 %64, %59
   br i1 %.not53.i, label %65, label %nvermicelliExec.exit
 
-65:                                               ; preds = %.lr.ph307
-  %66 = getelementptr inbounds nuw i8, ptr %.042.i306, i64 1
+65:                                               ; preds = %.lr.ph310
+  %66 = getelementptr inbounds nuw i8, ptr %.042.i309, i64 1
   %67 = icmp ult ptr %66, %60
-  br i1 %67, label %.lr.ph307, label %nvermicelliExec.exit
+  br i1 %67, label %.lr.ph310, label %nvermicelliExec.exit
 
 68:                                               ; preds = %57
   %69 = ptrtoint ptr %51 to i64
   %70 = and i64 %69, 15
-  %.not.i123 = icmp eq i64 %70, 0
-  br i1 %.not.i123, label %81, label %71
+  %.not.i126 = icmp eq i64 %70, 0
+  br i1 %.not.i126, label %81, label %71
 
 71:                                               ; preds = %68
   %72 = load <16 x i8>, ptr %51, align 1
@@ -8392,20 +8392,20 @@ vermUnalign.exit56.i:                             ; preds = %71
   %82 = getelementptr inbounds i8, ptr %60, i64 -1
   %83 = getelementptr inbounds nuw i8, ptr %.143.i, i64 31
   %84 = icmp ult ptr %83, %82
-  br i1 %84, label %.lr.ph, label %.preheader288
+  br i1 %84, label %.lr.ph, label %.preheader291
 
-.preheader288:                                    ; preds = %99, %81
+.preheader291:                                    ; preds = %99, %81
   %.032.i.i.lcssa = phi ptr [ %.143.i, %81 ], [ %100, %99 ]
   %85 = getelementptr inbounds nuw i8, ptr %.032.i.i.lcssa, i64 15
   %86 = icmp ult ptr %85, %82
-  br i1 %86, label %.lr.ph305, label %vermSearchAligned.exit.i.thread
+  br i1 %86, label %.lr.ph308, label %vermSearchAligned.exit.i.thread
 
 .lr.ph:                                           ; preds = %81, %99
-  %.032.i.i303 = phi ptr [ %100, %99 ], [ %.143.i, %81 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i.i303, i64 16) ]
-  %87 = load <16 x i8>, ptr %.032.i.i303, align 16
+  %.032.i.i306 = phi ptr [ %100, %99 ], [ %.143.i, %81 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i.i306, i64 16) ]
+  %87 = load <16 x i8>, ptr %.032.i.i306, align 16
   %88 = icmp eq <16 x i8> %62, %87
-  %89 = getelementptr inbounds nuw i8, ptr %.032.i.i303, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.032.i.i306, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %89, i64 16) ]
   %90 = load <16 x i8>, ptr %89, align 16
   %91 = icmp eq <16 x i8> %62, %90
@@ -8418,38 +8418,38 @@ vermUnalign.exit56.i:                             ; preds = %71
   %95 = xor i32 %93, -1
   %96 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %95, i1 true)
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %.032.i.i303, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr %.032.i.i306, i64 %97
   br label %nvermicelliExec.exit
 
 99:                                               ; preds = %.lr.ph
-  %100 = getelementptr inbounds nuw i8, ptr %.032.i.i303, i64 32
-  %101 = getelementptr inbounds nuw i8, ptr %.032.i.i303, i64 63
+  %100 = getelementptr inbounds nuw i8, ptr %.032.i.i306, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %.032.i.i306, i64 63
   %102 = icmp ult ptr %101, %82
-  br i1 %102, label %.lr.ph, label %.preheader288
+  br i1 %102, label %.lr.ph, label %.preheader291
 
-.lr.ph305:                                        ; preds = %.preheader288, %111
-  %.133.i.i304 = phi ptr [ %112, %111 ], [ %.032.i.i.lcssa, %.preheader288 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i.i304, i64 16) ]
-  %103 = load <16 x i8>, ptr %.133.i.i304, align 16
+.lr.ph308:                                        ; preds = %.preheader291, %111
+  %.133.i.i307 = phi ptr [ %112, %111 ], [ %.032.i.i.lcssa, %.preheader291 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i.i307, i64 16) ]
+  %103 = load <16 x i8>, ptr %.133.i.i307, align 16
   %104 = icmp eq <16 x i8> %62, %103
   %105 = bitcast <16 x i1> %104 to i16
   %.not37.i.i.not = icmp eq i16 %105, -1
   br i1 %.not37.i.i.not, label %111, label %106, !prof !5
 
-106:                                              ; preds = %.lr.ph305
+106:                                              ; preds = %.lr.ph308
   %107 = xor i16 %105, -1
   %108 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %107, i1 true)
   %109 = zext nneg i16 %108 to i64
-  %110 = getelementptr inbounds nuw i8, ptr %.133.i.i304, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %.133.i.i307, i64 %109
   br label %nvermicelliExec.exit
 
-111:                                              ; preds = %.lr.ph305
-  %112 = getelementptr inbounds nuw i8, ptr %.133.i.i304, i64 16
-  %113 = getelementptr inbounds nuw i8, ptr %.133.i.i304, i64 31
+111:                                              ; preds = %.lr.ph308
+  %112 = getelementptr inbounds nuw i8, ptr %.133.i.i307, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.133.i.i307, i64 31
   %114 = icmp ult ptr %113, %82
-  br i1 %114, label %.lr.ph305, label %vermSearchAligned.exit.i.thread
+  br i1 %114, label %.lr.ph308, label %vermSearchAligned.exit.i.thread
 
-vermSearchAligned.exit.i.thread:                  ; preds = %111, %.preheader288
+vermSearchAligned.exit.i.thread:                  ; preds = %111, %.preheader291
   %115 = getelementptr inbounds i8, ptr %60, i64 -16
   %116 = load <16 x i8>, ptr %115, align 1
   %117 = icmp eq <16 x i8> %62, %116
@@ -8470,9 +8470,9 @@ vermUnalign.exit.i:                               ; preds = %119, %vermSearchAli
   %124 = select i1 %.not52.i, ptr %60, ptr %.08.i.i
   br label %nvermicelliExec.exit
 
-nvermicelliExec.exit:                             ; preds = %.lr.ph307, %65, %.preheader287, %94, %106, %vermUnalign.exit56.i, %vermUnalign.exit.i
-  %.0.i124 = phi ptr [ %80, %vermUnalign.exit56.i ], [ %124, %vermUnalign.exit.i ], [ %98, %94 ], [ %110, %106 ], [ %51, %.preheader287 ], [ %.042.i306, %.lr.ph307 ], [ %66, %65 ]
-  %125 = icmp eq ptr %.0.i124, %60
+nvermicelliExec.exit:                             ; preds = %.lr.ph310, %65, %.preheader290, %94, %106, %vermUnalign.exit56.i, %vermUnalign.exit.i
+  %.0.i127 = phi ptr [ %80, %vermUnalign.exit56.i ], [ %124, %vermUnalign.exit.i ], [ %98, %94 ], [ %110, %106 ], [ %51, %.preheader290 ], [ %.042.i309, %.lr.ph310 ], [ %66, %65 ]
+  %125 = icmp eq ptr %.0.i127, %60
   br i1 %125, label %nfaExecLbrNVerm_StreamSilent.exit, label %126
 
 126:                                              ; preds = %nvermicelliExec.exit
@@ -8486,9 +8486,9 @@ nfaExecLbrNVerm_StreamSilent.exit.sink.split:     ; preds = %126
   br label %nfaExecLbrNVerm_StreamSilent.exit
 
 nfaExecLbrNVerm_StreamSilent.exit:                ; preds = %126, %nfaExecLbrNVerm_StreamSilent.exit.sink.split, %nvermicelliExec.exit, %45, %repeatIsDead.exit85.thread
-  %.165 = phi i64 [ %.064324, %repeatIsDead.exit85.thread ], [ %., %126 ], [ %., %45 ], [ %., %nvermicelliExec.exit ], [ %., %nfaExecLbrNVerm_StreamSilent.exit.sink.split ]
+  %.165 = phi i64 [ %.064327, %repeatIsDead.exit85.thread ], [ %., %126 ], [ %., %45 ], [ %., %nvermicelliExec.exit ], [ %., %nfaExecLbrNVerm_StreamSilent.exit.sink.split ]
   %129 = load i8, ptr %21, align 4
-  switch i8 %129, label %repeatIsDead.exit85.thread169 [
+  switch i8 %129, label %repeatIsDead.exit85.thread172 [
     i8 0, label %repeatIsDead.exit82
     i8 3, label %repeatIsDead.exit82
     i8 1, label %repeatIsDead.exit82
@@ -8502,7 +8502,7 @@ nfaExecLbrNVerm_StreamSilent.exit:                ; preds = %126, %nfaExecLbrNVe
 repeatIsDead.exit82:                              ; preds = %nfaExecLbrNVerm_StreamSilent.exit, %nfaExecLbrNVerm_StreamSilent.exit, %nfaExecLbrNVerm_StreamSilent.exit, %nfaExecLbrNVerm_StreamSilent.exit, %nfaExecLbrNVerm_StreamSilent.exit, %nfaExecLbrNVerm_StreamSilent.exit, %nfaExecLbrNVerm_StreamSilent.exit
   %.0.shrunk.i80.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i80.not = icmp eq i64 %.0.shrunk.i80.in, -1
-  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread169, label %repeatIsDead.exit82.thread
+  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread172, label %repeatIsDead.exit82.thread
 
 repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrNVerm_StreamSilent.exit, %repeatIsDead.exit82
   %130 = icmp ult i64 %.165, %43
@@ -8524,145 +8524,145 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrNVerm_Str
   %144 = insertelement <16 x i8> poison, i8 %142, i64 0
   %145 = shufflevector <16 x i8> %144, <16 x i8> poison, <16 x i32> zeroinitializer
   %146 = icmp slt i64 %141, 16
-  br i1 %146, label %.lr.ph317, label %151
+  br i1 %146, label %.lr.ph320, label %151
 
-.lr.ph317:                                        ; preds = %131, %148
-  %.042.i151316 = phi ptr [ %149, %148 ], [ %136, %131 ]
-  %147 = load i8, ptr %.042.i151316, align 1
-  %.not53.i152 = icmp eq i8 %147, %142
-  br i1 %.not53.i152, label %148, label %nvermicelliExec.exit153
+.lr.ph320:                                        ; preds = %131, %148
+  %.042.i154319 = phi ptr [ %149, %148 ], [ %136, %131 ]
+  %147 = load i8, ptr %.042.i154319, align 1
+  %.not53.i155 = icmp eq i8 %147, %142
+  br i1 %.not53.i155, label %148, label %nvermicelliExec.exit156
 
-148:                                              ; preds = %.lr.ph317
-  %149 = getelementptr inbounds nuw i8, ptr %.042.i151316, i64 1
+148:                                              ; preds = %.lr.ph320
+  %149 = getelementptr inbounds nuw i8, ptr %.042.i154319, i64 1
   %150 = icmp ult ptr %149, %143
-  br i1 %150, label %.lr.ph317, label %nvermicelliExec.exit153
+  br i1 %150, label %.lr.ph320, label %nvermicelliExec.exit156
 
 151:                                              ; preds = %131
   %152 = ptrtoint ptr %136 to i64
   %153 = and i64 %152, 15
-  %.not.i126 = icmp eq i64 %153, 0
-  br i1 %.not.i126, label %164, label %154
+  %.not.i129 = icmp eq i64 %153, 0
+  br i1 %.not.i129, label %164, label %154
 
 154:                                              ; preds = %151
   %155 = load <16 x i8>, ptr %136, align 1
   %156 = icmp eq <16 x i8> %145, %155
   %157 = bitcast <16 x i1> %156 to i16
-  %.not9.i54.i127 = icmp eq i16 %157, -1
-  br i1 %.not9.i54.i127, label %vermUnalign.exit56.i128.thread, label %vermUnalign.exit56.i128, !prof !5
+  %.not9.i54.i130 = icmp eq i16 %157, -1
+  br i1 %.not9.i54.i130, label %vermUnalign.exit56.i131.thread, label %vermUnalign.exit56.i131, !prof !5
 
-vermUnalign.exit56.i128.thread:                   ; preds = %154
+vermUnalign.exit56.i131.thread:                   ; preds = %154
   %158 = sub nuw nsw i64 16, %153
   %159 = getelementptr inbounds nuw i8, ptr %136, i64 %158
   br label %164
 
-vermUnalign.exit56.i128:                          ; preds = %154
+vermUnalign.exit56.i131:                          ; preds = %154
   %160 = xor i16 %157, -1
   %161 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %160, i1 true)
   %162 = zext nneg i16 %161 to i64
   %163 = getelementptr inbounds nuw i8, ptr %136, i64 %162
-  br label %nvermicelliExec.exit153
+  br label %nvermicelliExec.exit156
 
-164:                                              ; preds = %vermUnalign.exit56.i128.thread, %151
-  %.143.i133 = phi ptr [ %136, %151 ], [ %159, %vermUnalign.exit56.i128.thread ]
+164:                                              ; preds = %vermUnalign.exit56.i131.thread, %151
+  %.143.i136 = phi ptr [ %136, %151 ], [ %159, %vermUnalign.exit56.i131.thread ]
   %165 = getelementptr inbounds i8, ptr %143, i64 -1
-  %166 = getelementptr inbounds nuw i8, ptr %.143.i133, i64 31
+  %166 = getelementptr inbounds nuw i8, ptr %.143.i136, i64 31
   %167 = icmp ult ptr %166, %165
-  br i1 %167, label %.lr.ph312, label %.preheader286
+  br i1 %167, label %.lr.ph315, label %.preheader289
 
-.preheader286:                                    ; preds = %182, %164
-  %.032.i.i134.lcssa = phi ptr [ %.143.i133, %164 ], [ %183, %182 ]
-  %168 = getelementptr inbounds nuw i8, ptr %.032.i.i134.lcssa, i64 15
+.preheader289:                                    ; preds = %182, %164
+  %.032.i.i137.lcssa = phi ptr [ %.143.i136, %164 ], [ %183, %182 ]
+  %168 = getelementptr inbounds nuw i8, ptr %.032.i.i137.lcssa, i64 15
   %169 = icmp ult ptr %168, %165
-  br i1 %169, label %.lr.ph315, label %vermSearchAligned.exit.i138.thread
+  br i1 %169, label %.lr.ph318, label %vermSearchAligned.exit.i141.thread
 
-.lr.ph312:                                        ; preds = %164, %182
-  %.032.i.i134311 = phi ptr [ %183, %182 ], [ %.143.i133, %164 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i.i134311, i64 16) ]
-  %170 = load <16 x i8>, ptr %.032.i.i134311, align 16
+.lr.ph315:                                        ; preds = %164, %182
+  %.032.i.i137314 = phi ptr [ %183, %182 ], [ %.143.i136, %164 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.032.i.i137314, i64 16) ]
+  %170 = load <16 x i8>, ptr %.032.i.i137314, align 16
   %171 = icmp eq <16 x i8> %145, %170
-  %172 = getelementptr inbounds nuw i8, ptr %.032.i.i134311, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %.032.i.i137314, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %172, i64 16) ]
   %173 = load <16 x i8>, ptr %172, align 16
   %174 = icmp eq <16 x i8> %145, %173
   %175 = shufflevector <16 x i1> %171, <16 x i1> %174, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %176 = bitcast <32 x i1> %175 to i32
-  %.not39.i.i148.not = icmp eq i32 %176, -1
-  br i1 %.not39.i.i148.not, label %182, label %177, !prof !5
+  %.not39.i.i151.not = icmp eq i32 %176, -1
+  br i1 %.not39.i.i151.not, label %182, label %177, !prof !5
 
-177:                                              ; preds = %.lr.ph312
+177:                                              ; preds = %.lr.ph315
   %178 = xor i32 %176, -1
   %179 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %178, i1 true)
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw i8, ptr %.032.i.i134311, i64 %180
-  br label %nvermicelliExec.exit153
+  %181 = getelementptr inbounds nuw i8, ptr %.032.i.i137314, i64 %180
+  br label %nvermicelliExec.exit156
 
-182:                                              ; preds = %.lr.ph312
-  %183 = getelementptr inbounds nuw i8, ptr %.032.i.i134311, i64 32
-  %184 = getelementptr inbounds nuw i8, ptr %.032.i.i134311, i64 63
+182:                                              ; preds = %.lr.ph315
+  %183 = getelementptr inbounds nuw i8, ptr %.032.i.i137314, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %.032.i.i137314, i64 63
   %185 = icmp ult ptr %184, %165
-  br i1 %185, label %.lr.ph312, label %.preheader286
+  br i1 %185, label %.lr.ph315, label %.preheader289
 
-.lr.ph315:                                        ; preds = %.preheader286, %194
-  %.133.i.i136314 = phi ptr [ %195, %194 ], [ %.032.i.i134.lcssa, %.preheader286 ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i.i136314, i64 16) ]
-  %186 = load <16 x i8>, ptr %.133.i.i136314, align 16
+.lr.ph318:                                        ; preds = %.preheader289, %194
+  %.133.i.i139317 = phi ptr [ %195, %194 ], [ %.032.i.i137.lcssa, %.preheader289 ]
+  call void @llvm.assume(i1 true) [ "align"(ptr %.133.i.i139317, i64 16) ]
+  %186 = load <16 x i8>, ptr %.133.i.i139317, align 16
   %187 = icmp eq <16 x i8> %145, %186
   %188 = bitcast <16 x i1> %187 to i16
-  %.not37.i.i145.not = icmp eq i16 %188, -1
-  br i1 %.not37.i.i145.not, label %194, label %189, !prof !5
+  %.not37.i.i148.not = icmp eq i16 %188, -1
+  br i1 %.not37.i.i148.not, label %194, label %189, !prof !5
 
-189:                                              ; preds = %.lr.ph315
+189:                                              ; preds = %.lr.ph318
   %190 = xor i16 %188, -1
   %191 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %190, i1 true)
   %192 = zext nneg i16 %191 to i64
-  %193 = getelementptr inbounds nuw i8, ptr %.133.i.i136314, i64 %192
-  br label %nvermicelliExec.exit153
+  %193 = getelementptr inbounds nuw i8, ptr %.133.i.i139317, i64 %192
+  br label %nvermicelliExec.exit156
 
-194:                                              ; preds = %.lr.ph315
-  %195 = getelementptr inbounds nuw i8, ptr %.133.i.i136314, i64 16
-  %196 = getelementptr inbounds nuw i8, ptr %.133.i.i136314, i64 31
+194:                                              ; preds = %.lr.ph318
+  %195 = getelementptr inbounds nuw i8, ptr %.133.i.i139317, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %.133.i.i139317, i64 31
   %197 = icmp ult ptr %196, %165
-  br i1 %197, label %.lr.ph315, label %vermSearchAligned.exit.i138.thread
+  br i1 %197, label %.lr.ph318, label %vermSearchAligned.exit.i141.thread
 
-vermSearchAligned.exit.i138.thread:               ; preds = %194, %.preheader286
+vermSearchAligned.exit.i141.thread:               ; preds = %194, %.preheader289
   %198 = getelementptr inbounds i8, ptr %143, i64 -16
   %199 = load <16 x i8>, ptr %198, align 1
   %200 = icmp eq <16 x i8> %145, %199
   %201 = bitcast <16 x i1> %200 to i16
-  %.not9.i.i141 = icmp eq i16 %201, -1
-  br i1 %.not9.i.i141, label %vermUnalign.exit.i142, label %202, !prof !5
+  %.not9.i.i144 = icmp eq i16 %201, -1
+  br i1 %.not9.i.i144, label %vermUnalign.exit.i145, label %202, !prof !5
 
-202:                                              ; preds = %vermSearchAligned.exit.i138.thread
+202:                                              ; preds = %vermSearchAligned.exit.i141.thread
   %203 = xor i16 %201, -1
   %204 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %203, i1 true)
   %205 = zext nneg i16 %204 to i64
   %206 = getelementptr inbounds nuw i8, ptr %198, i64 %205
-  br label %vermUnalign.exit.i142
+  br label %vermUnalign.exit.i145
 
-vermUnalign.exit.i142:                            ; preds = %202, %vermSearchAligned.exit.i138.thread
-  %.08.i.i143 = phi ptr [ %206, %202 ], [ null, %vermSearchAligned.exit.i138.thread ]
-  %.not52.i144 = icmp eq ptr %.08.i.i143, null
-  %207 = select i1 %.not52.i144, ptr %143, ptr %.08.i.i143
-  br label %nvermicelliExec.exit153
+vermUnalign.exit.i145:                            ; preds = %202, %vermSearchAligned.exit.i141.thread
+  %.08.i.i146 = phi ptr [ %206, %202 ], [ null, %vermSearchAligned.exit.i141.thread ]
+  %.not52.i147 = icmp eq ptr %.08.i.i146, null
+  %207 = select i1 %.not52.i147, ptr %143, ptr %.08.i.i146
+  br label %nvermicelliExec.exit156
 
-nvermicelliExec.exit153:                          ; preds = %.lr.ph317, %148, %177, %189, %vermUnalign.exit56.i128, %vermUnalign.exit.i142
-  %.0.i132 = phi ptr [ %163, %vermUnalign.exit56.i128 ], [ %207, %vermUnalign.exit.i142 ], [ %181, %177 ], [ %193, %189 ], [ %.042.i151316, %.lr.ph317 ], [ %149, %148 ]
-  %208 = icmp eq ptr %.0.i132, %143
+nvermicelliExec.exit156:                          ; preds = %.lr.ph320, %148, %177, %189, %vermUnalign.exit56.i131, %vermUnalign.exit.i145
+  %.0.i135 = phi ptr [ %163, %vermUnalign.exit56.i131 ], [ %207, %vermUnalign.exit.i145 ], [ %181, %177 ], [ %193, %189 ], [ %.042.i154319, %.lr.ph320 ], [ %149, %148 ]
+  %208 = icmp eq ptr %.0.i135, %143
   br i1 %208, label %nfaExecLbrNVerm_StreamSilent.exit94, label %209
 
-209:                                              ; preds = %nvermicelliExec.exit153
+209:                                              ; preds = %nvermicelliExec.exit156
   %210 = load i8, ptr %139, align 4
-  %switch383 = icmp ult i8 %210, 7
-  br i1 %switch383, label %nfaExecLbrNVerm_StreamSilent.exit94.sink.split, label %nfaExecLbrNVerm_StreamSilent.exit94
+  %switch386 = icmp ult i8 %210, 7
+  br i1 %switch386, label %nfaExecLbrNVerm_StreamSilent.exit94.sink.split, label %nfaExecLbrNVerm_StreamSilent.exit94
 
 nfaExecLbrNVerm_StreamSilent.exit94.sink.split:   ; preds = %209
   %211 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i64 -1, ptr %211, align 8
   br label %nfaExecLbrNVerm_StreamSilent.exit94
 
-nfaExecLbrNVerm_StreamSilent.exit94:              ; preds = %209, %nfaExecLbrNVerm_StreamSilent.exit94.sink.split, %nvermicelliExec.exit153, %repeatIsDead.exit82.thread
+nfaExecLbrNVerm_StreamSilent.exit94:              ; preds = %209, %nfaExecLbrNVerm_StreamSilent.exit94.sink.split, %nvermicelliExec.exit156, %repeatIsDead.exit82.thread
   %212 = load i8, ptr %21, align 4
-  switch i8 %212, label %repeatIsDead.exit85.thread169 [
+  switch i8 %212, label %repeatIsDead.exit85.thread172 [
     i8 0, label %repeatIsDead.exit79
     i8 3, label %repeatIsDead.exit79
     i8 1, label %repeatIsDead.exit79
@@ -8676,33 +8676,33 @@ nfaExecLbrNVerm_StreamSilent.exit94:              ; preds = %209, %nfaExecLbrNVe
 repeatIsDead.exit79:                              ; preds = %nfaExecLbrNVerm_StreamSilent.exit94, %nfaExecLbrNVerm_StreamSilent.exit94, %nfaExecLbrNVerm_StreamSilent.exit94, %nfaExecLbrNVerm_StreamSilent.exit94, %nfaExecLbrNVerm_StreamSilent.exit94, %nfaExecLbrNVerm_StreamSilent.exit94, %nfaExecLbrNVerm_StreamSilent.exit94
   %.0.shrunk.i77.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i77.not = icmp eq i64 %.0.shrunk.i77.in, -1
-  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread169, label %repeatIsDead.exit79.thread
+  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread172, label %repeatIsDead.exit79.thread
 
-repeatIsDead.exit85.thread169:                    ; preds = %nfaExecLbrNVerm_StreamSilent.exit94, %nfaExecLbrNVerm_StreamSilent.exit, %36, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
+repeatIsDead.exit85.thread172:                    ; preds = %nfaExecLbrNVerm_StreamSilent.exit94, %nfaExecLbrNVerm_StreamSilent.exit, %36, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
   %213 = load i64, ptr %10, align 8
   %214 = load ptr, ptr %22, align 8
   %215 = load i32, ptr %6, align 4
   %216 = load i32, ptr %4, align 8
   %217 = icmp ult i32 %216, %215
-  br i1 %217, label %.lr.ph321.lr.ph, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %217, label %.lr.ph324.lr.ph, label %nfaExecLbrNVerm_TopScan.exit
 
-.lr.ph321.lr.ph:                                  ; preds = %repeatIsDead.exit85.thread169
+.lr.ph324.lr.ph:                                  ; preds = %repeatIsDead.exit85.thread172
   %218 = load i32, ptr %18, align 4
   %219 = zext i32 %218 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %219
-  br label %.lr.ph321
+  br label %.lr.ph324
 
-.lr.ph321:                                        ; preds = %.lr.ph321.lr.ph, %306
-  %220 = phi i32 [ %216, %.lr.ph321.lr.ph ], [ %311, %306 ]
-  %221 = phi i32 [ %215, %.lr.ph321.lr.ph ], [ %312, %306 ]
+.lr.ph324:                                        ; preds = %.lr.ph324.lr.ph, %306
+  %220 = phi i32 [ %216, %.lr.ph324.lr.ph ], [ %311, %306 ]
+  %221 = phi i32 [ %215, %.lr.ph324.lr.ph ], [ %312, %306 ]
   %222 = zext i32 %220 to i64
   %223 = zext i32 %221 to i64
   br label %224
 
-224:                                              ; preds = %.lr.ph321, %234
-  %indvars.iv = phi i64 [ %222, %.lr.ph321 ], [ %indvars.iv.next, %234 ]
-  %.idx.i116 = mul nuw nsw i64 %indvars.iv, 24
-  %225 = getelementptr i8, ptr %13, i64 %.idx.i116
+224:                                              ; preds = %.lr.ph324, %234
+  %indvars.iv = phi i64 [ %222, %.lr.ph324 ], [ %indvars.iv.next, %234 ]
+  %.idx.i119 = mul nuw nsw i64 %indvars.iv, 24
+  %225 = getelementptr i8, ptr %13, i64 %.idx.i119
   %226 = load i64, ptr %225, align 8
   %.not.i96 = icmp sgt i64 %226, %27
   br i1 %.not.i96, label %nfaExecLbrNVerm_TopScan.exit, label %227
@@ -8740,7 +8740,7 @@ repeatIsDead.exit85.thread169:                    ; preds = %nfaExecLbrNVerm_Str
   %243 = icmp ule i64 %spec.select, %232
   %.not57.i = icmp ult i64 %232, %213
   %or.cond.i = select i1 %243, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread233, label %244
+  br i1 %or.cond.i, label %.thread236, label %244
 
 244:                                              ; preds = %237
   %245 = load ptr, ptr %32, align 8
@@ -8769,8 +8769,8 @@ repeatIsDead.exit85.thread169:                    ; preds = %nfaExecLbrNVerm_Str
 256:                                              ; preds = %244
   %257 = ptrtoint ptr %250 to i64
   %258 = and i64 %257, 15
-  %.not.i155 = icmp eq i64 %258, 0
-  br i1 %.not.i155, label %274, label %259
+  %.not.i158 = icmp eq i64 %258, 0
+  br i1 %.not.i158, label %274, label %259
 
 259:                                              ; preds = %256
   %260 = getelementptr inbounds i8, ptr %250, i64 -16
@@ -8778,9 +8778,9 @@ repeatIsDead.exit85.thread169:                    ; preds = %nfaExecLbrNVerm_Str
   %262 = icmp eq <16 x i8> %252, %261
   %263 = bitcast <16 x i1> %262 to i16
   %.not9.i65.i = icmp eq i16 %263, -1
-  br i1 %.not9.i65.i, label %271, label %.thread220, !prof !5
+  br i1 %.not9.i65.i, label %271, label %.thread223, !prof !5
 
-.thread220:                                       ; preds = %259
+.thread223:                                       ; preds = %259
   %264 = xor i16 %263, -1
   %265 = zext i16 %264 to i32
   %266 = getelementptr inbounds nuw i8, ptr %250, i64 15
@@ -8793,8 +8793,8 @@ repeatIsDead.exit85.thread169:                    ; preds = %nfaExecLbrNVerm_Str
 271:                                              ; preds = %259
   %272 = sub nsw i64 0, %258
   %273 = getelementptr inbounds i8, ptr %250, i64 %272
-  %.not58.i164 = icmp ult ptr %249, %273
-  br i1 %.not58.i164, label %274, label %rnvermicelliExec.exit
+  %.not58.i167 = icmp ult ptr %249, %273
+  br i1 %.not58.i167, label %274, label %rnvermicelliExec.exit
 
 274:                                              ; preds = %271, %256
   %.147.i = phi ptr [ %273, %271 ], [ %250, %256 ]
@@ -8829,8 +8829,8 @@ rvermSearchAligned.exit.i:                        ; preds = %278
   %291 = load <16 x i8>, ptr %249, align 1
   %292 = icmp eq <16 x i8> %252, %291
   %293 = bitcast <16 x i1> %292 to i16
-  %.not9.i.i160 = icmp eq i16 %293, -1
-  br i1 %.not9.i.i160, label %rvermUnalign.exit.i, label %294, !prof !5
+  %.not9.i.i163 = icmp eq i16 %293, -1
+  br i1 %.not9.i.i163, label %rvermUnalign.exit.i, label %294, !prof !5
 
 294:                                              ; preds = %290
   %295 = xor i16 %293, -1
@@ -8843,20 +8843,20 @@ rvermSearchAligned.exit.i:                        ; preds = %278
   br label %rvermUnalign.exit.i
 
 rvermUnalign.exit.i:                              ; preds = %294, %290
-  %.08.i.i161 = phi ptr [ %301, %294 ], [ null, %290 ]
-  %.not60.i = icmp eq ptr %.08.i.i161, null
+  %.08.i.i164 = phi ptr [ %301, %294 ], [ null, %290 ]
+  %.not60.i = icmp eq ptr %.08.i.i164, null
   %302 = getelementptr inbounds i8, ptr %249, i64 -1
-  %303 = select i1 %.not60.i, ptr %302, ptr %.08.i.i161
+  %303 = select i1 %.not60.i, ptr %302, ptr %.08.i.i164
   br label %rnvermicelliExec.exit
 
-rnvermicelliExec.exit:                            ; preds = %.preheader, %254, %rvermSearchAligned.exit.i, %.thread220, %271, %rvermUnalign.exit.i
-  %.0.i158 = phi ptr [ %273, %271 ], [ %303, %rvermUnalign.exit.i ], [ %289, %rvermSearchAligned.exit.i ], [ %270, %.thread220 ], [ %.046.i, %254 ], [ %.046.i, %.preheader ]
+rnvermicelliExec.exit:                            ; preds = %.preheader, %254, %rvermSearchAligned.exit.i, %.thread223, %271, %rvermUnalign.exit.i
+  %.0.i161 = phi ptr [ %273, %271 ], [ %303, %rvermUnalign.exit.i ], [ %289, %rvermSearchAligned.exit.i ], [ %270, %.thread223 ], [ %.046.i, %254 ], [ %.046.i, %.preheader ]
   %304 = getelementptr inbounds i8, ptr %249, i64 -1
-  %305 = icmp eq ptr %.0.i158, %304
-  br i1 %305, label %.thread233, label %306
+  %305 = icmp eq ptr %.0.i161, %304
+  br i1 %305, label %.thread236, label %306
 
 306:                                              ; preds = %rnvermicelliExec.exit
-  %307 = ptrtoint ptr %.0.i158 to i64
+  %307 = ptrtoint ptr %.0.i161 to i64
   %308 = ptrtoint ptr %245 to i64
   %309 = sub i64 %307, %308
   store i64 %309, ptr %214, align 8
@@ -8865,9 +8865,9 @@ rnvermicelliExec.exit:                            ; preds = %.preheader, %254, %
   store i32 %311, ptr %4, align 8
   %312 = load i32, ptr %6, align 4
   %313 = icmp ult i32 %311, %312
-  br i1 %313, label %.lr.ph321, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %313, label %.lr.ph324, label %nfaExecLbrNVerm_TopScan.exit
 
-.thread233:                                       ; preds = %rnvermicelliExec.exit, %237
+.thread236:                                       ; preds = %rnvermicelliExec.exit, %237
   %314 = load ptr, ptr %34, align 8
   %315 = load i32, ptr %18, align 4
   %316 = zext i32 %315 to i64
@@ -8885,20 +8885,20 @@ rnvermicelliExec.exit:                            ; preds = %.preheader, %254, %
     i8 4, label %repeatIsDead.exit.i.i
     i8 5, label %repeatIsDead.exit.i.i
     i8 6, label %repeatIsDead.exit.i.i
-    i8 7, label %.thread244
+    i8 7, label %.thread247
   ]
 
-.thread244:                                       ; preds = %.thread233
+.thread247:                                       ; preds = %.thread236
   %323 = getelementptr inbounds nuw i8, ptr %214, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i:                            ; preds = %.thread233, %.thread233, %.thread233, %.thread233, %.thread233, %.thread233, %.thread233
+repeatIsDead.exit.i.i:                            ; preds = %.thread236, %.thread236, %.thread236, %.thread236, %.thread236, %.thread236, %.thread236
   %.0.shrunk.i.i.i.in.in = getelementptr inbounds nuw i8, ptr %214, i64 8
   %.0.shrunk.i.i.i.in = load i64, ptr %.0.shrunk.i.i.i.in.in, align 8
   %.0.shrunk.i.i.i.not = icmp eq i64 %.0.shrunk.i.i.i.in, -1
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %332
 
-.split.i.i:                                       ; preds = %.thread233, %repeatIsDead.exit.i.i
+.split.i.i:                                       ; preds = %.thread236, %repeatIsDead.exit.i.i
   %324 = getelementptr inbounds nuw i8, ptr %214, i64 8
   switch i8 %322, label %lbrTop.exit [
     i8 0, label %325
@@ -8972,9 +8972,9 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread233, %.threa
 default.unreachable:                              ; preds = %332
   unreachable
 
-repeatLastTop.exit:                               ; preds = %332, %332, %.thread244, %333, %335, %337, %339, %341
-  %343 = phi ptr [ %.0.shrunk.i.i.i.in.in, %333 ], [ %.0.shrunk.i.i.i.in.in, %335 ], [ %.0.shrunk.i.i.i.in.in, %337 ], [ %.0.shrunk.i.i.i.in.in, %339 ], [ %.0.shrunk.i.i.i.in.in, %341 ], [ %323, %.thread244 ], [ %.0.shrunk.i.i.i.in.in, %332 ], [ %.0.shrunk.i.i.i.in.in, %332 ]
-  %.0.i110 = phi i64 [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ 0, %.thread244 ], [ %.0.shrunk.i.i.i.in, %332 ], [ %.0.shrunk.i.i.i.in, %332 ]
+repeatLastTop.exit:                               ; preds = %332, %332, %.thread247, %333, %335, %337, %339, %341
+  %343 = phi ptr [ %.0.shrunk.i.i.i.in.in, %333 ], [ %.0.shrunk.i.i.i.in.in, %335 ], [ %.0.shrunk.i.i.i.in.in, %337 ], [ %.0.shrunk.i.i.i.in.in, %339 ], [ %.0.shrunk.i.i.i.in.in, %341 ], [ %323, %.thread247 ], [ %.0.shrunk.i.i.i.in.in, %332 ], [ %.0.shrunk.i.i.i.in.in, %332 ]
+  %.0.i110 = phi i64 [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ 0, %.thread247 ], [ %.0.shrunk.i.i.i.in, %332 ], [ %.0.shrunk.i.i.i.in, %332 ]
   %.not.i.i = icmp eq i64 %.0.i110, %232
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -9055,7 +9055,7 @@ repeatIsDead.exit.i:                              ; preds = %355, %355, %355, %3
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %376
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %368, label %default.unreachable362 [
+  switch i8 %368, label %default.unreachable365 [
     i8 0, label %369
     i8 1, label %370
     i8 2, label %371
@@ -9094,7 +9094,7 @@ repeatIsDead.exit.i:                              ; preds = %355, %355, %355, %3
   br label %lbrTop.exit
 
 376:                                              ; preds = %repeatIsDead.exit.i
-  switch i8 %368, label %default.unreachable284 [
+  switch i8 %368, label %default.unreachable287 [
     i8 0, label %377
     i8 1, label %repeatLastTop.exit112
     i8 2, label %repeatLastTop.exit112
@@ -9124,7 +9124,7 @@ repeatIsDead.exit.i:                              ; preds = %355, %355, %355, %3
   %386 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %363, ptr noundef nonnull %.0.shrunk.i83.in.in) #8
   br label %repeatLastTop.exit112
 
-default.unreachable284:                           ; preds = %376
+default.unreachable287:                           ; preds = %376
   unreachable
 
 repeatLastTop.exit112:                            ; preds = %376, %376, %355, %377, %379, %381, %383, %385
@@ -9167,7 +9167,7 @@ repeatLastTop.exit112:                            ; preds = %376, %376, %355, %3
   tail call void @repeatStoreTrailer(ptr noundef nonnull %363, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %360, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable362:                           ; preds = %.split.i
+default.unreachable365:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %355, %repeatLastTop.exit, %.split.i.i, %325, %326, %327, %328, %329, %330, %331, %.split16.i.i, %345, %346, %347, %348, %349, %350, %repeatLastTop.exit112, %369, %370, %371, %372, %373, %374, %375, %.split16.i, %388, %389, %390, %391, %392, %393, %repeatIsDead.exit79.thread
@@ -9208,17 +9208,17 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %405 = load i32, ptr %invariant.gep, align 4
   %.not.i = icmp eq i32 %2, %405
-  %.pre352 = load ptr, ptr %404, align 8
-  %.pre354 = load i32, ptr %18, align 4
+  %.pre355 = load ptr, ptr %404, align 8
+  %.pre357 = load i32, ptr %18, align 4
   br i1 %.not.i, label %406, label %lbrInAccept.exit.thread
 
 406:                                              ; preds = %repeatIsDead.exit.thread
-  %407 = zext i32 %.pre354 to i64
+  %407 = zext i32 %.pre357 to i64
   %408 = getelementptr inbounds nuw i8, ptr %18, i64 %407
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 16
   %410 = load i32, ptr %409, align 4
   %411 = zext i32 %410 to i64
-  %412 = getelementptr inbounds nuw i8, ptr %.pre352, i64 %411
+  %412 = getelementptr inbounds nuw i8, ptr %.pre355, i64 %411
   %413 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %414 = load i8, ptr %408, align 4
   switch i8 %414, label %lbrInAccept.exit.thread [
@@ -9286,12 +9286,12 @@ lbrInAccept.exit:                                 ; preds = %442, %440, %438, %4
 
 lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge: ; preds = %431, %lbrInAccept.exit
   %.pre = load ptr, ptr %404, align 8
-  %.pre353 = load i32, ptr %18, align 4
+  %.pre356 = load i32, ptr %18, align 4
   br label %lbrInAccept.exit.thread
 
 lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, %406, %424, %repeatIsDead.exit.thread
-  %444 = phi i32 [ %.pre353, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre354, %406 ], [ %.pre354, %424 ], [ %.pre354, %repeatIsDead.exit.thread ]
-  %445 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre352, %406 ], [ %.pre352, %424 ], [ %.pre352, %repeatIsDead.exit.thread ]
+  %444 = phi i32 [ %.pre356, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre357, %406 ], [ %.pre357, %424 ], [ %.pre357, %repeatIsDead.exit.thread ]
+  %445 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre355, %406 ], [ %.pre355, %424 ], [ %.pre355, %repeatIsDead.exit.thread ]
   %446 = zext i32 %444 to i64
   %447 = getelementptr inbounds nuw i8, ptr %18, i64 %446
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 16
@@ -9399,9 +9399,9 @@ repeatHasMatch.exit.thread.thread:                ; preds = %470, %456, %463, %r
   %497 = zext i32 %495 to i64
   %498 = add i64 %487, %497
   %499 = icmp ult i64 %.064.lcssa, %498
-  %or.cond.i118 = or i1 %496, %499
+  %or.cond.i121 = or i1 %496, %499
   %500 = add i64 %.064.lcssa, 1
-  br i1 %or.cond.i118, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
+  br i1 %or.cond.i121, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 501:                                              ; preds = %repeatHasMatch.exit.thread
   %502 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %447, ptr noundef nonnull %452, ptr noundef %451, i64 noundef %.064.lcssa) #8
@@ -9424,16 +9424,16 @@ repeatHasMatch.exit.thread.thread:                ; preds = %470, %456, %463, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %493, %485, %501, %503, %505, %507, %509
-  %.0.i117 = phi i64 [ %486, %485 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ], [ %508, %507 ], [ %510, %509 ], [ %500, %493 ]
-  %.0.i117.fr = freeze i64 %.0.i117
-  %.not.i89 = icmp eq i64 %.0.i117.fr, 0
+  %.0.i120 = phi i64 [ %486, %485 ], [ %502, %501 ], [ %504, %503 ], [ %506, %505 ], [ %508, %507 ], [ %510, %509 ], [ %500, %493 ]
+  %.0.i120.fr = freeze i64 %.0.i120
+  %.not.i89 = icmp eq i64 %.0.i120.fr, 0
   br i1 %.not.i89, label %repeatNextMatch.exit.thread, label %nfaExecLbrNVerm_TopScan.exit
 
 repeatNextMatch.exit.thread:                      ; preds = %493, %repeatHasMatch.exit.thread, %repeatNextMatch.exit
   br label %nfaExecLbrNVerm_TopScan.exit
 
-nfaExecLbrNVerm_TopScan.exit:                     ; preds = %repeatIsDead.exit85.thread169, %306, %234, %224, %431, %repeatHasMatch.exit.thread.thread, %470, %lbrInAccept.exit.thread, %456, %406, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %._crit_edge ], [ 2, %406 ], [ 1, %456 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %470 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %431 ], [ 0, %224 ], [ 0, %234 ], [ 0, %306 ], [ 0, %repeatIsDead.exit85.thread169 ]
+nfaExecLbrNVerm_TopScan.exit:                     ; preds = %repeatIsDead.exit85.thread172, %306, %234, %224, %431, %repeatHasMatch.exit.thread.thread, %470, %lbrInAccept.exit.thread, %456, %406, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
+  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %._crit_edge ], [ 2, %406 ], [ 1, %456 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %470 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %431 ], [ 0, %224 ], [ 0, %234 ], [ 0, %306 ], [ 0, %repeatIsDead.exit85.thread172 ]
   ret i8 %.0
 }
 
@@ -9654,12 +9654,12 @@ define hidden noundef signext i8 @nfaExecLbrShuf_initCompressedState(ptr noundef
   %10 = load i8, ptr %9, align 4
   switch i8 %10, label %.split.i [
     i8 0, label %.split.i.thread
-    i8 3, label %.split.i.thread20
+    i8 3, label %.split.i.thread21
     i8 1, label %clearRepeat.exit
     i8 2, label %clearRepeat.exit
-    i8 4, label %.split.i.thread21
-    i8 5, label %.split.i.thread22
-    i8 6, label %.split.i.thread23
+    i8 4, label %.split.i.thread22
+    i8 5, label %.split.i.thread23
+    i8 6, label %.split.i.thread24
     i8 7, label %lbrTop.exit
   ]
 
@@ -9673,7 +9673,7 @@ define hidden noundef signext i8 @nfaExecLbrShuf_initCompressedState(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %39
 
-.split.i.thread20:                                ; preds = %4
+.split.i.thread21:                                ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -9689,13 +9689,13 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %cond = icmp eq i8 %10, 7
   br i1 %cond, label %lbrTop.exit, label %.split.i
 
-.split.i.thread21:                                ; preds = %4
+.split.i.thread22:                                ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %47
 
-.split.i.thread22:                                ; preds = %4
+.split.i.thread23:                                ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -9705,7 +9705,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %49
 
-.split.i.thread23:                                ; preds = %4
+.split.i.thread24:                                ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9741,25 +9741,25 @@ clearRepeat.exit:                                 ; preds = %4, %4
   store i64 %1, ptr %38, align 8
   br label %lbrTop.exit
 
-44:                                               ; preds = %.split.i.thread20, %.split.i
-  %45 = phi ptr [ %22, %.split.i.thread20 ], [ %38, %.split.i ]
-  %46 = phi ptr [ %21, %.split.i.thread20 ], [ %37, %.split.i ]
+44:                                               ; preds = %.split.i.thread21, %.split.i
+  %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
+  %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
   call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-47:                                               ; preds = %.split.i.thread21, %.split.i
-  %48 = phi ptr [ %25, %.split.i.thread21 ], [ %38, %.split.i ]
+47:                                               ; preds = %.split.i.thread22, %.split.i
+  %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
   call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-49:                                               ; preds = %.split.i.thread22, %.split.i
-  %50 = phi ptr [ %31, %.split.i.thread22 ], [ %38, %.split.i ]
-  %51 = phi ptr [ %30, %.split.i.thread22 ], [ %37, %.split.i ]
+49:                                               ; preds = %.split.i.thread23, %.split.i
+  %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
+  %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-52:                                               ; preds = %.split.i.thread23, %.split.i
-  %53 = phi ptr [ %33, %.split.i.thread23 ], [ %38, %.split.i ]
+52:                                               ; preds = %.split.i.thread24, %.split.i
+  %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
   call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
@@ -9826,12 +9826,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrShuf_Q(ptr noundef %0, ptr no
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %storemerge.i112 = add i32 %31, 1
-  store i32 %storemerge.i112, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i112, %33
-  br i1 %43, label %.lr.ph115, label %._crit_edge
+  %storemerge.i115 = add i32 %31, 1
+  store i32 %storemerge.i115, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i115, %33
+  br i1 %43, label %.lr.ph118, label %._crit_edge
 
-.lr.ph115:                                        ; preds = %35
+.lr.ph118:                                        ; preds = %35
   %.0.shrunk.i124.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -9843,12 +9843,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrShuf_Q(ptr noundef %0, ptr no
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %52
 
-52:                                               ; preds = %.lr.ph115, %lbrTop.exit.i
-  %53 = phi i64 [ %37, %.lr.ph115 ], [ %279, %lbrTop.exit.i ]
-  %storemerge.i114 = phi i32 [ %storemerge.i112, %.lr.ph115 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i113 = phi i64 [ %42, %.lr.ph115 ], [ %284, %lbrTop.exit.i ]
+52:                                               ; preds = %.lr.ph118, %lbrTop.exit.i
+  %53 = phi i64 [ %37, %.lr.ph118 ], [ %279, %lbrTop.exit.i ]
+  %storemerge.i117 = phi i32 [ %storemerge.i115, %.lr.ph118 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i116 = phi i64 [ %42, %.lr.ph118 ], [ %284, %lbrTop.exit.i ]
   %54 = load i8, ptr %7, align 4
-  switch i8 %54, label %repeatIsDead.exit126.i.thread39 [
+  switch i8 %54, label %repeatIsDead.exit126.i.thread42 [
     i8 0, label %repeatIsDead.exit126.i
     i8 3, label %repeatIsDead.exit126.i
     i8 1, label %repeatIsDead.exit126.i
@@ -9862,23 +9862,23 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrShuf_Q(ptr noundef %0, ptr no
 repeatIsDead.exit126.i:                           ; preds = %52, %52, %52, %52, %52, %52, %52
   %.0.shrunk.i124.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i124.i.not = icmp eq i64 %.0.shrunk.i124.i.in, -1
-  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread39, label %repeatIsDead.exit126.i.thread
+  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread42, label %repeatIsDead.exit126.i.thread
 
 repeatIsDead.exit126.i.thread:                    ; preds = %52, %repeatIsDead.exit126.i
-  %55 = zext i32 %storemerge.i114 to i64
+  %55 = zext i32 %storemerge.i117 to i64
   %.idx.i121.i = mul nuw nsw i64 %55, 24
   %56 = getelementptr i8, ptr %39, i64 %.idx.i121.i
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, %53
   %59 = add i64 %53, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %58, i64 %59)
-  %60 = icmp ult i64 %.0101.i113, %..i
-  br i1 %60, label %61, label %repeatIsDead.exit126.i.thread39
+  %60 = icmp ult i64 %.0101.i116, %..i
+  br i1 %60, label %61, label %repeatIsDead.exit126.i.thread42
 
 61:                                               ; preds = %repeatIsDead.exit126.i.thread
   %62 = load ptr, ptr %44, align 8
   %63 = sub i64 %..i, %53
-  %64 = sub i64 %.0101.i113, %53
+  %64 = sub i64 %.0101.i116, %53
   %65 = load <2 x i64>, ptr %45, align 16
   %66 = load <2 x i64>, ptr %46, align 16
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 %64
@@ -9899,7 +9899,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %61, %71
   %.0100.i = phi i64 [ %76, %71 ], [ %..i, %61 ]
   %77 = load ptr, ptr %47, align 8
   %78 = load ptr, ptr %48, align 8
-  %79 = icmp eq i64 %.0101.i113, %.0100.i
+  %79 = icmp eq i64 %.0101.i116, %.0100.i
   br i1 %79, label %repeatNextMatch.exit.thread, label %80
 
 80:                                               ; preds = %lbrFwdScanShuf.exit.thread
@@ -9916,7 +9916,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %61, %71
   br label %91
 
 91:                                               ; preds = %119, %80
-  %.0.i19 = phi i64 [ %.0101.i113, %80 ], [ %.0.i29, %119 ]
+  %.0.i22 = phi i64 [ %.0101.i116, %80 ], [ %.0.i32, %119 ]
   %92 = load i8, ptr %84, align 4
   switch i8 %92, label %repeatNextMatch.exit.thread [
     i8 0, label %93
@@ -9930,7 +9930,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %61, %71
   ]
 
 93:                                               ; preds = %91
-  %94 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i19) #8
+  %94 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 95:                                               ; preds = %91, %91
@@ -9938,7 +9938,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %61, %71
   %97 = load i32, ptr %89, align 4
   %98 = zext i32 %97 to i64
   %99 = add i64 %96, %98
-  %100 = icmp ult i64 %.0.i19, %99
+  %100 = icmp ult i64 %.0.i22, %99
   br i1 %100, label %repeatNextMatch.exit, label %101
 
 101:                                              ; preds = %95
@@ -9946,66 +9946,66 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %61, %71
   %103 = icmp eq i32 %102, 65535
   %104 = zext i32 %102 to i64
   %105 = add i64 %96, %104
-  %106 = icmp ult i64 %.0.i19, %105
-  %or.cond.i30 = or i1 %103, %106
-  %107 = add i64 %.0.i19, 1
-  %spec.select.i = select i1 %or.cond.i30, i64 %107, i64 0
+  %106 = icmp ult i64 %.0.i22, %105
+  %or.cond.i33 = or i1 %103, %106
+  %107 = add i64 %.0.i22, 1
+  %spec.select.i = select i1 %or.cond.i33, i64 %107, i64 0
   br label %repeatNextMatch.exit
 
 108:                                              ; preds = %91
-  %109 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i19) #8
+  %109 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 110:                                              ; preds = %91
-  %111 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i19) #8
+  %111 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 112:                                              ; preds = %91
-  %113 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i19) #8
+  %113 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 114:                                              ; preds = %91
-  %115 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i19) #8
+  %115 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 116:                                              ; preds = %91
-  %117 = add i64 %.0.i19, 1
+  %117 = add i64 %.0.i22, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %101, %95, %93, %108, %110, %112, %114, %116
-  %.0.i29 = phi i64 [ %94, %93 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %99, %95 ], [ %spec.select.i, %101 ]
-  %118 = add i64 %.0.i29, -1
-  %or.cond.i20.not = icmp ult i64 %118, %.0100.i
-  br i1 %or.cond.i20.not, label %119, label %repeatNextMatch.exit.thread
+  %.0.i32 = phi i64 [ %94, %93 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %99, %95 ], [ %spec.select.i, %101 ]
+  %118 = add i64 %.0.i32, -1
+  %or.cond.i23.not = icmp ult i64 %118, %.0100.i
+  br i1 %or.cond.i23.not, label %119, label %repeatNextMatch.exit.thread
 
 119:                                              ; preds = %repeatNextMatch.exit
   %120 = load i32, ptr %invariant.gep, align 4
-  %121 = tail call i32 %77(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %120, ptr noundef %78) #8
+  %121 = tail call i32 %77(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %120, ptr noundef %78) #8
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %nfaExecLbrShuf_Q_i.exit, label %91
 
 repeatNextMatch.exit.thread:                      ; preds = %91, %repeatNextMatch.exit, %lbrFwdScanShuf.exit.thread
-  br i1 %70, label %repeatIsDead.exit126.i.thread39, label %123
+  br i1 %70, label %repeatIsDead.exit126.i.thread42, label %123
 
 123:                                              ; preds = %repeatNextMatch.exit.thread
   %124 = load i8, ptr %7, align 4
   %switch = icmp ult i8 %124, 7
-  br i1 %switch, label %repeatIsDead.exit126.i.thread39.sink.split, label %repeatIsDead.exit126.i.thread39
+  br i1 %switch, label %repeatIsDead.exit126.i.thread42.sink.split, label %repeatIsDead.exit126.i.thread42
 
-repeatIsDead.exit126.i.thread39.sink.split:       ; preds = %123
+repeatIsDead.exit126.i.thread42.sink.split:       ; preds = %123
   store i64 -1, ptr %.0.shrunk.i124.i.in.in, align 8
-  br label %repeatIsDead.exit126.i.thread39
+  br label %repeatIsDead.exit126.i.thread42
 
-repeatIsDead.exit126.i.thread39:                  ; preds = %123, %repeatIsDead.exit126.i.thread39.sink.split, %repeatNextMatch.exit.thread, %52, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
+repeatIsDead.exit126.i.thread42:                  ; preds = %123, %repeatIsDead.exit126.i.thread42.sink.split, %repeatNextMatch.exit.thread, %52, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
   %125 = load i32, ptr %30, align 8
   %126 = zext i32 %125 to i64
-  %.idx.i22 = mul nuw nsw i64 %126, 24
-  %127 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %126, 24
+  %127 = getelementptr i8, ptr %39, i64 %.idx.i25
   %128 = load i64, ptr %127, align 8
   %129 = icmp sgt i64 %128, %2
   br i1 %129, label %130, label %136
 
-130:                                              ; preds = %repeatIsDead.exit126.i.thread39
+130:                                              ; preds = %repeatIsDead.exit126.i.thread42
   %131 = add i32 %125, -1
   store i32 %131, ptr %30, align 8
   %132 = zext i32 %131 to i64
@@ -10017,9 +10017,9 @@ repeatIsDead.exit126.i.thread39:                  ; preds = %123, %repeatIsDead.
   store i64 %2, ptr %135, align 8
   br label %nfaExecLbrShuf_Q_i.exit
 
-136:                                              ; preds = %repeatIsDead.exit126.i.thread39
+136:                                              ; preds = %repeatIsDead.exit126.i.thread42
   %137 = load i8, ptr %7, align 4
-  switch i8 %137, label %repeatIsDead.exit.i.thread59 [
+  switch i8 %137, label %repeatIsDead.exit.i.thread62 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -10033,16 +10033,16 @@ repeatIsDead.exit126.i.thread39:                  ; preds = %123, %repeatIsDead.
 repeatIsDead.exit.i:                              ; preds = %136, %136, %136, %136, %136, %136, %136
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread59, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread62, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread62:                     ; preds = %136, %repeatIsDead.exit.i
   %138 = load i64, ptr %36, align 8
   %139 = load ptr, ptr %8, align 8
   %140 = load i32, ptr %32, align 4
   %141 = icmp ult i32 %125, %140
   br i1 %141, label %.lr.ph.lr.ph, label %nfaExecLbrShuf_TopScan.exit
 
-.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit.i.thread59
+.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit.i.thread62
   %142 = load i32, ptr %4, align 4
   %143 = zext i32 %142 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %143
@@ -10053,38 +10053,38 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
   %145 = phi i32 [ %140, %.lr.ph.lr.ph ], [ %187, %181 ]
   %146 = zext i32 %144 to i64
   %147 = zext i32 %145 to i64
-  %.idx.i172 = mul nuw nsw i64 %146, 24
-  %148 = getelementptr i8, ptr %39, i64 %.idx.i172
+  %.idx.i175 = mul nuw nsw i64 %146, 24
+  %148 = getelementptr i8, ptr %39, i64 %.idx.i175
   %149 = load i64, ptr %148, align 8
-  %.not.i2173 = icmp sgt i64 %149, %2
-  br i1 %.not.i2173, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph175
+  %.not.i2176 = icmp sgt i64 %149, %2
+  br i1 %.not.i2176, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph178
 
 150:                                              ; preds = %160
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %151 = getelementptr i8, ptr %39, i64 %.idx.i
   %152 = load i64, ptr %151, align 8
   %.not.i2 = icmp sgt i64 %152, %2
-  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph175
+  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph178
 
-.lr.ph175:                                        ; preds = %.lr.ph, %150
+.lr.ph178:                                        ; preds = %.lr.ph, %150
   %153 = phi i64 [ %152, %150 ], [ %149, %.lr.ph ]
-  %indvars.iv174 = phi i64 [ %indvars.iv.next, %150 ], [ %146, %.lr.ph ]
-  %154 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv174
+  %indvars.iv177 = phi i64 [ %indvars.iv.next, %150 ], [ %146, %.lr.ph ]
+  %154 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv177
   %155 = load i32, ptr %154, align 8
   switch i32 %155, label %160 [
     i32 4, label %156
     i32 2, label %156
   ]
 
-156:                                              ; preds = %.lr.ph175, %.lr.ph175
+156:                                              ; preds = %.lr.ph178, %.lr.ph178
   %157 = load i64, ptr %36, align 8
   %158 = add i64 %157, %153
   %159 = load i64, ptr %139, align 8
   %.not56.i = icmp ult i64 %158, %159
   br i1 %.not56.i, label %160, label %163
 
-160:                                              ; preds = %.lr.ph175, %156
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv174, 1
+160:                                              ; preds = %.lr.ph178, %156
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv177, 1
   %161 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %161, ptr %30, align 8
   %162 = icmp samesign ult i64 %indvars.iv.next, %147
@@ -10101,7 +10101,7 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
   %169 = icmp ule i64 %spec.select, %158
   %.not57.i = icmp ult i64 %158, %138
   %or.cond.i = select i1 %169, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread68, label %170
+  br i1 %or.cond.i, label %.thread71, label %170
 
 170:                                              ; preds = %163
   %171 = load ptr, ptr %44, align 8
@@ -10114,7 +10114,7 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
   %178 = tail call ptr @rshuftiExec(<2 x i64> noundef %174, <2 x i64> noundef %175, ptr noundef %176, ptr noundef %177) #8
   %179 = getelementptr inbounds i8, ptr %176, i64 -1
   %180 = icmp eq ptr %178, %179
-  br i1 %180, label %.thread68, label %181
+  br i1 %180, label %.thread71, label %181
 
 181:                                              ; preds = %170
   %182 = ptrtoint ptr %178 to i64
@@ -10128,7 +10128,7 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
   %188 = icmp ult i32 %186, %187
   br i1 %188, label %.lr.ph, label %nfaExecLbrShuf_TopScan.exit
 
-.thread68:                                        ; preds = %170, %163
+.thread71:                                        ; preds = %170, %163
   %189 = load ptr, ptr %49, align 8
   %190 = load i32, ptr %4, align 4
   %191 = zext i32 %190 to i64
@@ -10146,20 +10146,20 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread79
+    i8 7, label %.thread82
   ]
 
-.thread79:                                        ; preds = %.thread68
+.thread82:                                        ; preds = %.thread71
   %198 = getelementptr inbounds nuw i8, ptr %139, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i5:                           ; preds = %.thread68, %.thread68, %.thread68, %.thread68, %.thread68, %.thread68, %.thread68
+repeatIsDead.exit.i.i5:                           ; preds = %.thread71, %.thread71, %.thread71, %.thread71, %.thread71, %.thread71, %.thread71
   %.0.shrunk.i.i.i6.in.in = getelementptr inbounds nuw i8, ptr %139, i64 8
   %.0.shrunk.i.i.i6.in = load i64, ptr %.0.shrunk.i.i.i6.in.in, align 8
   %.0.shrunk.i.i.i6.not = icmp eq i64 %.0.shrunk.i.i.i6.in, -1
   br i1 %.0.shrunk.i.i.i6.not, label %.split.i.i9, label %207
 
-.split.i.i9:                                      ; preds = %.thread68, %repeatIsDead.exit.i.i5
+.split.i.i9:                                      ; preds = %.thread71, %repeatIsDead.exit.i.i5
   %199 = getelementptr inbounds nuw i8, ptr %139, i64 8
   switch i8 %197, label %lbrTop.exit.i [
     i8 0, label %200
@@ -10233,9 +10233,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %.thread68, %.thread
 default.unreachable:                              ; preds = %207
   unreachable
 
-repeatLastTop.exit:                               ; preds = %207, %207, %.thread79, %208, %210, %212, %214, %216
-  %218 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %208 ], [ %.0.shrunk.i.i.i6.in.in, %210 ], [ %.0.shrunk.i.i.i6.in.in, %212 ], [ %.0.shrunk.i.i.i6.in.in, %214 ], [ %.0.shrunk.i.i.i6.in.in, %216 ], [ %198, %.thread79 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %207 ]
-  %.0.i13 = phi i64 [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ 0, %.thread79 ], [ %.0.shrunk.i.i.i6.in, %207 ], [ %.0.shrunk.i.i.i6.in, %207 ]
+repeatLastTop.exit:                               ; preds = %207, %207, %.thread82, %208, %210, %212, %214, %216
+  %218 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %208 ], [ %.0.shrunk.i.i.i6.in.in, %210 ], [ %.0.shrunk.i.i.i6.in.in, %212 ], [ %.0.shrunk.i.i.i6.in.in, %214 ], [ %.0.shrunk.i.i.i6.in.in, %216 ], [ %198, %.thread82 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %207 ]
+  %.0.i13 = phi i64 [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ 0, %.thread82 ], [ %.0.shrunk.i.i.i6.in, %207 ], [ %.0.shrunk.i.i.i6.in, %207 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %158
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -10274,16 +10274,16 @@ repeatLastTop.exit:                               ; preds = %207, %207, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %192, ptr noundef nonnull %218, i64 noundef %158, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrShuf_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread59, %181, %.lr.ph, %150, %160
-  %226 = phi i32 [ %145, %160 ], [ %145, %150 ], [ %187, %181 ], [ %145, %.lr.ph ], [ %140, %repeatIsDead.exit.i.thread59 ]
-  %227 = phi i32 [ %161, %160 ], [ %161, %150 ], [ %186, %181 ], [ %144, %.lr.ph ], [ %125, %repeatIsDead.exit.i.thread59 ]
+nfaExecLbrShuf_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread62, %181, %.lr.ph, %150, %160
+  %226 = phi i32 [ %145, %160 ], [ %145, %150 ], [ %187, %181 ], [ %145, %.lr.ph ], [ %140, %repeatIsDead.exit.i.thread62 ]
+  %227 = phi i32 [ %161, %160 ], [ %161, %150 ], [ %186, %181 ], [ %144, %.lr.ph ], [ %125, %repeatIsDead.exit.i.thread62 ]
   %228 = icmp ult i32 %227, %226
   br i1 %228, label %229, label %nfaExecLbrShuf_Q_i.exit
 
 229:                                              ; preds = %nfaExecLbrShuf_TopScan.exit
   %230 = zext i32 %227 to i64
-  %.idx.i21 = mul nuw nsw i64 %230, 24
-  %231 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %230, 24
+  %231 = getelementptr i8, ptr %39, i64 %.idx.i24
   %232 = load i64, ptr %231, align 8
   %233 = icmp sgt i64 %232, %2
   br i1 %233, label %234, label %nfaExecLbrShuf_Q_i.exit
@@ -10337,7 +10337,7 @@ repeatIsDead.exit.i.i:                            ; preds = %242, %242, %242, %2
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %261
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %253, label %default.unreachable129 [
+  switch i8 %253, label %default.unreachable132 [
     i8 0, label %254
     i8 1, label %255
     i8 2, label %256
@@ -10376,7 +10376,7 @@ repeatIsDead.exit.i.i:                            ; preds = %242, %242, %242, %2
   br label %lbrTop.exit.i
 
 261:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %253, label %default.unreachable98 [
+  switch i8 %253, label %default.unreachable101 [
     i8 0, label %262
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -10406,7 +10406,7 @@ repeatIsDead.exit.i.i:                            ; preds = %242, %242, %242, %2
   %271 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %248, ptr noundef nonnull %.0.shrunk.i124.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable98:                            ; preds = %261
+default.unreachable101:                           ; preds = %261
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %261, %261, %242, %262, %264, %266, %268, %270
@@ -10449,7 +10449,7 @@ repeatLastTop.exit15:                             ; preds = %261, %261, %242, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %248, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %245, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable129:                           ; preds = %.split.i.i
+default.unreachable132:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %242, %repeatLastTop.exit, %.split.i.i9, %200, %201, %202, %203, %204, %205, %206, %.split16.i.i12, %220, %221, %222, %223, %224, %225, %repeatLastTop.exit15, %254, %255, %256, %257, %258, %259, %260, %.split16.i.i, %273, %274, %275, %276, %277, %278, %repeatIsDead.exit.i.thread
@@ -10475,29 +10475,29 @@ lbrTop.exit.i:                                    ; preds = %242, %repeatLastTop
   %291 = getelementptr inbounds nuw i8, ptr %4, i64 %290
   %292 = load i8, ptr %291, align 4
   switch i8 %292, label %nfaExecLbrShuf_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i23
-    i8 3, label %repeatIsDead.exit.i23
-    i8 1, label %repeatIsDead.exit.i23
-    i8 2, label %repeatIsDead.exit.i23
-    i8 4, label %repeatIsDead.exit.i23
-    i8 5, label %repeatIsDead.exit.i23
-    i8 6, label %repeatIsDead.exit.i23
-    i8 7, label %repeatIsDead.exit.i23.thread
+    i8 0, label %repeatIsDead.exit.i26
+    i8 3, label %repeatIsDead.exit.i26
+    i8 1, label %repeatIsDead.exit.i26
+    i8 2, label %repeatIsDead.exit.i26
+    i8 4, label %repeatIsDead.exit.i26
+    i8 5, label %repeatIsDead.exit.i26
+    i8 6, label %repeatIsDead.exit.i26
+    i8 7, label %repeatIsDead.exit.i26.thread
   ]
 
-repeatIsDead.exit.i23:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i24.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i24.in = load i64, ptr %.0.shrunk.i.i24.in.in, align 8
-  %.0.shrunk.i.i24.not = icmp eq i64 %.0.shrunk.i.i24.in, -1
-  br i1 %.0.shrunk.i.i24.not, label %nfaExecLbrShuf_Q_i.exit, label %repeatIsDead.exit.i23.thread
+repeatIsDead.exit.i26:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i27.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i27.in = load i64, ptr %.0.shrunk.i.i27.in.in, align 8
+  %.0.shrunk.i.i27.not = icmp eq i64 %.0.shrunk.i.i27.in, -1
+  br i1 %.0.shrunk.i.i27.not, label %nfaExecLbrShuf_Q_i.exit, label %repeatIsDead.exit.i26.thread
 
-repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i23
+repeatIsDead.exit.i26.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i26
   %293 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %294 = load i32, ptr %293, align 4
   %295 = icmp eq i32 %294, 65535
   br i1 %295, label %nfaExecLbrShuf_Q_i.exit, label %296
 
-296:                                              ; preds = %repeatIsDead.exit.i23.thread
+296:                                              ; preds = %repeatIsDead.exit.i26.thread
   %297 = getelementptr inbounds nuw i8, ptr %291, i64 16
   %298 = load i32, ptr %297, align 4
   %299 = zext i32 %298 to i64
@@ -10543,11 +10543,11 @@ repeatLastTop.exit.i:                             ; preds = %312, %310, %308, %3
   %315 = zext i32 %314 to i64
   %316 = add i64 %.0.i12.i, %315
   %317 = icmp ult i64 %.0101.i.lcssa, %316
-  %..i28 = zext i1 %317 to i8
+  %..i31 = zext i1 %317 to i8
   br label %nfaExecLbrShuf_Q_i.exit
 
-nfaExecLbrShuf_Q_i.exit:                          ; preds = %119, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i23.thread, %repeatIsDead.exit.i23, %12, %29, %130, %nfaExecLbrShuf_TopScan.exit, %229, %234
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %130 ], [ 1, %234 ], [ 0, %229 ], [ 0, %nfaExecLbrShuf_TopScan.exit ], [ %..i28, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i23 ], [ 1, %repeatIsDead.exit.i23.thread ], [ 0, %._crit_edge ], [ 0, %119 ]
+nfaExecLbrShuf_Q_i.exit:                          ; preds = %119, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i26.thread, %repeatIsDead.exit.i26, %12, %29, %130, %nfaExecLbrShuf_TopScan.exit, %229, %234
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %130 ], [ 1, %234 ], [ 0, %229 ], [ 0, %nfaExecLbrShuf_TopScan.exit ], [ %..i31, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i26 ], [ 1, %repeatIsDead.exit.i26.thread ], [ 0, %._crit_edge ], [ 0, %119 ]
   ret i8 %.2.i
 }
 
@@ -10604,12 +10604,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrShuf_Q2(ptr noundef %0, ptr n
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %storemerge.i126 = add i32 %31, 1
-  store i32 %storemerge.i126, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i126, %33
-  br i1 %43, label %.lr.ph129, label %._crit_edge
+  %storemerge.i129 = add i32 %31, 1
+  store i32 %storemerge.i129, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i129, %33
+  br i1 %43, label %.lr.ph132, label %._crit_edge
 
-.lr.ph129:                                        ; preds = %35
+.lr.ph132:                                        ; preds = %35
   %.0.shrunk.i124.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -10619,12 +10619,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrShuf_Q2(ptr noundef %0, ptr n
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %50
 
-50:                                               ; preds = %.lr.ph129, %lbrTop.exit.i
-  %51 = phi i64 [ %37, %.lr.ph129 ], [ %278, %lbrTop.exit.i ]
-  %storemerge.i128 = phi i32 [ %storemerge.i126, %.lr.ph129 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i127 = phi i64 [ %42, %.lr.ph129 ], [ %283, %lbrTop.exit.i ]
+50:                                               ; preds = %.lr.ph132, %lbrTop.exit.i
+  %51 = phi i64 [ %37, %.lr.ph132 ], [ %278, %lbrTop.exit.i ]
+  %storemerge.i131 = phi i32 [ %storemerge.i129, %.lr.ph132 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i130 = phi i64 [ %42, %.lr.ph132 ], [ %283, %lbrTop.exit.i ]
   %52 = load i8, ptr %7, align 4
-  switch i8 %52, label %repeatIsDead.exit126.i.thread44 [
+  switch i8 %52, label %repeatIsDead.exit126.i.thread47 [
     i8 0, label %repeatIsDead.exit126.i
     i8 3, label %repeatIsDead.exit126.i
     i8 1, label %repeatIsDead.exit126.i
@@ -10638,23 +10638,23 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrShuf_Q2(ptr noundef %0, ptr n
 repeatIsDead.exit126.i:                           ; preds = %50, %50, %50, %50, %50, %50, %50
   %.0.shrunk.i124.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i124.i.not = icmp eq i64 %.0.shrunk.i124.i.in, -1
-  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread44, label %repeatIsDead.exit126.i.thread
+  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread47, label %repeatIsDead.exit126.i.thread
 
 repeatIsDead.exit126.i.thread:                    ; preds = %50, %repeatIsDead.exit126.i
-  %53 = zext i32 %storemerge.i128 to i64
+  %53 = zext i32 %storemerge.i131 to i64
   %.idx.i121.i = mul nuw nsw i64 %53, 24
   %54 = getelementptr i8, ptr %39, i64 %.idx.i121.i
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, %51
   %57 = add i64 %51, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %56, i64 %57)
-  %58 = icmp ult i64 %.0101.i127, %..i
-  br i1 %58, label %59, label %repeatIsDead.exit126.i.thread44
+  %58 = icmp ult i64 %.0101.i130, %..i
+  br i1 %58, label %59, label %repeatIsDead.exit126.i.thread47
 
 59:                                               ; preds = %repeatIsDead.exit126.i.thread
   %60 = load ptr, ptr %44, align 8
   %61 = sub i64 %..i, %51
-  %62 = sub i64 %.0101.i127, %51
+  %62 = sub i64 %.0101.i130, %51
   %63 = load <2 x i64>, ptr %45, align 16
   %64 = load <2 x i64>, ptr %46, align 16
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 %62
@@ -10673,7 +10673,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %50, %repeatIsDead.e
 
 lbrFwdScanShuf.exit.thread:                       ; preds = %59, %69
   %.0100.i = phi i64 [ %74, %69 ], [ %..i, %59 ]
-  %75 = icmp eq i64 %.0101.i127, %.0100.i
+  %75 = icmp eq i64 %.0101.i130, %.0100.i
   br i1 %75, label %repeatNextMatch.exit.thread, label %76
 
 76:                                               ; preds = %lbrFwdScanShuf.exit.thread
@@ -10698,7 +10698,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %59, %69
   ]
 
 86:                                               ; preds = %76
-  %87 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i127) #8
+  %87 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 88:                                               ; preds = %76, %76
@@ -10707,7 +10707,7 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %59, %69
   %91 = load i32, ptr %90, align 4
   %92 = zext i32 %91 to i64
   %93 = add i64 %89, %92
-  %94 = icmp ult i64 %.0101.i127, %93
+  %94 = icmp ult i64 %.0101.i130, %93
   br i1 %94, label %repeatNextMatch.exit, label %95
 
 95:                                               ; preds = %88
@@ -10716,45 +10716,45 @@ lbrFwdScanShuf.exit.thread:                       ; preds = %59, %69
   %98 = icmp eq i32 %97, 65535
   %99 = zext i32 %97 to i64
   %100 = add i64 %89, %99
-  %101 = icmp ult i64 %.0101.i127, %100
-  %or.cond.i31 = or i1 %98, %101
-  %102 = add nuw i64 %.0101.i127, 1
-  %spec.select.i = select i1 %or.cond.i31, i64 %102, i64 0
+  %101 = icmp ult i64 %.0101.i130, %100
+  %or.cond.i34 = or i1 %98, %101
+  %102 = add nuw i64 %.0101.i130, 1
+  %spec.select.i = select i1 %or.cond.i34, i64 %102, i64 0
   br label %repeatNextMatch.exit
 
 103:                                              ; preds = %76
-  %104 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i127) #8
+  %104 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 105:                                              ; preds = %76
-  %106 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i127) #8
+  %106 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 107:                                              ; preds = %76
-  %108 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i127) #8
+  %108 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 109:                                              ; preds = %76
-  %110 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i127) #8
+  %110 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 111:                                              ; preds = %76
-  %112 = add nuw i64 %.0101.i127, 1
+  %112 = add nuw i64 %.0101.i130, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %95, %88, %86, %103, %105, %107, %109, %111
-  %.0.i30 = phi i64 [ %87, %86 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %93, %88 ], [ %spec.select.i, %95 ]
-  %113 = add i64 %.0.i30, -1
-  %or.cond.i19.not = icmp ult i64 %113, %.0100.i
-  br i1 %or.cond.i19.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
+  %.0.i33 = phi i64 [ %87, %86 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %93, %88 ], [ %spec.select.i, %95 ]
+  %113 = add i64 %.0.i33, -1
+  %or.cond.i22.not = icmp ult i64 %113, %.0100.i
+  br i1 %or.cond.i22.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
 
 repeatNextMatch.exit.thread:                      ; preds = %76, %lbrFwdScanShuf.exit.thread, %repeatNextMatch.exit
-  br i1 %68, label %repeatIsDead.exit126.i.thread44, label %114
+  br i1 %68, label %repeatIsDead.exit126.i.thread47, label %114
 
 114:                                              ; preds = %repeatNextMatch.exit.thread
   %115 = load i8, ptr %7, align 4
   %switch = icmp ult i8 %115, 7
-  br i1 %switch, label %repeatIsDead.exit126.i.thread44.sink.split, label %repeatIsDead.exit126.i.thread44
+  br i1 %switch, label %repeatIsDead.exit126.i.thread47.sink.split, label %repeatIsDead.exit126.i.thread47
 
 clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exit
   %116 = load i32, ptr %30, align 8
@@ -10764,27 +10764,27 @@ clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exi
   %119 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %118
   store i32 0, ptr %119, align 8
   %120 = load i64, ptr %36, align 8
-  %121 = sub i64 %.0.i30, %120
+  %121 = sub i64 %.0.i33, %120
   %.idx.i = mul nuw nsw i64 %118, 24
   %122 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i64 %121, ptr %123, align 8
   br label %nfaExecLbrShuf_Q_i.exit
 
-repeatIsDead.exit126.i.thread44.sink.split:       ; preds = %114
+repeatIsDead.exit126.i.thread47.sink.split:       ; preds = %114
   store i64 -1, ptr %.0.shrunk.i124.i.in.in, align 8
-  br label %repeatIsDead.exit126.i.thread44
+  br label %repeatIsDead.exit126.i.thread47
 
-repeatIsDead.exit126.i.thread44:                  ; preds = %114, %repeatIsDead.exit126.i.thread44.sink.split, %repeatNextMatch.exit.thread, %50, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
+repeatIsDead.exit126.i.thread47:                  ; preds = %114, %repeatIsDead.exit126.i.thread47.sink.split, %repeatNextMatch.exit.thread, %50, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
   %124 = load i32, ptr %30, align 8
   %125 = zext i32 %124 to i64
-  %.idx.i23 = mul nuw nsw i64 %125, 24
-  %126 = getelementptr i8, ptr %39, i64 %.idx.i23
+  %.idx.i26 = mul nuw nsw i64 %125, 24
+  %126 = getelementptr i8, ptr %39, i64 %.idx.i26
   %127 = load i64, ptr %126, align 8
   %128 = icmp sgt i64 %127, %2
   br i1 %128, label %129, label %135
 
-129:                                              ; preds = %repeatIsDead.exit126.i.thread44
+129:                                              ; preds = %repeatIsDead.exit126.i.thread47
   %130 = add i32 %124, -1
   store i32 %130, ptr %30, align 8
   %131 = zext i32 %130 to i64
@@ -10796,9 +10796,9 @@ repeatIsDead.exit126.i.thread44:                  ; preds = %114, %repeatIsDead.
   store i64 %2, ptr %134, align 8
   br label %nfaExecLbrShuf_Q_i.exit
 
-135:                                              ; preds = %repeatIsDead.exit126.i.thread44
+135:                                              ; preds = %repeatIsDead.exit126.i.thread47
   %136 = load i8, ptr %7, align 4
-  switch i8 %136, label %repeatIsDead.exit.i.thread72 [
+  switch i8 %136, label %repeatIsDead.exit.i.thread75 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -10812,16 +10812,16 @@ repeatIsDead.exit126.i.thread44:                  ; preds = %114, %repeatIsDead.
 repeatIsDead.exit.i:                              ; preds = %135, %135, %135, %135, %135, %135, %135
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread72, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread75, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.exit.i
   %137 = load i64, ptr %36, align 8
   %138 = load ptr, ptr %8, align 8
   %139 = load i32, ptr %32, align 4
   %140 = icmp ult i32 %124, %139
   br i1 %140, label %.lr.ph.lr.ph, label %nfaExecLbrShuf_TopScan.exit
 
-.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit.i.thread72
+.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit.i.thread75
   %141 = load i32, ptr %4, align 4
   %142 = zext i32 %141 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %142
@@ -10832,38 +10832,38 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
   %144 = phi i32 [ %139, %.lr.ph.lr.ph ], [ %186, %180 ]
   %145 = zext i32 %143 to i64
   %146 = zext i32 %144 to i64
-  %.idx.i21186 = mul nuw nsw i64 %145, 24
-  %147 = getelementptr i8, ptr %39, i64 %.idx.i21186
+  %.idx.i24189 = mul nuw nsw i64 %145, 24
+  %147 = getelementptr i8, ptr %39, i64 %.idx.i24189
   %148 = load i64, ptr %147, align 8
-  %.not.i2187 = icmp sgt i64 %148, %2
-  br i1 %.not.i2187, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph189
+  %.not.i2190 = icmp sgt i64 %148, %2
+  br i1 %.not.i2190, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph192
 
 149:                                              ; preds = %159
-  %.idx.i21 = mul nuw nsw i64 %indvars.iv.next, 24
-  %150 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
+  %150 = getelementptr i8, ptr %39, i64 %.idx.i24
   %151 = load i64, ptr %150, align 8
   %.not.i2 = icmp sgt i64 %151, %2
-  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph189
+  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph192
 
-.lr.ph189:                                        ; preds = %.lr.ph, %149
+.lr.ph192:                                        ; preds = %.lr.ph, %149
   %152 = phi i64 [ %151, %149 ], [ %148, %.lr.ph ]
-  %indvars.iv188 = phi i64 [ %indvars.iv.next, %149 ], [ %145, %.lr.ph ]
-  %153 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv188
+  %indvars.iv191 = phi i64 [ %indvars.iv.next, %149 ], [ %145, %.lr.ph ]
+  %153 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv191
   %154 = load i32, ptr %153, align 8
   switch i32 %154, label %159 [
     i32 4, label %155
     i32 2, label %155
   ]
 
-155:                                              ; preds = %.lr.ph189, %.lr.ph189
+155:                                              ; preds = %.lr.ph192, %.lr.ph192
   %156 = load i64, ptr %36, align 8
   %157 = add i64 %156, %152
   %158 = load i64, ptr %138, align 8
   %.not56.i = icmp ult i64 %157, %158
   br i1 %.not56.i, label %159, label %162
 
-159:                                              ; preds = %.lr.ph189, %155
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv188, 1
+159:                                              ; preds = %.lr.ph192, %155
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv191, 1
   %160 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %160, ptr %30, align 8
   %161 = icmp samesign ult i64 %indvars.iv.next, %146
@@ -10880,7 +10880,7 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
   %168 = icmp ule i64 %spec.select, %157
   %.not57.i = icmp ult i64 %157, %137
   %or.cond.i = select i1 %168, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread82, label %169
+  br i1 %or.cond.i, label %.thread85, label %169
 
 169:                                              ; preds = %162
   %170 = load ptr, ptr %44, align 8
@@ -10893,7 +10893,7 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
   %177 = tail call ptr @rshuftiExec(<2 x i64> noundef %173, <2 x i64> noundef %174, ptr noundef %175, ptr noundef %176) #8
   %178 = getelementptr inbounds i8, ptr %175, i64 -1
   %179 = icmp eq ptr %177, %178
-  br i1 %179, label %.thread82, label %180
+  br i1 %179, label %.thread85, label %180
 
 180:                                              ; preds = %169
   %181 = ptrtoint ptr %177 to i64
@@ -10907,7 +10907,7 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
   %187 = icmp ult i32 %185, %186
   br i1 %187, label %.lr.ph, label %nfaExecLbrShuf_TopScan.exit
 
-.thread82:                                        ; preds = %169, %162
+.thread85:                                        ; preds = %169, %162
   %188 = load ptr, ptr %47, align 8
   %189 = load i32, ptr %4, align 4
   %190 = zext i32 %189 to i64
@@ -10925,20 +10925,20 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread93
+    i8 7, label %.thread96
   ]
 
-.thread93:                                        ; preds = %.thread82
+.thread96:                                        ; preds = %.thread85
   %197 = getelementptr inbounds nuw i8, ptr %138, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i5:                           ; preds = %.thread82, %.thread82, %.thread82, %.thread82, %.thread82, %.thread82, %.thread82
+repeatIsDead.exit.i.i5:                           ; preds = %.thread85, %.thread85, %.thread85, %.thread85, %.thread85, %.thread85, %.thread85
   %.0.shrunk.i.i.i6.in.in = getelementptr inbounds nuw i8, ptr %138, i64 8
   %.0.shrunk.i.i.i6.in = load i64, ptr %.0.shrunk.i.i.i6.in.in, align 8
   %.0.shrunk.i.i.i6.not = icmp eq i64 %.0.shrunk.i.i.i6.in, -1
   br i1 %.0.shrunk.i.i.i6.not, label %.split.i.i9, label %206
 
-.split.i.i9:                                      ; preds = %.thread82, %repeatIsDead.exit.i.i5
+.split.i.i9:                                      ; preds = %.thread85, %repeatIsDead.exit.i.i5
   %198 = getelementptr inbounds nuw i8, ptr %138, i64 8
   switch i8 %196, label %lbrTop.exit.i [
     i8 0, label %199
@@ -11012,9 +11012,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %.thread82, %.thread
 default.unreachable:                              ; preds = %206
   unreachable
 
-repeatLastTop.exit:                               ; preds = %206, %206, %.thread93, %207, %209, %211, %213, %215
-  %217 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %209 ], [ %.0.shrunk.i.i.i6.in.in, %211 ], [ %.0.shrunk.i.i.i6.in.in, %213 ], [ %.0.shrunk.i.i.i6.in.in, %215 ], [ %197, %.thread93 ], [ %.0.shrunk.i.i.i6.in.in, %206 ], [ %.0.shrunk.i.i.i6.in.in, %206 ]
-  %.0.i13 = phi i64 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ 0, %.thread93 ], [ %.0.shrunk.i.i.i6.in, %206 ], [ %.0.shrunk.i.i.i6.in, %206 ]
+repeatLastTop.exit:                               ; preds = %206, %206, %.thread96, %207, %209, %211, %213, %215
+  %217 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %209 ], [ %.0.shrunk.i.i.i6.in.in, %211 ], [ %.0.shrunk.i.i.i6.in.in, %213 ], [ %.0.shrunk.i.i.i6.in.in, %215 ], [ %197, %.thread96 ], [ %.0.shrunk.i.i.i6.in.in, %206 ], [ %.0.shrunk.i.i.i6.in.in, %206 ]
+  %.0.i13 = phi i64 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ 0, %.thread96 ], [ %.0.shrunk.i.i.i6.in, %206 ], [ %.0.shrunk.i.i.i6.in, %206 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %157
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -11053,16 +11053,16 @@ repeatLastTop.exit:                               ; preds = %206, %206, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %217, i64 noundef %157, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrShuf_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread72, %180, %.lr.ph, %149, %159
-  %225 = phi i32 [ %144, %159 ], [ %144, %149 ], [ %186, %180 ], [ %144, %.lr.ph ], [ %139, %repeatIsDead.exit.i.thread72 ]
-  %226 = phi i32 [ %160, %159 ], [ %160, %149 ], [ %185, %180 ], [ %143, %.lr.ph ], [ %124, %repeatIsDead.exit.i.thread72 ]
+nfaExecLbrShuf_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread75, %180, %.lr.ph, %149, %159
+  %225 = phi i32 [ %144, %159 ], [ %144, %149 ], [ %186, %180 ], [ %144, %.lr.ph ], [ %139, %repeatIsDead.exit.i.thread75 ]
+  %226 = phi i32 [ %160, %159 ], [ %160, %149 ], [ %185, %180 ], [ %143, %.lr.ph ], [ %124, %repeatIsDead.exit.i.thread75 ]
   %227 = icmp ult i32 %226, %225
   br i1 %227, label %228, label %nfaExecLbrShuf_Q_i.exit
 
 228:                                              ; preds = %nfaExecLbrShuf_TopScan.exit
   %229 = zext i32 %226 to i64
-  %.idx.i22 = mul nuw nsw i64 %229, 24
-  %230 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %229, 24
+  %230 = getelementptr i8, ptr %39, i64 %.idx.i25
   %231 = load i64, ptr %230, align 8
   %232 = icmp sgt i64 %231, %2
   br i1 %232, label %233, label %nfaExecLbrShuf_Q_i.exit
@@ -11116,7 +11116,7 @@ repeatIsDead.exit.i.i:                            ; preds = %241, %241, %241, %2
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %260
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %252, label %default.unreachable143 [
+  switch i8 %252, label %default.unreachable146 [
     i8 0, label %253
     i8 1, label %254
     i8 2, label %255
@@ -11155,7 +11155,7 @@ repeatIsDead.exit.i.i:                            ; preds = %241, %241, %241, %2
   br label %lbrTop.exit.i
 
 260:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %252, label %default.unreachable112 [
+  switch i8 %252, label %default.unreachable115 [
     i8 0, label %261
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -11185,7 +11185,7 @@ repeatIsDead.exit.i.i:                            ; preds = %241, %241, %241, %2
   %270 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %247, ptr noundef nonnull %.0.shrunk.i124.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable112:                           ; preds = %260
+default.unreachable115:                           ; preds = %260
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %260, %260, %241, %261, %263, %265, %267, %269
@@ -11228,7 +11228,7 @@ repeatLastTop.exit15:                             ; preds = %260, %260, %241, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %247, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %244, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable143:                           ; preds = %.split.i.i
+default.unreachable146:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %241, %repeatLastTop.exit, %.split.i.i9, %199, %200, %201, %202, %203, %204, %205, %.split16.i.i12, %219, %220, %221, %222, %223, %224, %repeatLastTop.exit15, %253, %254, %255, %256, %257, %258, %259, %.split16.i.i, %272, %273, %274, %275, %276, %277, %repeatIsDead.exit.i.thread
@@ -11254,29 +11254,29 @@ lbrTop.exit.i:                                    ; preds = %241, %repeatLastTop
   %290 = getelementptr inbounds nuw i8, ptr %4, i64 %289
   %291 = load i8, ptr %290, align 4
   switch i8 %291, label %nfaExecLbrShuf_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i24
-    i8 3, label %repeatIsDead.exit.i24
-    i8 1, label %repeatIsDead.exit.i24
-    i8 2, label %repeatIsDead.exit.i24
-    i8 4, label %repeatIsDead.exit.i24
-    i8 5, label %repeatIsDead.exit.i24
-    i8 6, label %repeatIsDead.exit.i24
-    i8 7, label %repeatIsDead.exit.i24.thread
+    i8 0, label %repeatIsDead.exit.i27
+    i8 3, label %repeatIsDead.exit.i27
+    i8 1, label %repeatIsDead.exit.i27
+    i8 2, label %repeatIsDead.exit.i27
+    i8 4, label %repeatIsDead.exit.i27
+    i8 5, label %repeatIsDead.exit.i27
+    i8 6, label %repeatIsDead.exit.i27
+    i8 7, label %repeatIsDead.exit.i27.thread
   ]
 
-repeatIsDead.exit.i24:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i25.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i25.in = load i64, ptr %.0.shrunk.i.i25.in.in, align 8
-  %.0.shrunk.i.i25.not = icmp eq i64 %.0.shrunk.i.i25.in, -1
-  br i1 %.0.shrunk.i.i25.not, label %nfaExecLbrShuf_Q_i.exit, label %repeatIsDead.exit.i24.thread
+repeatIsDead.exit.i27:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i28.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i28.in = load i64, ptr %.0.shrunk.i.i28.in.in, align 8
+  %.0.shrunk.i.i28.not = icmp eq i64 %.0.shrunk.i.i28.in, -1
+  br i1 %.0.shrunk.i.i28.not, label %nfaExecLbrShuf_Q_i.exit, label %repeatIsDead.exit.i27.thread
 
-repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i24
+repeatIsDead.exit.i27.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i27
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %293 = load i32, ptr %292, align 4
   %294 = icmp eq i32 %293, 65535
   br i1 %294, label %nfaExecLbrShuf_Q_i.exit, label %295
 
-295:                                              ; preds = %repeatIsDead.exit.i24.thread
+295:                                              ; preds = %repeatIsDead.exit.i27.thread
   %296 = getelementptr inbounds nuw i8, ptr %290, i64 16
   %297 = load i32, ptr %296, align 4
   %298 = zext i32 %297 to i64
@@ -11322,11 +11322,11 @@ repeatLastTop.exit.i:                             ; preds = %311, %309, %307, %3
   %314 = zext i32 %313 to i64
   %315 = add i64 %.0.i12.i, %314
   %316 = icmp ult i64 %.0101.i.lcssa, %315
-  %..i29 = zext i1 %316 to i8
+  %..i32 = zext i1 %316 to i8
   br label %nfaExecLbrShuf_Q_i.exit
 
-nfaExecLbrShuf_Q_i.exit:                          ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i24.thread, %repeatIsDead.exit.i24, %clearRepeat.exit.i, %12, %29, %129, %nfaExecLbrShuf_TopScan.exit, %228, %233
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %129 ], [ 1, %233 ], [ 2, %clearRepeat.exit.i ], [ 0, %228 ], [ 0, %nfaExecLbrShuf_TopScan.exit ], [ %..i29, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i24 ], [ 1, %repeatIsDead.exit.i24.thread ], [ 0, %._crit_edge ]
+nfaExecLbrShuf_Q_i.exit:                          ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i27.thread, %repeatIsDead.exit.i27, %clearRepeat.exit.i, %12, %29, %129, %nfaExecLbrShuf_TopScan.exit, %228, %233
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %129 ], [ 1, %233 ], [ 2, %clearRepeat.exit.i ], [ 0, %228 ], [ 0, %nfaExecLbrShuf_TopScan.exit ], [ %..i32, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i27 ], [ 1, %repeatIsDead.exit.i27.thread ], [ 0, %._crit_edge ]
   ret i8 %.2.i
 }
 
@@ -11363,9 +11363,9 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrShuf_QR(ptr noundef %0, ptr n
   %27 = load i64, ptr %26, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
   %28 = icmp ult i32 %17, %7
-  br i1 %28, label %.lr.ph214, label %._crit_edge
+  br i1 %28, label %.lr.ph217, label %._crit_edge
 
-.lr.ph214:                                        ; preds = %9
+.lr.ph217:                                        ; preds = %9
   %.0.shrunk.i83.in.in = getelementptr inbounds nuw i8, ptr %23, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -11377,12 +11377,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrShuf_QR(ptr noundef %0, ptr n
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %37
 
-37:                                               ; preds = %.lr.ph214, %lbrTop.exit
-  %38 = phi i64 [ %11, %.lr.ph214 ], [ %220, %lbrTop.exit ]
-  %39 = phi i32 [ %17, %.lr.ph214 ], [ %226, %lbrTop.exit ]
-  %.064213 = phi i64 [ %16, %.lr.ph214 ], [ %225, %lbrTop.exit ]
+37:                                               ; preds = %.lr.ph217, %lbrTop.exit
+  %38 = phi i64 [ %11, %.lr.ph217 ], [ %220, %lbrTop.exit ]
+  %39 = phi i32 [ %17, %.lr.ph217 ], [ %226, %lbrTop.exit ]
+  %.064216 = phi i64 [ %16, %.lr.ph217 ], [ %225, %lbrTop.exit ]
   %40 = load i8, ptr %21, align 4
-  switch i8 %40, label %repeatIsDead.exit85.thread128 [
+  switch i8 %40, label %repeatIsDead.exit85.thread131 [
     i8 0, label %repeatIsDead.exit85
     i8 3, label %repeatIsDead.exit85
     i8 1, label %repeatIsDead.exit85
@@ -11396,7 +11396,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrShuf_QR(ptr noundef %0, ptr n
 repeatIsDead.exit85:                              ; preds = %37, %37, %37, %37, %37, %37, %37
   %.0.shrunk.i83.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i83.not = icmp eq i64 %.0.shrunk.i83.in, -1
-  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread128, label %repeatIsDead.exit85.thread
+  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread131, label %repeatIsDead.exit85.thread
 
 repeatIsDead.exit85.thread:                       ; preds = %37, %repeatIsDead.exit85
   %41 = zext i32 %39 to i64
@@ -11404,7 +11404,7 @@ repeatIsDead.exit85.thread:                       ; preds = %37, %repeatIsDead.e
   %42 = getelementptr i8, ptr %13, i64 %.idx.i75
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, %38
-  %45 = icmp ult i64 %.064213, %38
+  %45 = icmp ult i64 %.064216, %38
   br i1 %45, label %46, label %nfaExecLbrShuf_StreamSilent.exit
 
 46:                                               ; preds = %repeatIsDead.exit85.thread
@@ -11413,15 +11413,15 @@ repeatIsDead.exit85.thread:                       ; preds = %37, %repeatIsDead.e
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 %48
   %50 = load ptr, ptr %22, align 8
-  %51 = icmp eq i64 %44, %.064213
+  %51 = icmp eq i64 %44, %.064216
   br i1 %51, label %nfaExecLbrShuf_StreamSilent.exit, label %52
 
 52:                                               ; preds = %46
-  %53 = sub i64 %., %.064213
+  %53 = sub i64 %., %.064216
   %54 = load ptr, ptr %29, align 8
   %55 = load i64, ptr %30, align 8
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.064213
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.064216
   %58 = sub i64 0, %38
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
   %60 = load <2 x i64>, ptr %31, align 16
@@ -11442,9 +11442,9 @@ nfaExecLbrShuf_StreamSilent.exit.sink.split:      ; preds = %65
   br label %nfaExecLbrShuf_StreamSilent.exit
 
 nfaExecLbrShuf_StreamSilent.exit:                 ; preds = %65, %nfaExecLbrShuf_StreamSilent.exit.sink.split, %52, %46, %repeatIsDead.exit85.thread
-  %.165 = phi i64 [ %.064213, %repeatIsDead.exit85.thread ], [ %., %65 ], [ %., %46 ], [ %., %52 ], [ %., %nfaExecLbrShuf_StreamSilent.exit.sink.split ]
+  %.165 = phi i64 [ %.064216, %repeatIsDead.exit85.thread ], [ %., %65 ], [ %., %46 ], [ %., %52 ], [ %., %nfaExecLbrShuf_StreamSilent.exit.sink.split ]
   %68 = load i8, ptr %21, align 4
-  switch i8 %68, label %repeatIsDead.exit85.thread128 [
+  switch i8 %68, label %repeatIsDead.exit85.thread131 [
     i8 0, label %repeatIsDead.exit82
     i8 3, label %repeatIsDead.exit82
     i8 1, label %repeatIsDead.exit82
@@ -11458,7 +11458,7 @@ nfaExecLbrShuf_StreamSilent.exit:                 ; preds = %65, %nfaExecLbrShuf
 repeatIsDead.exit82:                              ; preds = %nfaExecLbrShuf_StreamSilent.exit, %nfaExecLbrShuf_StreamSilent.exit, %nfaExecLbrShuf_StreamSilent.exit, %nfaExecLbrShuf_StreamSilent.exit, %nfaExecLbrShuf_StreamSilent.exit, %nfaExecLbrShuf_StreamSilent.exit, %nfaExecLbrShuf_StreamSilent.exit
   %.0.shrunk.i80.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i80.not = icmp eq i64 %.0.shrunk.i80.in, -1
-  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread128, label %repeatIsDead.exit82.thread
+  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread131, label %repeatIsDead.exit82.thread
 
 repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrShuf_StreamSilent.exit, %repeatIsDead.exit82
   %69 = icmp ult i64 %.165, %44
@@ -11484,8 +11484,8 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrShuf_Stre
   %85 = zext i32 %71 to i64
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 %85
   %87 = load i8, ptr %86, align 4
-  %switch236 = icmp ult i8 %87, 7
-  br i1 %switch236, label %nfaExecLbrShuf_StreamSilent.exit94.sink.split, label %nfaExecLbrShuf_StreamSilent.exit94
+  %switch239 = icmp ult i8 %87, 7
+  br i1 %switch239, label %nfaExecLbrShuf_StreamSilent.exit94.sink.split, label %nfaExecLbrShuf_StreamSilent.exit94
 
 nfaExecLbrShuf_StreamSilent.exit94.sink.split:    ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -11494,7 +11494,7 @@ nfaExecLbrShuf_StreamSilent.exit94.sink.split:    ; preds = %84
 
 nfaExecLbrShuf_StreamSilent.exit94:               ; preds = %84, %nfaExecLbrShuf_StreamSilent.exit94.sink.split, %70, %repeatIsDead.exit82.thread
   %89 = load i8, ptr %21, align 4
-  switch i8 %89, label %repeatIsDead.exit85.thread128 [
+  switch i8 %89, label %repeatIsDead.exit85.thread131 [
     i8 0, label %repeatIsDead.exit79
     i8 3, label %repeatIsDead.exit79
     i8 1, label %repeatIsDead.exit79
@@ -11508,9 +11508,9 @@ nfaExecLbrShuf_StreamSilent.exit94:               ; preds = %84, %nfaExecLbrShuf
 repeatIsDead.exit79:                              ; preds = %nfaExecLbrShuf_StreamSilent.exit94, %nfaExecLbrShuf_StreamSilent.exit94, %nfaExecLbrShuf_StreamSilent.exit94, %nfaExecLbrShuf_StreamSilent.exit94, %nfaExecLbrShuf_StreamSilent.exit94, %nfaExecLbrShuf_StreamSilent.exit94, %nfaExecLbrShuf_StreamSilent.exit94
   %.0.shrunk.i77.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i77.not = icmp eq i64 %.0.shrunk.i77.in, -1
-  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread128, label %repeatIsDead.exit79.thread
+  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread131, label %repeatIsDead.exit79.thread
 
-repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrShuf_StreamSilent.exit94, %nfaExecLbrShuf_StreamSilent.exit, %37, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
+repeatIsDead.exit85.thread131:                    ; preds = %nfaExecLbrShuf_StreamSilent.exit94, %nfaExecLbrShuf_StreamSilent.exit, %37, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
   %90 = load i64, ptr %10, align 8
   %91 = load ptr, ptr %22, align 8
   %92 = load i32, ptr %6, align 4
@@ -11518,7 +11518,7 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrShuf_Stre
   %94 = icmp ult i32 %93, %92
   br i1 %94, label %.lr.ph.lr.ph, label %nfaExecLbrShuf_TopScan.exit
 
-.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit85.thread128
+.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit85.thread131
   %95 = load i32, ptr %18, align 4
   %96 = zext i32 %95 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %96
@@ -11533,8 +11533,8 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrShuf_Stre
 
 101:                                              ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ %99, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %.idx.i116 = mul nuw nsw i64 %indvars.iv, 24
-  %102 = getelementptr i8, ptr %13, i64 %.idx.i116
+  %.idx.i119 = mul nuw nsw i64 %indvars.iv, 24
+  %102 = getelementptr i8, ptr %13, i64 %.idx.i119
   %103 = load i64, ptr %102, align 8
   %.not.i96 = icmp sgt i64 %103, %27
   br i1 %.not.i96, label %nfaExecLbrShuf_TopScan.exit, label %104
@@ -11572,7 +11572,7 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrShuf_Stre
   %120 = icmp ule i64 %spec.select, %109
   %.not57.i = icmp ult i64 %109, %90
   %or.cond.i = select i1 %120, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread155, label %121
+  br i1 %or.cond.i, label %.thread158, label %121
 
 121:                                              ; preds = %114
   %122 = load ptr, ptr %33, align 8
@@ -11585,7 +11585,7 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrShuf_Stre
   %129 = tail call ptr @rshuftiExec(<2 x i64> noundef %125, <2 x i64> noundef %126, ptr noundef %127, ptr noundef %128) #8
   %130 = getelementptr inbounds i8, ptr %127, i64 -1
   %131 = icmp eq ptr %129, %130
-  br i1 %131, label %.thread155, label %132
+  br i1 %131, label %.thread158, label %132
 
 132:                                              ; preds = %121
   %133 = ptrtoint ptr %129 to i64
@@ -11599,7 +11599,7 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrShuf_Stre
   %139 = icmp ult i32 %137, %138
   br i1 %139, label %.lr.ph, label %nfaExecLbrShuf_TopScan.exit
 
-.thread155:                                       ; preds = %121, %114
+.thread158:                                       ; preds = %121, %114
   %140 = load ptr, ptr %35, align 8
   %141 = load i32, ptr %18, align 4
   %142 = zext i32 %141 to i64
@@ -11617,20 +11617,20 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrShuf_Stre
     i8 4, label %repeatIsDead.exit.i.i
     i8 5, label %repeatIsDead.exit.i.i
     i8 6, label %repeatIsDead.exit.i.i
-    i8 7, label %.thread166
+    i8 7, label %.thread169
   ]
 
-.thread166:                                       ; preds = %.thread155
+.thread169:                                       ; preds = %.thread158
   %149 = getelementptr inbounds nuw i8, ptr %91, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i:                            ; preds = %.thread155, %.thread155, %.thread155, %.thread155, %.thread155, %.thread155, %.thread155
+repeatIsDead.exit.i.i:                            ; preds = %.thread158, %.thread158, %.thread158, %.thread158, %.thread158, %.thread158, %.thread158
   %.0.shrunk.i.i.i.in.in = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.0.shrunk.i.i.i.in = load i64, ptr %.0.shrunk.i.i.i.in.in, align 8
   %.0.shrunk.i.i.i.not = icmp eq i64 %.0.shrunk.i.i.i.in, -1
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %158
 
-.split.i.i:                                       ; preds = %.thread155, %repeatIsDead.exit.i.i
+.split.i.i:                                       ; preds = %.thread158, %repeatIsDead.exit.i.i
   %150 = getelementptr inbounds nuw i8, ptr %91, i64 8
   switch i8 %148, label %lbrTop.exit [
     i8 0, label %151
@@ -11704,9 +11704,9 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread155, %.threa
 default.unreachable:                              ; preds = %158
   unreachable
 
-repeatLastTop.exit:                               ; preds = %158, %158, %.thread166, %159, %161, %163, %165, %167
-  %169 = phi ptr [ %.0.shrunk.i.i.i.in.in, %159 ], [ %.0.shrunk.i.i.i.in.in, %161 ], [ %.0.shrunk.i.i.i.in.in, %163 ], [ %.0.shrunk.i.i.i.in.in, %165 ], [ %.0.shrunk.i.i.i.in.in, %167 ], [ %149, %.thread166 ], [ %.0.shrunk.i.i.i.in.in, %158 ], [ %.0.shrunk.i.i.i.in.in, %158 ]
-  %.0.i110 = phi i64 [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ 0, %.thread166 ], [ %.0.shrunk.i.i.i.in, %158 ], [ %.0.shrunk.i.i.i.in, %158 ]
+repeatLastTop.exit:                               ; preds = %158, %158, %.thread169, %159, %161, %163, %165, %167
+  %169 = phi ptr [ %.0.shrunk.i.i.i.in.in, %159 ], [ %.0.shrunk.i.i.i.in.in, %161 ], [ %.0.shrunk.i.i.i.in.in, %163 ], [ %.0.shrunk.i.i.i.in.in, %165 ], [ %.0.shrunk.i.i.i.in.in, %167 ], [ %149, %.thread169 ], [ %.0.shrunk.i.i.i.in.in, %158 ], [ %.0.shrunk.i.i.i.in.in, %158 ]
+  %.0.i110 = phi i64 [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ 0, %.thread169 ], [ %.0.shrunk.i.i.i.in, %158 ], [ %.0.shrunk.i.i.i.in, %158 ]
   %.not.i.i = icmp eq i64 %.0.i110, %109
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -11787,7 +11787,7 @@ repeatIsDead.exit.i:                              ; preds = %181, %181, %181, %1
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %202
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %194, label %default.unreachable231 [
+  switch i8 %194, label %default.unreachable234 [
     i8 0, label %195
     i8 1, label %196
     i8 2, label %197
@@ -11826,7 +11826,7 @@ repeatIsDead.exit.i:                              ; preds = %181, %181, %181, %1
   br label %lbrTop.exit
 
 202:                                              ; preds = %repeatIsDead.exit.i
-  switch i8 %194, label %default.unreachable206 [
+  switch i8 %194, label %default.unreachable209 [
     i8 0, label %203
     i8 1, label %repeatLastTop.exit112
     i8 2, label %repeatLastTop.exit112
@@ -11856,7 +11856,7 @@ repeatIsDead.exit.i:                              ; preds = %181, %181, %181, %1
   %212 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %189, ptr noundef nonnull %.0.shrunk.i83.in.in) #8
   br label %repeatLastTop.exit112
 
-default.unreachable206:                           ; preds = %202
+default.unreachable209:                           ; preds = %202
   unreachable
 
 repeatLastTop.exit112:                            ; preds = %202, %202, %181, %203, %205, %207, %209, %211
@@ -11899,7 +11899,7 @@ repeatLastTop.exit112:                            ; preds = %202, %202, %181, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %189, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %186, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable231:                           ; preds = %.split.i
+default.unreachable234:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %181, %repeatLastTop.exit, %.split.i.i, %151, %152, %153, %154, %155, %156, %157, %.split16.i.i, %171, %172, %173, %174, %175, %176, %repeatLastTop.exit112, %195, %196, %197, %198, %199, %200, %201, %.split16.i, %214, %215, %216, %217, %218, %219, %repeatIsDead.exit79.thread
@@ -11940,17 +11940,17 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %231 = load i32, ptr %invariant.gep, align 4
   %.not.i = icmp eq i32 %2, %231
-  %.pre221 = load ptr, ptr %230, align 8
-  %.pre223 = load i32, ptr %18, align 4
+  %.pre224 = load ptr, ptr %230, align 8
+  %.pre226 = load i32, ptr %18, align 4
   br i1 %.not.i, label %232, label %lbrInAccept.exit.thread
 
 232:                                              ; preds = %repeatIsDead.exit.thread
-  %233 = zext i32 %.pre223 to i64
+  %233 = zext i32 %.pre226 to i64
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 %233
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load i32, ptr %235, align 4
   %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds nuw i8, ptr %.pre221, i64 %237
+  %238 = getelementptr inbounds nuw i8, ptr %.pre224, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %240 = load i8, ptr %234, align 4
   switch i8 %240, label %lbrInAccept.exit.thread [
@@ -12018,12 +12018,12 @@ lbrInAccept.exit:                                 ; preds = %268, %266, %264, %2
 
 lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge: ; preds = %257, %lbrInAccept.exit
   %.pre = load ptr, ptr %230, align 8
-  %.pre222 = load i32, ptr %18, align 4
+  %.pre225 = load i32, ptr %18, align 4
   br label %lbrInAccept.exit.thread
 
 lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, %232, %250, %repeatIsDead.exit.thread
-  %270 = phi i32 [ %.pre222, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre223, %232 ], [ %.pre223, %250 ], [ %.pre223, %repeatIsDead.exit.thread ]
-  %271 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre221, %232 ], [ %.pre221, %250 ], [ %.pre221, %repeatIsDead.exit.thread ]
+  %270 = phi i32 [ %.pre225, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre226, %232 ], [ %.pre226, %250 ], [ %.pre226, %repeatIsDead.exit.thread ]
+  %271 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre224, %232 ], [ %.pre224, %250 ], [ %.pre224, %repeatIsDead.exit.thread ]
   %272 = zext i32 %270 to i64
   %273 = getelementptr inbounds nuw i8, ptr %18, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
@@ -12131,9 +12131,9 @@ repeatHasMatch.exit.thread.thread:                ; preds = %296, %282, %289, %r
   %323 = zext i32 %321 to i64
   %324 = add i64 %313, %323
   %325 = icmp ult i64 %.064.lcssa, %324
-  %or.cond.i118 = or i1 %322, %325
+  %or.cond.i121 = or i1 %322, %325
   %326 = add i64 %.064.lcssa, 1
-  br i1 %or.cond.i118, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
+  br i1 %or.cond.i121, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 327:                                              ; preds = %repeatHasMatch.exit.thread
   %328 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %273, ptr noundef nonnull %278, ptr noundef %277, i64 noundef %.064.lcssa) #8
@@ -12156,16 +12156,16 @@ repeatHasMatch.exit.thread.thread:                ; preds = %296, %282, %289, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %319, %311, %327, %329, %331, %333, %335
-  %.0.i117 = phi i64 [ %312, %311 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %326, %319 ]
-  %.0.i117.fr = freeze i64 %.0.i117
-  %.not.i89 = icmp eq i64 %.0.i117.fr, 0
+  %.0.i120 = phi i64 [ %312, %311 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %326, %319 ]
+  %.0.i120.fr = freeze i64 %.0.i120
+  %.not.i89 = icmp eq i64 %.0.i120.fr, 0
   br i1 %.not.i89, label %repeatNextMatch.exit.thread, label %nfaExecLbrShuf_TopScan.exit
 
 repeatNextMatch.exit.thread:                      ; preds = %319, %repeatHasMatch.exit.thread, %repeatNextMatch.exit
   br label %nfaExecLbrShuf_TopScan.exit
 
-nfaExecLbrShuf_TopScan.exit:                      ; preds = %repeatIsDead.exit85.thread128, %132, %111, %101, %257, %repeatHasMatch.exit.thread.thread, %296, %lbrInAccept.exit.thread, %282, %232, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %._crit_edge ], [ 2, %232 ], [ 1, %282 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %296 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %257 ], [ 0, %101 ], [ 0, %111 ], [ 0, %132 ], [ 0, %repeatIsDead.exit85.thread128 ]
+nfaExecLbrShuf_TopScan.exit:                      ; preds = %repeatIsDead.exit85.thread131, %132, %111, %101, %257, %repeatHasMatch.exit.thread.thread, %296, %lbrInAccept.exit.thread, %282, %232, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
+  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %._crit_edge ], [ 2, %232 ], [ 1, %282 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %296 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %257 ], [ 0, %101 ], [ 0, %111 ], [ 0, %132 ], [ 0, %repeatIsDead.exit85.thread131 ]
   ret i8 %.0
 }
 
@@ -12386,12 +12386,12 @@ define hidden noundef signext i8 @nfaExecLbrTruf_initCompressedState(ptr noundef
   %10 = load i8, ptr %9, align 4
   switch i8 %10, label %.split.i [
     i8 0, label %.split.i.thread
-    i8 3, label %.split.i.thread20
+    i8 3, label %.split.i.thread21
     i8 1, label %clearRepeat.exit
     i8 2, label %clearRepeat.exit
-    i8 4, label %.split.i.thread21
-    i8 5, label %.split.i.thread22
-    i8 6, label %.split.i.thread23
+    i8 4, label %.split.i.thread22
+    i8 5, label %.split.i.thread23
+    i8 6, label %.split.i.thread24
     i8 7, label %lbrTop.exit
   ]
 
@@ -12405,7 +12405,7 @@ define hidden noundef signext i8 @nfaExecLbrTruf_initCompressedState(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %39
 
-.split.i.thread20:                                ; preds = %4
+.split.i.thread21:                                ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -12421,13 +12421,13 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %cond = icmp eq i8 %10, 7
   br i1 %cond, label %lbrTop.exit, label %.split.i
 
-.split.i.thread21:                                ; preds = %4
+.split.i.thread22:                                ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %47
 
-.split.i.thread22:                                ; preds = %4
+.split.i.thread23:                                ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -12437,7 +12437,7 @@ clearRepeat.exit:                                 ; preds = %4, %4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %49
 
-.split.i.thread23:                                ; preds = %4
+.split.i.thread24:                                ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 -1, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -12473,25 +12473,25 @@ clearRepeat.exit:                                 ; preds = %4, %4
   store i64 %1, ptr %38, align 8
   br label %lbrTop.exit
 
-44:                                               ; preds = %.split.i.thread20, %.split.i
-  %45 = phi ptr [ %22, %.split.i.thread20 ], [ %38, %.split.i ]
-  %46 = phi ptr [ %21, %.split.i.thread20 ], [ %37, %.split.i ]
+44:                                               ; preds = %.split.i.thread21, %.split.i
+  %45 = phi ptr [ %22, %.split.i.thread21 ], [ %38, %.split.i ]
+  %46 = phi ptr [ %21, %.split.i.thread21 ], [ %37, %.split.i ]
   call void @repeatStoreRange(ptr noundef nonnull %9, ptr noundef nonnull %45, ptr noundef %46, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-47:                                               ; preds = %.split.i.thread21, %.split.i
-  %48 = phi ptr [ %25, %.split.i.thread21 ], [ %38, %.split.i ]
+47:                                               ; preds = %.split.i.thread22, %.split.i
+  %48 = phi ptr [ %25, %.split.i.thread22 ], [ %38, %.split.i ]
   call void @repeatStoreBitmap(ptr noundef nonnull %9, ptr noundef nonnull %48, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-49:                                               ; preds = %.split.i.thread22, %.split.i
-  %50 = phi ptr [ %31, %.split.i.thread22 ], [ %38, %.split.i ]
-  %51 = phi ptr [ %30, %.split.i.thread22 ], [ %37, %.split.i ]
+49:                                               ; preds = %.split.i.thread23, %.split.i
+  %50 = phi ptr [ %31, %.split.i.thread23 ], [ %38, %.split.i ]
+  %51 = phi ptr [ %30, %.split.i.thread23 ], [ %37, %.split.i ]
   call void @repeatStoreSparseOptimalP(ptr noundef nonnull %9, ptr noundef nonnull %50, ptr noundef %51, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
-52:                                               ; preds = %.split.i.thread23, %.split.i
-  %53 = phi ptr [ %33, %.split.i.thread23 ], [ %38, %.split.i ]
+52:                                               ; preds = %.split.i.thread24, %.split.i
+  %53 = phi ptr [ %33, %.split.i.thread24 ], [ %38, %.split.i ]
   call void @repeatStoreTrailer(ptr noundef nonnull %9, ptr noundef nonnull %53, i64 noundef %1, i8 noundef signext 0) #8
   br label %lbrTop.exit
 
@@ -12558,12 +12558,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrTruf_Q(ptr noundef %0, ptr no
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %storemerge.i112 = add i32 %31, 1
-  store i32 %storemerge.i112, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i112, %33
-  br i1 %43, label %.lr.ph115, label %._crit_edge
+  %storemerge.i115 = add i32 %31, 1
+  store i32 %storemerge.i115, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i115, %33
+  br i1 %43, label %.lr.ph118, label %._crit_edge
 
-.lr.ph115:                                        ; preds = %35
+.lr.ph118:                                        ; preds = %35
   %.0.shrunk.i124.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -12575,12 +12575,12 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrTruf_Q(ptr noundef %0, ptr no
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %52
 
-52:                                               ; preds = %.lr.ph115, %lbrTop.exit.i
-  %53 = phi i64 [ %37, %.lr.ph115 ], [ %279, %lbrTop.exit.i ]
-  %storemerge.i114 = phi i32 [ %storemerge.i112, %.lr.ph115 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i113 = phi i64 [ %42, %.lr.ph115 ], [ %284, %lbrTop.exit.i ]
+52:                                               ; preds = %.lr.ph118, %lbrTop.exit.i
+  %53 = phi i64 [ %37, %.lr.ph118 ], [ %279, %lbrTop.exit.i ]
+  %storemerge.i117 = phi i32 [ %storemerge.i115, %.lr.ph118 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i116 = phi i64 [ %42, %.lr.ph118 ], [ %284, %lbrTop.exit.i ]
   %54 = load i8, ptr %7, align 4
-  switch i8 %54, label %repeatIsDead.exit126.i.thread39 [
+  switch i8 %54, label %repeatIsDead.exit126.i.thread42 [
     i8 0, label %repeatIsDead.exit126.i
     i8 3, label %repeatIsDead.exit126.i
     i8 1, label %repeatIsDead.exit126.i
@@ -12594,23 +12594,23 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLbrTruf_Q(ptr noundef %0, ptr no
 repeatIsDead.exit126.i:                           ; preds = %52, %52, %52, %52, %52, %52, %52
   %.0.shrunk.i124.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i124.i.not = icmp eq i64 %.0.shrunk.i124.i.in, -1
-  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread39, label %repeatIsDead.exit126.i.thread
+  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread42, label %repeatIsDead.exit126.i.thread
 
 repeatIsDead.exit126.i.thread:                    ; preds = %52, %repeatIsDead.exit126.i
-  %55 = zext i32 %storemerge.i114 to i64
+  %55 = zext i32 %storemerge.i117 to i64
   %.idx.i121.i = mul nuw nsw i64 %55, 24
   %56 = getelementptr i8, ptr %39, i64 %.idx.i121.i
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, %53
   %59 = add i64 %53, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %58, i64 %59)
-  %60 = icmp ult i64 %.0101.i113, %..i
-  br i1 %60, label %61, label %repeatIsDead.exit126.i.thread39
+  %60 = icmp ult i64 %.0101.i116, %..i
+  br i1 %60, label %61, label %repeatIsDead.exit126.i.thread42
 
 61:                                               ; preds = %repeatIsDead.exit126.i.thread
   %62 = load ptr, ptr %44, align 8
   %63 = sub i64 %..i, %53
-  %64 = sub i64 %.0101.i113, %53
+  %64 = sub i64 %.0101.i116, %53
   %65 = load <2 x i64>, ptr %45, align 16
   %66 = load <2 x i64>, ptr %46, align 16
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 %64
@@ -12631,7 +12631,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %61, %71
   %.0100.i = phi i64 [ %76, %71 ], [ %..i, %61 ]
   %77 = load ptr, ptr %47, align 8
   %78 = load ptr, ptr %48, align 8
-  %79 = icmp eq i64 %.0101.i113, %.0100.i
+  %79 = icmp eq i64 %.0101.i116, %.0100.i
   br i1 %79, label %repeatNextMatch.exit.thread, label %80
 
 80:                                               ; preds = %lbrFwdScanTruf.exit.thread
@@ -12648,7 +12648,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %61, %71
   br label %91
 
 91:                                               ; preds = %119, %80
-  %.0.i19 = phi i64 [ %.0101.i113, %80 ], [ %.0.i29, %119 ]
+  %.0.i22 = phi i64 [ %.0101.i116, %80 ], [ %.0.i32, %119 ]
   %92 = load i8, ptr %84, align 4
   switch i8 %92, label %repeatNextMatch.exit.thread [
     i8 0, label %93
@@ -12662,7 +12662,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %61, %71
   ]
 
 93:                                               ; preds = %91
-  %94 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i19) #8
+  %94 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 95:                                               ; preds = %91, %91
@@ -12670,7 +12670,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %61, %71
   %97 = load i32, ptr %89, align 4
   %98 = zext i32 %97 to i64
   %99 = add i64 %96, %98
-  %100 = icmp ult i64 %.0.i19, %99
+  %100 = icmp ult i64 %.0.i22, %99
   br i1 %100, label %repeatNextMatch.exit, label %101
 
 101:                                              ; preds = %95
@@ -12678,66 +12678,66 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %61, %71
   %103 = icmp eq i32 %102, 65535
   %104 = zext i32 %102 to i64
   %105 = add i64 %96, %104
-  %106 = icmp ult i64 %.0.i19, %105
-  %or.cond.i30 = or i1 %103, %106
-  %107 = add i64 %.0.i19, 1
-  %spec.select.i = select i1 %or.cond.i30, i64 %107, i64 0
+  %106 = icmp ult i64 %.0.i22, %105
+  %or.cond.i33 = or i1 %103, %106
+  %107 = add i64 %.0.i22, 1
+  %spec.select.i = select i1 %or.cond.i33, i64 %107, i64 0
   br label %repeatNextMatch.exit
 
 108:                                              ; preds = %91
-  %109 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i19) #8
+  %109 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 110:                                              ; preds = %91
-  %111 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i19) #8
+  %111 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 112:                                              ; preds = %91
-  %113 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i19) #8
+  %113 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %88, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 114:                                              ; preds = %91
-  %115 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i19) #8
+  %115 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %84, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0.i22) #8
   br label %repeatNextMatch.exit
 
 116:                                              ; preds = %91
-  %117 = add i64 %.0.i19, 1
+  %117 = add i64 %.0.i22, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %101, %95, %93, %108, %110, %112, %114, %116
-  %.0.i29 = phi i64 [ %94, %93 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %99, %95 ], [ %spec.select.i, %101 ]
-  %118 = add i64 %.0.i29, -1
-  %or.cond.i20.not = icmp ult i64 %118, %.0100.i
-  br i1 %or.cond.i20.not, label %119, label %repeatNextMatch.exit.thread
+  %.0.i32 = phi i64 [ %94, %93 ], [ %109, %108 ], [ %111, %110 ], [ %113, %112 ], [ %115, %114 ], [ %117, %116 ], [ %99, %95 ], [ %spec.select.i, %101 ]
+  %118 = add i64 %.0.i32, -1
+  %or.cond.i23.not = icmp ult i64 %118, %.0100.i
+  br i1 %or.cond.i23.not, label %119, label %repeatNextMatch.exit.thread
 
 119:                                              ; preds = %repeatNextMatch.exit
   %120 = load i32, ptr %invariant.gep, align 4
-  %121 = tail call i32 %77(i64 noundef 0, i64 noundef %.0.i29, i32 noundef %120, ptr noundef %78) #8
+  %121 = tail call i32 %77(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %120, ptr noundef %78) #8
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %nfaExecLbrTruf_Q_i.exit, label %91
 
 repeatNextMatch.exit.thread:                      ; preds = %91, %repeatNextMatch.exit, %lbrFwdScanTruf.exit.thread
-  br i1 %70, label %repeatIsDead.exit126.i.thread39, label %123
+  br i1 %70, label %repeatIsDead.exit126.i.thread42, label %123
 
 123:                                              ; preds = %repeatNextMatch.exit.thread
   %124 = load i8, ptr %7, align 4
   %switch = icmp ult i8 %124, 7
-  br i1 %switch, label %repeatIsDead.exit126.i.thread39.sink.split, label %repeatIsDead.exit126.i.thread39
+  br i1 %switch, label %repeatIsDead.exit126.i.thread42.sink.split, label %repeatIsDead.exit126.i.thread42
 
-repeatIsDead.exit126.i.thread39.sink.split:       ; preds = %123
+repeatIsDead.exit126.i.thread42.sink.split:       ; preds = %123
   store i64 -1, ptr %.0.shrunk.i124.i.in.in, align 8
-  br label %repeatIsDead.exit126.i.thread39
+  br label %repeatIsDead.exit126.i.thread42
 
-repeatIsDead.exit126.i.thread39:                  ; preds = %123, %repeatIsDead.exit126.i.thread39.sink.split, %repeatNextMatch.exit.thread, %52, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
+repeatIsDead.exit126.i.thread42:                  ; preds = %123, %repeatIsDead.exit126.i.thread42.sink.split, %repeatNextMatch.exit.thread, %52, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
   %125 = load i32, ptr %30, align 8
   %126 = zext i32 %125 to i64
-  %.idx.i22 = mul nuw nsw i64 %126, 24
-  %127 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %126, 24
+  %127 = getelementptr i8, ptr %39, i64 %.idx.i25
   %128 = load i64, ptr %127, align 8
   %129 = icmp sgt i64 %128, %2
   br i1 %129, label %130, label %136
 
-130:                                              ; preds = %repeatIsDead.exit126.i.thread39
+130:                                              ; preds = %repeatIsDead.exit126.i.thread42
   %131 = add i32 %125, -1
   store i32 %131, ptr %30, align 8
   %132 = zext i32 %131 to i64
@@ -12749,9 +12749,9 @@ repeatIsDead.exit126.i.thread39:                  ; preds = %123, %repeatIsDead.
   store i64 %2, ptr %135, align 8
   br label %nfaExecLbrTruf_Q_i.exit
 
-136:                                              ; preds = %repeatIsDead.exit126.i.thread39
+136:                                              ; preds = %repeatIsDead.exit126.i.thread42
   %137 = load i8, ptr %7, align 4
-  switch i8 %137, label %repeatIsDead.exit.i.thread59 [
+  switch i8 %137, label %repeatIsDead.exit.i.thread62 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -12765,16 +12765,16 @@ repeatIsDead.exit126.i.thread39:                  ; preds = %123, %repeatIsDead.
 repeatIsDead.exit.i:                              ; preds = %136, %136, %136, %136, %136, %136, %136
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread59, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread62, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread62:                     ; preds = %136, %repeatIsDead.exit.i
   %138 = load i64, ptr %36, align 8
   %139 = load ptr, ptr %8, align 8
   %140 = load i32, ptr %32, align 4
   %141 = icmp ult i32 %125, %140
   br i1 %141, label %.lr.ph.lr.ph, label %nfaExecLbrTruf_TopScan.exit
 
-.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit.i.thread59
+.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit.i.thread62
   %142 = load i32, ptr %4, align 4
   %143 = zext i32 %142 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %143
@@ -12785,38 +12785,38 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
   %145 = phi i32 [ %140, %.lr.ph.lr.ph ], [ %187, %181 ]
   %146 = zext i32 %144 to i64
   %147 = zext i32 %145 to i64
-  %.idx.i172 = mul nuw nsw i64 %146, 24
-  %148 = getelementptr i8, ptr %39, i64 %.idx.i172
+  %.idx.i175 = mul nuw nsw i64 %146, 24
+  %148 = getelementptr i8, ptr %39, i64 %.idx.i175
   %149 = load i64, ptr %148, align 8
-  %.not.i2173 = icmp sgt i64 %149, %2
-  br i1 %.not.i2173, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph175
+  %.not.i2176 = icmp sgt i64 %149, %2
+  br i1 %.not.i2176, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph178
 
 150:                                              ; preds = %160
   %.idx.i = mul nuw nsw i64 %indvars.iv.next, 24
   %151 = getelementptr i8, ptr %39, i64 %.idx.i
   %152 = load i64, ptr %151, align 8
   %.not.i2 = icmp sgt i64 %152, %2
-  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph175
+  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph178
 
-.lr.ph175:                                        ; preds = %.lr.ph, %150
+.lr.ph178:                                        ; preds = %.lr.ph, %150
   %153 = phi i64 [ %152, %150 ], [ %149, %.lr.ph ]
-  %indvars.iv174 = phi i64 [ %indvars.iv.next, %150 ], [ %146, %.lr.ph ]
-  %154 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv174
+  %indvars.iv177 = phi i64 [ %indvars.iv.next, %150 ], [ %146, %.lr.ph ]
+  %154 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %50, i64 0, i64 %indvars.iv177
   %155 = load i32, ptr %154, align 8
   switch i32 %155, label %160 [
     i32 4, label %156
     i32 2, label %156
   ]
 
-156:                                              ; preds = %.lr.ph175, %.lr.ph175
+156:                                              ; preds = %.lr.ph178, %.lr.ph178
   %157 = load i64, ptr %36, align 8
   %158 = add i64 %157, %153
   %159 = load i64, ptr %139, align 8
   %.not56.i = icmp ult i64 %158, %159
   br i1 %.not56.i, label %160, label %163
 
-160:                                              ; preds = %.lr.ph175, %156
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv174, 1
+160:                                              ; preds = %.lr.ph178, %156
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv177, 1
   %161 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %161, ptr %30, align 8
   %162 = icmp samesign ult i64 %indvars.iv.next, %147
@@ -12833,7 +12833,7 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
   %169 = icmp ule i64 %spec.select, %158
   %.not57.i = icmp ult i64 %158, %138
   %or.cond.i = select i1 %169, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread68, label %170
+  br i1 %or.cond.i, label %.thread71, label %170
 
 170:                                              ; preds = %163
   %171 = load ptr, ptr %44, align 8
@@ -12846,7 +12846,7 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
   %178 = tail call ptr @rtruffleExec(<2 x i64> noundef %174, <2 x i64> noundef %175, ptr noundef %176, ptr noundef %177) #8
   %179 = getelementptr inbounds i8, ptr %176, i64 -1
   %180 = icmp eq ptr %178, %179
-  br i1 %180, label %.thread68, label %181
+  br i1 %180, label %.thread71, label %181
 
 181:                                              ; preds = %170
   %182 = ptrtoint ptr %178 to i64
@@ -12860,7 +12860,7 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
   %188 = icmp ult i32 %186, %187
   br i1 %188, label %.lr.ph, label %nfaExecLbrTruf_TopScan.exit
 
-.thread68:                                        ; preds = %170, %163
+.thread71:                                        ; preds = %170, %163
   %189 = load ptr, ptr %49, align 8
   %190 = load i32, ptr %4, align 4
   %191 = zext i32 %190 to i64
@@ -12878,20 +12878,20 @@ repeatIsDead.exit.i.thread59:                     ; preds = %136, %repeatIsDead.
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread79
+    i8 7, label %.thread82
   ]
 
-.thread79:                                        ; preds = %.thread68
+.thread82:                                        ; preds = %.thread71
   %198 = getelementptr inbounds nuw i8, ptr %139, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i5:                           ; preds = %.thread68, %.thread68, %.thread68, %.thread68, %.thread68, %.thread68, %.thread68
+repeatIsDead.exit.i.i5:                           ; preds = %.thread71, %.thread71, %.thread71, %.thread71, %.thread71, %.thread71, %.thread71
   %.0.shrunk.i.i.i6.in.in = getelementptr inbounds nuw i8, ptr %139, i64 8
   %.0.shrunk.i.i.i6.in = load i64, ptr %.0.shrunk.i.i.i6.in.in, align 8
   %.0.shrunk.i.i.i6.not = icmp eq i64 %.0.shrunk.i.i.i6.in, -1
   br i1 %.0.shrunk.i.i.i6.not, label %.split.i.i9, label %207
 
-.split.i.i9:                                      ; preds = %.thread68, %repeatIsDead.exit.i.i5
+.split.i.i9:                                      ; preds = %.thread71, %repeatIsDead.exit.i.i5
   %199 = getelementptr inbounds nuw i8, ptr %139, i64 8
   switch i8 %197, label %lbrTop.exit.i [
     i8 0, label %200
@@ -12965,9 +12965,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %.thread68, %.thread
 default.unreachable:                              ; preds = %207
   unreachable
 
-repeatLastTop.exit:                               ; preds = %207, %207, %.thread79, %208, %210, %212, %214, %216
-  %218 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %208 ], [ %.0.shrunk.i.i.i6.in.in, %210 ], [ %.0.shrunk.i.i.i6.in.in, %212 ], [ %.0.shrunk.i.i.i6.in.in, %214 ], [ %.0.shrunk.i.i.i6.in.in, %216 ], [ %198, %.thread79 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %207 ]
-  %.0.i13 = phi i64 [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ 0, %.thread79 ], [ %.0.shrunk.i.i.i6.in, %207 ], [ %.0.shrunk.i.i.i6.in, %207 ]
+repeatLastTop.exit:                               ; preds = %207, %207, %.thread82, %208, %210, %212, %214, %216
+  %218 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %208 ], [ %.0.shrunk.i.i.i6.in.in, %210 ], [ %.0.shrunk.i.i.i6.in.in, %212 ], [ %.0.shrunk.i.i.i6.in.in, %214 ], [ %.0.shrunk.i.i.i6.in.in, %216 ], [ %198, %.thread82 ], [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %207 ]
+  %.0.i13 = phi i64 [ %209, %208 ], [ %211, %210 ], [ %213, %212 ], [ %215, %214 ], [ %217, %216 ], [ 0, %.thread82 ], [ %.0.shrunk.i.i.i6.in, %207 ], [ %.0.shrunk.i.i.i6.in, %207 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %158
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -13006,16 +13006,16 @@ repeatLastTop.exit:                               ; preds = %207, %207, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %192, ptr noundef nonnull %218, i64 noundef %158, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrTruf_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread59, %181, %.lr.ph, %150, %160
-  %226 = phi i32 [ %145, %160 ], [ %145, %150 ], [ %187, %181 ], [ %145, %.lr.ph ], [ %140, %repeatIsDead.exit.i.thread59 ]
-  %227 = phi i32 [ %161, %160 ], [ %161, %150 ], [ %186, %181 ], [ %144, %.lr.ph ], [ %125, %repeatIsDead.exit.i.thread59 ]
+nfaExecLbrTruf_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread62, %181, %.lr.ph, %150, %160
+  %226 = phi i32 [ %145, %160 ], [ %145, %150 ], [ %187, %181 ], [ %145, %.lr.ph ], [ %140, %repeatIsDead.exit.i.thread62 ]
+  %227 = phi i32 [ %161, %160 ], [ %161, %150 ], [ %186, %181 ], [ %144, %.lr.ph ], [ %125, %repeatIsDead.exit.i.thread62 ]
   %228 = icmp ult i32 %227, %226
   br i1 %228, label %229, label %nfaExecLbrTruf_Q_i.exit
 
 229:                                              ; preds = %nfaExecLbrTruf_TopScan.exit
   %230 = zext i32 %227 to i64
-  %.idx.i21 = mul nuw nsw i64 %230, 24
-  %231 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %230, 24
+  %231 = getelementptr i8, ptr %39, i64 %.idx.i24
   %232 = load i64, ptr %231, align 8
   %233 = icmp sgt i64 %232, %2
   br i1 %233, label %234, label %nfaExecLbrTruf_Q_i.exit
@@ -13069,7 +13069,7 @@ repeatIsDead.exit.i.i:                            ; preds = %242, %242, %242, %2
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %261
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %253, label %default.unreachable129 [
+  switch i8 %253, label %default.unreachable132 [
     i8 0, label %254
     i8 1, label %255
     i8 2, label %256
@@ -13108,7 +13108,7 @@ repeatIsDead.exit.i.i:                            ; preds = %242, %242, %242, %2
   br label %lbrTop.exit.i
 
 261:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %253, label %default.unreachable98 [
+  switch i8 %253, label %default.unreachable101 [
     i8 0, label %262
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -13138,7 +13138,7 @@ repeatIsDead.exit.i.i:                            ; preds = %242, %242, %242, %2
   %271 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %248, ptr noundef nonnull %.0.shrunk.i124.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable98:                            ; preds = %261
+default.unreachable101:                           ; preds = %261
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %261, %261, %242, %262, %264, %266, %268, %270
@@ -13181,7 +13181,7 @@ repeatLastTop.exit15:                             ; preds = %261, %261, %242, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %248, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %245, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable129:                           ; preds = %.split.i.i
+default.unreachable132:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %242, %repeatLastTop.exit, %.split.i.i9, %200, %201, %202, %203, %204, %205, %206, %.split16.i.i12, %220, %221, %222, %223, %224, %225, %repeatLastTop.exit15, %254, %255, %256, %257, %258, %259, %260, %.split16.i.i, %273, %274, %275, %276, %277, %278, %repeatIsDead.exit.i.thread
@@ -13207,29 +13207,29 @@ lbrTop.exit.i:                                    ; preds = %242, %repeatLastTop
   %291 = getelementptr inbounds nuw i8, ptr %4, i64 %290
   %292 = load i8, ptr %291, align 4
   switch i8 %292, label %nfaExecLbrTruf_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i23
-    i8 3, label %repeatIsDead.exit.i23
-    i8 1, label %repeatIsDead.exit.i23
-    i8 2, label %repeatIsDead.exit.i23
-    i8 4, label %repeatIsDead.exit.i23
-    i8 5, label %repeatIsDead.exit.i23
-    i8 6, label %repeatIsDead.exit.i23
-    i8 7, label %repeatIsDead.exit.i23.thread
+    i8 0, label %repeatIsDead.exit.i26
+    i8 3, label %repeatIsDead.exit.i26
+    i8 1, label %repeatIsDead.exit.i26
+    i8 2, label %repeatIsDead.exit.i26
+    i8 4, label %repeatIsDead.exit.i26
+    i8 5, label %repeatIsDead.exit.i26
+    i8 6, label %repeatIsDead.exit.i26
+    i8 7, label %repeatIsDead.exit.i26.thread
   ]
 
-repeatIsDead.exit.i23:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i24.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i24.in = load i64, ptr %.0.shrunk.i.i24.in.in, align 8
-  %.0.shrunk.i.i24.not = icmp eq i64 %.0.shrunk.i.i24.in, -1
-  br i1 %.0.shrunk.i.i24.not, label %nfaExecLbrTruf_Q_i.exit, label %repeatIsDead.exit.i23.thread
+repeatIsDead.exit.i26:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i27.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i27.in = load i64, ptr %.0.shrunk.i.i27.in.in, align 8
+  %.0.shrunk.i.i27.not = icmp eq i64 %.0.shrunk.i.i27.in, -1
+  br i1 %.0.shrunk.i.i27.not, label %nfaExecLbrTruf_Q_i.exit, label %repeatIsDead.exit.i26.thread
 
-repeatIsDead.exit.i23.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i23
+repeatIsDead.exit.i26.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i26
   %293 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %294 = load i32, ptr %293, align 4
   %295 = icmp eq i32 %294, 65535
   br i1 %295, label %nfaExecLbrTruf_Q_i.exit, label %296
 
-296:                                              ; preds = %repeatIsDead.exit.i23.thread
+296:                                              ; preds = %repeatIsDead.exit.i26.thread
   %297 = getelementptr inbounds nuw i8, ptr %291, i64 16
   %298 = load i32, ptr %297, align 4
   %299 = zext i32 %298 to i64
@@ -13275,11 +13275,11 @@ repeatLastTop.exit.i:                             ; preds = %312, %310, %308, %3
   %315 = zext i32 %314 to i64
   %316 = add i64 %.0.i12.i, %315
   %317 = icmp ult i64 %.0101.i.lcssa, %316
-  %..i28 = zext i1 %317 to i8
+  %..i31 = zext i1 %317 to i8
   br label %nfaExecLbrTruf_Q_i.exit
 
-nfaExecLbrTruf_Q_i.exit:                          ; preds = %119, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i23.thread, %repeatIsDead.exit.i23, %12, %29, %130, %nfaExecLbrTruf_TopScan.exit, %229, %234
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %130 ], [ 1, %234 ], [ 0, %229 ], [ 0, %nfaExecLbrTruf_TopScan.exit ], [ %..i28, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i23 ], [ 1, %repeatIsDead.exit.i23.thread ], [ 0, %._crit_edge ], [ 0, %119 ]
+nfaExecLbrTruf_Q_i.exit:                          ; preds = %119, %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i26.thread, %repeatIsDead.exit.i26, %12, %29, %130, %nfaExecLbrTruf_TopScan.exit, %229, %234
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %130 ], [ 1, %234 ], [ 0, %229 ], [ 0, %nfaExecLbrTruf_TopScan.exit ], [ %..i31, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i26 ], [ 1, %repeatIsDead.exit.i26.thread ], [ 0, %._crit_edge ], [ 0, %119 ]
   ret i8 %.2.i
 }
 
@@ -13336,12 +13336,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrTruf_Q2(ptr noundef %0, ptr n
   %41 = load i64, ptr %40, align 8
   %42 = add i64 %41, %37
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %storemerge.i126 = add i32 %31, 1
-  store i32 %storemerge.i126, ptr %30, align 8
-  %43 = icmp ult i32 %storemerge.i126, %33
-  br i1 %43, label %.lr.ph129, label %._crit_edge
+  %storemerge.i129 = add i32 %31, 1
+  store i32 %storemerge.i129, ptr %30, align 8
+  %43 = icmp ult i32 %storemerge.i129, %33
+  br i1 %43, label %.lr.ph132, label %._crit_edge
 
-.lr.ph129:                                        ; preds = %35
+.lr.ph132:                                        ; preds = %35
   %.0.shrunk.i124.i.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -13351,12 +13351,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrTruf_Q2(ptr noundef %0, ptr n
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %50
 
-50:                                               ; preds = %.lr.ph129, %lbrTop.exit.i
-  %51 = phi i64 [ %37, %.lr.ph129 ], [ %278, %lbrTop.exit.i ]
-  %storemerge.i128 = phi i32 [ %storemerge.i126, %.lr.ph129 ], [ %storemerge.i, %lbrTop.exit.i ]
-  %.0101.i127 = phi i64 [ %42, %.lr.ph129 ], [ %283, %lbrTop.exit.i ]
+50:                                               ; preds = %.lr.ph132, %lbrTop.exit.i
+  %51 = phi i64 [ %37, %.lr.ph132 ], [ %278, %lbrTop.exit.i ]
+  %storemerge.i131 = phi i32 [ %storemerge.i129, %.lr.ph132 ], [ %storemerge.i, %lbrTop.exit.i ]
+  %.0101.i130 = phi i64 [ %42, %.lr.ph132 ], [ %283, %lbrTop.exit.i ]
   %52 = load i8, ptr %7, align 4
-  switch i8 %52, label %repeatIsDead.exit126.i.thread44 [
+  switch i8 %52, label %repeatIsDead.exit126.i.thread47 [
     i8 0, label %repeatIsDead.exit126.i
     i8 3, label %repeatIsDead.exit126.i
     i8 1, label %repeatIsDead.exit126.i
@@ -13370,23 +13370,23 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrTruf_Q2(ptr noundef %0, ptr n
 repeatIsDead.exit126.i:                           ; preds = %50, %50, %50, %50, %50, %50, %50
   %.0.shrunk.i124.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i124.i.not = icmp eq i64 %.0.shrunk.i124.i.in, -1
-  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread44, label %repeatIsDead.exit126.i.thread
+  br i1 %.0.shrunk.i124.i.not, label %repeatIsDead.exit126.i.thread47, label %repeatIsDead.exit126.i.thread
 
 repeatIsDead.exit126.i.thread:                    ; preds = %50, %repeatIsDead.exit126.i
-  %53 = zext i32 %storemerge.i128 to i64
+  %53 = zext i32 %storemerge.i131 to i64
   %.idx.i121.i = mul nuw nsw i64 %53, 24
   %54 = getelementptr i8, ptr %39, i64 %.idx.i121.i
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, %51
   %57 = add i64 %51, %2
   %..i = tail call i64 @llvm.umin.i64(i64 %56, i64 %57)
-  %58 = icmp ult i64 %.0101.i127, %..i
-  br i1 %58, label %59, label %repeatIsDead.exit126.i.thread44
+  %58 = icmp ult i64 %.0101.i130, %..i
+  br i1 %58, label %59, label %repeatIsDead.exit126.i.thread47
 
 59:                                               ; preds = %repeatIsDead.exit126.i.thread
   %60 = load ptr, ptr %44, align 8
   %61 = sub i64 %..i, %51
-  %62 = sub i64 %.0101.i127, %51
+  %62 = sub i64 %.0101.i130, %51
   %63 = load <2 x i64>, ptr %45, align 16
   %64 = load <2 x i64>, ptr %46, align 16
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 %62
@@ -13405,7 +13405,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %50, %repeatIsDead.e
 
 lbrFwdScanTruf.exit.thread:                       ; preds = %59, %69
   %.0100.i = phi i64 [ %74, %69 ], [ %..i, %59 ]
-  %75 = icmp eq i64 %.0101.i127, %.0100.i
+  %75 = icmp eq i64 %.0101.i130, %.0100.i
   br i1 %75, label %repeatNextMatch.exit.thread, label %76
 
 76:                                               ; preds = %lbrFwdScanTruf.exit.thread
@@ -13430,7 +13430,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %59, %69
   ]
 
 86:                                               ; preds = %76
-  %87 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i127) #8
+  %87 = tail call i64 @repeatNextMatchRing(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 88:                                               ; preds = %76, %76
@@ -13439,7 +13439,7 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %59, %69
   %91 = load i32, ptr %90, align 4
   %92 = zext i32 %91 to i64
   %93 = add i64 %89, %92
-  %94 = icmp ult i64 %.0101.i127, %93
+  %94 = icmp ult i64 %.0101.i130, %93
   br i1 %94, label %repeatNextMatch.exit, label %95
 
 95:                                               ; preds = %88
@@ -13448,45 +13448,45 @@ lbrFwdScanTruf.exit.thread:                       ; preds = %59, %69
   %98 = icmp eq i32 %97, 65535
   %99 = zext i32 %97 to i64
   %100 = add i64 %89, %99
-  %101 = icmp ult i64 %.0101.i127, %100
-  %or.cond.i31 = or i1 %98, %101
-  %102 = add nuw i64 %.0101.i127, 1
-  %spec.select.i = select i1 %or.cond.i31, i64 %102, i64 0
+  %101 = icmp ult i64 %.0101.i130, %100
+  %or.cond.i34 = or i1 %98, %101
+  %102 = add nuw i64 %.0101.i130, 1
+  %spec.select.i = select i1 %or.cond.i34, i64 %102, i64 0
   br label %repeatNextMatch.exit
 
 103:                                              ; preds = %76
-  %104 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i127) #8
+  %104 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 105:                                              ; preds = %76
-  %106 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i127) #8
+  %106 = tail call i64 @repeatNextMatchBitmap(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 107:                                              ; preds = %76
-  %108 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i127) #8
+  %108 = tail call i64 @repeatNextMatchSparseOptimalP(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, ptr noundef %84, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 109:                                              ; preds = %76
-  %110 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i127) #8
+  %110 = tail call i64 @repeatNextMatchTrailer(ptr noundef nonnull %80, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %.0101.i130) #8
   br label %repeatNextMatch.exit
 
 111:                                              ; preds = %76
-  %112 = add nuw i64 %.0101.i127, 1
+  %112 = add nuw i64 %.0101.i130, 1
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %95, %88, %86, %103, %105, %107, %109, %111
-  %.0.i30 = phi i64 [ %87, %86 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %93, %88 ], [ %spec.select.i, %95 ]
-  %113 = add i64 %.0.i30, -1
-  %or.cond.i19.not = icmp ult i64 %113, %.0100.i
-  br i1 %or.cond.i19.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
+  %.0.i33 = phi i64 [ %87, %86 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %112, %111 ], [ %93, %88 ], [ %spec.select.i, %95 ]
+  %113 = add i64 %.0.i33, -1
+  %or.cond.i22.not = icmp ult i64 %113, %.0100.i
+  br i1 %or.cond.i22.not, label %clearRepeat.exit.i, label %repeatNextMatch.exit.thread
 
 repeatNextMatch.exit.thread:                      ; preds = %76, %lbrFwdScanTruf.exit.thread, %repeatNextMatch.exit
-  br i1 %68, label %repeatIsDead.exit126.i.thread44, label %114
+  br i1 %68, label %repeatIsDead.exit126.i.thread47, label %114
 
 114:                                              ; preds = %repeatNextMatch.exit.thread
   %115 = load i8, ptr %7, align 4
   %switch = icmp ult i8 %115, 7
-  br i1 %switch, label %repeatIsDead.exit126.i.thread44.sink.split, label %repeatIsDead.exit126.i.thread44
+  br i1 %switch, label %repeatIsDead.exit126.i.thread47.sink.split, label %repeatIsDead.exit126.i.thread47
 
 clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exit
   %116 = load i32, ptr %30, align 8
@@ -13496,27 +13496,27 @@ clearRepeat.exit.i:                               ; preds = %repeatNextMatch.exi
   %119 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %118
   store i32 0, ptr %119, align 8
   %120 = load i64, ptr %36, align 8
-  %121 = sub i64 %.0.i30, %120
+  %121 = sub i64 %.0.i33, %120
   %.idx.i = mul nuw nsw i64 %118, 24
   %122 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store i64 %121, ptr %123, align 8
   br label %nfaExecLbrTruf_Q_i.exit
 
-repeatIsDead.exit126.i.thread44.sink.split:       ; preds = %114
+repeatIsDead.exit126.i.thread47.sink.split:       ; preds = %114
   store i64 -1, ptr %.0.shrunk.i124.i.in.in, align 8
-  br label %repeatIsDead.exit126.i.thread44
+  br label %repeatIsDead.exit126.i.thread47
 
-repeatIsDead.exit126.i.thread44:                  ; preds = %114, %repeatIsDead.exit126.i.thread44.sink.split, %repeatNextMatch.exit.thread, %50, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
+repeatIsDead.exit126.i.thread47:                  ; preds = %114, %repeatIsDead.exit126.i.thread47.sink.split, %repeatNextMatch.exit.thread, %50, %repeatIsDead.exit126.i.thread, %repeatIsDead.exit126.i
   %124 = load i32, ptr %30, align 8
   %125 = zext i32 %124 to i64
-  %.idx.i23 = mul nuw nsw i64 %125, 24
-  %126 = getelementptr i8, ptr %39, i64 %.idx.i23
+  %.idx.i26 = mul nuw nsw i64 %125, 24
+  %126 = getelementptr i8, ptr %39, i64 %.idx.i26
   %127 = load i64, ptr %126, align 8
   %128 = icmp sgt i64 %127, %2
   br i1 %128, label %129, label %135
 
-129:                                              ; preds = %repeatIsDead.exit126.i.thread44
+129:                                              ; preds = %repeatIsDead.exit126.i.thread47
   %130 = add i32 %124, -1
   store i32 %130, ptr %30, align 8
   %131 = zext i32 %130 to i64
@@ -13528,9 +13528,9 @@ repeatIsDead.exit126.i.thread44:                  ; preds = %114, %repeatIsDead.
   store i64 %2, ptr %134, align 8
   br label %nfaExecLbrTruf_Q_i.exit
 
-135:                                              ; preds = %repeatIsDead.exit126.i.thread44
+135:                                              ; preds = %repeatIsDead.exit126.i.thread47
   %136 = load i8, ptr %7, align 4
-  switch i8 %136, label %repeatIsDead.exit.i.thread72 [
+  switch i8 %136, label %repeatIsDead.exit.i.thread75 [
     i8 0, label %repeatIsDead.exit.i
     i8 3, label %repeatIsDead.exit.i
     i8 1, label %repeatIsDead.exit.i
@@ -13544,16 +13544,16 @@ repeatIsDead.exit126.i.thread44:                  ; preds = %114, %repeatIsDead.
 repeatIsDead.exit.i:                              ; preds = %135, %135, %135, %135, %135, %135, %135
   %.0.shrunk.i.i.in = load i64, ptr %.0.shrunk.i124.i.in.in, align 8
   %.0.shrunk.i.i.not = icmp eq i64 %.0.shrunk.i.i.in, -1
-  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread72, label %repeatIsDead.exit.i.thread
+  br i1 %.0.shrunk.i.i.not, label %repeatIsDead.exit.i.thread75, label %repeatIsDead.exit.i.thread
 
-repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.exit.i
+repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.exit.i
   %137 = load i64, ptr %36, align 8
   %138 = load ptr, ptr %8, align 8
   %139 = load i32, ptr %32, align 4
   %140 = icmp ult i32 %124, %139
   br i1 %140, label %.lr.ph.lr.ph, label %nfaExecLbrTruf_TopScan.exit
 
-.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit.i.thread72
+.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit.i.thread75
   %141 = load i32, ptr %4, align 4
   %142 = zext i32 %141 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %142
@@ -13564,38 +13564,38 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
   %144 = phi i32 [ %139, %.lr.ph.lr.ph ], [ %186, %180 ]
   %145 = zext i32 %143 to i64
   %146 = zext i32 %144 to i64
-  %.idx.i21186 = mul nuw nsw i64 %145, 24
-  %147 = getelementptr i8, ptr %39, i64 %.idx.i21186
+  %.idx.i24189 = mul nuw nsw i64 %145, 24
+  %147 = getelementptr i8, ptr %39, i64 %.idx.i24189
   %148 = load i64, ptr %147, align 8
-  %.not.i2187 = icmp sgt i64 %148, %2
-  br i1 %.not.i2187, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph189
+  %.not.i2190 = icmp sgt i64 %148, %2
+  br i1 %.not.i2190, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph192
 
 149:                                              ; preds = %159
-  %.idx.i21 = mul nuw nsw i64 %indvars.iv.next, 24
-  %150 = getelementptr i8, ptr %39, i64 %.idx.i21
+  %.idx.i24 = mul nuw nsw i64 %indvars.iv.next, 24
+  %150 = getelementptr i8, ptr %39, i64 %.idx.i24
   %151 = load i64, ptr %150, align 8
   %.not.i2 = icmp sgt i64 %151, %2
-  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph189
+  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph192
 
-.lr.ph189:                                        ; preds = %.lr.ph, %149
+.lr.ph192:                                        ; preds = %.lr.ph, %149
   %152 = phi i64 [ %151, %149 ], [ %148, %.lr.ph ]
-  %indvars.iv188 = phi i64 [ %indvars.iv.next, %149 ], [ %145, %.lr.ph ]
-  %153 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv188
+  %indvars.iv191 = phi i64 [ %indvars.iv.next, %149 ], [ %145, %.lr.ph ]
+  %153 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %48, i64 0, i64 %indvars.iv191
   %154 = load i32, ptr %153, align 8
   switch i32 %154, label %159 [
     i32 4, label %155
     i32 2, label %155
   ]
 
-155:                                              ; preds = %.lr.ph189, %.lr.ph189
+155:                                              ; preds = %.lr.ph192, %.lr.ph192
   %156 = load i64, ptr %36, align 8
   %157 = add i64 %156, %152
   %158 = load i64, ptr %138, align 8
   %.not56.i = icmp ult i64 %157, %158
   br i1 %.not56.i, label %159, label %162
 
-159:                                              ; preds = %.lr.ph189, %155
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv188, 1
+159:                                              ; preds = %.lr.ph192, %155
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv191, 1
   %160 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %160, ptr %30, align 8
   %161 = icmp samesign ult i64 %indvars.iv.next, %146
@@ -13612,7 +13612,7 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
   %168 = icmp ule i64 %spec.select, %157
   %.not57.i = icmp ult i64 %157, %137
   %or.cond.i = select i1 %168, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread82, label %169
+  br i1 %or.cond.i, label %.thread85, label %169
 
 169:                                              ; preds = %162
   %170 = load ptr, ptr %44, align 8
@@ -13625,7 +13625,7 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
   %177 = tail call ptr @rtruffleExec(<2 x i64> noundef %173, <2 x i64> noundef %174, ptr noundef %175, ptr noundef %176) #8
   %178 = getelementptr inbounds i8, ptr %175, i64 -1
   %179 = icmp eq ptr %177, %178
-  br i1 %179, label %.thread82, label %180
+  br i1 %179, label %.thread85, label %180
 
 180:                                              ; preds = %169
   %181 = ptrtoint ptr %177 to i64
@@ -13639,7 +13639,7 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
   %187 = icmp ult i32 %185, %186
   br i1 %187, label %.lr.ph, label %nfaExecLbrTruf_TopScan.exit
 
-.thread82:                                        ; preds = %169, %162
+.thread85:                                        ; preds = %169, %162
   %188 = load ptr, ptr %47, align 8
   %189 = load i32, ptr %4, align 4
   %190 = zext i32 %189 to i64
@@ -13657,20 +13657,20 @@ repeatIsDead.exit.i.thread72:                     ; preds = %135, %repeatIsDead.
     i8 4, label %repeatIsDead.exit.i.i5
     i8 5, label %repeatIsDead.exit.i.i5
     i8 6, label %repeatIsDead.exit.i.i5
-    i8 7, label %.thread93
+    i8 7, label %.thread96
   ]
 
-.thread93:                                        ; preds = %.thread82
+.thread96:                                        ; preds = %.thread85
   %197 = getelementptr inbounds nuw i8, ptr %138, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i5:                           ; preds = %.thread82, %.thread82, %.thread82, %.thread82, %.thread82, %.thread82, %.thread82
+repeatIsDead.exit.i.i5:                           ; preds = %.thread85, %.thread85, %.thread85, %.thread85, %.thread85, %.thread85, %.thread85
   %.0.shrunk.i.i.i6.in.in = getelementptr inbounds nuw i8, ptr %138, i64 8
   %.0.shrunk.i.i.i6.in = load i64, ptr %.0.shrunk.i.i.i6.in.in, align 8
   %.0.shrunk.i.i.i6.not = icmp eq i64 %.0.shrunk.i.i.i6.in, -1
   br i1 %.0.shrunk.i.i.i6.not, label %.split.i.i9, label %206
 
-.split.i.i9:                                      ; preds = %.thread82, %repeatIsDead.exit.i.i5
+.split.i.i9:                                      ; preds = %.thread85, %repeatIsDead.exit.i.i5
   %198 = getelementptr inbounds nuw i8, ptr %138, i64 8
   switch i8 %196, label %lbrTop.exit.i [
     i8 0, label %199
@@ -13744,9 +13744,9 @@ repeatIsDead.exit.i.i5:                           ; preds = %.thread82, %.thread
 default.unreachable:                              ; preds = %206
   unreachable
 
-repeatLastTop.exit:                               ; preds = %206, %206, %.thread93, %207, %209, %211, %213, %215
-  %217 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %209 ], [ %.0.shrunk.i.i.i6.in.in, %211 ], [ %.0.shrunk.i.i.i6.in.in, %213 ], [ %.0.shrunk.i.i.i6.in.in, %215 ], [ %197, %.thread93 ], [ %.0.shrunk.i.i.i6.in.in, %206 ], [ %.0.shrunk.i.i.i6.in.in, %206 ]
-  %.0.i13 = phi i64 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ 0, %.thread93 ], [ %.0.shrunk.i.i.i6.in, %206 ], [ %.0.shrunk.i.i.i6.in, %206 ]
+repeatLastTop.exit:                               ; preds = %206, %206, %.thread96, %207, %209, %211, %213, %215
+  %217 = phi ptr [ %.0.shrunk.i.i.i6.in.in, %207 ], [ %.0.shrunk.i.i.i6.in.in, %209 ], [ %.0.shrunk.i.i.i6.in.in, %211 ], [ %.0.shrunk.i.i.i6.in.in, %213 ], [ %.0.shrunk.i.i.i6.in.in, %215 ], [ %197, %.thread96 ], [ %.0.shrunk.i.i.i6.in.in, %206 ], [ %.0.shrunk.i.i.i6.in.in, %206 ]
+  %.0.i13 = phi i64 [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ 0, %.thread96 ], [ %.0.shrunk.i.i.i6.in, %206 ], [ %.0.shrunk.i.i.i6.in, %206 ]
   %.not.i.i11 = icmp eq i64 %.0.i13, %157
   br i1 %.not.i.i11, label %lbrTop.exit.i, label %.split16.i.i12
 
@@ -13785,16 +13785,16 @@ repeatLastTop.exit:                               ; preds = %206, %206, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %217, i64 noundef %157, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrTruf_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread72, %180, %.lr.ph, %149, %159
-  %225 = phi i32 [ %144, %159 ], [ %144, %149 ], [ %186, %180 ], [ %144, %.lr.ph ], [ %139, %repeatIsDead.exit.i.thread72 ]
-  %226 = phi i32 [ %160, %159 ], [ %160, %149 ], [ %185, %180 ], [ %143, %.lr.ph ], [ %124, %repeatIsDead.exit.i.thread72 ]
+nfaExecLbrTruf_TopScan.exit:                      ; preds = %repeatIsDead.exit.i.thread75, %180, %.lr.ph, %149, %159
+  %225 = phi i32 [ %144, %159 ], [ %144, %149 ], [ %186, %180 ], [ %144, %.lr.ph ], [ %139, %repeatIsDead.exit.i.thread75 ]
+  %226 = phi i32 [ %160, %159 ], [ %160, %149 ], [ %185, %180 ], [ %143, %.lr.ph ], [ %124, %repeatIsDead.exit.i.thread75 ]
   %227 = icmp ult i32 %226, %225
   br i1 %227, label %228, label %nfaExecLbrTruf_Q_i.exit
 
 228:                                              ; preds = %nfaExecLbrTruf_TopScan.exit
   %229 = zext i32 %226 to i64
-  %.idx.i22 = mul nuw nsw i64 %229, 24
-  %230 = getelementptr i8, ptr %39, i64 %.idx.i22
+  %.idx.i25 = mul nuw nsw i64 %229, 24
+  %230 = getelementptr i8, ptr %39, i64 %.idx.i25
   %231 = load i64, ptr %230, align 8
   %232 = icmp sgt i64 %231, %2
   br i1 %232, label %233, label %nfaExecLbrTruf_Q_i.exit
@@ -13848,7 +13848,7 @@ repeatIsDead.exit.i.i:                            ; preds = %241, %241, %241, %2
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %260
 
 .split.i.i:                                       ; preds = %repeatIsDead.exit.i.i
-  switch i8 %252, label %default.unreachable143 [
+  switch i8 %252, label %default.unreachable146 [
     i8 0, label %253
     i8 1, label %254
     i8 2, label %255
@@ -13887,7 +13887,7 @@ repeatIsDead.exit.i.i:                            ; preds = %241, %241, %241, %2
   br label %lbrTop.exit.i
 
 260:                                              ; preds = %repeatIsDead.exit.i.i
-  switch i8 %252, label %default.unreachable112 [
+  switch i8 %252, label %default.unreachable115 [
     i8 0, label %261
     i8 1, label %repeatLastTop.exit15
     i8 2, label %repeatLastTop.exit15
@@ -13917,7 +13917,7 @@ repeatIsDead.exit.i.i:                            ; preds = %241, %241, %241, %2
   %270 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %247, ptr noundef nonnull %.0.shrunk.i124.i.in.in) #8
   br label %repeatLastTop.exit15
 
-default.unreachable112:                           ; preds = %260
+default.unreachable115:                           ; preds = %260
   unreachable
 
 repeatLastTop.exit15:                             ; preds = %260, %260, %241, %261, %263, %265, %267, %269
@@ -13960,7 +13960,7 @@ repeatLastTop.exit15:                             ; preds = %260, %260, %241, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %247, ptr noundef nonnull %.0.shrunk.i124.i.in.in, i64 noundef %244, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-default.unreachable143:                           ; preds = %.split.i.i
+default.unreachable146:                           ; preds = %.split.i.i
   unreachable
 
 lbrTop.exit.i:                                    ; preds = %241, %repeatLastTop.exit, %.split.i.i9, %199, %200, %201, %202, %203, %204, %205, %.split16.i.i12, %219, %220, %221, %222, %223, %224, %repeatLastTop.exit15, %253, %254, %255, %256, %257, %258, %259, %.split16.i.i, %272, %273, %274, %275, %276, %277, %repeatIsDead.exit.i.thread
@@ -13986,29 +13986,29 @@ lbrTop.exit.i:                                    ; preds = %241, %repeatLastTop
   %290 = getelementptr inbounds nuw i8, ptr %4, i64 %289
   %291 = load i8, ptr %290, align 4
   switch i8 %291, label %nfaExecLbrTruf_Q_i.exit [
-    i8 0, label %repeatIsDead.exit.i24
-    i8 3, label %repeatIsDead.exit.i24
-    i8 1, label %repeatIsDead.exit.i24
-    i8 2, label %repeatIsDead.exit.i24
-    i8 4, label %repeatIsDead.exit.i24
-    i8 5, label %repeatIsDead.exit.i24
-    i8 6, label %repeatIsDead.exit.i24
-    i8 7, label %repeatIsDead.exit.i24.thread
+    i8 0, label %repeatIsDead.exit.i27
+    i8 3, label %repeatIsDead.exit.i27
+    i8 1, label %repeatIsDead.exit.i27
+    i8 2, label %repeatIsDead.exit.i27
+    i8 4, label %repeatIsDead.exit.i27
+    i8 5, label %repeatIsDead.exit.i27
+    i8 6, label %repeatIsDead.exit.i27
+    i8 7, label %repeatIsDead.exit.i27.thread
   ]
 
-repeatIsDead.exit.i24:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
-  %.0.shrunk.i.i25.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.shrunk.i.i25.in = load i64, ptr %.0.shrunk.i.i25.in.in, align 8
-  %.0.shrunk.i.i25.not = icmp eq i64 %.0.shrunk.i.i25.in, -1
-  br i1 %.0.shrunk.i.i25.not, label %nfaExecLbrTruf_Q_i.exit, label %repeatIsDead.exit.i24.thread
+repeatIsDead.exit.i27:                            ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
+  %.0.shrunk.i.i28.in.in = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.shrunk.i.i28.in = load i64, ptr %.0.shrunk.i.i28.in.in, align 8
+  %.0.shrunk.i.i28.not = icmp eq i64 %.0.shrunk.i.i28.in, -1
+  br i1 %.0.shrunk.i.i28.not, label %nfaExecLbrTruf_Q_i.exit, label %repeatIsDead.exit.i27.thread
 
-repeatIsDead.exit.i24.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i24
+repeatIsDead.exit.i27.thread:                     ; preds = %._crit_edge, %repeatIsDead.exit.i27
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %293 = load i32, ptr %292, align 4
   %294 = icmp eq i32 %293, 65535
   br i1 %294, label %nfaExecLbrTruf_Q_i.exit, label %295
 
-295:                                              ; preds = %repeatIsDead.exit.i24.thread
+295:                                              ; preds = %repeatIsDead.exit.i27.thread
   %296 = getelementptr inbounds nuw i8, ptr %290, i64 16
   %297 = load i32, ptr %296, align 4
   %298 = zext i32 %297 to i64
@@ -14054,11 +14054,11 @@ repeatLastTop.exit.i:                             ; preds = %311, %309, %307, %3
   %314 = zext i32 %313 to i64
   %315 = add i64 %.0.i12.i, %314
   %316 = icmp ult i64 %.0101.i.lcssa, %315
-  %..i29 = zext i1 %316 to i8
+  %..i32 = zext i1 %316 to i8
   br label %nfaExecLbrTruf_Q_i.exit
 
-nfaExecLbrTruf_Q_i.exit:                          ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i24.thread, %repeatIsDead.exit.i24, %clearRepeat.exit.i, %12, %29, %129, %nfaExecLbrTruf_TopScan.exit, %228, %233
-  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %129 ], [ 1, %233 ], [ 2, %clearRepeat.exit.i ], [ 0, %228 ], [ 0, %nfaExecLbrTruf_TopScan.exit ], [ %..i29, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i24 ], [ 1, %repeatIsDead.exit.i24.thread ], [ 0, %._crit_edge ]
+nfaExecLbrTruf_Q_i.exit:                          ; preds = %._crit_edge, %repeatLastTop.exit.i, %repeatIsDead.exit.i27.thread, %repeatIsDead.exit.i27, %clearRepeat.exit.i, %12, %29, %129, %nfaExecLbrTruf_TopScan.exit, %228, %233
+  %.2.i = phi i8 [ 0, %12 ], [ 1, %29 ], [ 1, %129 ], [ 1, %233 ], [ 2, %clearRepeat.exit.i ], [ 0, %228 ], [ 0, %nfaExecLbrTruf_TopScan.exit ], [ %..i32, %repeatLastTop.exit.i ], [ 0, %repeatIsDead.exit.i27 ], [ 1, %repeatIsDead.exit.i27.thread ], [ 0, %._crit_edge ]
   ret i8 %.2.i
 }
 
@@ -14095,9 +14095,9 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrTruf_QR(ptr noundef %0, ptr n
   %27 = load i64, ptr %26, align 8
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 68
   %28 = icmp ult i32 %17, %7
-  br i1 %28, label %.lr.ph214, label %._crit_edge
+  br i1 %28, label %.lr.ph217, label %._crit_edge
 
-.lr.ph214:                                        ; preds = %9
+.lr.ph217:                                        ; preds = %9
   %.0.shrunk.i83.in.in = getelementptr inbounds nuw i8, ptr %23, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -14109,12 +14109,12 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrTruf_QR(ptr noundef %0, ptr n
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %37
 
-37:                                               ; preds = %.lr.ph214, %lbrTop.exit
-  %38 = phi i64 [ %11, %.lr.ph214 ], [ %220, %lbrTop.exit ]
-  %39 = phi i32 [ %17, %.lr.ph214 ], [ %226, %lbrTop.exit ]
-  %.064213 = phi i64 [ %16, %.lr.ph214 ], [ %225, %lbrTop.exit ]
+37:                                               ; preds = %.lr.ph217, %lbrTop.exit
+  %38 = phi i64 [ %11, %.lr.ph217 ], [ %220, %lbrTop.exit ]
+  %39 = phi i32 [ %17, %.lr.ph217 ], [ %226, %lbrTop.exit ]
+  %.064216 = phi i64 [ %16, %.lr.ph217 ], [ %225, %lbrTop.exit ]
   %40 = load i8, ptr %21, align 4
-  switch i8 %40, label %repeatIsDead.exit85.thread128 [
+  switch i8 %40, label %repeatIsDead.exit85.thread131 [
     i8 0, label %repeatIsDead.exit85
     i8 3, label %repeatIsDead.exit85
     i8 1, label %repeatIsDead.exit85
@@ -14128,7 +14128,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecLbrTruf_QR(ptr noundef %0, ptr n
 repeatIsDead.exit85:                              ; preds = %37, %37, %37, %37, %37, %37, %37
   %.0.shrunk.i83.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i83.not = icmp eq i64 %.0.shrunk.i83.in, -1
-  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread128, label %repeatIsDead.exit85.thread
+  br i1 %.0.shrunk.i83.not, label %repeatIsDead.exit85.thread131, label %repeatIsDead.exit85.thread
 
 repeatIsDead.exit85.thread:                       ; preds = %37, %repeatIsDead.exit85
   %41 = zext i32 %39 to i64
@@ -14136,7 +14136,7 @@ repeatIsDead.exit85.thread:                       ; preds = %37, %repeatIsDead.e
   %42 = getelementptr i8, ptr %13, i64 %.idx.i75
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, %38
-  %45 = icmp ult i64 %.064213, %38
+  %45 = icmp ult i64 %.064216, %38
   br i1 %45, label %46, label %nfaExecLbrTruf_StreamSilent.exit
 
 46:                                               ; preds = %repeatIsDead.exit85.thread
@@ -14145,15 +14145,15 @@ repeatIsDead.exit85.thread:                       ; preds = %37, %repeatIsDead.e
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 %48
   %50 = load ptr, ptr %22, align 8
-  %51 = icmp eq i64 %44, %.064213
+  %51 = icmp eq i64 %44, %.064216
   br i1 %51, label %nfaExecLbrTruf_StreamSilent.exit, label %52
 
 52:                                               ; preds = %46
-  %53 = sub i64 %., %.064213
+  %53 = sub i64 %., %.064216
   %54 = load ptr, ptr %29, align 8
   %55 = load i64, ptr %30, align 8
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.064213
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.064216
   %58 = sub i64 0, %38
   %59 = getelementptr inbounds i8, ptr %57, i64 %58
   %60 = load <2 x i64>, ptr %31, align 16
@@ -14174,9 +14174,9 @@ nfaExecLbrTruf_StreamSilent.exit.sink.split:      ; preds = %65
   br label %nfaExecLbrTruf_StreamSilent.exit
 
 nfaExecLbrTruf_StreamSilent.exit:                 ; preds = %65, %nfaExecLbrTruf_StreamSilent.exit.sink.split, %52, %46, %repeatIsDead.exit85.thread
-  %.165 = phi i64 [ %.064213, %repeatIsDead.exit85.thread ], [ %., %65 ], [ %., %46 ], [ %., %52 ], [ %., %nfaExecLbrTruf_StreamSilent.exit.sink.split ]
+  %.165 = phi i64 [ %.064216, %repeatIsDead.exit85.thread ], [ %., %65 ], [ %., %46 ], [ %., %52 ], [ %., %nfaExecLbrTruf_StreamSilent.exit.sink.split ]
   %68 = load i8, ptr %21, align 4
-  switch i8 %68, label %repeatIsDead.exit85.thread128 [
+  switch i8 %68, label %repeatIsDead.exit85.thread131 [
     i8 0, label %repeatIsDead.exit82
     i8 3, label %repeatIsDead.exit82
     i8 1, label %repeatIsDead.exit82
@@ -14190,7 +14190,7 @@ nfaExecLbrTruf_StreamSilent.exit:                 ; preds = %65, %nfaExecLbrTruf
 repeatIsDead.exit82:                              ; preds = %nfaExecLbrTruf_StreamSilent.exit, %nfaExecLbrTruf_StreamSilent.exit, %nfaExecLbrTruf_StreamSilent.exit, %nfaExecLbrTruf_StreamSilent.exit, %nfaExecLbrTruf_StreamSilent.exit, %nfaExecLbrTruf_StreamSilent.exit, %nfaExecLbrTruf_StreamSilent.exit
   %.0.shrunk.i80.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i80.not = icmp eq i64 %.0.shrunk.i80.in, -1
-  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread128, label %repeatIsDead.exit82.thread
+  br i1 %.0.shrunk.i80.not, label %repeatIsDead.exit85.thread131, label %repeatIsDead.exit82.thread
 
 repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrTruf_StreamSilent.exit, %repeatIsDead.exit82
   %69 = icmp ult i64 %.165, %44
@@ -14216,8 +14216,8 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrTruf_Stre
   %85 = zext i32 %71 to i64
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 %85
   %87 = load i8, ptr %86, align 4
-  %switch236 = icmp ult i8 %87, 7
-  br i1 %switch236, label %nfaExecLbrTruf_StreamSilent.exit94.sink.split, label %nfaExecLbrTruf_StreamSilent.exit94
+  %switch239 = icmp ult i8 %87, 7
+  br i1 %switch239, label %nfaExecLbrTruf_StreamSilent.exit94.sink.split, label %nfaExecLbrTruf_StreamSilent.exit94
 
 nfaExecLbrTruf_StreamSilent.exit94.sink.split:    ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -14226,7 +14226,7 @@ nfaExecLbrTruf_StreamSilent.exit94.sink.split:    ; preds = %84
 
 nfaExecLbrTruf_StreamSilent.exit94:               ; preds = %84, %nfaExecLbrTruf_StreamSilent.exit94.sink.split, %70, %repeatIsDead.exit82.thread
   %89 = load i8, ptr %21, align 4
-  switch i8 %89, label %repeatIsDead.exit85.thread128 [
+  switch i8 %89, label %repeatIsDead.exit85.thread131 [
     i8 0, label %repeatIsDead.exit79
     i8 3, label %repeatIsDead.exit79
     i8 1, label %repeatIsDead.exit79
@@ -14240,9 +14240,9 @@ nfaExecLbrTruf_StreamSilent.exit94:               ; preds = %84, %nfaExecLbrTruf
 repeatIsDead.exit79:                              ; preds = %nfaExecLbrTruf_StreamSilent.exit94, %nfaExecLbrTruf_StreamSilent.exit94, %nfaExecLbrTruf_StreamSilent.exit94, %nfaExecLbrTruf_StreamSilent.exit94, %nfaExecLbrTruf_StreamSilent.exit94, %nfaExecLbrTruf_StreamSilent.exit94, %nfaExecLbrTruf_StreamSilent.exit94
   %.0.shrunk.i77.in = load i64, ptr %.0.shrunk.i83.in.in, align 8
   %.0.shrunk.i77.not = icmp eq i64 %.0.shrunk.i77.in, -1
-  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread128, label %repeatIsDead.exit79.thread
+  br i1 %.0.shrunk.i77.not, label %repeatIsDead.exit85.thread131, label %repeatIsDead.exit79.thread
 
-repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrTruf_StreamSilent.exit94, %nfaExecLbrTruf_StreamSilent.exit, %37, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
+repeatIsDead.exit85.thread131:                    ; preds = %nfaExecLbrTruf_StreamSilent.exit94, %nfaExecLbrTruf_StreamSilent.exit, %37, %repeatIsDead.exit79, %repeatIsDead.exit82, %repeatIsDead.exit85
   %90 = load i64, ptr %10, align 8
   %91 = load ptr, ptr %22, align 8
   %92 = load i32, ptr %6, align 4
@@ -14250,7 +14250,7 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrTruf_Stre
   %94 = icmp ult i32 %93, %92
   br i1 %94, label %.lr.ph.lr.ph, label %nfaExecLbrTruf_TopScan.exit
 
-.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit85.thread128
+.lr.ph.lr.ph:                                     ; preds = %repeatIsDead.exit85.thread131
   %95 = load i32, ptr %18, align 4
   %96 = zext i32 %95 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %96
@@ -14265,8 +14265,8 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrTruf_Stre
 
 101:                                              ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ %99, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %.idx.i116 = mul nuw nsw i64 %indvars.iv, 24
-  %102 = getelementptr i8, ptr %13, i64 %.idx.i116
+  %.idx.i119 = mul nuw nsw i64 %indvars.iv, 24
+  %102 = getelementptr i8, ptr %13, i64 %.idx.i119
   %103 = load i64, ptr %102, align 8
   %.not.i96 = icmp sgt i64 %103, %27
   br i1 %.not.i96, label %nfaExecLbrTruf_TopScan.exit, label %104
@@ -14304,7 +14304,7 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrTruf_Stre
   %120 = icmp ule i64 %spec.select, %109
   %.not57.i = icmp ult i64 %109, %90
   %or.cond.i = select i1 %120, i1 true, i1 %.not57.i
-  br i1 %or.cond.i, label %.thread155, label %121
+  br i1 %or.cond.i, label %.thread158, label %121
 
 121:                                              ; preds = %114
   %122 = load ptr, ptr %33, align 8
@@ -14317,7 +14317,7 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrTruf_Stre
   %129 = tail call ptr @rtruffleExec(<2 x i64> noundef %125, <2 x i64> noundef %126, ptr noundef %127, ptr noundef %128) #8
   %130 = getelementptr inbounds i8, ptr %127, i64 -1
   %131 = icmp eq ptr %129, %130
-  br i1 %131, label %.thread155, label %132
+  br i1 %131, label %.thread158, label %132
 
 132:                                              ; preds = %121
   %133 = ptrtoint ptr %129 to i64
@@ -14331,7 +14331,7 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrTruf_Stre
   %139 = icmp ult i32 %137, %138
   br i1 %139, label %.lr.ph, label %nfaExecLbrTruf_TopScan.exit
 
-.thread155:                                       ; preds = %121, %114
+.thread158:                                       ; preds = %121, %114
   %140 = load ptr, ptr %35, align 8
   %141 = load i32, ptr %18, align 4
   %142 = zext i32 %141 to i64
@@ -14349,20 +14349,20 @@ repeatIsDead.exit85.thread128:                    ; preds = %nfaExecLbrTruf_Stre
     i8 4, label %repeatIsDead.exit.i.i
     i8 5, label %repeatIsDead.exit.i.i
     i8 6, label %repeatIsDead.exit.i.i
-    i8 7, label %.thread166
+    i8 7, label %.thread169
   ]
 
-.thread166:                                       ; preds = %.thread155
+.thread169:                                       ; preds = %.thread158
   %149 = getelementptr inbounds nuw i8, ptr %91, i64 8
   br label %repeatLastTop.exit
 
-repeatIsDead.exit.i.i:                            ; preds = %.thread155, %.thread155, %.thread155, %.thread155, %.thread155, %.thread155, %.thread155
+repeatIsDead.exit.i.i:                            ; preds = %.thread158, %.thread158, %.thread158, %.thread158, %.thread158, %.thread158, %.thread158
   %.0.shrunk.i.i.i.in.in = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.0.shrunk.i.i.i.in = load i64, ptr %.0.shrunk.i.i.i.in.in, align 8
   %.0.shrunk.i.i.i.not = icmp eq i64 %.0.shrunk.i.i.i.in, -1
   br i1 %.0.shrunk.i.i.i.not, label %.split.i.i, label %158
 
-.split.i.i:                                       ; preds = %.thread155, %repeatIsDead.exit.i.i
+.split.i.i:                                       ; preds = %.thread158, %repeatIsDead.exit.i.i
   %150 = getelementptr inbounds nuw i8, ptr %91, i64 8
   switch i8 %148, label %lbrTop.exit [
     i8 0, label %151
@@ -14436,9 +14436,9 @@ repeatIsDead.exit.i.i:                            ; preds = %.thread155, %.threa
 default.unreachable:                              ; preds = %158
   unreachable
 
-repeatLastTop.exit:                               ; preds = %158, %158, %.thread166, %159, %161, %163, %165, %167
-  %169 = phi ptr [ %.0.shrunk.i.i.i.in.in, %159 ], [ %.0.shrunk.i.i.i.in.in, %161 ], [ %.0.shrunk.i.i.i.in.in, %163 ], [ %.0.shrunk.i.i.i.in.in, %165 ], [ %.0.shrunk.i.i.i.in.in, %167 ], [ %149, %.thread166 ], [ %.0.shrunk.i.i.i.in.in, %158 ], [ %.0.shrunk.i.i.i.in.in, %158 ]
-  %.0.i110 = phi i64 [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ 0, %.thread166 ], [ %.0.shrunk.i.i.i.in, %158 ], [ %.0.shrunk.i.i.i.in, %158 ]
+repeatLastTop.exit:                               ; preds = %158, %158, %.thread169, %159, %161, %163, %165, %167
+  %169 = phi ptr [ %.0.shrunk.i.i.i.in.in, %159 ], [ %.0.shrunk.i.i.i.in.in, %161 ], [ %.0.shrunk.i.i.i.in.in, %163 ], [ %.0.shrunk.i.i.i.in.in, %165 ], [ %.0.shrunk.i.i.i.in.in, %167 ], [ %149, %.thread169 ], [ %.0.shrunk.i.i.i.in.in, %158 ], [ %.0.shrunk.i.i.i.in.in, %158 ]
+  %.0.i110 = phi i64 [ %160, %159 ], [ %162, %161 ], [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ 0, %.thread169 ], [ %.0.shrunk.i.i.i.in, %158 ], [ %.0.shrunk.i.i.i.in, %158 ]
   %.not.i.i = icmp eq i64 %.0.i110, %109
   br i1 %.not.i.i, label %lbrTop.exit, label %.split16.i.i
 
@@ -14519,7 +14519,7 @@ repeatIsDead.exit.i:                              ; preds = %181, %181, %181, %1
   br i1 %.0.shrunk.i.i.not, label %.split.i, label %202
 
 .split.i:                                         ; preds = %repeatIsDead.exit.i
-  switch i8 %194, label %default.unreachable231 [
+  switch i8 %194, label %default.unreachable234 [
     i8 0, label %195
     i8 1, label %196
     i8 2, label %197
@@ -14558,7 +14558,7 @@ repeatIsDead.exit.i:                              ; preds = %181, %181, %181, %1
   br label %lbrTop.exit
 
 202:                                              ; preds = %repeatIsDead.exit.i
-  switch i8 %194, label %default.unreachable206 [
+  switch i8 %194, label %default.unreachable209 [
     i8 0, label %203
     i8 1, label %repeatLastTop.exit112
     i8 2, label %repeatLastTop.exit112
@@ -14588,7 +14588,7 @@ repeatIsDead.exit.i:                              ; preds = %181, %181, %181, %1
   %212 = tail call i64 @repeatLastTopTrailer(ptr noundef nonnull %189, ptr noundef nonnull %.0.shrunk.i83.in.in) #8
   br label %repeatLastTop.exit112
 
-default.unreachable206:                           ; preds = %202
+default.unreachable209:                           ; preds = %202
   unreachable
 
 repeatLastTop.exit112:                            ; preds = %202, %202, %181, %203, %205, %207, %209, %211
@@ -14631,7 +14631,7 @@ repeatLastTop.exit112:                            ; preds = %202, %202, %181, %2
   tail call void @repeatStoreTrailer(ptr noundef nonnull %189, ptr noundef nonnull %.0.shrunk.i83.in.in, i64 noundef %186, i8 noundef signext 1) #8
   br label %lbrTop.exit
 
-default.unreachable231:                           ; preds = %.split.i
+default.unreachable234:                           ; preds = %.split.i
   unreachable
 
 lbrTop.exit:                                      ; preds = %181, %repeatLastTop.exit, %.split.i.i, %151, %152, %153, %154, %155, %156, %157, %.split16.i.i, %171, %172, %173, %174, %175, %176, %repeatLastTop.exit112, %195, %196, %197, %198, %199, %200, %201, %.split16.i, %214, %215, %216, %217, %218, %219, %repeatIsDead.exit79.thread
@@ -14672,17 +14672,17 @@ repeatIsDead.exit.thread:                         ; preds = %._crit_edge, %repea
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %231 = load i32, ptr %invariant.gep, align 4
   %.not.i = icmp eq i32 %2, %231
-  %.pre221 = load ptr, ptr %230, align 8
-  %.pre223 = load i32, ptr %18, align 4
+  %.pre224 = load ptr, ptr %230, align 8
+  %.pre226 = load i32, ptr %18, align 4
   br i1 %.not.i, label %232, label %lbrInAccept.exit.thread
 
 232:                                              ; preds = %repeatIsDead.exit.thread
-  %233 = zext i32 %.pre223 to i64
+  %233 = zext i32 %.pre226 to i64
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 %233
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load i32, ptr %235, align 4
   %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds nuw i8, ptr %.pre221, i64 %237
+  %238 = getelementptr inbounds nuw i8, ptr %.pre224, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %240 = load i8, ptr %234, align 4
   switch i8 %240, label %lbrInAccept.exit.thread [
@@ -14750,12 +14750,12 @@ lbrInAccept.exit:                                 ; preds = %268, %266, %264, %2
 
 lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge: ; preds = %257, %lbrInAccept.exit
   %.pre = load ptr, ptr %230, align 8
-  %.pre222 = load i32, ptr %18, align 4
+  %.pre225 = load i32, ptr %18, align 4
   br label %lbrInAccept.exit.thread
 
 lbrInAccept.exit.thread:                          ; preds = %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge, %232, %250, %repeatIsDead.exit.thread
-  %270 = phi i32 [ %.pre222, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre223, %232 ], [ %.pre223, %250 ], [ %.pre223, %repeatIsDead.exit.thread ]
-  %271 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre221, %232 ], [ %.pre221, %250 ], [ %.pre221, %repeatIsDead.exit.thread ]
+  %270 = phi i32 [ %.pre225, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre226, %232 ], [ %.pre226, %250 ], [ %.pre226, %repeatIsDead.exit.thread ]
+  %271 = phi ptr [ %.pre, %lbrInAccept.exit.lbrInAccept.exit.thread_crit_edge ], [ %.pre224, %232 ], [ %.pre224, %250 ], [ %.pre224, %repeatIsDead.exit.thread ]
   %272 = zext i32 %270 to i64
   %273 = getelementptr inbounds nuw i8, ptr %18, i64 %272
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
@@ -14863,9 +14863,9 @@ repeatHasMatch.exit.thread.thread:                ; preds = %296, %282, %289, %r
   %323 = zext i32 %321 to i64
   %324 = add i64 %313, %323
   %325 = icmp ult i64 %.064.lcssa, %324
-  %or.cond.i118 = or i1 %322, %325
+  %or.cond.i121 = or i1 %322, %325
   %326 = add i64 %.064.lcssa, 1
-  br i1 %or.cond.i118, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
+  br i1 %or.cond.i121, label %repeatNextMatch.exit, label %repeatNextMatch.exit.thread
 
 327:                                              ; preds = %repeatHasMatch.exit.thread
   %328 = tail call i64 @repeatNextMatchRange(ptr noundef nonnull %273, ptr noundef nonnull %278, ptr noundef %277, i64 noundef %.064.lcssa) #8
@@ -14888,16 +14888,16 @@ repeatHasMatch.exit.thread.thread:                ; preds = %296, %282, %289, %r
   br label %repeatNextMatch.exit
 
 repeatNextMatch.exit:                             ; preds = %319, %311, %327, %329, %331, %333, %335
-  %.0.i117 = phi i64 [ %312, %311 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %326, %319 ]
-  %.0.i117.fr = freeze i64 %.0.i117
-  %.not.i89 = icmp eq i64 %.0.i117.fr, 0
+  %.0.i120 = phi i64 [ %312, %311 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %326, %319 ]
+  %.0.i120.fr = freeze i64 %.0.i120
+  %.not.i89 = icmp eq i64 %.0.i120.fr, 0
   br i1 %.not.i89, label %repeatNextMatch.exit.thread, label %nfaExecLbrTruf_TopScan.exit
 
 repeatNextMatch.exit.thread:                      ; preds = %319, %repeatHasMatch.exit.thread, %repeatNextMatch.exit
   br label %nfaExecLbrTruf_TopScan.exit
 
-nfaExecLbrTruf_TopScan.exit:                      ; preds = %repeatIsDead.exit85.thread128, %132, %111, %101, %257, %repeatHasMatch.exit.thread.thread, %296, %lbrInAccept.exit.thread, %282, %232, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
-  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %._crit_edge ], [ 2, %232 ], [ 1, %282 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %296 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %257 ], [ 0, %101 ], [ 0, %111 ], [ 0, %132 ], [ 0, %repeatIsDead.exit85.thread128 ]
+nfaExecLbrTruf_TopScan.exit:                      ; preds = %repeatIsDead.exit85.thread131, %132, %111, %101, %257, %repeatHasMatch.exit.thread.thread, %296, %lbrInAccept.exit.thread, %282, %232, %._crit_edge, %repeatHasMatch.exit, %repeatNextMatch.exit, %repeatNextMatch.exit.thread, %repeatIsDead.exit, %lbrInAccept.exit, %3
+  %.0 = phi i8 [ 1, %3 ], [ 0, %repeatIsDead.exit ], [ 2, %lbrInAccept.exit ], [ 1, %repeatHasMatch.exit ], [ 0, %repeatNextMatch.exit.thread ], [ 1, %repeatNextMatch.exit ], [ 0, %._crit_edge ], [ 2, %232 ], [ 1, %282 ], [ 1, %lbrInAccept.exit.thread ], [ 1, %296 ], [ 1, %repeatHasMatch.exit.thread.thread ], [ 2, %257 ], [ 0, %101 ], [ 0, %111 ], [ 0, %132 ], [ 0, %repeatIsDead.exit85.thread131 ]
   ret i8 %.0
 }
 

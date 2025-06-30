@@ -7048,7 +7048,7 @@ flush_put_bits.exit765:                           ; preds = %3521
 
 3577:                                             ; preds = %.lr.ph1041
   %3578 = icmp eq i8 %3576, 0
-  %3579 = add nsw i32 %.04271037, 1
+  %3579 = add nuw nsw i32 %.04271037, 1
   %spec.select514 = select i1 %3578, i32 %3579, i32 0
   br label %3588
 
@@ -7105,7 +7105,7 @@ declare void @av_refstruct_unref(ptr noundef) local_unnamed_addr #2
 declare void @av_fast_padded_malloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @put_bits(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc void @put_bits(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -2147483639, -2147483648) %1, i32 noundef %2) unnamed_addr #7 {
   %4 = load i32, ptr %0, align 8, !tbaa !115
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !116

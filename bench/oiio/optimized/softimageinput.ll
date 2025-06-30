@@ -2899,7 +2899,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_014SoftimageInput24read_
   %27 = xor i64 %.03458.us, -1
   %28 = load i32, ptr %12, align 4, !tbaa !153
   %29 = sext i32 %28 to i64
-  %30 = mul i64 %20, %29
+  %30 = mul nsw i64 %20, %29
   %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %30
   %31 = getelementptr i8, ptr %gep.us, i64 %27
   %32 = getelementptr i8, ptr %31, i64 %8

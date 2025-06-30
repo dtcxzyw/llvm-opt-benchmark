@@ -1280,7 +1280,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %722 = shl nuw nsw i32 %.sroa.49.2, 2
   %723 = and i32 %722, 768
   %724 = or disjoint i32 %723, %721
-  %725 = add i32 %.213541884, 4
+  %725 = add nuw nsw i32 %.213541884, 4
   %726 = shl i32 %724, %725
   %727 = or i32 %726, %680
   store i32 %727, ptr %.014741879, align 4, !tbaa !51

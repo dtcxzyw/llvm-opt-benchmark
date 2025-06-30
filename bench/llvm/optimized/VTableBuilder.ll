@@ -32576,7 +32576,7 @@ _ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i: ; preds = %31
   %.127 = phi i64 [ %51, %49 ], [ %.0.lcssa, %45 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  %55 = icmp sgt i64 %.127, %1
+  %55 = icmp samesign ugt i64 %.127, %1
   br i1 %55, label %.lr.ph.i, label %"_ZSt11__push_heapIPN5clang9ThunkInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SE_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %54
@@ -32591,7 +32591,7 @@ _ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i: ; preds = %31
   %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %81 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %62 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %.04.i
+  %62 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %.04.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load i64, ptr %62, align 8, !tbaa !869
   %65 = icmp slt i64 %64, %57
@@ -32639,7 +32639,7 @@ _ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i.i: ; preds = %76
 
 "_ZSt11__push_heapIPN5clang9ThunkInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SE_T1_RT2_.exit": ; preds = %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit.thread9.thread.i.i.i.i.i, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit7.i.i.i.i.i, %76, %_ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i.i, %81, %54
   %.013.lcssa.i = phi i64 [ %.127, %54 ], [ %.04.i, %81 ], [ %.0133.i, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit.thread9.thread.i.i.i.i.i ], [ %.0133.i, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit7.i.i.i.i.i ], [ %.0133.i, %_ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i.i ], [ %.0133.i, %76 ]
-  %84 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %.013.lcssa.i
+  %84 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %.013.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %84, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   ret void
@@ -34362,7 +34362,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang
 
 50:                                               ; preds = %44, %40, %._crit_edge
   %.1 = phi i64 [ %46, %44 ], [ %.0.lcssa, %40 ], [ %.0.lcssa, %._crit_edge ]
-  %51 = icmp sgt i64 %.1, %1
+  %51 = icmp samesign ugt i64 %.1, %1
   br i1 %51, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt17reference_wrapperIN5clang8VPtrInfoEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_T0_SJ_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %50
@@ -34374,7 +34374,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang
   %.0139.i = phi i64 [ %.1, %.lr.ph.i ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESG_EEbT_RT0_.exit.thread.i" ]
   %.010.in.i = add nsw i64 %.0139.i, -1
   %.010.i = sdiv i64 %.010.in.i, 2
-  %55 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %.010.i
+  %55 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %.010.i
   %.val.i = load ptr, ptr %55, align 8
   %56 = getelementptr i8, ptr %.val.i, i64 24
   %.val.val.i = load ptr, ptr %56, align 8, !tbaa !40
@@ -34425,7 +34425,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang
 
 "_ZSt11__push_heapIPSt17reference_wrapperIN5clang8VPtrInfoEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_T0_SJ_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESG_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESG_EEbT_RT0_.exit.thread.i", %69, %50
   %.0136.i = phi i64 [ %.1, %50 ], [ %.0139.i, %69 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESG_EEbT_RT0_.exit.thread.i" ], [ %.0139.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESG_EEbT_RT0_.exit.i" ]
-  %76 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %.0136.i
+  %76 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %.0136.i
   %77 = ptrtoint ptr %3 to i64
   store i64 %77, ptr %76, align 8
   ret void
@@ -42132,7 +42132,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN5clang9ThunkInfo
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %55 ], [ %.127.i.i.i.i, %51 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %53 = getelementptr inbounds %"struct.std::pair.712", ptr %0, i64 %.04.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %"struct.std::pair.712", ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !17
   %54 = icmp ult i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
   br i1 %54, label %55, label %"_ZSt13__adjust_heapIPSt4pairImN5clang9ThunkInfoEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12VTableLayoutC1EN4llvm8ArrayRefImEENSA_INS1_15VTableComponentEEENSA_IS3_EERKNS9_8DenseMapINS1_13BaseSubobjectENS8_20AddressPointLocationENS9_12DenseMapInfoISG_vEENS9_6detail12DenseMapPairISG_SH_EEEEE3$_0EEEvT_T0_ST_T1_T2_.exit.i.i.i"
@@ -42148,7 +42148,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN5clang9ThunkInfo
 
 "_ZSt13__adjust_heapIPSt4pairImN5clang9ThunkInfoEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12VTableLayoutC1EN4llvm8ArrayRefImEENSA_INS1_15VTableComponentEEENSA_IS3_EERKNS9_8DenseMapINS1_13BaseSubobjectENS8_20AddressPointLocationENS9_12DenseMapInfoISG_vEENS9_6detail12DenseMapPairISG_SH_EEEEE3$_0EEEvT_T0_ST_T1_T2_.exit.i.i.i": ; preds = %55, %.lr.ph.i.i.i.i.i, %51
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %51 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %55 ]
-  %60 = getelementptr inbounds %"struct.std::pair.712", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %60 = getelementptr inbounds nuw %"struct.std::pair.712", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i64 %.sroa.02.0.copyload.i.i.i, ptr %60, align 8, !tbaa !17
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.i.i.i, i64 56, i1 false)
@@ -42248,7 +42248,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN5clang9ThunkInfo
 
 "_ZSt10__pop_heapIPSt4pairImN5clang9ThunkInfoEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12VTableLayoutC1EN4llvm8ArrayRefImEENSA_INS1_15VTableComponentEEENSA_IS3_EERKNS9_8DenseMapINS1_13BaseSubobjectENS8_20AddressPointLocationENS9_12DenseMapInfoISG_vEENS9_6detail12DenseMapPairISG_SH_EEEEE3$_0EEEvT_SS_SS_RT0_.exit.i20.i": ; preds = %98, %.lr.ph.i.i.i.i15.i, %95
   %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %95 ], [ %.0133.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %98 ]
-  %102 = getelementptr inbounds %"struct.std::pair.712", ptr %0, i64 %.013.lcssa.i.i.i.i21.i
+  %102 = getelementptr inbounds nuw %"struct.std::pair.712", ptr %0, i64 %.013.lcssa.i.i.i.i21.i
   store i64 %.sroa.02.0.copyload.i.i8.i, ptr %102, align 8, !tbaa !17
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %103, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.i.i5.i, i64 56, i1 false)

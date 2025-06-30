@@ -768,7 +768,7 @@ switch.early.test:                                ; preds = %12
   br i1 %or.cond28, label %239, label %246
 
 239:                                              ; preds = %235
-  %240 = zext i16 %.0417421453455 to i32
+  %240 = zext nneg i16 %.0417421453455 to i32
   %.not260 = icmp ugt i32 %3, %240
   br i1 %.not260, label %241, label %341
 
@@ -789,7 +789,7 @@ switch.early.test:                                ; preds = %12
   br i1 %or.cond30, label %251, label %258
 
 251:                                              ; preds = %246
-  %252 = zext i16 %.0221386438440464 to i32
+  %252 = zext nneg i16 %.0221386438440464 to i32
   %.not261 = icmp ugt i32 %3, %252
   br i1 %.not261, label %253, label %341
 
@@ -810,7 +810,7 @@ switch.early.test:                                ; preds = %12
   br i1 %or.cond32, label %263, label %270
 
 263:                                              ; preds = %258
-  %264 = zext i16 %.0207414423451457 to i32
+  %264 = zext nneg i16 %.0207414423451457 to i32
   %.not262 = icmp ugt i32 %3, %264
   br i1 %.not262, label %265, label %341
 

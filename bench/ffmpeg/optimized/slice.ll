@@ -1006,13 +1006,13 @@ alloc_slice.exit259.thread:                       ; preds = %.split.us.i253
 411:                                              ; preds = %410
   %412 = load ptr, ptr %152, align 8, !tbaa !70
   %413 = zext nneg i32 %.2 to i64
-  %414 = getelementptr %struct.SwsFilterDescriptor, ptr %412, i64 %413
-  %415 = getelementptr i8, ptr %414, i64 80
+  %414 = getelementptr inbounds nuw %struct.SwsFilterDescriptor, ptr %412, i64 %413
+  %415 = getelementptr inbounds nuw i8, ptr %414, i64 80
   %416 = load ptr, ptr %157, align 16, !tbaa !71
   %417 = getelementptr inbounds %struct.SwsSlice, ptr %416, i64 %406
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %419 = load ptr, ptr %418, align 16, !tbaa !105
-  %420 = tail call i32 @ff_init_gamma_convert(ptr noundef %415, ptr noundef %417, ptr noundef %419) #8
+  %420 = tail call i32 @ff_init_gamma_convert(ptr noundef nonnull %415, ptr noundef %417, ptr noundef %419) #8
   %421 = icmp slt i32 %420, 0
   br i1 %421, label %.loopexit, label %423
 

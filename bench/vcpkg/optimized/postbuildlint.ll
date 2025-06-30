@@ -4019,7 +4019,7 @@ _ZN5vcpkg4PathD2Ev.exit47.i:                      ; preds = %_ZNKSt7__cxx1112bas
 
 1191:                                             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i43.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i44.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %223) #24
-  %1192 = add nuw nsw i64 %.056.i, %.1
+  %1192 = add nsw i64 %.056.i, %.1
   %.pre2549 = load i64, ptr %294, align 8, !tbaa !29
   br label %1195
 

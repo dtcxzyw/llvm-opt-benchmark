@@ -9245,7 +9245,7 @@ cbs_av1_get_relative_dist.exit:                   ; preds = %.split, %cbs_av1_ge
   br i1 %55, label %56, label %.preheader5
 
 56:                                               ; preds = %53
-  %57 = trunc i32 %.1106 to i8
+  %57 = trunc nuw nsw i32 %.1106 to i8
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 %57, ptr %58, align 1, !tbaa !20
   %59 = zext nneg i32 %.1106 to i64
@@ -9291,7 +9291,7 @@ cbs_av1_get_relative_dist.exit:                   ; preds = %.split, %cbs_av1_ge
   br i1 %73, label %74, label %.preheader4
 
 74:                                               ; preds = %72
-  %75 = trunc i32 %.3108 to i8
+  %75 = trunc nuw nsw i32 %.3108 to i8
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %75, ptr %76, align 1, !tbaa !20
   %77 = zext nneg i32 %.3108 to i64
@@ -9337,7 +9337,7 @@ cbs_av1_get_relative_dist.exit:                   ; preds = %.split, %cbs_av1_ge
   br i1 %91, label %92, label %.preheader3
 
 92:                                               ; preds = %90
-  %93 = trunc i32 %.5110 to i8
+  %93 = trunc nuw nsw i32 %.5110 to i8
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 %93, ptr %94, align 1, !tbaa !20
   %95 = zext nneg i32 %.5110 to i64
@@ -9395,7 +9395,7 @@ cbs_av1_get_relative_dist.exit:                   ; preds = %.split, %cbs_av1_ge
   br i1 %116, label %117, label %121
 
 117:                                              ; preds = %115
-  %118 = trunc i32 %.7 to i8
+  %118 = trunc nuw nsw i32 %.7 to i8
   store i8 %118, ptr %102, align 1, !tbaa !20
   %119 = zext nneg i32 %.7 to i64
   %120 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %119
@@ -13013,10 +13013,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_read_ns(ptr nounde
   %22 = shl nuw i32 2, %21
   %23 = sub i32 %22, %2
   %24 = getelementptr i8, ptr %1, i64 16
-  %.val45 = load i32, ptr %24, align 8, !tbaa !26
+  %.val46 = load i32, ptr %24, align 8, !tbaa !26
   %25 = getelementptr i8, ptr %1, i64 20
-  %.val46 = load i32, ptr %25, align 4, !tbaa !23
-  %26 = sub nsw i32 %.val46, %.val45
+  %.val47 = load i32, ptr %25, align 4, !tbaa !23
+  %26 = sub nsw i32 %.val47, %.val46
   %.not41 = icmp sgt i32 %26, %21
   br i1 %.not41, label %29, label %27
 
@@ -13026,29 +13026,29 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_read_ns(ptr nounde
   br label %78
 
 29:                                               ; preds = %13
-  %.not48 = icmp eq i32 %21, 0
-  br i1 %.not48, label %45, label %30
+  %.not42 = icmp eq i32 %21, 0
+  br i1 %.not42, label %45, label %30
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load i32, ptr %31, align 8, !tbaa !24
   %33 = load ptr, ptr %1, align 8, !tbaa !21
-  %34 = lshr i32 %.val45, 3
+  %34 = lshr i32 %.val46, 3
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
   %37 = load i32, ptr %36, align 1, !tbaa !20
   %38 = tail call i32 @llvm.bswap.i32(i32 %37)
-  %39 = and i32 %.val45, 7
+  %39 = and i32 %.val46, 7
   %40 = shl i32 %38, %39
   %41 = sub nsw i32 32, %21
   %42 = lshr i32 %40, %41
-  %43 = add i32 %21, %.val45
+  %43 = add i32 %21, %.val46
   %44 = tail call i32 @llvm.umin.i32(i32 %32, i32 %43)
   store i32 %44, ptr %24, align 8, !tbaa !26
   br label %45
 
 45:                                               ; preds = %29, %30
-  %46 = phi i32 [ %44, %30 ], [ %.val45, %29 ]
+  %46 = phi i32 [ %44, %30 ], [ %.val46, %29 ]
   %.033 = phi i32 [ %42, %30 ], [ 0, %29 ]
   %47 = icmp ult i32 %.033, %23
   br i1 %47, label %66, label %48
@@ -13063,12 +13063,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_read_ns(ptr nounde
   %55 = load i32, ptr %54, align 8, !tbaa !24
   %56 = icmp slt i32 %46, %55
   %57 = zext i1 %56 to i32
-  %spec.select.i47 = add i32 %46, %57
+  %spec.select.i48 = add i32 %46, %57
   %58 = zext i8 %53 to i32
   %59 = and i32 %46, 7
   %60 = shl nuw nsw i32 %58, %59
   %61 = lshr i32 %60, 7
-  store i32 %spec.select.i47, ptr %24, align 8, !tbaa !26
+  store i32 %spec.select.i48, ptr %24, align 8, !tbaa !26
   %62 = and i32 %61, 1
   %63 = shl i32 %.033, 1
   %64 = sub i32 %63, %23
@@ -13076,15 +13076,15 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_read_ns(ptr nounde
   br label %66
 
 66:                                               ; preds = %45, %48
-  %.val = phi i32 [ %spec.select.i47, %48 ], [ %46, %45 ]
+  %.val = phi i32 [ %spec.select.i48, %48 ], [ %46, %45 ]
   %.034 = phi i32 [ %65, %48 ], [ %.033, %45 ]
   br i1 %.not, label %77, label %67
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val44 = load i32, ptr %68, align 8, !tbaa !26
-  %.not43 = icmp sgt i32 %.val44, %.val
-  br i1 %.not43, label %69, label %70
+  %.val45 = load i32, ptr %68, align 8, !tbaa !26
+  %.not44 = icmp sgt i32 %.val45, %.val
+  br i1 %.not44, label %69, label %70
 
 69:                                               ; preds = %67
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.10, i32 noundef 227) #8
@@ -13096,7 +13096,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_read_ns(ptr nounde
   %72 = load ptr, ptr %71, align 8, !tbaa !206
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !98
-  %75 = sub nsw i32 %.val, %.val44
+  %75 = sub nsw i32 %.val, %.val45
   %76 = zext i32 %.034 to i64
   call void %72(ptr noundef %74, ptr noundef nonnull %7, i32 noundef %75, ptr noundef %3, ptr noundef %4, i64 noundef %76) #8
   br label %77
@@ -15961,7 +15961,7 @@ cbs_av1_get_relative_dist.exit:                   ; preds = %.split, %cbs_av1_ge
   br i1 %58, label %59, label %.preheader75
 
 59:                                               ; preds = %56
-  %60 = trunc i32 %.1112 to i8
+  %60 = trunc nuw nsw i32 %.1112 to i8
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 %60, ptr %61, align 1, !tbaa !20
   %62 = zext nneg i32 %.1112 to i64
@@ -16007,7 +16007,7 @@ cbs_av1_get_relative_dist.exit:                   ; preds = %.split, %cbs_av1_ge
   br i1 %76, label %77, label %.preheader74
 
 77:                                               ; preds = %75
-  %78 = trunc i32 %.3114 to i8
+  %78 = trunc nuw nsw i32 %.3114 to i8
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 %78, ptr %79, align 1, !tbaa !20
   %80 = zext nneg i32 %.3114 to i64
@@ -16053,7 +16053,7 @@ cbs_av1_get_relative_dist.exit:                   ; preds = %.split, %cbs_av1_ge
   br i1 %94, label %95, label %.preheader73
 
 95:                                               ; preds = %93
-  %96 = trunc i32 %.5116 to i8
+  %96 = trunc nuw nsw i32 %.5116 to i8
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 %96, ptr %97, align 1, !tbaa !20
   %98 = zext nneg i32 %.5116 to i64
@@ -16111,7 +16111,7 @@ cbs_av1_get_relative_dist.exit:                   ; preds = %.split, %cbs_av1_ge
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %118
-  %121 = trunc i32 %.7 to i8
+  %121 = trunc nuw nsw i32 %.7 to i8
   store i8 %121, ptr %105, align 1, !tbaa !20
   %122 = zext nneg i32 %.7 to i64
   %123 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 0, i64 %122
@@ -19434,7 +19434,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_av1_write_superres_par
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_write_increment(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_write_increment(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 -3, 278) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %.not = icmp eq i32 %8, 0
@@ -19656,12 +19656,12 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_write_ns(ptr nound
   %42 = sub i64 %40, %41
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !81
-  %.tr.i49 = trunc i64 %42 to i32
-  %45 = shl i32 %.tr.i49, 3
+  %.tr.i50 = trunc i64 %42 to i32
+  %45 = shl i32 %.tr.i50, 3
   %46 = add i32 %44, -32
   %47 = add i32 %46, %45
-  %.not61 = icmp ugt i32 %47, %33
-  br i1 %.not61, label %48, label %136
+  %.not47 = icmp ugt i32 %47, %33
+  br i1 %.not47, label %48, label %136
 
 48:                                               ; preds = %25
   %49 = icmp ult i32 %5, %35
@@ -19716,7 +19716,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_write_ns(ptr nound
   %78 = shl i32 %75, %33
   %79 = or i32 %78, %73
   %80 = sub nsw i32 %44, %33
-  br label %put_bits.exit54
+  br label %put_bits.exit55
 
 81:                                               ; preds = %70
   %82 = icmp ugt i64 %42, 3
@@ -19741,23 +19741,23 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_av1_write_ns(ptr nound
 92:                                               ; preds = %91, %83
   %reass.sub64 = sub i32 %44, %33
   %93 = add i32 %reass.sub64, 32
-  br label %put_bits.exit54
+  br label %put_bits.exit55
 
-put_bits.exit54:                                  ; preds = %77, %92
-  %.026.i.i52 = phi i32 [ %79, %77 ], [ %73, %92 ]
-  %.0.i.i53 = phi i32 [ %80, %77 ], [ %93, %92 ]
-  store i32 %.026.i.i52, ptr %1, align 8, !tbaa !79
-  store i32 %.0.i.i53, ptr %43, align 4, !tbaa !81
-  %94 = icmp sgt i32 %.0.i.i53, 1
+put_bits.exit55:                                  ; preds = %77, %92
+  %.026.i.i53 = phi i32 [ %79, %77 ], [ %73, %92 ]
+  %.0.i.i54 = phi i32 [ %80, %77 ], [ %93, %92 ]
+  store i32 %.026.i.i53, ptr %1, align 8, !tbaa !79
+  store i32 %.0.i.i54, ptr %43, align 4, !tbaa !81
+  %94 = icmp sgt i32 %.0.i.i54, 1
   br i1 %94, label %95, label %99
 
-95:                                               ; preds = %put_bits.exit54
-  %96 = shl i32 %.026.i.i52, 1
+95:                                               ; preds = %put_bits.exit55
+  %96 = shl i32 %.026.i.i53, 1
   %97 = or disjoint i32 %96, %74
-  %98 = add nsw i32 %.0.i.i53, -1
+  %98 = add nsw i32 %.0.i.i54, -1
   br label %put_bits.exit
 
-99:                                               ; preds = %put_bits.exit54
+99:                                               ; preds = %put_bits.exit55
   %100 = load ptr, ptr %36, align 8, !tbaa !82
   %101 = load ptr, ptr %38, align 8, !tbaa !83
   %102 = ptrtoint ptr %100 to i64
@@ -19767,8 +19767,8 @@ put_bits.exit54:                                  ; preds = %77, %92
   br i1 %105, label %106, label %114
 
 106:                                              ; preds = %99
-  %107 = shl i32 %.026.i.i52, %.0.i.i53
-  %108 = sub nsw i32 1, %.0.i.i53
+  %107 = shl i32 %.026.i.i53, %.0.i.i54
+  %108 = sub nsw i32 1, %.0.i.i54
   %109 = lshr i32 %74, %108
   %110 = or i32 %109, %107
   %111 = tail call i32 @llvm.bswap.i32(i32 %110)
@@ -19783,7 +19783,7 @@ put_bits.exit54:                                  ; preds = %77, %92
   br label %115
 
 115:                                              ; preds = %114, %106
-  %116 = add nsw i32 %.0.i.i53, 31
+  %116 = add nsw i32 %.0.i.i54, 31
   br label %put_bits.exit
 
 put_bits.exit:                                    ; preds = %115, %95, %68, %53
@@ -19792,8 +19792,8 @@ put_bits.exit:                                    ; preds = %115, %95, %68, %53
   store i32 %storemerge62, ptr %1, align 8, !tbaa !79
   store i32 %117, ptr %43, align 4, !tbaa !81
   %118 = load i32, ptr %7, align 4, !tbaa !4
-  %.not47 = icmp eq i32 %118, 0
-  br i1 %.not47, label %136, label %119
+  %.not48 = icmp eq i32 %118, 0
+  br i1 %.not48, label %136, label %119
 
 119:                                              ; preds = %put_bits.exit
   %120 = load ptr, ptr %38, align 8, !tbaa !83
@@ -19802,12 +19802,12 @@ put_bits.exit:                                    ; preds = %115, %95, %68, %53
   %123 = ptrtoint ptr %120 to i64
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
-  %.tr.i59 = trunc i64 %125 to i32
-  %126 = shl i32 %.tr.i59, 3
-  %reass.sub.i60 = sub i32 %126, %117
-  %127 = add i32 %reass.sub.i60, 32
-  %.not48 = icmp sgt i32 %.041, %127
-  br i1 %.not48, label %128, label %129
+  %.tr.i60 = trunc i64 %125 to i32
+  %126 = shl i32 %.tr.i60, 3
+  %reass.sub.i61 = sub i32 %126, %117
+  %127 = add i32 %reass.sub.i61, 32
+  %.not49 = icmp sgt i32 %.041, %127
+  br i1 %.not49, label %128, label %129
 
 128:                                              ; preds = %119
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.10, i32 noundef 266) #8

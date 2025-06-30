@@ -2874,7 +2874,7 @@ declare ptr @av_memdup(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @ff_g723_1_scale_vector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @estimate_pitch(ptr noundef nonnull %0, i32 noundef range(i32 145, 266) %1) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483648, 143) i32 @estimate_pitch(ptr noundef nonnull %0, i32 noundef range(i32 145, 266) %1) unnamed_addr #1 {
   %3 = zext nneg i32 %1 to i64
   %4 = getelementptr i16, ptr %0, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -34

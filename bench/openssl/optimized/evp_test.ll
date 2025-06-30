@@ -5473,7 +5473,7 @@ parse_bin_chunk.exit.thread.thread49:             ; preds = %38
 
 55:                                               ; preds = %54
   %56 = add i64 %52, -1
-  %57 = call i64 @llvm.umin.i64(i64 %1, i64 %56)
+  %57 = call i64 @llvm.umin.i64(i64 range(i64 -2147483648, 2147483648) %1, i64 %56)
   %58 = call fastcc ptr @unescape(ptr noundef nonnull %33, i64 noundef %57, ptr noundef nonnull %29)
   store ptr %58, ptr %26, align 8, !tbaa !10
   %59 = icmp eq ptr %58, null

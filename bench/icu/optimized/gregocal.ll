@@ -1791,8 +1791,8 @@ define noundef i32 @_ZNK6icu_7717GregorianCalendar16getActualMaximumE19UCalendar
 16:                                               ; preds = %13, %25
   %.03140 = phi i32 [ 140743, %13 ], [ %.132, %25 ]
   %.03339 = phi i32 [ 1, %13 ], [ %.134, %25 ]
-  %17 = add nsw i32 %.03140, %.03339
-  %18 = sdiv i32 %17, 2
+  %17 = add nuw nsw i32 %.03140, %.03339
+  %18 = lshr i32 %17, 1
   tail call void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(192) %11, i32 noundef 1, i32 noundef %18)
   %19 = tail call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %11, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %20 = icmp eq i32 %19, %18
@@ -1810,8 +1810,8 @@ define noundef i32 @_ZNK6icu_7717GregorianCalendar16getActualMaximumE19UCalendar
 25:                                               ; preds = %21, %24
   %.134 = phi i32 [ %.03339, %24 ], [ %18, %21 ]
   %.132 = phi i32 [ %18, %24 ], [ %.03140, %21 ]
-  %26 = add nsw i32 %.134, 1
-  %27 = icmp slt i32 %26, %.132
+  %26 = add nuw nsw i32 %.134, 1
+  %27 = icmp samesign ult i32 %26, %.132
   br i1 %27, label %16, label %28, !llvm.loop !37
 
 28:                                               ; preds = %25

@@ -1116,7 +1116,7 @@ declare dso_local i64 @iov_iter_alignment(ptr noundef) local_unnamed_addr #4
 declare dso_local i64 @iov_iter_gap_alignment(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -14, 1) i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
+define dso_local i32 @blk_rq_unmap_user(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.iov_iter, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit4, label %4

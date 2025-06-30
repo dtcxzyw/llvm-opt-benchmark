@@ -14159,7 +14159,7 @@ split:                                            ; preds = %189, %getDstSubsamp
 declare void @jcopy_markers_setup(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @getSubsamp(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #20 {
+define internal fastcc range(i32 -2147483648, 7) i32 @getSubsamp(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8, !tbaa !259
   %4 = icmp eq i32 %3, 1

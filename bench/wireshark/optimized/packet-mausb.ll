@@ -779,7 +779,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   store i8 %66, ptr %67, align 4
   %68 = load i32, ptr @hf_mausb_status, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648)
-  br i1 %44, label %70, label %133
+  br i1 %44, label %70, label %130
 
 70:                                               ; preds = %dissect_mausb_pkt_common.exit
   %71 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 9)
@@ -811,7 +811,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %88, ptr noundef %0, i32 noundef 12, i32 noundef %83, i32 noundef 0)
   %90 = load i32, ptr @ett_mgmt, align 4
   %91 = tail call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %90)
-  switch i8 %25, label %125 [
+  switch i8 %25, label %122 [
     i8 1, label %92
     i8 4, label %94
     i8 5, label %96
@@ -821,241 +821,238 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
     i8 9, label %98
     i8 10, label %98
     i8 11, label %98
-    i8 12, label %103
-    i8 13, label %105
-    i8 14, label %107
-    i8 15, label %109
-    i8 19, label %111
-    i8 45, label %111
-    i8 46, label %111
-    i8 47, label %111
-    i8 43, label %111
-    i8 62, label %111
-    i8 63, label %111
-    i8 0, label %111
-    i8 2, label %111
-    i8 3, label %111
-    i8 18, label %111
-    i8 20, label %111
-    i8 21, label %111
-    i8 22, label %111
-    i8 38, label %111
-    i8 44, label %111
-    i8 40, label %116
-    i8 41, label %118
-    i8 42, label %120
-    i8 16, label %127
-    i8 17, label %127
-    i8 23, label %127
-    i8 24, label %127
-    i8 25, label %127
-    i8 54, label %127
-    i8 55, label %127
-    i8 56, label %127
-    i8 57, label %127
-    i8 32, label %127
-    i8 33, label %127
-    i8 34, label %127
-    i8 35, label %127
-    i8 36, label %127
-    i8 37, label %127
-    i8 39, label %127
+    i8 12, label %102
+    i8 13, label %104
+    i8 14, label %106
+    i8 15, label %108
+    i8 19, label %110
+    i8 45, label %110
+    i8 46, label %110
+    i8 47, label %110
+    i8 43, label %110
+    i8 62, label %110
+    i8 63, label %110
+    i8 0, label %110
+    i8 2, label %110
+    i8 3, label %110
+    i8 18, label %110
+    i8 20, label %110
+    i8 21, label %110
+    i8 22, label %110
+    i8 38, label %110
+    i8 44, label %110
+    i8 40, label %114
+    i8 41, label %116
+    i8 42, label %118
+    i8 16, label %124
+    i8 17, label %124
+    i8 23, label %124
+    i8 24, label %124
+    i8 25, label %124
+    i8 54, label %124
+    i8 55, label %124
+    i8 56, label %124
+    i8 57, label %124
+    i8 32, label %124
+    i8 33, label %124
+    i8 34, label %124
+    i8 35, label %124
+    i8 36, label %124
+    i8 37, label %124
+    i8 39, label %124
   ]
 
 92:                                               ; preds = %87
-  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef nonnull readonly %5, ptr noundef %91, ptr noundef %0, ptr noundef %1, i16 noundef signext 12)
-  br label %127
+  %93 = call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef nonnull readonly %5, ptr noundef %91, ptr noundef %0, ptr noundef %1)
+  br label %124
 
 94:                                               ; preds = %87
-  %95 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %91, ptr noundef %0, ptr noundef %1, i16 noundef signext 12, i1 noundef zeroext true, i1 noundef zeroext false)
-  br label %127
+  %95 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %91, ptr noundef %0, ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext false)
+  br label %124
 
 96:                                               ; preds = %87
-  %97 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %91, ptr noundef %0, ptr noundef %1, i16 noundef signext 12, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %127
+  %97 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %91, ptr noundef %0, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %124
 
 98:                                               ; preds = %87, %87, %87, %87, %87, %87
   %99 = load i32, ptr @hf_mausb_mgmt_type_spec_generic, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %99, ptr noundef %0, i32 noundef 12, i32 noundef %83, i32 noundef 0)
-  %101 = trunc i32 %83 to i16
-  %102 = add i16 %101, 12
-  br label %127
+  %101 = trunc i32 %82 to i16
+  br label %124
 
-103:                                              ; preds = %87
-  %104 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_clear_transfers(ptr noundef %91, ptr noundef %0, i16 noundef signext 12, i1 noundef zeroext true)
-  br label %127
+102:                                              ; preds = %87
+  %103 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_clear_transfers(ptr noundef %91, ptr noundef %0, i1 noundef zeroext true)
+  br label %124
 
-105:                                              ; preds = %87
-  %106 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_clear_transfers(ptr noundef %91, ptr noundef %0, i16 noundef signext 12, i1 noundef zeroext false)
-  br label %127
+104:                                              ; preds = %87
+  %105 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_clear_transfers(ptr noundef %91, ptr noundef %0, i1 noundef zeroext false)
+  br label %124
 
-107:                                              ; preds = %87
-  %108 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %91, ptr noundef %0, ptr noundef %1, i16 noundef signext 12, i1 noundef zeroext true, i1 noundef zeroext true)
-  br label %127
+106:                                              ; preds = %87
+  %107 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %91, ptr noundef %0, ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext true)
+  br label %124
 
-109:                                              ; preds = %87
-  %110 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %91, ptr noundef %0, ptr noundef %1, i16 noundef signext 12, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %127
+108:                                              ; preds = %87
+  %109 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %91, ptr noundef %0, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true)
+  br label %124
 
-111:                                              ; preds = %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87
-  %112 = load i32, ptr @hf_mausb_mgmt_type_spec_generic, align 4
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %112, ptr noundef %0, i32 noundef 12, i32 noundef %83, i32 noundef 0)
-  %114 = trunc i32 %83 to i16
-  %115 = add i16 %114, 12
-  br label %127
+110:                                              ; preds = %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87
+  %111 = load i32, ptr @hf_mausb_mgmt_type_spec_generic, align 4
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %111, ptr noundef %0, i32 noundef 12, i32 noundef %83, i32 noundef 0)
+  %113 = trunc i32 %82 to i16
+  br label %124
+
+114:                                              ; preds = %87
+  %115 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cancel_transfer(ptr noundef %91, ptr noundef %0, i1 noundef zeroext true)
+  br label %124
 
 116:                                              ; preds = %87
-  %117 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cancel_transfer(ptr noundef %91, ptr noundef %0, i32 noundef 12, i1 noundef zeroext true)
-  br label %127
+  %117 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cancel_transfer(ptr noundef %91, ptr noundef %0, i1 noundef zeroext false)
+  br label %124
 
 118:                                              ; preds = %87
-  %119 = tail call fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cancel_transfer(ptr noundef %91, ptr noundef %0, i32 noundef 12, i1 noundef zeroext false)
-  br label %127
+  %119 = load i32, ptr @hf_mausb_mgmt_type_spec_generic, align 4
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %119, ptr noundef %0, i32 noundef 12, i32 noundef %83, i32 noundef 0)
+  %121 = trunc i32 %82 to i16
+  br label %124
 
-120:                                              ; preds = %87
-  %121 = load i32, ptr @hf_mausb_mgmt_type_spec_generic, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %121, ptr noundef %0, i32 noundef 12, i32 noundef %83, i32 noundef 0)
-  %123 = trunc i32 %83 to i16
-  %124 = add i16 %123, 12
-  br label %127
+122:                                              ; preds = %87
+  %123 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %91, ptr noundef nonnull @ei_mgmt_type_undef)
+  br label %124
 
-125:                                              ; preds = %87
-  %126 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %91, ptr noundef nonnull @ei_mgmt_type_undef)
-  br label %127
+124:                                              ; preds = %122, %118, %116, %114, %110, %108, %106, %104, %102, %98, %96, %94, %92, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87
+  %.071.i = phi i16 [ 12, %122 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %101, %98 ], [ %103, %102 ], [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %113, %110 ], [ %115, %114 ], [ %117, %116 ], [ %121, %118 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ]
+  %125 = zext i16 %.071.i to i32
+  %126 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %127 = icmp ugt i32 %126, %125
+  br i1 %127, label %128, label %dissect_mausb_mgmt_pkt_flds.exit
 
-127:                                              ; preds = %125, %120, %118, %116, %111, %109, %107, %105, %103, %98, %96, %94, %92, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87, %87
-  %.071.i = phi i16 [ 12, %125 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ %102, %98 ], [ %104, %103 ], [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %115, %111 ], [ %117, %116 ], [ %119, %118 ], [ %124, %120 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ], [ 12, %87 ]
-  %128 = zext i16 %.071.i to i32
-  %129 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %130 = icmp ugt i32 %129, %128
-  br i1 %130, label %131, label %dissect_mausb_mgmt_pkt_flds.exit
-
-131:                                              ; preds = %127
-  %132 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %91, ptr noundef nonnull @ei_mgmt_type_spec_len_long)
+128:                                              ; preds = %124
+  %129 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %91, ptr noundef nonnull @ei_mgmt_type_spec_len_long)
   br label %dissect_mausb_mgmt_pkt_flds.exit
 
-133:                                              ; preds = %dissect_mausb_pkt_common.exit
-  %134 = icmp slt i8 %25, -64
-  br i1 %134, label %135, label %dissect_mausb_mgmt_pkt_flds.exit
+130:                                              ; preds = %dissect_mausb_pkt_common.exit
+  %131 = icmp slt i8 %25, -64
+  br i1 %131, label %132, label %dissect_mausb_mgmt_pkt_flds.exit
 
-135:                                              ; preds = %133
-  %136 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 %136, ptr %137, align 4
-  %138 = and i8 %19, 16
-  %.not.i38 = icmp eq i8 %138, 0
+132:                                              ; preds = %130
+  %133 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i8 %133, ptr %134, align 4
+  %135 = and i8 %19, 16
+  %.not.i38 = icmp eq i8 %135, 0
   %hf_mausb_eps.val.i = load i32, ptr @hf_mausb_eps, align 4
   %hf_mausb_eps_rsvd.val.i = load i32, ptr @hf_mausb_eps_rsvd, align 4
-  %139 = select i1 %.not.i38, i32 %hf_mausb_eps.val.i, i32 %hf_mausb_eps_rsvd.val.i
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %139, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef -2147483648)
-  %141 = load i32, ptr @hf_mausb_tflags, align 4
-  %142 = load i32, ptr @ett_mausb_tflags, align 4
-  %143 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 9, i32 noundef %141, i32 noundef %142, ptr noundef nonnull @mausb_tflag_fields, i32 noundef -2147483648)
-  %144 = and i8 %136, 96
-  %145 = icmp eq i8 %144, 32
-  %146 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 10)
-  %147 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  store i16 %146, ptr %147, align 2
-  br i1 %145, label %148, label %154
+  %136 = select i1 %.not.i38, i32 %hf_mausb_eps.val.i, i32 %hf_mausb_eps_rsvd.val.i
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %136, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef -2147483648)
+  %138 = load i32, ptr @hf_mausb_tflags, align 4
+  %139 = load i32, ptr @ett_mausb_tflags, align 4
+  %140 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 9, i32 noundef %138, i32 noundef %139, ptr noundef nonnull @mausb_tflag_fields, i32 noundef -2147483648)
+  %141 = and i8 %133, 96
+  %142 = icmp eq i8 %141, 32
+  %143 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 10)
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 14
+  store i16 %143, ptr %144, align 2
+  br i1 %142, label %145, label %151
 
-148:                                              ; preds = %135
-  %149 = load i32, ptr @hf_mausb_num_iso_hdr, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %149, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
-  %151 = load i32, ptr @hf_mausb_iflags, align 4
-  %152 = load i32, ptr @ett_mausb_iflags, align 4
-  %153 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 10, i32 noundef %151, i32 noundef %152, ptr noundef nonnull @mausb_iflag_fields, i32 noundef -2147483648)
-  br label %157
+145:                                              ; preds = %132
+  %146 = load i32, ptr @hf_mausb_num_iso_hdr, align 4
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %146, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
+  %148 = load i32, ptr @hf_mausb_iflags, align 4
+  %149 = load i32, ptr @ett_mausb_iflags, align 4
+  %150 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 10, i32 noundef %148, i32 noundef %149, ptr noundef nonnull @mausb_iflag_fields, i32 noundef -2147483648)
+  br label %154
 
-154:                                              ; preds = %135
-  %155 = load i32, ptr @hf_mausb_stream_id, align 4
-  %156 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %155, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
-  br label %157
+151:                                              ; preds = %132
+  %152 = load i32, ptr @hf_mausb_stream_id, align 4
+  %153 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %152, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
+  br label %154
 
-157:                                              ; preds = %154, %148
-  %158 = tail call i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef 12)
-  %159 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %158, ptr %159, align 4
-  %160 = load ptr, ptr %7, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %160, i32 noundef 25, ptr noundef nonnull @.str.331, i32 noundef %158)
-  %161 = load i32, ptr @hf_mausb_seq_num, align 4
-  %162 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %161, ptr noundef %0, i32 noundef 12, i32 noundef 3, i32 noundef -2147483648)
-  %163 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 15)
-  %164 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 %163, ptr %164, align 4
-  %165 = load ptr, ptr %7, align 8
-  %166 = zext i8 %163 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %165, i32 noundef 25, ptr noundef nonnull @.str.332, i32 noundef %166)
-  %167 = load i32, ptr @hf_mausb_req_id, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %167, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef -2147483648)
-  %169 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
-  %170 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %169, ptr %170, align 4
-  br i1 %145, label %171, label %dissect_mausb_pkt_data.exit.sink.split
+154:                                              ; preds = %151, %145
+  %155 = tail call i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef 12)
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %155, ptr %156, align 4
+  %157 = load ptr, ptr %7, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %157, i32 noundef 25, ptr noundef nonnull @.str.331, i32 noundef %155)
+  %158 = load i32, ptr @hf_mausb_seq_num, align 4
+  %159 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %158, ptr noundef %0, i32 noundef 12, i32 noundef 3, i32 noundef -2147483648)
+  %160 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 15)
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i8 %160, ptr %161, align 4
+  %162 = load ptr, ptr %7, align 8
+  %163 = zext i8 %160 to i32
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %162, i32 noundef 25, ptr noundef nonnull @.str.332, i32 noundef %163)
+  %164 = load i32, ptr @hf_mausb_req_id, align 4
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %164, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef -2147483648)
+  %166 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 %166, ptr %167, align 4
+  br i1 %142, label %168, label %dissect_mausb_pkt_data.exit.sink.split
 
-171:                                              ; preds = %157
-  %172 = load i32, ptr @hf_mausb_present_time, align 4
-  %173 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %172, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
-  %174 = load i32, ptr @ett_mausb_present_time, align 4
-  %175 = tail call ptr @proto_item_add_subtree(ptr noundef %173, i32 noundef %174)
-  %176 = load i32, ptr @hf_mausb_uframe, align 4
-  %177 = tail call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %176, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
-  %178 = load i32, ptr @hf_mausb_frame, align 4
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %178, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
-  %180 = load i32, ptr @hf_mausb_num_segs, align 4
-  %181 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %180, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
-  %182 = and i8 %19, 64
-  %.not86.i = icmp eq i8 %182, 0
-  br i1 %.not86.i, label %194, label %183
+168:                                              ; preds = %154
+  %169 = load i32, ptr @hf_mausb_present_time, align 4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %169, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
+  %171 = load i32, ptr @ett_mausb_present_time, align 4
+  %172 = tail call ptr @proto_item_add_subtree(ptr noundef %170, i32 noundef %171)
+  %173 = load i32, ptr @hf_mausb_uframe, align 4
+  %174 = tail call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %173, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
+  %175 = load i32, ptr @hf_mausb_frame, align 4
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %175, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
+  %177 = load i32, ptr @hf_mausb_num_segs, align 4
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %177, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648)
+  %179 = and i8 %19, 64
+  %.not86.i = icmp eq i8 %179, 0
+  br i1 %.not86.i, label %191, label %180
 
-183:                                              ; preds = %171
-  %184 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20)
-  %185 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %184, ptr %185, align 4
-  %186 = load i32, ptr @hf_mausb_timestamp, align 4
-  %187 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %186, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648)
-  %188 = load i32, ptr @ett_mausb_timestamp, align 4
-  %189 = tail call ptr @proto_item_add_subtree(ptr noundef %187, i32 noundef %188)
-  %190 = load i32, ptr @hf_mausb_delta, align 4
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %190, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648)
-  %192 = load i32, ptr @hf_mausb_nom_interval, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %192, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648)
-  br label %194
+180:                                              ; preds = %168
+  %181 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20)
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i32 %181, ptr %182, align 4
+  %183 = load i32, ptr @hf_mausb_timestamp, align 4
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %183, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648)
+  %185 = load i32, ptr @ett_mausb_timestamp, align 4
+  %186 = tail call ptr @proto_item_add_subtree(ptr noundef %184, i32 noundef %185)
+  %187 = load i32, ptr @hf_mausb_delta, align 4
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %187, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648)
+  %189 = load i32, ptr @hf_mausb_nom_interval, align 4
+  %190 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %189, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648)
+  br label %191
 
-194:                                              ; preds = %183, %171
-  %.0.i40 = phi i32 [ 24, %183 ], [ 20, %171 ]
-  %195 = icmp slt i16 %146, 0
-  br i1 %195, label %196, label %dissect_mausb_pkt_data.exit
+191:                                              ; preds = %180, %168
+  %.0.i40 = phi i32 [ 24, %180 ], [ 20, %168 ]
+  %192 = icmp slt i16 %143, 0
+  br i1 %192, label %193, label %dissect_mausb_pkt_data.exit
 
-196:                                              ; preds = %194
-  %197 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0.i40)
-  %198 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %197, ptr %198, align 4
+193:                                              ; preds = %191
+  %194 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0.i40)
+  %195 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 %194, ptr %195, align 4
   br label %dissect_mausb_pkt_data.exit.sink.split
 
-dissect_mausb_pkt_data.exit.sink.split:           ; preds = %157, %196
-  %hf_mausb_mtd.sink = phi ptr [ @hf_mausb_mtd, %196 ], [ @hf_mausb_rem_size_credit, %157 ]
-  %.0.i40.sink = phi i32 [ %.0.i40, %196 ], [ 16, %157 ]
-  %199 = load i32, ptr %hf_mausb_mtd.sink, align 4
-  %200 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %199, ptr noundef %0, i32 noundef %.0.i40.sink, i32 noundef 4, i32 noundef -2147483648)
+dissect_mausb_pkt_data.exit.sink.split:           ; preds = %154, %193
+  %hf_mausb_mtd.sink = phi ptr [ @hf_mausb_mtd, %193 ], [ @hf_mausb_rem_size_credit, %154 ]
+  %.0.i40.sink = phi i32 [ %.0.i40, %193 ], [ 16, %154 ]
+  %196 = load i32, ptr %hf_mausb_mtd.sink, align 4
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %196, ptr noundef %0, i32 noundef %.0.i40.sink, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_mausb_pkt_data.exit
 
-dissect_mausb_pkt_data.exit:                      ; preds = %dissect_mausb_pkt_data.exit.sink.split, %194
-  %201 = icmp eq i8 %25, -126
-  br i1 %201, label %dissect_mausb_mgmt_pkt_flds.exit, label %202
+dissect_mausb_pkt_data.exit:                      ; preds = %dissect_mausb_pkt_data.exit.sink.split, %191
+  %198 = icmp eq i8 %25, -126
+  br i1 %198, label %dissect_mausb_mgmt_pkt_flds.exit, label %199
 
-202:                                              ; preds = %dissect_mausb_pkt_data.exit
+199:                                              ; preds = %dissect_mausb_pkt_data.exit
   call void @dissect_usb_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 3, ptr noundef nonnull %5)
   br label %dissect_mausb_mgmt_pkt_flds.exit
 
-dissect_mausb_mgmt_pkt_flds.exit:                 ; preds = %131, %127, %85, %133, %202, %dissect_mausb_pkt_data.exit, %70
-  %203 = load ptr, ptr %7, align 8
-  call void @col_append_str(ptr noundef %203, i32 noundef 25, ptr noundef nonnull @.str.327)
-  %204 = load ptr, ptr %7, align 8
-  call void @col_set_fence(ptr noundef %204, i32 noundef 25)
-  %205 = load i16, ptr %33, align 2
-  %206 = zext i16 %205 to i32
+dissect_mausb_mgmt_pkt_flds.exit:                 ; preds = %128, %124, %85, %130, %199, %dissect_mausb_pkt_data.exit, %70
+  %200 = load ptr, ptr %7, align 8
+  call void @col_append_str(ptr noundef %200, i32 noundef 25, ptr noundef nonnull @.str.327)
+  %201 = load ptr, ptr %7, align 8
+  call void @col_set_fence(ptr noundef %201, i32 noundef 25)
+  %202 = load i16, ptr %33, align 2
+  %203 = zext i16 %202 to i32
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #7
-  ret i32 %206
+  ret i32 %203
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1138,489 +1135,467 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef signext %4) unnamed_addr #3 {
-  %6 = load i32, ptr @hf_mausb_cap_resp_num_ep, align 4
-  %7 = sext i16 %4 to i32
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %2, i32 noundef %7, i32 noundef 2, i32 noundef -2147483648)
-  %9 = add i16 %4, 2
-  %10 = load i32, ptr @hf_mausb_cap_resp_num_dev, align 4
-  %11 = sext i16 %9 to i32
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %2, i32 noundef %11, i32 noundef 1, i32 noundef -2147483648)
-  %13 = add i16 %4, 3
-  %14 = load i32, ptr @hf_mausb_cap_resp_num_stream, align 4
-  %15 = sext i16 %13 to i32
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 1, i32 noundef -2147483648)
-  %17 = load i32, ptr @hf_mausb_cap_resp_dev_type, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %2, i32 noundef %15, i32 noundef 1, i32 noundef -2147483648)
-  %19 = add i16 %4, 4
-  %20 = load i32, ptr @hf_mausb_cap_resp_desc_count, align 4
-  %21 = sext i16 %19 to i32
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %2, i32 noundef %21, i32 noundef 1, i32 noundef -2147483648)
-  %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %21)
-  %24 = add i16 %4, 5
-  %25 = load i32, ptr @hf_mausb_cap_resp_desc_len, align 4
-  %26 = sext i16 %24 to i32
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %25, ptr noundef %2, i32 noundef %26, i32 noundef 3, i32 noundef -2147483648)
-  %28 = tail call i32 @tvb_get_letoh24(ptr noundef %2, i32 noundef %26)
-  %29 = add i16 %4, 8
-  %30 = load i32, ptr @hf_mausb_cap_resp_transfer_req, align 4
-  %31 = sext i16 %29 to i32
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %2, i32 noundef %31, i32 noundef 2, i32 noundef -2147483648)
-  %33 = add i16 %4, 10
-  %34 = load i32, ptr @hf_mausb_cap_resp_mgmt_req, align 4
-  %35 = sext i16 %33 to i32
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %34, ptr noundef %2, i32 noundef %35, i32 noundef 2, i32 noundef -2147483648)
-  %37 = load i32, ptr @hf_mausb_cap_resp_rsvd, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %37, ptr noundef %2, i32 noundef %35, i32 noundef 2, i32 noundef -2147483648)
-  %39 = add i16 %4, 12
-  %40 = sext i16 %39 to i32
-  %41 = add i32 %28, %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %43 = load i16, ptr %42, align 2
-  %44 = zext i16 %43 to i32
-  %45 = icmp ugt i32 %41, %44
-  br i1 %45, label %46, label %51
+define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
+  %5 = load i32, ptr @hf_mausb_cap_resp_num_ep, align 4
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %2, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %7 = load i32, ptr @hf_mausb_cap_resp_num_dev, align 4
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef 14, i32 noundef 1, i32 noundef -2147483648)
+  %9 = load i32, ptr @hf_mausb_cap_resp_num_stream, align 4
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %2, i32 noundef 15, i32 noundef 1, i32 noundef -2147483648)
+  %11 = load i32, ptr @hf_mausb_cap_resp_dev_type, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %2, i32 noundef 15, i32 noundef 1, i32 noundef -2147483648)
+  %13 = load i32, ptr @hf_mausb_cap_resp_desc_count, align 4
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %13, ptr noundef %2, i32 noundef 16, i32 noundef 1, i32 noundef -2147483648)
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef 16)
+  %16 = load i32, ptr @hf_mausb_cap_resp_desc_len, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %2, i32 noundef 17, i32 noundef 3, i32 noundef -2147483648)
+  %18 = tail call i32 @tvb_get_letoh24(ptr noundef %2, i32 noundef 17)
+  %19 = load i32, ptr @hf_mausb_cap_resp_transfer_req, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %19, ptr noundef %2, i32 noundef 20, i32 noundef 2, i32 noundef -2147483648)
+  %21 = load i32, ptr @hf_mausb_cap_resp_mgmt_req, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %2, i32 noundef 22, i32 noundef 2, i32 noundef -2147483648)
+  %23 = load i32, ptr @hf_mausb_cap_resp_rsvd, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %23, ptr noundef %2, i32 noundef 22, i32 noundef 2, i32 noundef -2147483648)
+  %25 = add i32 %18, 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %27 = load i16, ptr %26, align 2
+  %28 = zext i16 %27 to i32
+  %29 = icmp ugt i32 %25, %28
+  br i1 %29, label %30, label %35
 
-46:                                               ; preds = %5
-  %47 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %27, ptr noundef nonnull @ei_cap_resp_desc_len)
-  %48 = load i16, ptr %42, align 2
-  %49 = zext i16 %48 to i32
-  %50 = sub nsw i32 %49, %40
-  br label %51
+30:                                               ; preds = %4
+  %31 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %17, ptr noundef nonnull @ei_cap_resp_desc_len)
+  %32 = load i16, ptr %26, align 2
+  %33 = zext i16 %32 to i32
+  %34 = add nsw i32 %33, -24
+  br label %35
 
-51:                                               ; preds = %46, %5
-  %.062 = phi i32 [ %50, %46 ], [ %28, %5 ]
-  %52 = zext i8 %23 to i32
-  %.not65 = icmp eq i8 %23, 0
+35:                                               ; preds = %30, %4
+  %.062 = phi i32 [ %34, %30 ], [ %18, %4 ]
+  %36 = zext i8 %15 to i32
+  %.not65 = icmp eq i8 %15, 0
   br i1 %.not65, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %51, %dissect_mausb_dev_cap_desc.exit
-  %.064 = phi i32 [ %82, %dissect_mausb_dev_cap_desc.exit ], [ 0, %51 ]
-  %.06163 = phi i16 [ %81, %dissect_mausb_dev_cap_desc.exit ], [ %39, %51 ]
-  %53 = sext i16 %.06163 to i32
-  %54 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %53)
-  %55 = add nsw i32 %53, 1
-  %56 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %55)
-  %57 = zext i8 %54 to i32
-  %58 = load i32, ptr @ett_dev_cap, align 4
-  %59 = zext i8 %56 to i32
-  %60 = tail call ptr @val_to_str_const(i32 noundef %59, ptr noundef nonnull @mausb_dev_cap_string, ptr noundef nonnull @.str.330)
-  %61 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %53, i32 noundef %57, i32 noundef %58, ptr noundef null, ptr noundef %60)
-  %62 = load i32, ptr @hf_mausb_dev_cap_len, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %2, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648)
-  %64 = load i32, ptr @hf_mausb_dev_cap_type, align 4
-  %sext.i = shl i32 %55, 16
-  %65 = ashr exact i32 %sext.i, 16
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %64, ptr noundef %2, i32 noundef %65, i32 noundef 1, i32 noundef -2147483648)
-  %67 = add i16 %.06163, 2
-  %68 = icmp ugt i8 %54, 2
-  br i1 %68, label %69, label %76
+.lr.ph:                                           ; preds = %35, %dissect_mausb_dev_cap_desc.exit
+  %.064 = phi i32 [ %66, %dissect_mausb_dev_cap_desc.exit ], [ 0, %35 ]
+  %.06163 = phi i16 [ %65, %dissect_mausb_dev_cap_desc.exit ], [ 24, %35 ]
+  %37 = sext i16 %.06163 to i32
+  %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %37)
+  %39 = add nsw i32 %37, 1
+  %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %39)
+  %41 = zext i8 %38 to i32
+  %42 = load i32, ptr @ett_dev_cap, align 4
+  %43 = zext i8 %40 to i32
+  %44 = tail call ptr @val_to_str_const(i32 noundef %43, ptr noundef nonnull @mausb_dev_cap_string, ptr noundef nonnull @.str.330)
+  %45 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %37, i32 noundef %41, i32 noundef %42, ptr noundef null, ptr noundef %44)
+  %46 = load i32, ptr @hf_mausb_dev_cap_len, align 4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %2, i32 noundef %37, i32 noundef 1, i32 noundef -2147483648)
+  %48 = load i32, ptr @hf_mausb_dev_cap_type, align 4
+  %sext.i = shl i32 %39, 16
+  %49 = ashr exact i32 %sext.i, 16
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %48, ptr noundef %2, i32 noundef %49, i32 noundef 1, i32 noundef -2147483648)
+  %51 = add i16 %.06163, 2
+  %52 = icmp ugt i8 %38, 2
+  br i1 %52, label %53, label %60
 
-69:                                               ; preds = %.lr.ph
-  %70 = load i32, ptr @hf_mausb_dev_cap_generic, align 4
-  %71 = sext i16 %67 to i32
-  %72 = add nsw i32 %57, -2
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %70, ptr noundef %2, i32 noundef %71, i32 noundef %72, i32 noundef 0)
-  %74 = trunc nsw i32 %72 to i16
-  %75 = add i16 %67, %74
-  br label %76
+53:                                               ; preds = %.lr.ph
+  %54 = load i32, ptr @hf_mausb_dev_cap_generic, align 4
+  %55 = sext i16 %51 to i32
+  %56 = add nsw i32 %41, -2
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %54, ptr noundef %2, i32 noundef %55, i32 noundef %56, i32 noundef 0)
+  %58 = trunc nsw i32 %56 to i16
+  %59 = add i16 %51, %58
+  br label %60
 
-76:                                               ; preds = %69, %.lr.ph
-  %.0.i = phi i16 [ %75, %69 ], [ %67, %.lr.ph ]
-  %77 = sext i16 %.0.i to i32
-  %78 = add nsw i32 %57, %53
-  %.not.i = icmp eq i32 %78, %77
-  br i1 %.not.i, label %dissect_mausb_dev_cap_desc.exit, label %79
+60:                                               ; preds = %53, %.lr.ph
+  %.0.i = phi i16 [ %59, %53 ], [ %51, %.lr.ph ]
+  %61 = sext i16 %.0.i to i32
+  %62 = add nsw i32 %41, %37
+  %.not.i = icmp eq i32 %62, %61
+  br i1 %.not.i, label %dissect_mausb_dev_cap_desc.exit, label %63
 
-79:                                               ; preds = %76
-  %80 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %63, ptr noundef nonnull @ei_dev_cap_len)
+63:                                               ; preds = %60
+  %64 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %47, ptr noundef nonnull @ei_dev_cap_len)
   br label %dissect_mausb_dev_cap_desc.exit
 
-dissect_mausb_dev_cap_desc.exit:                  ; preds = %76, %79
-  %81 = trunc i32 %78 to i16
-  %82 = add nuw nsw i32 %.064, 1
-  %exitcond.not = icmp eq i32 %82, %52
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+dissect_mausb_dev_cap_desc.exit:                  ; preds = %60, %63
+  %65 = trunc i32 %62 to i16
+  %66 = add nuw nsw i32 %.064, 1
+  %exitcond.not = icmp eq i32 %66, %36
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %dissect_mausb_dev_cap_desc.exit, %51
-  %.061.lcssa = phi i16 [ %39, %51 ], [ %81, %dissect_mausb_dev_cap_desc.exit ]
-  %83 = zext i16 %.061.lcssa to i32
-  %84 = add i32 %.062, %40
-  %.not = icmp eq i32 %84, %83
-  br i1 %.not, label %90, label %85
+._crit_edge.loopexit:                             ; preds = %dissect_mausb_dev_cap_desc.exit
+  %67 = and i32 %62, 65535
+  br label %._crit_edge
 
-85:                                               ; preds = %._crit_edge
-  %86 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %27, ptr noundef nonnull @ei_dev_cap_resp_desc_len)
-  %87 = load i16, ptr %42, align 2
-  %88 = zext i16 %87 to i32
-  %89 = sub nsw i32 %88, %40
-  br label %90
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %35
+  %.061.lcssa = phi i32 [ 24, %35 ], [ %67, %._crit_edge.loopexit ]
+  %68 = add i32 %.062, 24
+  %.not = icmp eq i32 %68, %.061.lcssa
+  br i1 %.not, label %74, label %69
 
-90:                                               ; preds = %85, %._crit_edge
-  %.1 = phi i32 [ %89, %85 ], [ %.062, %._crit_edge ]
-  %91 = trunc i32 %.1 to i16
-  %92 = add i16 %39, %91
-  ret i16 %92
+69:                                               ; preds = %._crit_edge
+  %70 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %17, ptr noundef nonnull @ei_dev_cap_resp_desc_len)
+  %71 = load i16, ptr %26, align 2
+  %72 = zext i16 %71 to i32
+  %73 = add nsw i32 %72, -24
+  br label %74
+
+74:                                               ; preds = %69, %._crit_edge
+  %.1 = phi i32 [ %73, %69 ], [ %.062, %._crit_edge ]
+  %75 = trunc i32 %.1 to i16
+  %76 = add i16 %75, 24
+  ret i16 %76
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef signext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #3 {
-  %7 = alloca %struct._urb_info_t, align 8
-  %8 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #7
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #7
-  store i8 -1, ptr %8, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 noundef 0, i64 noundef 48, i1 noundef false) #7
-  %9 = zext i16 %3 to i32
-  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %9)
-  %11 = and i8 %10, 31
-  br i1 %5, label %.thread, label %12
+define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #3 {
+  %6 = alloca %struct._urb_info_t, align 8
+  %7 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
+  store i8 -1, ptr %7, align 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 noundef 0, i64 noundef 48, i1 noundef false) #7
+  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 12)
+  %9 = and i8 %8, 31
+  br i1 %4, label %.thread, label %10
 
-12:                                               ; preds = %6
-  %13 = load i32, ptr @hf_mausb_mgmt_ep_des_num, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %13, ptr noundef %1, i32 noundef %9, i32 noundef 1, i32 noundef -2147483648)
-  br i1 %4, label %15, label %26
+10:                                               ; preds = %5
+  %11 = load i32, ptr @hf_mausb_mgmt_ep_des_num, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648)
+  br i1 %3, label %13, label %22
 
-15:                                               ; preds = %12
-  %16 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef range(i32 0, 65536) %9)
-  %.fr = freeze i16 %16
-  %17 = lshr i16 %.fr, 5
-  %18 = and i16 %17, 63
-  %19 = zext nneg i16 %18 to i32
-  %20 = load i32, ptr @hf_mausb_mgmt_ep_des_size, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %9, i32 noundef 2, i32 noundef -2147483648)
-  %22 = add i16 %3, 1
-  %23 = load i32, ptr @hf_mausb_mgmt_ep_des_pad, align 4
-  %24 = zext i16 %22 to i32
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %23, ptr noundef %1, i32 noundef %24, i32 noundef 3, i32 noundef 0)
-  br label %29
+13:                                               ; preds = %10
+  %14 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef 12)
+  %.fr = freeze i16 %14
+  %15 = lshr i16 %.fr, 5
+  %16 = and i16 %15, 63
+  %17 = zext nneg i16 %16 to i32
+  %18 = load i32, ptr @hf_mausb_mgmt_ep_des_size, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %20 = load i32, ptr @hf_mausb_mgmt_ep_des_pad, align 4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef 13, i32 noundef 3, i32 noundef 0)
+  br label %25
 
-26:                                               ; preds = %12
-  %27 = load i32, ptr @hf_mausb_mgmt_ep_handle_pad, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %9, i32 noundef 4, i32 noundef 0)
-  br label %29
+22:                                               ; preds = %10
+  %23 = load i32, ptr @hf_mausb_mgmt_ep_handle_pad, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %23, ptr noundef %1, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  br label %25
 
-29:                                               ; preds = %26, %15
-  %.0120 = phi ptr [ null, %26 ], [ %21, %15 ]
-  %.0119 = phi i32 [ 16, %26 ], [ %19, %15 ]
-  %.0122 = add i16 %3, 4
-  %30 = zext nneg i8 %11 to i32
-  %.not = icmp eq i8 %11, 0
+25:                                               ; preds = %22, %13
+  %.0120 = phi ptr [ null, %22 ], [ %19, %13 ]
+  %.0119 = phi i32 [ 16, %22 ], [ %17, %13 ]
+  %26 = zext nneg i8 %9 to i32
+  %.not = icmp eq i8 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.thread:                                          ; preds = %6
-  %31 = load i32, ptr @hf_mausb_mgmt_ep_handle_num, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %9, i32 noundef 1, i32 noundef -2147483648)
-  %33 = load i32, ptr @hf_mausb_mgmt_ep_handle_pad, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef %9, i32 noundef 4, i32 noundef 0)
-  %.0122157 = add i16 %3, 4
-  %35 = zext nneg i8 %11 to i32
-  %.not158 = icmp eq i8 %11, 0
-  br i1 %.not158, label %._crit_edge, label %.lr.ph.split.us
+.thread:                                          ; preds = %5
+  %27 = load i32, ptr @hf_mausb_mgmt_ep_handle_num, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648)
+  %29 = load i32, ptr @hf_mausb_mgmt_ep_handle_pad, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %29, ptr noundef %1, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  %31 = zext nneg i8 %9 to i32
+  %.not167 = icmp eq i8 %9, 0
+  br i1 %.not167, label %._crit_edge, label %.lr.ph.split.us
 
-.lr.ph:                                           ; preds = %29
-  %36 = icmp samesign ugt i32 %.0119, 16
-  %37 = trunc nuw nsw i32 %.0119 to i16
-  br i1 %4, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+.lr.ph:                                           ; preds = %25
+  %32 = icmp samesign ugt i32 %.0119, 16
+  br i1 %3, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.us:                                  ; preds = %.thread, %.lr.ph.split.us
-  %.0135.us = phi i32 [ %52, %.lr.ph.split.us ], [ 0, %.thread ]
-  %.1134.us = phi i16 [ %51, %.lr.ph.split.us ], [ %.0122157, %.thread ]
-  %38 = zext i16 %.1134.us to i32
-  %39 = load i32, ptr @hf_mausb_ep_handle, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648)
-  %41 = load i32, ptr @ett_mausb_ep_handle, align 4
-  %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41)
-  %43 = load i32, ptr @hf_mausb_ep_handle_d, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648)
-  %45 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648)
-  %47 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %47, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648)
-  %49 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %49, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %38, i32 noundef 2, i32 noundef -2147483648)
-  %51 = add i16 %.1134.us, 2
-  %52 = add nuw nsw i32 %.0135.us, 1
-  %exitcond153.not = icmp eq i32 %52, %35
-  br i1 %exitcond153.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  %indvars.iv160 = phi i32 [ %indvars.iv.next161, %.lr.ph.split.us ], [ 16, %.thread ]
+  %.0135.us = phi i32 [ %45, %.lr.ph.split.us ], [ 0, %.thread ]
+  %33 = load i32, ptr @hf_mausb_ep_handle, align 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv160, i32 noundef 2, i32 noundef -2147483648)
+  %35 = load i32, ptr @ett_mausb_ep_handle, align 4
+  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
+  %37 = load i32, ptr @hf_mausb_ep_handle_d, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv160, i32 noundef 2, i32 noundef -2147483648)
+  %39 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %39, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv160, i32 noundef 2, i32 noundef -2147483648)
+  %41 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %41, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv160, i32 noundef 2, i32 noundef -2147483648)
+  %43 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %43, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv160, i32 noundef 2, i32 noundef -2147483648)
+  %indvars.iv.next161 = add nuw nsw i32 %indvars.iv160, 2
+  %45 = add nuw nsw i32 %.0135.us, 1
+  %exitcond163.not = icmp eq i32 %45, %31
+  br i1 %exitcond163.not, label %._crit_edge.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
-  %53 = icmp samesign ugt i32 %.0119, 8
-  br i1 %53, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
+  %46 = icmp samesign ugt i32 %.0119, 8
+  br i1 %46, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
 
 .lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
   %.not124.us139.not = icmp eq i32 %.0119, 8
   br label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %78
-  %.0135.us136.us = phi i32 [ %79, %78 ], [ 0, %.lr.ph.split.split.us ]
-  %.1134.us137.us = phi i16 [ %75, %78 ], [ %.0122, %.lr.ph.split.split.us ]
-  %54 = zext i16 %.1134.us137.us to i32
-  %55 = call i32 @dissect_usb_endpoint_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %54, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
-  %56 = add i16 %.1134.us137.us, 7
-  %57 = zext i16 %56 to i32
-  %58 = call i32 @dissect_usb_unknown_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %57, ptr noundef nonnull %7)
-  %59 = add i16 %.1134.us137.us, 13
-  br i1 %36, label %65, label %60
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %69
+  %indvars.iv156 = phi i32 [ %indvars.iv.next157, %69 ], [ 16, %.lr.ph.split.split.us ]
+  %.0135.us136.us = phi i32 [ %70, %69 ], [ 0, %.lr.ph.split.split.us ]
+  %47 = call i32 @dissect_usb_endpoint_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %indvars.iv156, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
+  %48 = add nuw nsw i32 %indvars.iv156, 7
+  %49 = call i32 @dissect_usb_unknown_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %48, ptr noundef nonnull %6)
+  %50 = add nuw nsw i32 %indvars.iv156, 13
+  br i1 %32, label %56, label %51
 
-60:                                               ; preds = %.lr.ph.split.split.us.split.us
+51:                                               ; preds = %.lr.ph.split.split.us.split.us
+  %52 = load i32, ptr @hf_mausb_ep_handle_req_pad, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %52, ptr noundef %1, i32 noundef %50, i32 noundef 3, i32 noundef 0)
+  %54 = trunc i32 %indvars.iv156 to i16
+  %55 = add i16 %54, 16
+  br label %65
+
+56:                                               ; preds = %.lr.ph.split.split.us.split.us
+  %57 = call i32 @dissect_usb_unknown_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %50, ptr noundef nonnull %6)
+  %58 = trunc i32 %57 to i16
+  %59 = trunc nuw nsw i32 %50 to i16
+  %60 = add i16 %59, %58
   %61 = load i32, ptr @hf_mausb_ep_handle_req_pad, align 4
-  %62 = zext i16 %59 to i32
+  %62 = zext i16 %60 to i32
   %63 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %62, i32 noundef 3, i32 noundef 0)
-  %64 = add i16 %.1134.us137.us, 16
-  br label %74
+  %64 = add i16 %60, 3
+  br label %65
 
-65:                                               ; preds = %.lr.ph.split.split.us.split.us
-  %66 = zext i16 %59 to i32
-  %67 = call i32 @dissect_usb_unknown_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %66, ptr noundef nonnull %7)
-  %68 = trunc i32 %67 to i16
-  %69 = add i16 %59, %68
-  %70 = load i32, ptr @hf_mausb_ep_handle_req_pad, align 4
-  %71 = zext i16 %69 to i32
-  %72 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %70, ptr noundef %1, i32 noundef %71, i32 noundef 3, i32 noundef 0)
-  %73 = add i16 %69, 3
-  br label %74
+65:                                               ; preds = %56, %51
+  %.0121.us138.us = phi i16 [ %64, %56 ], [ %55, %51 ]
+  %indvars.iv.next157 = add nuw nsw i32 %indvars.iv156, %.0119
+  %66 = zext i16 %.0121.us138.us to i32
+  %.not124.us139.us.not = icmp eq i32 %indvars.iv.next157, %66
+  br i1 %.not124.us139.us.not, label %69, label %67
 
-74:                                               ; preds = %65, %60
-  %.0121.us138.us = phi i16 [ %73, %65 ], [ %64, %60 ]
-  %75 = add i16 %.1134.us137.us, %37
-  %.not124.us139.us.not = icmp eq i16 %.0121.us138.us, %75
-  br i1 %.not124.us139.us.not, label %78, label %76
+67:                                               ; preds = %65
+  %68 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %.0120, ptr noundef nonnull @ei_ep_handle_len)
+  br label %69
 
-76:                                               ; preds = %74
-  %77 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %.0120, ptr noundef nonnull @ei_ep_handle_len)
-  br label %78
+69:                                               ; preds = %67, %65
+  %70 = add nuw nsw i32 %.0135.us136.us, 1
+  %exitcond159.not = icmp eq i32 %70, %26
+  br i1 %exitcond159.not, label %._crit_edge.loopexit145, label %.lr.ph.split.split.us.split.us, !llvm.loop !8
 
-78:                                               ; preds = %76, %74
-  %79 = add nuw nsw i32 %.0135.us136.us, 1
-  %exitcond152.not = icmp eq i32 %79, %30
-  br i1 %exitcond152.not, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !8
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %77
+  %indvars.iv152 = phi i32 [ 16, %.lr.ph.split.split.us.split.preheader ], [ %indvars.iv.next153, %77 ]
+  %.0135.us136 = phi i32 [ 0, %.lr.ph.split.split.us.split.preheader ], [ %78, %77 ]
+  %71 = call i32 @dissect_usb_endpoint_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %indvars.iv152, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
+  %72 = add nuw nsw i32 %indvars.iv152, 7
+  %73 = load i32, ptr @hf_mausb_ep_handle_req_pad, align 4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %73, ptr noundef %1, i32 noundef %72, i32 noundef 1, i32 noundef 0)
+  %indvars.iv.next153 = add nuw nsw i32 %indvars.iv152, %.0119
+  br i1 %.not124.us139.not, label %77, label %75
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %89
-  %.0135.us136 = phi i32 [ %90, %89 ], [ 0, %.lr.ph.split.split.us.split.preheader ]
-  %.1134.us137 = phi i16 [ %86, %89 ], [ %.0122, %.lr.ph.split.split.us.split.preheader ]
-  %80 = zext i16 %.1134.us137 to i32
-  %81 = call i32 @dissect_usb_endpoint_descriptor(ptr noundef %2, ptr noundef %0, ptr noundef %1, i32 noundef %80, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 0)
-  %82 = add i16 %.1134.us137, 7
-  %83 = load i32, ptr @hf_mausb_ep_handle_req_pad, align 4
-  %84 = zext i16 %82 to i32
-  %85 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %83, ptr noundef %1, i32 noundef %84, i32 noundef 1, i32 noundef 0)
-  %86 = add i16 %.1134.us137, %37
-  br i1 %.not124.us139.not, label %89, label %87
+75:                                               ; preds = %.lr.ph.split.split.us.split
+  %76 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %.0120, ptr noundef nonnull @ei_ep_handle_len)
+  br label %77
 
-87:                                               ; preds = %.lr.ph.split.split.us.split
-  %88 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %.0120, ptr noundef nonnull @ei_ep_handle_len)
-  br label %89
-
-89:                                               ; preds = %87, %.lr.ph.split.split.us.split
-  %90 = add nuw nsw i32 %.0135.us136, 1
-  %exitcond151.not = icmp eq i32 %90, %30
-  br i1 %exitcond151.not, label %._crit_edge, label %.lr.ph.split.split.us.split, !llvm.loop !8
+77:                                               ; preds = %75, %.lr.ph.split.split.us.split
+  %78 = add nuw nsw i32 %.0135.us136, 1
+  %exitcond155.not = icmp eq i32 %78, %26
+  br i1 %exitcond155.not, label %._crit_edge.loopexit146, label %.lr.ph.split.split.us.split, !llvm.loop !8
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.lr.ph.split.split
-  %.0135 = phi i32 [ %131, %.lr.ph.split.split ], [ 0, %.lr.ph ]
-  %.1134 = phi i16 [ %130, %.lr.ph.split.split ], [ %.0122, %.lr.ph ]
-  %91 = zext i16 %.1134 to i32
-  %92 = load i32, ptr @hf_mausb_ep_handle, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %92, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %91, i32 noundef 2, i32 noundef -2147483648)
-  %94 = load i32, ptr @ett_mausb_ep_handle, align 4
-  %95 = tail call ptr @proto_item_add_subtree(ptr noundef %93, i32 noundef %94)
-  %96 = load i32, ptr @hf_mausb_ep_handle_d, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %96, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %91, i32 noundef 2, i32 noundef -2147483648)
-  %98 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %98, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %91, i32 noundef 2, i32 noundef -2147483648)
-  %100 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %100, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %91, i32 noundef 2, i32 noundef -2147483648)
-  %102 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %102, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %91, i32 noundef 2, i32 noundef -2147483648)
-  %104 = add i16 %.1134, 2
-  %105 = load i32, ptr @hf_mausb_ep_handle_resp_dir, align 4
-  %106 = zext i16 %104 to i32
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %105, ptr noundef %1, i32 noundef %106, i32 noundef 1, i32 noundef -2147483648)
-  %108 = load i32, ptr @hf_mausb_ep_handle_resp_iso, align 4
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %108, ptr noundef %1, i32 noundef %106, i32 noundef 1, i32 noundef -2147483648)
-  %110 = load i32, ptr @hf_mausb_ep_handle_resp_lman, align 4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %110, ptr noundef %1, i32 noundef %106, i32 noundef 1, i32 noundef -2147483648)
-  %112 = load i32, ptr @hf_mausb_ep_handle_resp_valid, align 4
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %112, ptr noundef %1, i32 noundef %106, i32 noundef 1, i32 noundef -2147483648)
-  %114 = add i16 %.1134, 4
-  %115 = load i32, ptr @hf_mausb_ep_handle_resp_ccu, align 4
-  %116 = zext i16 %114 to i32
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %115, ptr noundef %1, i32 noundef %116, i32 noundef 2, i32 noundef -2147483648)
-  %118 = add i16 %.1134, 8
-  %119 = load i32, ptr @hf_mausb_ep_handle_resp_buf_size, align 4
-  %120 = zext i16 %118 to i32
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %119, ptr noundef %1, i32 noundef %120, i32 noundef 4, i32 noundef -2147483648)
-  %122 = add i16 %.1134, 12
-  %123 = load i32, ptr @hf_mausb_ep_handle_resp_iso_prog_dly, align 4
-  %124 = zext i16 %122 to i32
-  %125 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %123, ptr noundef %1, i32 noundef %124, i32 noundef 2, i32 noundef -2147483648)
-  %126 = add i16 %.1134, 14
-  %127 = load i32, ptr @hf_mausb_ep_handle_resp_iso_resp_dly, align 4
-  %128 = zext i16 %126 to i32
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %127, ptr noundef %1, i32 noundef %128, i32 noundef 2, i32 noundef -2147483648)
-  %130 = add i16 %.1134, %37
-  %131 = add nuw nsw i32 %.0135, 1
-  %exitcond.not = icmp eq i32 %131, %30
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !8
+  %indvars.iv = phi i32 [ %indvars.iv.next, %.lr.ph.split.split ], [ 16, %.lr.ph ]
+  %.0135 = phi i32 [ %112, %.lr.ph.split.split ], [ 0, %.lr.ph ]
+  %79 = load i32, ptr @hf_mausb_ep_handle, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %79, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv, i32 noundef 2, i32 noundef -2147483648)
+  %81 = load i32, ptr @ett_mausb_ep_handle, align 4
+  %82 = tail call ptr @proto_item_add_subtree(ptr noundef %80, i32 noundef %81)
+  %83 = load i32, ptr @hf_mausb_ep_handle_d, align 4
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv, i32 noundef 2, i32 noundef -2147483648)
+  %85 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %85, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv, i32 noundef 2, i32 noundef -2147483648)
+  %87 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %87, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv, i32 noundef 2, i32 noundef -2147483648)
+  %89 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %89, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %indvars.iv, i32 noundef 2, i32 noundef -2147483648)
+  %91 = add nuw nsw i32 %indvars.iv, 2
+  %92 = load i32, ptr @hf_mausb_ep_handle_resp_dir, align 4
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %92, ptr noundef %1, i32 noundef %91, i32 noundef 1, i32 noundef -2147483648)
+  %94 = load i32, ptr @hf_mausb_ep_handle_resp_iso, align 4
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %94, ptr noundef %1, i32 noundef %91, i32 noundef 1, i32 noundef -2147483648)
+  %96 = load i32, ptr @hf_mausb_ep_handle_resp_lman, align 4
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %96, ptr noundef %1, i32 noundef %91, i32 noundef 1, i32 noundef -2147483648)
+  %98 = load i32, ptr @hf_mausb_ep_handle_resp_valid, align 4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %98, ptr noundef %1, i32 noundef %91, i32 noundef 1, i32 noundef -2147483648)
+  %100 = add nuw nsw i32 %indvars.iv, 4
+  %101 = load i32, ptr @hf_mausb_ep_handle_resp_ccu, align 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %101, ptr noundef %1, i32 noundef %100, i32 noundef 2, i32 noundef -2147483648)
+  %103 = add nuw nsw i32 %indvars.iv, 8
+  %104 = load i32, ptr @hf_mausb_ep_handle_resp_buf_size, align 4
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %104, ptr noundef %1, i32 noundef %103, i32 noundef 4, i32 noundef -2147483648)
+  %106 = add nuw nsw i32 %indvars.iv, 12
+  %107 = load i32, ptr @hf_mausb_ep_handle_resp_iso_prog_dly, align 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %107, ptr noundef %1, i32 noundef %106, i32 noundef 2, i32 noundef -2147483648)
+  %109 = add nuw nsw i32 %indvars.iv, 14
+  %110 = load i32, ptr @hf_mausb_ep_handle_resp_iso_resp_dly, align 4
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %110, ptr noundef %1, i32 noundef %109, i32 noundef 2, i32 noundef -2147483648)
+  %indvars.iv.next = add nuw nsw i32 %indvars.iv, %.0119
+  %112 = add nuw nsw i32 %.0135, 1
+  %exitcond.not = icmp eq i32 %112, %26
+  br i1 %exitcond.not, label %._crit_edge.loopexit147, label %.lr.ph.split.split, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph.split.split, %89, %78, %.lr.ph.split.us, %.thread, %29
-  %.1.lcssa = phi i16 [ %.0122, %29 ], [ %.0122157, %.thread ], [ %51, %.lr.ph.split.us ], [ %75, %78 ], [ %86, %89 ], [ %130, %.lr.ph.split.split ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #7
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #7
+._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
+  %113 = trunc nuw nsw i32 %indvars.iv.next161 to i16
+  br label %._crit_edge
+
+._crit_edge.loopexit145:                          ; preds = %69
+  %114 = trunc nuw nsw i32 %indvars.iv.next157 to i16
+  br label %._crit_edge
+
+._crit_edge.loopexit146:                          ; preds = %77
+  %115 = trunc nuw nsw i32 %indvars.iv.next153 to i16
+  br label %._crit_edge
+
+._crit_edge.loopexit147:                          ; preds = %.lr.ph.split.split
+  %116 = trunc nuw nsw i32 %indvars.iv.next to i16
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.thread, %._crit_edge.loopexit147, %._crit_edge.loopexit146, %._crit_edge.loopexit145, %._crit_edge.loopexit, %25
+  %.1.lcssa = phi i16 [ 16, %25 ], [ %113, %._crit_edge.loopexit ], [ %114, %._crit_edge.loopexit145 ], [ %115, %._crit_edge.loopexit146 ], [ %116, %._crit_edge.loopexit147 ], [ 16, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #7
   ret i16 %.1.lcssa
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_clear_transfers(ptr noundef %0, ptr noundef %1, i16 noundef signext %2, i1 noundef zeroext %3) unnamed_addr #3 {
-  %5 = sext i16 %2 to i32
-  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %5)
-  br i1 %3, label %7, label %14
+define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_clear_transfers(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 {
+  %4 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 12)
+  br i1 %2, label %5, label %10
 
-7:                                                ; preds = %4
-  %8 = load i32, ptr @hf_mausb_clear_transfers_req_num, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648)
-  %10 = add i16 %2, 1
-  %11 = load i32, ptr @hf_mausb_clear_transfers_req_rsvd, align 4
-  %12 = sext i16 %10 to i32
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %12, i32 noundef 3, i32 noundef 0)
-  br label %20
+5:                                                ; preds = %3
+  %6 = load i32, ptr @hf_mausb_clear_transfers_req_num, align 4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648)
+  %8 = load i32, ptr @hf_mausb_clear_transfers_req_rsvd, align 4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef 13, i32 noundef 3, i32 noundef 0)
+  br label %16
 
-14:                                               ; preds = %4
-  %15 = and i8 %6, 31
-  %16 = load i32, ptr @hf_mausb_clear_transfers_resp_num, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %16, ptr noundef %1, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648)
-  %18 = load i32, ptr @hf_mausb_clear_transfers_resp_rsvd, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648)
-  br label %20
+10:                                               ; preds = %3
+  %11 = and i8 %4, 31
+  %12 = load i32, ptr @hf_mausb_clear_transfers_resp_num, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648)
+  %14 = load i32, ptr @hf_mausb_clear_transfers_resp_rsvd, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648)
+  br label %16
 
-20:                                               ; preds = %14, %7
-  %.026 = phi i8 [ %6, %7 ], [ %15, %14 ]
-  %.027 = add i16 %2, 4
-  %21 = zext i8 %.026 to i32
+16:                                               ; preds = %10, %5
+  %.026 = phi i8 [ %4, %5 ], [ %11, %10 ]
+  %17 = zext i8 %.026 to i32
   %.not = icmp eq i8 %.026, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20
-  %..i = select i1 %3, i32 8, i32 16
-  br label %22
+.lr.ph:                                           ; preds = %16
+  %..i = select i1 %2, i32 8, i32 16
+  br label %18
 
-22:                                               ; preds = %.lr.ph, %dissect_clear_transfers_block.exit
-  %.029 = phi i32 [ 0, %.lr.ph ], [ %73, %dissect_clear_transfers_block.exit ]
-  %.128 = phi i16 [ %.027, %.lr.ph ], [ %72, %dissect_clear_transfers_block.exit ]
-  %23 = sext i16 %.128 to i32
+18:                                               ; preds = %.lr.ph, %dissect_clear_transfers_block.exit
+  %.029 = phi i32 [ 0, %.lr.ph ], [ %69, %dissect_clear_transfers_block.exit ]
+  %.128 = phi i16 [ 16, %.lr.ph ], [ %68, %dissect_clear_transfers_block.exit ]
+  %19 = sext i16 %.128 to i32
   %hf_mausb_clear_transfers_info_block.val.i = load i32, ptr @hf_mausb_clear_transfers_info_block, align 4
   %hf_mausb_clear_transfers_status_block.val.i = load i32, ptr @hf_mausb_clear_transfers_status_block, align 4
-  %24 = select i1 %3, i32 %hf_mausb_clear_transfers_info_block.val.i, i32 %hf_mausb_clear_transfers_status_block.val.i
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %24, ptr noundef %1, i32 noundef %23, i32 noundef %..i, i32 noundef 0)
-  %26 = load i32, ptr @ett_clear_transfers_block, align 4
+  %20 = select i1 %2, i32 %hf_mausb_clear_transfers_info_block.val.i, i32 %hf_mausb_clear_transfers_status_block.val.i
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %19, i32 noundef %..i, i32 noundef 0)
+  %22 = load i32, ptr @ett_clear_transfers_block, align 4
+  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
+  %24 = load i32, ptr @hf_mausb_ep_handle, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %19, i32 noundef 2, i32 noundef -2147483648)
+  %26 = load i32, ptr @ett_mausb_ep_handle, align 4
   %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
-  %28 = load i32, ptr @hf_mausb_ep_handle, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648)
-  %30 = load i32, ptr @ett_mausb_ep_handle, align 4
-  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
-  %32 = load i32, ptr @hf_mausb_ep_handle_d, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648)
-  %34 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %34, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648)
-  %36 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %36, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648)
-  %38 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %38, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %23, i32 noundef 2, i32 noundef -2147483648)
-  %40 = add i16 %.128, 2
-  %41 = load i32, ptr @hf_mausb_stream_id, align 4
-  %42 = sext i16 %40 to i32
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %41, ptr noundef %1, i32 noundef %42, i32 noundef 2, i32 noundef -2147483648)
-  %44 = add i16 %.128, 4
-  %45 = sext i16 %44 to i32
-  br i1 %3, label %46, label %53
+  %28 = load i32, ptr @hf_mausb_ep_handle_d, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %19, i32 noundef 2, i32 noundef -2147483648)
+  %30 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %30, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %19, i32 noundef 2, i32 noundef -2147483648)
+  %32 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %32, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %19, i32 noundef 2, i32 noundef -2147483648)
+  %34 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %34, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %19, i32 noundef 2, i32 noundef -2147483648)
+  %36 = or disjoint i16 %.128, 2
+  %37 = load i32, ptr @hf_mausb_stream_id, align 4
+  %38 = sext i16 %36 to i32
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %37, ptr noundef %1, i32 noundef %38, i32 noundef 2, i32 noundef -2147483648)
+  %40 = or disjoint i16 %.128, 4
+  %41 = sext i16 %40 to i32
+  br i1 %2, label %42, label %49
 
-46:                                               ; preds = %22
-  %47 = load i32, ptr @hf_mausb_clear_transfers_start_req_id, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %47, ptr noundef %1, i32 noundef %45, i32 noundef 1, i32 noundef -2147483648)
-  %49 = add i16 %.128, 5
-  %50 = load i32, ptr @hf_mausb_clear_transfers_req_block_rsvd, align 4
-  %51 = sext i16 %49 to i32
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %50, ptr noundef %1, i32 noundef %51, i32 noundef 3, i32 noundef 0)
+42:                                               ; preds = %18
+  %43 = load i32, ptr @hf_mausb_clear_transfers_start_req_id, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %43, ptr noundef %1, i32 noundef %41, i32 noundef 1, i32 noundef -2147483648)
+  %45 = or disjoint i16 %.128, 5
+  %46 = load i32, ptr @hf_mausb_clear_transfers_req_block_rsvd, align 4
+  %47 = sext i16 %45 to i32
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %46, ptr noundef %1, i32 noundef %47, i32 noundef 3, i32 noundef 0)
   br label %dissect_clear_transfers_block.exit
 
-53:                                               ; preds = %22
-  %54 = load i32, ptr @hf_mausb_clear_transfers_status, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %54, ptr noundef %1, i32 noundef %45, i32 noundef 4, i32 noundef -2147483648)
-  %56 = load i32, ptr @hf_mausb_clear_transfers_partial, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %56, ptr noundef %1, i32 noundef %45, i32 noundef 4, i32 noundef -2147483648)
-  %58 = load i32, ptr @hf_mausb_clear_transfers_resp_block_rsvd, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %58, ptr noundef %1, i32 noundef %45, i32 noundef 4, i32 noundef -2147483648)
-  %60 = add i16 %.128, 8
-  %61 = load i32, ptr @hf_mausb_clear_transfers_last_req_id, align 4
+49:                                               ; preds = %18
+  %50 = load i32, ptr @hf_mausb_clear_transfers_status, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %50, ptr noundef %1, i32 noundef %41, i32 noundef 4, i32 noundef -2147483648)
+  %52 = load i32, ptr @hf_mausb_clear_transfers_partial, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %52, ptr noundef %1, i32 noundef %41, i32 noundef 4, i32 noundef -2147483648)
+  %54 = load i32, ptr @hf_mausb_clear_transfers_resp_block_rsvd, align 4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %54, ptr noundef %1, i32 noundef %41, i32 noundef 4, i32 noundef -2147483648)
+  %56 = add i16 %.128, 8
+  %57 = load i32, ptr @hf_mausb_clear_transfers_last_req_id, align 4
+  %58 = sext i16 %56 to i32
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %57, ptr noundef %1, i32 noundef %58, i32 noundef 1, i32 noundef -2147483648)
+  %60 = add i16 %.128, 9
+  %61 = load i32, ptr @hf_mausb_cancel_transfer_seq_num, align 4
   %62 = sext i16 %60 to i32
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %61, ptr noundef %1, i32 noundef %62, i32 noundef 1, i32 noundef -2147483648)
-  %64 = add i16 %.128, 9
-  %65 = load i32, ptr @hf_mausb_cancel_transfer_seq_num, align 4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %61, ptr noundef %1, i32 noundef %62, i32 noundef 3, i32 noundef -2147483648)
+  %64 = add i16 %.128, 12
+  %65 = load i32, ptr @hf_mausb_cancel_transfer_byte_offset, align 4
   %66 = sext i16 %64 to i32
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %65, ptr noundef %1, i32 noundef %66, i32 noundef 3, i32 noundef -2147483648)
-  %68 = add i16 %.128, 12
-  %69 = load i32, ptr @hf_mausb_cancel_transfer_byte_offset, align 4
-  %70 = sext i16 %68 to i32
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %69, ptr noundef %1, i32 noundef %70, i32 noundef 4, i32 noundef -2147483648)
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %65, ptr noundef %1, i32 noundef %66, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_clear_transfers_block.exit
 
-dissect_clear_transfers_block.exit:               ; preds = %46, %53
-  %.sink.i = phi i16 [ 16, %53 ], [ 8, %46 ]
-  %72 = add i16 %.sink.i, %.128
-  %73 = add nuw nsw i32 %.029, 1
-  %exitcond.not = icmp eq i32 %73, %21
-  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !9
+dissect_clear_transfers_block.exit:               ; preds = %42, %49
+  %.sink.i = phi i16 [ 16, %49 ], [ 8, %42 ]
+  %68 = add i16 %.sink.i, %.128
+  %69 = add nuw nsw i32 %.029, 1
+  %exitcond.not = icmp eq i32 %69, %17
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %dissect_clear_transfers_block.exit, %20
-  %.1.lcssa = phi i16 [ %.027, %20 ], [ %72, %dissect_clear_transfers_block.exit ]
+._crit_edge:                                      ; preds = %dissect_clear_transfers_block.exit, %16
+  %.1.lcssa = phi i16 [ 16, %16 ], [ %68, %dissect_clear_transfers_block.exit ]
   ret i16 %.1.lcssa
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cancel_transfer(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2, i1 noundef zeroext %3) unnamed_addr #3 {
-  %5 = load i32, ptr @hf_mausb_ep_handle, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648)
-  %7 = load i32, ptr @ett_mausb_ep_handle, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
-  %9 = load i32, ptr @hf_mausb_ep_handle_d, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648)
-  %11 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648)
-  %13 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648)
-  %15 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %1, i32 noundef range(i32 -32768, 65536) %2, i32 noundef 2, i32 noundef -2147483648)
-  %17 = add nuw nsw i32 %2, 2
-  %18 = load i32, ptr @hf_mausb_stream_id, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef %17, i32 noundef 2, i32 noundef -2147483648)
-  %20 = add nuw nsw i32 %2, 4
-  %21 = load i32, ptr @hf_mausb_req_id, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef %20, i32 noundef 1, i32 noundef -2147483648)
-  %23 = add nuw nsw i32 %2, 5
-  br i1 %3, label %24, label %27
+define internal fastcc zeroext range(i16 20, 29) i16 @dissect_mausb_mgmt_pkt_cancel_transfer(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 {
+  %4 = load i32, ptr @hf_mausb_ep_handle, align 4
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %6 = load i32, ptr @ett_mausb_ep_handle, align 4
+  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6)
+  %8 = load i32, ptr @hf_mausb_ep_handle_d, align 4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %8, ptr noundef %1, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %10 = load i32, ptr @hf_mausb_ep_handle_ep_num, align 4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %10, ptr noundef %1, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %12 = load i32, ptr @hf_mausb_ep_handle_dev_addr, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %12, ptr noundef %1, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %14 = load i32, ptr @hf_mausb_ep_handle_bus_num, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %14, ptr noundef %1, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %16 = load i32, ptr @hf_mausb_stream_id, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %16, ptr noundef %1, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648)
+  %18 = load i32, ptr @hf_mausb_req_id, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef 16, i32 noundef 1, i32 noundef -2147483648)
+  br i1 %2, label %20, label %23
 
-24:                                               ; preds = %4
-  %25 = load i32, ptr @hf_mausb_cancel_transfer_rsvd, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %23, i32 noundef 3, i32 noundef 0)
-  br label %36
+20:                                               ; preds = %3
+  %21 = load i32, ptr @hf_mausb_cancel_transfer_rsvd, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %21, ptr noundef %1, i32 noundef 17, i32 noundef 3, i32 noundef 0)
+  br label %31
 
-27:                                               ; preds = %4
-  %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %23)
-  %29 = load i32, ptr @hf_mausb_cancel_transfer_status, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %29, ptr noundef %1, i32 noundef %23, i32 noundef 3, i32 noundef -2147483648)
-  %31 = load i32, ptr @hf_mausb_cancel_transfer_rsvd_2, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %23, i32 noundef 3, i32 noundef -2147483648)
-  %33 = add nuw nsw i32 %2, 8
-  %34 = load i32, ptr @hf_mausb_cancel_transfer_rsvd, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %34, ptr noundef %1, i32 noundef %33, i32 noundef 8, i32 noundef 0)
-  br label %36
+23:                                               ; preds = %3
+  %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 17)
+  %25 = load i32, ptr @hf_mausb_cancel_transfer_status, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef 17, i32 noundef 3, i32 noundef -2147483648)
+  %27 = load i32, ptr @hf_mausb_cancel_transfer_rsvd_2, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef 17, i32 noundef 3, i32 noundef -2147483648)
+  %29 = load i32, ptr @hf_mausb_cancel_transfer_rsvd, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %29, ptr noundef %1, i32 noundef 20, i32 noundef 8, i32 noundef 0)
+  br label %31
 
-36:                                               ; preds = %27, %24
-  %.sink46 = phi i16 [ 16, %27 ], [ 8, %24 ]
-  %37 = trunc nuw i32 %2 to i16
-  %38 = add i16 %.sink46, %37
-  ret i16 %38
+31:                                               ; preds = %23, %20
+  %.0 = phi i16 [ 20, %20 ], [ 28, %23 ]
+  ret i16 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid

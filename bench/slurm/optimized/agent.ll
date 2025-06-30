@@ -5247,7 +5247,7 @@ define dso_local void @agent_purge() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @get_agent_count() local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @get_agent_count() local_unnamed_addr #0 {
   %1 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_cnt_mutex) #14
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %4, label %2

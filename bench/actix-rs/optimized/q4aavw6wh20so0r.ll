@@ -327,69 +327,69 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %58 = icmp ult i64 %34, 73
   br i1 %58, label %.preheader.i.i, label %.lr.ph.i.i43
 
-.preheader.i.i:                                   ; preds = %63, %54
-  %.067.lcssa.i.i = phi i8 [ 0, %54 ], [ %.3.i.i, %63 ]
-  %.065.lcssa.i.i = phi i64 [ 0, %54 ], [ %64, %63 ]
+.preheader.i.i:                                   ; preds = %72, %54
+  %.067.lcssa.i.i = phi i8 [ 0, %54 ], [ %.3.i.i, %72 ]
+  %.065.lcssa.i.i = phi i64 [ 0, %54 ], [ %73, %72 ]
   %59 = add i64 %.065.lcssa.i.i, 24
   %60 = icmp uge i64 %59, %34
   %61 = trunc nuw i8 %.067.lcssa.i.i to i1
   %or.cond353.i.i = select i1 %60, i1 true, i1 %61
   br i1 %or.cond353.i.i, label %._crit_edge.i.i, label %.lr.ph55.i.i
 
-.lr.ph.i.i43:                                     ; preds = %54, %63
-  %.06551.i.i = phi i64 [ %64, %63 ], [ 0, %54 ]
+.lr.ph.i.i43:                                     ; preds = %54, %72
+  %.06551.i.i = phi i64 [ %73, %72 ], [ 0, %54 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !35
   store i64 0, ptr %8, align 8, !noalias !35
   %62 = getelementptr i8, ptr %36, i64 %.06551.i.i
-  br label %80
+  br label %63
 
-63:                                               ; preds = %72
-  %64 = add i64 %.06551.i.i, 64
+63:                                               ; preds = %63, %.lr.ph.i.i43
+  %.sroa.022.047.i.i = phi i64 [ 0, %.lr.ph.i.i43 ], [ %64, %63 ]
+  %64 = add nuw nsw i64 %.sroa.022.047.i.i, 1
+  %65 = shl nuw nsw i64 %.sroa.022.047.i.i, 4
+  %66 = getelementptr i8, ptr %62, i64 %65
+  %.0.copyload.i.i.i = load <16 x i8>, ptr %66, align 1, !alias.scope !35, !noalias !36
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %.0.copyload2.i.i.i = load <16 x i8>, ptr %67, align 1, !alias.scope !35, !noalias !36
+  %68 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 119)
+  %69 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 116)
+  %70 = and <16 x i1> %68, %69
+  %71 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.022.047.i.i
+  store <16 x i1> %70, ptr %71, align 2, !noalias !35
+  %exitcond.not.i.i = icmp eq i64 %64, 4
+  br i1 %exitcond.not.i.i, label %.preheader44.i.i, label %63
+
+72:                                               ; preds = %81
+  %73 = add i64 %.06551.i.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !35
-  %65 = add i64 %.06551.i.i, 136
-  %66 = icmp uge i64 %65, %34
-  %67 = trunc nuw i8 %.3.i.i to i1
-  %or.cond.i.i = select i1 %66, i1 true, i1 %67
+  %74 = add i64 %.06551.i.i, 136
+  %75 = icmp uge i64 %74, %34
+  %76 = trunc nuw i8 %.3.i.i to i1
+  %or.cond.i.i = select i1 %75, i1 true, i1 %76
   br i1 %or.cond.i.i, label %.preheader.i.i, label %.lr.ph.i.i43
 
-.preheader44.i.i:                                 ; preds = %80, %72
-  %.sroa.028.049.i.i = phi i64 [ %68, %72 ], [ 0, %80 ]
-  %.248.i.i = phi i8 [ %.3.i.i, %72 ], [ 0, %80 ]
-  %68 = add nuw nsw i64 %.sroa.028.049.i.i, 1
-  %69 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.028.049.i.i
-  %70 = load i16, ptr %69, align 2, !noalias !35, !noundef !4
-  %71 = icmp eq i16 %70, 0
-  br i1 %71, label %72, label %73
+.preheader44.i.i:                                 ; preds = %63, %81
+  %.sroa.028.049.i.i = phi i64 [ %77, %81 ], [ 0, %63 ]
+  %.248.i.i = phi i8 [ %.3.i.i, %81 ], [ 0, %63 ]
+  %77 = add nuw nsw i64 %.sroa.028.049.i.i, 1
+  %78 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.028.049.i.i
+  %79 = load i16, ptr %78, align 2, !noalias !35, !noundef !4
+  %80 = icmp eq i16 %79, 0
+  br i1 %80, label %81, label %82
 
-72:                                               ; preds = %73, %.preheader44.i.i
-  %.3.i.i = phi i8 [ %.248.i.i, %.preheader44.i.i ], [ %79, %73 ]
-  %exitcond62.not.i.i = icmp eq i64 %68, 4
-  br i1 %exitcond62.not.i.i, label %63, label %.preheader44.i.i
+81:                                               ; preds = %82, %.preheader44.i.i
+  %.3.i.i = phi i8 [ %.248.i.i, %.preheader44.i.i ], [ %88, %82 ]
+  %exitcond62.not.i.i = icmp eq i64 %77, 4
+  br i1 %exitcond62.not.i.i, label %72, label %.preheader44.i.i
 
-73:                                               ; preds = %.preheader44.i.i
-  %74 = shl nuw nsw i64 %.sroa.028.049.i.i, 4
-  %75 = add nuw nsw i64 %74, %.06551.i.i
-  %76 = trunc nuw i8 %.248.i.i to i1
-  %77 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17he7a43a35f9445261E"(ptr noalias noundef readonly align 8 dereferenceable(32) %9, i64 noundef %75, i16 noundef %70, i1 noundef zeroext %76)
-  %78 = or i1 %77, %76
-  %79 = zext i1 %78 to i8
-  br label %72
-
-80:                                               ; preds = %80, %.lr.ph.i.i43
-  %.sroa.022.047.i.i = phi i64 [ 0, %.lr.ph.i.i43 ], [ %81, %80 ]
-  %81 = add nuw nsw i64 %.sroa.022.047.i.i, 1
-  %82 = shl nuw nsw i64 %.sroa.022.047.i.i, 4
-  %83 = getelementptr i8, ptr %62, i64 %82
-  %.0.copyload.i.i.i = load <16 x i8>, ptr %83, align 1, !alias.scope !35, !noalias !36
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %.0.copyload2.i.i.i = load <16 x i8>, ptr %84, align 1, !alias.scope !35, !noalias !36
-  %85 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 119)
-  %86 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 116)
-  %87 = and <16 x i1> %85, %86
-  %88 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.022.047.i.i
-  store <16 x i1> %87, ptr %88, align 2, !noalias !35
-  %exitcond.not.i.i = icmp eq i64 %81, 4
-  br i1 %exitcond.not.i.i, label %.preheader44.i.i, label %80
+82:                                               ; preds = %.preheader44.i.i
+  %83 = shl nuw nsw i64 %.sroa.028.049.i.i, 4
+  %84 = add nuw nsw i64 %83, %.06551.i.i
+  %85 = trunc nuw i8 %.248.i.i to i1
+  %86 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17he7a43a35f9445261E"(ptr noalias noundef readonly align 8 dereferenceable(32) %9, i64 noundef %84, i16 noundef %79, i1 noundef zeroext %85)
+  %87 = or i1 %86, %85
+  %88 = zext i1 %87 to i8
+  br label %81
 
 ._crit_edge.i.i:                                  ; preds = %104, %.preheader.i.i
   %.168.lcssa.i.i = phi i8 [ %.067.lcssa.i.i, %.preheader.i.i ], [ %.5.i.i, %104 ]

@@ -13365,7 +13365,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
   %.1 = phi i64 [ %82, %80 ], [ %.0.lcssa, %76 ], [ %.0.lcssa, %._crit_edge ]
   %.0.in5.i = add nsw i64 %.1, -1
   %.06.i = sdiv i64 %.0.in5.i, 2
-  %90 = icmp sgt i64 %.1, %1
+  %90 = icmp samesign ugt i64 %.1, %1
   br i1 %90, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %89
@@ -13392,7 +13392,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
 .loopexit.i.i.i.i.us.us.i:                        ; preds = %.lr.ph.i, %.loopexit.i.i.i.i.us.us.i
   %.08.us.us.i = phi i64 [ %.0.us.us.i, %.loopexit.i.i.i.i.us.us.i ], [ %.06.i, %.lr.ph.i ]
   %.0137.us.us.i = phi i64 [ %.08.us.us.i, %.loopexit.i.i.i.i.us.us.i ], [ %.1, %.lr.ph.i ]
-  %103 = getelementptr inbounds %"struct.std::pair.1031", ptr %0, i64 %.08.us.us.i
+  %103 = getelementptr inbounds nuw %"struct.std::pair.1031", ptr %0, i64 %.08.us.us.i
   %104 = getelementptr i8, ptr %103, i64 8
   %.val14.us.us.i = load ptr, ptr %104, align 8, !tbaa !1042
   %105 = getelementptr inbounds nuw %"struct.std::pair.1031", ptr %0, i64 %.0137.us.us.i
@@ -13408,7 +13408,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
 .lr.ph.split.i:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, %.lr.ph.split.preheader.i
   %.08.i = phi i64 [ %.0.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i ], [ %.06.i, %.lr.ph.split.preheader.i ]
   %.0137.i = phi i64 [ %.08.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i ], [ %.1, %.lr.ph.split.preheader.i ]
-  %109 = getelementptr inbounds %"struct.std::pair.1031", ptr %0, i64 %.08.i
+  %109 = getelementptr inbounds nuw %"struct.std::pair.1031", ptr %0, i64 %.08.i
   %110 = getelementptr i8, ptr %109, i64 8
   %.val14.i = load ptr, ptr %110, align 8, !tbaa !1042
   %111 = ptrtoint ptr %.val14.i to i64
@@ -13493,7 +13493,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityComp
 
 _ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit: ; preds = %141, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, %.loopexit.i.i.i.i.us.us.i, %89
   %.013.lcssa.i = phi i64 [ %.1, %89 ], [ %.08.us.us.i, %.loopexit.i.i.i.i.us.us.i ], [ %.0137.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i ], [ %.08.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i ], [ %.0137.i, %141 ]
-  %152 = getelementptr inbounds %"struct.std::pair.1031", ptr %0, i64 %.013.lcssa.i
+  %152 = getelementptr inbounds nuw %"struct.std::pair.1031", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %152, align 8, !tbaa !1040
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %4, ptr %153, align 8, !tbaa !1042

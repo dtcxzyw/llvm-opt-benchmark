@@ -439,7 +439,7 @@ declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare hidden ptr @lj_lib_checkfunc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @auxsort(ptr noundef %0, i32 noundef range(i32 -2147483646, -2147483648) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp slt i32 %1, %2
   br i1 %4, label %.lr.ph, label %.thread
 
@@ -453,8 +453,8 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %.lr.ph
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.090119) #4
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.087120) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %.090119) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %.087120) #4
   br label %8
 
 7:                                                ; preds = %.lr.ph
@@ -476,8 +476,8 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %.not99, label %16, label %15
 
 15:                                               ; preds = %11
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %13) #4
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.090119) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %13) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %.090119) #4
   br label %20
 
 16:                                               ; preds = %11
@@ -488,8 +488,8 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %.not100, label %19, label %18
 
 18:                                               ; preds = %16
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %13) #4
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.087120) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %13) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %.087120) #4
   br label %20
 
 19:                                               ; preds = %16
@@ -511,8 +511,8 @@ define internal fastcc void @auxsort(ptr noundef %0, i32 noundef %1, i32 noundef
   %.lcssa.sink = phi i32 [ %13, %22 ], [ %26, %46 ]
   %.lcssa134.sink = phi i32 [ %23, %22 ], [ %36, %46 ]
   %.084 = phi i32 [ %.090119, %22 ], [ %26, %46 ]
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.lcssa.sink) #4
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %.lcssa134.sink) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %.lcssa.sink) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %.lcssa134.sink) #4
   br label %25
 
 25:                                               ; preds = %35, %24
@@ -599,8 +599,8 @@ sort_comp.exit107:                                ; preds = %39, %41
   tail call void @lua_settop(ptr noundef %0, i32 noundef -4) #4
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %23) #4
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %26) #4
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %23) #4
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef %26) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %23) #4
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef 1, i32 noundef range(i32 -2147483647, -2147483648) %26) #4
   %48 = sub nsw i32 %26, %.090119
   %49 = sub nsw i32 %.087120, %26
   %50 = icmp slt i32 %48, %49

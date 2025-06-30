@@ -1658,8 +1658,8 @@ Gia_CutSetCutIsContainedOrder.exit.thread.thread.i.i.us: ; preds = %747, %737
   br i1 %exitcond.not67.i.i.us, label %.preheader.i.i208.us, label %.outer.i.i.us, !llvm.loop !80
 
 .preheader.i.i208.us:                             ; preds = %Gia_CutSetCutIsContainedOrder.exit.thread.thread.i.i.us, %._crit_edge.i.i.us
-  %755 = add nuw i32 %.1270.us, 1
-  %wide.trip.count62.i.i.us = zext i32 %755 to i64
+  %755 = add nuw nsw i32 %.1270.us, 1
+  %wide.trip.count62.i.i.us = zext nneg i32 %755 to i64
   br label %.lr.ph55.i.i.us
 
 .lr.ph55.i.i.us:                                  ; preds = %769, %.preheader.i.i208.us

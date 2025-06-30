@@ -70929,14 +70929,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm11AssertingVHIN
 57:                                               ; preds = %48, %44, %._crit_edge
   %.1 = phi i64 [ %50, %48 ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %._crit_edge ]
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 640
-  %59 = icmp sgt i64 %.1, %1
+  %59 = icmp samesign ugt i64 %.1, %1
   br i1 %59, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %57, %71
   %.0135.i = phi i64 [ %.06.i, %71 ], [ %.1, %57 ]
   %.06.in.i = add nsw i64 %.0135.i, -1
   %.06.i = sdiv i64 %.06.in.i, 2
-  %60 = getelementptr inbounds %"struct.std::pair.708", ptr %0, i64 %.06.i
+  %60 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %.06.i
   %.val14.i = load ptr, ptr %60, align 8, !tbaa !540
   %61 = getelementptr i8, ptr %60, i64 8
   %.val15.i = load i64, ptr %61, align 8, !tbaa !542
@@ -70982,7 +70982,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm11AssertingVHIN
 
 "_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %.lr.ph.i, %64, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i", %71, %57
   %.013.lcssa.i = phi i64 [ %.1, %57 ], [ %.0135.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i" ], [ %.06.i, %71 ], [ %.0135.i, %64 ], [ %.0135.i, %.lr.ph.i ]
-  %77 = getelementptr inbounds %"struct.std::pair.708", ptr %0, i64 %.013.lcssa.i
+  %77 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %77, align 8, !tbaa !540
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 %4, ptr %78, align 8, !tbaa !542

@@ -3257,9 +3257,9 @@ define void @Extra_TruthExpand(i32 noundef %0, i32 noundef %1, ptr noundef reado
 126:                                              ; preds = %.preheader119
   %127 = and i32 %.1, 31
   %128 = shl nuw i32 1, %127
-  %129 = ashr i32 %.1, 5
-  %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i32, ptr %4, i64 %130
+  %129 = lshr i32 %.1, 5
+  %130 = zext nneg i32 %129 to i64
+  %131 = getelementptr inbounds nuw i32, ptr %4, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !3
   %133 = or i32 %132, %128
   store i32 %133, ptr %131, align 4, !tbaa !3

@@ -1920,7 +1920,7 @@ define dso_local void @diff_emit_submodule_del(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_diff_symbol(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 4096, 1) %4) unnamed_addr #0 {
+define internal fastcc void @emit_diff_symbol(ptr noundef %0, i32 noundef range(i32 0, 34) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 4096, 1) %4) unnamed_addr #0 {
   %6 = alloca %struct.emitted_diff_symbol, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #33
   store ptr %2, ptr %6, align 8, !tbaa !47

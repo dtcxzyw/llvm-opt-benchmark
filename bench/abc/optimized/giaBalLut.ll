@@ -881,8 +881,8 @@ Bal_SetCutIsContainedOrder.exit.thread.thread.i.i202.us: ; preds = %264, %254
   br i1 %exitcond.not67.i.i206.us, label %.preheader.i.i179.us, label %.outer.i.i170.us, !llvm.loop !66
 
 .preheader.i.i179.us:                             ; preds = %Bal_SetCutIsContainedOrder.exit.thread.thread.i.i202.us, %._crit_edge.i.i178.us
-  %272 = add nuw i32 %.6314.us, 1
-  %wide.trip.count62.i.i180.us = zext i32 %272 to i64
+  %272 = add nuw nsw i32 %.6314.us, 1
+  %wide.trip.count62.i.i180.us = zext nneg i32 %272 to i64
   br label %.lr.ph55.i.i181.us
 
 .lr.ph55.i.i181.us:                               ; preds = %286, %.preheader.i.i179.us
@@ -1406,8 +1406,8 @@ Bal_SetCutIsContainedOrder.exit.thread.thread.i.i.us.us.us: ; preds = %521, %511
   br i1 %exitcond.not67.i.i.us.us.us, label %.preheader.i.i128.us.us.us, label %.outer.i.i.us.us.us, !llvm.loop !66
 
 .preheader.i.i128.us.us.us:                       ; preds = %Bal_SetCutIsContainedOrder.exit.thread.thread.i.i.us.us.us, %._crit_edge.i.i.us.us.us
-  %529 = add nuw i32 %.2321.us.us.us, 1
-  %wide.trip.count62.i.i.us.us.us = zext i32 %529 to i64
+  %529 = add nuw nsw i32 %.2321.us.us.us, 1
+  %wide.trip.count62.i.i.us.us.us = zext nneg i32 %529 to i64
   br label %.lr.ph55.i.i.us.us.us
 
 .lr.ph55.i.i.us.us.us:                            ; preds = %543, %.preheader.i.i128.us.us.us

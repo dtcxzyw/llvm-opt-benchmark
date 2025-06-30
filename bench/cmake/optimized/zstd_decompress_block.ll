@@ -167,7 +167,7 @@ define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr nounde
   %59 = icmp eq i32 %5, 0
   %60 = add nuw nsw i64 %.0199, 131136
   %61 = icmp ugt i64 %4, %60
-  %or.cond.i = select i1 %59, i1 %61, i1 false
+  %or.cond.i = and i1 %59, %61
   br i1 %or.cond.i, label %62, label %66
 
 62:                                               ; preds = %58
@@ -351,7 +351,7 @@ ZSTD_allocateLiteralsBuffer.exit:                 ; preds = %62, %68, %73
   %159 = icmp eq i32 %5, 0
   %160 = add nuw nsw i64 %.0201, 131136
   %161 = icmp ugt i64 %4, %160
-  %or.cond.i223 = select i1 %159, i1 %161, i1 false
+  %or.cond.i223 = and i1 %159, %161
   br i1 %or.cond.i223, label %162, label %166
 
 162:                                              ; preds = %158
@@ -497,7 +497,7 @@ ZSTD_allocateLiteralsBuffer.exit226:              ; preds = %162, %168, %176
   %236 = icmp eq i32 %5, 0
   %237 = add nuw nsw i64 %.0197, 131136
   %238 = icmp ugt i64 %4, %237
-  %or.cond.i227 = select i1 %236, i1 %238, i1 false
+  %or.cond.i227 = and i1 %236, %238
   br i1 %or.cond.i227, label %239, label %241
 
 239:                                              ; preds = %235
@@ -741,7 +741,7 @@ define dso_local void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr nou
 .lr.ph18.i:                                       ; preds = %75, %.lr.ph18.preheader.i
   %.0114.i16.i = phi i32 [ %76, %75 ], [ 0, %.lr.ph18.preheader.i ]
   %.1116.i15.i = phi i32 [ %.2.i.i, %75 ], [ %.0115.i22.i, %.lr.ph18.preheader.i ]
-  %72 = zext i32 %.1116.i15.i to i64
+  %72 = zext nneg i32 %.1116.i15.i to i64
   %.idx.i.i = shl nuw nsw i64 %72, 3
   %gep14.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i.i
   store i32 %71, ptr %gep14.i, align 4, !tbaa !38
@@ -749,7 +749,7 @@ define dso_local void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr nou
 
 73:                                               ; preds = %73, %.lr.ph18.i
   %.1116.pn.i.i = phi i32 [ %.1116.i15.i, %.lr.ph18.i ], [ %.2.i.i, %73 ]
-  %.pn.i.i = add i32 %65, %.1116.pn.i.i
+  %.pn.i.i = add nuw i32 %65, %.1116.pn.i.i
   %.2.i.i = and i32 %.pn.i.i, %14
   %74 = icmp ugt i32 %.2.i.i, %.1.i.i
   br i1 %74, label %73, label %75, !prof !45, !llvm.loop !46

@@ -2532,8 +2532,8 @@ define internal fastcc void @print_flags(ptr noundef nonnull %0, i64 noundef %1)
 
 12:                                               ; preds = %10
   %13 = add nuw nsw i32 %.1, 1
-  %.not88 = icmp eq i32 %.1, 0
-  %14 = select i1 %.not88, ptr @.str.38, ptr @.str.7
+  %.not80 = icmp eq i32 %.1, 0
+  %14 = select i1 %.not80, ptr @.str.38, ptr @.str.7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.39, ptr noundef nonnull %14) #13
   br label %15
 
@@ -2544,97 +2544,97 @@ define internal fastcc void @print_flags(ptr noundef nonnull %0, i64 noundef %1)
 
 16:                                               ; preds = %15
   %17 = add nuw nsw i32 %.2, 1
-  %.not89 = icmp eq i32 %.2, 0
-  %18 = select i1 %.not89, ptr @.str.38, ptr @.str.7
+  %.not81 = icmp eq i32 %.2, 0
+  %18 = select i1 %.not81, ptr @.str.38, ptr @.str.7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef nonnull %18) #13
   br label %19
 
 19:                                               ; preds = %16, %15
   %.3 = phi i32 [ %17, %16 ], [ %.2, %15 ]
   %20 = and i64 %1, 576460752303423488
-  %.not74 = icmp eq i64 %20, 0
-  br i1 %.not74, label %24, label %21
+  %.not73 = icmp eq i64 %20, 0
+  br i1 %.not73, label %24, label %21
 
 21:                                               ; preds = %19
   %22 = add nuw nsw i32 %.3, 1
-  %.not90 = icmp eq i32 %.3, 0
-  %23 = select i1 %.not90, ptr @.str.38, ptr @.str.7
+  %.not82 = icmp eq i32 %.3, 0
+  %23 = select i1 %.not82, ptr @.str.38, ptr @.str.7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.41, ptr noundef nonnull %23) #13
   br label %24
 
 24:                                               ; preds = %21, %19
   %.4 = phi i32 [ %22, %21 ], [ %.3, %19 ]
   %25 = and i64 %1, 1152921504606846976
-  %.not76 = icmp eq i64 %25, 0
-  br i1 %.not76, label %29, label %26
+  %.not74 = icmp eq i64 %25, 0
+  br i1 %.not74, label %29, label %26
 
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %.4, 1
-  %.not91 = icmp eq i32 %.4, 0
-  %28 = select i1 %.not91, ptr @.str.38, ptr @.str.7
+  %.not83 = icmp eq i32 %.4, 0
+  %28 = select i1 %.not83, ptr @.str.38, ptr @.str.7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, ptr noundef nonnull %28) #13
   br label %29
 
 29:                                               ; preds = %26, %24
   %.5 = phi i32 [ %27, %26 ], [ %.4, %24 ]
   %30 = and i64 %1, 2305843009213693952
-  %.not78 = icmp eq i64 %30, 0
-  br i1 %.not78, label %34, label %31
+  %.not75 = icmp eq i64 %30, 0
+  br i1 %.not75, label %34, label %31
 
 31:                                               ; preds = %29
   %32 = add nuw nsw i32 %.5, 1
-  %.not92 = icmp eq i32 %.5, 0
-  %33 = select i1 %.not92, ptr @.str.38, ptr @.str.7
+  %.not84 = icmp eq i32 %.5, 0
+  %33 = select i1 %.not84, ptr @.str.38, ptr @.str.7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.43, ptr noundef nonnull %33) #13
   br label %34
 
 34:                                               ; preds = %31, %29
   %.6 = phi i32 [ %32, %31 ], [ %.5, %29 ]
   %35 = and i64 %1, 4
-  %.not80 = icmp eq i64 %35, 0
-  br i1 %.not80, label %39, label %36
+  %.not76 = icmp eq i64 %35, 0
+  br i1 %.not76, label %39, label %36
 
 36:                                               ; preds = %34
   %37 = add nuw nsw i32 %.6, 1
-  %.not93 = icmp eq i32 %.6, 0
-  %38 = select i1 %.not93, ptr @.str.38, ptr @.str.7
+  %.not85 = icmp eq i32 %.6, 0
+  %38 = select i1 %.not85, ptr @.str.38, ptr @.str.7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %38) #13
   br label %39
 
 39:                                               ; preds = %36, %34
   %.7 = phi i32 [ %37, %36 ], [ %.6, %34 ]
   %40 = and i64 %1, 8
-  %.not82 = icmp eq i64 %40, 0
-  br i1 %.not82, label %44, label %41
+  %.not77 = icmp eq i64 %40, 0
+  br i1 %.not77, label %44, label %41
 
 41:                                               ; preds = %39
   %42 = add nuw nsw i32 %.7, 1
-  %.not94 = icmp eq i32 %.7, 0
-  %43 = select i1 %.not94, ptr @.str.38, ptr @.str.7
+  %.not86 = icmp eq i32 %.7, 0
+  %43 = select i1 %.not86, ptr @.str.38, ptr @.str.7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.45, ptr noundef nonnull %43) #13
   br label %44
 
 44:                                               ; preds = %41, %39
   %.8 = phi i32 [ %42, %41 ], [ %.7, %39 ]
   %45 = and i64 %1, 16
-  %.not84 = icmp eq i64 %45, 0
-  br i1 %.not84, label %48, label %46
+  %.not78 = icmp eq i64 %45, 0
+  br i1 %.not78, label %48, label %46
 
 46:                                               ; preds = %44
-  %.not95 = icmp eq i32 %.8, 0
-  %47 = select i1 %.not95, ptr @.str.38, ptr @.str.7
+  %.not87 = icmp eq i32 %.8, 0
+  %47 = select i1 %.not87, ptr @.str.38, ptr @.str.7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.46, ptr noundef nonnull %47) #13
   br label %48
 
 48:                                               ; preds = %46, %44
   %.9 = phi i32 [ 1, %46 ], [ %.8, %44 ]
   %49 = and i64 %1, 288230376151711744
-  %.not86 = icmp eq i64 %49, 0
-  br i1 %.not86, label %52, label %50
+  %.not79 = icmp eq i64 %49, 0
+  br i1 %.not79, label %52, label %50
 
 50:                                               ; preds = %48
-  %.not96 = icmp eq i32 %.9, 0
-  %51 = select i1 %.not96, ptr @.str.38, ptr @.str.7
+  %.not88 = icmp eq i32 %.9, 0
+  %51 = select i1 %.not88, ptr @.str.38, ptr @.str.7
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.47, ptr noundef nonnull %51) #13
   br label %52
 

@@ -36,7 +36,7 @@ define ptr @l_Int_add__of__le(ptr noundef %0, ptr noundef %1, ptr noundef readno
   br label %lean_int_sub.exit
 
 22:                                               ; preds = %9
-  %23 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %14) #4
+  %23 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %14) #4
   br label %lean_int_sub.exit
 
 .critedge.i:                                      ; preds = %6, %3
@@ -106,7 +106,7 @@ define ptr @l_Int_add__of__le___boxed(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %lean_int_sub.exit.i
 
 22:                                               ; preds = %9
-  %23 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %14) #4
+  %23 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %14) #4
   br label %lean_int_sub.exit.i
 
 .critedge.i.i:                                    ; preds = %6, %3
@@ -219,7 +219,7 @@ define ptr @l_Int_Cooper_resolve__left(ptr noundef %0, ptr noundef %1, ptr nound
   br label %lean_int_mul.exit
 
 24:                                               ; preds = %11
-  %25 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %16) #4
+  %25 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %16) #4
   br label %lean_int_mul.exit
 
 .critedge.i:                                      ; preds = %8, %5
@@ -261,7 +261,7 @@ lean_int_sub.exit.thread62:                       ; preds = %29
   br label %lean_dec.exit27
 
 46:                                               ; preds = %33
-  %47 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %38) #4
+  %47 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %38) #4
   br label %lean_dec.exit27
 
 48:                                               ; preds = %lean_int_mul.exit
@@ -311,7 +311,7 @@ lean_dec.exit27:                                  ; preds = %46, %41, %55, %54, 
   br label %lean_int_mul.exit47
 
 72:                                               ; preds = %59
-  %73 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %64) #4
+  %73 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %64) #4
   br label %lean_int_mul.exit47
 
 .critedge.i46:                                    ; preds = %56, %lean_dec.exit27
@@ -380,7 +380,7 @@ lean_int_ediv.exit.thread79:                      ; preds = %85
   br label %lean_dec.exit25
 
 107:                                              ; preds = %91
-  %108 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.016.i) #4
+  %108 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i) #4
   br label %lean_dec.exit25
 
 lean_int_ediv.exit:                               ; preds = %lean_nat_to_int.exit
@@ -510,7 +510,7 @@ lean_int_emod.exit.thread89:                      ; preds = %143
   br label %lean_dec.exit
 
 162:                                              ; preds = %148
-  %163 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i57) #4
+  %163 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i57) #4
   br label %lean_dec.exit
 
 lean_int_emod.exit:                               ; preds = %lean_nat_to_int.exit55
@@ -724,7 +724,7 @@ define ptr @l_Int_Cooper_resolve__left_x27(ptr noundef %0, ptr noundef %1, ptr n
   br label %lean_int_mul.exit
 
 25:                                               ; preds = %12
-  %26 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %17) #4
+  %26 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %17) #4
   br label %lean_int_mul.exit
 
 .critedge.i:                                      ; preds = %9, %6
@@ -762,7 +762,7 @@ lean_int_mul.exit:                                ; preds = %20, %25, %.critedge
   br label %lean_int_sub.exit.i
 
 46:                                               ; preds = %33
-  %47 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %38) #4
+  %47 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %38) #4
   br label %lean_int_sub.exit.i
 
 .critedge.i.i:                                    ; preds = %30, %lean_int_mul.exit
@@ -843,7 +843,7 @@ lean_dec.exit26:                                  ; preds = %65, %64, %62, %l_In
   br label %lean_int_mul.exit43
 
 82:                                               ; preds = %69
-  %83 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %74) #4
+  %83 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %74) #4
   br label %lean_int_mul.exit43
 
 .critedge.i42:                                    ; preds = %66, %lean_dec.exit26
@@ -912,7 +912,7 @@ lean_int_ediv.exit.thread68:                      ; preds = %95
   br label %lean_dec.exit24
 
 117:                                              ; preds = %101
-  %118 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.016.i) #4
+  %118 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i) #4
   br label %lean_dec.exit24
 
 lean_int_ediv.exit:                               ; preds = %lean_nat_to_int.exit
@@ -1222,7 +1222,7 @@ define ptr @l_Int_Cooper_resolve__left__inv(ptr noundef %0, ptr noundef %1, ptr 
   br label %lean_int_add.exit
 
 22:                                               ; preds = %9
-  %23 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %14) #4
+  %23 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %14) #4
   br label %lean_int_add.exit
 
 .critedge.i:                                      ; preds = %6, %3
@@ -1276,7 +1276,7 @@ lean_int_ediv.exit.thread11:                      ; preds = %27
   br label %lean_dec.exit
 
 51:                                               ; preds = %35
-  %52 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.016.i) #4
+  %52 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i) #4
   br label %lean_dec.exit
 
 53:                                               ; preds = %lean_int_add.exit

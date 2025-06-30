@@ -18300,8 +18300,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112X86AsmParser23Veri
   br label %80
 
 59:                                               ; preds = %52
-  %60 = sext i32 %.065161 to i64
-  %61 = getelementptr inbounds [0 x %"class.llvm::MCRegisterClass"], ptr @_ZN4llvm20X86MCRegisterClassesE, i64 0, i64 %60
+  %60 = zext nneg i32 %.065161 to i64
+  %61 = getelementptr inbounds nuw [0 x %"class.llvm::MCRegisterClass"], ptr @_ZN4llvm20X86MCRegisterClassesE, i64 0, i64 %60
   %62 = lshr i32 %55, 3
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 22
   %64 = load i16, ptr %63, align 2, !tbaa !197

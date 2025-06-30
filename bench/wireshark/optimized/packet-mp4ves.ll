@@ -543,7 +543,7 @@ define internal fastcc void @dissect_mp4ves_VisualObjectSequence(ptr noundef %0,
 
 dissect_mp4ves_visual_object_type.exit.i:         ; preds = %30, %25, %15
   %.1.i = phi i32 [ %22, %15 ], [ %29, %25 ], [ %spec.select.i.i, %30 ]
-  %34 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.1.i, i32 noundef 1)
+  %34 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef range(i32 77, 114) %.1.i, i32 noundef 1)
   %35 = add nuw nsw i32 %.1.i, 1
   %36 = and i32 %35, 7
   %37 = icmp eq i32 %36, 0
@@ -554,7 +554,7 @@ dissect_mp4ves_visual_object_type.exit.i:         ; preds = %30, %25, %15
   %39 = add nuw nsw i32 %38, 1
   %40 = load i32, ptr @hf_mp4ves_stuffing, align 4
   %41 = sub nsw i32 %39, %.1.i
-  %42 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %.1.i, i32 noundef %41, i32 noundef 0)
+  %42 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef range(i32 77, 114) %.1.i, i32 noundef %41, i32 noundef 0)
   br label %dissect_mp4ves_next_start_code.exit.i
 
 dissect_mp4ves_next_start_code.exit.i:            ; preds = %.preheader.preheader.i.i, %dissect_mp4ves_visual_object_type.exit.i

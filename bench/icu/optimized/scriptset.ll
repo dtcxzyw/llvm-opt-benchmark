@@ -326,7 +326,7 @@ define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_779ScriptSet8res
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_779ScriptSet12countMembersEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_779ScriptSet12countMembersEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
   br label %3
 
 2:                                                ; preds = %._crit_edge

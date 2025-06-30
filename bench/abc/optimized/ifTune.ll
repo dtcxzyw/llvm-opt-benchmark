@@ -6090,8 +6090,8 @@ Abc_TtFindFirstBit.exit:                          ; preds = %.lr.ph.i91
   %177 = trunc i64 %.424.i.i to i32
   %178 = and i32 %177, 1
   %179 = xor i32 %178, 1
-  %.5.i.i = add i32 %.4.i.i, %157
-  %180 = add i32 %.5.i.i, %179
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %157
+  %180 = add nuw nsw i32 %.5.i.i, %179
   %181 = icmp eq i32 %180, -1
   br i1 %181, label %Abc_TtFindFirstBit.exit.thread, label %226
 

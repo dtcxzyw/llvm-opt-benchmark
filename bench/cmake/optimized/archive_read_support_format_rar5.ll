@@ -267,7 +267,7 @@ define internal noundef i32 @rar5_options(ptr readnone captures(none) %0, ptr re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -9, -10) i32 @rar5_read_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal i32 @rar5_read_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [8 x i8], align 1
   %4 = alloca i64, align 8
   %5 = getelementptr i8, ptr %0, i64 2072
@@ -3773,7 +3773,7 @@ update_crc.exit:                                  ; preds = %advance_multivolume
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 2) i32 @uncompress_file(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -30, 2) i32 @uncompress_file(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca [20 x i8], align 16
   %4 = alloca [430 x i8], align 16

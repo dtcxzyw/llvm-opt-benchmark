@@ -40273,7 +40273,7 @@ _ZN5serde2de9MapAccess10next_value17hd82284612959f787E.exit: ; preds = %126
   %306 = load i64, ptr %28, align 8, !range !61, !noundef !4
   %307 = icmp ne i64 %306, -9223372036854775808
   %308 = trunc nuw i8 %.sroa.0224.5556 to i1
-  %or.cond5 = and i1 %307, %308
+  %or.cond5 = select i1 %307, i1 %308, i1 false
   br i1 %or.cond5, label %315, label %"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h01a93242f3a4a0fcE.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10833762189268282141.exit.i.i1.i.i395": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h0f4bbc9fc3b7310cE.exit394"

@@ -6976,7 +6976,7 @@ define { i32, i32 } @"_ZN3hir7from_id92_$LT$impl$u20$core..convert..From$LT$hir_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @"_ZN3hir7from_id94_$LT$impl$u20$core..convert..From$LT$hir_def..GenericDefId$GT$$u20$for$u20$hir..GenericDef$GT$4from17hbda2d553026b3437E"(i64 %0) unnamed_addr #11 {
+define range(i64 0, -4294967280) i64 @"_ZN3hir7from_id94_$LT$impl$u20$core..convert..From$LT$hir_def..GenericDefId$GT$$u20$for$u20$hir..GenericDef$GT$4from17hbda2d553026b3437E"(i64 %0) unnamed_addr #11 {
   %.sroa.09.0.extract.trunc = trunc i64 %0 to i32
   %2 = add i32 %.sroa.09.0.extract.trunc, -3
   %3 = icmp ult i32 %2, 8
@@ -50993,7 +50993,7 @@ default.unreachable1:                             ; preds = %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN3hir12GenericParam6parent17h2f162ae91adb437fE(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #3 {
+define range(i64 0, -4294967280) i64 @_ZN3hir12GenericParam6parent17h2f162ae91adb437fE(ptr noalias noundef readonly align 4 captures(none) dereferenceable(16) %0) unnamed_addr #3 {
   %2 = alloca { { { { i32, [1 x i32] }, i32 } } }, align 4
   %3 = alloca { { { { i32, [1 x i32] }, i32 } } }, align 4
   %4 = load i32, ptr %0, align 4, !range !1785, !noundef !11
@@ -51918,7 +51918,7 @@ define void @_ZN3hir13LifetimeParam6module17hd6e6fd5d2f029c67E(ptr noalias nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN3hir13LifetimeParam6parent17hacf3fb30ba1b13b9E(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #12 {
+define range(i64 0, -4294967280) i64 @_ZN3hir13LifetimeParam6parent17hacf3fb30ba1b13b9E(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #12 {
   %.sroa.01.0.copyload = load i64, ptr %0, align 4
   %.sroa.09.0.extract.trunc.i = trunc i64 %.sroa.01.0.copyload to i32
   %4 = add i32 %.sroa.09.0.extract.trunc.i, -3
@@ -52290,7 +52290,7 @@ define void @_ZN3hir10ConstParam6module17hb4eaa515b39fad8cE(ptr noalias noundef 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define i64 @_ZN3hir10ConstParam6parent17h62edea69503d47f3E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 {
+define range(i64 0, -4294967280) i64 @_ZN3hir10ConstParam6parent17h62edea69503d47f3E(ptr noalias noundef align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #3 {
   %4 = tail call i64 @_ZN7hir_def12ConstParamId6parent17h0d9d144cea3d0c38E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %0)
   %.sroa.09.0.extract.trunc.i = trunc i64 %4 to i32
   %5 = add i32 %.sroa.09.0.extract.trunc.i, -3
@@ -52879,7 +52879,7 @@ define void @_ZN3hir16TypeOrConstParam6module17h607882ef376c85b1E(ptr noalias no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define i64 @_ZN3hir16TypeOrConstParam6parent17h253c4f92ea06be60E(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #12 {
+define range(i64 0, -4294967280) i64 @_ZN3hir16TypeOrConstParam6parent17h253c4f92ea06be60E(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #12 {
   %.sroa.01.0.copyload = load i64, ptr %0, align 4
   %.sroa.09.0.extract.trunc.i = trunc i64 %.sroa.01.0.copyload to i32
   %4 = add i32 %.sroa.09.0.extract.trunc.i, -3

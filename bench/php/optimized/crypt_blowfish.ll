@@ -104,11 +104,11 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #9
   br label %47
 
-47:                                               ; preds = %61, %45
-  %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %61 ]
-  %.045.i = phi i32 [ 0, %45 ], [ %63, %61 ]
-  %.03144.i = phi i32 [ 0, %45 ], [ %.2.i, %61 ]
-  %.03243.i = phi ptr [ @.str.4, %45 ], [ %.234.i, %61 ]
+47:                                               ; preds = %62, %45
+  %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %62 ]
+  %.045.i = phi i32 [ 0, %45 ], [ %64, %62 ]
+  %.03144.i = phi i32 [ 0, %45 ], [ %.2.i, %62 ]
+  %.03243.i = phi ptr [ @.str.4, %45 ], [ %.234.i, %62 ]
   br label %48
 
 48:                                               ; preds = %48, %47
@@ -116,7 +116,7 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %50 = phi i32 [ 0, %47 ], [ %57, %48 ]
   %.141.i = phi i32 [ %.03144.i, %47 ], [ %.2.i, %48 ]
   %.13340.i = phi ptr [ %.03243.i, %47 ], [ %.234.i, %48 ]
-  %.03539.i = phi i32 [ 0, %47 ], [ %60, %48 ]
+  %.03539.i = phi i32 [ 0, %47 ], [ %61, %48 ]
   %51 = shl i32 %49, 8
   %52 = load i8, ptr %.13340.i, align 1, !tbaa !4
   %53 = zext i8 %52 to i32
@@ -125,90 +125,91 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %56 = sext i8 %52 to i32
   %57 = or i32 %55, %56
   %.not.i = icmp eq i32 %.03539.i, 0
-  %58 = select i1 %.not.i, i32 0, i32 %56
-  %.2.i = or i32 %58, %.141.i
+  %58 = and i32 %56, 128
+  %59 = select i1 %.not.i, i32 0, i32 %58
+  %.2.i = or i32 %59, %.141.i
   %.not37.i = icmp eq i8 %52, 0
-  %59 = getelementptr inbounds nuw i8, ptr %.13340.i, i64 1
-  %.234.i = select i1 %.not37.i, ptr @.str.4, ptr %59
-  %60 = add nuw nsw i32 %.03539.i, 1
-  %exitcond.not.i = icmp eq i32 %60, 4
-  br i1 %exitcond.not.i, label %61, label %48
+  %60 = getelementptr inbounds nuw i8, ptr %.13340.i, i64 1
+  %.234.i = select i1 %.not37.i, ptr @.str.4, ptr %60
+  %61 = add nuw nsw i32 %.03539.i, 1
+  %exitcond.not.i = icmp eq i32 %61, 4
+  br i1 %exitcond.not.i, label %62, label %48
 
-61:                                               ; preds = %48
-  %62 = xor i32 %54, %57
-  %63 = or i32 %62, %.045.i
-  %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
-  store i32 %54, ptr %64, align 4, !tbaa !7
-  %65 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i
-  %66 = load i32, ptr %65, align 4, !tbaa !7
-  %67 = xor i32 %66, %54
-  %68 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
-  store i32 %67, ptr %68, align 4, !tbaa !7
+62:                                               ; preds = %48
+  %63 = xor i32 %54, %57
+  %64 = or i32 %63, %.045.i
+  %65 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  store i32 %54, ptr %65, align 4, !tbaa !7
+  %66 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i
+  %67 = load i32, ptr %66, align 4, !tbaa !7
+  %68 = xor i32 %67, %54
+  %69 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  store i32 %68, ptr %69, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next.i, 18
   br i1 %exitcond49.not.i, label %BF_set_key.exit, label %47
 
-BF_set_key.exit:                                  ; preds = %61
-  %69 = lshr i32 %63, 16
-  %.0.masked.i = and i32 %63, 65535
-  %70 = or i32 %.0.masked.i, %69
-  %71 = shl i32 %.2.i, 9
-  %72 = sub nuw nsw i32 65536, %70
-  %73 = and i32 %71, 65536
-  %74 = and i32 %73, %72
-  %75 = load i32, ptr %7, align 16, !tbaa !7
-  %76 = xor i32 %75, %74
-  br label %77
-
-77:                                               ; preds = %86, %BF_set_key.exit
-  %indvars.iv.i40 = phi i64 [ 0, %BF_set_key.exit ], [ %indvars.iv.next.i52, %86 ]
-  %.03243.i43 = phi ptr [ @.str.4, %BF_set_key.exit ], [ %.234.i50, %86 ]
+BF_set_key.exit:                                  ; preds = %62
+  %70 = lshr i32 %64, 16
+  %.0.masked.i = and i32 %64, 65535
+  %71 = or i32 %.0.masked.i, %70
+  %72 = shl nuw nsw i32 %.2.i, 9
+  %73 = sub nuw nsw i32 65536, %71
+  %74 = and i32 %72, 65536
+  %75 = and i32 %74, %73
+  %76 = load i32, ptr %7, align 16, !tbaa !7
+  %77 = xor i32 %76, %75
   br label %78
 
-78:                                               ; preds = %78, %77
-  %79 = phi i32 [ 0, %77 ], [ %83, %78 ]
-  %.13340.i45 = phi ptr [ %.03243.i43, %77 ], [ %.234.i50, %78 ]
-  %.03539.i46 = phi i32 [ 0, %77 ], [ %85, %78 ]
-  %80 = shl i32 %79, 8
-  %81 = load i8, ptr %.13340.i45, align 1, !tbaa !4
-  %82 = zext i8 %81 to i32
-  %83 = or disjoint i32 %80, %82
-  %.not37.i49 = icmp eq i8 %81, 0
-  %84 = getelementptr inbounds nuw i8, ptr %.13340.i45, i64 1
-  %.234.i50 = select i1 %.not37.i49, ptr @.str.4, ptr %84
-  %85 = add nuw nsw i32 %.03539.i46, 1
-  %exitcond.not.i51 = icmp eq i32 %85, 4
-  br i1 %exitcond.not.i51, label %86, label %78
+78:                                               ; preds = %87, %BF_set_key.exit
+  %indvars.iv.i40 = phi i64 [ 0, %BF_set_key.exit ], [ %indvars.iv.next.i52, %87 ]
+  %.03243.i43 = phi ptr [ @.str.4, %BF_set_key.exit ], [ %.234.i50, %87 ]
+  br label %79
 
-86:                                               ; preds = %78
-  %87 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i40
-  store i32 %83, ptr %87, align 4, !tbaa !7
-  %88 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i40
-  %89 = load i32, ptr %88, align 4, !tbaa !7
-  %90 = xor i32 %89, %83
-  %91 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i40
-  store i32 %90, ptr %91, align 4, !tbaa !7
+79:                                               ; preds = %79, %78
+  %80 = phi i32 [ 0, %78 ], [ %84, %79 ]
+  %.13340.i45 = phi ptr [ %.03243.i43, %78 ], [ %.234.i50, %79 ]
+  %.03539.i46 = phi i32 [ 0, %78 ], [ %86, %79 ]
+  %81 = shl i32 %80, 8
+  %82 = load i8, ptr %.13340.i45, align 1, !tbaa !4
+  %83 = zext i8 %82 to i32
+  %84 = or disjoint i32 %81, %83
+  %.not37.i49 = icmp eq i8 %82, 0
+  %85 = getelementptr inbounds nuw i8, ptr %.13340.i45, i64 1
+  %.234.i50 = select i1 %.not37.i49, ptr @.str.4, ptr %85
+  %86 = add nuw nsw i32 %.03539.i46, 1
+  %exitcond.not.i51 = icmp eq i32 %86, 4
+  br i1 %exitcond.not.i51, label %87, label %79
+
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i40
+  store i32 %84, ptr %88, align 4, !tbaa !7
+  %89 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv.i40
+  %90 = load i32, ptr %89, align 4, !tbaa !7
+  %91 = xor i32 %90, %84
+  %92 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i40
+  store i32 %91, ptr %92, align 4, !tbaa !7
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond49.not.i53 = icmp eq i64 %indvars.iv.next.i52, 18
-  br i1 %exitcond49.not.i53, label %BF_set_key.exit55, label %77
+  br i1 %exitcond49.not.i53, label %BF_set_key.exit55, label %78
 
-BF_set_key.exit55:                                ; preds = %86
-  %92 = xor i32 %76, 65536
-  store i32 %92, ptr %7, align 16, !tbaa !7
-  %93 = icmp eq i32 %76, -610444868
-  %or.cond = select i1 %46, i1 %93, i1 false
-  %94 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  %95 = load i32, ptr %94, align 4
-  %96 = icmp eq i32 %95, 859059456
-  %or.cond5 = select i1 %or.cond, i1 %96, i1 false
-  br i1 %or.cond5, label %97, label %.critedge
+BF_set_key.exit55:                                ; preds = %87
+  %93 = xor i32 %77, 65536
+  store i32 %93, ptr %7, align 16, !tbaa !7
+  %94 = icmp eq i32 %77, -610444868
+  %or.cond = select i1 %46, i1 %94, i1 false
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 68
+  %96 = load i32, ptr %95, align 4
+  %97 = icmp eq i32 %96, 859059456
+  %or.cond5 = select i1 %or.cond, i1 %97, i1 false
+  br i1 %or.cond5, label %98, label %.critedge
 
-97:                                               ; preds = %BF_set_key.exit55
+98:                                               ; preds = %BF_set_key.exit55
   %bcmp36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(72) %6, ptr noundef nonnull dereferenceable(72) %8, i64 72)
   %.not37 = icmp eq i32 %bcmp36, 0
-  br i1 %.not37, label %98, label %.critedge
+  br i1 %.not37, label %99, label %.critedge
 
-98:                                               ; preds = %97
+99:                                               ; preds = %98
   %bcmp38 = call i32 @bcmp(ptr noundef nonnull dereferenceable(72) %7, ptr noundef nonnull dereferenceable(72) %9, i64 72)
   %.not39 = icmp eq i32 %bcmp38, 0
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #9
@@ -216,45 +217,45 @@ BF_set_key.exit55:                                ; preds = %86
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #9
   store i32 %23, ptr %22, align 4, !tbaa !7
-  br i1 %.not39, label %110, label %99
+  br i1 %.not39, label %111, label %100
 
-.critedge:                                        ; preds = %BF_set_key.exit55, %97
+.critedge:                                        ; preds = %BF_set_key.exit55, %98
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #9
   store i32 %23, ptr %22, align 4, !tbaa !7
-  br label %99
+  br label %100
 
-99:                                               ; preds = %.critedge, %98
-  br i1 %10, label %_crypt_output_magic.exit57, label %100
+100:                                              ; preds = %.critedge, %99
+  br i1 %10, label %_crypt_output_magic.exit57, label %101
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   store i8 42, ptr %2, align 1, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 48, ptr %101, align 1, !tbaa !4
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 0, ptr %102, align 1, !tbaa !4
-  %103 = load i8, ptr %1, align 1, !tbaa !4
-  %104 = icmp eq i8 %103, 42
-  br i1 %104, label %105, label %_crypt_output_magic.exit57
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  store i8 48, ptr %102, align 1, !tbaa !4
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  store i8 0, ptr %103, align 1, !tbaa !4
+  %104 = load i8, ptr %1, align 1, !tbaa !4
+  %105 = icmp eq i8 %104, 42
+  br i1 %105, label %106, label %_crypt_output_magic.exit57
 
-105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %107 = load i8, ptr %106, align 1, !tbaa !4
-  %108 = icmp eq i8 %107, 48
-  br i1 %108, label %109, label %_crypt_output_magic.exit57
+106:                                              ; preds = %101
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %108 = load i8, ptr %107, align 1, !tbaa !4
+  %109 = icmp eq i8 %108, 48
+  br i1 %109, label %110, label %_crypt_output_magic.exit57
 
-109:                                              ; preds = %105
-  store i8 49, ptr %101, align 1, !tbaa !4
+110:                                              ; preds = %106
+  store i8 49, ptr %102, align 1, !tbaa !4
   br label %_crypt_output_magic.exit57
 
-_crypt_output_magic.exit57:                       ; preds = %99, %100, %105, %109
+_crypt_output_magic.exit57:                       ; preds = %100, %101, %106, %110
   store i32 22, ptr %22, align 4, !tbaa !7
-  br label %110
+  br label %111
 
-110:                                              ; preds = %98, %_crypt_output_magic.exit57
-  %.0 = phi ptr [ null, %_crypt_output_magic.exit57 ], [ %21, %98 ]
+111:                                              ; preds = %99, %_crypt_output_magic.exit57
+  %.0 = phi ptr [ null, %_crypt_output_magic.exit57 ], [ %21, %99 ]
   call void @llvm.lifetime.end.p0(i64 93, ptr nonnull %5) #9
   ret ptr %.0
 }
@@ -2972,11 +2973,11 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   %10 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %9
   br label %11
 
-11:                                               ; preds = %4, %27
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %27 ]
-  %.045 = phi i32 [ 0, %4 ], [ %29, %27 ]
-  %.03144 = phi i32 [ 0, %4 ], [ %.2, %27 ]
-  %.03243 = phi ptr [ %0, %4 ], [ %.234, %27 ]
+11:                                               ; preds = %4, %28
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %28 ]
+  %.045 = phi i32 [ 0, %4 ], [ %30, %28 ]
+  %.03144 = phi i32 [ 0, %4 ], [ %.2, %28 ]
+  %.03243 = phi ptr [ %0, %4 ], [ %.234, %28 ]
   store i32 0, ptr %8, align 4, !tbaa !7
   br label %12
 
@@ -2985,7 +2986,7 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   %14 = phi i32 [ 0, %11 ], [ %22, %12 ]
   %.141 = phi i32 [ %.03144, %11 ], [ %.2, %12 ]
   %.13340 = phi ptr [ %.03243, %11 ], [ %.234, %12 ]
-  %.03539 = phi i32 [ 0, %11 ], [ %26, %12 ]
+  %.03539 = phi i32 [ 0, %11 ], [ %27, %12 ]
   %15 = shl i32 %13, 8
   store i32 %15, ptr %5, align 4, !tbaa !7
   %16 = load i8, ptr %.13340, align 1, !tbaa !4
@@ -2999,44 +3000,45 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   %22 = or i32 %19, %21
   store i32 %22, ptr %8, align 4, !tbaa !7
   %.not = icmp eq i32 %.03539, 0
-  %23 = select i1 %.not, i32 0, i32 %21
-  %.2 = or i32 %23, %.141
-  %24 = load i8, ptr %.13340, align 1, !tbaa !4
-  %.not37 = icmp eq i8 %24, 0
-  %25 = getelementptr inbounds nuw i8, ptr %.13340, i64 1
-  %.234 = select i1 %.not37, ptr %0, ptr %25
-  %26 = add nuw nsw i32 %.03539, 1
-  %exitcond.not = icmp eq i32 %26, 4
-  br i1 %exitcond.not, label %27, label %12
+  %23 = and i32 %21, 128
+  %24 = select i1 %.not, i32 0, i32 %23
+  %.2 = or i32 %24, %.141
+  %25 = load i8, ptr %.13340, align 1, !tbaa !4
+  %.not37 = icmp eq i8 %25, 0
+  %26 = getelementptr inbounds nuw i8, ptr %.13340, i64 1
+  %.234 = select i1 %.not37, ptr %0, ptr %26
+  %27 = add nuw nsw i32 %.03539, 1
+  %exitcond.not = icmp eq i32 %27, 4
+  br i1 %exitcond.not, label %28, label %12
 
-27:                                               ; preds = %12
-  %28 = xor i32 %18, %22
-  %29 = or i32 %28, %.045
-  %30 = load i32, ptr %10, align 4, !tbaa !7
-  %31 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  store i32 %30, ptr %31, align 4, !tbaa !7
-  %32 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv
-  %33 = load i32, ptr %32, align 4, !tbaa !7
-  %34 = xor i32 %33, %30
-  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  store i32 %34, ptr %35, align 4, !tbaa !7
+28:                                               ; preds = %12
+  %29 = xor i32 %18, %22
+  %30 = or i32 %29, %.045
+  %31 = load i32, ptr %10, align 4, !tbaa !7
+  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  store i32 %31, ptr %32, align 4, !tbaa !7
+  %33 = getelementptr inbounds nuw [18 x i32], ptr getelementptr inbounds nuw (i8, ptr @BF_init_state, i64 4096), i64 0, i64 %indvars.iv
+  %34 = load i32, ptr %33, align 4, !tbaa !7
+  %35 = xor i32 %34, %31
+  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  store i32 %35, ptr %36, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond49.not, label %36, label %11
+  br i1 %exitcond49.not, label %37, label %11
 
-36:                                               ; preds = %27
-  %37 = shl nuw nsw i32 %6, 15
-  %38 = and i32 %37, 65536
-  %39 = lshr i32 %29, 16
-  %.0.masked = and i32 %29, 65535
-  %40 = or i32 %.0.masked, %39
-  %41 = shl i32 %.2, 9
-  %42 = sub nuw nsw i32 65536, %40
-  %43 = and i32 %38, %41
-  %44 = and i32 %43, %42
-  %45 = load i32, ptr %2, align 4, !tbaa !7
-  %46 = xor i32 %45, %44
-  store i32 %46, ptr %2, align 4, !tbaa !7
+37:                                               ; preds = %28
+  %38 = shl nuw nsw i32 %6, 15
+  %39 = and i32 %38, 65536
+  %40 = lshr i32 %30, 16
+  %.0.masked = and i32 %30, 65535
+  %41 = or i32 %.0.masked, %40
+  %42 = shl nuw nsw i32 %.2, 9
+  %43 = sub nuw nsw i32 65536, %41
+  %44 = and i32 %39, %42
+  %45 = and i32 %44, %43
+  %46 = load i32, ptr %2, align 4, !tbaa !7
+  %47 = xor i32 %46, %45
+  store i32 %47, ptr %2, align 4, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   ret void
 }

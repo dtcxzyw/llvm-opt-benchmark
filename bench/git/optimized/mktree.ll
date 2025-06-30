@@ -353,7 +353,7 @@ st_add.exit18._crit_edge.i.i:                     ; preds = %st_add.exit18.i.i
   br i1 %148, label %149, label %st_mult.exit.i.i
 
 149:                                              ; preds = %142
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.14, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %147) #13
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.14, i64 noundef 8, i64 noundef range(i64 -1073741824, 2147483648) %147) #13
   unreachable
 
 st_mult.exit.i.i:                                 ; preds = %142

@@ -10139,13 +10139,13 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN96_$LT$futures_util..sink..feed..Fe
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !62, !noundef !4
   %.val = load ptr, ptr %3, align 8, !noundef !4
   %4 = icmp eq ptr %.val, null
-  br i1 %4, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h2a9543857afdfa29E.exit.thread", label %5
+  br i1 %4, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17hc7c57349dbc0fdd4E.exit.thread", label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %7 = load atomic i64, ptr %6 seq_cst, align 8
   %.not.i.i = icmp sgt i64 %7, -1
-  br i1 %.not.i.i, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h2a9543857afdfa29E.exit.thread", label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h2a9543857afdfa29E.exit"
+  br i1 %.not.i.i, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17hc7c57349dbc0fdd4E.exit.thread", label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h2a9543857afdfa29E.exit"
 
 "_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h2a9543857afdfa29E.exit": ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10162,7 +10162,7 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN96_$LT$futures_util..sink..feed..Fe
   %12 = load ptr, ptr %0, align 8, !nonnull !4, !align !62, !noundef !4
   %.val19 = load ptr, ptr %12, align 8, !noundef !4
   %13 = icmp eq ptr %.val19, null
-  br i1 %13, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h2a9543857afdfa29E.exit.thread", label %14
+  br i1 %13, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17hc7c57349dbc0fdd4E.exit.thread", label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.val19, i64 32
@@ -10172,7 +10172,7 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN96_$LT$futures_util..sink..feed..Fe
 17:                                               ; preds = %21, %14
   %.sroa.04.0.i.i.i.i = phi i64 [ %16, %14 ], [ %.sroa.08.0.i.i.i.i.i, %21 ]
   %.not.i.i.i.i = icmp sgt i64 %.sroa.04.0.i.i.i.i, -1
-  br i1 %.not.i.i.i.i, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h2a9543857afdfa29E.exit.thread", label %18
+  br i1 %.not.i.i.i.i, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17hc7c57349dbc0fdd4E.exit.thread", label %18
 
 18:                                               ; preds = %17
   %19 = and i64 %.sroa.04.0.i.i.i.i, 9223372036854775807
@@ -10210,10 +10210,10 @@ define hidden noundef range(i8 1, 3) i8 @"_ZN96_$LT$futures_util..sink..feed..Fe
   store atomic ptr %27, ptr %32 release, align 8
   %33 = getelementptr inbounds nuw i8, ptr %.val19, i64 48
   tail call void @_ZN12futures_core4task10__internal12atomic_waker11AtomicWaker4wake17h251c193126d5370dE(ptr noundef nonnull align 8 %33)
-  br label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h2a9543857afdfa29E.exit.thread"
+  br label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17hc7c57349dbc0fdd4E.exit.thread"
 
-"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h2a9543857afdfa29E.exit.thread": ; preds = %17, %11, %5, %2, %30
-  %.sroa.0.1 = phi i8 [ 2, %30 ], [ 1, %2 ], [ 1, %5 ], [ 1, %11 ], [ 1, %17 ]
+"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17hc7c57349dbc0fdd4E.exit.thread": ; preds = %17, %2, %5, %11, %30
+  %.sroa.0.1 = phi i8 [ 2, %30 ], [ 1, %11 ], [ 1, %5 ], [ 1, %2 ], [ 1, %17 ]
   ret i8 %.sroa.0.1
 }
 
@@ -10226,13 +10226,13 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN96_$LT$futures_util..sink..feed..Fe
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !align !62, !noundef !4
   %.val = load ptr, ptr %7, align 8, !noundef !4
   %8 = icmp eq ptr %.val, null
-  br i1 %8, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit.thread", label %9
+  br i1 %8, label %select.unfold, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %.not.i.i = icmp sgt i64 %11, -1
-  br i1 %.not.i.i, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit.thread", label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit"
+  br i1 %.not.i.i, label %select.unfold, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit"
 
 "_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit": ; preds = %9
   %.sroa.07.0.copyload = load i64, ptr %0, align 8
@@ -10254,7 +10254,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN96_$LT$futures_util..sink..feed..Fe
   call void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_send_nb17hc5e4348aa0c33f9aE"(ptr noalias noundef nonnull sret([416 x i8]) align 8 captures(none) dereferenceable(416) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(408) %5)
   %16 = load i64, ptr %4, align 8, !range !457, !noalias !1989, !noundef !4
   %17 = icmp eq i64 %16, 230
-  br i1 %17, label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit.thread.sink.split", label %18
+  br i1 %17, label %select.unfold.sink.split, label %18
 
 18:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %3), !noalias !1989
@@ -10271,15 +10271,15 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN96_$LT$futures_util..sink..feed..Fe
 
 "_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17h0a49892d5fb27e80E.exit": ; preds = %18, %23
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %3), !noalias !1989
-  br label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit.thread.sink.split"
+  br label %select.unfold.sink.split
 
-"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit.thread.sink.split": ; preds = %14, %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17h0a49892d5fb27e80E.exit"
+select.unfold.sink.split:                         ; preds = %14, %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17h0a49892d5fb27e80E.exit"
   %.sroa.0.1.ph = phi i8 [ %20, %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10start_send17h0a49892d5fb27e80E.exit" ], [ 2, %14 ]
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4), !noalias !1989
-  br label %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit.thread"
+  br label %select.unfold
 
-"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit.thread": ; preds = %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit.thread.sink.split", %9, %2
-  %.sroa.0.1 = phi i8 [ 1, %2 ], [ 1, %9 ], [ %.sroa.0.1.ph, %"_ZN15futures_channel4mpsc9sink_impl105_$LT$impl$u20$futures_sink..Sink$LT$T$GT$$u20$for$u20$futures_channel..mpsc..UnboundedSender$LT$T$GT$$GT$10poll_ready17h89dc47049b8e203dE.exit.thread.sink.split" ]
+select.unfold:                                    ; preds = %select.unfold.sink.split, %2, %9
+  %.sroa.0.1 = phi i8 [ 1, %9 ], [ 1, %2 ], [ %.sroa.0.1.ph, %select.unfold.sink.split ]
   ret i8 %.sroa.0.1
 }
 

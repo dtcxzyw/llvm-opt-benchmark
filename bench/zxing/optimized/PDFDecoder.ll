@@ -3813,7 +3813,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.critedge82.i, !llvm.loop !121
 
 173:                                              ; preds = %122
-  switch i32 %.069120.i, label %default.unreachable [
+  switch i32 %.069120.i, label %default.unreachable124.i [
     i32 0, label %174
     i32 1, label %174
     i32 2, label %197
@@ -3937,7 +3937,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   %231 = load i8, ptr %230, align 1, !tbaa !3
   br label %232
 
-default.unreachable:                              ; preds = %173
+default.unreachable124.i:                         ; preds = %173
   unreachable
 
 232:                                              ; preds = %228, %221, %215, %199, %176
@@ -4774,7 +4774,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEii(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEii(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef range(i32 -2147483647, -2147483648) %2, i32 noundef range(i32 1, -2147483648) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.ZXing::BigInteger", align 8
   %6 = alloca %"class.ZXing::BigInteger", align 8
   %7 = alloca %"class.ZXing::BigInteger", align 8

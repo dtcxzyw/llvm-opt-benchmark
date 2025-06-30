@@ -1612,9 +1612,9 @@ define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr n
   br i1 %exitcond50.not, label %._crit_edge.us, label %10, !llvm.loop !48
 
 ._crit_edge.us:                                   ; preds = %10
-  %17 = ashr i32 %.122.us, 5
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %8, i64 %18
+  %17 = lshr i32 %.122.us, 5
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !26
   %21 = and i32 %.122.us, 31
   %22 = shl nuw i32 1, %21
@@ -1812,9 +1812,9 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   br i1 %exitcond50.not.i, label %._crit_edge.us.i, label %41, !llvm.loop !48
 
 ._crit_edge.us.i:                                 ; preds = %41
-  %48 = ashr i32 %.122.us.i, 5
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %39, i64 %49
+  %48 = lshr i32 %.122.us.i, 5
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds nuw i32, ptr %39, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = and i32 %.122.us.i, 31
   %53 = shl nuw i32 1, %52

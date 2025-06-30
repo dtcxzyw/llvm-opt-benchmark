@@ -8052,12 +8052,12 @@ declare ptr @_PyLong_Lshift(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @factorial_partial_product(i64 noundef range(i64 1, 0) %0, i64 noundef range(i64 1, 0) %1, i64 noundef range(i64 0, 65) %2) unnamed_addr #0 {
+define internal fastcc ptr @factorial_partial_product(i64 noundef range(i64 1, 0) %0, i64 noundef range(i64 1, 0) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #0 {
   %4 = sub i64 %1, %0
   %5 = lshr i64 %4, 1
   %6 = icmp ult i64 %4, 130
-  %7 = mul nuw nsw i64 %5, %2
-  %8 = icmp samesign ult i64 %7, 65
+  %7 = mul nsw i64 %5, %2
+  %8 = icmp ult i64 %7, 65
   %or.cond = select i1 %6, i1 %8, i1 false
   br i1 %or.cond, label %.preheader, label %13
 

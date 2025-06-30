@@ -12453,7 +12453,7 @@ define internal fastcc void @_ZN6zopfli7squeeze12lz77_optimal17h51e156ba8eeca389
   %.sroa.0.024.i.i.i = phi double [ 0x7FF0000000000000, %171 ], [ %.sroa.0.3.i.i.i, %.noexc104.i.i ]
   %.sroa.09.023.i.i.i = phi i64 [ 3, %171 ], [ %176, %.noexc104.i.i ]
   %.sroa.07.022.i.i.i = phi i64 [ 0, %171 ], [ %.sroa.07.1.i.i.i, %.noexc104.i.i ]
-  %175 = invoke noundef double @_ZN6zopfli7squeeze13get_cost_stat17hbaee35cac4bb4058E(i64 noundef %.sroa.09.023.i.i.i, i16 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(5120) %41)
+  %175 = invoke noundef double @_ZN6zopfli7squeeze13get_cost_stat17hbaee35cac4bb4058E(i64 noundef range(i64 0, 259) %.sroa.09.023.i.i.i, i16 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(5120) %41)
           to label %.noexc104.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i.i, !noalias !2081
 
 .noexc104.i.i:                                    ; preds = %174
@@ -12466,7 +12466,7 @@ define internal fastcc void @_ZN6zopfli7squeeze12lz77_optimal17h51e156ba8eeca389
 
 178:                                              ; preds = %.noexc106.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14), !noalias !2096
-  %179 = invoke noundef double @_ZN6zopfli7squeeze13get_cost_stat17hbaee35cac4bb4058E(i64 noundef %.sroa.07.1.i.i.i, i16 noundef %.sroa.08.1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(5120) %41)
+  %179 = invoke noundef double @_ZN6zopfli7squeeze13get_cost_stat17hbaee35cac4bb4058E(i64 noundef range(i64 0, 259) %.sroa.07.1.i.i.i, i16 noundef %.sroa.08.1.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(5120) %41)
           to label %_ZN6zopfli7squeeze23get_cost_model_min_cost17haa91aefddbce854bE.exit.preheader.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.loopexit, !noalias !2081
 
 _ZN6zopfli7squeeze23get_cost_model_min_cost17haa91aefddbce854bE.exit.preheader.i.i: ; preds = %178

@@ -1066,7 +1066,7 @@ cli_rawaddr.exit:                                 ; preds = %39, %26, %29, %41
   %49 = zext i32 %.0.i to i64
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %51 = load ptr, ptr %50, align 8, !tbaa !32
-  %52 = tail call ptr %51(ptr noundef %2, i64 noundef %49, i64 noundef 16, i32 noundef 0) #22
+  %52 = tail call ptr %51(ptr noundef %2, i64 noundef range(i64 0, 8589934855) %49, i64 noundef 16, i32 noundef 0) #22
   %53 = icmp eq ptr %52, null
   %or.cond = select i1 %53, i1 true, i1 %.sink.i
   br i1 %or.cond, label %.loopexit154, label %54
@@ -1186,7 +1186,7 @@ cli_rawaddr.exit123:                              ; preds = %102, %89, %92, %104
   %.0.i119 = phi i32 [ %111, %104 ], [ %.44.i122, %89 ], [ 0, %92 ], [ 0, %102 ]
   %112 = zext i32 %.0.i119 to i64
   %113 = load ptr, ptr %50, align 8, !tbaa !32
-  %114 = tail call ptr %113(ptr noundef nonnull %2, i64 noundef %112, i64 noundef 16, i32 noundef 0) #22
+  %114 = tail call ptr %113(ptr noundef nonnull %2, i64 noundef range(i64 0, 8589934855) %112, i64 noundef 16, i32 noundef 0) #22
   %115 = icmp eq ptr %114, null
   %or.cond3 = select i1 %115, i1 true, i1 %.sink.i118
   br i1 %or.cond3, label %.loopexit154, label %116
@@ -1307,7 +1307,7 @@ cli_rawaddr.exit138:                              ; preds = %165, %152, %155, %1
   %.0.i134 = phi i32 [ %174, %167 ], [ %.44.i137, %152 ], [ 0, %155 ], [ 0, %165 ]
   %175 = zext i32 %.0.i134 to i64
   %176 = load ptr, ptr %50, align 8, !tbaa !32
-  %177 = tail call ptr %176(ptr noundef nonnull %2, i64 noundef %175, i64 noundef 16, i32 noundef 0) #22
+  %177 = tail call ptr %176(ptr noundef nonnull %2, i64 noundef range(i64 0, 8589934855) %175, i64 noundef 16, i32 noundef 0) #22
   %178 = icmp eq ptr %177, null
   %or.cond5 = select i1 %178, i1 true, i1 %.sink.i133
   br i1 %or.cond5, label %.loopexit154, label %179
@@ -1738,7 +1738,7 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
   %196 = zext i32 %195 to i64
   %197 = getelementptr inbounds nuw i8, ptr %191, i64 104
   %198 = load ptr, ptr %197, align 8, !tbaa !32
-  %199 = call ptr %198(ptr noundef %191, i64 noundef %194, i64 noundef %196, i32 noundef 0) #22
+  %199 = call ptr %198(ptr noundef %191, i64 noundef range(i64 0, 8589934855) %194, i64 noundef %196, i32 noundef 0) #22
   %.not99.i = icmp eq ptr %199, null
   br i1 %.not99.i, label %.thread.sink.split.i, label %200
 
@@ -1951,7 +1951,7 @@ scan_pe_mdb.exit._crit_edge:                      ; preds = %scan_pe_mdb.exit
   %spec.select.i = call i64 @llvm.umin.i64(i64 %301, i64 4096)
   %302 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %303 = load ptr, ptr %302, align 8, !tbaa !32
-  %304 = call ptr %303(ptr noundef nonnull %43, i64 noundef %296, i64 noundef %spec.select.i, i32 noundef 0) #22
+  %304 = call ptr %303(ptr noundef nonnull %43, i64 noundef range(i64 0, 8589934855) %296, i64 noundef %spec.select.i, i32 noundef 0) #22
   %.not.i2932 = icmp eq ptr %304, null
   br i1 %.not.i2932, label %306, label %305
 
@@ -2527,7 +2527,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %584 = zext i32 %583 to i64
   %585 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %586 = load ptr, ptr %585, align 8, !tbaa !32
-  %587 = call ptr %586(ptr noundef %43, i64 noundef %584, i64 noundef 4096, i32 noundef 0) #22
+  %587 = call ptr %586(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %584, i64 noundef 4096, i32 noundef 0) #22
   %.not2522 = icmp eq ptr %587, null
   br i1 %.not2522, label %.thread2981, label %588
 
@@ -2563,7 +2563,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %604 = zext i32 %603 to i64
   %605 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %606 = load ptr, ptr %605, align 8, !tbaa !32
-  %607 = call ptr %606(ptr noundef %43, i64 noundef %604, i64 noundef 4096, i32 noundef 0) #22
+  %607 = call ptr %606(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %604, i64 noundef 4096, i32 noundef 0) #22
   %.not2517 = icmp eq ptr %607, null
   br i1 %.not2517, label %.thread2981, label %608
 
@@ -2631,7 +2631,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %641 = zext nneg i32 %635 to i64
   %642 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %643 = load ptr, ptr %642, align 8, !tbaa !32
-  %644 = call ptr %643(ptr noundef %43, i64 noundef %640, i64 noundef %641, i32 noundef 0) #22
+  %644 = call ptr %643(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %640, i64 noundef %641, i32 noundef 0) #22
   %.not2528 = icmp eq ptr %644, null
   br i1 %.not2528, label %.critedge, label %.preheader3202
 
@@ -2800,7 +2800,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %714 = load i32, ptr %713, align 4, !tbaa !10
   %715 = zext i32 %714 to i64
   %716 = load ptr, ptr %642, align 8, !tbaa !32
-  %717 = call ptr %716(ptr noundef %43, i64 noundef %715, i64 noundef 9, i32 noundef 0) #22
+  %717 = call ptr %716(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %715, i64 noundef 9, i32 noundef 0) #22
   %.not2536 = icmp eq ptr %717, null
   br i1 %.not2536, label %739, label %718
 
@@ -3017,7 +3017,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %813 = zext nneg i32 %810 to i64
   %814 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %815 = load ptr, ptr %814, align 8, !tbaa !32
-  %816 = call ptr %815(ptr noundef %43, i64 noundef %813, i64 noundef 176, i32 noundef 0) #22
+  %816 = call ptr %815(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %813, i64 noundef 176, i32 noundef 0) #22
   %.not2551 = icmp eq ptr %816, null
   br i1 %.not2551, label %.loopexit3200, label %817
 
@@ -3811,7 +3811,7 @@ fmap_readn.exit:                                  ; preds = %305, %293
   %1244 = zext i32 %1209 to i64
   %1245 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %1246 = load ptr, ptr %1245, align 8, !tbaa !32
-  %1247 = call ptr %1246(ptr noundef %43, i64 noundef %1243, i64 noundef %1244, i32 noundef 0) #22
+  %1247 = call ptr %1246(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %1243, i64 noundef %1244, i32 noundef 0) #22
   %.not2595 = icmp eq ptr %1247, null
   br i1 %.not2595, label %1248, label %1249
 
@@ -4195,7 +4195,7 @@ cli_rawaddr.exit:                                 ; preds = %1416
   %1437 = zext i32 %.0.i2933 to i64
   %1438 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %1439 = load ptr, ptr %1438, align 8, !tbaa !32
-  %1440 = call ptr %1439(ptr noundef %43, i64 noundef %1437, i64 noundef %1433, i32 noundef 0) #22
+  %1440 = call ptr %1439(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %1437, i64 noundef %1433, i32 noundef 0) #22
   %.not2621 = icmp eq ptr %1440, null
   br i1 %.not2621, label %1441, label %1442
 
@@ -4343,7 +4343,7 @@ cli_rawaddr.exit:                                 ; preds = %1416
   %1513 = zext i32 %1512 to i64
   %1514 = zext i32 %1408 to i64
   %1515 = load ptr, ptr %1438, align 8, !tbaa !32
-  %1516 = call ptr %1515(ptr noundef %43, i64 noundef %1513, i64 noundef %1514, i32 noundef 0) #22
+  %1516 = call ptr %1515(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %1513, i64 noundef %1514, i32 noundef 0) #22
   %.not2632 = icmp eq ptr %1516, null
   br i1 %.not2632, label %1517, label %1518
 
@@ -4660,7 +4660,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
   %1676 = zext i32 %1609 to i64
   %1677 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %1678 = load ptr, ptr %1677, align 8, !tbaa !32
-  %1679 = call ptr %1678(ptr noundef %43, i64 noundef %1676, i64 noundef %1672, i32 noundef 0) #22
+  %1679 = call ptr %1678(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %1676, i64 noundef %1672, i32 noundef 0) #22
   %.not2650 = icmp eq ptr %1679, null
   br i1 %.not2650, label %1685, label %.preheader3196
 
@@ -4795,7 +4795,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
   %1753 = zext i32 %1752 to i64
   %1754 = zext i32 %1641 to i64
   %1755 = load ptr, ptr %1677, align 8, !tbaa !32
-  %1756 = call ptr %1755(ptr noundef %43, i64 noundef %1753, i64 noundef %1754, i32 noundef 0) #22
+  %1756 = call ptr %1755(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %1753, i64 noundef %1754, i32 noundef 0) #22
   %.not2656 = icmp eq ptr %1756, null
   br i1 %.not2656, label %1757, label %1758
 
@@ -5044,7 +5044,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
   %1883 = zext i32 %1857 to i64
   %1884 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %1885 = load ptr, ptr %1884, align 8, !tbaa !32
-  %1886 = call ptr %1885(ptr noundef %43, i64 noundef %1882, i64 noundef %1883, i32 noundef 0) #22
+  %1886 = call ptr %1885(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %1882, i64 noundef %1883, i32 noundef 0) #22
   %.not2670 = icmp eq ptr %1886, null
   br i1 %.not2670, label %1887, label %1888
 
@@ -7087,7 +7087,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
   %2918 = zext i32 %2913 to i64
   %2919 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %2920 = load ptr, ptr %2919, align 8, !tbaa !32
-  %2921 = call ptr %2920(ptr noundef %43, i64 noundef %2918, i64 noundef 24, i32 noundef 0) #22
+  %2921 = call ptr %2920(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %2918, i64 noundef 24, i32 noundef 0) #22
   %.not2795 = icmp eq ptr %2921, null
   br i1 %.not2795, label %.thread3152, label %2922
 
@@ -7108,7 +7108,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
   %2928 = zext i32 %2927 to i64
   %2929 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %2930 = load ptr, ptr %2929, align 8, !tbaa !32
-  %2931 = call ptr %2930(ptr noundef %43, i64 noundef %2928, i64 noundef 4, i32 noundef 0) #22
+  %2931 = call ptr %2930(ptr noundef %43, i64 noundef range(i64 0, 8589934855) %2928, i64 noundef 4, i32 noundef 0) #22
   %.not2798 = icmp eq ptr %2931, null
   br i1 %.not2798, label %.thread3152, label %2932
 
@@ -7117,7 +7117,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
   %2934 = add i32 %2933, %.02084
   %2935 = zext i32 %2934 to i64
   %2936 = load ptr, ptr %2929, align 8, !tbaa !32
-  %2937 = call ptr %2936(ptr noundef nonnull %43, i64 noundef %2935, i64 noundef 20, i32 noundef 0) #22
+  %2937 = call ptr %2936(ptr noundef nonnull %43, i64 noundef range(i64 0, 8589934855) %2935, i64 noundef 20, i32 noundef 0) #22
   %.not2799 = icmp eq ptr %2937, null
   br i1 %.not2799, label %.thread3152, label %2938
 
@@ -7198,7 +7198,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
 2977:                                             ; preds = %2967
   %2978 = zext i32 %2972 to i64
   %2979 = load ptr, ptr %2929, align 8, !tbaa !32
-  %2980 = call ptr %2979(ptr noundef nonnull %43, i64 noundef %2978, i64 noundef 5, i32 noundef 0) #22
+  %2980 = call ptr %2979(ptr noundef nonnull %43, i64 noundef range(i64 0, 8589934855) %2978, i64 noundef 5, i32 noundef 0) #22
   %.not2806 = icmp eq ptr %2980, null
   br i1 %.not2806, label %2981, label %2982
 
@@ -7539,7 +7539,7 @@ get_pe_property.exit:                             ; preds = %19, %24, %29
   %spec.select.i = call i64 @llvm.umin.i64(i64 %38, i64 2)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %40 = load ptr, ptr %39, align 8, !tbaa !32
-  %41 = call ptr %40(ptr noundef nonnull %0, i64 noundef %35, i64 noundef %spec.select.i, i32 noundef 0) #22
+  %41 = call ptr %40(ptr noundef nonnull %0, i64 noundef range(i64 0, 8589934855) %35, i64 noundef %spec.select.i, i32 noundef 0) #22
   %.not.i852 = icmp eq ptr %41, null
   br i1 %.not.i852, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -7577,7 +7577,7 @@ fmap_readn.exit.thread:                           ; preds = %37, %31, %fmap_read
   %52 = sub nuw i64 %50, %49
   %spec.select.i854 = call i64 @llvm.umin.i64(i64 %52, i64 4)
   %53 = load ptr, ptr %39, align 8, !tbaa !32
-  %54 = call ptr %53(ptr noundef nonnull %0, i64 noundef %49, i64 noundef %spec.select.i854, i32 noundef 0) #22
+  %54 = call ptr %53(ptr noundef nonnull %0, i64 noundef range(i64 0, 8589934855) %49, i64 noundef %spec.select.i854, i32 noundef 0) #22
   %.not.i855 = icmp eq ptr %54, null
   br i1 %.not.i855, label %fmap_readn.exit856.thread, label %fmap_readn.exit856
 
@@ -7622,7 +7622,7 @@ fmap_readn.exit856.thread:                        ; preds = %51, %44, %fmap_read
   %69 = sub nuw i64 %67, %66
   %spec.select.i858 = call i64 @llvm.umin.i64(i64 %69, i64 24)
   %70 = load ptr, ptr %39, align 8, !tbaa !32
-  %71 = call ptr %70(ptr noundef nonnull %0, i64 noundef %66, i64 noundef %spec.select.i858, i32 noundef 0) #22
+  %71 = call ptr %70(ptr noundef nonnull %0, i64 noundef range(i64 0, 8589934855) %66, i64 noundef %spec.select.i858, i32 noundef 0) #22
   %.not.i859 = icmp eq ptr %71, null
   br i1 %.not.i859, label %fmap_readn.exit860.thread, label %fmap_readn.exit860
 
@@ -7974,7 +7974,7 @@ fmap_readn.exit860.thread:                        ; preds = %68, %62, %fmap_read
   %198 = sub nuw i64 %196, %194
   %spec.select.i862 = call i64 @llvm.umin.i64(i64 %198, i64 96)
   %199 = load ptr, ptr %39, align 8, !tbaa !32
-  %200 = call ptr %199(ptr noundef nonnull %0, i64 noundef %194, i64 noundef %spec.select.i862, i32 noundef 0) #22
+  %200 = call ptr %199(ptr noundef nonnull %0, i64 noundef range(i64 0, 8589934855) %194, i64 noundef %spec.select.i862, i32 noundef 0) #22
   %.not.i863 = icmp eq ptr %200, null
   br i1 %.not.i863, label %fmap_readn.exit864.thread, label %fmap_readn.exit864
 
@@ -8017,7 +8017,7 @@ fmap_readn.exit864.thread:                        ; preds = %197, %189, %fmap_re
   %215 = sub nuw i64 %213, %202
   %spec.select.i866 = call i64 @llvm.umin.i64(i64 %215, i64 16)
   %216 = load ptr, ptr %39, align 8, !tbaa !32
-  %217 = call ptr %216(ptr noundef nonnull %0, i64 noundef %202, i64 noundef %spec.select.i866, i32 noundef 0) #22
+  %217 = call ptr %216(ptr noundef nonnull %0, i64 noundef range(i64 0, 8589934855) %202, i64 noundef %spec.select.i866, i32 noundef 0) #22
   %.not.i867 = icmp eq ptr %217, null
   br i1 %.not.i867, label %fmap_readn.exit868.thread, label %fmap_readn.exit868
 
@@ -9190,7 +9190,7 @@ thread-pre-split:                                 ; preds = %695
 808:                                              ; preds = %.lr.ph1026
   %809 = zext i32 %806 to i64
   %810 = load ptr, ptr %39, align 8, !tbaa !32
-  %811 = call ptr %810(ptr noundef nonnull %0, i64 noundef %809, i64 noundef 16, i32 noundef 0) #22
+  %811 = call ptr %810(ptr noundef nonnull %0, i64 noundef range(i64 0, 8589934855) %809, i64 noundef 16, i32 noundef 0) #22
   %.not789 = icmp eq ptr %811, null
   br i1 %.not789, label %.thread946, label %812
 
@@ -9212,7 +9212,7 @@ thread-pre-split:                                 ; preds = %695
   %824 = zext i32 %821 to i64
   %825 = zext i32 %817 to i64
   %826 = load ptr, ptr %39, align 8, !tbaa !32
-  %827 = call ptr %826(ptr noundef nonnull %0, i64 noundef %824, i64 noundef %825, i32 noundef 0) #22
+  %827 = call ptr %826(ptr noundef nonnull %0, i64 noundef range(i64 0, 8589934855) %824, i64 noundef %825, i32 noundef 0) #22
   %828 = icmp ne ptr %827, null
   %829 = icmp ugt i32 %817, 4
   %or.cond24 = select i1 %828, i1 %829, i1 false
@@ -9474,7 +9474,7 @@ declare void @cli_exe_info_destroy(ptr noundef) local_unnamed_addr #3
 declare ptr @cl_strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i64 -1, 2147483648) i64 @fmap_readn(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc range(i64 -1, 2147483648) i64 @fmap_readn(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef range(i64 0, 8589934855) %2, i64 noundef %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8, !tbaa !26
   %7 = icmp ne i64 %2, %6
@@ -9491,7 +9491,7 @@ define internal fastcc range(i64 -1, 2147483648) i64 @fmap_readn(ptr noundef %0,
   %spec.select = tail call i64 @llvm.umin.i64(i64 %3, i64 %12)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8, !tbaa !32
-  %15 = tail call ptr %14(ptr noundef nonnull %0, i64 noundef %2, i64 noundef %spec.select, i32 noundef 0) #22
+  %15 = tail call ptr %14(ptr noundef nonnull %0, i64 noundef range(i64 0, 8589934855) %2, i64 noundef %spec.select, i32 noundef 0) #22
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %19, label %16
 
@@ -9824,7 +9824,7 @@ cli_rawaddr.exit:                                 ; preds = %28, %16, %18, %30
   %44 = zext i32 %.0.i to i64
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %46 = load ptr, ptr %45, align 8, !tbaa !32
-  %47 = tail call ptr %46(ptr noundef %2, i64 noundef %44, i64 noundef 16, i32 noundef 0) #22
+  %47 = tail call ptr %46(ptr noundef %2, i64 noundef range(i64 0, 8589934855) %44, i64 noundef 16, i32 noundef 0) #22
   %.not99 = icmp eq ptr %47, null
   br i1 %.not99, label %175, label %48
 
@@ -9968,7 +9968,7 @@ cli_rawaddr.exit124:                              ; preds = %87
   %.0.i120156 = phi i32 [ %111, %cli_rawaddr.exit124.thread152 ], [ %88, %cli_rawaddr.exit124 ]
   %114 = zext i32 %.0.i120156 to i64
   %115 = load ptr, ptr %45, align 8, !tbaa !32
-  %116 = tail call ptr %115(ptr noundef nonnull %2, i64 noundef %114, i64 noundef 16, i32 noundef 0) #22
+  %116 = tail call ptr %115(ptr noundef nonnull %2, i64 noundef range(i64 0, 8589934855) %114, i64 noundef 16, i32 noundef 0) #22
   %.not105 = icmp eq ptr %116, null
   br i1 %.not105, label %.thread, label %117
 
@@ -10061,7 +10061,7 @@ cli_rawaddr.exit137.thread:                       ; preds = %137, %127, %148, %c
 158:                                              ; preds = %156
   %159 = zext i32 %.0.i133 to i64
   %160 = load ptr, ptr %45, align 8, !tbaa !32
-  %161 = tail call ptr %160(ptr noundef nonnull %2, i64 noundef %159, i64 noundef %149, i32 noundef 0) #22
+  %161 = tail call ptr %160(ptr noundef nonnull %2, i64 noundef range(i64 0, 8589934855) %159, i64 noundef %149, i32 noundef 0) #22
   %.not109 = icmp eq ptr %161, null
   br i1 %.not109, label %.thread, label %162
 
@@ -10632,7 +10632,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
   %spec.select.i = call i64 @llvm.umin.i64(i64 %74, i64 8)
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %76 = load ptr, ptr %75, align 8, !tbaa !32
-  %77 = call ptr %76(ptr noundef nonnull %7, i64 noundef %62, i64 noundef %spec.select.i, i32 noundef 0) #22
+  %77 = call ptr %76(ptr noundef nonnull %7, i64 noundef range(i64 0, 8589934855) %62, i64 noundef %spec.select.i, i32 noundef 0) #22
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %.thread202.thread, label %fmap_readn.exit
 
@@ -10732,7 +10732,7 @@ fmap_readn.exit:                                  ; preds = %73
   %119 = zext i32 %118 to i64
   %120 = zext i32 %115 to i64
   %121 = load ptr, ptr %99, align 8, !tbaa !32
-  %122 = call ptr %121(ptr noundef %7, i64 noundef %119, i64 noundef %120, i32 noundef 0) #22
+  %122 = call ptr %121(ptr noundef %7, i64 noundef range(i64 0, 8589934855) %119, i64 noundef %120, i32 noundef 0) #22
   %.not174 = icmp eq ptr %122, null
   br i1 %.not174, label %128, label %123
 
@@ -11129,7 +11129,7 @@ define internal fastcc range(i32 0, 2) i32 @cli_hashsect(ptr noundef %0, ptr nou
   %15 = zext nneg i32 %7 to i64
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8, !tbaa !32
-  %18 = tail call ptr %17(ptr noundef %0, i64 noundef %14, i64 noundef %15, i32 noundef 0) #22
+  %18 = tail call ptr %17(ptr noundef %0, i64 noundef range(i64 0, 8589934855) %14, i64 noundef %15, i32 noundef 0) #22
   %.not22 = icmp eq ptr %18, null
   br i1 %.not22, label %19, label %20
 
@@ -11430,7 +11430,7 @@ cli_rawaddr.exit118:                              ; preds = %86
   %118 = sub nuw i64 %11, %115
   %119 = tail call i64 @llvm.umin.i64(i64 %118, i64 256)
   %120 = load ptr, ptr %54, align 8, !tbaa !32
-  %121 = tail call ptr %120(ptr noundef %9, i64 noundef %115, i64 noundef %119, i32 noundef 0) #22
+  %121 = tail call ptr %120(ptr noundef %9, i64 noundef range(i64 0, 8589934855) %115, i64 noundef %119, i32 noundef 0) #22
   %122 = icmp eq ptr %121, null
   br i1 %122, label %.thread.sink.split, label %123
 
@@ -11719,7 +11719,7 @@ cli_rawaddr.exit295.thread:                       ; preds = %cli_rawaddr.exit.th
   %77 = sub nuw i64 %75, %76
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %77, i64 4)
   %78 = load ptr, ptr %70, align 8, !tbaa !32
-  %79 = tail call ptr %78(ptr noundef nonnull %8, i64 noundef %76, i64 noundef %spec.select.i, i32 noundef 0) #22
+  %79 = tail call ptr %78(ptr noundef nonnull %8, i64 noundef range(i64 0, 8589934855) %76, i64 noundef %spec.select.i, i32 noundef 0) #22
   %.not.i298 = icmp eq ptr %79, null
   br i1 %.not.i298, label %.critedge.thread, label %fmap_readn.exit
 
@@ -11795,7 +11795,7 @@ cli_rawaddr.exit311:                              ; preds = %101, %103, %91, %89
   %113 = sub i64 %10, %111
   %114 = tail call i64 @llvm.umin.i64(i64 %113, i64 256)
   %115 = load ptr, ptr %70, align 8, !tbaa !32
-  %116 = tail call ptr %115(ptr noundef nonnull %8, i64 noundef %112, i64 noundef %114, i32 noundef 0) #22
+  %116 = tail call ptr %115(ptr noundef nonnull %8, i64 noundef range(i64 0, 8589934855) %112, i64 noundef %114, i32 noundef 0) #22
   %.not260 = icmp eq ptr %116, null
   br i1 %.not260, label %.thread, label %117
 
@@ -12036,7 +12036,7 @@ cli_rawaddr.exit311:                              ; preds = %101, %103, %91, %89
   %212 = sub nuw i64 %210, %211
   %spec.select.i316 = tail call i64 @llvm.umin.i64(i64 %212, i64 8)
   %213 = load ptr, ptr %205, align 8, !tbaa !32
-  %214 = tail call ptr %213(ptr noundef nonnull %8, i64 noundef %211, i64 noundef %spec.select.i316, i32 noundef 0) #22
+  %214 = tail call ptr %213(ptr noundef nonnull %8, i64 noundef range(i64 0, 8589934855) %211, i64 noundef %spec.select.i316, i32 noundef 0) #22
   %.not.i317 = icmp eq ptr %214, null
   br i1 %.not.i317, label %.critedge6.thread, label %fmap_readn.exit318
 
@@ -12112,7 +12112,7 @@ cli_rawaddr.exit331:                              ; preds = %219
   %248 = sub i64 %10, %246
   %249 = tail call i64 @llvm.umin.i64(i64 %248, i64 256)
   %250 = load ptr, ptr %205, align 8, !tbaa !32
-  %251 = tail call ptr %250(ptr noundef nonnull %8, i64 noundef %247, i64 noundef %249, i32 noundef 0) #22
+  %251 = tail call ptr %250(ptr noundef nonnull %8, i64 noundef range(i64 0, 8589934855) %247, i64 noundef %249, i32 noundef 0) #22
   %.not271 = icmp eq ptr %251, null
   br i1 %.not271, label %.thread54, label %252
 

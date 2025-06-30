@@ -1158,7 +1158,7 @@ define range(i32 1, 1000000001) i32 @Sle_ManComputeDelayOne(ptr noundef readnone
 Sle_ManComputeDelayCut.exit:                      ; preds = %14, %._crit_edge.loopexit.i
   %.pre-phi = phi i64 [ %wide.trip.count.i, %._crit_edge.loopexit.i ], [ 0, %14 ]
   %.0.lcssa.i = phi i32 [ %24, %._crit_edge.loopexit.i ], [ 1, %14 ]
-  %25 = tail call noundef i32 @llvm.smin.i32(i32 %.01722, i32 range(i32 -2147483647, -2147483648) %.0.lcssa.i)
+  %25 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smin.i32(i32 range(i32 -2147483647, -2147483648) %.01722, i32 range(i32 -2147483647, -2147483648) %.0.lcssa.i)
   %26 = add nuw nsw i32 %.023, 1
   %27 = getelementptr inbounds nuw i32, ptr %.018, i64 %.pre-phi
   %exitcond.not = icmp eq i32 %26, %11
@@ -1265,7 +1265,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 Sle_ManComputeDelayCut.exit.i:                    ; preds = %._crit_edge.loopexit.i.i, %.lr.ph.i
   %.pre-phi.i = phi i64 [ %wide.trip.count.i.i, %._crit_edge.loopexit.i.i ], [ 0, %.lr.ph.i ]
   %.0.lcssa.i.i = phi i32 [ %37, %._crit_edge.loopexit.i.i ], [ 1, %.lr.ph.i ]
-  %38 = tail call noundef i32 @llvm.smin.i32(i32 %.01722.i, i32 range(i32 -2147483647, -2147483648) %.0.lcssa.i.i)
+  %38 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smin.i32(i32 range(i32 -2147483647, -2147483648) %.01722.i, i32 range(i32 -2147483647, -2147483648) %.0.lcssa.i.i)
   %39 = add nuw nsw i32 %.023.i, 1
   %40 = getelementptr inbounds nuw i32, ptr %.018.i, i64 %.pre-phi.i
   %exitcond.not.i = icmp eq i32 %39, %26

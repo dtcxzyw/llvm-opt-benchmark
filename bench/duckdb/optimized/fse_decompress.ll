@@ -178,7 +178,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @_ZN11duckdb_zstdL24FSE_bui
 76:                                               ; preds = %.lr.ph149, %80
   %.0116148 = phi i32 [ 0, %.lr.ph149 ], [ %81, %80 ]
   %.1118147 = phi i32 [ %.0117153, %.lr.ph149 ], [ %.2, %80 ]
-  %77 = zext i32 %.1118147 to i64
+  %77 = zext nneg i32 %.1118147 to i64
   %.idx = shl nuw nsw i64 %77, 2
   %gep146 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i8 %75, ptr %gep146, align 2, !tbaa !7
@@ -186,7 +186,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @_ZN11duckdb_zstdL24FSE_bui
 
 78:                                               ; preds = %78, %76
   %.1118.pn = phi i32 [ %.1118147, %76 ], [ %.2, %78 ]
-  %.pn = add i32 %70, %.1118.pn
+  %.pn = add nuw i32 %70, %.1118.pn
   %.2 = and i32 %.pn, %13
   %79 = icmp ugt i32 %.2, %.1114
   br i1 %79, label %78, label %80, !llvm.loop !17

@@ -674,7 +674,7 @@ define void @_ZN9uv_client9httpcache18CachePolicyBuilder3new17h54dc621771411417E
   %21 = shl nuw nsw i64 %13, 2
   %22 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %22)
-  call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef range(i64 1, 0) %21, i64 noundef 2) #23, !noalias !47
+  call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef range(i64 1, -9223372036854775808) %21, i64 noundef 2) #23, !noalias !47
   br label %common.resume
 
 23:                                               ; preds = %2
@@ -5912,7 +5912,7 @@ define internal fastcc void @_ZN9uv_client9httpcache19ArchivedCachePolicy24new_c
   %21 = shl nuw nsw i64 %13, 2
   %22 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %22)
-  call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef range(i64 1, 0) %21, i64 noundef 2) #23, !noalias !437
+  call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef range(i64 1, -9223372036854775808) %21, i64 noundef 2) #23, !noalias !437
   br label %common.resume
 
 23:                                               ; preds = %2

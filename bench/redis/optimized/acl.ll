@@ -5347,7 +5347,7 @@ sdslen.exit.us:                                   ; preds = %29, %25, %21, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local i32 @ACLCheckAllUserCommandPerm(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.listIter, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.aclKeyResultCache, align 8
@@ -5436,7 +5436,7 @@ cleanupACLKeyResultCache.exit31:                  ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ACLCheckAllPerm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local i32 @ACLCheckAllPerm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8, !tbaa !93
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128

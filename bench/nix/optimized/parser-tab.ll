@@ -3005,7 +3005,7 @@ _ZL9yytnamerrPcPKc.exit65:                        ; preds = %83, %.preheader, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef nonnull %0, i64 noundef %1, i32 noundef range(i32 -32768, 32769) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #5 {
+define internal fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserStateE(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #5 {
   %6 = alloca [8 x %union.yyGLRStackItem], align 16
   %7 = alloca %union.YYSTYPE, align 8
   %8 = alloca %"struct.nix::ParserLocation", align 4
@@ -3057,7 +3057,7 @@ define internal fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserSta
   store i64 %39, ptr %37, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 -88
   store ptr %40, ptr %10, align 8
-  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef range(i32 -32768, 32769) %2, i32 noundef %29, ptr noundef nonnull %12, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %4)
+  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %2, i32 noundef %29, ptr noundef nonnull %12, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %4)
   br label %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.exit
 
 41:                                               ; preds = %21
@@ -3097,7 +3097,7 @@ define internal fastcc void @_ZL11yyglrReduceP10yyGLRStacklibPvPN3nix11ParserSta
 _ZL13yyupdateSplitP10yyGLRStackP10yyGLRState.exit.i: ; preds = %52, %._crit_edge.i
   store ptr %.040.lcssa.i, ptr %11, align 8
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 528
-  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef range(i32 -32768, 32769) %2, i32 noundef %25, ptr noundef nonnull %53, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %4)
+  call fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %2, i32 noundef %25, ptr noundef nonnull %53, ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %4)
   br label %_ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.exit
 
 _ZL10yydoActionP10yyGLRStackliP7YYSTYPEPN3nix14ParserLocationEPvPNS3_11ParserStateE.exit: ; preds = %28, %_ZL13yyupdateSplitP10yyGLRStackP10yyGLRState.exit.i

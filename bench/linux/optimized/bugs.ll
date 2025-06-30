@@ -2731,20 +2731,20 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @cpu_show_common(p
 
 7:                                                ; preds = %2
   %8 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.127) #15
-  br label %198
+  br label %197
 
 9:                                                ; preds = %2
-  switch i32 %1, label %196 [
-    i32 699, label %171
-    i32 698, label %146
+  switch i32 %1, label %195 [
+    i32 699, label %170
+    i32 698, label %145
     i32 688, label %10
-    i32 689, label %75
-    i32 690, label %81
-    i32 691, label %87
-    i32 694, label %117
-    i32 695, label %138
-    i32 696, label %140
-    i32 697, label %146
+    i32 689, label %74
+    i32 690, label %80
+    i32 691, label %86
+    i32 694, label %116
+    i32 695, label %137
+    i32 696, label %139
+    i32 697, label %145
   ]
 
 10:                                               ; preds = %9
@@ -2754,7 +2754,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @cpu_show_common(p
 
 13:                                               ; preds = %10
   %14 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.132) #15
-  br label %198
+  br label %197
 
 15:                                               ; preds = %10
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_smt_present, i1 true) #15
@@ -2796,12 +2796,12 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @cpu_show_common(p
   %41 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %42 = and i64 %41, 256
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %52, label %44
+  br i1 %43, label %51, label %44
 
 44:                                               ; preds = %40, %31
   %45 = load i32, ptr @spectre_v2_user_stibp, align 4
-  switch i32 %45, label %51 [
-    i32 0, label %52
+  switch i32 %45, label %default.unreachable [
+    i32 0, label %51
     i32 1, label %46
     i32 2, label %47
     i32 3, label %48
@@ -2809,266 +2809,267 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @cpu_show_common(p
   ]
 
 46:                                               ; preds = %44
-  br label %52
+  br label %51
 
 47:                                               ; preds = %44
-  br label %52
+  br label %51
 
 48:                                               ; preds = %44, %44
   %49 = tail call i32 @static_key_count(ptr noundef nonnull @switch_to_cond_stibp) #15
   %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %52, label %51
+  %spec.select = select i1 %50, ptr @.str.145, ptr @.str.137
+  br label %51
 
-51:                                               ; preds = %48, %44
-  br label %52
+default.unreachable:                              ; preds = %44
+  unreachable
 
-52:                                               ; preds = %51, %48, %47, %46, %44, %40
-  %53 = phi ptr [ @.str.137, %51 ], [ @.str.144, %47 ], [ @.str.143, %46 ], [ @.str.137, %40 ], [ @.str.142, %44 ], [ @.str.145, %48 ]
-  %54 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
-  %55 = and i64 %54, 2251799813685248
-  %56 = icmp eq i64 %55, 0
-  %57 = select i1 %56, ptr @.str.137, ptr @.str.138
-  %58 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
-  %59 = and i64 %58, 1152921504606846976
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %70, label %61
+51:                                               ; preds = %48, %47, %46, %44, %40
+  %52 = phi ptr [ @.str.144, %47 ], [ @.str.143, %46 ], [ @.str.137, %40 ], [ @.str.142, %44 ], [ %spec.select, %48 ]
+  %53 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
+  %54 = and i64 %53, 2251799813685248
+  %55 = icmp eq i64 %54, 0
+  %56 = select i1 %55, ptr @.str.137, ptr @.str.138
+  %57 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
+  %58 = and i64 %57, 1152921504606846976
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %69, label %60
 
-61:                                               ; preds = %52
-  %62 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 80), align 8
-  %63 = and i64 %62, 562949953421312
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %70
+60:                                               ; preds = %51
+  %61 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 80), align 8
+  %62 = and i64 %61, 562949953421312
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %64, label %69
 
-65:                                               ; preds = %61
-  %66 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
-  %67 = and i64 %66, 35184372088832
-  %68 = icmp eq i64 %67, 0
-  %69 = select i1 %68, ptr @.str.147, ptr @.str.146
-  br label %70
+64:                                               ; preds = %60
+  %65 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
+  %66 = and i64 %65, 35184372088832
+  %67 = icmp eq i64 %66, 0
+  %68 = select i1 %67, ptr @.str.147, ptr @.str.146
+  br label %69
 
-70:                                               ; preds = %65, %61, %52
-  %71 = phi ptr [ @.str.146, %61 ], [ @.str.148, %52 ], [ %69, %65 ]
-  %72 = load i1, ptr @spectre_v2_bad_module, align 1
-  %73 = select i1 %72, ptr @.str.149, ptr @.str.137
-  %74 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.135, ptr noundef %20, ptr noundef nonnull %32, ptr noundef nonnull %36, ptr noundef nonnull %53, ptr noundef nonnull %57, ptr noundef nonnull %71, ptr noundef nonnull %73) #15
-  br label %198
+69:                                               ; preds = %64, %60, %51
+  %70 = phi ptr [ @.str.146, %60 ], [ @.str.148, %51 ], [ %68, %64 ]
+  %71 = load i1, ptr @spectre_v2_bad_module, align 1
+  %72 = select i1 %71, ptr @.str.149, ptr @.str.137
+  %73 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.135, ptr noundef %20, ptr noundef nonnull %32, ptr noundef nonnull %36, ptr noundef nonnull %52, ptr noundef nonnull %56, ptr noundef nonnull %70, ptr noundef nonnull %72) #15
+  br label %197
 
-75:                                               ; preds = %9
-  %76 = load i32, ptr @ssb_mode, align 4
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr [4 x ptr], ptr @ssb_strings, i64 0, i64 %77
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %79) #15
-  br label %198
+74:                                               ; preds = %9
+  %75 = load i32, ptr @ssb_mode, align 4
+  %76 = zext nneg i32 %75 to i64
+  %77 = getelementptr [4 x ptr], ptr @ssb_strings, i64 0, i64 %76
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %78) #15
+  br label %197
 
-81:                                               ; preds = %9
-  %82 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
-  %83 = and i64 %82, 2305843009213693952
-  %84 = icmp eq i64 %83, 0
-  br i1 %84, label %196, label %85
+80:                                               ; preds = %9
+  %81 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
+  %82 = and i64 %81, 2305843009213693952
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %195, label %84
 
-85:                                               ; preds = %81
-  %86 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.150) #15
-  br label %198
+84:                                               ; preds = %80
+  %85 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.150) #15
+  br label %197
 
-87:                                               ; preds = %9
-  %88 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
-  %89 = and i64 %88, 2147483648
-  %90 = icmp eq i64 %89, 0
-  br i1 %90, label %97, label %91
+86:                                               ; preds = %9
+  %87 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
+  %88 = and i64 %87, 2147483648
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %96, label %90
 
-91:                                               ; preds = %87
-  %92 = load i32, ptr @mds_mitigation, align 4
-  %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr [3 x ptr], ptr @mds_strings, i64 0, i64 %93
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.151, ptr noundef %95) #15
-  br label %198
+90:                                               ; preds = %86
+  %91 = load i32, ptr @mds_mitigation, align 4
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr [3 x ptr], ptr @mds_strings, i64 0, i64 %92
+  %94 = load ptr, ptr %93, align 8
+  %95 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.151, ptr noundef %94) #15
+  br label %197
 
-97:                                               ; preds = %87
-  %98 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
-  %99 = and i64 %98, 4503599627370496
-  %100 = icmp eq i64 %99, 0
-  %101 = load i32, ptr @mds_mitigation, align 4
-  %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr [3 x ptr], ptr @mds_strings, i64 0, i64 %102
-  %104 = load ptr, ptr %103, align 8
-  br i1 %100, label %112, label %105
+96:                                               ; preds = %86
+  %97 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
+  %98 = and i64 %97, 4503599627370496
+  %99 = icmp eq i64 %98, 0
+  %100 = load i32, ptr @mds_mitigation, align 4
+  %101 = zext nneg i32 %100 to i64
+  %102 = getelementptr [3 x ptr], ptr @mds_strings, i64 0, i64 %101
+  %103 = load ptr, ptr %102, align 8
+  br i1 %99, label %111, label %104
 
-105:                                              ; preds = %97
-  %106 = icmp eq i32 %101, 0
-  br i1 %106, label %109, label %107
+104:                                              ; preds = %96
+  %105 = icmp eq i32 %100, 0
+  br i1 %105, label %108, label %106
 
-107:                                              ; preds = %105
+106:                                              ; preds = %104
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_smt_present, i1 true) #15
-          to label %109 [label %108], !srcloc !23
+          to label %108 [label %107], !srcloc !23
 
-108:                                              ; preds = %107
-  br label %109
+107:                                              ; preds = %106
+  br label %108
 
-109:                                              ; preds = %108, %107, %105
-  %110 = phi ptr [ @.str.153, %105 ], [ @.str.155, %108 ], [ @.str.154, %107 ]
-  %111 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %104, ptr noundef nonnull %110) #15
-  br label %198
+108:                                              ; preds = %107, %106, %104
+  %109 = phi ptr [ @.str.153, %104 ], [ @.str.155, %107 ], [ @.str.154, %106 ]
+  %110 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %103, ptr noundef nonnull %109) #15
+  br label %197
 
-112:                                              ; preds = %97
+111:                                              ; preds = %96
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_smt_present, i1 true) #15
-          to label %114 [label %113], !srcloc !23
+          to label %113 [label %112], !srcloc !23
 
-113:                                              ; preds = %112
-  br label %114
+112:                                              ; preds = %111
+  br label %113
 
-114:                                              ; preds = %113, %112
-  %115 = phi ptr [ @.str.155, %113 ], [ @.str.153, %112 ]
-  %116 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %104, ptr noundef nonnull %115) #15
-  br label %198
+113:                                              ; preds = %112, %111
+  %114 = phi ptr [ @.str.155, %112 ], [ @.str.153, %111 ]
+  %115 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %103, ptr noundef nonnull %114) #15
+  br label %197
 
-117:                                              ; preds = %9
-  %118 = load i32, ptr @taa_mitigation, align 4
-  switch i32 %118, label %124 [
-    i32 3, label %119
-    i32 0, label %119
+116:                                              ; preds = %9
+  %117 = load i32, ptr @taa_mitigation, align 4
+  switch i32 %117, label %123 [
+    i32 3, label %118
+    i32 0, label %118
   ]
 
-119:                                              ; preds = %117, %117
-  %120 = zext nneg i32 %118 to i64
-  %121 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %120
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %122) #15
-  br label %198
+118:                                              ; preds = %116, %116
+  %119 = zext nneg i32 %117 to i64
+  %120 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %119
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %121) #15
+  br label %197
 
-124:                                              ; preds = %117
-  %125 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
-  %126 = and i64 %125, 2147483648
-  %127 = icmp eq i64 %126, 0
-  %128 = zext nneg i32 %118 to i64
-  %129 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %128
-  %130 = load ptr, ptr %129, align 8
-  br i1 %127, label %133, label %131
+123:                                              ; preds = %116
+  %124 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
+  %125 = and i64 %124, 2147483648
+  %126 = icmp eq i64 %125, 0
+  %127 = zext nneg i32 %117 to i64
+  %128 = getelementptr [4 x ptr], ptr @taa_strings, i64 0, i64 %127
+  %129 = load ptr, ptr %128, align 8
+  br i1 %126, label %132, label %130
 
-131:                                              ; preds = %124
-  %132 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.151, ptr noundef %130) #15
-  br label %198
+130:                                              ; preds = %123
+  %131 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.151, ptr noundef %129) #15
+  br label %197
 
-133:                                              ; preds = %124
+132:                                              ; preds = %123
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_smt_present, i1 true) #15
-          to label %135 [label %134], !srcloc !23
+          to label %134 [label %133], !srcloc !23
 
-134:                                              ; preds = %133
-  br label %135
+133:                                              ; preds = %132
+  br label %134
 
-135:                                              ; preds = %134, %133
-  %136 = phi ptr [ @.str.155, %134 ], [ @.str.153, %133 ]
-  %137 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %130, ptr noundef nonnull %136) #15
-  br label %198
+134:                                              ; preds = %133, %132
+  %135 = phi ptr [ @.str.155, %133 ], [ @.str.153, %132 ]
+  %136 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %129, ptr noundef nonnull %135) #15
+  br label %197
 
-138:                                              ; preds = %9
-  %139 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.156) #15
-  br label %198
+137:                                              ; preds = %9
+  %138 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.156) #15
+  br label %197
 
-140:                                              ; preds = %9
-  %141 = load i32, ptr @srbds_mitigation, align 4
-  %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr [5 x ptr], ptr @srbds_strings, i64 0, i64 %142
-  %144 = load ptr, ptr %143, align 8
-  %145 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %144) #15
-  br label %198
+139:                                              ; preds = %9
+  %140 = load i32, ptr @srbds_mitigation, align 4
+  %141 = zext nneg i32 %140 to i64
+  %142 = getelementptr [5 x ptr], ptr @srbds_strings, i64 0, i64 %141
+  %143 = load ptr, ptr %142, align 8
+  %144 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %143) #15
+  br label %197
 
-146:                                              ; preds = %9, %9
-  %147 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
-  %148 = and i64 %147, 288230376151711744
-  %149 = icmp eq i64 %148, 0
-  br i1 %149, label %152, label %150
+145:                                              ; preds = %9, %9
+  %146 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
+  %147 = and i64 %146, 288230376151711744
+  %148 = icmp eq i64 %147, 0
+  br i1 %148, label %151, label %149
 
-150:                                              ; preds = %146
-  %151 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.157) #15
-  br label %198
+149:                                              ; preds = %145
+  %150 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.157) #15
+  br label %197
 
-152:                                              ; preds = %146
-  %153 = load i32, ptr @mmio_mitigation, align 4
-  %154 = icmp eq i32 %153, 0
-  br i1 %154, label %155, label %157
+151:                                              ; preds = %145
+  %152 = load i32, ptr @mmio_mitigation, align 4
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %154, label %156
 
-155:                                              ; preds = %152
-  %156 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.16) #15
-  br label %198
+154:                                              ; preds = %151
+  %155 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.16) #15
+  br label %197
 
-157:                                              ; preds = %152
-  %158 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
-  %159 = and i64 %158, 2147483648
-  %160 = icmp eq i64 %159, 0
-  %161 = zext nneg i32 %153 to i64
-  %162 = getelementptr [3 x ptr], ptr @mmio_strings, i64 0, i64 %161
-  %163 = load ptr, ptr %162, align 8
-  br i1 %160, label %166, label %164
+156:                                              ; preds = %151
+  %157 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
+  %158 = and i64 %157, 2147483648
+  %159 = icmp eq i64 %158, 0
+  %160 = zext nneg i32 %152 to i64
+  %161 = getelementptr [3 x ptr], ptr @mmio_strings, i64 0, i64 %160
+  %162 = load ptr, ptr %161, align 8
+  br i1 %159, label %165, label %163
 
-164:                                              ; preds = %157
-  %165 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.151, ptr noundef %163) #15
-  br label %198
+163:                                              ; preds = %156
+  %164 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.151, ptr noundef %162) #15
+  br label %197
 
-166:                                              ; preds = %157
+165:                                              ; preds = %156
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_smt_present, i1 true) #15
-          to label %168 [label %167], !srcloc !23
+          to label %167 [label %166], !srcloc !23
 
-167:                                              ; preds = %166
-  br label %168
+166:                                              ; preds = %165
+  br label %167
 
-168:                                              ; preds = %167, %166
-  %169 = phi ptr [ @.str.155, %167 ], [ @.str.153, %166 ]
-  %170 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %163, ptr noundef nonnull %169) #15
-  br label %198
+167:                                              ; preds = %166, %165
+  %168 = phi ptr [ @.str.155, %166 ], [ @.str.153, %165 ]
+  %169 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %162, ptr noundef nonnull %168) #15
+  br label %197
 
-171:                                              ; preds = %9
-  %172 = load i32, ptr @retbleed_mitigation, align 4
-  %173 = add nsw i32 %172, -1
-  %174 = icmp ult i32 %173, 2
-  br i1 %174, label %175, label %191
+170:                                              ; preds = %9
+  %171 = load i32, ptr @retbleed_mitigation, align 4
+  %172 = add nsw i32 %171, -1
+  %173 = icmp ult i32 %172, 2
+  br i1 %173, label %174, label %190
 
-175:                                              ; preds = %171
-  %176 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
-  switch i8 %176, label %177 [
-    i8 9, label %179
-    i8 2, label %179
+174:                                              ; preds = %170
+  %175 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
+  switch i8 %175, label %176 [
+    i8 9, label %178
+    i8 2, label %178
   ]
 
-177:                                              ; preds = %175
-  %178 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.158) #15
-  br label %198
+176:                                              ; preds = %174
+  %177 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.158) #15
+  br label %197
 
-179:                                              ; preds = %175, %175
-  %180 = zext nneg i32 %172 to i64
-  %181 = getelementptr [6 x ptr], ptr @retbleed_strings, i64 0, i64 %180
-  %182 = load ptr, ptr %181, align 8
+178:                                              ; preds = %174, %174
+  %179 = zext nneg i32 %171 to i64
+  %180 = getelementptr [6 x ptr], ptr @retbleed_strings, i64 0, i64 %179
+  %181 = load ptr, ptr %180, align 8
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @sched_smt_present, i1 true) #15
-          to label %183 [label %188], !srcloc !23
+          to label %182 [label %187], !srcloc !23
 
-183:                                              ; preds = %179
-  %184 = load i32, ptr @spectre_v2_user_stibp, align 4
-  %185 = add i32 %184, -1
-  %186 = icmp ult i32 %185, 2
-  %187 = select i1 %186, ptr @.str.159, ptr @.str.153
-  br label %188
+182:                                              ; preds = %178
+  %183 = load i32, ptr @spectre_v2_user_stibp, align 4
+  %184 = add nsw i32 %183, -1
+  %185 = icmp ult i32 %184, 2
+  %186 = select i1 %185, ptr @.str.159, ptr @.str.153
+  br label %187
 
-188:                                              ; preds = %179, %183
-  %189 = phi ptr [ %187, %183 ], [ @.str.155, %179 ]
-  %190 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %182, ptr noundef nonnull %189) #15
-  br label %198
+187:                                              ; preds = %178, %182
+  %188 = phi ptr [ %186, %182 ], [ @.str.155, %178 ]
+  %189 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef %181, ptr noundef nonnull %188) #15
+  br label %197
 
-191:                                              ; preds = %171
-  %192 = zext nneg i32 %172 to i64
-  %193 = getelementptr [6 x ptr], ptr @retbleed_strings, i64 0, i64 %192
-  %194 = load ptr, ptr %193, align 8
-  %195 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %194) #15
-  br label %198
+190:                                              ; preds = %170
+  %191 = zext nneg i32 %171 to i64
+  %192 = getelementptr [6 x ptr], ptr @retbleed_strings, i64 0, i64 %191
+  %193 = load ptr, ptr %192, align 8
+  %194 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.130, ptr noundef %193) #15
+  br label %197
 
-196:                                              ; preds = %81, %9
-  %197 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.131) #15
-  br label %198
+195:                                              ; preds = %80, %9
+  %196 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.131) #15
+  br label %197
 
-198:                                              ; preds = %196, %191, %188, %177, %168, %164, %155, %150, %140, %138, %135, %131, %119, %114, %109, %91, %85, %75, %70, %13, %7
-  %199 = phi i32 [ %197, %196 ], [ %145, %140 ], [ %139, %138 ], [ %86, %85 ], [ %80, %75 ], [ %8, %7 ], [ %14, %13 ], [ %74, %70 ], [ %96, %91 ], [ %111, %109 ], [ %116, %114 ], [ %123, %119 ], [ %132, %131 ], [ %137, %135 ], [ %151, %150 ], [ %156, %155 ], [ %165, %164 ], [ %170, %168 ], [ %178, %177 ], [ %190, %188 ], [ %195, %191 ]
-  %200 = sext i32 %199 to i64
-  ret i64 %200
+197:                                              ; preds = %195, %190, %187, %176, %167, %163, %154, %149, %139, %137, %134, %130, %118, %113, %108, %90, %84, %74, %69, %13, %7
+  %198 = phi i32 [ %196, %195 ], [ %144, %139 ], [ %138, %137 ], [ %85, %84 ], [ %79, %74 ], [ %8, %7 ], [ %14, %13 ], [ %73, %69 ], [ %95, %90 ], [ %110, %108 ], [ %115, %113 ], [ %122, %118 ], [ %131, %130 ], [ %136, %134 ], [ %150, %149 ], [ %155, %154 ], [ %164, %163 ], [ %169, %167 ], [ %177, %176 ], [ %189, %187 ], [ %194, %190 ]
+  %199 = sext i32 %198 to i64
+  ret i64 %199
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

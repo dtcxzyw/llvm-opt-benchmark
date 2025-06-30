@@ -2158,7 +2158,7 @@ proto_item_set_generated.exit138.i:               ; preds = %257, %254, %251, %2
 301:                                              ; preds = %297
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %303 = load ptr, ptr %302, align 8
-  %304 = call ptr @ptvcursor_new(ptr noundef %303, ptr noundef %173, ptr noundef %.0109.i, i32 noundef %.3.i428)
+  %304 = call ptr @ptvcursor_new(ptr noundef %303, ptr noundef %173, ptr noundef %.0109.i, i32 noundef range(i32 0, 9) %.3.i428)
   %305 = load ptr, ptr %151, align 8
   %306 = select i1 %155, ptr @.str.392, ptr @.str.393
   call void @col_append_str(ptr noundef %305, i32 noundef 25, ptr noundef nonnull %306)
@@ -2415,7 +2415,7 @@ dissect_loginserv_packet.exit.i:                  ; preds = %439, %301
 455:                                              ; preds = %446
   %456 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %457 = load ptr, ptr %456, align 8
-  %458 = call ptr @ptvcursor_new(ptr noundef %457, ptr noundef %173, ptr noundef %.0109.i, i32 noundef %.3.i428)
+  %458 = call ptr @ptvcursor_new(ptr noundef %457, ptr noundef %173, ptr noundef %.0109.i, i32 noundef range(i32 0, 9) %.3.i428)
   %459 = load ptr, ptr %151, align 8
   %460 = select i1 %155, ptr @.str.392, ptr @.str.393
   call void @col_append_str(ptr noundef %459, i32 noundef 25, ptr noundef nonnull %460)
@@ -2782,7 +2782,7 @@ dissect_gameserv_packet.exit.i:                   ; preds = %668, %455
 675:                                              ; preds = %.thread146.i
   %676 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %677 = load ptr, ptr %676, align 8
-  %678 = call ptr @ptvcursor_new(ptr noundef %677, ptr noundef %173, ptr noundef %.0109.i, i32 noundef %.3.i428)
+  %678 = call ptr @ptvcursor_new(ptr noundef %677, ptr noundef %173, ptr noundef %.0109.i, i32 noundef range(i32 0, 9) %.3.i428)
   %679 = load ptr, ptr %151, align 8
   %680 = select i1 %155, ptr @.str.392, ptr @.str.393
   call void @col_append_str(ptr noundef %679, i32 noundef 25, ptr noundef nonnull %680)

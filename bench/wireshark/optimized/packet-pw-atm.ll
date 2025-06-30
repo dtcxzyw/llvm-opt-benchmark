@@ -2429,7 +2429,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @col_append_pw_info(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef range(i32 -1, 44739243) %2, i32 noundef range(i32 -250, 2147483647) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc void @col_append_pw_info(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 -250, 2147483647) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 1855

@@ -828,7 +828,7 @@ define void @ff_dct_encode_init(ptr noundef captures(none) initializes((6704, 67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2147483647) i32 @dct_quantize_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) #1 {
+define internal range(i32 -1, 2147483647) i32 @dct_quantize_c(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) #1 {
   %6 = alloca [64 x i16], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %8 = load ptr, ptr %7, align 8, !tbaa !77

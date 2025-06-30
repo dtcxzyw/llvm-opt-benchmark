@@ -558,7 +558,7 @@ define internal void @xFree(ptr noundef %0) #0 {
 declare i32 @sqlite3_value_bytes(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @icuLikeCompare(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @icuLikeCompare(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 -1, 1310720) %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 37
   %.not88 = icmp eq i32 %2, 95
   br label %select.unfold.outer

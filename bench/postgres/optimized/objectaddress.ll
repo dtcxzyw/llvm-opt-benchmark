@@ -5641,7 +5641,7 @@ get_object_attnum_name.exit:                      ; preds = %get_object_namensp_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #7 {
+define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 -32768, 32768) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #7 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %71
 

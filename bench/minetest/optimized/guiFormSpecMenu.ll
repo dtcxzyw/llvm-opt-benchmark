@@ -62025,7 +62025,7 @@ for.body239:                                      ; preds = %for.end234, %for.in
   %177 = phi ptr [ %.pre2047.pre, %for.inc246 ], [ %176, %for.end234 ]
   %conv2361971 = phi i64 [ %conv236, %for.inc246 ], [ %conv2361964.pre-phi, %for.end234 ]
   %i.31970 = phi i32 [ %inc247, %for.inc246 ], [ %i.2.lcssa, %for.end234 ]
-  %add.ptr.i1421 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %177, i64 %conv2361971
+  %add.ptr.i1421 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %177, i64 %conv2361971
   %call243 = invoke noundef zeroext i1 @_ZN15GUIFormSpecMenu17parseAnchorDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef nonnull %mydata, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1421)
           to label %invoke.cont242 unwind label %lpad201.loopexit.split-lp.loopexit
 
@@ -62065,7 +62065,7 @@ for.body253:                                      ; preds = %for.end248, %for.in
   %179 = phi ptr [ %.pre2049.pre, %for.inc260 ], [ %178, %for.end248 ]
   %conv2501981 = phi i64 [ %conv250, %for.inc260 ], [ %conv2501974.pre-phi, %for.end248 ]
   %i.41980 = phi i32 [ %inc261, %for.inc260 ], [ %i.3.lcssa, %for.end248 ]
-  %add.ptr.i1427 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %179, i64 %conv2501981
+  %add.ptr.i1427 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %179, i64 %conv2501981
   %call257 = invoke noundef zeroext i1 @_ZN15GUIFormSpecMenu18parsePaddingDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef nonnull %mydata, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1427)
           to label %invoke.cont256 unwind label %lpad201.loopexit
 
@@ -62103,7 +62103,7 @@ for.end262:                                       ; preds = %for.inc260, %invoke
 
 for.body267.lr.ph:                                ; preds = %for.end262
   %_M_finish.i1451 = getelementptr inbounds nuw i8, ptr %parts, i64 8
-  %add.ptr.i14332159 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %180, i64 %conv2641984.pre-phi
+  %add.ptr.i14332159 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %180, i64 %conv2641984.pre-phi
   %_M_string_length.i.i14342160 = getelementptr inbounds nuw i8, ptr %add.ptr.i14332159, i64 8
   %181 = load i64, ptr %_M_string_length.i.i14342160, align 8, !tbaa !11
   %cmp.i14352161 = icmp eq i64 %181, 0
@@ -62308,7 +62308,7 @@ for.body305:                                      ; preds = %for.inc343, %for.bo
   %conv3022006 = phi i64 [ %conv3021999.pre-phi, %for.body305.lr.ph ], [ %conv302, %for.inc343 ]
   %i.62005 = phi i32 [ %i.5.lcssa, %for.body305.lr.ph ], [ %inc344, %for.inc343 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %parts306) #34
-  %add.ptr.i1461 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %200, i64 %conv3022006
+  %add.ptr.i1461 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %200, i64 %conv3022006
   invoke void @_Z5splitIcESt6vectorINSt7__cxx1112basic_stringIT_St11char_traitsIS3_ESaIS3_EEESaIS7_EERKS7_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.165") align 8 %parts306, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1461, i8 noundef signext 91)
           to label %invoke.cont310 unwind label %lpad309
 
@@ -96029,7 +96029,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef range(i64 -4611686018427387904, 4611686018427387904) %__len1, i64 noundef %__len2, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #5 {
 entry:
   %cmp187 = icmp eq i64 %__len1, 0
   %cmp5188 = icmp eq i64 %__len2, 0

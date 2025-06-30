@@ -736,12 +736,12 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %259, %_ZNS
   br i1 %exitcond547.not, label %._crit_edge513, label %.lr.ph512, !llvm.loop !56
 
 308:                                              ; preds = %._crit_edge513
-  %309 = zext i32 %.1259 to i64
+  %309 = zext nneg i32 %.1259 to i64
   %310 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %282, i64 %309, i32 4
   %311 = load i32, ptr %310, align 4, !tbaa !51
   %312 = zext i32 %311 to i64
   %313 = getelementptr inbounds nuw i8, ptr %62, i64 %312
-  %314 = zext i32 %.1263 to i64
+  %314 = zext nneg i32 %.1263 to i64
   %315 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %282, i64 %314
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 16
   %317 = load i32, ptr %316, align 4, !tbaa !51
@@ -1132,11 +1132,11 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i361: ; preds = %429, %_
   br i1 %exitcond.not, label %._crit_edge493, label %.lr.ph492, !llvm.loop !81
 
 473:                                              ; preds = %._crit_edge493
-  %474 = zext i32 %.1252 to i64
+  %474 = zext nneg i32 %.1252 to i64
   %475 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %448, i64 %474, i32 4
   %476 = load i64, ptr %475, align 8, !tbaa !76
   %477 = getelementptr inbounds nuw i8, ptr %62, i64 %476
-  %478 = zext i32 %.1249 to i64
+  %478 = zext nneg i32 %.1249 to i64
   %479 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %448, i64 %478
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 24
   %481 = load i64, ptr %480, align 8, !tbaa !76

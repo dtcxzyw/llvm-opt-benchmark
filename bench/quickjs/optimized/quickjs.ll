@@ -32104,7 +32104,7 @@ JS_DupValue.exit85:                               ; preds = %84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_dtoa(ptr noundef %0, double noundef %1, i32 noundef range(i32 0, 37) %2, i32 noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_dtoa(ptr noundef %0, double noundef %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #41
   call fastcc void @js_dtoa1(ptr noundef %6, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
@@ -81999,7 +81999,7 @@ declare i32 @bf_cmp(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare double @llvm.floor.f64(double) #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_dtoa1(ptr noundef nonnull %0, double noundef %1, i32 noundef range(i32 0, 37) %2, i32 noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
+define internal fastcc void @js_dtoa1(ptr noundef nonnull %0, double noundef %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca [128 x i8], align 16
   %8 = alloca [128 x i8], align 16
@@ -110209,7 +110209,7 @@ JS_FreeValue.exit:                                ; preds = %50, %45, %36, %15, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @string_indexof_char(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2) unnamed_addr #32 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @string_indexof_char(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 0, -1) %2) unnamed_addr #32 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i64, ptr %4, align 4
   %6 = trunc i64 %5 to i32
@@ -111103,26 +111103,26 @@ JS_ToUint32.exit:                                 ; preds = %51, %58
   %80 = and i32 %79, 2147483647
   %81 = and i64 %78, 2147483648
   %.not.i159 = icmp eq i64 %81, 0
-  %82 = icmp slt i32 %.0, %80
+  %82 = icmp samesign ult i32 %.0, %80
   br i1 %.not.i159, label %88, label %.preheader20.i
 
 .preheader20.i:                                   ; preds = %77
   br i1 %82, label %.lr.ph.preheader.i, label %string_indexof_char.exit.thread
 
 .lr.ph.preheader.i:                               ; preds = %.preheader20.i
-  %83 = sext i32 %.0 to i64
+  %83 = zext nneg i32 %.0 to i64
   %wide.trip.count.i = and i64 %78, 2147483647
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %87, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %83, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %87 ]
-  %84 = getelementptr inbounds [0 x i16], ptr %69, i64 0, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [0 x i16], ptr %69, i64 0, i64 %indvars.iv.i
   %85 = load i16, ptr %84, align 2, !tbaa !46
   %86 = icmp eq i16 %85, 36
   br i1 %86, label %string_indexof_char.exit, label %87
 
 87:                                               ; preds = %.lr.ph.i
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %string_indexof_char.exit.thread, label %.lr.ph.i, !llvm.loop !895
 
@@ -111130,19 +111130,19 @@ JS_ToUint32.exit:                                 ; preds = %51, %58
   br i1 %82, label %.lr.ph27.preheader.i, label %string_indexof_char.exit.thread
 
 .lr.ph27.preheader.i:                             ; preds = %88
-  %89 = sext i32 %.0 to i64
+  %89 = zext nneg i32 %.0 to i64
   %wide.trip.count37.i = and i64 %78, 2147483647
   br label %.lr.ph27.i
 
 .lr.ph27.i:                                       ; preds = %93, %.lr.ph27.preheader.i
   %indvars.iv34.i = phi i64 [ %89, %.lr.ph27.preheader.i ], [ %indvars.iv.next35.i, %93 ]
-  %90 = getelementptr inbounds [0 x i8], ptr %69, i64 0, i64 %indvars.iv34.i
+  %90 = getelementptr inbounds nuw [0 x i8], ptr %69, i64 0, i64 %indvars.iv34.i
   %91 = load i8, ptr %90, align 1, !tbaa !46
   %92 = icmp eq i8 %91, 36
   br i1 %92, label %string_indexof_char.exit, label %93
 
 93:                                               ; preds = %.lr.ph27.i
-  %indvars.iv.next35.i = add nsw i64 %indvars.iv34.i, 1
+  %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count37.i
   br i1 %exitcond38.not.i, label %string_indexof_char.exit.thread, label %.lr.ph27.i, !llvm.loop !896
 
@@ -111153,27 +111153,27 @@ string_indexof_char.exit:                         ; preds = %.lr.ph.i, %.lr.ph27
   br i1 %94, label %string_indexof_char.exit.thread, label %95
 
 95:                                               ; preds = %string_indexof_char.exit
-  %96 = add nuw i32 %.0.i160, 1
+  %96 = add nuw nsw i32 %.0.i160, 1
   %.not141 = icmp ult i32 %96, %68
   br i1 %.not141, label %97, label %string_indexof_char.exit.thread
 
 97:                                               ; preds = %95
   %98 = call fastcc i32 @string_buffer_concat(ptr noundef nonnull %6, ptr noundef nonnull %14, i32 noundef %.0, i32 noundef %.0.i160)
-  %99 = add nuw i32 %.0.i160, 2
+  %99 = add nuw nsw i32 %.0.i160, 2
   %100 = load i64, ptr %65, align 4
   %101 = and i64 %100, 2147483648
   %.not.i161 = icmp eq i64 %101, 0
-  %102 = sext i32 %96 to i64
+  %102 = zext nneg i32 %96 to i64
   br i1 %.not.i161, label %107, label %103
 
 103:                                              ; preds = %97
-  %104 = getelementptr inbounds [0 x i16], ptr %69, i64 0, i64 %102
+  %104 = getelementptr inbounds nuw [0 x i16], ptr %69, i64 0, i64 %102
   %105 = load i16, ptr %104, align 2, !tbaa !46
   %106 = zext i16 %105 to i32
   br label %string_get.exit
 
 107:                                              ; preds = %97
-  %108 = getelementptr inbounds [0 x i8], ptr %69, i64 0, i64 %102
+  %108 = getelementptr inbounds nuw [0 x i8], ptr %69, i64 0, i64 %102
   %109 = load i8, ptr %108, align 1, !tbaa !46
   %110 = zext i8 %109 to i32
   br label %string_get.exit
@@ -111251,17 +111251,17 @@ string_get.exit:                                  ; preds = %103, %107
   br i1 %141, label %142, label %161
 
 142:                                              ; preds = %140
-  %143 = sext i32 %99 to i64
+  %143 = zext nneg i32 %99 to i64
   br i1 %.not.i161, label %148, label %144
 
 144:                                              ; preds = %142
-  %145 = getelementptr inbounds [0 x i16], ptr %69, i64 0, i64 %143
+  %145 = getelementptr inbounds nuw [0 x i16], ptr %69, i64 0, i64 %143
   %146 = load i16, ptr %145, align 2, !tbaa !46
   %147 = zext i16 %146 to i32
   br label %string_get.exit165
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds [0 x i8], ptr %69, i64 0, i64 %143
+  %149 = getelementptr inbounds nuw [0 x i8], ptr %69, i64 0, i64 %143
   %150 = load i8, ptr %149, align 1, !tbaa !46
   %151 = zext i8 %150 to i32
   br label %string_get.exit165
@@ -111279,7 +111279,7 @@ string_get.exit165:                               ; preds = %144, %148
   %158 = icmp samesign ugt i32 %156, 48
   %159 = icmp ult i32 %157, %76
   %or.cond152 = select i1 %158, i1 %159, i1 false
-  %160 = add nuw i32 %.0.i160, 3
+  %160 = add nuw nsw i32 %.0.i160, 3
   %spec.select = select i1 %or.cond152, i32 %157, i32 %139
   %spec.select155 = select i1 %or.cond152, i32 %160, i32 %99
   br label %161
@@ -176293,7 +176293,7 @@ declare i32 @bf_sqrtrem(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare i64 @bf_get_exp_min(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_ftoa(ptr noundef %0, i64 %1, i64 %2, i32 noundef range(i32 0, -2147483648) %3, i64 noundef %4, i32 noundef range(i32 0, -2147483648) %5) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_ftoa(ptr noundef %0, i64 %1, i64 %2, i32 noundef range(i32 0, 37) %3, i64 noundef %4, i32 noundef range(i32 0, -2147483648) %5) unnamed_addr #0 {
   %7 = alloca %struct.bf_t, align 8
   %8 = alloca %struct.bf_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #41
@@ -176363,7 +176363,7 @@ JS_ToNumeric.exit:                                ; preds = %6, %11
   br i1 %43, label %44, label %71
 
 44:                                               ; preds = %40
-  %45 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %3)
+  %45 = call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %3)
   %.not67 = icmp samesign ult i32 %45, 2
   br i1 %.not67, label %69, label %46
 
@@ -179205,7 +179205,7 @@ JS_ToInt32Sat.exit:                               ; preds = %30, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_bigdecimal_to_string1(ptr noundef %0, i64 %1, i64 %2, i64 noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_bigdecimal_to_string1(ptr noundef %0, i64 %1, i64 %2, i64 noundef %3, i32 noundef range(i32 0, 1245185) %4) unnamed_addr #0 {
   %6 = and i64 %2, 4294967295
   %cond.i = icmp eq i64 %6, 4294967285
   br i1 %cond.i, label %8, label %JS_ToBigDecimal.exit.thread
@@ -179229,7 +179229,7 @@ JS_ToBigDecimal.exit.thread:                      ; preds = %5
   br label %17
 
 17:                                               ; preds = %16, %8
-  %18 = or i32 %4, 4194304
+  %18 = or disjoint i32 %4, 4194304
   %19 = tail call ptr @bfdec_ftoa(ptr noundef null, ptr noundef nonnull %10, i64 noundef %3, i32 noundef %18) #41
   store i32 %12, ptr %11, align 8, !tbaa !546
   %.not24 = icmp eq ptr %19, null
@@ -202794,14 +202794,14 @@ JS_ToUint32.exit:                                 ; preds = %41, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
   %77 = phi i64 [ %70, %.lr.ph.preheader ], [ %76, %74 ]
   %.1164234 = phi i64 [ 0, %.lr.ph.preheader ], [ %75, %74 ]
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw nsw i64 %77 to i32
   %79 = tail call fastcc i32 @string_indexof(ptr noundef %28, ptr noundef %60, i32 noundef %78)
   %80 = sext i32 %79 to i64
   %81 = icmp slt i32 %79, 0
   br i1 %81, label %.loopexit.loopexit, label %82
 
 82:                                               ; preds = %.lr.ph
-  %83 = trunc i64 %.1164234 to i32
+  %83 = trunc nuw i64 %.1164234 to i32
   %84 = tail call fastcc { i64, i64 } @js_sub_string(ptr noundef nonnull %0, ptr noundef %28, i32 noundef %83, i32 noundef %79)
   %85 = extractvalue { i64, i64 } %84, 1
   %86 = and i64 %85, 4294967295
@@ -202822,7 +202822,7 @@ JS_ToUint32.exit:                                 ; preds = %41, %44
 .loopexit.loopexit:                               ; preds = %74, %.lr.ph
   %.0163.ph = phi i64 [ %75, %74 ], [ %.1164234, %.lr.ph ]
   %.0.ph.in = phi i64 [ %indvars.iv.next, %74 ], [ %indvars.iv, %.lr.ph ]
-  %93 = trunc i64 %.0163.ph to i32
+  %93 = trunc nuw i64 %.0163.ph to i32
   %94 = and i64 %.0.ph.in, 4294967295
   br label %.loopexit
 
@@ -206266,7 +206266,7 @@ js_is_regexp.exit.thread40:                       ; preds = %js_is_regexp.exit.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @string_indexof(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #32 {
+define internal fastcc i32 @string_indexof(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, -1) %2) unnamed_addr #32 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i64, ptr %4, align 4
   %.fr99 = freeze i64 %5
@@ -206309,7 +206309,7 @@ string_get.exit:                                  ; preds = %16, %19
   br i1 %.not29.i, label %string_get.exit.split.us, label %string_get.exit.split
 
 string_get.exit.split.us:                         ; preds = %string_get.exit
-  %27 = add i32 %2, %11
+  %27 = add nuw i32 %2, %11
   %.not.us = icmp sgt i32 %27, %7
   br i1 %.not.us, label %string_indexof_char.exit.thread, label %28
 
@@ -206398,7 +206398,7 @@ string_get.exit.split.split.us:                   ; preds = %string_get.exit.spl
   br i1 %exitcond38.not.i.us80, label %string_indexof_char.exit.thread, label %.lr.ph27.i.us77, !llvm.loop !896
 
 .lr.ph.i29.us:                                    ; preds = %string_indexof_char.exit.loopexit.us85
-  %54 = add nuw i32 %.0.i.us83, 1
+  %54 = add nuw nsw i32 %.0.i.us83, 1
   br i1 %.not.i, label %string_get.exit.us.us.i.us, label %string_get.exit.us.i.us
 
 string_get.exit.us.i.us:                          ; preds = %.lr.ph.i29.us, %65
@@ -206490,7 +206490,7 @@ string_indexof_char.exit:                         ; preds = %.lr.ph.i
   br i1 %or.cond, label %string_indexof_char.exit.thread, label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %string_indexof_char.exit
-  %91 = add nuw i32 %.0.i, 1
+  %91 = add nuw nsw i32 %.0.i, 1
   br i1 %.not.i, label %string_get.exit.us19.i, label %string_get.exit.i
 
 string_get.exit.us19.i:                           ; preds = %.lr.ph.i29, %102

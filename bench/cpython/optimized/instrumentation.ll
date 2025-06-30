@@ -6571,7 +6571,7 @@ capi_call_instrumentation.exit:                   ; preds = %38, %Py_DECREF.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @capi_call_instrumentation(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull initializes((8, 16)) %3, i64 noundef range(i64 2, 5) %4, i32 noundef range(i32 0, 18) %5) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @capi_call_instrumentation(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull initializes((8, 16)) %3, i64 noundef range(i64 2, 5) %4, i32 noundef %5) unnamed_addr #2 {
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %8 = load ptr, ptr %7, align 8, !tbaa !76
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6610,7 +6610,7 @@ define internal fastcc range(i32 -1, 1) i32 @capi_call_instrumentation(ptr nound
   br i1 %.not495465, label %.critedge, label %.lr.ph.split.us.preheader
 
 .lr.ph:                                           ; preds = %20
-  %24 = icmp samesign ult i32 %5, 11
+  %24 = icmp slt i32 %5, 11
   br i1 %24, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.thread, %.lr.ph
@@ -8348,7 +8348,7 @@ define internal ptr @monitoring_get_events(ptr readnone captures(none) %0, ptr n
 
 .split:                                           ; preds = %2
   %or.cond.i.i = icmp ugt i32 %3, 5
-  br i1 %or.cond.i.i, label %monitoring_get_events_impl.exit.thread.sink.split, label %5
+  br i1 %or.cond.i.i, label %monitoring_get_events_impl.exit.thread, label %5
 
 5:                                                ; preds = %.split
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -8378,31 +8378,27 @@ define internal ptr @monitoring_get_events(ptr readnone captures(none) %0, ptr n
 20:                                               ; preds = %2
   %21 = tail call ptr @PyErr_Occurred() #11
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %monitoring_get_events_impl.exit.thread.sink.split, label %29
+  br i1 %.not, label %monitoring_get_events_impl.exit.thread, label %28
 
 monitoring_get_events_impl.exit:                  ; preds = %12
-  %22 = icmp eq i32 %.1.i.i, -1
-  br i1 %22, label %monitoring_get_events_impl.exit.thread, label %26
+  %22 = sext i32 %.1.i.i to i64
+  br label %26
 
-monitoring_get_events_impl.exit.thread.sink.split: ; preds = %20, %.split
+monitoring_get_events_impl.exit.thread:           ; preds = %20, %.split
   %.sink14 = phi i32 [ %3, %.split ], [ -1, %20 ]
   %23 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !46
   %24 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %23, ptr noundef nonnull @.str.27, i32 noundef %.sink14) #11
-  br label %monitoring_get_events_impl.exit.thread
-
-monitoring_get_events_impl.exit.thread:           ; preds = %monitoring_get_events_impl.exit.thread.sink.split, %monitoring_get_events_impl.exit
   %25 = tail call ptr @PyErr_Occurred() #11
   %.not8 = icmp eq ptr %25, null
-  br i1 %.not8, label %26, label %29
+  br i1 %.not8, label %26, label %28
 
-26:                                               ; preds = %monitoring_get_events_impl.exit.thread, %monitoring_get_events_impl.exit
-  %phi.call12 = phi i32 [ -1, %monitoring_get_events_impl.exit.thread ], [ %.1.i.i, %monitoring_get_events_impl.exit ]
-  %27 = sext i32 %phi.call12 to i64
-  %28 = tail call ptr @PyLong_FromLong(i64 noundef %27) #11
-  br label %29
+26:                                               ; preds = %monitoring_get_events_impl.exit, %monitoring_get_events_impl.exit.thread
+  %phi.call12 = phi i64 [ -1, %monitoring_get_events_impl.exit.thread ], [ %22, %monitoring_get_events_impl.exit ]
+  %27 = tail call ptr @PyLong_FromLong(i64 noundef %phi.call12) #11
+  br label %28
 
-29:                                               ; preds = %monitoring_get_events_impl.exit.thread, %20, %26
-  %.0 = phi ptr [ null, %20 ], [ null, %monitoring_get_events_impl.exit.thread ], [ %28, %26 ]
+28:                                               ; preds = %monitoring_get_events_impl.exit.thread, %20, %26
+  %.0 = phi ptr [ null, %20 ], [ null, %monitoring_get_events_impl.exit.thread ], [ %27, %26 ]
   ret ptr %.0
 }
 
@@ -8507,7 +8503,7 @@ define internal ptr @monitoring_get_local_events(ptr readnone captures(none) %0,
 4:                                                ; preds = %3
   %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.20, i64 noundef %2, i64 noundef 2, i64 noundef 2) #11
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %46, label %6
+  br i1 %.not, label %45, label %6
 
 6:                                                ; preds = %3, %4
   %7 = load ptr, ptr %1, align 8, !tbaa !46
@@ -8566,7 +8562,7 @@ check_valid_tool.exit.i:                          ; preds = %16
 31:                                               ; preds = %6
   %32 = tail call ptr @PyErr_Occurred() #11
   %.not14 = icmp eq ptr %32, null
-  br i1 %.not14, label %.split12, label %46
+  br i1 %.not14, label %.split12, label %45
 
 .split12:                                         ; preds = %31
   %33 = getelementptr i8, ptr %1, i64 8
@@ -8587,22 +8583,21 @@ check_valid_tool.exit.i:                          ; preds = %16
   br label %monitoring_get_local_events_impl.exit.thread
 
 monitoring_get_local_events_impl.exit:            ; preds = %23
-  %42 = icmp eq i32 %.2.i, -1
-  br i1 %42, label %monitoring_get_local_events_impl.exit.thread, label %monitoring_get_local_events_impl.exit.thread24
+  %42 = sext i32 %.2.i to i64
+  br label %monitoring_get_local_events_impl.exit.thread24
 
-monitoring_get_local_events_impl.exit.thread:     ; preds = %39, %36, %check_valid_tool.exit.i, %13, %monitoring_get_local_events_impl.exit
+monitoring_get_local_events_impl.exit.thread:     ; preds = %39, %36, %check_valid_tool.exit.i, %13
   %43 = tail call ptr @PyErr_Occurred() #11
   %.not15 = icmp eq ptr %43, null
-  br i1 %.not15, label %monitoring_get_local_events_impl.exit.thread24, label %46
+  br i1 %.not15, label %monitoring_get_local_events_impl.exit.thread24, label %45
 
-monitoring_get_local_events_impl.exit.thread24:   ; preds = %19, %monitoring_get_local_events_impl.exit.thread, %monitoring_get_local_events_impl.exit
-  %phi.call22 = phi i32 [ -1, %monitoring_get_local_events_impl.exit.thread ], [ %.2.i, %monitoring_get_local_events_impl.exit ], [ 0, %19 ]
-  %44 = sext i32 %phi.call22 to i64
-  %45 = tail call ptr @PyLong_FromLong(i64 noundef %44) #11
-  br label %46
+monitoring_get_local_events_impl.exit.thread24:   ; preds = %monitoring_get_local_events_impl.exit, %19, %monitoring_get_local_events_impl.exit.thread
+  %phi.call22 = phi i64 [ -1, %monitoring_get_local_events_impl.exit.thread ], [ %42, %monitoring_get_local_events_impl.exit ], [ 0, %19 ]
+  %44 = tail call ptr @PyLong_FromLong(i64 noundef %phi.call22) #11
+  br label %45
 
-46:                                               ; preds = %monitoring_get_local_events_impl.exit.thread, %31, %4, %monitoring_get_local_events_impl.exit.thread24
-  %.0 = phi ptr [ null, %31 ], [ null, %monitoring_get_local_events_impl.exit.thread ], [ %45, %monitoring_get_local_events_impl.exit.thread24 ], [ null, %4 ]
+45:                                               ; preds = %monitoring_get_local_events_impl.exit.thread, %31, %4, %monitoring_get_local_events_impl.exit.thread24
+  %.0 = phi ptr [ null, %31 ], [ null, %monitoring_get_local_events_impl.exit.thread ], [ %44, %monitoring_get_local_events_impl.exit.thread24 ], [ null, %4 ]
   ret ptr %.0
 }
 

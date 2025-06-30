@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden range(i64 0, -71776119061217280) i64 @_ZN4core4hash3sip9u8to64_le17heec10e43a3e70f05E(ptr readonly align 1 captures(none) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
+define hidden range(i64 0, 72057594037927936) i64 @_ZN4core4hash3sip9u8to64_le17heec10e43a3e70f05E(ptr readonly align 1 captures(none) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = icmp ugt i64 %3, 3
   br i1 %5, label %6, label %9
 
@@ -36,7 +36,7 @@ define hidden range(i64 0, -71776119061217280) i64 @_ZN4core4hash3sip9u8to64_le1
   %.118 = phi i64 [ %18, %12 ], [ %.017, %9 ]
   %.1 = phi i64 [ %19, %12 ], [ %.0, %9 ]
   %21 = icmp ult i64 %.1, %3
-  br i1 %21, label %22, label %32
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %20
   %23 = add i64 %.1, %2
@@ -46,13 +46,12 @@ define hidden range(i64 0, -71776119061217280) i64 @_ZN4core4hash3sip9u8to64_le1
   %26 = load i8, ptr %25, align 1, !noundef !3
   %27 = zext i8 %26 to i64
   %28 = shl nuw nsw i64 %.1, 3
-  %29 = and i64 %28, 56
-  %30 = shl nuw i64 %27, %29
-  %31 = or i64 %30, %.118
-  br label %32
+  %29 = shl nuw nsw i64 %27, %28
+  %30 = or i64 %29, %.118
+  br label %31
 
-32:                                               ; preds = %20, %22
-  %.2 = phi i64 [ %31, %22 ], [ %.118, %20 ]
+31:                                               ; preds = %20, %22
+  %.2 = phi i64 [ %30, %22 ], [ %.118, %20 ]
   ret i64 %.2
 }
 

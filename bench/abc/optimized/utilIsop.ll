@@ -2006,8 +2006,8 @@ Abc_TtCopy.exit197:                               ; preds = %.lr.ph.i, %6
   %64 = trunc i64 %.424.i.i to i32
   %65 = and i32 %64, 1
   %66 = xor i32 %65, 1
-  %.5.i.i = add i32 %.4.i.i, %44
-  %67 = add i32 %.5.i.i, %66
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %44
+  %67 = add nuw nsw i32 %.5.i.i, %66
   br label %Abc_TtFindFirstBit.exit
 
 68:                                               ; preds = %.lr.ph.i206

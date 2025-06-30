@@ -1132,7 +1132,7 @@ _ZL34BrotliBuildMetaBlockGreedyInternalPN13duckdb_brotli13MemoryManagerEP20Greed
   br i1 %.not92.i, label %146, label %144, !llvm.loop !121
 
 146:                                              ; preds = %144
-  %147 = shl i64 %.082.i44, 2
+  %147 = shl nuw nsw i64 %.082.i44, 2
   %148 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %147)
   %149 = load i64, ptr %140, align 8, !tbaa !120
   %.not93.i = icmp eq i64 %149, 0
@@ -1566,7 +1566,7 @@ define internal fastcc void @_ZL24InitBlockSplitterLiteralPN13duckdb_brotli13Mem
   br i1 %.not85, label %39, label %37, !llvm.loop !141
 
 39:                                               ; preds = %37
-  %40 = shl i64 %.075, 2
+  %40 = shl nuw nsw i64 %.075, 2
   %41 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %40)
   %42 = load i64, ptr %33, align 8, !tbaa !120
   %.not86 = icmp eq i64 %42, 0

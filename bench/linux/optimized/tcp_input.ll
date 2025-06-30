@@ -7786,7 +7786,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   br i1 %327, label %296, label %.loopexit33, !llvm.loop !125
 
 329:                                              ; preds = %.loopexit
-  %330 = add i32 %299, -1
+  %330 = add nsw i32 %299, -1
   %331 = call i32 @llvm.smin.i32(i32 %300, i32 %330)
   br label %.loopexit33
 

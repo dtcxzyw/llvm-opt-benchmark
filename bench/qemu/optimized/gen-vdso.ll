@@ -652,7 +652,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not159.i, label %.critedge.i, label %268
 
 268:                                              ; preds = %267
-  %269 = zext i32 %.0149.lcssa.i to i64
+  %269 = zext nneg i32 %.0149.lcssa.i to i64
   %270 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %125, i64 %269
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 20
   %272 = load i32, ptr %271, align 4, !tbaa !45
@@ -1186,7 +1186,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not159.i156, label %.critedge.i166, label %508
 
 508:                                              ; preds = %507
-  %509 = zext i32 %.0149.lcssa.i101 to i64
+  %509 = zext nneg i32 %.0149.lcssa.i101 to i64
   %510 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %366, i64 %509
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 32
   %512 = load i64, ptr %511, align 8, !tbaa !78
@@ -1492,8 +1492,8 @@ define internal fastcc void @elf32_bswap_ps_hdrs(ptr noundef nonnull captures(no
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #7 {
-  %5 = zext i32 %1 to i64
+define internal fastcc void @elf32_search_symtab(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 65535) %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #7 {
+  %5 = zext nneg i32 %1 to i64
   %6 = getelementptr inbounds nuw %struct.Elf32_Shdr, ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 4, !tbaa !89
@@ -1796,8 +1796,8 @@ define internal fastcc void @elf64_bswap_ps_hdrs(ptr noundef nonnull captures(no
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #7 {
-  %5 = zext i32 %1 to i64
+define internal fastcc void @elf64_search_symtab(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 65535) %1, ptr noundef nonnull readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #7 {
+  %5 = zext nneg i32 %1 to i64
   %6 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8, !tbaa !101

@@ -5483,7 +5483,7 @@ _ZN5clang16ASTUnresolvedSet7replaceEPKNS_9NamedDeclEPS1_NS_15AccessSpecifierE.ex
   %513 = load ptr, ptr %469, align 8, !tbaa !39
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
   %515 = load i32, ptr %514, align 8
-  %516 = shl i32 %spec.select266, 8
+  %516 = shl nuw nsw i32 %spec.select266, 8
   %517 = and i32 %516, 16128
   %518 = or i32 %515, %517
   store i32 %518, ptr %514, align 8
@@ -5499,7 +5499,7 @@ _ZN5clang16ASTUnresolvedSet7replaceEPKNS_9NamedDeclEPS1_NS_15AccessSpecifierE.ex
   %525 = load ptr, ptr %469, align 8, !tbaa !39
   %526 = load i64, ptr %525, align 8
   %527 = trunc i64 %526 to i32
-  %528 = shl i32 %spec.select266, 1
+  %528 = shl nuw nsw i32 %spec.select266, 1
   %529 = or i32 %528, %527
   %530 = and i32 %529, 126
   %531 = zext nneg i32 %530 to i64

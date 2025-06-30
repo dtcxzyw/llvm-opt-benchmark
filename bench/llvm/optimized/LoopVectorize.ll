@@ -110714,7 +110714,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBase
   store ptr %3, ptr %7, align 8
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %4, ptr %62, align 8
-  %63 = icmp sgt i64 %.1, %1
+  %63 = icmp samesign ugt i64 %.1, %1
   br i1 %63, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %61
@@ -110725,7 +110725,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBase
   %.0134.i = phi i64 [ %.1, %.lr.ph.i ], [ %.05.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i" ]
   %.05.in.i = add nsw i64 %.0134.i, -1
   %.05.i = sdiv i64 %.05.in.i, 2
-  %66 = getelementptr inbounds %"struct.std::pair.784", ptr %0, i64 %.05.i
+  %66 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %.05.i
   %67 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %66)
   %68 = load i32, ptr %67, align 4, !tbaa !66
   %69 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
@@ -110775,7 +110775,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBase
 "_ZSt11__push_heapIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %61, %.critedge.loopexit.i
   %92 = phi ptr [ %3, %61 ], [ %.pre.i, %.critedge.loopexit.i ]
   %.013.lcssa.i = phi i64 [ %.1, %61 ], [ %.013.lcssa.ph.i, %.critedge.loopexit.i ]
-  %93 = getelementptr inbounds %"struct.std::pair.784", ptr %0, i64 %.013.lcssa.i
+  %93 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %.013.lcssa.i
   store ptr %92, ptr %93, align 8, !tbaa !1235
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %94, ptr noundef nonnull align 8 dereferenceable(5) %62, i64 5, i1 false)

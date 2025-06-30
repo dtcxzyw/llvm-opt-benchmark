@@ -4503,7 +4503,7 @@ proto_item_set_generated.exit1615:                ; preds = %525, %792, %996, %1
 1484:                                             ; preds = %proto_item_set_generated.exit1615
   %1485 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %14)
   %1486 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %14)
-  %1487 = add nsw i32 %.014651718, -1
+  %1487 = add i32 %.014651718, -1
   %or.cond40 = icmp ult i32 %1487, 1023
   br i1 %or.cond40, label %1488, label %1499
 

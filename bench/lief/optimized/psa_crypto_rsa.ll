@@ -481,7 +481,7 @@ switch.early.test.i:                              ; preds = %13
   br i1 %23, label %psa_rsa_decode_md_type.exit.thread, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call ptr @mbedtls_md_info_from_type(i32 noundef range(i32 1, 0) %19) #9
+  %25 = tail call ptr @mbedtls_md_info_from_type(i32 noundef range(i32 1, 256) %19) #9
   %26 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %25) #9
   %27 = zext i8 %26 to i64
   %.not21.i = icmp eq i64 %5, %27
@@ -593,7 +593,7 @@ switch.early.test.i:                              ; preds = %12
   br i1 %22, label %psa_rsa_decode_md_type.exit.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @mbedtls_md_info_from_type(i32 noundef range(i32 1, 0) %18) #9
+  %24 = tail call ptr @mbedtls_md_info_from_type(i32 noundef range(i32 1, 256) %18) #9
   %25 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef %24) #9
   %26 = zext i8 %25 to i64
   %.not21.i = icmp eq i64 %5, %26

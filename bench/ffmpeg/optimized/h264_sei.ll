@@ -657,7 +657,7 @@ bytestream2_init.exit51:                          ; preds = %73
   %108 = add nuw nsw i32 %.1.i.i.i, %107
   %109 = sub nsw i32 31, %108
   %110 = icmp samesign ugt i32 %108, 31
-  %..i.i.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %109, i32 %81)
+  %..i.i.i.i = call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %109, i32 %81)
   %.0.i.i.i.i = select i1 %110, i32 0, i32 %..i.i.i.i
   store i32 %.0.i.i.i.i, ptr %27, align 8, !tbaa !66
   %.not.i5.i.i = icmp eq i32 %108, 32

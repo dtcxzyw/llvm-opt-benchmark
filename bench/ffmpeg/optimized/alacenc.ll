@@ -2071,7 +2071,7 @@ declare i32 @ff_lpc_calc_coefs(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @encode_scalar(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @encode_scalar(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 -272, 280) %2, i32 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 65632
   %6 = load i32, ptr %5, align 8, !tbaa !42
   %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %6)

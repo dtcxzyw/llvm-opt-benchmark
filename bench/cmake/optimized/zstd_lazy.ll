@@ -48179,7 +48179,7 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %140, %135, %ZSTD_co
 
 151:                                              ; preds = %ZSTD_HcFindBestMatch.exit, %151
   %indvars.iv97 = phi i64 [ 0, %ZSTD_HcFindBestMatch.exit ], [ %indvars.iv.next98, %151 ]
-  %152 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv97
+  %152 = getelementptr i32, ptr %47, i64 %indvars.iv97
   %153 = load i32, ptr %152, align 4, !tbaa !24
   %154 = zext i32 %153 to i64
   %155 = getelementptr inbounds nuw i8, ptr %149, i64 %154
@@ -48593,7 +48593,7 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %137, %132, %ZSTD_co
 
 148:                                              ; preds = %ZSTD_HcFindBestMatch.exit, %148
   %indvars.iv97 = phi i64 [ 0, %ZSTD_HcFindBestMatch.exit ], [ %indvars.iv.next98, %148 ]
-  %149 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv97
+  %149 = getelementptr i32, ptr %47, i64 %indvars.iv97
   %150 = load i32, ptr %149, align 4, !tbaa !24
   %151 = zext i32 %150 to i64
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 %151
@@ -49009,7 +49009,7 @@ ZSTD_HcFindBestMatch.exit:                        ; preds = %137, %132, %ZSTD_co
 
 148:                                              ; preds = %ZSTD_HcFindBestMatch.exit, %148
   %indvars.iv97 = phi i64 [ 0, %ZSTD_HcFindBestMatch.exit ], [ %indvars.iv.next98, %148 ]
-  %149 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv97
+  %149 = getelementptr i32, ptr %47, i64 %indvars.iv97
   %150 = load i32, ptr %149, align 4, !tbaa !24
   %151 = zext i32 %150 to i64
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 %151
@@ -49665,7 +49665,7 @@ ZSTD_count.exit.thread:                           ; preds = %256, %ZSTD_count.ex
 
 312:                                              ; preds = %._crit_edge88, %312
   %indvars.iv129 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next130, %312 ]
-  %313 = getelementptr inbounds nuw i32, ptr %311, i64 %indvars.iv129
+  %313 = getelementptr i32, ptr %311, i64 %indvars.iv129
   %314 = load i32, ptr %313, align 4, !tbaa !24
   %315 = zext i32 %314 to i64
   %316 = getelementptr inbounds nuw i8, ptr %308, i64 %315
@@ -50337,7 +50337,7 @@ ZSTD_count.exit.thread:                           ; preds = %267, %ZSTD_count.ex
 
 323:                                              ; preds = %._crit_edge88, %323
   %indvars.iv132 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next133, %323 ]
-  %324 = getelementptr inbounds nuw i32, ptr %322, i64 %indvars.iv132
+  %324 = getelementptr i32, ptr %322, i64 %indvars.iv132
   %325 = load i32, ptr %324, align 4, !tbaa !24
   %326 = zext i32 %325 to i64
   %327 = getelementptr inbounds nuw i8, ptr %319, i64 %326
@@ -51044,7 +51044,7 @@ ZSTD_count.exit.thread:                           ; preds = %287, %ZSTD_count.ex
 
 343:                                              ; preds = %._crit_edge88, %343
   %indvars.iv133 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next134, %343 ]
-  %344 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv133
+  %344 = getelementptr i32, ptr %342, i64 %indvars.iv133
   %345 = load i32, ptr %344, align 4, !tbaa !24
   %346 = zext i32 %345 to i64
   %347 = getelementptr inbounds nuw i8, ptr %339, i64 %346
@@ -51702,7 +51702,7 @@ ZSTD_count.exit.thread:                           ; preds = %257, %ZSTD_count.ex
 
 313:                                              ; preds = %._crit_edge88, %313
   %indvars.iv129 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next130, %313 ]
-  %314 = getelementptr inbounds nuw i32, ptr %312, i64 %indvars.iv129
+  %314 = getelementptr i32, ptr %312, i64 %indvars.iv129
   %315 = load i32, ptr %314, align 4, !tbaa !24
   %316 = zext i32 %315 to i64
   %317 = getelementptr inbounds nuw i8, ptr %309, i64 %316
@@ -52375,7 +52375,7 @@ ZSTD_count.exit.thread:                           ; preds = %268, %ZSTD_count.ex
 
 324:                                              ; preds = %._crit_edge88, %324
   %indvars.iv132 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next133, %324 ]
-  %325 = getelementptr inbounds nuw i32, ptr %323, i64 %indvars.iv132
+  %325 = getelementptr i32, ptr %323, i64 %indvars.iv132
   %326 = load i32, ptr %325, align 4, !tbaa !24
   %327 = zext i32 %326 to i64
   %328 = getelementptr inbounds nuw i8, ptr %320, i64 %327
@@ -53083,7 +53083,7 @@ ZSTD_count.exit.thread:                           ; preds = %288, %ZSTD_count.ex
 
 344:                                              ; preds = %._crit_edge88, %344
   %indvars.iv133 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next134, %344 ]
-  %345 = getelementptr inbounds nuw i32, ptr %343, i64 %indvars.iv133
+  %345 = getelementptr i32, ptr %343, i64 %indvars.iv133
   %346 = load i32, ptr %345, align 4, !tbaa !24
   %347 = zext i32 %346 to i64
   %348 = getelementptr inbounds nuw i8, ptr %340, i64 %347
@@ -53741,7 +53741,7 @@ ZSTD_count.exit.thread:                           ; preds = %257, %ZSTD_count.ex
 
 313:                                              ; preds = %._crit_edge88, %313
   %indvars.iv129 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next130, %313 ]
-  %314 = getelementptr inbounds nuw i32, ptr %312, i64 %indvars.iv129
+  %314 = getelementptr i32, ptr %312, i64 %indvars.iv129
   %315 = load i32, ptr %314, align 4, !tbaa !24
   %316 = zext i32 %315 to i64
   %317 = getelementptr inbounds nuw i8, ptr %309, i64 %316
@@ -54414,7 +54414,7 @@ ZSTD_count.exit.thread:                           ; preds = %268, %ZSTD_count.ex
 
 324:                                              ; preds = %._crit_edge88, %324
   %indvars.iv132 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next133, %324 ]
-  %325 = getelementptr inbounds nuw i32, ptr %323, i64 %indvars.iv132
+  %325 = getelementptr i32, ptr %323, i64 %indvars.iv132
   %326 = load i32, ptr %325, align 4, !tbaa !24
   %327 = zext i32 %326 to i64
   %328 = getelementptr inbounds nuw i8, ptr %320, i64 %327
@@ -55122,7 +55122,7 @@ ZSTD_count.exit.thread:                           ; preds = %288, %ZSTD_count.ex
 
 344:                                              ; preds = %._crit_edge88, %344
   %indvars.iv133 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next134, %344 ]
-  %345 = getelementptr inbounds nuw i32, ptr %343, i64 %indvars.iv133
+  %345 = getelementptr i32, ptr %343, i64 %indvars.iv133
   %346 = load i32, ptr %345, align 4, !tbaa !24
   %347 = zext i32 %346 to i64
   %348 = getelementptr inbounds nuw i8, ptr %340, i64 %347

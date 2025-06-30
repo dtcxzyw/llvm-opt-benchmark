@@ -313,7 +313,7 @@ thread-pre-split:                                 ; preds = %105, %96
   br i1 %108, label %109, label %.outer.backedge
 
 109:                                              ; preds = %thread-pre-split
-  %110 = trunc i8 %.1 to i1
+  %110 = trunc nuw i8 %.1 to i1
   %111 = load ptr, ptr %1, align 8, !tbaa !25
   call void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef nonnull align 8 dereferenceable(104) %111, ptr noundef nonnull align 8 dereferenceable(24) %9) #8
   br i1 %14, label %.thread78, label %112
@@ -325,11 +325,11 @@ thread-pre-split:                                 ; preds = %105, %96
   %114 = load ptr, ptr %3, align 8, !tbaa !30
   %115 = load i64, ptr %6, align 8, !tbaa !16
   %116 = call fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isWhitespaceEN4llvm9StringRefE(ptr %114, i64 %115)
-  %spec.select = select i1 %116, i8 %.1, i8 0
+  %spec.select = zext i1 %116 to i8
   br label %.outer.outer225.backedge
 
 .outer.outer225.backedge:                         ; preds = %113, %112
-  %.0.ph.ph227.be = phi i8 [ %.1, %112 ], [ %spec.select, %113 ]
+  %.0.ph.ph227.be = phi i8 [ 0, %112 ], [ %spec.select, %113 ]
   br label %.outer.outer225, !llvm.loop !27
 
 117:                                              ; preds = %.thread

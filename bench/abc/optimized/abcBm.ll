@@ -6552,7 +6552,7 @@ define void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr nounde
   %17 = icmp eq i32 %.069, -1
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %17, i32 %18, i32 %.069
-  %19 = add nsw i32 %.04367, 1
+  %19 = add nuw nsw i32 %.04367, 1
   %20 = icmp eq i32 %19, 3
   br i1 %20, label %._crit_edge, label %21
 

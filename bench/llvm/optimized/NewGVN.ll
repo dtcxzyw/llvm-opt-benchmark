@@ -22882,7 +22882,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_
   %.0133.i = phi i64 [ %.128, %.lr.ph.i ], [ %.04.i, %50 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val14.i = load ptr, ptr %44, align 8, !tbaa !373
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -22906,7 +22906,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_
 
 "_ZSt11__push_heapIPPN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_16NewGVN6runGVNEvE3$_1EEEvT_T0_SE_T1_RT2_.exit": ; preds = %43, %50, %40
   %.013.lcssa.i = phi i64 [ %.128, %40 ], [ %.0133.i, %43 ], [ %.04.i, %50 ]
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %54, align 8, !tbaa !373
   ret void
 }
@@ -38312,7 +38312,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt4pairIjjENS_12DenseMapI
 
 94:                                               ; preds = %85, %81, %._crit_edge
   %.1 = phi i64 [ %87, %85 ], [ %.0.lcssa, %81 ], [ %.0.lcssa, %._crit_edge ]
-  %95 = icmp sgt i64 %.1, %1
+  %95 = icmp samesign ugt i64 %.1, %1
   br i1 %95, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN4llvm5ValueEPNS1_10BasicBlockEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_16NewGVN10sortPHIOpsENS1_15MutableArrayRefIS6_EEE3$_0EEEvT_T0_SI_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %94
@@ -38336,7 +38336,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt4pairIjjENS_12DenseMapI
   %.0139.i = phi i64 [ %.010.i, %147 ], [ %.1, %.lr.ph.i ]
   %.010.in.i = add nsw i64 %.0139.i, -1
   %.010.i = sdiv i64 %.010.in.i, 2
-  %107 = getelementptr inbounds %"struct.std::pair.588", ptr %0, i64 %.010.i
+  %107 = getelementptr inbounds nuw %"struct.std::pair.588", ptr %0, i64 %.010.i
   %108 = getelementptr i8, ptr %107, i64 8
   %.val14.i = load ptr, ptr %108, align 8, !tbaa !1161
   %109 = ptrtoint ptr %.val14.i to i64
@@ -38417,7 +38417,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt4pairIjjENS_12DenseMapI
 
 "_ZSt11__push_heapIPSt4pairIPN4llvm5ValueEPNS1_10BasicBlockEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_16NewGVN10sortPHIOpsENS1_15MutableArrayRefIS6_EEE3$_0EEEvT_T0_SI_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_16NewGVN10sortPHIOpsEN4llvm15MutableArrayRefISt4pairIPNS4_5ValueEPNS4_10BasicBlockEEEEE3$_0EclIPSB_SB_EEbT_RT0_.exit.i", %147, %.lr.ph.i.i.i6.i.i.i, %94, %.lr.ph.i
   %.0136.i = phi i64 [ %.1, %94 ], [ %.1, %.lr.ph.i ], [ %.0139.i, %.lr.ph.i.i.i6.i.i.i ], [ %.010.i, %147 ], [ %.0139.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_16NewGVN10sortPHIOpsEN4llvm15MutableArrayRefISt4pairIPNS4_5ValueEPNS4_10BasicBlockEEEEE3$_0EclIPSB_SB_EEbT_RT0_.exit.i" ]
-  %152 = getelementptr inbounds %"struct.std::pair.588", ptr %0, i64 %.0136.i
+  %152 = getelementptr inbounds nuw %"struct.std::pair.588", ptr %0, i64 %.0136.i
   store ptr %3, ptr %152, align 8, !tbaa !868
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %4, ptr %153, align 8, !tbaa !1161

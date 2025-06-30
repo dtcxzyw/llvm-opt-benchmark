@@ -191,7 +191,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [20 x i8] c"error null no match\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -4, 2) i32 @cmd_main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @cmd_main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.strbuf, align 8
   %4 = alloca %struct.slot_results, align 8
   %5 = alloca %struct.strbuf, align 8

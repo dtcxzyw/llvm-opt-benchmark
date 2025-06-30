@@ -2566,7 +2566,7 @@ clip_to_subpic.exit:                              ; preds = %12
 declare ptr @ff_vvc_get_mvf(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mc_uni_scaled(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 0, 3) %9) unnamed_addr #0 {
+define internal fastcc void @mc_uni_scaled(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef range(i32 -2147483648, 3) %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca i64, align 8
   %13 = alloca i32, align 4
@@ -2577,13 +2577,13 @@ define internal fastcc void @mc_uni_scaled(ptr noundef %0, ptr noundef %1, i64 n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
   %18 = load ptr, ptr %3, align 8, !tbaa !101
   %19 = load ptr, ptr %18, align 8, !tbaa !107
-  %20 = zext nneg i32 %9 to i64
-  %21 = getelementptr inbounds nuw [8 x ptr], ptr %19, i64 0, i64 %20
+  %20 = sext i32 %9 to i64
+  %21 = getelementptr inbounds [8 x ptr], ptr %19, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !89
   store ptr %22, ptr %11, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #6
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %24 = getelementptr inbounds nuw [8 x i32], ptr %23, i64 0, i64 %20
+  %24 = getelementptr inbounds [8 x i32], ptr %23, i64 0, i64 %20
   %25 = load i32, ptr %24, align 4, !tbaa !90
   %26 = sext i32 %25 to i64
   store i64 %26, ptr %12, align 8, !tbaa !113
@@ -2679,10 +2679,10 @@ inter_filter_scaled.exit59.thread:                ; preds = %10
   %93 = getelementptr i8, ptr %.val.val49, i64 64
   %.val.val49.val50 = load i16, ptr %93, align 4, !tbaa !152
   %94 = getelementptr inbounds nuw i8, ptr %.val.val, i64 8
-  %95 = getelementptr inbounds nuw [3 x i8], ptr %94, i64 0, i64 %20
+  %95 = getelementptr inbounds [3 x i8], ptr %94, i64 0, i64 %20
   %96 = load i8, ptr %95, align 1, !tbaa !65
   %97 = getelementptr inbounds nuw i8, ptr %.val.val, i64 11
-  %98 = getelementptr inbounds nuw [3 x i8], ptr %97, i64 0, i64 %20
+  %98 = getelementptr inbounds [3 x i8], ptr %97, i64 0, i64 %20
   %99 = load i8, ptr %98, align 1, !tbaa !65
   %100 = load ptr, ptr %.val.val, align 8, !tbaa !69
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 38743
@@ -2773,7 +2773,7 @@ scaled_ref_pos_and_step.exit:                     ; preds = %inter_filter_scaled
   %167 = load ptr, ptr %166, align 8, !tbaa !135
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1345
   %169 = load i8, ptr %168, align 1, !tbaa !136
-  switch i8 %169, label %211 [
+  switch i8 %169, label %213 [
     i8 1, label %170
     i8 0, label %174
   ]
@@ -2783,14 +2783,14 @@ scaled_ref_pos_and_step.exit:                     ; preds = %inter_filter_scaled
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 1992097
   %173 = load i8, ptr %172, align 1, !tbaa !141
   %.not.i61 = icmp eq i8 %173, 0
-  br i1 %.not.i61, label %211, label %178
+  br i1 %.not.i61, label %213, label %178
 
 174:                                              ; preds = %scaled_ref_pos_and_step.exit
   %175 = load ptr, ptr %165, align 8, !tbaa !116
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 1992098
   %177 = load i8, ptr %176, align 2, !tbaa !142
   %.not3.i = icmp eq i8 %177, 0
-  br i1 %.not3.i, label %211, label %178
+  br i1 %.not3.i, label %213, label %178
 
 178:                                              ; preds = %174, %170
   %179 = phi ptr [ %171, %170 ], [ %175, %174 ]
@@ -2803,45 +2803,47 @@ scaled_ref_pos_and_step.exit:                     ; preds = %inter_filter_scaled
   %185 = getelementptr inbounds nuw i8, ptr %.val54, i64 1984
   %186 = getelementptr inbounds nuw i8, ptr %.val53, i64 32
   %187 = select i1 %.not27.i, ptr %186, ptr %185
-  %188 = zext i1 %32 to i64
-  %189 = getelementptr inbounds nuw [2 x i8], ptr %187, i64 0, i64 %188
-  %190 = load i8, ptr %189, align 1, !tbaa !65
-  %191 = zext i8 %190 to i32
-  %192 = getelementptr inbounds nuw i8, ptr %187, i64 64
-  %193 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %194 = getelementptr inbounds [2 x i8], ptr %193, i64 0, i64 %182
-  %195 = load i8, ptr %194, align 1, !tbaa !65
-  %196 = sext i8 %195 to i64
-  %197 = getelementptr inbounds [2 x [3 x [15 x i16]]], ptr %192, i64 0, i64 %182, i64 %20, i64 %196
-  %198 = load i16, ptr %197, align 2, !tbaa !144
-  %199 = sext i16 %198 to i32
-  %200 = getelementptr inbounds nuw i8, ptr %187, i64 244
-  %201 = getelementptr inbounds [2 x [3 x [15 x i16]]], ptr %200, i64 0, i64 %182, i64 %20, i64 %196
-  %202 = load i16, ptr %201, align 2, !tbaa !144
-  %203 = sext i16 %202 to i32
-  %204 = getelementptr inbounds nuw i8, ptr %15, i64 20528
-  %205 = sext i32 %42 to i64
-  %206 = getelementptr inbounds [2 x [7 x ptr]], ptr %204, i64 0, i64 %188, i64 %205
-  %207 = load ptr, ptr %206, align 8, !tbaa !123
-  %208 = load ptr, ptr %11, align 8, !tbaa !89
-  %209 = load i64, ptr %12, align 8, !tbaa !113
-  %210 = load i32, ptr %13, align 4, !tbaa !90
-  tail call void %207(ptr noundef %1, i64 noundef %2, ptr noundef %208, i64 noundef %209, i32 noundef %210, i32 noundef %147, i32 noundef %156, i32 noundef %158, i32 noundef %160, i32 noundef %8, i32 noundef %191, i32 noundef %199, i32 noundef %203, ptr noundef nonnull %.0.i7991, ptr noundef nonnull %.0.i5792, i32 noundef %7) #6
-  br label %220
+  %188 = icmp sgt i32 %9, 0
+  %189 = zext i1 %188 to i64
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %187, i64 0, i64 %189
+  %191 = load i8, ptr %190, align 1, !tbaa !65
+  %192 = zext i8 %191 to i32
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 64
+  %194 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %195 = getelementptr inbounds [2 x i8], ptr %194, i64 0, i64 %182
+  %196 = load i8, ptr %195, align 1, !tbaa !65
+  %197 = sext i8 %196 to i64
+  %198 = getelementptr inbounds [2 x [3 x [15 x i16]]], ptr %193, i64 0, i64 %182, i64 %20, i64 %197
+  %199 = load i16, ptr %198, align 2, !tbaa !144
+  %200 = sext i16 %199 to i32
+  %201 = getelementptr inbounds nuw i8, ptr %187, i64 244
+  %202 = getelementptr inbounds [2 x [3 x [15 x i16]]], ptr %201, i64 0, i64 %182, i64 %20, i64 %197
+  %203 = load i16, ptr %202, align 2, !tbaa !144
+  %204 = sext i16 %203 to i32
+  %205 = getelementptr inbounds nuw i8, ptr %15, i64 20528
+  %206 = zext i1 %32 to i64
+  %207 = sext i32 %42 to i64
+  %208 = getelementptr inbounds [2 x [7 x ptr]], ptr %205, i64 0, i64 %206, i64 %207
+  %209 = load ptr, ptr %208, align 8, !tbaa !123
+  %210 = load ptr, ptr %11, align 8, !tbaa !89
+  %211 = load i64, ptr %12, align 8, !tbaa !113
+  %212 = load i32, ptr %13, align 4, !tbaa !90
+  tail call void %209(ptr noundef %1, i64 noundef %2, ptr noundef %210, i64 noundef %211, i32 noundef %212, i32 noundef %147, i32 noundef %156, i32 noundef %158, i32 noundef %160, i32 noundef %8, i32 noundef %192, i32 noundef %200, i32 noundef %204, ptr noundef nonnull %.0.i7991, ptr noundef nonnull %.0.i5792, i32 noundef %7) #6
+  br label %222
 
-211:                                              ; preds = %174, %170, %scaled_ref_pos_and_step.exit
-  %212 = getelementptr inbounds nuw i8, ptr %15, i64 20416
-  %213 = zext i1 %32 to i64
-  %214 = sext i32 %42 to i64
-  %215 = getelementptr inbounds [2 x [7 x ptr]], ptr %212, i64 0, i64 %213, i64 %214
-  %216 = load ptr, ptr %215, align 8, !tbaa !123
-  %217 = load ptr, ptr %11, align 8, !tbaa !89
-  %218 = load i64, ptr %12, align 8, !tbaa !113
-  %219 = load i32, ptr %13, align 4, !tbaa !90
-  tail call void %216(ptr noundef %1, i64 noundef %2, ptr noundef %217, i64 noundef %218, i32 noundef %219, i32 noundef %147, i32 noundef %156, i32 noundef %158, i32 noundef %160, i32 noundef %8, ptr noundef nonnull %.0.i7991, ptr noundef nonnull %.0.i5792, i32 noundef %7) #6
-  br label %220
+213:                                              ; preds = %174, %170, %scaled_ref_pos_and_step.exit
+  %214 = getelementptr inbounds nuw i8, ptr %15, i64 20416
+  %215 = zext i1 %32 to i64
+  %216 = sext i32 %42 to i64
+  %217 = getelementptr inbounds [2 x [7 x ptr]], ptr %214, i64 0, i64 %215, i64 %216
+  %218 = load ptr, ptr %217, align 8, !tbaa !123
+  %219 = load ptr, ptr %11, align 8, !tbaa !89
+  %220 = load i64, ptr %12, align 8, !tbaa !113
+  %221 = load i32, ptr %13, align 4, !tbaa !90
+  tail call void %218(ptr noundef %1, i64 noundef %2, ptr noundef %219, i64 noundef %220, i32 noundef %221, i32 noundef %147, i32 noundef %156, i32 noundef %158, i32 noundef %160, i32 noundef %8, ptr noundef nonnull %.0.i7991, ptr noundef nonnull %.0.i5792, i32 noundef %7) #6
+  br label %222
 
-220:                                              ; preds = %211, %178
+222:                                              ; preds = %213, %178
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
@@ -3341,7 +3343,7 @@ derive_weight.exit.i:                             ; preds = %.critedge.i.i, %285
   br i1 %.not43.i, label %338, label %337
 
 337:                                              ; preds = %332
-  tail call fastcc void @mc_scaled(ptr noundef %0, ptr noundef nonnull %indvars.iv.i126.sroa.phi.sroa.speculated, ptr noundef nonnull %indvars.iv.i126.sroa.phi.sroa.speculated155, ptr noundef nonnull readonly %334, i32 noundef %91, i32 noundef %82, i32 noundef %100, i32 noundef %101, i32 noundef range(i32 0, 3) %330)
+  tail call fastcc void @mc_scaled(ptr noundef %0, ptr noundef nonnull %indvars.iv.i126.sroa.phi.sroa.speculated, ptr noundef nonnull %indvars.iv.i126.sroa.phi.sroa.speculated155, ptr noundef nonnull readonly %334, i32 noundef %91, i32 noundef %82, i32 noundef %100, i32 noundef %101, i32 noundef range(i32 -2147483648, 3) %330)
   br label %413
 
 338:                                              ; preds = %332

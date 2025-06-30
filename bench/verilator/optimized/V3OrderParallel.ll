@@ -8253,7 +8253,7 @@ define linkonce_odr dso_local noundef i32 @_ZN11Partitioner14setupMTaskDepsEv(pt
 
 _ZN11Partitioner8bypassOkEP15OrderMoveVertex.exit: ; preds = %26, %.lr.ph39.i
   %30 = icmp eq i32 %.01337.i, 0
-  %31 = add nuw i32 %28, %22
+  %31 = add nuw nsw i32 %28, %22
   %32 = icmp eq i32 %31, 4
   %.2.i = select i1 %30, i1 true, i1 %32
   br i1 %.2.i, label %_ZN11Partitioner8bypassOkEP15OrderMoveVertex.exit.thread198, label %_ZN11Partitioner8bypassOkEP15OrderMoveVertex.exit.thread196

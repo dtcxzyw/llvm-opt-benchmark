@@ -28600,13 +28600,13 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_110t_pdbindex
   %.033.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.015.i.i.i, %34 ]
   %37 = shl i64 %.033.i.i.i.i, 1
   %38 = add i64 %37, 2
-  %39 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %38
   %gep.i.i.i.i = getelementptr %"struct.(anonymous namespace)::t_pdbindex", ptr %18, i64 %37
   %40 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %gep.i.i.i.i)
   %41 = or disjoint i64 %37, 1
   %spec.select.i.i.i.i = select i1 %40, i64 %41, i64 %38
-  %42 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %spec.select.i.i.i.i
-  %43 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.033.i.i.i.i
+  %42 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %spec.select.i.i.i.i
+  %43 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.033.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !403
   %44 = icmp slt i64 %spec.select.i.i.i.i, %27
   br i1 %44, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !594
@@ -28633,7 +28633,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_110t_pdbindex
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %51 ], [ %.1.i.i.i.i, %47 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %49 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.04.i.i.i.i.i
+  %49 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.04.i.i.i.i.i
   %50 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %13)
   br i1 %50, label %51, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110t_pdbindexElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i.i
 
@@ -28645,7 +28645,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_110t_pdbindex
 
 _ZSt13__adjust_heapIPN12_GLOBAL__N_110t_pdbindexElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %47 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %51 ]
-  %54 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %54 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !403
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %.not.i.i.i = icmp eq i64 %.015.i.i.i, 0
@@ -28675,13 +28675,13 @@ _ZSt13__adjust_heapIPN12_GLOBAL__N_110t_pdbindexElS1_N9__gnu_cxx5__ops15_Iter_co
   %.033.i.i.i24.i = phi i64 [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i23.i ], [ 0, %57 ]
   %65 = shl i64 %.033.i.i.i24.i, 1
   %66 = add i64 %65, 2
-  %67 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %66
+  %67 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %66
   %gep.i.i.i25.i = getelementptr %"struct.(anonymous namespace)::t_pdbindex", ptr %18, i64 %65
   %68 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(16) %gep.i.i.i25.i)
   %69 = or disjoint i64 %65, 1
   %spec.select.i.i.i26.i = select i1 %68, i64 %69, i64 %66
-  %70 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %spec.select.i.i.i26.i
-  %71 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.033.i.i.i24.i
+  %70 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %spec.select.i.i.i26.i
+  %71 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.033.i.i.i24.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %71, ptr noundef nonnull align 4 dereferenceable(16) %70, i64 16, i1 false), !tbaa.struct !403
   %72 = icmp slt i64 %spec.select.i.i.i26.i, %63
   br i1 %72, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i10.i, !llvm.loop !594
@@ -28702,7 +28702,7 @@ _ZSt13__adjust_heapIPN12_GLOBAL__N_110t_pdbindexElS1_N9__gnu_cxx5__ops15_Iter_co
   %79 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
   %80 = or disjoint i64 %79, 1
   %81 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %80
-  %82 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.0.lcssa.i.i.i11.i
+  %82 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.0.lcssa.i.i.i11.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %82, ptr noundef nonnull align 4 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !403
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   store i64 %.sroa.02.0.copyload.i.i7.i, ptr %12, align 8
@@ -28736,7 +28736,7 @@ _ZSt13__adjust_heapIPN12_GLOBAL__N_110t_pdbindexElS1_N9__gnu_cxx5__ops15_Iter_co
 
 _ZSt10__pop_heapIPN12_GLOBAL__N_110t_pdbindexEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i19.i: ; preds = %86, %.lr.ph.i.i.i.i15.i, %83
   %.013.lcssa.i.i.i.i20.i = phi i64 [ 0, %83 ], [ %.0133.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %86 ]
-  %88 = getelementptr inbounds %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.013.lcssa.i.i.i.i20.i
+  %88 = getelementptr inbounds nuw %"struct.(anonymous namespace)::t_pdbindex", ptr %0, i64 %.013.lcssa.i.i.i.i20.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !403
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %89 = icmp sgt i64 %60, 16

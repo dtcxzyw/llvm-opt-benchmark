@@ -24665,7 +24665,7 @@ define void @_ZN17cranelift_codegen20remove_constant_phis23do_remove_constant_ph
   br i1 %69, label %.body, label %70
 
 70:                                               ; preds = %62
-  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef range(i64 1, 0) %65, i64 noundef range(i64 0, -9223372036854775807) %67) #58
+  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef range(i64 1, -9223372036854775808) %65, i64 noundef range(i64 1, -9223372036854775807) %67) #58
   br label %.body
 
 71:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$bumpalo..Bump$GT$17h5facbc6626a39a57E.exit"
@@ -24679,7 +24679,7 @@ define void @_ZN17cranelift_codegen20remove_constant_phis23do_remove_constant_ph
   br i1 %77, label %common.resume, label %78
 
 78:                                               ; preds = %71
-  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef range(i64 1, 0) %73, i64 noundef range(i64 0, -9223372036854775807) %75) #58
+  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef range(i64 1, -9223372036854775808) %73, i64 noundef range(i64 1, -9223372036854775807) %75) #58
   br label %common.resume
 
 79:                                               ; preds = %272, %81
@@ -25237,7 +25237,7 @@ define void @_ZN17cranelift_codegen20remove_constant_phis23do_remove_constant_ph
   br i1 %281, label %common.resume, label %282
 
 282:                                              ; preds = %274
-  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef range(i64 1, 0) %277, i64 noundef range(i64 0, -9223372036854775807) %279) #58
+  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef range(i64 1, -9223372036854775808) %277, i64 noundef range(i64 1, -9223372036854775807) %279) #58
   br label %common.resume
 
 283:                                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$bumpalo..Bump$GT$17h5facbc6626a39a57E.exit237"
@@ -25251,7 +25251,7 @@ define void @_ZN17cranelift_codegen20remove_constant_phis23do_remove_constant_ph
   br i1 %289, label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17hf7f4a35ac36f6c19E.exit239", label %290
 
 290:                                              ; preds = %283
-  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef range(i64 1, 0) %285, i64 noundef range(i64 0, -9223372036854775807) %287) #58
+  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef range(i64 1, -9223372036854775808) %285, i64 noundef range(i64 1, -9223372036854775807) %287) #58
   br label %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17hf7f4a35ac36f6c19E.exit239"
 
 common.resume:                                    ; preds = %71, %78, %274, %282

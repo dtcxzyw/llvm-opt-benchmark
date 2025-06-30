@@ -8053,7 +8053,7 @@ if.end89:                                         ; preds = %if.end81, %land.lhs
   br i1 %cmp94, label %land.lhs.true95, label %if.end122
 
 land.lhs.true95:                                  ; preds = %if.end89
-  %add.ptr.i867 = getelementptr inbounds %"struct.node::PropInfo", ptr %21, i64 %i.2
+  %add.ptr.i867 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %21, i64 %i.2
   %id97 = getelementptr inbounds nuw i8, ptr %add.ptr.i867, i64 32
   %22 = load i32, ptr %id97, align 8
   %cmp98 = icmp eq i32 %22, 3
@@ -8093,7 +8093,7 @@ if.end122:                                        ; preds = %if.end114, %land.lh
   br i1 %cmp127, label %land.lhs.true128, label %if.end155
 
 land.lhs.true128:                                 ; preds = %if.end122
-  %add.ptr.i874 = getelementptr inbounds %"struct.node::PropInfo", ptr %27, i64 %i.3
+  %add.ptr.i874 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %27, i64 %i.3
   %id130 = getelementptr inbounds nuw i8, ptr %add.ptr.i874, i64 32
   %28 = load i32, ptr %id130, align 8
   %cmp131 = icmp eq i32 %28, 4
@@ -8133,7 +8133,7 @@ if.end155:                                        ; preds = %if.end147, %land.lh
   br i1 %cmp160, label %land.lhs.true161, label %if.end188
 
 land.lhs.true161:                                 ; preds = %if.end155
-  %add.ptr.i881 = getelementptr inbounds %"struct.node::PropInfo", ptr %33, i64 %i.4
+  %add.ptr.i881 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %33, i64 %i.4
   %id163 = getelementptr inbounds nuw i8, ptr %add.ptr.i881, i64 32
   %34 = load i32, ptr %id163, align 8
   %cmp164 = icmp eq i32 %34, 5
@@ -8173,7 +8173,7 @@ if.end188:                                        ; preds = %if.end180, %land.lh
   br i1 %cmp193, label %land.lhs.true194, label %if.end221
 
 land.lhs.true194:                                 ; preds = %if.end188
-  %add.ptr.i888 = getelementptr inbounds %"struct.node::PropInfo", ptr %39, i64 %i.5
+  %add.ptr.i888 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %39, i64 %i.5
   %id196 = getelementptr inbounds nuw i8, ptr %add.ptr.i888, i64 32
   %40 = load i32, ptr %id196, align 8
   %cmp197 = icmp eq i32 %40, 6
@@ -8213,7 +8213,7 @@ if.end221:                                        ; preds = %if.end213, %land.lh
   br i1 %cmp226, label %land.lhs.true227, label %if.end254
 
 land.lhs.true227:                                 ; preds = %if.end221
-  %add.ptr.i895 = getelementptr inbounds %"struct.node::PropInfo", ptr %45, i64 %i.6
+  %add.ptr.i895 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %45, i64 %i.6
   %id229 = getelementptr inbounds nuw i8, ptr %add.ptr.i895, i64 32
   %46 = load i32, ptr %id229, align 8
   %cmp230 = icmp eq i32 %46, 7
@@ -8253,7 +8253,7 @@ if.end254:                                        ; preds = %if.end246, %land.lh
   br i1 %cmp259, label %land.lhs.true260, label %if.end287
 
 land.lhs.true260:                                 ; preds = %if.end254
-  %add.ptr.i902 = getelementptr inbounds %"struct.node::PropInfo", ptr %51, i64 %i.7
+  %add.ptr.i902 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %51, i64 %i.7
   %id262 = getelementptr inbounds nuw i8, ptr %add.ptr.i902, i64 32
   %52 = load i32, ptr %id262, align 8
   %cmp263 = icmp eq i32 %52, 8
@@ -8293,7 +8293,7 @@ if.end287:                                        ; preds = %if.end279, %land.lh
   br i1 %cmp292, label %land.lhs.true293, label %if.end320
 
 land.lhs.true293:                                 ; preds = %if.end287
-  %add.ptr.i909 = getelementptr inbounds %"struct.node::PropInfo", ptr %57, i64 %i.8
+  %add.ptr.i909 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %57, i64 %i.8
   %id295 = getelementptr inbounds nuw i8, ptr %add.ptr.i909, i64 32
   %58 = load i32, ptr %id295, align 8
   %cmp296 = icmp eq i32 %58, 9
@@ -8333,7 +8333,7 @@ if.end320:                                        ; preds = %if.end312, %land.lh
   br i1 %cmp325, label %land.lhs.true326, label %if.end353
 
 land.lhs.true326:                                 ; preds = %if.end320
-  %add.ptr.i916 = getelementptr inbounds %"struct.node::PropInfo", ptr %63, i64 %i.9
+  %add.ptr.i916 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %63, i64 %i.9
   %id328 = getelementptr inbounds nuw i8, ptr %add.ptr.i916, i64 32
   %64 = load i32, ptr %id328, align 8
   %cmp329 = icmp eq i32 %64, 10
@@ -8373,7 +8373,7 @@ if.end353:                                        ; preds = %if.end345, %land.lh
   br i1 %cmp358, label %land.lhs.true359, label %if.end386
 
 land.lhs.true359:                                 ; preds = %if.end353
-  %add.ptr.i923 = getelementptr inbounds %"struct.node::PropInfo", ptr %69, i64 %i.10
+  %add.ptr.i923 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %69, i64 %i.10
   %id361 = getelementptr inbounds nuw i8, ptr %add.ptr.i923, i64 32
   %70 = load i32, ptr %id361, align 8
   %cmp362 = icmp eq i32 %70, 11
@@ -8413,7 +8413,7 @@ if.end386:                                        ; preds = %if.end378, %land.lh
   br i1 %cmp391, label %land.lhs.true392, label %if.end419
 
 land.lhs.true392:                                 ; preds = %if.end386
-  %add.ptr.i930 = getelementptr inbounds %"struct.node::PropInfo", ptr %75, i64 %i.11
+  %add.ptr.i930 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %75, i64 %i.11
   %id394 = getelementptr inbounds nuw i8, ptr %add.ptr.i930, i64 32
   %76 = load i32, ptr %id394, align 8
   %cmp395 = icmp eq i32 %76, 12
@@ -8453,7 +8453,7 @@ if.end419:                                        ; preds = %if.end411, %land.lh
   br i1 %cmp424, label %land.lhs.true425, label %if.end452
 
 land.lhs.true425:                                 ; preds = %if.end419
-  %add.ptr.i937 = getelementptr inbounds %"struct.node::PropInfo", ptr %81, i64 %i.12
+  %add.ptr.i937 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %81, i64 %i.12
   %id427 = getelementptr inbounds nuw i8, ptr %add.ptr.i937, i64 32
   %82 = load i32, ptr %id427, align 8
   %cmp428 = icmp eq i32 %82, 13
@@ -8493,7 +8493,7 @@ if.end452:                                        ; preds = %if.end444, %land.lh
   br i1 %cmp457, label %land.lhs.true458, label %if.end485
 
 land.lhs.true458:                                 ; preds = %if.end452
-  %add.ptr.i944 = getelementptr inbounds %"struct.node::PropInfo", ptr %87, i64 %i.13
+  %add.ptr.i944 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %87, i64 %i.13
   %id460 = getelementptr inbounds nuw i8, ptr %add.ptr.i944, i64 32
   %88 = load i32, ptr %id460, align 8
   %cmp461 = icmp eq i32 %88, 14
@@ -8533,7 +8533,7 @@ if.end485:                                        ; preds = %if.end477, %land.lh
   br i1 %cmp490, label %land.lhs.true491, label %if.end518
 
 land.lhs.true491:                                 ; preds = %if.end485
-  %add.ptr.i951 = getelementptr inbounds %"struct.node::PropInfo", ptr %93, i64 %i.14
+  %add.ptr.i951 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %93, i64 %i.14
   %id493 = getelementptr inbounds nuw i8, ptr %add.ptr.i951, i64 32
   %94 = load i32, ptr %id493, align 8
   %cmp494 = icmp eq i32 %94, 15
@@ -8573,7 +8573,7 @@ if.end518:                                        ; preds = %if.end510, %land.lh
   br i1 %cmp523, label %land.lhs.true524, label %if.end551
 
 land.lhs.true524:                                 ; preds = %if.end518
-  %add.ptr.i958 = getelementptr inbounds %"struct.node::PropInfo", ptr %99, i64 %i.15
+  %add.ptr.i958 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %99, i64 %i.15
   %id526 = getelementptr inbounds nuw i8, ptr %add.ptr.i958, i64 32
   %100 = load i32, ptr %id526, align 8
   %cmp527 = icmp eq i32 %100, 16
@@ -8613,7 +8613,7 @@ if.end551:                                        ; preds = %if.end543, %land.lh
   br i1 %cmp556, label %land.lhs.true557, label %if.end584
 
 land.lhs.true557:                                 ; preds = %if.end551
-  %add.ptr.i965 = getelementptr inbounds %"struct.node::PropInfo", ptr %105, i64 %i.16
+  %add.ptr.i965 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %105, i64 %i.16
   %id559 = getelementptr inbounds nuw i8, ptr %add.ptr.i965, i64 32
   %106 = load i32, ptr %id559, align 8
   %cmp560 = icmp eq i32 %106, 17
@@ -8653,7 +8653,7 @@ if.end584:                                        ; preds = %if.end576, %land.lh
   br i1 %cmp589, label %land.lhs.true590, label %if.end617
 
 land.lhs.true590:                                 ; preds = %if.end584
-  %add.ptr.i972 = getelementptr inbounds %"struct.node::PropInfo", ptr %111, i64 %i.17
+  %add.ptr.i972 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %111, i64 %i.17
   %id592 = getelementptr inbounds nuw i8, ptr %add.ptr.i972, i64 32
   %112 = load i32, ptr %id592, align 8
   %cmp593 = icmp eq i32 %112, 18
@@ -8693,7 +8693,7 @@ if.end617:                                        ; preds = %if.end609, %land.lh
   br i1 %cmp622, label %land.lhs.true623, label %if.end650
 
 land.lhs.true623:                                 ; preds = %if.end617
-  %add.ptr.i979 = getelementptr inbounds %"struct.node::PropInfo", ptr %117, i64 %i.18
+  %add.ptr.i979 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %117, i64 %i.18
   %id625 = getelementptr inbounds nuw i8, ptr %add.ptr.i979, i64 32
   %118 = load i32, ptr %id625, align 8
   %cmp626 = icmp eq i32 %118, 19
@@ -8733,7 +8733,7 @@ if.end650:                                        ; preds = %if.end642, %land.lh
   br i1 %cmp655, label %land.lhs.true656, label %if.end683
 
 land.lhs.true656:                                 ; preds = %if.end650
-  %add.ptr.i986 = getelementptr inbounds %"struct.node::PropInfo", ptr %123, i64 %i.19
+  %add.ptr.i986 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %123, i64 %i.19
   %id658 = getelementptr inbounds nuw i8, ptr %add.ptr.i986, i64 32
   %124 = load i32, ptr %id658, align 8
   %cmp659 = icmp eq i32 %124, 20
@@ -8773,7 +8773,7 @@ if.end683:                                        ; preds = %if.end675, %land.lh
   br i1 %cmp688, label %land.lhs.true689, label %if.end716
 
 land.lhs.true689:                                 ; preds = %if.end683
-  %add.ptr.i993 = getelementptr inbounds %"struct.node::PropInfo", ptr %129, i64 %i.20
+  %add.ptr.i993 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %129, i64 %i.20
   %id691 = getelementptr inbounds nuw i8, ptr %add.ptr.i993, i64 32
   %130 = load i32, ptr %id691, align 8
   %cmp692 = icmp eq i32 %130, 21
@@ -8813,7 +8813,7 @@ if.end716:                                        ; preds = %if.end708, %land.lh
   br i1 %cmp721, label %land.lhs.true722, label %if.end749
 
 land.lhs.true722:                                 ; preds = %if.end716
-  %add.ptr.i1000 = getelementptr inbounds %"struct.node::PropInfo", ptr %135, i64 %i.21
+  %add.ptr.i1000 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %135, i64 %i.21
   %id724 = getelementptr inbounds nuw i8, ptr %add.ptr.i1000, i64 32
   %136 = load i32, ptr %id724, align 8
   %cmp725 = icmp eq i32 %136, 22
@@ -8853,7 +8853,7 @@ if.end749:                                        ; preds = %if.end741, %land.lh
   br i1 %cmp754, label %land.lhs.true755, label %if.end782
 
 land.lhs.true755:                                 ; preds = %if.end749
-  %add.ptr.i1007 = getelementptr inbounds %"struct.node::PropInfo", ptr %141, i64 %i.22
+  %add.ptr.i1007 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %141, i64 %i.22
   %id757 = getelementptr inbounds nuw i8, ptr %add.ptr.i1007, i64 32
   %142 = load i32, ptr %id757, align 8
   %cmp758 = icmp eq i32 %142, 23
@@ -8893,7 +8893,7 @@ if.end782:                                        ; preds = %if.end774, %land.lh
   br i1 %cmp787, label %land.lhs.true788, label %if.end815
 
 land.lhs.true788:                                 ; preds = %if.end782
-  %add.ptr.i1014 = getelementptr inbounds %"struct.node::PropInfo", ptr %147, i64 %i.23
+  %add.ptr.i1014 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %147, i64 %i.23
   %id790 = getelementptr inbounds nuw i8, ptr %add.ptr.i1014, i64 32
   %148 = load i32, ptr %id790, align 8
   %cmp791 = icmp eq i32 %148, 24
@@ -8933,7 +8933,7 @@ if.end815:                                        ; preds = %if.end807, %land.lh
   br i1 %cmp820, label %land.lhs.true821, label %if.end848
 
 land.lhs.true821:                                 ; preds = %if.end815
-  %add.ptr.i1021 = getelementptr inbounds %"struct.node::PropInfo", ptr %153, i64 %i.24
+  %add.ptr.i1021 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %153, i64 %i.24
   %id823 = getelementptr inbounds nuw i8, ptr %add.ptr.i1021, i64 32
   %154 = load i32, ptr %id823, align 8
   %cmp824 = icmp eq i32 %154, 25
@@ -8973,7 +8973,7 @@ if.end848:                                        ; preds = %if.end840, %land.lh
   br i1 %cmp853, label %land.lhs.true854, label %if.end881
 
 land.lhs.true854:                                 ; preds = %if.end848
-  %add.ptr.i1028 = getelementptr inbounds %"struct.node::PropInfo", ptr %159, i64 %i.25
+  %add.ptr.i1028 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %159, i64 %i.25
   %id856 = getelementptr inbounds nuw i8, ptr %add.ptr.i1028, i64 32
   %160 = load i32, ptr %id856, align 8
   %cmp857 = icmp eq i32 %160, 26
@@ -9013,7 +9013,7 @@ if.end881:                                        ; preds = %if.end873, %land.lh
   br i1 %cmp886, label %land.lhs.true887, label %if.end914
 
 land.lhs.true887:                                 ; preds = %if.end881
-  %add.ptr.i1035 = getelementptr inbounds %"struct.node::PropInfo", ptr %165, i64 %i.26
+  %add.ptr.i1035 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %165, i64 %i.26
   %id889 = getelementptr inbounds nuw i8, ptr %add.ptr.i1035, i64 32
   %166 = load i32, ptr %id889, align 8
   %cmp890 = icmp eq i32 %166, 27
@@ -9053,7 +9053,7 @@ if.end914:                                        ; preds = %if.end906, %land.lh
   br i1 %cmp919, label %land.lhs.true920, label %if.end947
 
 land.lhs.true920:                                 ; preds = %if.end914
-  %add.ptr.i1042 = getelementptr inbounds %"struct.node::PropInfo", ptr %171, i64 %i.27
+  %add.ptr.i1042 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %171, i64 %i.27
   %id922 = getelementptr inbounds nuw i8, ptr %add.ptr.i1042, i64 32
   %172 = load i32, ptr %id922, align 8
   %cmp923 = icmp eq i32 %172, 28
@@ -9093,7 +9093,7 @@ if.end947:                                        ; preds = %if.end939, %land.lh
   br i1 %cmp952, label %land.lhs.true953, label %if.end980
 
 land.lhs.true953:                                 ; preds = %if.end947
-  %add.ptr.i1049 = getelementptr inbounds %"struct.node::PropInfo", ptr %177, i64 %i.28
+  %add.ptr.i1049 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %177, i64 %i.28
   %id955 = getelementptr inbounds nuw i8, ptr %add.ptr.i1049, i64 32
   %178 = load i32, ptr %id955, align 8
   %cmp956 = icmp eq i32 %178, 29
@@ -9133,7 +9133,7 @@ if.end980:                                        ; preds = %if.end972, %land.lh
   br i1 %cmp985, label %land.lhs.true986, label %if.end1013
 
 land.lhs.true986:                                 ; preds = %if.end980
-  %add.ptr.i1056 = getelementptr inbounds %"struct.node::PropInfo", ptr %183, i64 %i.29
+  %add.ptr.i1056 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %183, i64 %i.29
   %id988 = getelementptr inbounds nuw i8, ptr %add.ptr.i1056, i64 32
   %184 = load i32, ptr %id988, align 8
   %cmp989 = icmp eq i32 %184, 30
@@ -9173,7 +9173,7 @@ if.end1013:                                       ; preds = %if.end1005, %land.l
   br i1 %cmp1018, label %land.lhs.true1019, label %if.end1046
 
 land.lhs.true1019:                                ; preds = %if.end1013
-  %add.ptr.i1063 = getelementptr inbounds %"struct.node::PropInfo", ptr %189, i64 %i.30
+  %add.ptr.i1063 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %189, i64 %i.30
   %id1021 = getelementptr inbounds nuw i8, ptr %add.ptr.i1063, i64 32
   %190 = load i32, ptr %id1021, align 8
   %cmp1022 = icmp eq i32 %190, 31
@@ -9213,7 +9213,7 @@ if.end1046:                                       ; preds = %if.end1038, %land.l
   br i1 %cmp1051, label %land.lhs.true1052, label %if.end1079
 
 land.lhs.true1052:                                ; preds = %if.end1046
-  %add.ptr.i1070 = getelementptr inbounds %"struct.node::PropInfo", ptr %195, i64 %i.31
+  %add.ptr.i1070 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %195, i64 %i.31
   %id1054 = getelementptr inbounds nuw i8, ptr %add.ptr.i1070, i64 32
   %196 = load i32, ptr %id1054, align 8
   %cmp1055 = icmp eq i32 %196, 32
@@ -9253,7 +9253,7 @@ if.end1079:                                       ; preds = %if.end1071, %land.l
   br i1 %cmp1084, label %land.lhs.true1085, label %if.end1112
 
 land.lhs.true1085:                                ; preds = %if.end1079
-  %add.ptr.i1077 = getelementptr inbounds %"struct.node::PropInfo", ptr %201, i64 %i.32
+  %add.ptr.i1077 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %201, i64 %i.32
   %id1087 = getelementptr inbounds nuw i8, ptr %add.ptr.i1077, i64 32
   %202 = load i32, ptr %id1087, align 8
   %cmp1088 = icmp eq i32 %202, 33
@@ -9293,7 +9293,7 @@ if.end1112:                                       ; preds = %if.end1104, %land.l
   br i1 %cmp1117, label %land.lhs.true1118, label %if.end1145
 
 land.lhs.true1118:                                ; preds = %if.end1112
-  %add.ptr.i1084 = getelementptr inbounds %"struct.node::PropInfo", ptr %207, i64 %i.33
+  %add.ptr.i1084 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %207, i64 %i.33
   %id1120 = getelementptr inbounds nuw i8, ptr %add.ptr.i1084, i64 32
   %208 = load i32, ptr %id1120, align 8
   %cmp1121 = icmp eq i32 %208, 34
@@ -9333,7 +9333,7 @@ if.end1145:                                       ; preds = %if.end1137, %land.l
   br i1 %cmp1150, label %land.lhs.true1151, label %if.end1178
 
 land.lhs.true1151:                                ; preds = %if.end1145
-  %add.ptr.i1091 = getelementptr inbounds %"struct.node::PropInfo", ptr %213, i64 %i.34
+  %add.ptr.i1091 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %213, i64 %i.34
   %id1153 = getelementptr inbounds nuw i8, ptr %add.ptr.i1091, i64 32
   %214 = load i32, ptr %id1153, align 8
   %cmp1154 = icmp eq i32 %214, 35
@@ -9373,7 +9373,7 @@ if.end1178:                                       ; preds = %if.end1170, %land.l
   br i1 %cmp1183, label %land.lhs.true1184, label %if.end1211
 
 land.lhs.true1184:                                ; preds = %if.end1178
-  %add.ptr.i1098 = getelementptr inbounds %"struct.node::PropInfo", ptr %219, i64 %i.35
+  %add.ptr.i1098 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %219, i64 %i.35
   %id1186 = getelementptr inbounds nuw i8, ptr %add.ptr.i1098, i64 32
   %220 = load i32, ptr %id1186, align 8
   %cmp1187 = icmp eq i32 %220, 36
@@ -9413,7 +9413,7 @@ if.end1211:                                       ; preds = %if.end1203, %land.l
   br i1 %cmp1216, label %land.lhs.true1217, label %if.end1244
 
 land.lhs.true1217:                                ; preds = %if.end1211
-  %add.ptr.i1105 = getelementptr inbounds %"struct.node::PropInfo", ptr %225, i64 %i.36
+  %add.ptr.i1105 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %225, i64 %i.36
   %id1219 = getelementptr inbounds nuw i8, ptr %add.ptr.i1105, i64 32
   %226 = load i32, ptr %id1219, align 8
   %cmp1220 = icmp eq i32 %226, 37
@@ -9453,7 +9453,7 @@ if.end1244:                                       ; preds = %if.end1236, %land.l
   br i1 %cmp1249, label %land.lhs.true1250, label %if.end1277
 
 land.lhs.true1250:                                ; preds = %if.end1244
-  %add.ptr.i1112 = getelementptr inbounds %"struct.node::PropInfo", ptr %231, i64 %i.37
+  %add.ptr.i1112 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %231, i64 %i.37
   %id1252 = getelementptr inbounds nuw i8, ptr %add.ptr.i1112, i64 32
   %232 = load i32, ptr %id1252, align 8
   %cmp1253 = icmp eq i32 %232, 38
@@ -9493,7 +9493,7 @@ if.end1277:                                       ; preds = %if.end1269, %land.l
   br i1 %cmp1282, label %land.lhs.true1283, label %if.end1310
 
 land.lhs.true1283:                                ; preds = %if.end1277
-  %add.ptr.i1119 = getelementptr inbounds %"struct.node::PropInfo", ptr %237, i64 %i.38
+  %add.ptr.i1119 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %237, i64 %i.38
   %id1285 = getelementptr inbounds nuw i8, ptr %add.ptr.i1119, i64 32
   %238 = load i32, ptr %id1285, align 8
   %cmp1286 = icmp eq i32 %238, 39
@@ -9533,7 +9533,7 @@ if.end1310:                                       ; preds = %if.end1302, %land.l
   br i1 %cmp1315, label %land.lhs.true1316, label %if.end1343
 
 land.lhs.true1316:                                ; preds = %if.end1310
-  %add.ptr.i1126 = getelementptr inbounds %"struct.node::PropInfo", ptr %243, i64 %i.39
+  %add.ptr.i1126 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %243, i64 %i.39
   %id1318 = getelementptr inbounds nuw i8, ptr %add.ptr.i1126, i64 32
   %244 = load i32, ptr %id1318, align 8
   %cmp1319 = icmp eq i32 %244, 40
@@ -9573,7 +9573,7 @@ if.end1343:                                       ; preds = %if.end1335, %land.l
   br i1 %cmp1348, label %land.lhs.true1349, label %if.end1376
 
 land.lhs.true1349:                                ; preds = %if.end1343
-  %add.ptr.i1133 = getelementptr inbounds %"struct.node::PropInfo", ptr %249, i64 %i.40
+  %add.ptr.i1133 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %249, i64 %i.40
   %id1351 = getelementptr inbounds nuw i8, ptr %add.ptr.i1133, i64 32
   %250 = load i32, ptr %id1351, align 8
   %cmp1352 = icmp eq i32 %250, 41
@@ -9613,7 +9613,7 @@ if.end1376:                                       ; preds = %if.end1368, %land.l
   br i1 %cmp1381, label %land.lhs.true1382, label %if.end1409
 
 land.lhs.true1382:                                ; preds = %if.end1376
-  %add.ptr.i1140 = getelementptr inbounds %"struct.node::PropInfo", ptr %255, i64 %i.41
+  %add.ptr.i1140 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %255, i64 %i.41
   %id1384 = getelementptr inbounds nuw i8, ptr %add.ptr.i1140, i64 32
   %256 = load i32, ptr %id1384, align 8
   %cmp1385 = icmp eq i32 %256, 42
@@ -9653,7 +9653,7 @@ if.end1409:                                       ; preds = %if.end1401, %land.l
   br i1 %cmp1414, label %land.lhs.true1415, label %if.end1442
 
 land.lhs.true1415:                                ; preds = %if.end1409
-  %add.ptr.i1147 = getelementptr inbounds %"struct.node::PropInfo", ptr %261, i64 %i.42
+  %add.ptr.i1147 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %261, i64 %i.42
   %id1417 = getelementptr inbounds nuw i8, ptr %add.ptr.i1147, i64 32
   %262 = load i32, ptr %id1417, align 8
   %cmp1418 = icmp eq i32 %262, 43
@@ -9693,7 +9693,7 @@ if.end1442:                                       ; preds = %if.end1434, %land.l
   br i1 %cmp1447, label %land.lhs.true1448, label %if.end1475
 
 land.lhs.true1448:                                ; preds = %if.end1442
-  %add.ptr.i1154 = getelementptr inbounds %"struct.node::PropInfo", ptr %267, i64 %i.43
+  %add.ptr.i1154 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %267, i64 %i.43
   %id1450 = getelementptr inbounds nuw i8, ptr %add.ptr.i1154, i64 32
   %268 = load i32, ptr %id1450, align 8
   %cmp1451 = icmp eq i32 %268, 44
@@ -9733,7 +9733,7 @@ if.end1475:                                       ; preds = %if.end1467, %land.l
   br i1 %cmp1480, label %land.lhs.true1481, label %if.end1508
 
 land.lhs.true1481:                                ; preds = %if.end1475
-  %add.ptr.i1161 = getelementptr inbounds %"struct.node::PropInfo", ptr %273, i64 %i.44
+  %add.ptr.i1161 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %273, i64 %i.44
   %id1483 = getelementptr inbounds nuw i8, ptr %add.ptr.i1161, i64 32
   %274 = load i32, ptr %id1483, align 8
   %cmp1484 = icmp eq i32 %274, 45
@@ -9773,7 +9773,7 @@ if.end1508:                                       ; preds = %if.end1500, %land.l
   br i1 %cmp1513, label %land.lhs.true1514, label %if.end1541
 
 land.lhs.true1514:                                ; preds = %if.end1508
-  %add.ptr.i1168 = getelementptr inbounds %"struct.node::PropInfo", ptr %279, i64 %i.45
+  %add.ptr.i1168 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %279, i64 %i.45
   %id1516 = getelementptr inbounds nuw i8, ptr %add.ptr.i1168, i64 32
   %280 = load i32, ptr %id1516, align 8
   %cmp1517 = icmp eq i32 %280, 46
@@ -9813,7 +9813,7 @@ if.end1541:                                       ; preds = %if.end1533, %land.l
   br i1 %cmp1546, label %land.lhs.true1547, label %if.end1574
 
 land.lhs.true1547:                                ; preds = %if.end1541
-  %add.ptr.i1175 = getelementptr inbounds %"struct.node::PropInfo", ptr %285, i64 %i.46
+  %add.ptr.i1175 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %285, i64 %i.46
   %id1549 = getelementptr inbounds nuw i8, ptr %add.ptr.i1175, i64 32
   %286 = load i32, ptr %id1549, align 8
   %cmp1550 = icmp eq i32 %286, 47
@@ -9853,7 +9853,7 @@ if.end1574:                                       ; preds = %if.end1566, %land.l
   br i1 %cmp1579, label %land.lhs.true1580, label %if.end1607
 
 land.lhs.true1580:                                ; preds = %if.end1574
-  %add.ptr.i1182 = getelementptr inbounds %"struct.node::PropInfo", ptr %291, i64 %i.47
+  %add.ptr.i1182 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %291, i64 %i.47
   %id1582 = getelementptr inbounds nuw i8, ptr %add.ptr.i1182, i64 32
   %292 = load i32, ptr %id1582, align 8
   %cmp1583 = icmp eq i32 %292, 48
@@ -9893,7 +9893,7 @@ if.end1607:                                       ; preds = %if.end1599, %land.l
   br i1 %cmp1612, label %land.lhs.true1613, label %if.end1640
 
 land.lhs.true1613:                                ; preds = %if.end1607
-  %add.ptr.i1189 = getelementptr inbounds %"struct.node::PropInfo", ptr %297, i64 %i.48
+  %add.ptr.i1189 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %297, i64 %i.48
   %id1615 = getelementptr inbounds nuw i8, ptr %add.ptr.i1189, i64 32
   %298 = load i32, ptr %id1615, align 8
   %cmp1616 = icmp eq i32 %298, 49
@@ -9933,7 +9933,7 @@ if.end1640:                                       ; preds = %if.end1632, %land.l
   br i1 %cmp1645, label %land.lhs.true1646, label %if.end1673
 
 land.lhs.true1646:                                ; preds = %if.end1640
-  %add.ptr.i1196 = getelementptr inbounds %"struct.node::PropInfo", ptr %303, i64 %i.49
+  %add.ptr.i1196 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %303, i64 %i.49
   %id1648 = getelementptr inbounds nuw i8, ptr %add.ptr.i1196, i64 32
   %304 = load i32, ptr %id1648, align 8
   %cmp1649 = icmp eq i32 %304, 50
@@ -9973,7 +9973,7 @@ if.end1673:                                       ; preds = %if.end1665, %land.l
   br i1 %cmp1678, label %land.lhs.true1679, label %if.end1706
 
 land.lhs.true1679:                                ; preds = %if.end1673
-  %add.ptr.i1203 = getelementptr inbounds %"struct.node::PropInfo", ptr %309, i64 %i.50
+  %add.ptr.i1203 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %309, i64 %i.50
   %id1681 = getelementptr inbounds nuw i8, ptr %add.ptr.i1203, i64 32
   %310 = load i32, ptr %id1681, align 8
   %cmp1682 = icmp eq i32 %310, 51
@@ -10013,7 +10013,7 @@ if.end1706:                                       ; preds = %if.end1698, %land.l
   br i1 %cmp1711, label %land.lhs.true1712, label %if.end1739
 
 land.lhs.true1712:                                ; preds = %if.end1706
-  %add.ptr.i1210 = getelementptr inbounds %"struct.node::PropInfo", ptr %315, i64 %i.51
+  %add.ptr.i1210 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %315, i64 %i.51
   %id1714 = getelementptr inbounds nuw i8, ptr %add.ptr.i1210, i64 32
   %316 = load i32, ptr %id1714, align 8
   %cmp1715 = icmp eq i32 %316, 52
@@ -10053,7 +10053,7 @@ if.end1739:                                       ; preds = %if.end1731, %land.l
   br i1 %cmp1744, label %land.lhs.true1745, label %if.end1772
 
 land.lhs.true1745:                                ; preds = %if.end1739
-  %add.ptr.i1217 = getelementptr inbounds %"struct.node::PropInfo", ptr %321, i64 %i.52
+  %add.ptr.i1217 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %321, i64 %i.52
   %id1747 = getelementptr inbounds nuw i8, ptr %add.ptr.i1217, i64 32
   %322 = load i32, ptr %id1747, align 8
   %cmp1748 = icmp eq i32 %322, 53
@@ -10093,7 +10093,7 @@ if.end1772:                                       ; preds = %if.end1764, %land.l
   br i1 %cmp1777, label %land.lhs.true1778, label %if.end1805
 
 land.lhs.true1778:                                ; preds = %if.end1772
-  %add.ptr.i1224 = getelementptr inbounds %"struct.node::PropInfo", ptr %327, i64 %i.53
+  %add.ptr.i1224 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %327, i64 %i.53
   %id1780 = getelementptr inbounds nuw i8, ptr %add.ptr.i1224, i64 32
   %328 = load i32, ptr %id1780, align 8
   %cmp1781 = icmp eq i32 %328, 54
@@ -10133,7 +10133,7 @@ if.end1805:                                       ; preds = %if.end1797, %land.l
   br i1 %cmp1810, label %land.lhs.true1811, label %if.end1838
 
 land.lhs.true1811:                                ; preds = %if.end1805
-  %add.ptr.i1231 = getelementptr inbounds %"struct.node::PropInfo", ptr %333, i64 %i.54
+  %add.ptr.i1231 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %333, i64 %i.54
   %id1813 = getelementptr inbounds nuw i8, ptr %add.ptr.i1231, i64 32
   %334 = load i32, ptr %id1813, align 8
   %cmp1814 = icmp eq i32 %334, 55
@@ -10173,7 +10173,7 @@ if.end1838:                                       ; preds = %if.end1830, %land.l
   br i1 %cmp1843, label %land.lhs.true1844, label %if.end1871
 
 land.lhs.true1844:                                ; preds = %if.end1838
-  %add.ptr.i1238 = getelementptr inbounds %"struct.node::PropInfo", ptr %339, i64 %i.55
+  %add.ptr.i1238 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %339, i64 %i.55
   %id1846 = getelementptr inbounds nuw i8, ptr %add.ptr.i1238, i64 32
   %340 = load i32, ptr %id1846, align 8
   %cmp1847 = icmp eq i32 %340, 56
@@ -10213,7 +10213,7 @@ if.end1871:                                       ; preds = %if.end1863, %land.l
   br i1 %cmp1876, label %land.lhs.true1877, label %if.end1904
 
 land.lhs.true1877:                                ; preds = %if.end1871
-  %add.ptr.i1245 = getelementptr inbounds %"struct.node::PropInfo", ptr %345, i64 %i.56
+  %add.ptr.i1245 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %345, i64 %i.56
   %id1879 = getelementptr inbounds nuw i8, ptr %add.ptr.i1245, i64 32
   %346 = load i32, ptr %id1879, align 8
   %cmp1880 = icmp eq i32 %346, 57
@@ -10253,7 +10253,7 @@ if.end1904:                                       ; preds = %if.end1896, %land.l
   br i1 %cmp1909, label %land.lhs.true1910, label %if.end1937
 
 land.lhs.true1910:                                ; preds = %if.end1904
-  %add.ptr.i1252 = getelementptr inbounds %"struct.node::PropInfo", ptr %351, i64 %i.57
+  %add.ptr.i1252 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %351, i64 %i.57
   %id1912 = getelementptr inbounds nuw i8, ptr %add.ptr.i1252, i64 32
   %352 = load i32, ptr %id1912, align 8
   %cmp1913 = icmp eq i32 %352, 58
@@ -10293,7 +10293,7 @@ if.end1937:                                       ; preds = %if.end1929, %land.l
   br i1 %cmp1942, label %land.lhs.true1943, label %if.end1970
 
 land.lhs.true1943:                                ; preds = %if.end1937
-  %add.ptr.i1259 = getelementptr inbounds %"struct.node::PropInfo", ptr %357, i64 %i.58
+  %add.ptr.i1259 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %357, i64 %i.58
   %id1945 = getelementptr inbounds nuw i8, ptr %add.ptr.i1259, i64 32
   %358 = load i32, ptr %id1945, align 8
   %cmp1946 = icmp eq i32 %358, 59

@@ -3415,7 +3415,7 @@ inverse_adpcm.exit.us.i:                          ; preds = %inverse_adpcm.exit.
   %1463 = icmp sgt i32 %1462, 0
   %1464 = sub i32 20, %.fr.i.i
   %1465 = zext nneg i32 %1464 to i64
-  %1466 = shl nuw i64 1, %1465
+  %1466 = shl nuw nsw i64 1, %1465
   %1467 = zext nneg i32 %1462 to i64
   br i1 %1463, label %.preheader.split.us.preheader.i.i, label %.preheader.split.preheader.i.i
 
@@ -4688,7 +4688,7 @@ get_array.exit.i.i:                               ; preds = %get_array.exit.loop
   %558 = icmp sgt i32 %557, 0
   %559 = sub i32 20, %.fr.i.i.i
   %560 = zext nneg i32 %559 to i64
-  %561 = shl nuw i64 1, %560
+  %561 = shl nuw nsw i64 1, %560
   %562 = zext nneg i32 %557 to i64
   br i1 %558, label %.preheader31.split.us.preheader.i.i.i, label %.preheader31.split.preheader.i.i.i
 
@@ -9314,7 +9314,7 @@ inverse_adpcm.exit.us.i:                          ; preds = %inverse_adpcm.exit.
   %902 = icmp sgt i32 %901, 0
   %903 = sub i32 20, %.fr.i.i
   %904 = zext nneg i32 %903 to i64
-  %905 = shl nuw i64 1, %904
+  %905 = shl nuw nsw i64 1, %904
   %906 = zext nneg i32 %901 to i64
   br i1 %902, label %.preheader.split.us.preheader.i.i, label %.preheader.split.preheader.i.i
 

@@ -220,7 +220,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
 128:                                              ; preds = %123, %121
   %129 = phi i32 [ %122, %121 ], [ %40, %123 ]
   %130 = phi i32 [ %119, %121 ], [ %127, %123 ]
-  %131 = add i32 %129, %113
+  %131 = add nuw nsw i32 %129, %113
   %132 = add nsw i32 %130, -1
   %133 = icmp slt i32 %130, 1
   %134 = sub nsw i32 1, %130
@@ -254,8 +254,8 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
 
 154:                                              ; preds = %150
   %155 = icmp ugt ptr %111, %34
-  %156 = ashr i32 %131, 3
-  %157 = sext i32 %156 to i64
+  %156 = lshr i32 %131, 3
+  %157 = zext nneg i32 %156 to i64
   br i1 %155, label %158, label %._crit_edge28, !prof !6
 
 158:                                              ; preds = %154
@@ -487,7 +487,7 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
 123:                                              ; preds = %118, %116
   %124 = phi i32 [ %117, %116 ], [ %35, %118 ]
   %125 = phi i32 [ %114, %116 ], [ %122, %118 ]
-  %126 = add i32 %124, %108
+  %126 = add nuw nsw i32 %124, %108
   %127 = add nsw i32 %125, -1
   %128 = icmp slt i32 %125, 1
   %129 = sub nsw i32 1, %125
@@ -521,8 +521,8 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
 
 149:                                              ; preds = %145
   %150 = icmp ugt ptr %106, %29
-  %151 = ashr i32 %126, 3
-  %152 = sext i32 %151 to i64
+  %151 = lshr i32 %126, 3
+  %152 = zext nneg i32 %151 to i64
   br i1 %150, label %153, label %._crit_edge28, !prof !6
 
 153:                                              ; preds = %149

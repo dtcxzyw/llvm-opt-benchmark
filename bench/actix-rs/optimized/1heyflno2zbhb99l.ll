@@ -1803,7 +1803,7 @@ define hidden void @"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$16updat
   %18 = load i16, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 230
   %20 = load i16, ptr %19, align 2
-  br label %45
+  br label %27
 
 .preheader:                                       ; preds = %56
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1812,77 +1812,77 @@ define hidden void @"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$16updat
   %24 = load i16, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 226
   %26 = load i16, ptr %25, align 2
-  br label %28
+  br label %39
 
-27:                                               ; preds = %39
-  ret void
-
-28:                                               ; preds = %.preheader, %39
-  %.sroa.04.031 = phi i64 [ 0, %.preheader ], [ %40, %39 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %29 = getelementptr inbounds nuw [8 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %9, i64 0, i64 %.sroa.04.031
-  %.val17 = load ptr, ptr %29, align 8, !nonnull !4, !align !33, !noundef !4
-  %30 = getelementptr i8, ptr %29, i64 8
-  %.val18 = load i64, ptr %30, align 8, !noundef !4
-  %31 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %.sroa.04.031
-  %32 = load i8, ptr %31, align 1, !noundef !4
-  %33 = call { ptr, i64 } @_ZN6brotli3enc11stride_eval12Stride1Prior10lookup_mut17h77b8015e600a4dcfE(ptr noalias noundef nonnull align 2 %.val17, i64 noundef %.val18, i8 noundef %32, i8 noundef %2, i64 noundef %3, i1 noundef zeroext true, i8 %11)
-  %34 = extractvalue { ptr, i64 } %33, 0
-  %35 = extractvalue { ptr, i64 } %33, 1
-  store ptr %34, ptr %6, align 8
-  store i64 %35, ptr %21, align 8
-  %36 = call noundef float @_ZN6brotli3enc11stride_eval3CDF4cost17he59810628720e947E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, i8 noundef %22)
-  %37 = add nuw nsw i64 %15, %.sroa.04.031
-  %38 = icmp ult i64 %37, %.val20
-  br i1 %38, label %39, label %44, !prof !228
-
-39:                                               ; preds = %28
-  %40 = add nuw nsw i64 %.sroa.04.031, 1
-  %41 = getelementptr inbounds [0 x float], ptr %.val19, i64 0, i64 %37
-  %42 = load float, ptr %41, align 4, !noundef !4
-  %43 = fadd float %36, %42
-  store float %43, ptr %41, align 4
-  call void @_ZN6brotli3enc11stride_eval3CDF6update17he9e694b1d0e81e51E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i8 noundef %22, i16 noundef %24, i16 noundef %26)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %exitcond35.not = icmp eq i64 %40, 8
-  br i1 %exitcond35.not, label %27, label %28
-
-44:                                               ; preds = %28
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %37, i64 noundef %.val20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3805415b65ff0bcf60b60eb7923a431b.41) #25
-  unreachable
-
-45:                                               ; preds = %5, %56
+27:                                               ; preds = %5, %56
   %.sroa.0.030 = phi i64 [ 0, %5 ], [ %57, %56 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %46 = getelementptr inbounds nuw [8 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %9, i64 0, i64 %.sroa.0.030
-  %.val = load ptr, ptr %46, align 8, !nonnull !4, !align !33, !noundef !4
-  %47 = getelementptr i8, ptr %46, i64 8
-  %.val16 = load i64, ptr %47, align 8, !noundef !4
-  %48 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %.sroa.0.030
-  %49 = load i8, ptr %48, align 1, !noundef !4
-  %50 = call { ptr, i64 } @_ZN6brotli3enc11stride_eval12Stride1Prior10lookup_mut17h77b8015e600a4dcfE(ptr noalias noundef nonnull align 2 %.val, i64 noundef %.val16, i8 noundef %49, i8 noundef %2, i64 noundef %3, i1 noundef zeroext false, i8 undef)
-  %51 = extractvalue { ptr, i64 } %50, 0
-  %52 = extractvalue { ptr, i64 } %50, 1
-  store ptr %51, ptr %7, align 8
-  store i64 %52, ptr %10, align 8
-  %53 = call noundef float @_ZN6brotli3enc11stride_eval3CDF4cost17he59810628720e947E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, i8 noundef %11)
-  %54 = add nuw nsw i64 %15, %.sroa.0.030
-  %55 = icmp ult i64 %54, %.val20
-  br i1 %55, label %56, label %61, !prof !228
+  %28 = getelementptr inbounds nuw [8 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %9, i64 0, i64 %.sroa.0.030
+  %.val = load ptr, ptr %28, align 8, !nonnull !4, !align !33, !noundef !4
+  %29 = getelementptr i8, ptr %28, i64 8
+  %.val16 = load i64, ptr %29, align 8, !noundef !4
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %.sroa.0.030
+  %31 = load i8, ptr %30, align 1, !noundef !4
+  %32 = call { ptr, i64 } @_ZN6brotli3enc11stride_eval12Stride1Prior10lookup_mut17h77b8015e600a4dcfE(ptr noalias noundef nonnull align 2 %.val, i64 noundef %.val16, i8 noundef %31, i8 noundef %2, i64 noundef %3, i1 noundef zeroext false, i8 undef)
+  %33 = extractvalue { ptr, i64 } %32, 0
+  %34 = extractvalue { ptr, i64 } %32, 1
+  store ptr %33, ptr %7, align 8
+  store i64 %34, ptr %10, align 8
+  %35 = call noundef float @_ZN6brotli3enc11stride_eval3CDF4cost17he59810628720e947E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, i8 noundef %11)
+  %36 = add nuw nsw i64 %15, %.sroa.0.030
+  %37 = icmp ult i64 %36, %.val20
+  br i1 %37, label %56, label %61, !prof !228
 
-56:                                               ; preds = %45
+38:                                               ; preds = %50
+  ret void
+
+39:                                               ; preds = %.preheader, %50
+  %.sroa.04.031 = phi i64 [ 0, %.preheader ], [ %51, %50 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  %40 = getelementptr inbounds nuw [8 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %9, i64 0, i64 %.sroa.04.031
+  %.val17 = load ptr, ptr %40, align 8, !nonnull !4, !align !33, !noundef !4
+  %41 = getelementptr i8, ptr %40, i64 8
+  %.val18 = load i64, ptr %41, align 8, !noundef !4
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 0, i64 %.sroa.04.031
+  %43 = load i8, ptr %42, align 1, !noundef !4
+  %44 = call { ptr, i64 } @_ZN6brotli3enc11stride_eval12Stride1Prior10lookup_mut17h77b8015e600a4dcfE(ptr noalias noundef nonnull align 2 %.val17, i64 noundef %.val18, i8 noundef %43, i8 noundef %2, i64 noundef %3, i1 noundef zeroext true, i8 %11)
+  %45 = extractvalue { ptr, i64 } %44, 0
+  %46 = extractvalue { ptr, i64 } %44, 1
+  store ptr %45, ptr %6, align 8
+  store i64 %46, ptr %21, align 8
+  %47 = call noundef float @_ZN6brotli3enc11stride_eval3CDF4cost17he59810628720e947E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, i8 noundef %22)
+  %48 = add nuw nsw i64 %15, %.sroa.04.031
+  %49 = icmp ult i64 %48, %.val20
+  br i1 %49, label %50, label %55, !prof !228
+
+50:                                               ; preds = %39
+  %51 = add nuw nsw i64 %.sroa.04.031, 1
+  %52 = getelementptr inbounds [0 x float], ptr %.val19, i64 0, i64 %48
+  %53 = load float, ptr %52, align 4, !noundef !4
+  %54 = fadd float %47, %53
+  store float %54, ptr %52, align 4
+  call void @_ZN6brotli3enc11stride_eval3CDF6update17he9e694b1d0e81e51E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, i8 noundef %22, i16 noundef %24, i16 noundef %26)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  %exitcond35.not = icmp eq i64 %51, 8
+  br i1 %exitcond35.not, label %38, label %39
+
+55:                                               ; preds = %39
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %48, i64 noundef %.val20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3805415b65ff0bcf60b60eb7923a431b.41) #25
+  unreachable
+
+56:                                               ; preds = %27
   %57 = add nuw nsw i64 %.sroa.0.030, 1
-  %58 = getelementptr inbounds [0 x float], ptr %.val19, i64 0, i64 %54
+  %58 = getelementptr inbounds [0 x float], ptr %.val19, i64 0, i64 %36
   %59 = load float, ptr %58, align 4, !noundef !4
-  %60 = fadd float %53, %59
+  %60 = fadd float %35, %59
   store float %60, ptr %58, align 4
   call void @_ZN6brotli3enc11stride_eval3CDF6update17he9e694b1d0e81e51E(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, i8 noundef %11, i16 noundef %18, i16 noundef %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %exitcond.not = icmp eq i64 %57, 8
-  br i1 %exitcond.not, label %.preheader, label %45
+  br i1 %exitcond.not, label %.preheader, label %27
 
-61:                                               ; preds = %45
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %54, i64 noundef %.val20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3805415b65ff0bcf60b60eb7923a431b.45) #25
+61:                                               ; preds = %27
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %36, i64 noundef %.val20, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3805415b65ff0bcf60b60eb7923a431b.45) #25
   unreachable
 }
 

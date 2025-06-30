@@ -503,7 +503,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   br i1 %178, label %telrcv.exit.thread, label %179
 
 179:                                              ; preds = %176
-  %180 = add nsw i64 %177, %.055.ph
+  %180 = add nuw nsw i64 %177, %.055.ph
   %181 = call i32 @Curl_pgrsSetDownloadCounter(ptr noundef %0, i64 noundef %180) #9
   %.not76 = icmp eq i32 %181, 0
   br i1 %.not76, label %182, label %telrcv.exit.thread

@@ -472,7 +472,7 @@ MemoryContextCheckSize.exit:                      ; preds = %3, %5
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2, i32 noundef range(i32 -2, 30) %3) unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32

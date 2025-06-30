@@ -9517,7 +9517,7 @@ define internal fastcc void @_validate_all_reservations() unnamed_addr #0 {
   call void @bit_set(ptr noundef %124, i64 noundef %indvars.iv74.i.i) #19
   %125 = load i16, ptr %109, align 8
   %126 = zext i16 %125 to i32
-  %127 = add nsw i32 %.04465.i.i, %126
+  %127 = add nuw nsw i32 %.04465.i.i, %126
   br label %128
 
 128:                                              ; preds = %123, %120

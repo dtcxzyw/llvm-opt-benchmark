@@ -309,7 +309,7 @@ define dso_local range(i32 -22, 1) i32 @ieee80211_radiotap_iterator_next(ptr nou
   store i32 %16, ptr %10, align 8
   store ptr %62, ptr %11, align 8
   store i32 %132, ptr %12, align 4
-  %133 = sext i32 %132 to i64
+  %133 = zext nneg i32 %132 to i64
   %134 = getelementptr i8, ptr %62, i64 %133
   store ptr %134, ptr %6, align 8
   %135 = ptrtoint ptr %134 to i64

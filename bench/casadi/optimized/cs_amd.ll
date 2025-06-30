@@ -795,7 +795,7 @@ cs_wclear.exit821:                                ; preds = %295
   br i1 %350, label %351, label %357
 
 351:                                              ; preds = %348
-  %352 = add nsw i32 %349, %.0670926
+  %352 = add nuw nsw i32 %349, %.0670926
   %353 = add nsw i32 %.0677925, 1
   %354 = sext i32 %.0677925 to i64
   %355 = getelementptr inbounds i32, ptr %142, i64 %354
@@ -849,7 +849,7 @@ cs_wclear.exit821:                                ; preds = %295
   br i1 %372, label %379, label %373
 
 373:                                              ; preds = %.lr.ph939
-  %374 = add nsw i32 %371, %.2672936
+  %374 = add nuw nsw i32 %371, %.2672936
   %375 = add nsw i32 %.2679935, 1
   %376 = sext i32 %.2679935 to i64
   %377 = getelementptr inbounds i32, ptr %142, i64 %376

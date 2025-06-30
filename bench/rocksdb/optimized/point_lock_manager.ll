@@ -4689,7 +4689,7 @@ _ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i:    ; preds = %166, %162
   br i1 %356, label %.loopexit, label %357
 
 357:                                              ; preds = %._crit_edge._crit_edge.i
-  %358 = add i64 %.sroa.213.0.copyload.i, 1
+  %358 = add nsw i64 %.sroa.213.0.copyload.i, 1
   br label %._crit_edge._crit_edge35.i
 
 ._crit_edge._crit_edge35.i:                       ; preds = %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge, %357
@@ -7757,7 +7757,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %218, %_ZNKSt14defau
   br i1 %297, label %.noexc65, label %298
 
 298:                                              ; preds = %._crit_edge._crit_edge.i
-  %299 = add i64 %.sroa.213.0.copyload.i, 1
+  %299 = add nsw i64 %.sroa.213.0.copyload.i, 1
   br label %._crit_edge._crit_edge35.i
 
 ._crit_edge._crit_edge35.i:                       ; preds = %._crit_edge.i.._crit_edge._crit_edge35.i_crit_edge, %298

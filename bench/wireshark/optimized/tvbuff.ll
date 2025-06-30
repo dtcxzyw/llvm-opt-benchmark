@@ -2320,7 +2320,7 @@ define range(i64 0, 1099511627776) i64 @tvb_get_ntoh40(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_ntohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i64 @tvb_get_ntohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -2384,7 +2384,7 @@ define range(i64 0, 281474976710656) i64 @tvb_get_ntoh48(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_ntohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i64 @tvb_get_ntohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -2458,7 +2458,7 @@ define range(i64 0, 72057594037927936) i64 @tvb_get_ntoh56(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_ntohi56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i64 @tvb_get_ntohi56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i64
@@ -2895,7 +2895,7 @@ define range(i64 0, 1099511627776) i64 @tvb_get_letoh40(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_int40(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @tvb_get_int40(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
   br i1 %.not, label %14, label %5
@@ -2947,7 +2947,7 @@ define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_int40(ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_letohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i64 @tvb_get_letohi40(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 5)
   %4 = getelementptr i8, ptr %3, i64 1
   %5 = load i32, ptr %4, align 1
@@ -3035,7 +3035,7 @@ define range(i64 0, 281474976710656) i64 @tvb_get_letoh48(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_int48(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @tvb_get_int48(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
   br i1 %.not, label %14, label %5
@@ -3092,7 +3092,7 @@ define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_int48(ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_letohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i64 @tvb_get_letohi48(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 6)
   %4 = getelementptr i8, ptr %3, i64 2
   %5 = load i32, ptr %4, align 1
@@ -3195,7 +3195,7 @@ define range(i64 0, 72057594037927936) i64 @tvb_get_letoh56(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_int56(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @tvb_get_int56(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp sgt i32 %2, -1
   %4 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
   br i1 %.not, label %19, label %5
@@ -3262,7 +3262,7 @@ define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_int56(ptr n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i64 -72057594037927936, 72057594037927936) i64 @tvb_get_letohi56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define i64 @tvb_get_letohi56(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 7)
   %4 = getelementptr i8, ptr %3, i64 3
   %5 = load i32, ptr %4, align 1

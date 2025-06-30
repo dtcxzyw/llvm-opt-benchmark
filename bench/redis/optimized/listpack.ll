@@ -2085,9 +2085,9 @@ lpEncodeBacklenBytes.exit:                        ; preds = %switch.lookup205, %
 lpEncodeBacklen.exit._crit_edge:                  ; preds = %lpEncodeBacklen.exit, %lpEncodeBacklenBytes.exit
   %.0119 = phi i32 [ %287, %lpEncodeBacklenBytes.exit ], [ 0, %lpEncodeBacklen.exit ]
   %296 = zext i32 %.0119 to i64
-  %297 = add nuw nsw i64 %228, %.0162170
-  %298 = add nuw nsw i64 %297, %245
-  %299 = sub nsw i64 %298, %296
+  %297 = add i64 %228, %.0162170
+  %298 = add i64 %297, %245
+  %299 = sub i64 %298, %296
   %300 = icmp ugt i64 %299, 4294967295
   br i1 %300, label %400, label %301
 

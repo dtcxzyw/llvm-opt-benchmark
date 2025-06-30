@@ -15143,8 +15143,8 @@ default.unreachable:                              ; preds = %22
   br label %81
 
 81:                                               ; preds = %80, %62
-  %.ph94.i = phi ptr [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.8, %80 ], [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.5, %62 ]
-  %.ph95.i = phi ptr [ %72, %80 ], [ %54, %62 ]
+  %.ph95.i = phi ptr [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.8, %80 ], [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.5, %62 ]
+  %.ph96.i = phi ptr [ %72, %80 ], [ %54, %62 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !3005
   %82 = load i8, ptr %19, align 8, !range !11, !alias.scope !3002, !noalias !3011, !noundef !12
   call void @"_ZN4core3ptr58drop_in_place$LT$aho_corasick..nfa..noncontiguous..NFA$GT$17he19b4277c6b7b208E"(ptr noalias noundef nonnull align 8 dereferenceable(440) %13), !noalias !3008
@@ -15168,8 +15168,8 @@ default.unreachable:                              ; preds = %22
 85:                                               ; preds = %27, %81
   %.sroa.18.1.ph = phi i8 [ %82, %81 ], [ %31, %27 ]
   %.sroa.16.1.ph = phi i8 [ %24, %81 ], [ %28, %27 ]
-  %.sroa.14.1.ph = phi ptr [ %.ph94.i, %81 ], [ %29, %27 ]
-  %.sroa.8.1.ph = phi ptr [ %.ph95.i, %81 ], [ %30, %27 ]
+  %.sroa.14.1.ph = phi ptr [ %.ph95.i, %81 ], [ %29, %27 ]
+  %.sroa.8.1.ph = phi ptr [ %.ph96.i, %81 ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %13), !noalias !3005
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.720.i.sroa.9)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.78.i.sroa.9)
@@ -15518,8 +15518,8 @@ default.unreachable:                              ; preds = %22
   br label %81
 
 81:                                               ; preds = %80, %62
-  %.ph94.i = phi ptr [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.8, %80 ], [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.5, %62 ]
-  %.ph95.i = phi ptr [ %72, %80 ], [ %54, %62 ]
+  %.ph95.i = phi ptr [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.8, %80 ], [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.5, %62 ]
+  %.ph96.i = phi ptr [ %72, %80 ], [ %54, %62 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !3039
   %82 = load i8, ptr %19, align 8, !range !11, !alias.scope !3036, !noalias !3043, !noundef !12
   call void @"_ZN4core3ptr58drop_in_place$LT$aho_corasick..nfa..noncontiguous..NFA$GT$17he19b4277c6b7b208E"(ptr noalias noundef nonnull align 8 dereferenceable(440) %13), !noalias !3042
@@ -15543,8 +15543,8 @@ default.unreachable:                              ; preds = %22
 85:                                               ; preds = %27, %81
   %.sroa.18.1.ph = phi i8 [ %82, %81 ], [ %31, %27 ]
   %.sroa.16.1.ph = phi i8 [ %24, %81 ], [ %28, %27 ]
-  %.sroa.14.1.ph = phi ptr [ %.ph94.i, %81 ], [ %29, %27 ]
-  %.sroa.8.1.ph = phi ptr [ %.ph95.i, %81 ], [ %30, %27 ]
+  %.sroa.14.1.ph = phi ptr [ %.ph95.i, %81 ], [ %29, %27 ]
+  %.sroa.8.1.ph = phi ptr [ %.ph96.i, %81 ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %13), !noalias !3039
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.720.i.sroa.9)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.78.i.sroa.9)
@@ -15893,8 +15893,8 @@ default.unreachable:                              ; preds = %22
   br label %81
 
 81:                                               ; preds = %80, %62
-  %.ph94.i = phi ptr [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.8, %80 ], [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.5, %62 ]
-  %.ph95.i = phi ptr [ %72, %80 ], [ %54, %62 ]
+  %.ph95.i = phi ptr [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.8, %80 ], [ @anon.d2d8a7db743aba934fa58a7dbfcfd65f.5, %62 ]
+  %.ph96.i = phi ptr [ %72, %80 ], [ %54, %62 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !3071
   %82 = load i8, ptr %19, align 8, !range !11, !alias.scope !3068, !noalias !3075, !noundef !12
   call void @"_ZN4core3ptr58drop_in_place$LT$aho_corasick..nfa..noncontiguous..NFA$GT$17he19b4277c6b7b208E"(ptr noalias noundef nonnull align 8 dereferenceable(440) %13), !noalias !3074
@@ -15918,8 +15918,8 @@ default.unreachable:                              ; preds = %22
 85:                                               ; preds = %27, %81
   %.sroa.18.1.ph = phi i8 [ %82, %81 ], [ %31, %27 ]
   %.sroa.16.1.ph = phi i8 [ %24, %81 ], [ %28, %27 ]
-  %.sroa.14.1.ph = phi ptr [ %.ph94.i, %81 ], [ %29, %27 ]
-  %.sroa.8.1.ph = phi ptr [ %.ph95.i, %81 ], [ %30, %27 ]
+  %.sroa.14.1.ph = phi ptr [ %.ph95.i, %81 ], [ %29, %27 ]
+  %.sroa.8.1.ph = phi ptr [ %.ph96.i, %81 ], [ %30, %27 ]
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %13), !noalias !3071
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.720.i.sroa.9)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.78.i.sroa.9)

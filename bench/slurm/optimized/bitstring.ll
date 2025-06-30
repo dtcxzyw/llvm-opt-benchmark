@@ -1044,7 +1044,7 @@ bit_set_count.exit:                               ; preds = %._crit_edge.i, %12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @bit_nset_max_count(ptr noundef readonly captures(none) %0) #3 {
+define dso_local range(i32 0, -2147483648) i32 @bit_nset_max_count(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -1072,7 +1072,7 @@ define dso_local i32 @bit_nset_max_count(ptr noundef readonly captures(none) %0)
 
 12:                                               ; preds = %.lr.ph
   %13 = sub nsw i64 %4, %.024
-  %14 = sext i32 %.2 to i64
+  %14 = zext nneg i32 %.2 to i64
   %15 = icmp sge i64 %13, %14
   %16 = add nuw nsw i64 %.024, 1
   %17 = icmp samesign ult i64 %16, %4

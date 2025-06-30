@@ -679,7 +679,7 @@ define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h05d68e50d8
 4:                                                ; preds = %2
   %5 = tail call noundef i64 @"_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11encoded_len17h23ad742da1ac1df5E.llvm.12582631992428692812"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %0)
   %6 = or i64 %5, 1
-  %7 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %6, i1 true)
+  %7 = tail call range(i64 56, 64) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %8 = xor i64 %7, 63
   %9 = mul nuw nsw i64 %8, 9
   %10 = add nuw nsw i64 %9, 73
@@ -9959,10 +9959,10 @@ define hidden noundef range(i64 2, 112) i64 @_ZN5prost8encoding7message11encoded
   %8 = mul nuw nsw i32 %7, 9
   %9 = add nuw nsw i32 %8, 73
   %10 = lshr i32 %9, 6
-  %11 = zext nneg i32 %10 to i64
+  %narrow = add nuw nsw i32 %10, 1
+  %11 = zext nneg i32 %narrow to i64
   %12 = add nuw nsw i64 %3, %11
-  %13 = add nuw nsw i64 %12, 1
-  ret i64 %13
+  ret i64 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -10624,7 +10624,7 @@ define hidden noundef range(i64 2, 218) i64 @_ZN5prost8encoding7message11encoded
   %10 = lshr i32 %9, 6
   %11 = zext nneg i32 %10 to i64
   %12 = or i64 %3, 1
-  %13 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %12, i1 true)
+  %13 = tail call range(i64 56, 64) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %14 = xor i64 %13, 63
   %15 = mul nuw nsw i64 %14, 9
   %16 = add nuw nsw i64 %15, 73
@@ -51068,7 +51068,7 @@ _ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exi
 37:                                               ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit
   %38 = tail call noundef i64 @"_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11encoded_len17h23ad742da1ac1df5E.llvm.12582631992428692812"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) dereferenceable_or_null(176) %34)
   %39 = or i64 %38, 1
-  %40 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %39, i1 true)
+  %40 = tail call range(i64 56, 64) i64 @llvm.ctlz.i64(i64 %39, i1 true)
   %41 = xor i64 %40, 63
   %42 = mul nuw nsw i64 %41, 9
   %43 = add nuw nsw i64 %42, 73
@@ -78034,15 +78034,15 @@ _ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exi
   %36 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !20708, !noalias !20719, !noundef !8
   %37 = load i64, ptr %2, align 8, !alias.scope !20708, !noalias !20719, !noundef !8
   %38 = icmp eq i64 %37, %36
-  br i1 %38, label %39, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+  br i1 %38, label %39, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
 
 39:                                               ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h405665e254903ee8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %36, i64 noundef 1), !noalias !20719
-  %.pre.i.i.i.i.i4 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !20708, !noalias !20719
-  br label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+  %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !20708, !noalias !20719
+  br label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
 
-_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5: ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit, %39
-  %40 = phi i64 [ %.pre.i.i.i.i.i4, %39 ], [ %36, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ]
+_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit: ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit, %39
+  %40 = phi i64 [ %.pre.i.i.i.i.i, %39 ], [ %36, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ]
   %41 = load ptr, ptr %29, align 8, !alias.scope !20708, !noalias !20719, !nonnull !8, !noundef !8
   %42 = getelementptr inbounds i8, ptr %41, i64 %40
   store i8 %35, ptr %42, align 1
@@ -78056,11 +78056,11 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %.not.i = icmp eq i32 %46, %47
   br i1 %.not.i, label %49, label %48
 
-48:                                               ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+48:                                               ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
   tail call void @_ZN5prost8encoding5int326encode17hf07d75d670c5bb59E(i32 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %45, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   br label %49
 
-49:                                               ; preds = %48, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+49:                                               ; preds = %48, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
   %50 = load i64, ptr %1, align 8, !range !34, !alias.scope !20722, !noalias !20725, !noundef !8
   %51 = icmp eq i64 %50, 2
   br i1 %51, label %53, label %52
@@ -83394,15 +83394,15 @@ _ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exi
   %36 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !22855, !noalias !22866, !noundef !8
   %37 = load i64, ptr %2, align 8, !alias.scope !22855, !noalias !22866, !noundef !8
   %38 = icmp eq i64 %37, %36
-  br i1 %38, label %39, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+  br i1 %38, label %39, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
 
 39:                                               ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h405665e254903ee8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %36, i64 noundef 1), !noalias !22866
-  %.pre.i.i.i.i.i4 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !22855, !noalias !22866
-  br label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+  %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !22855, !noalias !22866
+  br label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
 
-_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5: ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit, %39
-  %40 = phi i64 [ %.pre.i.i.i.i.i4, %39 ], [ %36, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ]
+_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit: ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit, %39
+  %40 = phi i64 [ %.pre.i.i.i.i.i, %39 ], [ %36, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ]
   %41 = load ptr, ptr %29, align 8, !alias.scope !22855, !noalias !22866, !nonnull !8, !noundef !8
   %42 = getelementptr inbounds i8, ptr %41, i64 %40
   store i8 %35, ptr %42, align 1
@@ -83414,11 +83414,11 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %49, label %48
 
-48:                                               ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+48:                                               ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
   tail call void @_ZN5prost8encoding6uint646encode17h3b8135e7fe5fbc14E(i32 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %45, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   br label %49
 
-49:                                               ; preds = %48, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+49:                                               ; preds = %48, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %51 = load i64, ptr %50, align 8, !alias.scope !22869, !noalias !22872, !noundef !8
   %52 = icmp eq i64 %51, 0
@@ -93644,15 +93644,15 @@ _ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exi
   %36 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !26809, !noalias !26820, !noundef !8
   %37 = load i64, ptr %2, align 8, !alias.scope !26809, !noalias !26820, !noundef !8
   %38 = icmp eq i64 %37, %36
-  br i1 %38, label %39, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+  br i1 %38, label %39, label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
 
 39:                                               ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h405665e254903ee8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %36, i64 noundef 1), !noalias !26820
-  %.pre.i.i.i.i.i4 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !26809, !noalias !26820
-  br label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+  %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !26809, !noalias !26820
+  br label %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
 
-_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5: ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit, %39
-  %40 = phi i64 [ %.pre.i.i.i.i.i4, %39 ], [ %36, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ]
+_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit: ; preds = %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit, %39
+  %40 = phi i64 [ %.pre.i.i.i.i.i, %39 ], [ %36, %_ZN5prost8encoding10encode_key17h14875a31900560c0E.llvm.12582631992428692812.exit ]
   %41 = load ptr, ptr %29, align 8, !alias.scope !26809, !noalias !26820, !nonnull !8, !noundef !8
   %42 = getelementptr inbounds i8, ptr %41, i64 %40
   store i8 %35, ptr %42, align 1
@@ -93664,11 +93664,11 @@ _ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.1258263199242869281
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %49, label %48
 
-48:                                               ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+48:                                               ; preds = %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
   tail call void @_ZN5prost8encoding6uint646encode17h3b8135e7fe5fbc14E(i32 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %45, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   br label %49
 
-49:                                               ; preds = %48, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit5
+49:                                               ; preds = %48, %_ZN5bytes3buf7buf_mut6BufMut6put_u817h9be137b5c4154b3bE.llvm.12582631992428692812.exit
   %50 = load i64, ptr %1, align 8, !range !34, !alias.scope !26823, !noalias !26826, !noundef !8
   %51 = icmp eq i64 %50, 2
   br i1 %51, label %53, label %52
@@ -108584,7 +108584,7 @@ define hidden noundef range(i64 0, 225) i64 @"_ZN67_$LT$proto..ExcerptInsertion$
 5:                                                ; preds = %1
   %6 = tail call noundef i64 @"_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11encoded_len17h23ad742da1ac1df5E.llvm.12582631992428692812"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) dereferenceable_or_null(176) %2)
   %7 = or i64 %6, 1
-  %8 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %7, i1 true)
+  %8 = tail call range(i64 56, 64) i64 @llvm.ctlz.i64(i64 %7, i1 true)
   %9 = xor i64 %8, 63
   %10 = mul nuw nsw i64 %9, 9
   %11 = add nuw nsw i64 %10, 73
@@ -108634,7 +108634,7 @@ define hidden noundef range(i64 2, 12) i64 @"_ZN67_$LT$proto..ExcerptInsertion$u
 define hidden noundef range(i64 2, 214) i64 @"_ZN67_$LT$proto..ExcerptInsertion$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h4f26c6267ca6494dE.llvm.12582631992428692812"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(176) %0) unnamed_addr #0 {
   %2 = tail call noundef i64 @"_ZN58_$LT$proto..Excerpt$u20$as$u20$prost..message..Message$GT$11encoded_len17h23ad742da1ac1df5E.llvm.12582631992428692812"(ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %0)
   %3 = or i64 %2, 1
-  %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
+  %4 = tail call range(i64 56, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
   %5 = xor i64 %4, 63
   %6 = mul nuw nsw i64 %5, 9
   %7 = add nuw nsw i64 %6, 73

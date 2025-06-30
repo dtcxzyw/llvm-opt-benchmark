@@ -47526,8 +47526,8 @@ define i64 @_ZN7hir_def8resolver8Resolver10type_owner17hada9760e98a72a4eE(ptr no
   switch i32 %narrow.i.i.i, label %default.unreachable [
     i32 0, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i"
     i32 1, label %14
-    i32 2, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.thread.i"
-    i32 3, label %29
+    i32 2, label %27
+    i32 3, label %30
     i32 4, label %switch.lookup
   ]
 
@@ -47596,42 +47596,42 @@ default.unreachable:                              ; preds = %10
   %26 = and i64 %.sroa.010.0.i.i.i.i, 4294967295
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i"
 
-"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.thread.i": ; preds = %10
-  %27 = getelementptr inbounds i8, ptr %8, i64 -20
-  %28 = load i32, ptr %27, align 4, !range !137, !alias.scope !7810, !noalias !7815, !noundef !118
-  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %28 to i64
+27:                                               ; preds = %10
+  %28 = getelementptr inbounds i8, ptr %8, i64 -20
+  %29 = load i32, ptr %28, align 4, !range !137, !alias.scope !7810, !noalias !7815, !noundef !118
+  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %29 to i64
   %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i, 32
   br label %.split.loop.exit18.i
 
-29:                                               ; preds = %10
-  %30 = getelementptr inbounds i8, ptr %8, i64 -20
-  %31 = load i32, ptr %30, align 4, !range !119, !alias.scope !7810, !noalias !7815, !noundef !118
-  %32 = getelementptr inbounds i8, ptr %8, i64 -16
-  %33 = load i32, ptr %32, align 4, !alias.scope !7810, !noalias !7815, !noundef !118
-  %.sroa.2.0.insert.ext.i26.i.i.i = zext i32 %33 to i64
+30:                                               ; preds = %10
+  %31 = getelementptr inbounds i8, ptr %8, i64 -20
+  %32 = load i32, ptr %31, align 4, !range !119, !alias.scope !7810, !noalias !7815, !noundef !118
+  %33 = getelementptr inbounds i8, ptr %8, i64 -16
+  %34 = load i32, ptr %33, align 4, !alias.scope !7810, !noalias !7815, !noundef !118
+  %.sroa.2.0.insert.ext.i26.i.i.i = zext i32 %34 to i64
   %.sroa.2.0.insert.shift.i27.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i26.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i.i = zext nneg i32 %31 to i64
+  %.sroa.0.0.insert.ext.i.i.i.i = zext nneg i32 %32 to i64
   br label %.split.loop.exit18.i
 
 switch.lookup:                                    ; preds = %10
-  %34 = getelementptr inbounds i8, ptr %8, i64 -20
-  %35 = load i32, ptr %34, align 4, !alias.scope !7810, !noalias !7815, !noundef !118
-  %36 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN90_$LT$hir_def..TypeOwnerId$u20$as$u20$core..convert..From$LT$hir_def..DefWithBodyId$GT$$GT$4from17h05b682627926b02fE", i64 0, i64 %36
+  %35 = getelementptr inbounds i8, ptr %8, i64 -20
+  %36 = load i32, ptr %35, align 4, !alias.scope !7810, !noalias !7815, !noundef !118
+  %37 = zext nneg i32 %12 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN90_$LT$hir_def..TypeOwnerId$u20$as$u20$core..convert..From$LT$hir_def..DefWithBodyId$GT$$GT$4from17h05b682627926b02fE", i64 0, i64 %37
   %switch.load = load i64, ptr %switch.gep, align 8
-  %.sroa.2.0.insert.ext.i.i.i.i.i = zext i32 %35 to i64
+  %.sroa.2.0.insert.ext.i.i.i.i.i = zext i32 %36 to i64
   %.sroa.2.0.insert.shift.i.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i.i, 32
   br label %.split.loop.exit18.i
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i": ; preds = %"_ZN89_$LT$hir_def..TypeOwnerId$u20$as$u20$core..convert..From$LT$hir_def..GenericDefId$GT$$GT$4from17h5d539e9cd6e5c8dcE.exit.i.i.i", %10
   %.sroa.6.0.i.i.i = phi i64 [ %.sroa.419.0.extract.shift.i.i.i, %"_ZN89_$LT$hir_def..TypeOwnerId$u20$as$u20$core..convert..From$LT$hir_def..GenericDefId$GT$$GT$4from17h5d539e9cd6e5c8dcE.exit.i.i.i" ], [ 0, %10 ]
   %.sroa.0.0.i.i.i = phi i64 [ %26, %"_ZN89_$LT$hir_def..TypeOwnerId$u20$as$u20$core..convert..From$LT$hir_def..GenericDefId$GT$$GT$4from17h5d539e9cd6e5c8dcE.exit.i.i.i" ], [ 13, %10 ]
-  %37 = icmp eq i64 %.sroa.0.0.i.i.i, 13
-  br i1 %37, label %7, label %.split.loop.exit18.i
+  %38 = icmp eq i64 %.sroa.0.0.i.i.i, 13
+  br i1 %38, label %7, label %.split.loop.exit18.i
 
-.split.loop.exit18.i:                             ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i", %switch.lookup, %29, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.thread.i"
-  %.sroa.0.0.i.i23.i = phi i64 [ 11, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.thread.i" ], [ %switch.load, %switch.lookup ], [ %.sroa.0.0.insert.ext.i.i.i.i, %29 ], [ %.sroa.0.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i" ]
-  %.sroa.6.0.i.i22.i = phi i64 [ %.sroa.2.0.insert.shift.i.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.thread.i" ], [ %.sroa.2.0.insert.shift.i.i.i.i.i, %switch.lookup ], [ %.sroa.2.0.insert.shift.i27.i.i.i, %29 ], [ %.sroa.6.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i" ]
+.split.loop.exit18.i:                             ; preds = %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i", %switch.lookup, %30, %27
+  %.sroa.0.0.i.i23.i = phi i64 [ %switch.load, %switch.lookup ], [ %.sroa.0.0.insert.ext.i.i.i.i, %30 ], [ 11, %27 ], [ %.sroa.0.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i" ]
+  %.sroa.6.0.i.i22.i = phi i64 [ %.sroa.2.0.insert.shift.i.i.i.i.i, %switch.lookup ], [ %.sroa.2.0.insert.shift.i27.i.i.i, %30 ], [ %.sroa.2.0.insert.shift.i.i.i.i, %27 ], [ %.sroa.6.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h2f173e49ab644915E.exit.i" ]
   %.sroa.0.0.insert.insert.i.le.i = or i64 %.sroa.6.0.i.i22.i, %.sroa.0.0.i.i23.i
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hf51bc8fd1dc72543E.exit
 

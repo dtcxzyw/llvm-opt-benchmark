@@ -1163,7 +1163,7 @@ wav_seek_tag.exit:                                ; preds = %409, %.thread400
   %482 = icmp eq i32 %481, 86069
   %483 = icmp ne i64 %.5301, 0
   %or.cond31 = select i1 %482, i1 %483, i1 false
-  %484 = shl nuw nsw i64 %.5295430435, 3
+  %484 = shl i64 %.5295430435, 3
   %485 = icmp sgt i64 %484, %.5301
   %or.cond375 = select i1 %or.cond31, i1 %485, i1 false
   br i1 %or.cond375, label %.thread436, label %486

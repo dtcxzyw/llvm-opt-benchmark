@@ -232,7 +232,7 @@ define hidden void @_ZN10wasmi_core5table7element14ElementSegment3new17h2d5cebbc
   %25 = shl nuw nsw i64 %11, 4
   %26 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %26)
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %10, i64 noundef range(i64 1, 0) %25, i64 noundef 8) #23
+  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %10, i64 noundef range(i64 1, -9223372036854775808) %25, i64 noundef 8) #23
   resume { ptr, i32 } %24
 }
 
@@ -546,7 +546,7 @@ define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$L
   %3 = mul nuw nsw i64 %.8.val, 12
   %4 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %4)
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, 0) %3, i64 noundef 4) #23
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %3, i64 noundef 4) #23
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h958d37c7fd5bd87bE.exit"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h958d37c7fd5bd87bE.exit": ; preds = %0, %2
@@ -1314,7 +1314,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h3cb04af20bf2690bE.exit: ; preds
 
 56:                                               ; preds = %54
   %57 = mul nuw nsw i64 %18, 12
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %17, i64 noundef range(i64 1, 0) %57, i64 noundef 4) #23
+  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %17, i64 noundef range(i64 1, -9223372036854775808) %57, i64 noundef 4) #23
   br label %"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmi..instance..exports..Extern$u5d$$GT$$GT$17h19aa5561b348cad2E.exit"
 
 58:                                               ; preds = %27

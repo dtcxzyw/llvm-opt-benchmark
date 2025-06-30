@@ -29595,7 +29595,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN5clang7VarDeclEPNS1
   %.0133.i = phi i64 [ %.1, %.lr.ph.i ], [ %.04.i, %62 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %54 = getelementptr inbounds %"struct.std::pair.1210", ptr %0, i64 %.04.i
+  %54 = getelementptr inbounds nuw %"struct.std::pair.1210", ptr %0, i64 %.04.i
   %55 = getelementptr i8, ptr %54, i64 8
   %.val.i = load ptr, ptr %55, align 8, !tbaa !1091
   %56 = getelementptr i8, ptr %.val.i, i64 36
@@ -29619,7 +29619,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN5clang7VarDeclEPNS1
 
 "_ZSt11__push_heapIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZL18validatePackoffsetRNS1_4SemaEPNS1_14HLSLBufferDeclEE3$_0EEEvT_T0_SI_T1_RT2_.exit": ; preds = %53, %62, %46
   %.013.lcssa.i = phi i64 [ %.1, %46 ], [ %.0133.i, %53 ], [ %.04.i, %62 ]
-  %67 = getelementptr inbounds %"struct.std::pair.1210", ptr %0, i64 %.013.lcssa.i
+  %67 = getelementptr inbounds nuw %"struct.std::pair.1210", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %67, align 8, !tbaa !1089
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %4, ptr %68, align 8, !tbaa !1091

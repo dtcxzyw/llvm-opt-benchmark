@@ -10414,8 +10414,8 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_19ViolationEl
   %39 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val28.i.i.i.i, i32 %.val29.i.i.i.i) #21
   %40 = or disjoint i64 %36, 1
   %spec.select.i.i.i.i = select i1 %39, i64 %40, i64 %37
-  %41 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %spec.select.i.i.i.i
-  %42 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.038.i.i.i.i
+  %41 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %spec.select.i.i.i.i
+  %42 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.038.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
   %43 = icmp slt i64 %spec.select.i.i.i.i, %27
   br i1 %43, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !971
@@ -10439,7 +10439,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_19ViolationEl
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %51 ], [ %.127.i.i.i.i, %46 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %48 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.04.i.i.i.i.i
+  %48 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.04.i.i.i.i.i
   %49 = getelementptr i8, ptr %48, i64 16
   %.val14.i.i.i.i.i = load i32, ptr %49, align 8, !tbaa !31
   %50 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val14.i.i.i.i.i, i32 %.sroa.417.0.copyload.i.i.i) #21
@@ -10453,7 +10453,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_19ViolationEl
 
 _ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %46
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %46 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %51 ]
-  %54 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %54 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 %.sroa.417.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -10495,8 +10495,8 @@ _ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp
   %66 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val28.i.i.i29.i, i32 %.val29.i.i.i31.i) #21
   %67 = or disjoint i64 %63, 1
   %spec.select.i.i.i32.i = select i1 %66, i64 %67, i64 %64
-  %68 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %spec.select.i.i.i32.i
-  %69 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.038.i.i.i28.i
+  %68 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %spec.select.i.i.i32.i
+  %69 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.038.i.i.i28.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %68, i64 32, i1 false)
   %70 = icmp slt i64 %spec.select.i.i.i32.i, %61
   br i1 %70, label %.lr.ph.i.i.i27.i, label %._crit_edge.i.i.i11.i, !llvm.loop !971
@@ -10517,7 +10517,7 @@ _ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp
   %77 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
   %78 = or disjoint i64 %77, 1
   %79 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %78
-  %80 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.0.lcssa.i.i.i12.i
+  %80 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.0.lcssa.i.i.i12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %79, i64 32, i1 false)
   br label %.lr.ph.i.i.i.i16.i.preheader
 
@@ -10547,7 +10547,7 @@ _ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp
 
 _ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i21.i: ; preds = %85, %.lr.ph.i.i.i.i16.i, %81
   %.013.lcssa.i.i.i.i22.i = phi i64 [ 0, %81 ], [ %.0133.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %85 ]
-  %87 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.013.lcssa.i.i.i.i22.i
+  %87 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.013.lcssa.i.i.i.i22.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i5.i, i64 16, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i23.i = getelementptr inbounds nuw i8, ptr %87, i64 16
   store i32 %.sroa.49.0.copyload.i.i9.i, ptr %.sroa.4.0..sroa_idx.i.i.i23.i, align 8

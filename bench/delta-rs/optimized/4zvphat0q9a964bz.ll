@@ -73783,7 +73783,7 @@ define internal fastcc void @"_ZN6chrono8datetime18DateTime$LT$Tz$GT$17format_wi
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h2cc97507110fd0f1E"(ptr noalias noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 4)) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #5 {
+define internal fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h2cc97507110fd0f1E"(ptr noalias noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 4)) %0, i64 noundef range(i64 -9223372036854776, 9223372036854776) %1, i32 noundef %2) unnamed_addr #5 {
   %4 = sdiv i64 %1, 86400
   %5 = srem i64 %1, 86400
   %.lobit.i = ashr i64 %5, 63

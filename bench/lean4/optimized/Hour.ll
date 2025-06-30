@@ -793,7 +793,7 @@ define ptr @l_Std_Time_Hour_Ordinal_toRelative(ptr noundef %0) local_unnamed_add
   br label %lean_int_add.exit
 
 21:                                               ; preds = %8
-  %22 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %13) #4
+  %22 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %13) #4
   br label %lean_int_add.exit
 
 .critedge.i:                                      ; preds = %5, %1
@@ -844,7 +844,7 @@ lean_int_emod.exit.thread23:                      ; preds = %27
   br label %lean_dec.exit9
 
 48:                                               ; preds = %34
-  %49 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i14) #4
+  %49 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i14) #4
   br label %lean_dec.exit9
 
 50:                                               ; preds = %lean_int_add.exit
@@ -902,7 +902,7 @@ lean_int_add.exit20.thread26:                     ; preds = %61
   br label %lean_dec.exit
 
 78:                                               ; preds = %65
-  %79 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %70) #4
+  %79 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %70) #4
   br label %lean_dec.exit
 
 80:                                               ; preds = %lean_dec.exit9
@@ -1508,7 +1508,7 @@ _init_l_Std_Time_Hour_instInhabitedOrdinal___closed__3.exit: ; preds = %59, %.cr
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__5.exit
 
 76:                                               ; preds = %66
-  %77 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %69) #4
+  %77 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %69) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__5.exit
 
 .critedge.i.i36:                                  ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__3.exit
@@ -1560,7 +1560,7 @@ _init_l_Std_Time_Hour_instInhabitedOrdinal___closed__5.exit: ; preds = %71, %76,
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
 
 103:                                              ; preds = %89
-  %104 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i41) #4
+  %104 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i41) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
 
 .critedge.i.i42:                                  ; preds = %83, %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__5.exit
@@ -1602,7 +1602,7 @@ _init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit: ; preds = %86, %98,
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
 
 126:                                              ; preds = %113
-  %127 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %118) #4
+  %127 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %118) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
 
 .critedge.i.i46:                                  ; preds = %110, %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
@@ -1652,7 +1652,7 @@ _init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit: ; preds = %121, %12
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
 
 153:                                              ; preds = %139
-  %154 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i50) #4
+  %154 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i50) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
 
 .critedge.i.i52:                                  ; preds = %133, %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
@@ -1911,7 +1911,7 @@ _init_l_Std_Time_Hour_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Tim
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
 
 242:                                              ; preds = %232
-  %243 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %235) #4
+  %243 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %235) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
 
 .critedge.i.i64:                                  ; preds = %_init_l_Std_Time_Hour_instOrdOffset___closed__1.exit
@@ -1961,7 +1961,7 @@ _init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit: ; preds = %237
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
 
 269:                                              ; preds = %255
-  %270 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i68) #4
+  %270 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i68) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
 
 .critedge.i.i70:                                  ; preds = %249, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
@@ -2003,7 +2003,7 @@ _init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit: ; preds = %252
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
 
 292:                                              ; preds = %279
-  %293 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %284) #4
+  %293 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %284) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
 
 .critedge.i.i74:                                  ; preds = %276, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
@@ -2053,7 +2053,7 @@ _init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit: ; preds = %287
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
 
 319:                                              ; preds = %305
-  %320 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i78) #4
+  %320 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i78) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
 
 .critedge.i.i80:                                  ; preds = %299, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
@@ -2085,7 +2085,7 @@ _init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit: ; preds = %302
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit
 
 335:                                              ; preds = %325
-  %336 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %328) #4
+  %336 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %328) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit
 
 .critedge.i.i84:                                  ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit

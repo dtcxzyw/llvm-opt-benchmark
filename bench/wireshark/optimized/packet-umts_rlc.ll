@@ -4793,7 +4793,7 @@ proto_item_set_hidden.exit:                       ; preds = %184, %181, %180, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @rlc_am_reassemble(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 4, 9) %5, i16 noundef zeroext range(i16 0, 4096) %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8, i16 noundef zeroext range(i16 -1, 256) %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef readonly captures(address_is_null) %12) unnamed_addr #0 {
+define internal fastcc void @rlc_am_reassemble(ptr noundef %0, i16 noundef zeroext range(i16 2, 513) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 4, 9) %5, i16 noundef zeroext range(i16 0, 4096) %6, i1 noundef zeroext %7, ptr noundef readonly captures(none) %8, i16 noundef zeroext range(i16 -1, 256) %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef readonly captures(address_is_null) %12) unnamed_addr #0 {
   %14 = alloca %struct.rlc_channel, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #16
   %15 = zext nneg i16 %6 to i32

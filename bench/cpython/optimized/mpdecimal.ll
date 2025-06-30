@@ -32737,7 +32737,7 @@ define internal fastcc ptr @_mpd_kmul(ptr noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mpd_fntmul(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef range(i64 193, 0) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #10 {
+define internal fastcc ptr @_mpd_fntmul(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #10 {
   %6 = xor i64 %3, -1
   %7 = icmp ugt i64 %2, %6
   br i1 %7, label %8, label %add_size_t.exit

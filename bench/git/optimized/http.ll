@@ -3902,7 +3902,7 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #24
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %71, i64 noundef %72) #23
   %73 = sub nsw i64 %.056.lcssa.i, %indvars.iv.i
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nsw i64 %73 to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %74) #23
   br label %77
 

@@ -7002,14 +7002,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIP8rationallS0_N9__gnu_cxx5__op
   %188 = load ptr, ptr %187, align 8, !tbaa !117
   store ptr %188, ptr %186, align 8, !tbaa !117
   store ptr null, ptr %187, align 8, !tbaa !117
-  %189 = icmp sgt i64 %.1, %1
+  %189 = icmp samesign ugt i64 %.1, %1
   br i1 %189, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %170, %224
   %.0133.i = phi i64 [ %.04.i, %224 ], [ %.1, %170 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %190 = getelementptr inbounds %class.rational, ptr %0, i64 %.04.i
+  %190 = getelementptr inbounds nuw %class.rational, ptr %0, i64 %.04.i
   %191 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !88
   %192 = load i8, ptr %182, align 4
   %193 = and i8 %192, 1
@@ -7155,7 +7155,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIP8rationallS0_N9__gnu_cxx5__op
   %283 = phi ptr [ %178, %170 ], [ %.pre32, %.loopexit.loopexit ]
   %284 = phi i32 [ %171, %170 ], [ %.pre, %.loopexit.loopexit ]
   %.013.lcssa.i = phi i64 [ %.1, %170 ], [ %.013.lcssa.i.ph, %.loopexit.loopexit ]
-  %285 = getelementptr inbounds %class.rational, ptr %0, i64 %.013.lcssa.i
+  %285 = getelementptr inbounds nuw %class.rational, ptr %0, i64 %.013.lcssa.i
   %286 = load i32, ptr %285, align 4, !tbaa !50
   store i32 %284, ptr %285, align 4, !tbaa !50
   store i32 %286, ptr %5, align 8, !tbaa !50

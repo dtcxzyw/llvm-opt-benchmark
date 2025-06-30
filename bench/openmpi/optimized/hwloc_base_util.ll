@@ -575,7 +575,7 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %55
   br i1 %.not, label %hwloc_get_numanode_obj_by_os_index.exit, label %59
 
 59:                                               ; preds = %55
-  %60 = add i32 %.04258, 1
+  %60 = add nuw i32 %.04258, 1
   store i32 %60, ptr %37, align 4, !tbaa !40
   br label %.loopexit
 
@@ -614,7 +614,7 @@ split:                                            ; preds = %hwloc_get_numanode_
   br i1 %74, label %75, label %split.thread
 
 75:                                               ; preds = %split
-  %76 = add i32 %.143, 1
+  %76 = add nuw i32 %.143, 1
   store i32 %76, ptr %37, align 4, !tbaa !40
   br label %split.thread
 
@@ -3693,7 +3693,7 @@ switch.lookup:                                    ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i16 @prte_hwloc_compute_relative_locality(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define zeroext range(i16 15, 4096) i16 @prte_hwloc_compute_relative_locality(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

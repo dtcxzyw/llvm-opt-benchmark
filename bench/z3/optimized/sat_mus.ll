@@ -3439,7 +3439,7 @@ _ZN3sat11literal_setoRERKS0_.exit65:              ; preds = %261
           to label %263 unwind label %248
 
 263:                                              ; preds = %_ZN3sat11literal_setoRERKS0_.exit65, %247
-  %.232 = phi i32 [ 0, %247 ], [ %260, %_ZN3sat11literal_setoRERKS0_.exit65 ]
+  %.232 = phi i32 [ %245, %247 ], [ %260, %_ZN3sat11literal_setoRERKS0_.exit65 ]
   %264 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %265 = load ptr, ptr %264, align 8, !tbaa !197
   %.not.i.i.i.i66 = icmp eq ptr %265, null

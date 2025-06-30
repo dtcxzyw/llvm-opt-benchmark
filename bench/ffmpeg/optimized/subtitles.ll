@@ -1239,7 +1239,7 @@ ff_subtitles_queue_clean.exit:                    ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ff_smil_extract_next_text_chunk(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @ff_smil_extract_next_text_chunk(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %2, align 1, !tbaa !19
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %5, label %.thread

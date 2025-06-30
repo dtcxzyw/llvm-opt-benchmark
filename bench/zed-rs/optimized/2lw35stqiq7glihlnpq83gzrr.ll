@@ -33609,7 +33609,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63
   br label %19
 
 43:                                               ; preds = %31
-  %44 = add nsw i8 %.sroa.0.043, -1
+  %44 = add i8 %.sroa.0.043, -1
   br label %45
 
 45:                                               ; preds = %47, %82, %70, %43

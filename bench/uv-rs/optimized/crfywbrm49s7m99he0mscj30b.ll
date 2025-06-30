@@ -5148,7 +5148,7 @@ define hidden void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core.
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %42, label %10
+  br i1 %9, label %41, label %10
 
 10:                                               ; preds = %3
   %11 = sub i64 8, %8
@@ -5185,170 +5185,168 @@ define hidden void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core.
   br i1 %26, label %27, label %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 %.sroa.0.1.i
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.0.1.i
   %29 = load i8, ptr %28, align 1, !alias.scope !1309, !noundef !3
   %30 = zext i8 %29 to i64
   %31 = shl nuw nsw i64 %.sroa.0.1.i, 3
-  %32 = and i64 %31, 56
-  %33 = shl nuw i64 %30, %32
-  %34 = or i64 %33, %.sroa.011.1.i
+  %32 = shl nuw nsw i64 %30, %31
+  %33 = or i64 %32, %.sroa.011.1.i
   br label %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit
 
 _ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit: ; preds = %25, %27
-  %.sroa.011.2.i = phi i64 [ %34, %27 ], [ %.sroa.011.1.i, %25 ]
-  %35 = shl i64 %8, 3
-  %36 = and i64 %35, 56
-  %37 = shl i64 %.sroa.011.2.i, %36
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %39 = load i64, ptr %38, align 8, !noundef !3
-  %40 = or i64 %39, %37
-  store i64 %40, ptr %38, align 8
-  %41 = icmp ult i64 %2, %11
-  br i1 %41, label %74, label %50
+  %.sroa.011.2.i = phi i64 [ %33, %27 ], [ %.sroa.011.1.i, %25 ]
+  %34 = shl i64 %8, 3
+  %35 = and i64 %34, 56
+  %36 = shl i64 %.sroa.011.2.i, %35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %38 = load i64, ptr %37, align 8, !noundef !3
+  %39 = or i64 %38, %36
+  store i64 %39, ptr %37, align 8
+  %40 = icmp ult i64 %2, %11
+  br i1 %40, label %73, label %49
 
-42:                                               ; preds = %3, %50
-  %.sroa.0.0 = phi i64 [ 0, %3 ], [ %11, %50 ]
-  %43 = sub i64 %2, %.sroa.0.0
-  %44 = and i64 %43, 7
-  %45 = and i64 %43, -8
-  %46 = icmp ult i64 %.sroa.0.0, %45
-  br i1 %46, label %.lr.ph, label %76
+41:                                               ; preds = %3, %49
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ %11, %49 ]
+  %42 = sub i64 %2, %.sroa.0.0
+  %43 = and i64 %42, 7
+  %44 = and i64 %42, -8
+  %45 = icmp ult i64 %.sroa.0.0, %44
+  br i1 %45, label %.lr.ph, label %75
 
-.lr.ph:                                           ; preds = %42
+.lr.ph:                                           ; preds = %41
   %.promoted = load i64, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.promoted20 = load i64, ptr %47, align 8
-  %.promoted21 = load i64, ptr %48, align 8, !alias.scope !1312
-  %.promoted23 = load i64, ptr %49, align 8, !alias.scope !1312
-  br label %105
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.promoted20 = load i64, ptr %46, align 8
+  %.promoted21 = load i64, ptr %47, align 8, !alias.scope !1312
+  %.promoted23 = load i64, ptr %48, align 8, !alias.scope !1312
+  br label %103
 
-50:                                               ; preds = %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %52 = load i64, ptr %51, align 8, !noundef !3
-  %53 = xor i64 %52, %40
-  %54 = load i64, ptr %0, align 8, !alias.scope !1315, !noundef !3
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %56 = load i64, ptr %55, align 8, !alias.scope !1315, !noundef !3
-  %57 = add i64 %56, %54
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = load i64, ptr %58, align 8, !alias.scope !1315, !noundef !3
-  %60 = add i64 %59, %53
-  %61 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 13)
-  %62 = xor i64 %61, %57
-  %63 = tail call i64 @llvm.fshl.i64(i64 %53, i64 %53, i64 16)
-  %64 = xor i64 %60, %63
-  %65 = tail call i64 @llvm.fshl.i64(i64 %57, i64 %57, i64 32)
-  %66 = add i64 %60, %62
-  %67 = add i64 %64, %65
-  %68 = tail call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 17)
-  %69 = xor i64 %66, %68
-  store i64 %69, ptr %55, align 8, !alias.scope !1315
-  %70 = tail call i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 21)
-  %71 = xor i64 %70, %67
-  store i64 %71, ptr %51, align 8, !alias.scope !1315
-  %72 = tail call i64 @llvm.fshl.i64(i64 %66, i64 %66, i64 32)
-  store i64 %72, ptr %58, align 8, !alias.scope !1315
-  %73 = xor i64 %67, %40
-  store i64 %73, ptr %0, align 8
-  br label %42
+49:                                               ; preds = %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load i64, ptr %50, align 8, !noundef !3
+  %52 = xor i64 %51, %39
+  %53 = load i64, ptr %0, align 8, !alias.scope !1315, !noundef !3
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %55 = load i64, ptr %54, align 8, !alias.scope !1315, !noundef !3
+  %56 = add i64 %55, %53
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load i64, ptr %57, align 8, !alias.scope !1315, !noundef !3
+  %59 = add i64 %58, %52
+  %60 = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 13)
+  %61 = xor i64 %60, %56
+  %62 = tail call i64 @llvm.fshl.i64(i64 %52, i64 %52, i64 16)
+  %63 = xor i64 %59, %62
+  %64 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %56, i64 32)
+  %65 = add i64 %59, %61
+  %66 = add i64 %63, %64
+  %67 = tail call i64 @llvm.fshl.i64(i64 %61, i64 %61, i64 17)
+  %68 = xor i64 %65, %67
+  store i64 %68, ptr %54, align 8, !alias.scope !1315
+  %69 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 21)
+  %70 = xor i64 %69, %66
+  store i64 %70, ptr %50, align 8, !alias.scope !1315
+  %71 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 32)
+  store i64 %71, ptr %57, align 8, !alias.scope !1315
+  %72 = xor i64 %66, %39
+  store i64 %72, ptr %0, align 8
+  br label %41
 
-74:                                               ; preds = %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit
-  %75 = add i64 %8, %2
-  br label %129
+73:                                               ; preds = %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit
+  %74 = add i64 %8, %2
+  br label %127
 
-._crit_edge:                                      ; preds = %105
-  store i64 %124, ptr %47, align 8
-  store i64 %122, ptr %48, align 8, !alias.scope !1312
-  store i64 %125, ptr %49, align 8, !alias.scope !1312
-  store i64 %126, ptr %0, align 8
-  br label %76
+._crit_edge:                                      ; preds = %103
+  store i64 %122, ptr %46, align 8
+  store i64 %120, ptr %47, align 8, !alias.scope !1312
+  store i64 %123, ptr %48, align 8, !alias.scope !1312
+  store i64 %124, ptr %0, align 8
+  br label %75
 
-76:                                               ; preds = %._crit_edge, %42
-  %.sroa.04.0.lcssa = phi i64 [ %127, %._crit_edge ], [ %.sroa.0.0, %42 ]
-  %77 = icmp samesign ugt i64 %44, 3
-  br i1 %77, label %78, label %81
+75:                                               ; preds = %._crit_edge, %41
+  %.sroa.04.0.lcssa = phi i64 [ %125, %._crit_edge ], [ %.sroa.0.0, %41 ]
+  %76 = icmp samesign ugt i64 %43, 3
+  br i1 %76, label %77, label %80
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %1, i64 %.sroa.04.0.lcssa
-  %.sroa.014.0.copyload.i17 = load i32, ptr %79, align 1, !alias.scope !1318
-  %80 = zext i32 %.sroa.014.0.copyload.i17 to i64
-  br label %81
+77:                                               ; preds = %75
+  %78 = getelementptr inbounds i8, ptr %1, i64 %.sroa.04.0.lcssa
+  %.sroa.014.0.copyload.i17 = load i32, ptr %78, align 1, !alias.scope !1318
+  %79 = zext i32 %.sroa.014.0.copyload.i17 to i64
+  br label %80
 
-81:                                               ; preds = %78, %76
-  %.sroa.011.0.i11 = phi i64 [ %80, %78 ], [ 0, %76 ]
-  %.sroa.0.0.i12 = phi i64 [ 4, %78 ], [ 0, %76 ]
-  %82 = or disjoint i64 %.sroa.0.0.i12, 1
-  %83 = icmp samesign ult i64 %82, %44
-  br i1 %83, label %84, label %92
+80:                                               ; preds = %77, %75
+  %.sroa.011.0.i11 = phi i64 [ %79, %77 ], [ 0, %75 ]
+  %.sroa.0.0.i12 = phi i64 [ 4, %77 ], [ 0, %75 ]
+  %81 = or disjoint i64 %.sroa.0.0.i12, 1
+  %82 = icmp samesign ult i64 %81, %43
+  br i1 %82, label %83, label %91
 
-84:                                               ; preds = %81
-  %85 = getelementptr i8, ptr %1, i64 %.sroa.04.0.lcssa
-  %86 = getelementptr i8, ptr %85, i64 %.sroa.0.0.i12
-  %.sroa.015.0.copyload.i16 = load i16, ptr %86, align 1, !alias.scope !1318
-  %87 = zext i16 %.sroa.015.0.copyload.i16 to i64
-  %88 = shl nuw nsw i64 %.sroa.0.0.i12, 3
-  %89 = shl nuw nsw i64 %87, %88
-  %90 = or i64 %89, %.sroa.011.0.i11
-  %91 = or disjoint i64 %.sroa.0.0.i12, 2
-  br label %92
+83:                                               ; preds = %80
+  %84 = getelementptr i8, ptr %1, i64 %.sroa.04.0.lcssa
+  %85 = getelementptr i8, ptr %84, i64 %.sroa.0.0.i12
+  %.sroa.015.0.copyload.i16 = load i16, ptr %85, align 1, !alias.scope !1318
+  %86 = zext i16 %.sroa.015.0.copyload.i16 to i64
+  %87 = shl nuw nsw i64 %.sroa.0.0.i12, 3
+  %88 = shl nuw nsw i64 %86, %87
+  %89 = or i64 %88, %.sroa.011.0.i11
+  %90 = or disjoint i64 %.sroa.0.0.i12, 2
+  br label %91
 
-92:                                               ; preds = %84, %81
-  %.sroa.011.1.i13 = phi i64 [ %90, %84 ], [ %.sroa.011.0.i11, %81 ]
-  %.sroa.0.1.i14 = phi i64 [ %91, %84 ], [ %.sroa.0.0.i12, %81 ]
-  %93 = icmp samesign ult i64 %.sroa.0.1.i14, %44
-  br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit18
+91:                                               ; preds = %83, %80
+  %.sroa.011.1.i13 = phi i64 [ %89, %83 ], [ %.sroa.011.0.i11, %80 ]
+  %.sroa.0.1.i14 = phi i64 [ %90, %83 ], [ %.sroa.0.0.i12, %80 ]
+  %92 = icmp samesign ult i64 %.sroa.0.1.i14, %43
+  br i1 %92, label %93, label %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit18
 
-94:                                               ; preds = %92
-  %95 = add i64 %.sroa.0.1.i14, %.sroa.04.0.lcssa
-  %96 = icmp ult i64 %95, %2
-  tail call void @llvm.assume(i1 %96)
-  %97 = getelementptr inbounds i8, ptr %1, i64 %95
-  %98 = load i8, ptr %97, align 1, !alias.scope !1318, !noundef !3
-  %99 = zext i8 %98 to i64
-  %100 = shl nuw nsw i64 %.sroa.0.1.i14, 3
-  %101 = and i64 %100, 56
-  %102 = shl nuw nsw i64 %99, %101
-  %103 = or i64 %102, %.sroa.011.1.i13
+93:                                               ; preds = %91
+  %94 = add i64 %.sroa.0.1.i14, %.sroa.04.0.lcssa
+  %95 = icmp ult i64 %94, %2
+  tail call void @llvm.assume(i1 %95)
+  %96 = getelementptr inbounds i8, ptr %1, i64 %94
+  %97 = load i8, ptr %96, align 1, !alias.scope !1318, !noundef !3
+  %98 = zext i8 %97 to i64
+  %99 = shl nuw nsw i64 %.sroa.0.1.i14, 3
+  %100 = shl nuw nsw i64 %98, %99
+  %101 = or i64 %100, %.sroa.011.1.i13
   br label %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit18
 
-_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit18: ; preds = %92, %94
-  %.sroa.011.2.i15 = phi i64 [ %103, %94 ], [ %.sroa.011.1.i13, %92 ]
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %.sroa.011.2.i15, ptr %104, align 8
-  br label %129
+_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit18: ; preds = %91, %93
+  %.sroa.011.2.i15 = phi i64 [ %101, %93 ], [ %.sroa.011.1.i13, %91 ]
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %.sroa.011.2.i15, ptr %102, align 8
+  br label %127
 
-105:                                              ; preds = %.lr.ph, %105
-  %106 = phi i64 [ %.promoted23, %.lr.ph ], [ %125, %105 ]
-  %107 = phi i64 [ %.promoted21, %.lr.ph ], [ %122, %105 ]
-  %108 = phi i64 [ %.promoted20, %.lr.ph ], [ %124, %105 ]
-  %.sroa.04.019 = phi i64 [ %.sroa.0.0, %.lr.ph ], [ %127, %105 ]
-  %109 = phi i64 [ %.promoted, %.lr.ph ], [ %126, %105 ]
-  %110 = getelementptr inbounds i8, ptr %1, i64 %.sroa.04.019
-  %.sroa.08.0.copyload = load i64, ptr %110, align 1
-  %111 = xor i64 %108, %.sroa.08.0.copyload
-  %112 = add i64 %107, %109
-  %113 = add i64 %106, %111
-  %114 = tail call i64 @llvm.fshl.i64(i64 %107, i64 %107, i64 13)
-  %115 = xor i64 %114, %112
-  %116 = tail call i64 @llvm.fshl.i64(i64 %111, i64 %111, i64 16)
-  %117 = xor i64 %113, %116
-  %118 = tail call i64 @llvm.fshl.i64(i64 %112, i64 %112, i64 32)
-  %119 = add i64 %113, %115
-  %120 = add i64 %117, %118
-  %121 = tail call i64 @llvm.fshl.i64(i64 %115, i64 %115, i64 17)
-  %122 = xor i64 %119, %121
-  %123 = tail call i64 @llvm.fshl.i64(i64 %117, i64 %117, i64 21)
-  %124 = xor i64 %123, %120
-  %125 = tail call i64 @llvm.fshl.i64(i64 %119, i64 %119, i64 32)
-  %126 = xor i64 %120, %.sroa.08.0.copyload
-  %127 = add nuw i64 %.sroa.04.019, 8
-  %128 = icmp ult i64 %127, %45
-  br i1 %128, label %105, label %._crit_edge
+103:                                              ; preds = %.lr.ph, %103
+  %104 = phi i64 [ %.promoted23, %.lr.ph ], [ %123, %103 ]
+  %105 = phi i64 [ %.promoted21, %.lr.ph ], [ %120, %103 ]
+  %106 = phi i64 [ %.promoted20, %.lr.ph ], [ %122, %103 ]
+  %.sroa.04.019 = phi i64 [ %.sroa.0.0, %.lr.ph ], [ %125, %103 ]
+  %107 = phi i64 [ %.promoted, %.lr.ph ], [ %124, %103 ]
+  %108 = getelementptr inbounds i8, ptr %1, i64 %.sroa.04.019
+  %.sroa.08.0.copyload = load i64, ptr %108, align 1
+  %109 = xor i64 %106, %.sroa.08.0.copyload
+  %110 = add i64 %105, %107
+  %111 = add i64 %104, %109
+  %112 = tail call i64 @llvm.fshl.i64(i64 %105, i64 %105, i64 13)
+  %113 = xor i64 %112, %110
+  %114 = tail call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 16)
+  %115 = xor i64 %111, %114
+  %116 = tail call i64 @llvm.fshl.i64(i64 %110, i64 %110, i64 32)
+  %117 = add i64 %111, %113
+  %118 = add i64 %115, %116
+  %119 = tail call i64 @llvm.fshl.i64(i64 %113, i64 %113, i64 17)
+  %120 = xor i64 %117, %119
+  %121 = tail call i64 @llvm.fshl.i64(i64 %115, i64 %115, i64 21)
+  %122 = xor i64 %121, %118
+  %123 = tail call i64 @llvm.fshl.i64(i64 %117, i64 %117, i64 32)
+  %124 = xor i64 %118, %.sroa.08.0.copyload
+  %125 = add nuw i64 %.sroa.04.019, 8
+  %126 = icmp ult i64 %125, %44
+  br i1 %126, label %103, label %._crit_edge
 
-129:                                              ; preds = %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit18, %74
-  %storemerge = phi i64 [ %75, %74 ], [ %44, %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit18 ]
+127:                                              ; preds = %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit18, %73
+  %storemerge = phi i64 [ %74, %73 ], [ %43, %_ZN4core4hash3sip9u8to64_le17hc5cb4ed4fea918b9E.exit18 ]
   store i64 %storemerge, ptr %7, align 8
   ret void
 }

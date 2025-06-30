@@ -172,7 +172,7 @@ define void @ff_rtp_send_mpegvideo(ptr noundef %0, ptr noundef %1, i32 noundef %
   %83 = or i32 %82, %76
   %84 = load ptr, ptr %15, align 8, !tbaa !30
   %85 = lshr i32 %83, 24
-  %86 = trunc nuw i32 %85 to i8
+  %86 = trunc nuw nsw i32 %85 to i8
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 1
   store i8 %86, ptr %84, align 1, !tbaa !29
   %88 = lshr i32 %83, 16
@@ -180,7 +180,7 @@ define void @ff_rtp_send_mpegvideo(ptr noundef %0, ptr noundef %1, i32 noundef %
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 2
   store i8 %89, ptr %87, align 1, !tbaa !29
   %91 = lshr exact i32 %82, 8
-  %92 = trunc i32 %91 to i8
+  %92 = trunc nuw nsw i32 %91 to i8
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 3
   store i8 %92, ptr %90, align 1, !tbaa !29
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 4

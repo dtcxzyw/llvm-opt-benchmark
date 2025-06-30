@@ -255,7 +255,7 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   %29 = load ptr, ptr %28, align 8, !tbaa !32
   %30 = tail call ptr @Abc_ObjName(ptr noundef %29) #15
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef %30)
-  %32 = add nsw i32 %.06192, 1
+  %32 = add nuw nsw i32 %.06192, 1
   %33 = icmp eq i32 %32, 3
   br i1 %33, label %._crit_edge98, label %._crit_edge123
 

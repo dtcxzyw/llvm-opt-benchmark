@@ -2607,26 +2607,26 @@ define internal fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %1) u
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %._crit_edge413, label %38
+  br i1 %37, label %._crit_edge412, label %38
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %36, align 8, !tbaa !17
   %40 = add i64 %39, -1
   %41 = icmp sgt i64 %40, 0
-  br i1 %41, label %.lr.ph412, label %._crit_edge413
+  br i1 %41, label %.lr.ph411, label %._crit_edge412
 
-.lr.ph412:                                        ; preds = %38
+.lr.ph411:                                        ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   br label %45
 
 43:                                               ; preds = %54
-  %44 = add nuw nsw i64 %.029.i410, 1
-  %exitcond427.not = icmp eq i64 %44, %40
-  br i1 %exitcond427.not, label %._crit_edge413, label %45, !llvm.loop !20
+  %44 = add nuw nsw i64 %.029.i409, 1
+  %exitcond426.not = icmp eq i64 %44, %40
+  br i1 %exitcond426.not, label %._crit_edge412, label %45, !llvm.loop !20
 
-45:                                               ; preds = %.lr.ph412, %43
-  %.029.i410 = phi i64 [ 0, %.lr.ph412 ], [ %44, %43 ]
-  %46 = getelementptr [1 x ptr], ptr %42, i64 0, i64 %.029.i410
+45:                                               ; preds = %.lr.ph411, %43
+  %.029.i409 = phi i64 [ 0, %.lr.ph411 ], [ %44, %43 ]
+  %46 = getelementptr [1 x ptr], ptr %42, i64 0, i64 %.029.i409
   %47 = load ptr, ptr %46, align 8, !tbaa !22
   %48 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %47)
   %49 = icmp eq i32 %48, -1
@@ -2644,7 +2644,7 @@ define internal fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %1) u
   %57 = icmp eq i32 %56, -1
   br i1 %57, label %codegen_boolop.exit, label %43
 
-._crit_edge413:                                   ; preds = %43, %34, %38
+._crit_edge412:                                   ; preds = %43, %34, %38
   %58 = phi i64 [ %40, %38 ], [ -1, %34 ], [ %40, %43 ]
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %60 = getelementptr [1 x ptr], ptr %59, i64 0, i64 %58
@@ -2653,7 +2653,7 @@ define internal fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %1) u
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %codegen_boolop.exit, label %64
 
-64:                                               ; preds = %._crit_edge413
+64:                                               ; preds = %._crit_edge412
   %65 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %66 = tail call i32 @_PyInstructionSequence_UseLabel(ptr noundef %65, i32 noundef %32) #10
   %67 = icmp eq i32 %66, -1
@@ -2788,11 +2788,11 @@ unaryop.exit:                                     ; preds = %102, %104, %105
   br i1 %141, label %codegen_enter_scope.exit.thread, label %codegen_enter_scope.exit
 
 codegen_enter_scope.exit:                         ; preds = %137
-  %.sroa.0.0.insert.ext.i306 = zext i32 %139 to i64
-  %.sroa.0.4.insert.shift.i307 = shl nuw i64 %.sroa.0.0.insert.ext.i306, 32
-  %spec.select.i309 = or disjoint i64 %.sroa.0.4.insert.shift.i307, %.sroa.0.0.insert.ext.i306
+  %.sroa.0.0.insert.ext.i305 = zext i32 %139 to i64
+  %.sroa.0.4.insert.shift.i306 = shl nuw i64 %.sroa.0.0.insert.ext.i305, 32
+  %spec.select.i308 = or disjoint i64 %.sroa.0.4.insert.shift.i306, %.sroa.0.0.insert.ext.i305
   %142 = call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %143 = call i32 @_PyInstructionSequence_Addop(ptr noundef %142, i32 noundef 149, i32 noundef 0, i64 %spec.select.i309, i64 0) #10
+  %143 = call i32 @_PyInstructionSequence_Addop(ptr noundef %142, i32 noundef 149, i32 noundef 0, i64 %spec.select.i308, i64 0) #10
   %144 = icmp eq i32 %143, -1
   br i1 %144, label %codegen_enter_scope.exit.thread, label %145
 
@@ -2932,84 +2932,83 @@ codegen_enter_scope.exit.thread:                  ; preds = %137, %169, %Py_DECR
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %218 = load ptr, ptr %217, align 8, !tbaa !16
   %219 = icmp eq ptr %218, null
-  br i1 %219, label %.thread434, label %220
+  br i1 %219, label %.thread433, label %220
 
 220:                                              ; preds = %215
   %221 = load i64, ptr %218, align 8, !tbaa !17
   %222 = icmp sgt i64 %221, 0
-  br i1 %222, label %.lr.ph407, label %.thread434
+  br i1 %222, label %.lr.ph406, label %.thread433
 
-.lr.ph407:                                        ; preds = %220, %269
-  %.0.i228405 = phi i32 [ %.3.i, %269 ], [ 0, %220 ]
-  %.055.i404 = phi i64 [ %.257.i, %269 ], [ 0, %220 ]
-  %.059.i403 = phi i64 [ %270, %269 ], [ 0, %220 ]
+.lr.ph406:                                        ; preds = %220, %269
+  %.0.i228404 = phi i32 [ %.3.i, %269 ], [ 0, %220 ]
+  %.055.i403 = phi i64 [ %.257.i, %269 ], [ 0, %220 ]
+  %.059.i402 = phi i64 [ %270, %269 ], [ 0, %220 ]
   %223 = load ptr, ptr %216, align 8, !tbaa !16
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  %225 = getelementptr [1 x ptr], ptr %224, i64 0, i64 %.059.i403
+  %225 = getelementptr [1 x ptr], ptr %224, i64 0, i64 %.059.i402
   %226 = load ptr, ptr %225, align 8, !tbaa !22
   %227 = icmp eq ptr %226, null
   br i1 %227, label %228, label %254
 
-228:                                              ; preds = %.lr.ph407
-  %.not65.i = icmp eq i64 %.055.i404, 0
+228:                                              ; preds = %.lr.ph406
+  %.not65.i = icmp eq i64 %.055.i403, 0
   br i1 %.not65.i, label %238, label %229
 
 229:                                              ; preds = %228
-  %230 = sub i64 %.059.i403, %.055.i404
-  %231 = tail call fastcc i32 @codegen_subdict(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %230, i64 noundef %.059.i403)
+  %230 = sub i64 %.059.i402, %.055.i403
+  %231 = tail call fastcc i32 @codegen_subdict(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %230, i64 noundef %.059.i402)
   %232 = icmp eq i32 %231, -1
   br i1 %232, label %codegen_boolop.exit, label %233
 
 233:                                              ; preds = %229
-  %.not66.i = icmp eq i32 %.0.i228405, 0
-  br i1 %.not66.i, label %.thread338, label %234
+  %.not66.i = icmp eq i32 %.0.i228404, 0
+  br i1 %.not66.i, label %.thread337, label %234
 
 234:                                              ; preds = %233
   %235 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %236 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %235, i32 noundef 67, i32 noundef 1, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert) #10
   %237 = icmp eq i32 %236, -1
-  br i1 %237, label %codegen_boolop.exit, label %.thread338
+  br i1 %237, label %codegen_boolop.exit, label %.thread337
 
 238:                                              ; preds = %228
-  %239 = icmp eq i32 %.0.i228405, 0
-  br i1 %239, label %240, label %.thread338
+  %239 = icmp eq i32 %.0.i228404, 0
+  br i1 %239, label %240, label %.thread337
 
 240:                                              ; preds = %238
   %241 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %242 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %241, i32 noundef 47, i32 noundef 0, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert) #10
   %243 = icmp eq i32 %242, -1
-  br i1 %243, label %codegen_boolop.exit, label %.thread338
+  br i1 %243, label %codegen_boolop.exit, label %.thread337
 
-.thread338:                                       ; preds = %233, %234, %240, %238
-  %.2.i = phi i32 [ %.0.i228405, %238 ], [ 1, %240 ], [ 1, %234 ], [ 1, %233 ]
+.thread337:                                       ; preds = %233, %234, %240, %238
   %244 = load ptr, ptr %217, align 8, !tbaa !16
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
-  %246 = getelementptr [1 x ptr], ptr %245, i64 0, i64 %.059.i403
+  %246 = getelementptr [1 x ptr], ptr %245, i64 0, i64 %.059.i402
   %247 = load ptr, ptr %246, align 8, !tbaa !22
   %248 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %247)
   %249 = icmp eq i32 %248, -1
   br i1 %249, label %codegen_boolop.exit, label %250
 
-250:                                              ; preds = %.thread338
+250:                                              ; preds = %.thread337
   %251 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %252 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %251, i32 noundef 67, i32 noundef 1, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert) #10
   %253 = icmp eq i32 %252, -1
   br i1 %253, label %codegen_boolop.exit, label %269
 
-254:                                              ; preds = %.lr.ph407
-  %255 = shl i64 %.055.i404, 1
+254:                                              ; preds = %.lr.ph406
+  %255 = shl i64 %.055.i403, 1
   %256 = icmp sgt i64 %255, 30
   br i1 %256, label %257, label %267
 
 257:                                              ; preds = %254
-  %258 = sub i64 %.059.i403, %.055.i404
-  %259 = add nuw nsw i64 %.059.i403, 1
+  %258 = sub i64 %.059.i402, %.055.i403
+  %259 = add nuw nsw i64 %.059.i402, 1
   %260 = tail call fastcc i32 @codegen_subdict(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %258, i64 noundef %259)
   %261 = icmp eq i32 %260, -1
   br i1 %261, label %codegen_boolop.exit, label %262
 
 262:                                              ; preds = %257
-  %.not64.i = icmp eq i32 %.0.i228405, 0
+  %.not64.i = icmp eq i32 %.0.i228404, 0
   br i1 %.not64.i, label %269, label %263
 
 263:                                              ; preds = %262
@@ -3019,46 +3018,46 @@ codegen_enter_scope.exit.thread:                  ; preds = %137, %169, %Py_DECR
   br i1 %266, label %codegen_boolop.exit, label %269
 
 267:                                              ; preds = %254
-  %268 = add i64 %.055.i404, 1
+  %268 = add i64 %.055.i403, 1
   br label %269
 
 269:                                              ; preds = %267, %263, %262, %250
   %.257.i = phi i64 [ 0, %250 ], [ %268, %267 ], [ 0, %263 ], [ 0, %262 ]
-  %.3.i = phi i32 [ %.2.i, %250 ], [ %.0.i228405, %267 ], [ 1, %263 ], [ 1, %262 ]
-  %270 = add nuw nsw i64 %.059.i403, 1
-  %exitcond426.not = icmp eq i64 %270, %221
-  br i1 %exitcond426.not, label %._crit_edge408, label %.lr.ph407, !llvm.loop !35
+  %.3.i = phi i32 [ 1, %250 ], [ %.0.i228404, %267 ], [ 1, %263 ], [ 1, %262 ]
+  %270 = add nuw nsw i64 %.059.i402, 1
+  %exitcond425.not = icmp eq i64 %270, %221
+  br i1 %exitcond425.not, label %._crit_edge407, label %.lr.ph406, !llvm.loop !35
 
-._crit_edge408:                                   ; preds = %269
+._crit_edge407:                                   ; preds = %269
   %271 = icmp eq i32 %.3.i, 0
   %.not.i229 = icmp eq i64 %.257.i, 0
   br i1 %.not.i229, label %281, label %272
 
-272:                                              ; preds = %._crit_edge408
+272:                                              ; preds = %._crit_edge407
   %273 = sub i64 %221, %.257.i
   %274 = tail call fastcc i32 @codegen_subdict(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %273, i64 noundef %221)
   %275 = icmp eq i32 %274, -1
   br i1 %275, label %codegen_boolop.exit, label %276
 
 276:                                              ; preds = %272
-  br i1 %271, label %.thread341, label %277
+  br i1 %271, label %.thread340, label %277
 
 277:                                              ; preds = %276
   %278 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %279 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %278, i32 noundef 67, i32 noundef 1, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert) #10
   %280 = icmp eq i32 %279, -1
-  br i1 %280, label %codegen_boolop.exit, label %.thread341
+  br i1 %280, label %codegen_boolop.exit, label %.thread340
 
-281:                                              ; preds = %._crit_edge408
-  br i1 %271, label %.thread434, label %.thread341
+281:                                              ; preds = %._crit_edge407
+  br i1 %271, label %.thread433, label %.thread340
 
-.thread434:                                       ; preds = %220, %215, %281
+.thread433:                                       ; preds = %220, %215, %281
   %282 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %283 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %282, i32 noundef 47, i32 noundef 0, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert) #10
   %284 = icmp eq i32 %283, -1
-  br i1 %284, label %codegen_boolop.exit, label %.thread341
+  br i1 %284, label %codegen_boolop.exit, label %.thread340
 
-.thread341:                                       ; preds = %276, %277, %.thread434, %281
+.thread340:                                       ; preds = %276, %277, %.thread433, %281
   br label %codegen_boolop.exit
 
 285:                                              ; preds = %2
@@ -3213,13 +3212,13 @@ codegen_enter_scope.exit.thread:                  ; preds = %137, %169, %Py_DECR
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %382 = load ptr, ptr %381, align 8, !tbaa !16
   %383 = icmp eq ptr %382, null
-  br i1 %383, label %.thread344, label %384
+  br i1 %383, label %.thread343, label %384
 
 384:                                              ; preds = %380
   %385 = load i64, ptr %382, align 8, !tbaa !17
   %386 = add i64 %385, -1
   %387 = icmp eq i64 %386, 0
-  br i1 %387, label %388, label %.thread344
+  br i1 %387, label %388, label %.thread343
 
 388:                                              ; preds = %384
   %389 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3238,31 +3237,31 @@ codegen_enter_scope.exit.thread:                  ; preds = %137, %169, %Py_DECR
   %400 = icmp eq i32 %399, -1
   br i1 %400, label %codegen_boolop.exit, label %484
 
-.thread344:                                       ; preds = %380, %384
+.thread343:                                       ; preds = %380, %384
   %401 = phi i64 [ %386, %384 ], [ -1, %380 ]
   %402 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %403 = tail call i32 @_PyInstructionSequence_NewLabel(ptr noundef %402) #10
   %404 = icmp eq i32 %403, -1
   br i1 %404, label %codegen_boolop.exit, label %.preheader
 
-.preheader:                                       ; preds = %.thread344
+.preheader:                                       ; preds = %.thread343
   %405 = icmp sgt i64 %401, 0
-  br i1 %405, label %.lr.ph401, label %._crit_edge402
+  br i1 %405, label %.lr.ph400, label %._crit_edge401
 
-.lr.ph401:                                        ; preds = %.preheader
+.lr.ph400:                                        ; preds = %.preheader
   %406 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %409
 
 407:                                              ; preds = %443
-  %408 = add nuw nsw i64 %.072.i400, 1
-  %exitcond425.not = icmp eq i64 %408, %401
-  br i1 %exitcond425.not, label %._crit_edge402, label %409, !llvm.loop !36
+  %408 = add nuw nsw i64 %.072.i399, 1
+  %exitcond424.not = icmp eq i64 %408, %401
+  br i1 %exitcond424.not, label %._crit_edge401, label %409, !llvm.loop !36
 
-409:                                              ; preds = %.lr.ph401, %407
-  %.072.i400 = phi i64 [ 0, %.lr.ph401 ], [ %408, %407 ]
+409:                                              ; preds = %.lr.ph400, %407
+  %.072.i399 = phi i64 [ 0, %.lr.ph400 ], [ %408, %407 ]
   %410 = load ptr, ptr %406, align 8, !tbaa !16
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 16
-  %412 = getelementptr [1 x ptr], ptr %411, i64 0, i64 %.072.i400
+  %412 = getelementptr [1 x ptr], ptr %411, i64 0, i64 %.072.i399
   %413 = load ptr, ptr %412, align 8, !tbaa !22
   %414 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %413)
   %415 = icmp eq i32 %414, -1
@@ -3283,7 +3282,7 @@ codegen_enter_scope.exit.thread:                  ; preds = %137, %169, %Py_DECR
 424:                                              ; preds = %420
   %425 = load ptr, ptr %381, align 8, !tbaa !16
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 16
-  %427 = getelementptr [1 x i32], ptr %426, i64 0, i64 %.072.i400
+  %427 = getelementptr [1 x i32], ptr %426, i64 0, i64 %.072.i399
   %428 = load i32, ptr %427, align 4, !tbaa !4
   %429 = tail call fastcc i32 @codegen_addcompare(ptr noundef %0, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert, i32 noundef %428)
   %430 = icmp eq i32 %429, -1
@@ -3313,7 +3312,7 @@ codegen_enter_scope.exit.thread:                  ; preds = %137, %169, %Py_DECR
   %446 = icmp eq i32 %445, -1
   br i1 %446, label %codegen_boolop.exit, label %407
 
-._crit_edge402:                                   ; preds = %407, %.preheader
+._crit_edge401:                                   ; preds = %407, %.preheader
   %447 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %448 = load ptr, ptr %447, align 8, !tbaa !16
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 16
@@ -3323,7 +3322,7 @@ codegen_enter_scope.exit.thread:                  ; preds = %137, %169, %Py_DECR
   %453 = icmp eq i32 %452, -1
   br i1 %453, label %codegen_boolop.exit, label %454
 
-454:                                              ; preds = %._crit_edge402
+454:                                              ; preds = %._crit_edge401
   %455 = load ptr, ptr %381, align 8, !tbaa !16
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 16
   %457 = getelementptr [1 x i32], ptr %456, i64 0, i64 %401
@@ -3365,8 +3364,8 @@ codegen_enter_scope.exit.thread:                  ; preds = %137, %169, %Py_DECR
 481:                                              ; preds = %477
   %482 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %483 = tail call i32 @_PyInstructionSequence_UseLabel(ptr noundef %482, i32 noundef %463) #10
-  %.not377 = icmp eq i32 %483, -1
-  br i1 %.not377, label %codegen_boolop.exit, label %484
+  %.not376 = icmp eq i32 %483, -1
+  br i1 %.not376, label %codegen_boolop.exit, label %484
 
 484:                                              ; preds = %481, %395
   br label %codegen_boolop.exit
@@ -3395,16 +3394,16 @@ codegen_enter_scope.exit.thread:                  ; preds = %137, %169, %Py_DECR
   %497 = icmp ne ptr %496, null
   %.03449.i = add nuw nsw i64 %.02953.i, 1
   %.not3950.i = icmp slt i64 %.03449.i, %491
-  %or.cond.i325 = and i1 %.not3950.i, %497
-  br i1 %or.cond.i325, label %.lr.ph.i, label %.loopexit.i
+  %or.cond.i324 = and i1 %.not3950.i, %497
+  br i1 %or.cond.i324, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %493, %504
   %.03451.i = phi i64 [ %.034.i, %504 ], [ %.03449.i, %493 ]
   %498 = getelementptr [1 x ptr], ptr %492, i64 0, i64 %.03451.i
   %499 = load ptr, ptr %498, align 8, !tbaa !37
   %500 = load ptr, ptr %499, align 8, !tbaa !39
-  %.not.i326 = icmp eq ptr %500, null
-  br i1 %.not.i326, label %504, label %501
+  %.not.i325 = icmp eq ptr %500, null
+  br i1 %.not.i325, label %504, label %501
 
 501:                                              ; preds = %.lr.ph.i
   %502 = load ptr, ptr %495, align 8, !tbaa !39
@@ -3431,15 +3430,15 @@ codegen_validate_keywords.exit:                   ; preds = %501
   %511 = getelementptr inbounds nuw i8, ptr %499, i64 28
   %512 = load i32, ptr %511, align 4, !tbaa !46
   %513 = load ptr, ptr %495, align 8, !tbaa !39
-  %.sroa.2.0.insert.ext.i327 = zext i32 %508 to i64
-  %.sroa.2.0.insert.shift.i328 = shl nuw i64 %.sroa.2.0.insert.ext.i327, 32
-  %.sroa.0.0.insert.ext.i329 = zext i32 %506 to i64
-  %.sroa.0.0.insert.insert.i330 = or disjoint i64 %.sroa.2.0.insert.shift.i328, %.sroa.0.0.insert.ext.i329
-  %.sroa.5.8.insert.ext.i331 = zext i32 %512 to i64
-  %.sroa.5.8.insert.shift.i332 = shl nuw i64 %.sroa.5.8.insert.ext.i331, 32
-  %.sroa.3.8.insert.ext.i333 = zext i32 %510 to i64
-  %.sroa.3.8.insert.insert.i334 = or disjoint i64 %.sroa.5.8.insert.shift.i332, %.sroa.3.8.insert.ext.i333
-  %514 = tail call i32 (ptr, i64, i64, ptr, ...) @_PyCompile_Error(ptr noundef %0, i64 %.sroa.0.0.insert.insert.i330, i64 %.sroa.3.8.insert.insert.i334, ptr noundef nonnull @.str.234, ptr noundef %513) #10
+  %.sroa.2.0.insert.ext.i326 = zext i32 %508 to i64
+  %.sroa.2.0.insert.shift.i327 = shl nuw i64 %.sroa.2.0.insert.ext.i326, 32
+  %.sroa.0.0.insert.ext.i328 = zext i32 %506 to i64
+  %.sroa.0.0.insert.insert.i329 = or disjoint i64 %.sroa.2.0.insert.shift.i327, %.sroa.0.0.insert.ext.i328
+  %.sroa.5.8.insert.ext.i330 = zext i32 %512 to i64
+  %.sroa.5.8.insert.shift.i331 = shl nuw i64 %.sroa.5.8.insert.ext.i330, 32
+  %.sroa.3.8.insert.ext.i332 = zext i32 %510 to i64
+  %.sroa.3.8.insert.insert.i333 = or disjoint i64 %.sroa.5.8.insert.shift.i331, %.sroa.3.8.insert.ext.i332
+  %514 = tail call i32 (ptr, i64, i64, ptr, ...) @_PyCompile_Error(ptr noundef %0, i64 %.sroa.0.0.insert.insert.i329, i64 %.sroa.3.8.insert.insert.i333, ptr noundef nonnull @.str.234, ptr noundef %513) #10
   %515 = icmp eq i32 %514, -1
   br i1 %515, label %codegen_boolop.exit, label %codegen_validate_keywords.exit.threadthread-pre-split
 
@@ -3453,21 +3452,21 @@ codegen_validate_keywords.exit.thread:            ; preds = %codegen_validate_ke
   %518 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %519 = load ptr, ptr %518, align 8, !tbaa !16
   %520 = load i32, ptr %517, align 8, !tbaa !15
-  %.not.i312 = icmp eq i32 %520, 21
-  br i1 %.not.i312, label %521, label %maybe_optimize_method_call.exit.thread360.thread
+  %.not.i311 = icmp eq i32 %520, 21
+  br i1 %.not.i311, label %521, label %maybe_optimize_method_call.exit.thread359.thread
 
 521:                                              ; preds = %codegen_validate_keywords.exit.thread
   %522 = getelementptr inbounds nuw i8, ptr %517, i64 8
   %523 = getelementptr inbounds nuw i8, ptr %517, i64 24
   %524 = load i32, ptr %523, align 8, !tbaa !16
   %.not159.i = icmp eq i32 %524, 1
-  br i1 %.not159.i, label %525, label %maybe_optimize_method_call.exit.thread360.thread
+  br i1 %.not159.i, label %525, label %maybe_optimize_method_call.exit.thread359.thread
 
 525:                                              ; preds = %521
   %526 = load ptr, ptr %522, align 8, !tbaa !16
   %527 = load i32, ptr %526, align 8, !tbaa !15
-  %.not.i.i314 = icmp eq i32 %527, 24
-  br i1 %.not.i.i314, label %528, label %is_import_originated.exit.i.thread347
+  %.not.i.i313 = icmp eq i32 %527, 24
+  br i1 %.not.i.i313, label %528, label %is_import_originated.exit.i.thread346
 
 528:                                              ; preds = %525
   %529 = tail call ptr @_PyCompile_Symtable(ptr noundef %0) #10
@@ -3481,19 +3480,19 @@ codegen_validate_keywords.exit.thread:            ; preds = %codegen_validate_ke
 
 is_import_originated.exit.i:                      ; preds = %528
   %536 = and i64 %534, 128
-  %cond376 = icmp eq i64 %536, 0
-  br i1 %cond376, label %is_import_originated.exit.i.thread347, label %maybe_optimize_method_call.exit.thread360.thread
+  %cond375 = icmp eq i64 %536, 0
+  br i1 %cond375, label %is_import_originated.exit.i.thread346, label %maybe_optimize_method_call.exit.thread359.thread
 
-is_import_originated.exit.i.thread347:            ; preds = %is_import_originated.exit.i, %525
+is_import_originated.exit.i.thread346:            ; preds = %is_import_originated.exit.i, %525
   %537 = icmp eq ptr %519, null
   br i1 %537, label %540, label %538
 
-538:                                              ; preds = %is_import_originated.exit.i.thread347
+538:                                              ; preds = %is_import_originated.exit.i.thread346
   %539 = load i64, ptr %519, align 8, !tbaa !17
   br label %540
 
-540:                                              ; preds = %538, %is_import_originated.exit.i.thread347
-  %541 = phi i64 [ %539, %538 ], [ 0, %is_import_originated.exit.i.thread347 ]
+540:                                              ; preds = %538, %is_import_originated.exit.i.thread346
+  %541 = phi i64 [ %539, %538 ], [ 0, %is_import_originated.exit.i.thread346 ]
   %542 = icmp eq ptr %516, null
   br i1 %542, label %545, label %543
 
@@ -3508,51 +3507,51 @@ is_import_originated.exit.i.thread347:            ; preds = %is_import_originate
   %549 = zext i1 %548 to i64
   %550 = add i64 %547, %549
   %551 = icmp sgt i64 %550, 29
-  br i1 %551, label %maybe_optimize_method_call.exit.thread360.thread, label %.preheader385
+  br i1 %551, label %maybe_optimize_method_call.exit.thread359.thread, label %.preheader384
 
-.preheader385:                                    ; preds = %545
+.preheader384:                                    ; preds = %545
   %552 = icmp sgt i64 %541, 0
-  br i1 %552, label %.lr.ph, label %.preheader384
+  br i1 %552, label %.lr.ph, label %.preheader383
 
-.lr.ph:                                           ; preds = %.preheader385
+.lr.ph:                                           ; preds = %.preheader384
   %553 = getelementptr inbounds nuw i8, ptr %519, i64 16
   br label %558
 
 554:                                              ; preds = %558
-  %555 = add nuw nsw i64 %.0137.i397, 1
+  %555 = add nuw nsw i64 %.0137.i396, 1
   %exitcond.not = icmp eq i64 %555, %541
-  br i1 %exitcond.not, label %.preheader384, label %558, !llvm.loop !50
+  br i1 %exitcond.not, label %.preheader383, label %558, !llvm.loop !50
 
-.preheader384:                                    ; preds = %554, %.preheader385
+.preheader383:                                    ; preds = %554, %.preheader384
   %556 = icmp sgt i64 %546, 0
-  br i1 %556, label %.lr.ph399, label %._crit_edge
+  br i1 %556, label %.lr.ph398, label %._crit_edge
 
-.lr.ph399:                                        ; preds = %.preheader384
+.lr.ph398:                                        ; preds = %.preheader383
   %557 = getelementptr inbounds nuw i8, ptr %516, i64 16
   br label %564
 
 558:                                              ; preds = %.lr.ph, %554
-  %.0137.i397 = phi i64 [ 0, %.lr.ph ], [ %555, %554 ]
-  %559 = getelementptr [1 x ptr], ptr %553, i64 0, i64 %.0137.i397
+  %.0137.i396 = phi i64 [ 0, %.lr.ph ], [ %555, %554 ]
+  %559 = getelementptr [1 x ptr], ptr %553, i64 0, i64 %.0137.i396
   %560 = load ptr, ptr %559, align 8, !tbaa !22
   %561 = load i32, ptr %560, align 8, !tbaa !15
   %.not168.i = icmp eq i32 %561, 23
-  br i1 %.not168.i, label %maybe_optimize_method_call.exit.thread360.thread, label %554
+  br i1 %.not168.i, label %maybe_optimize_method_call.exit.thread359.thread, label %554
 
 562:                                              ; preds = %564
-  %563 = add nuw nsw i64 %.1138.i398, 1
-  %exitcond424.not = icmp eq i64 %563, %546
-  br i1 %exitcond424.not, label %._crit_edge, label %564, !llvm.loop !51
+  %563 = add nuw nsw i64 %.1138.i397, 1
+  %exitcond423.not = icmp eq i64 %563, %546
+  br i1 %exitcond423.not, label %._crit_edge, label %564, !llvm.loop !51
 
-564:                                              ; preds = %.lr.ph399, %562
-  %.1138.i398 = phi i64 [ 0, %.lr.ph399 ], [ %563, %562 ]
-  %565 = getelementptr [1 x ptr], ptr %557, i64 0, i64 %.1138.i398
+564:                                              ; preds = %.lr.ph398, %562
+  %.1138.i397 = phi i64 [ 0, %.lr.ph398 ], [ %563, %562 ]
+  %565 = getelementptr [1 x ptr], ptr %557, i64 0, i64 %.1138.i397
   %566 = load ptr, ptr %565, align 8, !tbaa !37
   %567 = load ptr, ptr %566, align 8, !tbaa !39
   %.not167.i = icmp eq ptr %567, null
-  br i1 %.not167.i, label %maybe_optimize_method_call.exit.thread360.thread, label %562
+  br i1 %.not167.i, label %maybe_optimize_method_call.exit.thread359.thread, label %562
 
-._crit_edge:                                      ; preds = %562, %.preheader384
+._crit_edge:                                      ; preds = %562, %.preheader383
   %568 = getelementptr inbounds nuw i8, ptr %517, i64 32
   %569 = load i32, ptr %568, align 8, !tbaa !10
   %.sroa.034.0.insert.ext.i = zext i32 %569 to i64
@@ -3664,14 +3663,14 @@ is_import_originated.exit.i.thread347:            ; preds = %is_import_originate
   br i1 %.not163.i, label %codegen_boolop.exit, label %623, !llvm.loop !53
 
 634:                                              ; preds = %627
-  br i1 %548, label %.preheader381, label %665
+  br i1 %548, label %.preheader380, label %665
 
-.preheader381:                                    ; preds = %634
+.preheader380:                                    ; preds = %634
   %635 = getelementptr inbounds nuw i8, ptr %516, i64 16
   br label %636
 
-636:                                              ; preds = %642, %.preheader381
-  %.0147.i = phi i32 [ %649, %642 ], [ 0, %.preheader381 ]
+636:                                              ; preds = %642, %.preheader380
+  %.0147.i = phi i32 [ %649, %642 ], [ 0, %.preheader380 ]
   %637 = sext i32 %.0147.i to i64
   br i1 %542, label %640, label %638
 
@@ -3719,34 +3718,34 @@ is_import_originated.exit.i.thread347:            ; preds = %is_import_originate
   %662 = trunc i64 %547 to i32
   %663 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %661, i32 noundef 55, i32 noundef %662, i64 %659, i64 %660) #10
   %664 = icmp eq i32 %663, -1
-  br i1 %664, label %codegen_boolop.exit, label %maybe_optimize_method_call.exit.thread360.thread374
+  br i1 %664, label %codegen_boolop.exit, label %maybe_optimize_method_call.exit.thread359.thread373
 
 665:                                              ; preds = %634
   %666 = load i32, ptr %4, align 8, !tbaa !10
   %667 = load i32, ptr %6, align 8, !tbaa !12
   %668 = load i32, ptr %8, align 4, !tbaa !13
   %669 = load i32, ptr %10, align 4, !tbaa !14
-  %.sroa.2.0.insert.ext.i315 = zext i32 %667 to i64
-  %.sroa.2.0.insert.shift.i316 = shl nuw i64 %.sroa.2.0.insert.ext.i315, 32
-  %.sroa.0.0.insert.ext.i317 = zext i32 %666 to i64
-  %.sroa.0.0.insert.insert.i318 = or disjoint i64 %.sroa.2.0.insert.shift.i316, %.sroa.0.0.insert.ext.i317
-  %.sroa.5.8.insert.ext.i319 = zext i32 %669 to i64
-  %.sroa.5.8.insert.shift.i320 = shl nuw i64 %.sroa.5.8.insert.ext.i319, 32
-  %.sroa.3.8.insert.ext.i321 = zext i32 %668 to i64
-  %.sroa.3.8.insert.insert.i322 = or disjoint i64 %.sroa.5.8.insert.shift.i320, %.sroa.3.8.insert.ext.i321
-  %670 = tail call fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %.sroa.0.0.insert.insert.i318, i64 %.sroa.3.8.insert.insert.i322, ptr noundef nonnull %517)
+  %.sroa.2.0.insert.ext.i314 = zext i32 %667 to i64
+  %.sroa.2.0.insert.shift.i315 = shl nuw i64 %.sroa.2.0.insert.ext.i314, 32
+  %.sroa.0.0.insert.ext.i316 = zext i32 %666 to i64
+  %.sroa.0.0.insert.insert.i317 = or disjoint i64 %.sroa.2.0.insert.shift.i315, %.sroa.0.0.insert.ext.i316
+  %.sroa.5.8.insert.ext.i318 = zext i32 %669 to i64
+  %.sroa.5.8.insert.shift.i319 = shl nuw i64 %.sroa.5.8.insert.ext.i318, 32
+  %.sroa.3.8.insert.ext.i320 = zext i32 %668 to i64
+  %.sroa.3.8.insert.insert.i321 = or disjoint i64 %.sroa.5.8.insert.shift.i319, %.sroa.3.8.insert.ext.i320
+  %670 = tail call fastcc { i64, i64 } @update_start_location_to_match_attr(i64 %.sroa.0.0.insert.insert.i317, i64 %.sroa.3.8.insert.insert.i321, ptr noundef nonnull %517)
   %671 = extractvalue { i64, i64 } %670, 0
   %672 = extractvalue { i64, i64 } %670, 1
   %673 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %674 = trunc i64 %541 to i32
   %675 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %673, i32 noundef 52, i32 noundef %674, i64 %671, i64 %672) #10
   %676 = icmp eq i32 %675, -1
-  br i1 %676, label %codegen_boolop.exit, label %maybe_optimize_method_call.exit.thread360.thread374
+  br i1 %676, label %codegen_boolop.exit, label %maybe_optimize_method_call.exit.thread359.thread373
 
-maybe_optimize_method_call.exit.thread360.thread374: ; preds = %665, %653
+maybe_optimize_method_call.exit.thread359.thread373: ; preds = %665, %653
   br label %codegen_boolop.exit
 
-maybe_optimize_method_call.exit.thread360.thread: ; preds = %558, %564, %is_import_originated.exit.i, %521, %codegen_validate_keywords.exit.thread, %545
+maybe_optimize_method_call.exit.thread359.thread: ; preds = %558, %564, %is_import_originated.exit.i, %521, %codegen_validate_keywords.exit.thread, %545
   %677 = load ptr, ptr %486, align 8, !tbaa !16
   %678 = load i32, ptr %677, align 8, !tbaa !15
   switch i32 %678, label %check_caller.exit.thread [
@@ -3763,23 +3762,23 @@ maybe_optimize_method_call.exit.thread360.thread: ; preds = %558, %564, %is_impo
     i32 18, label %679
   ]
 
-679:                                              ; preds = %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread, %maybe_optimize_method_call.exit.thread360.thread
+679:                                              ; preds = %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread, %maybe_optimize_method_call.exit.thread359.thread
   %680 = getelementptr inbounds nuw i8, ptr %677, i64 32
   %681 = load i32, ptr %680, align 8, !tbaa !10
-  %.sroa.0.0.insert.ext.i446 = zext i32 %681 to i64
+  %.sroa.0.0.insert.ext.i445 = zext i32 %681 to i64
   %682 = getelementptr inbounds nuw i8, ptr %677, i64 40
   %683 = load i32, ptr %682, align 8, !tbaa !12
-  %.sroa.0.4.insert.ext.i447 = zext i32 %683 to i64
-  %.sroa.0.4.insert.shift.i448 = shl nuw i64 %.sroa.0.4.insert.ext.i447, 32
-  %.sroa.0.4.insert.insert.i449 = or disjoint i64 %.sroa.0.4.insert.shift.i448, %.sroa.0.0.insert.ext.i446
+  %.sroa.0.4.insert.ext.i446 = zext i32 %683 to i64
+  %.sroa.0.4.insert.shift.i447 = shl nuw i64 %.sroa.0.4.insert.ext.i446, 32
+  %.sroa.0.4.insert.insert.i448 = or disjoint i64 %.sroa.0.4.insert.shift.i447, %.sroa.0.0.insert.ext.i445
   %684 = getelementptr inbounds nuw i8, ptr %677, i64 36
   %685 = load i32, ptr %684, align 4, !tbaa !13
-  %.sroa.5.8.insert.ext.i450 = zext i32 %685 to i64
+  %.sroa.5.8.insert.ext.i449 = zext i32 %685 to i64
   %686 = getelementptr inbounds nuw i8, ptr %677, i64 44
   %687 = load i32, ptr %686, align 4, !tbaa !14
-  %.sroa.5.12.insert.ext.i451 = zext i32 %687 to i64
-  %.sroa.5.12.insert.shift.i452 = shl nuw i64 %.sroa.5.12.insert.ext.i451, 32
-  %.sroa.5.12.insert.insert.i453 = or disjoint i64 %.sroa.5.12.insert.shift.i452, %.sroa.5.8.insert.ext.i450
+  %.sroa.5.12.insert.ext.i450 = zext i32 %687 to i64
+  %.sroa.5.12.insert.shift.i451 = shl nuw i64 %.sroa.5.12.insert.ext.i450, 32
+  %.sroa.5.12.insert.insert.i452 = or disjoint i64 %.sroa.5.12.insert.shift.i451, %.sroa.5.8.insert.ext.i449
   switch i32 %678, label %697 [
     i32 26, label %check_caller.exit
     i32 25, label %688
@@ -3823,7 +3822,7 @@ check_caller.exit:                                ; preds = %679, %688, %689, %6
   %.0.i.i = phi ptr [ @PyList_Type, %688 ], [ @PyDict_Type, %689 ], [ @PySet_Type, %690 ], [ @PyGen_Type, %691 ], [ @PyUnicode_Type, %692 ], [ %.val.i.i, %693 ], [ @PyTuple_Type, %679 ]
   %698 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %699 = load ptr, ptr %698, align 8, !tbaa !59
-  %700 = tail call i32 (ptr, i64, i64, ptr, ...) @_PyCompile_Warn(ptr noundef %0, i64 %.sroa.0.4.insert.insert.i449, i64 %.sroa.5.12.insert.insert.i453, ptr noundef nonnull @.str.274, ptr noundef %699) #10
+  %700 = tail call i32 (ptr, i64, i64, ptr, ...) @_PyCompile_Warn(ptr noundef %0, i64 %.sroa.0.4.insert.insert.i448, i64 %.sroa.5.12.insert.insert.i452, ptr noundef nonnull @.str.274, ptr noundef %699) #10
   %701 = icmp eq i32 %700, -1
   br i1 %701, label %codegen_boolop.exit, label %check_caller.exit.check_caller.exit.thread_crit_edge
 
@@ -3831,8 +3830,8 @@ check_caller.exit.check_caller.exit.thread_crit_edge: ; preds = %check_caller.ex
   %.pre = load ptr, ptr %486, align 8, !tbaa !16
   br label %check_caller.exit.thread
 
-check_caller.exit.thread:                         ; preds = %check_caller.exit.check_caller.exit.thread_crit_edge, %maybe_optimize_method_call.exit.thread360.thread
-  %702 = phi ptr [ %.pre, %check_caller.exit.check_caller.exit.thread_crit_edge ], [ %677, %maybe_optimize_method_call.exit.thread360.thread ]
+check_caller.exit.thread:                         ; preds = %check_caller.exit.check_caller.exit.thread_crit_edge, %maybe_optimize_method_call.exit.thread359.thread
+  %702 = phi ptr [ %.pre, %check_caller.exit.check_caller.exit.thread_crit_edge ], [ %677, %maybe_optimize_method_call.exit.thread359.thread ]
   %703 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %702)
   %704 = icmp eq i32 %703, -1
   br i1 %704, label %codegen_boolop.exit, label %705
@@ -3889,31 +3888,31 @@ check_caller.exit.thread:                         ; preds = %check_caller.exit.c
   %732 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %733 = load ptr, ptr %732, align 8, !tbaa !16
   %734 = icmp eq ptr %733, null
-  br i1 %734, label %.thread363, label %735
+  br i1 %734, label %.thread362, label %735
 
 735:                                              ; preds = %731
   %736 = load i64, ptr %733, align 8, !tbaa !17
   %737 = icmp sgt i64 %736, 30
-  br i1 %737, label %738, label %.thread363
+  br i1 %737, label %738, label %.thread362
 
 738:                                              ; preds = %735
   %739 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376), align 8, !tbaa !16
   %740 = icmp slt i32 %739, 0
-  br i1 %740, label %_Py_NewRef.exit335, label %741
+  br i1 %740, label %_Py_NewRef.exit334, label %741
 
 741:                                              ; preds = %738
   %742 = add nuw i32 %739, 1
   store i32 %742, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376), align 8, !tbaa !16
-  br label %_Py_NewRef.exit335
+  br label %_Py_NewRef.exit334
 
-_Py_NewRef.exit335:                               ; preds = %738, %741
+_Py_NewRef.exit334:                               ; preds = %738, %741
   %743 = tail call fastcc i32 @codegen_addop_load_const(ptr noundef %0, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376))
   %744 = icmp sgt i32 %743, -1
   %745 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376), align 8, !tbaa !16
   %.not.i87.i = icmp sgt i32 %745, -1
   br i1 %.not.i87.i, label %746, label %Py_DECREF.exit88.i
 
-746:                                              ; preds = %_Py_NewRef.exit335
+746:                                              ; preds = %_Py_NewRef.exit334
   %747 = add nsw i32 %745, -1
   store i32 %747, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376), align 8, !tbaa !16
   %748 = icmp eq i32 %747, 0
@@ -3923,7 +3922,7 @@ _Py_NewRef.exit335:                               ; preds = %738, %741
   tail call void @_Py_Dealloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35376)) #10
   br label %Py_DECREF.exit88.i
 
-Py_DECREF.exit88.i:                               ; preds = %749, %746, %_Py_NewRef.exit335
+Py_DECREF.exit88.i:                               ; preds = %749, %746, %_Py_NewRef.exit334
   br i1 %744, label %750, label %codegen_boolop.exit
 
 750:                                              ; preds = %Py_DECREF.exit88.i
@@ -3938,20 +3937,20 @@ Py_DECREF.exit88.i:                               ; preds = %749, %746, %_Py_New
   %757 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
   %758 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %757, i32 noundef 46, i32 noundef 0, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert) #10
   %759 = icmp eq i32 %758, -1
-  br i1 %759, label %codegen_boolop.exit, label %.preheader388
+  br i1 %759, label %codegen_boolop.exit, label %.preheader387
 
-.preheader388:                                    ; preds = %756, %772
+.preheader387:                                    ; preds = %756, %772
   %.066.i = phi i64 [ %776, %772 ], [ 0, %756 ]
   %760 = load ptr, ptr %732, align 8, !tbaa !16
   %761 = icmp eq ptr %760, null
   br i1 %761, label %764, label %762
 
-762:                                              ; preds = %.preheader388
+762:                                              ; preds = %.preheader387
   %763 = load i64, ptr %760, align 8, !tbaa !17
   br label %764
 
-764:                                              ; preds = %762, %.preheader388
-  %765 = phi i64 [ %763, %762 ], [ 0, %.preheader388 ]
+764:                                              ; preds = %762, %.preheader387
+  %765 = phi i64 [ %763, %762 ], [ 0, %.preheader387 ]
   %.not79.i = icmp slt i64 %.066.i, %765
   br i1 %.not79.i, label %766, label %.critedge81.i
 
@@ -3968,7 +3967,7 @@ Py_DECREF.exit88.i:                               ; preds = %749, %746, %_Py_New
   %774 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %773, i32 noundef 77, i32 noundef 1, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert) #10
   %775 = icmp eq i32 %774, -1
   %776 = add nuw nsw i64 %.066.i, 1
-  br i1 %775, label %codegen_boolop.exit, label %.preheader388, !llvm.loop !67
+  br i1 %775, label %codegen_boolop.exit, label %.preheader387, !llvm.loop !67
 
 .critedge81.i:                                    ; preds = %764
   %777 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
@@ -3976,13 +3975,13 @@ Py_DECREF.exit88.i:                               ; preds = %749, %746, %_Py_New
   %779 = icmp eq i32 %778, -1
   br i1 %779, label %codegen_boolop.exit, label %813
 
-.thread363:                                       ; preds = %731, %735
+.thread362:                                       ; preds = %731, %735
   %780 = phi i64 [ %736, %735 ], [ 0, %731 ]
   %781 = getelementptr inbounds nuw i8, ptr %733, i64 16
   br label %782
 
-782:                                              ; preds = %788, %.thread363
-  %.065.i = phi i32 [ 0, %.thread363 ], [ %792, %788 ]
+782:                                              ; preds = %788, %.thread362
+  %.065.i = phi i32 [ 0, %.thread362 ], [ %792, %788 ]
   %783 = sext i32 %.065.i to i64
   br i1 %734, label %786, label %784
 
@@ -4362,23 +4361,23 @@ switch.lookup:                                    ; preds = %963
   %993 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %994 = load ptr, ptr %993, align 8, !tbaa !16
   %995 = icmp eq ptr %994, null
-  br i1 %995, label %is_constant_slice.exit.thread368, label %is_constant_slice.exit
+  br i1 %995, label %is_constant_slice.exit.thread367, label %is_constant_slice.exit
 
 is_constant_slice.exit:                           ; preds = %992
   %996 = load i32, ptr %994, align 8, !tbaa !15
   %997 = icmp eq i32 %996, 20
-  br i1 %997, label %is_constant_slice.exit.thread368, label %is_constant_slice.exit.thread
+  br i1 %997, label %is_constant_slice.exit.thread367, label %is_constant_slice.exit.thread
 
-is_constant_slice.exit.thread368:                 ; preds = %992, %is_constant_slice.exit
+is_constant_slice.exit.thread367:                 ; preds = %992, %is_constant_slice.exit
   br i1 %981, label %1001, label %998
 
-998:                                              ; preds = %is_constant_slice.exit.thread368
+998:                                              ; preds = %is_constant_slice.exit.thread367
   %999 = getelementptr inbounds nuw i8, ptr %980, i64 8
   %1000 = load ptr, ptr %999, align 8, !tbaa !16
   br label %1001
 
-1001:                                             ; preds = %998, %is_constant_slice.exit.thread368
-  %.039.i = phi ptr [ %1000, %998 ], [ null, %is_constant_slice.exit.thread368 ]
+1001:                                             ; preds = %998, %is_constant_slice.exit.thread367
+  %.039.i = phi ptr [ %1000, %998 ], [ null, %is_constant_slice.exit.thread367 ]
   br i1 %988, label %1005, label %1002
 
 1002:                                             ; preds = %1001
@@ -4396,8 +4395,8 @@ is_constant_slice.exit.thread368:                 ; preds = %992, %is_constant_s
   br label %1009
 
 1009:                                             ; preds = %1006, %1005
-  %.041.i277 = phi ptr [ %1008, %1006 ], [ null, %1005 ]
-  %1010 = tail call ptr @PySlice_New(ptr noundef %.039.i, ptr noundef %.040.i, ptr noundef %.041.i277) #10
+  %.041.i276 = phi ptr [ %1008, %1006 ], [ null, %1005 ]
+  %1010 = tail call ptr @PySlice_New(ptr noundef %.039.i, ptr noundef %.040.i, ptr noundef %.041.i276) #10
   %1011 = icmp eq ptr %1010, null
   br i1 %1011, label %codegen_boolop.exit, label %1012
 
@@ -4408,8 +4407,8 @@ is_constant_slice.exit.thread368:                 ; preds = %992, %is_constant_s
   %1016 = load i32, ptr %10, align 4, !tbaa !14
   %.sroa.22.0.insert.ext.i = zext i32 %1014 to i64
   %.sroa.22.0.insert.shift.i = shl nuw i64 %.sroa.22.0.insert.ext.i, 32
-  %.sroa.01.0.insert.ext.i278 = zext i32 %1013 to i64
-  %.sroa.01.0.insert.insert.i = or disjoint i64 %.sroa.22.0.insert.shift.i, %.sroa.01.0.insert.ext.i278
+  %.sroa.01.0.insert.ext.i277 = zext i32 %1013 to i64
+  %.sroa.01.0.insert.insert.i = or disjoint i64 %.sroa.22.0.insert.shift.i, %.sroa.01.0.insert.ext.i277
   %.sroa.54.8.insert.ext.i = zext i32 %1016 to i64
   %.sroa.54.8.insert.shift.i = shl nuw i64 %.sroa.54.8.insert.ext.i, 32
   %.sroa.33.8.insert.ext.i = zext i32 %1015 to i64
@@ -4417,20 +4416,20 @@ is_constant_slice.exit.thread368:                 ; preds = %992, %is_constant_s
   %1017 = tail call fastcc i32 @codegen_addop_load_const(ptr noundef %0, i64 %.sroa.01.0.insert.insert.i, i64 %.sroa.33.8.insert.insert.i, ptr noundef nonnull %1010)
   %1018 = icmp sgt i32 %1017, -1
   %1019 = load i32, ptr %1010, align 8, !tbaa !16
-  %.not.i.i280 = icmp sgt i32 %1019, -1
-  br i1 %.not.i.i280, label %1020, label %Py_DECREF.exit.i281
+  %.not.i.i279 = icmp sgt i32 %1019, -1
+  br i1 %.not.i.i279, label %1020, label %Py_DECREF.exit.i280
 
 1020:                                             ; preds = %1012
   %1021 = add nsw i32 %1019, -1
   store i32 %1021, ptr %1010, align 8, !tbaa !16
   %1022 = icmp eq i32 %1021, 0
-  br i1 %1022, label %1023, label %Py_DECREF.exit.i281
+  br i1 %1022, label %1023, label %Py_DECREF.exit.i280
 
 1023:                                             ; preds = %1020
   tail call void @_Py_Dealloc(ptr noundef nonnull %1010) #10
-  br label %Py_DECREF.exit.i281
+  br label %Py_DECREF.exit.i280
 
-Py_DECREF.exit.i281:                              ; preds = %1023, %1020, %1012
+Py_DECREF.exit.i280:                              ; preds = %1023, %1020, %1012
   br i1 %1018, label %codegen_slice.exit, label %codegen_boolop.exit
 
 is_constant_slice.exit.thread:                    ; preds = %982, %989, %is_constant_slice.exit
@@ -4481,12 +4480,12 @@ is_constant_slice.exit.thread:                    ; preds = %982, %989, %is_cons
   %1048 = load ptr, ptr %1047, align 8, !tbaa !16
   %1049 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1050 = load i32, ptr %1049, align 8, !tbaa !16
-  switch i32 %1050, label %.preheader390 [
+  switch i32 %1050, label %.preheader389 [
     i32 2, label %1053
     i32 1, label %1055
   ]
 
-.preheader390:                                    ; preds = %1046
+.preheader389:                                    ; preds = %1046
   %1051 = getelementptr inbounds nuw i8, ptr %1048, i64 16
   %1052 = icmp eq ptr %1048, null
   br label %1057
@@ -4499,8 +4498,8 @@ is_constant_slice.exit.thread:                    ; preds = %982, %989, %is_cons
   %1056 = tail call fastcc i32 @starunpack_helper_impl(ptr noundef %0, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert, ptr noundef %1048, ptr noundef null, i32 noundef 0, i32 noundef 46, i32 noundef 77, i32 noundef 78, i32 noundef 0)
   br label %codegen_boolop.exit
 
-1057:                                             ; preds = %1063, %.preheader390
-  %.027.i = phi i32 [ %1067, %1063 ], [ 0, %.preheader390 ]
+1057:                                             ; preds = %1063, %.preheader389
+  %.027.i = phi i32 [ %1067, %1063 ], [ 0, %.preheader389 ]
   %1058 = sext i32 %.027.i to i64
   br i1 %1052, label %1061, label %1059
 
@@ -4517,12 +4516,12 @@ is_constant_slice.exit.thread:                    ; preds = %982, %989, %is_cons
   %1064 = getelementptr [1 x ptr], ptr %1051, i64 0, i64 %1058
   %1065 = load ptr, ptr %1064, align 8, !tbaa !22
   %1066 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %1065)
-  %.not.i292 = icmp eq i32 %1066, -1
+  %.not.i291 = icmp eq i32 %1066, -1
   %1067 = add i32 %.027.i, 1
-  br i1 %.not.i292, label %1068, label %1057, !llvm.loop !69
+  br i1 %.not.i291, label %1068, label %1057, !llvm.loop !69
 
 1068:                                             ; preds = %1063, %1061
-  %spec.select.i291 = sext i1 %.not33.i to i32
+  %spec.select.i290 = sext i1 %.not33.i to i32
   br label %codegen_boolop.exit
 
 1069:                                             ; preds = %2
@@ -4530,12 +4529,12 @@ is_constant_slice.exit.thread:                    ; preds = %982, %989, %is_cons
   %1071 = load ptr, ptr %1070, align 8, !tbaa !16
   %1072 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %1073 = load i32, ptr %1072, align 8, !tbaa !16
-  switch i32 %1073, label %.preheader391 [
+  switch i32 %1073, label %.preheader390 [
     i32 2, label %1076
     i32 1, label %1078
   ]
 
-.preheader391:                                    ; preds = %1069
+.preheader390:                                    ; preds = %1069
   %1074 = getelementptr inbounds nuw i8, ptr %1071, i64 16
   %1075 = icmp eq ptr %1071, null
   br label %1080
@@ -4548,9 +4547,9 @@ is_constant_slice.exit.thread:                    ; preds = %982, %989, %is_cons
   %1079 = tail call fastcc i32 @starunpack_helper_impl(ptr noundef %0, i64 %.sroa.09.4.insert.insert, i64 %.sroa.36.12.insert.insert, ptr noundef %1071, ptr noundef null, i32 noundef 0, i32 noundef 46, i32 noundef 77, i32 noundef 78, i32 noundef 1)
   br label %codegen_boolop.exit
 
-1080:                                             ; preds = %1086, %.preheader391
-  %.027.i302 = phi i32 [ %1090, %1086 ], [ 0, %.preheader391 ]
-  %1081 = sext i32 %.027.i302 to i64
+1080:                                             ; preds = %1086, %.preheader390
+  %.027.i301 = phi i32 [ %1090, %1086 ], [ 0, %.preheader390 ]
+  %1081 = sext i32 %.027.i301 to i64
   br i1 %1075, label %1084, label %1082
 
 1082:                                             ; preds = %1080
@@ -4559,26 +4558,26 @@ is_constant_slice.exit.thread:                    ; preds = %982, %989, %is_cons
 
 1084:                                             ; preds = %1082, %1080
   %1085 = phi i64 [ %1083, %1082 ], [ 0, %1080 ]
-  %.not33.i303 = icmp sgt i64 %1085, %1081
-  br i1 %.not33.i303, label %1086, label %1091
+  %.not33.i302 = icmp sgt i64 %1085, %1081
+  br i1 %.not33.i302, label %1086, label %1091
 
 1086:                                             ; preds = %1084
   %1087 = getelementptr [1 x ptr], ptr %1074, i64 0, i64 %1081
   %1088 = load ptr, ptr %1087, align 8, !tbaa !22
   %1089 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %1088)
-  %.not.i305 = icmp eq i32 %1089, -1
-  %1090 = add i32 %.027.i302, 1
-  br i1 %.not.i305, label %1091, label %1080, !llvm.loop !70
+  %.not.i304 = icmp eq i32 %1089, -1
+  %1090 = add i32 %.027.i301, 1
+  br i1 %.not.i304, label %1091, label %1080, !llvm.loop !70
 
 1091:                                             ; preds = %1086, %1084
-  %spec.select.i304 = sext i1 %.not33.i303 to i32
+  %spec.select.i303 = sext i1 %.not33.i302 to i32
   br label %codegen_boolop.exit
 
-codegen_slice.exit:                               ; preds = %Py_DECREF.exit.i281, %1032, %892, %901, %909, %917, %726, %369, %354, %329, %92, %unaryop.exit, %98, %78, %23, %2
+codegen_slice.exit:                               ; preds = %Py_DECREF.exit.i280, %1032, %892, %901, %909, %917, %726, %369, %354, %329, %92, %unaryop.exit, %98, %78, %23, %2
   br label %codegen_boolop.exit
 
-codegen_boolop.exit:                              ; preds = %772, %766, %788, %629, %642, %443, %439, %435, %431, %424, %420, %416, %409, %263, %257, %250, %.thread338, %240, %234, %229, %54, %50, %45, %598, %1032, %Py_DECREF.exit.i281, %1029, %is_constant_slice.exit.thread, %1009, %870, %878, %857, %855, %maybe_optimize_method_call.exit.thread360.thread374, %590, %528, %665, %653, %650, %608, %604, %577, %._crit_edge, %1091, %1078, %1076, %1068, %1055, %1053, %970, %966, %960, %957, %954, %949, %940, %934, %930, %849, %845, %841, %838, %831, %828, %814, %813, %Py_DECREF.exit.i248, %794, %.critedge81.i, %756, %750, %Py_DECREF.exit88.i, %718, %705, %check_caller.exit.thread, %check_caller.exit, %codegen_validate_keywords.exit, %484, %481, %477, %473, %469, %465, %461, %454, %._crit_edge402, %.thread344, %395, %388, %375, %372, %.thread341, %.thread434, %277, %272, %211, %206, %202, %198, %193, %188, %184, %180, %codegen_enter_scope.exit.thread, %110, %64, %._crit_edge413, %27, %917, %909, %901, %888, %885, %726, %369, %366, %362, %357, %354, %351, %347, %342, %329, %326, %323, %unaryop.exit, %98, %95, %92, %83, %78, %73, %68, %23, %19, %13, %codegen_slice.exit, %1040, %976, %974, %340, %335, %318, %307, %301, %295, %289, %285
-  %.0 = phi i32 [ 0, %codegen_slice.exit ], [ %288, %285 ], [ %294, %289 ], [ %300, %295 ], [ %306, %301 ], [ %314, %307 ], [ %319, %318 ], [ %341, %340 ], [ %336, %335 ], [ %975, %974 ], [ %977, %976 ], [ %1045, %1040 ], [ -1, %13 ], [ -1, %19 ], [ -1, %23 ], [ -1, %68 ], [ -1, %73 ], [ -1, %78 ], [ -1, %83 ], [ -1, %92 ], [ -1, %95 ], [ -1, %98 ], [ -1, %unaryop.exit ], [ -1, %323 ], [ -1, %326 ], [ -1, %329 ], [ -1, %342 ], [ -1, %347 ], [ -1, %351 ], [ -1, %354 ], [ -1, %357 ], [ -1, %362 ], [ -1, %366 ], [ -1, %369 ], [ -1, %726 ], [ -1, %885 ], [ -1, %888 ], [ -1, %901 ], [ -1, %909 ], [ -1, %917 ], [ -1, %27 ], [ -1, %._crit_edge413 ], [ %.33.i, %64 ], [ %.1.i, %codegen_enter_scope.exit.thread ], [ -1, %110 ], [ -1, %180 ], [ -1, %184 ], [ -1, %188 ], [ -1, %193 ], [ -1, %198 ], [ -1, %202 ], [ -1, %206 ], [ %..i222, %211 ], [ 0, %.thread341 ], [ -1, %272 ], [ -1, %277 ], [ -1, %.thread434 ], [ 0, %484 ], [ -1, %481 ], [ -1, %372 ], [ -1, %375 ], [ -1, %388 ], [ -1, %395 ], [ -1, %477 ], [ -1, %473 ], [ -1, %469 ], [ -1, %465 ], [ -1, %461 ], [ -1, %454 ], [ -1, %._crit_edge402 ], [ -1, %.thread344 ], [ -1, %codegen_validate_keywords.exit ], [ -1, %check_caller.exit ], [ -1, %check_caller.exit.thread ], [ %725, %718 ], [ -1, %705 ], [ 0, %813 ], [ -1, %Py_DECREF.exit88.i ], [ -1, %Py_DECREF.exit.i248 ], [ -1, %750 ], [ -1, %756 ], [ -1, %.critedge81.i ], [ -1, %794 ], [ -1, %814 ], [ -1, %828 ], [ 0, %849 ], [ -1, %831 ], [ -1, %838 ], [ -1, %841 ], [ -1, %845 ], [ 0, %970 ], [ -1, %930 ], [ -1, %934 ], [ -1, %940 ], [ -1, %949 ], [ -1, %954 ], [ -1, %957 ], [ -1, %960 ], [ -1, %966 ], [ %1054, %1053 ], [ %1056, %1055 ], [ %spec.select.i291, %1068 ], [ %1077, %1076 ], [ %1079, %1078 ], [ %spec.select.i304, %1091 ], [ %576, %._crit_edge ], [ -1, %577 ], [ -1, %604 ], [ -1, %608 ], [ -1, %650 ], [ -1, %653 ], [ -1, %665 ], [ -1, %528 ], [ -1, %590 ], [ 0, %maybe_optimize_method_call.exit.thread360.thread374 ], [ %., %878 ], [ -1, %870 ], [ -1, %857 ], [ %856, %855 ], [ -1, %1009 ], [ -1, %is_constant_slice.exit.thread ], [ -1, %1029 ], [ -1, %Py_DECREF.exit.i281 ], [ -1, %1032 ], [ -1, %598 ], [ -1, %45 ], [ -1, %50 ], [ -1, %54 ], [ -1, %229 ], [ -1, %234 ], [ -1, %240 ], [ -1, %.thread338 ], [ -1, %250 ], [ -1, %257 ], [ -1, %263 ], [ -1, %409 ], [ -1, %416 ], [ -1, %420 ], [ -1, %424 ], [ -1, %431 ], [ -1, %435 ], [ -1, %439 ], [ -1, %443 ], [ -1, %642 ], [ -1, %629 ], [ -1, %788 ], [ -1, %766 ], [ -1, %772 ]
+codegen_boolop.exit:                              ; preds = %772, %766, %788, %629, %642, %443, %439, %435, %431, %424, %420, %416, %409, %263, %257, %250, %.thread337, %240, %234, %229, %54, %50, %45, %598, %1032, %Py_DECREF.exit.i280, %1029, %is_constant_slice.exit.thread, %1009, %870, %878, %857, %855, %maybe_optimize_method_call.exit.thread359.thread373, %590, %528, %665, %653, %650, %608, %604, %577, %._crit_edge, %1091, %1078, %1076, %1068, %1055, %1053, %970, %966, %960, %957, %954, %949, %940, %934, %930, %849, %845, %841, %838, %831, %828, %814, %813, %Py_DECREF.exit.i248, %794, %.critedge81.i, %756, %750, %Py_DECREF.exit88.i, %718, %705, %check_caller.exit.thread, %check_caller.exit, %codegen_validate_keywords.exit, %484, %481, %477, %473, %469, %465, %461, %454, %._crit_edge401, %.thread343, %395, %388, %375, %372, %.thread340, %.thread433, %277, %272, %211, %206, %202, %198, %193, %188, %184, %180, %codegen_enter_scope.exit.thread, %110, %64, %._crit_edge412, %27, %917, %909, %901, %888, %885, %726, %369, %366, %362, %357, %354, %351, %347, %342, %329, %326, %323, %unaryop.exit, %98, %95, %92, %83, %78, %73, %68, %23, %19, %13, %codegen_slice.exit, %1040, %976, %974, %340, %335, %318, %307, %301, %295, %289, %285
+  %.0 = phi i32 [ 0, %codegen_slice.exit ], [ %288, %285 ], [ %294, %289 ], [ %300, %295 ], [ %306, %301 ], [ %314, %307 ], [ %319, %318 ], [ %341, %340 ], [ %336, %335 ], [ %975, %974 ], [ %977, %976 ], [ %1045, %1040 ], [ -1, %13 ], [ -1, %19 ], [ -1, %23 ], [ -1, %68 ], [ -1, %73 ], [ -1, %78 ], [ -1, %83 ], [ -1, %92 ], [ -1, %95 ], [ -1, %98 ], [ -1, %unaryop.exit ], [ -1, %323 ], [ -1, %326 ], [ -1, %329 ], [ -1, %342 ], [ -1, %347 ], [ -1, %351 ], [ -1, %354 ], [ -1, %357 ], [ -1, %362 ], [ -1, %366 ], [ -1, %369 ], [ -1, %726 ], [ -1, %885 ], [ -1, %888 ], [ -1, %901 ], [ -1, %909 ], [ -1, %917 ], [ -1, %27 ], [ -1, %._crit_edge412 ], [ %.33.i, %64 ], [ %.1.i, %codegen_enter_scope.exit.thread ], [ -1, %110 ], [ -1, %180 ], [ -1, %184 ], [ -1, %188 ], [ -1, %193 ], [ -1, %198 ], [ -1, %202 ], [ -1, %206 ], [ %..i222, %211 ], [ 0, %.thread340 ], [ -1, %272 ], [ -1, %277 ], [ -1, %.thread433 ], [ 0, %484 ], [ -1, %481 ], [ -1, %372 ], [ -1, %375 ], [ -1, %388 ], [ -1, %395 ], [ -1, %477 ], [ -1, %473 ], [ -1, %469 ], [ -1, %465 ], [ -1, %461 ], [ -1, %454 ], [ -1, %._crit_edge401 ], [ -1, %.thread343 ], [ -1, %codegen_validate_keywords.exit ], [ -1, %check_caller.exit ], [ -1, %check_caller.exit.thread ], [ %725, %718 ], [ -1, %705 ], [ 0, %813 ], [ -1, %Py_DECREF.exit88.i ], [ -1, %Py_DECREF.exit.i248 ], [ -1, %750 ], [ -1, %756 ], [ -1, %.critedge81.i ], [ -1, %794 ], [ -1, %814 ], [ -1, %828 ], [ 0, %849 ], [ -1, %831 ], [ -1, %838 ], [ -1, %841 ], [ -1, %845 ], [ 0, %970 ], [ -1, %930 ], [ -1, %934 ], [ -1, %940 ], [ -1, %949 ], [ -1, %954 ], [ -1, %957 ], [ -1, %960 ], [ -1, %966 ], [ %1054, %1053 ], [ %1056, %1055 ], [ %spec.select.i290, %1068 ], [ %1077, %1076 ], [ %1079, %1078 ], [ %spec.select.i303, %1091 ], [ %576, %._crit_edge ], [ -1, %577 ], [ -1, %604 ], [ -1, %608 ], [ -1, %650 ], [ -1, %653 ], [ -1, %665 ], [ -1, %528 ], [ -1, %590 ], [ 0, %maybe_optimize_method_call.exit.thread359.thread373 ], [ %., %878 ], [ -1, %870 ], [ -1, %857 ], [ %856, %855 ], [ -1, %1009 ], [ -1, %is_constant_slice.exit.thread ], [ -1, %1029 ], [ -1, %Py_DECREF.exit.i280 ], [ -1, %1032 ], [ -1, %598 ], [ -1, %45 ], [ -1, %50 ], [ -1, %54 ], [ -1, %229 ], [ -1, %234 ], [ -1, %240 ], [ -1, %.thread337 ], [ -1, %250 ], [ -1, %257 ], [ -1, %263 ], [ -1, %409 ], [ -1, %416 ], [ -1, %420 ], [ -1, %424 ], [ -1, %431 ], [ -1, %435 ], [ -1, %439 ], [ -1, %443 ], [ -1, %642 ], [ -1, %629 ], [ -1, %788 ], [ -1, %766 ], [ -1, %772 ]
   ret i32 %.0
 }
 
@@ -11934,76 +11933,72 @@ codegen_call_simple_kw_helper.exit:               ; preds = %._crit_edge.i, %104
   br label %.outer
 
 .outer:                                           ; preds = %.thread227, %.lr.ph210
-  %.0130209.ph = phi i32 [ %.3133, %.thread227 ], [ 0, %.lr.ph210 ]
-  %.3138207.ph = phi i64 [ %172, %.thread227 ], [ 0, %.lr.ph210 ]
-  br label %142
+  %142 = phi i1 [ false, %.thread227 ], [ true, %.lr.ph210 ]
+  %.3138207.ph = phi i64 [ %173, %.thread227 ], [ 0, %.lr.ph210 ]
+  br label %143
 
-142:                                              ; preds = %.outer, %169
-  %.3138207 = phi i64 [ %171, %169 ], [ %.3138207.ph, %.outer ]
-  %.0140206 = phi i64 [ %170, %169 ], [ 0, %.outer ]
-  %143 = getelementptr [1 x ptr], ptr %141, i64 0, i64 %.3138207
-  %144 = load ptr, ptr %143, align 8, !tbaa !37
-  %145 = load ptr, ptr %144, align 8, !tbaa !39
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %147, label %169
+143:                                              ; preds = %.outer, %170
+  %.3138207 = phi i64 [ %172, %170 ], [ %.3138207.ph, %.outer ]
+  %.0140206 = phi i64 [ %171, %170 ], [ 0, %.outer ]
+  %144 = getelementptr [1 x ptr], ptr %141, i64 0, i64 %.3138207
+  %145 = load ptr, ptr %144, align 8, !tbaa !37
+  %146 = load ptr, ptr %145, align 8, !tbaa !39
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %148, label %170
 
-147:                                              ; preds = %142
+148:                                              ; preds = %143
   %.not167 = icmp eq i64 %.0140206, 0
-  br i1 %.not167, label %157, label %148
+  br i1 %.not167, label %158, label %149
 
-148:                                              ; preds = %147
-  %149 = sub i64 %.3138207, %.0140206
-  %150 = tail call fastcc i32 @codegen_subkwargs(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %6, i64 noundef %149, i64 noundef %.3138207)
-  %151 = icmp eq i32 %150, -1
-  br i1 %151, label %.critedge172, label %152
+149:                                              ; preds = %148
+  %150 = sub i64 %.3138207, %.0140206
+  %151 = tail call fastcc i32 @codegen_subkwargs(ptr noundef %0, i64 %1, i64 %2, ptr noundef nonnull %6, i64 noundef %150, i64 noundef %.3138207)
+  %152 = icmp eq i32 %151, -1
+  br i1 %152, label %.critedge172, label %153
 
-152:                                              ; preds = %148
-  %.not168 = icmp eq i32 %.0130209.ph, 0
-  br i1 %.not168, label %.thread, label %153
+153:                                              ; preds = %149
+  br i1 %142, label %.thread, label %154
 
-153:                                              ; preds = %152
-  %154 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %155 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %154, i32 noundef 66, i32 noundef 1, i64 %1, i64 %2) #10
-  %156 = icmp eq i32 %155, -1
-  br i1 %156, label %.critedge172, label %.thread
+154:                                              ; preds = %153
+  %155 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
+  %156 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %155, i32 noundef 66, i32 noundef 1, i64 %1, i64 %2) #10
+  %157 = icmp eq i32 %156, -1
+  br i1 %157, label %.critedge172, label %.thread
 
-157:                                              ; preds = %147
-  %.not169 = icmp eq i32 %.0130209.ph, 0
-  br i1 %.not169, label %158, label %.thread
+158:                                              ; preds = %148
+  br i1 %142, label %159, label %.thread
 
-158:                                              ; preds = %157
-  %159 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %160 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %159, i32 noundef 47, i32 noundef 0, i64 %1, i64 %2) #10
-  %161 = icmp eq i32 %160, -1
-  br i1 %161, label %.critedge172, label %.thread
+159:                                              ; preds = %158
+  %160 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
+  %161 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %160, i32 noundef 47, i32 noundef 0, i64 %1, i64 %2) #10
+  %162 = icmp eq i32 %161, -1
+  br i1 %162, label %.critedge172, label %.thread
 
-.thread:                                          ; preds = %152, %153, %158, %157
-  %.3133 = phi i32 [ %.0130209.ph, %157 ], [ 1, %158 ], [ 1, %153 ], [ 1, %152 ]
-  %162 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !54
-  %164 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %163)
-  %165 = icmp eq i32 %164, -1
-  br i1 %165, label %.critedge172, label %166
+.thread:                                          ; preds = %153, %154, %159, %158
+  %163 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %164 = load ptr, ptr %163, align 8, !tbaa !54
+  %165 = tail call fastcc i32 @codegen_visit_expr(ptr noundef %0, ptr noundef %164)
+  %166 = icmp eq i32 %165, -1
+  br i1 %166, label %.critedge172, label %167
 
-166:                                              ; preds = %.thread
-  %167 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %168 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %167, i32 noundef 66, i32 noundef 1, i64 %1, i64 %2) #10
-  %.not188 = icmp eq i32 %168, -1
+167:                                              ; preds = %.thread
+  %168 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
+  %169 = tail call i32 @_PyInstructionSequence_Addop(ptr noundef %168, i32 noundef 66, i32 noundef 1, i64 %1, i64 %2) #10
+  %.not188 = icmp eq i32 %169, -1
   br i1 %.not188, label %.critedge172, label %.thread227
 
-169:                                              ; preds = %142
-  %170 = add i64 %.0140206, 1
-  %171 = add nuw nsw i64 %.3138207, 1
-  %exitcond223.not = icmp eq i64 %171, %43
-  br i1 %exitcond223.not, label %._crit_edge211, label %142, !llvm.loop !189
-
-.thread227:                                       ; preds = %166
+170:                                              ; preds = %143
+  %171 = add i64 %.0140206, 1
   %172 = add nuw nsw i64 %.3138207, 1
-  %exitcond223.not230 = icmp eq i64 %172, %43
+  %exitcond223.not = icmp eq i64 %172, %43
+  br i1 %exitcond223.not, label %._crit_edge211, label %143, !llvm.loop !189
+
+.thread227:                                       ; preds = %167
+  %173 = add nuw nsw i64 %.3138207, 1
+  %exitcond223.not230 = icmp eq i64 %173, %43
   br i1 %exitcond223.not230, label %._crit_edge211.thread, label %.outer, !llvm.loop !189
 
-._crit_edge211:                                   ; preds = %169
-  %173 = icmp eq i32 %.0130209.ph, 0
+._crit_edge211:                                   ; preds = %170
   %.not165 = icmp eq i64 %43, %.3138207.ph
   br i1 %.not165, label %._crit_edge211.thread, label %174
 
@@ -12013,7 +12008,7 @@ codegen_call_simple_kw_helper.exit:               ; preds = %._crit_edge.i, %104
   br i1 %176, label %.critedge172, label %177
 
 177:                                              ; preds = %174
-  br i1 %173, label %._crit_edge211.thread, label %178
+  br i1 %142, label %._crit_edge211.thread, label %178
 
 178:                                              ; preds = %177
   %179 = tail call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
@@ -12034,8 +12029,8 @@ codegen_call_simple_kw_helper.exit:               ; preds = %._crit_edge.i, %104
   %.173 = sext i1 %188 to i32
   br label %.critedge172
 
-.critedge172:                                     ; preds = %68, %81, %.thread, %158, %153, %148, %166, %.critedge, %174, %178, %._crit_edge211.thread, %182, %136, %131, %117, %109, %codegen_call_simple_kw_helper.exit, %72, %codegen_validate_keywords.exit, %123
-  %.0 = phi i32 [ 0, %123 ], [ -1, %codegen_validate_keywords.exit ], [ -1, %72 ], [ -1, %codegen_call_simple_kw_helper.exit ], [ -1, %109 ], [ -1, %117 ], [ -1, %131 ], [ -1, %136 ], [ -1, %182 ], [ %.173, %._crit_edge211.thread ], [ -1, %178 ], [ -1, %174 ], [ -1, %.critedge ], [ -1, %166 ], [ -1, %148 ], [ -1, %153 ], [ -1, %158 ], [ -1, %.thread ], [ -1, %81 ], [ -1, %68 ]
+.critedge172:                                     ; preds = %68, %81, %.thread, %159, %154, %149, %167, %.critedge, %174, %178, %._crit_edge211.thread, %182, %136, %131, %117, %109, %codegen_call_simple_kw_helper.exit, %72, %codegen_validate_keywords.exit, %123
+  %.0 = phi i32 [ 0, %123 ], [ -1, %codegen_validate_keywords.exit ], [ -1, %72 ], [ -1, %codegen_call_simple_kw_helper.exit ], [ -1, %109 ], [ -1, %117 ], [ -1, %131 ], [ -1, %136 ], [ -1, %182 ], [ %.173, %._crit_edge211.thread ], [ -1, %178 ], [ -1, %174 ], [ -1, %.critedge ], [ -1, %167 ], [ -1, %149 ], [ -1, %154 ], [ -1, %159 ], [ -1, %.thread ], [ -1, %81 ], [ -1, %68 ]
   ret i32 %.0
 }
 

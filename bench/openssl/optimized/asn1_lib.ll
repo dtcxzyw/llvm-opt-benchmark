@@ -393,7 +393,7 @@ define noundef i32 @ASN1_put_eoc(ptr noundef captures(none) %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @ASN1_object_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 -2147483646, -2147483648) i32 @ASN1_object_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %19, label %5
 

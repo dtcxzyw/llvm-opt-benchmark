@@ -8022,7 +8022,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10backgammon15BackgammonState17Usable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define noundef range(i32 25, 24) i32 @_ZNK10open_spiel10backgammon15BackgammonState21FurthestCheckerInHomeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = icmp eq i32 %1, 0
   %4 = select i1 %3, i64 23, i64 0
   %5 = select i1 %3, i32 17, i32 6

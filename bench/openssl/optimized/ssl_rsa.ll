@@ -1238,7 +1238,7 @@ define internal fastcc range(i32 0, 2) i32 @use_certificate_chain_file(ptr nound
   br label %96
 
 96:                                               ; preds = %.thread104, %95, %.split98.us, %64, %.split100.us, %.split.us
-  %.3 = phi i32 [ 1, %.split.us ], [ 0, %.split100.us ], [ 0, %64 ], [ 1, %95 ], [ 0, %.split98.us ], [ 0, %.thread104 ]
+  %.3 = phi i32 [ %.155, %.split.us ], [ 0, %.split100.us ], [ 0, %64 ], [ %.155, %95 ], [ 0, %.split98.us ], [ 0, %.thread104 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   br label %97
 

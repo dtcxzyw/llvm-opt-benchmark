@@ -242,7 +242,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
   %.396 = phi i32 [ %90, %89 ], [ %113, %.critedge ]
   %.083 = phi i32 [ %82, %89 ], [ %.285, %.critedge ]
   %spec.select = call i32 @llvm.smax.i32(i32 %.083, i32 %.0103153)
-  %115 = trunc i32 %.083 to i16
+  %115 = trunc nuw nsw i32 %.083 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
   store i16 %115, ptr %8, align 2, !tbaa !8
   %116 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull %8, i32 noundef 0, i32 noundef 1)
@@ -320,7 +320,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
   br label %145
 
 142:                                              ; preds = %.thread137.thread
-  %143 = trunc i32 %139 to i16
+  %143 = trunc nuw nsw i32 %139 to i16
   %144 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9setCharAtEiDs(ptr noundef nonnull align 8 dereferenceable(64) %29, i32 noundef 0, i16 noundef zeroext %143)
   br label %145
 

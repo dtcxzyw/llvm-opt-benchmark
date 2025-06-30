@@ -28551,7 +28551,7 @@ RSTRING_PTR.exit84:                               ; preds = %108, %111
   %114 = sub i64 %112, %113
   store i64 %114, ptr %10, align 8, !tbaa !12
   %115 = and i64 %109, -3145729
-  %116 = zext nneg i32 %.054.lcssa to i64
+  %116 = zext i32 %.054.lcssa to i64
   %117 = or i64 %115, %116
   store i64 %117, ptr %9, align 8, !tbaa !7
   br label %118

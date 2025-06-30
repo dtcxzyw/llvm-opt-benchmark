@@ -396,7 +396,7 @@ define internal i32 @dissect_packetbb(ptr noundef %0, ptr noundef %1, ptr nounde
   %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27)
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %30 = load i32, ptr @hf_packetbb_header, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef %.2, i32 noundef 0)
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef range(i32 1, 65541) %.2, i32 noundef 0)
   %32 = load i32, ptr @ett_packetbb_header, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
   %34 = load i32, ptr @hf_packetbb_version, align 4

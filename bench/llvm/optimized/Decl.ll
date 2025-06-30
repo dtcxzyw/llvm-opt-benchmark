@@ -850,7 +850,7 @@ declare noundef zeroext i8 @_ZNK5clang4Type10getLinkageEv(ptr noundef nonnull al
 declare i8 @_ZN5clang15LinkageComputer27getTypeLinkageAndVisibilityEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i8 0, 64) i8 @_ZN5clang15LinkageComputer29getLVForTemplateParameterListEPKNS_21TemplateParameterListENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readonly captures(address) %1, i32 %2) local_unnamed_addr #2 align 2 {
+define dso_local i8 @_ZN5clang15LinkageComputer29getLVForTemplateParameterListEPKNS_21TemplateParameterListENS_17LVComputationKindE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef readonly captures(address) %1, i32 %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 536870911

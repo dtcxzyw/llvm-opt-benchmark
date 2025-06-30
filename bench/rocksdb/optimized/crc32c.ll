@@ -257,11 +257,11 @@ define noundef i32 @_ZN7rocksdb6crc32c11crc32c_3wayEjPKcm(i32 noundef %0, ptr no
   %4 = xor i32 %0, -1
   %5 = zext i32 %4 to i64
   %6 = icmp ugt i64 %2, 7
-  br i1 %6, label %7, label %1446
+  br i1 %6, label %7, label %1447
 
 7:                                                ; preds = %3
   %8 = icmp ugt i64 %2, 216
-  br i1 %8, label %9, label %.thread
+  br i1 %8, label %9, label %1334
 
 9:                                                ; preds = %7
   %10 = ptrtoint ptr %1 to i64
@@ -311,15 +311,15 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %32 = udiv i64 %13, 24
   %33 = urem i64 %13, 24
   %34 = and i64 %32, 127
-  %.not1799 = icmp eq i64 %34, 0
+  %.not1800 = icmp eq i64 %34, 0
   %35 = add nuw nsw i64 %32, 127
   %.01061 = lshr i64 %35, 7
-  %.0931 = select i1 %.not1799, i64 128, i64 %34
+  %.0931 = select i1 %.not1800, i64 128, i64 %34
   %36 = getelementptr inbounds nuw i64, ptr %.41788, i64 %.0931
   %37 = getelementptr inbounds nuw i64, ptr %36, i64 %.0931
   %38 = getelementptr inbounds nuw i64, ptr %37, i64 %.0931
   %trunc = trunc nuw i64 %.0931 to i8
-  switch i8 %trunc, label %.thread [
+  switch i8 %trunc, label %default.unreachable [
     i8 -128, label %39
     i8 127, label %49
     i8 126, label %59
@@ -451,14 +451,14 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   ]
 
 39:                                               ; preds = %1330, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.130 = phi i64 [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1328, %1330 ]
+  %.1291783 = phi i64 [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1328, %1330 ]
   %.1281189 = phi i64 [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1329, %1330 ]
   %.127929 = phi ptr [ %36, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1331, %1330 ]
   %.127800 = phi ptr [ %37, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1332, %1330 ]
   %.128 = phi ptr [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1333, %1330 ]
   %40 = getelementptr inbounds i8, ptr %.127929, i64 -1024
   %41 = load i64, ptr %40, align 8, !tbaa !19
-  %42 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.130, i64 %41)
+  %42 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1291783, i64 %41)
   %43 = getelementptr inbounds i8, ptr %.127800, i64 -1024
   %44 = load i64, ptr %43, align 8, !tbaa !19
   %45 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %44)
@@ -468,7 +468,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %49
 
 49:                                               ; preds = %39, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.31657 = phi i64 [ %42, %39 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.21656 = phi i64 [ %42, %39 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.01320 = phi i64 [ %48, %39 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.01191 = phi i64 [ %45, %39 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.11062 = phi i64 [ %.1281189, %39 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -478,7 +478,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.1672 = phi ptr [ %.128, %39 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %50 = getelementptr inbounds i8, ptr %.0802, i64 -1016
   %51 = load i64, ptr %50, align 8, !tbaa !19
-  %52 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.31657, i64 %51)
+  %52 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.21656, i64 %51)
   %53 = getelementptr inbounds i8, ptr %.0673, i64 -1016
   %54 = load i64, ptr %53, align 8, !tbaa !19
   %55 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.01191, i64 %54)
@@ -488,7 +488,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %59
 
 59:                                               ; preds = %49, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.41658 = phi i64 [ %52, %49 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.31657 = phi i64 [ %52, %49 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.11321 = phi i64 [ %58, %49 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.11192 = phi i64 [ %55, %49 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.21063 = phi i64 [ %.11062, %49 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -498,7 +498,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.2 = phi ptr [ %.1672, %49 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %60 = getelementptr inbounds i8, ptr %.1803, i64 -1008
   %61 = load i64, ptr %60, align 8, !tbaa !19
-  %62 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.41658, i64 %61)
+  %62 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.31657, i64 %61)
   %63 = getelementptr inbounds i8, ptr %.1674, i64 -1008
   %64 = load i64, ptr %63, align 8, !tbaa !19
   %65 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.11192, i64 %64)
@@ -508,7 +508,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %69
 
 69:                                               ; preds = %59, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.51659 = phi i64 [ %62, %59 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.41658 = phi i64 [ %62, %59 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.21322 = phi i64 [ %68, %59 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.21193 = phi i64 [ %65, %59 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.31064 = phi i64 [ %.21063, %59 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -518,7 +518,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.3 = phi ptr [ %.2, %59 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %70 = getelementptr inbounds i8, ptr %.2804, i64 -1000
   %71 = load i64, ptr %70, align 8, !tbaa !19
-  %72 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.51659, i64 %71)
+  %72 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.41658, i64 %71)
   %73 = getelementptr inbounds i8, ptr %.2675, i64 -1000
   %74 = load i64, ptr %73, align 8, !tbaa !19
   %75 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.21193, i64 %74)
@@ -528,7 +528,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %79
 
 79:                                               ; preds = %69, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.61660 = phi i64 [ %72, %69 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.51659 = phi i64 [ %72, %69 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.31323 = phi i64 [ %78, %69 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.31194 = phi i64 [ %75, %69 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.41065 = phi i64 [ %.31064, %69 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -538,7 +538,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.4 = phi ptr [ %.3, %69 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %80 = getelementptr inbounds i8, ptr %.3805, i64 -992
   %81 = load i64, ptr %80, align 8, !tbaa !19
-  %82 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.61660, i64 %81)
+  %82 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.51659, i64 %81)
   %83 = getelementptr inbounds i8, ptr %.3676, i64 -992
   %84 = load i64, ptr %83, align 8, !tbaa !19
   %85 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.31194, i64 %84)
@@ -548,7 +548,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %89
 
 89:                                               ; preds = %79, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.71661 = phi i64 [ %82, %79 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.61660 = phi i64 [ %82, %79 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.41324 = phi i64 [ %88, %79 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.41195 = phi i64 [ %85, %79 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.51066 = phi i64 [ %.41065, %79 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -558,7 +558,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.5 = phi ptr [ %.4, %79 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %90 = getelementptr inbounds i8, ptr %.4806, i64 -984
   %91 = load i64, ptr %90, align 8, !tbaa !19
-  %92 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.71661, i64 %91)
+  %92 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.61660, i64 %91)
   %93 = getelementptr inbounds i8, ptr %.4677, i64 -984
   %94 = load i64, ptr %93, align 8, !tbaa !19
   %95 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.41195, i64 %94)
@@ -568,7 +568,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %99
 
 99:                                               ; preds = %89, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.81662 = phi i64 [ %92, %89 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.71661 = phi i64 [ %92, %89 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.51325 = phi i64 [ %98, %89 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.51196 = phi i64 [ %95, %89 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.61067 = phi i64 [ %.51066, %89 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -578,7 +578,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.6 = phi ptr [ %.5, %89 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %100 = getelementptr inbounds i8, ptr %.5807, i64 -976
   %101 = load i64, ptr %100, align 8, !tbaa !19
-  %102 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.81662, i64 %101)
+  %102 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.71661, i64 %101)
   %103 = getelementptr inbounds i8, ptr %.5678, i64 -976
   %104 = load i64, ptr %103, align 8, !tbaa !19
   %105 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.51196, i64 %104)
@@ -588,7 +588,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %109
 
 109:                                              ; preds = %99, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.91663 = phi i64 [ %102, %99 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.81662 = phi i64 [ %102, %99 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.61326 = phi i64 [ %108, %99 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.61197 = phi i64 [ %105, %99 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.71068 = phi i64 [ %.61067, %99 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -598,7 +598,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.7 = phi ptr [ %.6, %99 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %110 = getelementptr inbounds i8, ptr %.6808, i64 -968
   %111 = load i64, ptr %110, align 8, !tbaa !19
-  %112 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.91663, i64 %111)
+  %112 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.81662, i64 %111)
   %113 = getelementptr inbounds i8, ptr %.6679, i64 -968
   %114 = load i64, ptr %113, align 8, !tbaa !19
   %115 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.61197, i64 %114)
@@ -608,7 +608,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %119
 
 119:                                              ; preds = %109, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.101664 = phi i64 [ %112, %109 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.91663 = phi i64 [ %112, %109 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.71327 = phi i64 [ %118, %109 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.71198 = phi i64 [ %115, %109 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.81069 = phi i64 [ %.71068, %109 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -618,7 +618,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.8 = phi ptr [ %.7, %109 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %120 = getelementptr inbounds i8, ptr %.7809, i64 -960
   %121 = load i64, ptr %120, align 8, !tbaa !19
-  %122 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.101664, i64 %121)
+  %122 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.91663, i64 %121)
   %123 = getelementptr inbounds i8, ptr %.7680, i64 -960
   %124 = load i64, ptr %123, align 8, !tbaa !19
   %125 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.71198, i64 %124)
@@ -628,7 +628,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %129
 
 129:                                              ; preds = %119, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.111665 = phi i64 [ %122, %119 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.101664 = phi i64 [ %122, %119 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.81328 = phi i64 [ %128, %119 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.81199 = phi i64 [ %125, %119 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.91070 = phi i64 [ %.81069, %119 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -638,7 +638,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.9 = phi ptr [ %.8, %119 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %130 = getelementptr inbounds i8, ptr %.8810, i64 -952
   %131 = load i64, ptr %130, align 8, !tbaa !19
-  %132 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.111665, i64 %131)
+  %132 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.101664, i64 %131)
   %133 = getelementptr inbounds i8, ptr %.8681, i64 -952
   %134 = load i64, ptr %133, align 8, !tbaa !19
   %135 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.81199, i64 %134)
@@ -648,7 +648,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %139
 
 139:                                              ; preds = %129, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.121666 = phi i64 [ %132, %129 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.111665 = phi i64 [ %132, %129 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.91329 = phi i64 [ %138, %129 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.91200 = phi i64 [ %135, %129 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.101071 = phi i64 [ %.91070, %129 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -658,7 +658,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.10 = phi ptr [ %.9, %129 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %140 = getelementptr inbounds i8, ptr %.9811, i64 -944
   %141 = load i64, ptr %140, align 8, !tbaa !19
-  %142 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.121666, i64 %141)
+  %142 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.111665, i64 %141)
   %143 = getelementptr inbounds i8, ptr %.9682, i64 -944
   %144 = load i64, ptr %143, align 8, !tbaa !19
   %145 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.91200, i64 %144)
@@ -668,7 +668,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %149
 
 149:                                              ; preds = %139, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.131667 = phi i64 [ %142, %139 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.121666 = phi i64 [ %142, %139 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.101330 = phi i64 [ %148, %139 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.101201 = phi i64 [ %145, %139 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.111072 = phi i64 [ %.101071, %139 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -678,7 +678,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.11 = phi ptr [ %.10, %139 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %150 = getelementptr inbounds i8, ptr %.10812, i64 -936
   %151 = load i64, ptr %150, align 8, !tbaa !19
-  %152 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.131667, i64 %151)
+  %152 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.121666, i64 %151)
   %153 = getelementptr inbounds i8, ptr %.10683, i64 -936
   %154 = load i64, ptr %153, align 8, !tbaa !19
   %155 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.101201, i64 %154)
@@ -688,7 +688,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %159
 
 159:                                              ; preds = %149, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.141668 = phi i64 [ %152, %149 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.131667 = phi i64 [ %152, %149 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.111331 = phi i64 [ %158, %149 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.111202 = phi i64 [ %155, %149 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.121073 = phi i64 [ %.111072, %149 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -698,7 +698,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.12 = phi ptr [ %.11, %149 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %160 = getelementptr inbounds i8, ptr %.11813, i64 -928
   %161 = load i64, ptr %160, align 8, !tbaa !19
-  %162 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.141668, i64 %161)
+  %162 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.131667, i64 %161)
   %163 = getelementptr inbounds i8, ptr %.11684, i64 -928
   %164 = load i64, ptr %163, align 8, !tbaa !19
   %165 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.111202, i64 %164)
@@ -708,7 +708,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %169
 
 169:                                              ; preds = %159, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.151669 = phi i64 [ %162, %159 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.141668 = phi i64 [ %162, %159 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.121332 = phi i64 [ %168, %159 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.121203 = phi i64 [ %165, %159 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.131074 = phi i64 [ %.121073, %159 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -718,7 +718,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.13 = phi ptr [ %.12, %159 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %170 = getelementptr inbounds i8, ptr %.12814, i64 -920
   %171 = load i64, ptr %170, align 8, !tbaa !19
-  %172 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.151669, i64 %171)
+  %172 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.141668, i64 %171)
   %173 = getelementptr inbounds i8, ptr %.12685, i64 -920
   %174 = load i64, ptr %173, align 8, !tbaa !19
   %175 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.121203, i64 %174)
@@ -728,7 +728,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %179
 
 179:                                              ; preds = %169, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.161670 = phi i64 [ %172, %169 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.151669 = phi i64 [ %172, %169 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.131333 = phi i64 [ %178, %169 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.131204 = phi i64 [ %175, %169 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.141075 = phi i64 [ %.131074, %169 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -738,7 +738,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.14 = phi ptr [ %.13, %169 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %180 = getelementptr inbounds i8, ptr %.13815, i64 -912
   %181 = load i64, ptr %180, align 8, !tbaa !19
-  %182 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.161670, i64 %181)
+  %182 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.151669, i64 %181)
   %183 = getelementptr inbounds i8, ptr %.13686, i64 -912
   %184 = load i64, ptr %183, align 8, !tbaa !19
   %185 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.131204, i64 %184)
@@ -748,7 +748,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %189
 
 189:                                              ; preds = %179, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.171671 = phi i64 [ %182, %179 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.161670 = phi i64 [ %182, %179 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.141334 = phi i64 [ %188, %179 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.141205 = phi i64 [ %185, %179 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.151076 = phi i64 [ %.141075, %179 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -758,7 +758,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.15 = phi ptr [ %.14, %179 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %190 = getelementptr inbounds i8, ptr %.14816, i64 -904
   %191 = load i64, ptr %190, align 8, !tbaa !19
-  %192 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.171671, i64 %191)
+  %192 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.161670, i64 %191)
   %193 = getelementptr inbounds i8, ptr %.14687, i64 -904
   %194 = load i64, ptr %193, align 8, !tbaa !19
   %195 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.141205, i64 %194)
@@ -768,7 +768,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %199
 
 199:                                              ; preds = %189, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.181672 = phi i64 [ %192, %189 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.171671 = phi i64 [ %192, %189 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.151335 = phi i64 [ %198, %189 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.151206 = phi i64 [ %195, %189 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.161077 = phi i64 [ %.151076, %189 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -778,7 +778,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.16 = phi ptr [ %.15, %189 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %200 = getelementptr inbounds i8, ptr %.15817, i64 -896
   %201 = load i64, ptr %200, align 8, !tbaa !19
-  %202 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.181672, i64 %201)
+  %202 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.171671, i64 %201)
   %203 = getelementptr inbounds i8, ptr %.15688, i64 -896
   %204 = load i64, ptr %203, align 8, !tbaa !19
   %205 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.151206, i64 %204)
@@ -788,7 +788,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %209
 
 209:                                              ; preds = %199, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.191673 = phi i64 [ %202, %199 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.181672 = phi i64 [ %202, %199 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.161336 = phi i64 [ %208, %199 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.161207 = phi i64 [ %205, %199 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.171078 = phi i64 [ %.161077, %199 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -798,7 +798,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.17 = phi ptr [ %.16, %199 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %210 = getelementptr inbounds i8, ptr %.16818, i64 -888
   %211 = load i64, ptr %210, align 8, !tbaa !19
-  %212 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.191673, i64 %211)
+  %212 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.181672, i64 %211)
   %213 = getelementptr inbounds i8, ptr %.16689, i64 -888
   %214 = load i64, ptr %213, align 8, !tbaa !19
   %215 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.161207, i64 %214)
@@ -808,7 +808,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %219
 
 219:                                              ; preds = %209, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.201674 = phi i64 [ %212, %209 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.191673 = phi i64 [ %212, %209 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.171337 = phi i64 [ %218, %209 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.171208 = phi i64 [ %215, %209 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.181079 = phi i64 [ %.171078, %209 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -818,7 +818,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.18 = phi ptr [ %.17, %209 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %220 = getelementptr inbounds i8, ptr %.17819, i64 -880
   %221 = load i64, ptr %220, align 8, !tbaa !19
-  %222 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.201674, i64 %221)
+  %222 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.191673, i64 %221)
   %223 = getelementptr inbounds i8, ptr %.17690, i64 -880
   %224 = load i64, ptr %223, align 8, !tbaa !19
   %225 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.171208, i64 %224)
@@ -828,7 +828,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %229
 
 229:                                              ; preds = %219, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.211675 = phi i64 [ %222, %219 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.201674 = phi i64 [ %222, %219 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.181338 = phi i64 [ %228, %219 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.181209 = phi i64 [ %225, %219 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.191080 = phi i64 [ %.181079, %219 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -838,7 +838,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.19 = phi ptr [ %.18, %219 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %230 = getelementptr inbounds i8, ptr %.18820, i64 -872
   %231 = load i64, ptr %230, align 8, !tbaa !19
-  %232 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.211675, i64 %231)
+  %232 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.201674, i64 %231)
   %233 = getelementptr inbounds i8, ptr %.18691, i64 -872
   %234 = load i64, ptr %233, align 8, !tbaa !19
   %235 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.181209, i64 %234)
@@ -848,7 +848,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %239
 
 239:                                              ; preds = %229, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.221676 = phi i64 [ %232, %229 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.211675 = phi i64 [ %232, %229 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.191339 = phi i64 [ %238, %229 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.191210 = phi i64 [ %235, %229 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.201081 = phi i64 [ %.191080, %229 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -858,7 +858,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.20 = phi ptr [ %.19, %229 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %240 = getelementptr inbounds i8, ptr %.19821, i64 -864
   %241 = load i64, ptr %240, align 8, !tbaa !19
-  %242 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.221676, i64 %241)
+  %242 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.211675, i64 %241)
   %243 = getelementptr inbounds i8, ptr %.19692, i64 -864
   %244 = load i64, ptr %243, align 8, !tbaa !19
   %245 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.191210, i64 %244)
@@ -868,7 +868,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %249
 
 249:                                              ; preds = %239, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.231677 = phi i64 [ %242, %239 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.221676 = phi i64 [ %242, %239 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.201340 = phi i64 [ %248, %239 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.201211 = phi i64 [ %245, %239 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.211082 = phi i64 [ %.201081, %239 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -878,7 +878,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.21 = phi ptr [ %.20, %239 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %250 = getelementptr inbounds i8, ptr %.20822, i64 -856
   %251 = load i64, ptr %250, align 8, !tbaa !19
-  %252 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.231677, i64 %251)
+  %252 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.221676, i64 %251)
   %253 = getelementptr inbounds i8, ptr %.20693, i64 -856
   %254 = load i64, ptr %253, align 8, !tbaa !19
   %255 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.201211, i64 %254)
@@ -888,7 +888,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %259
 
 259:                                              ; preds = %249, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.241678 = phi i64 [ %252, %249 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.231677 = phi i64 [ %252, %249 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.211341 = phi i64 [ %258, %249 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.211212 = phi i64 [ %255, %249 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.221083 = phi i64 [ %.211082, %249 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -898,7 +898,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.22 = phi ptr [ %.21, %249 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %260 = getelementptr inbounds i8, ptr %.21823, i64 -848
   %261 = load i64, ptr %260, align 8, !tbaa !19
-  %262 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.241678, i64 %261)
+  %262 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.231677, i64 %261)
   %263 = getelementptr inbounds i8, ptr %.21694, i64 -848
   %264 = load i64, ptr %263, align 8, !tbaa !19
   %265 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.211212, i64 %264)
@@ -908,7 +908,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %269
 
 269:                                              ; preds = %259, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.251679 = phi i64 [ %262, %259 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.241678 = phi i64 [ %262, %259 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.221342 = phi i64 [ %268, %259 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.221213 = phi i64 [ %265, %259 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.231084 = phi i64 [ %.221083, %259 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -918,7 +918,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.23 = phi ptr [ %.22, %259 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %270 = getelementptr inbounds i8, ptr %.22824, i64 -840
   %271 = load i64, ptr %270, align 8, !tbaa !19
-  %272 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.251679, i64 %271)
+  %272 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.241678, i64 %271)
   %273 = getelementptr inbounds i8, ptr %.22695, i64 -840
   %274 = load i64, ptr %273, align 8, !tbaa !19
   %275 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.221213, i64 %274)
@@ -928,7 +928,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %279
 
 279:                                              ; preds = %269, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.261680 = phi i64 [ %272, %269 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.251679 = phi i64 [ %272, %269 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.231343 = phi i64 [ %278, %269 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.231214 = phi i64 [ %275, %269 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.241085 = phi i64 [ %.231084, %269 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -938,7 +938,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.24 = phi ptr [ %.23, %269 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %280 = getelementptr inbounds i8, ptr %.23825, i64 -832
   %281 = load i64, ptr %280, align 8, !tbaa !19
-  %282 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.261680, i64 %281)
+  %282 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.251679, i64 %281)
   %283 = getelementptr inbounds i8, ptr %.23696, i64 -832
   %284 = load i64, ptr %283, align 8, !tbaa !19
   %285 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.231214, i64 %284)
@@ -948,7 +948,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %289
 
 289:                                              ; preds = %279, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.271681 = phi i64 [ %282, %279 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.261680 = phi i64 [ %282, %279 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.241344 = phi i64 [ %288, %279 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.241215 = phi i64 [ %285, %279 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.251086 = phi i64 [ %.241085, %279 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -958,7 +958,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.25 = phi ptr [ %.24, %279 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %290 = getelementptr inbounds i8, ptr %.24826, i64 -824
   %291 = load i64, ptr %290, align 8, !tbaa !19
-  %292 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.271681, i64 %291)
+  %292 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.261680, i64 %291)
   %293 = getelementptr inbounds i8, ptr %.24697, i64 -824
   %294 = load i64, ptr %293, align 8, !tbaa !19
   %295 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.241215, i64 %294)
@@ -968,7 +968,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %299
 
 299:                                              ; preds = %289, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.281682 = phi i64 [ %292, %289 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.271681 = phi i64 [ %292, %289 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.251345 = phi i64 [ %298, %289 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.251216 = phi i64 [ %295, %289 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.261087 = phi i64 [ %.251086, %289 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -978,7 +978,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.26 = phi ptr [ %.25, %289 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %300 = getelementptr inbounds i8, ptr %.25827, i64 -816
   %301 = load i64, ptr %300, align 8, !tbaa !19
-  %302 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.281682, i64 %301)
+  %302 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.271681, i64 %301)
   %303 = getelementptr inbounds i8, ptr %.25698, i64 -816
   %304 = load i64, ptr %303, align 8, !tbaa !19
   %305 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.251216, i64 %304)
@@ -988,7 +988,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %309
 
 309:                                              ; preds = %299, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.291683 = phi i64 [ %302, %299 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.281682 = phi i64 [ %302, %299 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.261346 = phi i64 [ %308, %299 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.261217 = phi i64 [ %305, %299 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.271088 = phi i64 [ %.261087, %299 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -998,7 +998,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.27 = phi ptr [ %.26, %299 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %310 = getelementptr inbounds i8, ptr %.26828, i64 -808
   %311 = load i64, ptr %310, align 8, !tbaa !19
-  %312 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.291683, i64 %311)
+  %312 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.281682, i64 %311)
   %313 = getelementptr inbounds i8, ptr %.26699, i64 -808
   %314 = load i64, ptr %313, align 8, !tbaa !19
   %315 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.261217, i64 %314)
@@ -1008,7 +1008,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %319
 
 319:                                              ; preds = %309, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.301684 = phi i64 [ %312, %309 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.291683 = phi i64 [ %312, %309 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.271347 = phi i64 [ %318, %309 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.271218 = phi i64 [ %315, %309 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.281089 = phi i64 [ %.271088, %309 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1018,7 +1018,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.28 = phi ptr [ %.27, %309 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %320 = getelementptr inbounds i8, ptr %.27829, i64 -800
   %321 = load i64, ptr %320, align 8, !tbaa !19
-  %322 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.301684, i64 %321)
+  %322 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.291683, i64 %321)
   %323 = getelementptr inbounds i8, ptr %.27700, i64 -800
   %324 = load i64, ptr %323, align 8, !tbaa !19
   %325 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.271218, i64 %324)
@@ -1028,7 +1028,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %329
 
 329:                                              ; preds = %319, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.311685 = phi i64 [ %322, %319 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.301684 = phi i64 [ %322, %319 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.281348 = phi i64 [ %328, %319 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.281219 = phi i64 [ %325, %319 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.291090 = phi i64 [ %.281089, %319 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1038,7 +1038,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.29 = phi ptr [ %.28, %319 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %330 = getelementptr inbounds i8, ptr %.28830, i64 -792
   %331 = load i64, ptr %330, align 8, !tbaa !19
-  %332 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.311685, i64 %331)
+  %332 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.301684, i64 %331)
   %333 = getelementptr inbounds i8, ptr %.28701, i64 -792
   %334 = load i64, ptr %333, align 8, !tbaa !19
   %335 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.281219, i64 %334)
@@ -1048,7 +1048,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %339
 
 339:                                              ; preds = %329, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.321686 = phi i64 [ %332, %329 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.311685 = phi i64 [ %332, %329 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.291349 = phi i64 [ %338, %329 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.291220 = phi i64 [ %335, %329 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.301091 = phi i64 [ %.291090, %329 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1058,7 +1058,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.30 = phi ptr [ %.29, %329 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %340 = getelementptr inbounds i8, ptr %.29831, i64 -784
   %341 = load i64, ptr %340, align 8, !tbaa !19
-  %342 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.321686, i64 %341)
+  %342 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.311685, i64 %341)
   %343 = getelementptr inbounds i8, ptr %.29702, i64 -784
   %344 = load i64, ptr %343, align 8, !tbaa !19
   %345 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.291220, i64 %344)
@@ -1068,7 +1068,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %349
 
 349:                                              ; preds = %339, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.331687 = phi i64 [ %342, %339 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.321686 = phi i64 [ %342, %339 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.301350 = phi i64 [ %348, %339 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.301221 = phi i64 [ %345, %339 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.311092 = phi i64 [ %.301091, %339 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1078,7 +1078,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.31 = phi ptr [ %.30, %339 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %350 = getelementptr inbounds i8, ptr %.30832, i64 -776
   %351 = load i64, ptr %350, align 8, !tbaa !19
-  %352 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.331687, i64 %351)
+  %352 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.321686, i64 %351)
   %353 = getelementptr inbounds i8, ptr %.30703, i64 -776
   %354 = load i64, ptr %353, align 8, !tbaa !19
   %355 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.301221, i64 %354)
@@ -1088,7 +1088,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %359
 
 359:                                              ; preds = %349, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.341688 = phi i64 [ %352, %349 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.331687 = phi i64 [ %352, %349 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.311351 = phi i64 [ %358, %349 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.311222 = phi i64 [ %355, %349 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.321093 = phi i64 [ %.311092, %349 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1098,7 +1098,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.32 = phi ptr [ %.31, %349 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %360 = getelementptr inbounds i8, ptr %.31833, i64 -768
   %361 = load i64, ptr %360, align 8, !tbaa !19
-  %362 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.341688, i64 %361)
+  %362 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.331687, i64 %361)
   %363 = getelementptr inbounds i8, ptr %.31704, i64 -768
   %364 = load i64, ptr %363, align 8, !tbaa !19
   %365 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.311222, i64 %364)
@@ -1108,7 +1108,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %369
 
 369:                                              ; preds = %359, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.351689 = phi i64 [ %362, %359 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.341688 = phi i64 [ %362, %359 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.321352 = phi i64 [ %368, %359 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.321223 = phi i64 [ %365, %359 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.331094 = phi i64 [ %.321093, %359 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1118,7 +1118,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.33 = phi ptr [ %.32, %359 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %370 = getelementptr inbounds i8, ptr %.32834, i64 -760
   %371 = load i64, ptr %370, align 8, !tbaa !19
-  %372 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.351689, i64 %371)
+  %372 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.341688, i64 %371)
   %373 = getelementptr inbounds i8, ptr %.32705, i64 -760
   %374 = load i64, ptr %373, align 8, !tbaa !19
   %375 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.321223, i64 %374)
@@ -1128,7 +1128,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %379
 
 379:                                              ; preds = %369, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.361690 = phi i64 [ %372, %369 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.351689 = phi i64 [ %372, %369 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.331353 = phi i64 [ %378, %369 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.331224 = phi i64 [ %375, %369 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.341095 = phi i64 [ %.331094, %369 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1138,7 +1138,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.34 = phi ptr [ %.33, %369 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %380 = getelementptr inbounds i8, ptr %.33835, i64 -752
   %381 = load i64, ptr %380, align 8, !tbaa !19
-  %382 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.361690, i64 %381)
+  %382 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.351689, i64 %381)
   %383 = getelementptr inbounds i8, ptr %.33706, i64 -752
   %384 = load i64, ptr %383, align 8, !tbaa !19
   %385 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.331224, i64 %384)
@@ -1148,7 +1148,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %389
 
 389:                                              ; preds = %379, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.371691 = phi i64 [ %382, %379 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.361690 = phi i64 [ %382, %379 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.341354 = phi i64 [ %388, %379 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.341225 = phi i64 [ %385, %379 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.351096 = phi i64 [ %.341095, %379 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1158,7 +1158,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.35 = phi ptr [ %.34, %379 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %390 = getelementptr inbounds i8, ptr %.34836, i64 -744
   %391 = load i64, ptr %390, align 8, !tbaa !19
-  %392 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.371691, i64 %391)
+  %392 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.361690, i64 %391)
   %393 = getelementptr inbounds i8, ptr %.34707, i64 -744
   %394 = load i64, ptr %393, align 8, !tbaa !19
   %395 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.341225, i64 %394)
@@ -1168,7 +1168,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %399
 
 399:                                              ; preds = %389, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.381692 = phi i64 [ %392, %389 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.371691 = phi i64 [ %392, %389 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.351355 = phi i64 [ %398, %389 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.351226 = phi i64 [ %395, %389 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.361097 = phi i64 [ %.351096, %389 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1178,7 +1178,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.36 = phi ptr [ %.35, %389 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %400 = getelementptr inbounds i8, ptr %.35837, i64 -736
   %401 = load i64, ptr %400, align 8, !tbaa !19
-  %402 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.381692, i64 %401)
+  %402 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.371691, i64 %401)
   %403 = getelementptr inbounds i8, ptr %.35708, i64 -736
   %404 = load i64, ptr %403, align 8, !tbaa !19
   %405 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.351226, i64 %404)
@@ -1188,7 +1188,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %409
 
 409:                                              ; preds = %399, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.391693 = phi i64 [ %402, %399 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.381692 = phi i64 [ %402, %399 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.361356 = phi i64 [ %408, %399 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.361227 = phi i64 [ %405, %399 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.371098 = phi i64 [ %.361097, %399 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1198,7 +1198,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.37 = phi ptr [ %.36, %399 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %410 = getelementptr inbounds i8, ptr %.36838, i64 -728
   %411 = load i64, ptr %410, align 8, !tbaa !19
-  %412 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.391693, i64 %411)
+  %412 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.381692, i64 %411)
   %413 = getelementptr inbounds i8, ptr %.36709, i64 -728
   %414 = load i64, ptr %413, align 8, !tbaa !19
   %415 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.361227, i64 %414)
@@ -1208,7 +1208,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %419
 
 419:                                              ; preds = %409, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.401694 = phi i64 [ %412, %409 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.391693 = phi i64 [ %412, %409 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.371357 = phi i64 [ %418, %409 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.371228 = phi i64 [ %415, %409 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.381099 = phi i64 [ %.371098, %409 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1218,7 +1218,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.38 = phi ptr [ %.37, %409 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %420 = getelementptr inbounds i8, ptr %.37839, i64 -720
   %421 = load i64, ptr %420, align 8, !tbaa !19
-  %422 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.401694, i64 %421)
+  %422 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.391693, i64 %421)
   %423 = getelementptr inbounds i8, ptr %.37710, i64 -720
   %424 = load i64, ptr %423, align 8, !tbaa !19
   %425 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.371228, i64 %424)
@@ -1228,7 +1228,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %429
 
 429:                                              ; preds = %419, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.411695 = phi i64 [ %422, %419 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.401694 = phi i64 [ %422, %419 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.381358 = phi i64 [ %428, %419 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.381229 = phi i64 [ %425, %419 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.391100 = phi i64 [ %.381099, %419 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1238,7 +1238,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.39 = phi ptr [ %.38, %419 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %430 = getelementptr inbounds i8, ptr %.38840, i64 -712
   %431 = load i64, ptr %430, align 8, !tbaa !19
-  %432 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.411695, i64 %431)
+  %432 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.401694, i64 %431)
   %433 = getelementptr inbounds i8, ptr %.38711, i64 -712
   %434 = load i64, ptr %433, align 8, !tbaa !19
   %435 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.381229, i64 %434)
@@ -1248,7 +1248,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %439
 
 439:                                              ; preds = %429, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.421696 = phi i64 [ %432, %429 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.411695 = phi i64 [ %432, %429 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.391359 = phi i64 [ %438, %429 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.391230 = phi i64 [ %435, %429 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.401101 = phi i64 [ %.391100, %429 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1258,7 +1258,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.40 = phi ptr [ %.39, %429 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %440 = getelementptr inbounds i8, ptr %.39841, i64 -704
   %441 = load i64, ptr %440, align 8, !tbaa !19
-  %442 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.421696, i64 %441)
+  %442 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.411695, i64 %441)
   %443 = getelementptr inbounds i8, ptr %.39712, i64 -704
   %444 = load i64, ptr %443, align 8, !tbaa !19
   %445 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.391230, i64 %444)
@@ -1268,7 +1268,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %449
 
 449:                                              ; preds = %439, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.431697 = phi i64 [ %442, %439 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.421696 = phi i64 [ %442, %439 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.401360 = phi i64 [ %448, %439 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.401231 = phi i64 [ %445, %439 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.411102 = phi i64 [ %.401101, %439 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1278,7 +1278,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.41 = phi ptr [ %.40, %439 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %450 = getelementptr inbounds i8, ptr %.40842, i64 -696
   %451 = load i64, ptr %450, align 8, !tbaa !19
-  %452 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.431697, i64 %451)
+  %452 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.421696, i64 %451)
   %453 = getelementptr inbounds i8, ptr %.40713, i64 -696
   %454 = load i64, ptr %453, align 8, !tbaa !19
   %455 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.401231, i64 %454)
@@ -1288,7 +1288,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %459
 
 459:                                              ; preds = %449, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.441698 = phi i64 [ %452, %449 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.431697 = phi i64 [ %452, %449 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.411361 = phi i64 [ %458, %449 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.411232 = phi i64 [ %455, %449 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.421103 = phi i64 [ %.411102, %449 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1298,7 +1298,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.42 = phi ptr [ %.41, %449 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %460 = getelementptr inbounds i8, ptr %.41843, i64 -688
   %461 = load i64, ptr %460, align 8, !tbaa !19
-  %462 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.441698, i64 %461)
+  %462 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.431697, i64 %461)
   %463 = getelementptr inbounds i8, ptr %.41714, i64 -688
   %464 = load i64, ptr %463, align 8, !tbaa !19
   %465 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.411232, i64 %464)
@@ -1308,7 +1308,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %469
 
 469:                                              ; preds = %459, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.451699 = phi i64 [ %462, %459 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.441698 = phi i64 [ %462, %459 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.421362 = phi i64 [ %468, %459 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.421233 = phi i64 [ %465, %459 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.431104 = phi i64 [ %.421103, %459 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1318,7 +1318,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.43 = phi ptr [ %.42, %459 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %470 = getelementptr inbounds i8, ptr %.42844, i64 -680
   %471 = load i64, ptr %470, align 8, !tbaa !19
-  %472 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.451699, i64 %471)
+  %472 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.441698, i64 %471)
   %473 = getelementptr inbounds i8, ptr %.42715, i64 -680
   %474 = load i64, ptr %473, align 8, !tbaa !19
   %475 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.421233, i64 %474)
@@ -1328,7 +1328,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %479
 
 479:                                              ; preds = %469, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.461700 = phi i64 [ %472, %469 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.451699 = phi i64 [ %472, %469 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.431363 = phi i64 [ %478, %469 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.431234 = phi i64 [ %475, %469 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.441105 = phi i64 [ %.431104, %469 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1338,7 +1338,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.44 = phi ptr [ %.43, %469 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %480 = getelementptr inbounds i8, ptr %.43845, i64 -672
   %481 = load i64, ptr %480, align 8, !tbaa !19
-  %482 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.461700, i64 %481)
+  %482 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.451699, i64 %481)
   %483 = getelementptr inbounds i8, ptr %.43716, i64 -672
   %484 = load i64, ptr %483, align 8, !tbaa !19
   %485 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.431234, i64 %484)
@@ -1348,7 +1348,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %489
 
 489:                                              ; preds = %479, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.471701 = phi i64 [ %482, %479 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.461700 = phi i64 [ %482, %479 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.441364 = phi i64 [ %488, %479 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.441235 = phi i64 [ %485, %479 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.451106 = phi i64 [ %.441105, %479 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1358,7 +1358,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.45 = phi ptr [ %.44, %479 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %490 = getelementptr inbounds i8, ptr %.44846, i64 -664
   %491 = load i64, ptr %490, align 8, !tbaa !19
-  %492 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.471701, i64 %491)
+  %492 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.461700, i64 %491)
   %493 = getelementptr inbounds i8, ptr %.44717, i64 -664
   %494 = load i64, ptr %493, align 8, !tbaa !19
   %495 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.441235, i64 %494)
@@ -1368,7 +1368,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %499
 
 499:                                              ; preds = %489, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.481702 = phi i64 [ %492, %489 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.471701 = phi i64 [ %492, %489 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.451365 = phi i64 [ %498, %489 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.451236 = phi i64 [ %495, %489 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.461107 = phi i64 [ %.451106, %489 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1378,7 +1378,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.46 = phi ptr [ %.45, %489 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %500 = getelementptr inbounds i8, ptr %.45847, i64 -656
   %501 = load i64, ptr %500, align 8, !tbaa !19
-  %502 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.481702, i64 %501)
+  %502 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.471701, i64 %501)
   %503 = getelementptr inbounds i8, ptr %.45718, i64 -656
   %504 = load i64, ptr %503, align 8, !tbaa !19
   %505 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.451236, i64 %504)
@@ -1388,7 +1388,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %509
 
 509:                                              ; preds = %499, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.491703 = phi i64 [ %502, %499 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.481702 = phi i64 [ %502, %499 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.461366 = phi i64 [ %508, %499 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.461237 = phi i64 [ %505, %499 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.471108 = phi i64 [ %.461107, %499 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1398,7 +1398,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.47 = phi ptr [ %.46, %499 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %510 = getelementptr inbounds i8, ptr %.46848, i64 -648
   %511 = load i64, ptr %510, align 8, !tbaa !19
-  %512 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.491703, i64 %511)
+  %512 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.481702, i64 %511)
   %513 = getelementptr inbounds i8, ptr %.46719, i64 -648
   %514 = load i64, ptr %513, align 8, !tbaa !19
   %515 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.461237, i64 %514)
@@ -1408,7 +1408,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %519
 
 519:                                              ; preds = %509, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.501704 = phi i64 [ %512, %509 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.491703 = phi i64 [ %512, %509 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.471367 = phi i64 [ %518, %509 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.471238 = phi i64 [ %515, %509 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.481109 = phi i64 [ %.471108, %509 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1418,7 +1418,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.48 = phi ptr [ %.47, %509 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %520 = getelementptr inbounds i8, ptr %.47849, i64 -640
   %521 = load i64, ptr %520, align 8, !tbaa !19
-  %522 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.501704, i64 %521)
+  %522 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.491703, i64 %521)
   %523 = getelementptr inbounds i8, ptr %.47720, i64 -640
   %524 = load i64, ptr %523, align 8, !tbaa !19
   %525 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.471238, i64 %524)
@@ -1428,7 +1428,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %529
 
 529:                                              ; preds = %519, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.511705 = phi i64 [ %522, %519 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.501704 = phi i64 [ %522, %519 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.481368 = phi i64 [ %528, %519 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.481239 = phi i64 [ %525, %519 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.491110 = phi i64 [ %.481109, %519 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1438,7 +1438,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.49 = phi ptr [ %.48, %519 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %530 = getelementptr inbounds i8, ptr %.48850, i64 -632
   %531 = load i64, ptr %530, align 8, !tbaa !19
-  %532 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.511705, i64 %531)
+  %532 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.501704, i64 %531)
   %533 = getelementptr inbounds i8, ptr %.48721, i64 -632
   %534 = load i64, ptr %533, align 8, !tbaa !19
   %535 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.481239, i64 %534)
@@ -1448,7 +1448,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %539
 
 539:                                              ; preds = %529, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.521706 = phi i64 [ %532, %529 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.511705 = phi i64 [ %532, %529 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.491369 = phi i64 [ %538, %529 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.491240 = phi i64 [ %535, %529 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.501111 = phi i64 [ %.491110, %529 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1458,7 +1458,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.50 = phi ptr [ %.49, %529 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %540 = getelementptr inbounds i8, ptr %.49851, i64 -624
   %541 = load i64, ptr %540, align 8, !tbaa !19
-  %542 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.521706, i64 %541)
+  %542 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.511705, i64 %541)
   %543 = getelementptr inbounds i8, ptr %.49722, i64 -624
   %544 = load i64, ptr %543, align 8, !tbaa !19
   %545 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.491240, i64 %544)
@@ -1468,7 +1468,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %549
 
 549:                                              ; preds = %539, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.531707 = phi i64 [ %542, %539 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.521706 = phi i64 [ %542, %539 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.501370 = phi i64 [ %548, %539 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.501241 = phi i64 [ %545, %539 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.511112 = phi i64 [ %.501111, %539 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1478,7 +1478,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.51 = phi ptr [ %.50, %539 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %550 = getelementptr inbounds i8, ptr %.50852, i64 -616
   %551 = load i64, ptr %550, align 8, !tbaa !19
-  %552 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.531707, i64 %551)
+  %552 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.521706, i64 %551)
   %553 = getelementptr inbounds i8, ptr %.50723, i64 -616
   %554 = load i64, ptr %553, align 8, !tbaa !19
   %555 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.501241, i64 %554)
@@ -1488,7 +1488,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %559
 
 559:                                              ; preds = %549, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.541708 = phi i64 [ %552, %549 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.531707 = phi i64 [ %552, %549 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.511371 = phi i64 [ %558, %549 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.511242 = phi i64 [ %555, %549 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.521113 = phi i64 [ %.511112, %549 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1498,7 +1498,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.52 = phi ptr [ %.51, %549 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %560 = getelementptr inbounds i8, ptr %.51853, i64 -608
   %561 = load i64, ptr %560, align 8, !tbaa !19
-  %562 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.541708, i64 %561)
+  %562 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.531707, i64 %561)
   %563 = getelementptr inbounds i8, ptr %.51724, i64 -608
   %564 = load i64, ptr %563, align 8, !tbaa !19
   %565 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.511242, i64 %564)
@@ -1508,7 +1508,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %569
 
 569:                                              ; preds = %559, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.551709 = phi i64 [ %562, %559 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.541708 = phi i64 [ %562, %559 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.521372 = phi i64 [ %568, %559 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.521243 = phi i64 [ %565, %559 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.531114 = phi i64 [ %.521113, %559 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1518,7 +1518,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.53 = phi ptr [ %.52, %559 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %570 = getelementptr inbounds i8, ptr %.52854, i64 -600
   %571 = load i64, ptr %570, align 8, !tbaa !19
-  %572 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.551709, i64 %571)
+  %572 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.541708, i64 %571)
   %573 = getelementptr inbounds i8, ptr %.52725, i64 -600
   %574 = load i64, ptr %573, align 8, !tbaa !19
   %575 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.521243, i64 %574)
@@ -1528,7 +1528,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %579
 
 579:                                              ; preds = %569, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.561710 = phi i64 [ %572, %569 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.551709 = phi i64 [ %572, %569 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.531373 = phi i64 [ %578, %569 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.531244 = phi i64 [ %575, %569 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.541115 = phi i64 [ %.531114, %569 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1538,7 +1538,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.54 = phi ptr [ %.53, %569 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %580 = getelementptr inbounds i8, ptr %.53855, i64 -592
   %581 = load i64, ptr %580, align 8, !tbaa !19
-  %582 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.561710, i64 %581)
+  %582 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.551709, i64 %581)
   %583 = getelementptr inbounds i8, ptr %.53726, i64 -592
   %584 = load i64, ptr %583, align 8, !tbaa !19
   %585 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.531244, i64 %584)
@@ -1548,7 +1548,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %589
 
 589:                                              ; preds = %579, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.571711 = phi i64 [ %582, %579 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.561710 = phi i64 [ %582, %579 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.541374 = phi i64 [ %588, %579 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.541245 = phi i64 [ %585, %579 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.551116 = phi i64 [ %.541115, %579 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1558,7 +1558,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.55 = phi ptr [ %.54, %579 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %590 = getelementptr inbounds i8, ptr %.54856, i64 -584
   %591 = load i64, ptr %590, align 8, !tbaa !19
-  %592 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.571711, i64 %591)
+  %592 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.561710, i64 %591)
   %593 = getelementptr inbounds i8, ptr %.54727, i64 -584
   %594 = load i64, ptr %593, align 8, !tbaa !19
   %595 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.541245, i64 %594)
@@ -1568,7 +1568,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %599
 
 599:                                              ; preds = %589, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.581712 = phi i64 [ %592, %589 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.571711 = phi i64 [ %592, %589 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.551375 = phi i64 [ %598, %589 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.551246 = phi i64 [ %595, %589 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.561117 = phi i64 [ %.551116, %589 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1578,7 +1578,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.56 = phi ptr [ %.55, %589 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %600 = getelementptr inbounds i8, ptr %.55857, i64 -576
   %601 = load i64, ptr %600, align 8, !tbaa !19
-  %602 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.581712, i64 %601)
+  %602 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.571711, i64 %601)
   %603 = getelementptr inbounds i8, ptr %.55728, i64 -576
   %604 = load i64, ptr %603, align 8, !tbaa !19
   %605 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.551246, i64 %604)
@@ -1588,7 +1588,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %609
 
 609:                                              ; preds = %599, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.591713 = phi i64 [ %602, %599 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.581712 = phi i64 [ %602, %599 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.561376 = phi i64 [ %608, %599 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.561247 = phi i64 [ %605, %599 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.571118 = phi i64 [ %.561117, %599 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1598,7 +1598,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.57 = phi ptr [ %.56, %599 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %610 = getelementptr inbounds i8, ptr %.56858, i64 -568
   %611 = load i64, ptr %610, align 8, !tbaa !19
-  %612 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.591713, i64 %611)
+  %612 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.581712, i64 %611)
   %613 = getelementptr inbounds i8, ptr %.56729, i64 -568
   %614 = load i64, ptr %613, align 8, !tbaa !19
   %615 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.561247, i64 %614)
@@ -1608,7 +1608,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %619
 
 619:                                              ; preds = %609, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.601714 = phi i64 [ %612, %609 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.591713 = phi i64 [ %612, %609 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.571377 = phi i64 [ %618, %609 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.571248 = phi i64 [ %615, %609 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.581119 = phi i64 [ %.571118, %609 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1618,7 +1618,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.58 = phi ptr [ %.57, %609 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %620 = getelementptr inbounds i8, ptr %.57859, i64 -560
   %621 = load i64, ptr %620, align 8, !tbaa !19
-  %622 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.601714, i64 %621)
+  %622 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.591713, i64 %621)
   %623 = getelementptr inbounds i8, ptr %.57730, i64 -560
   %624 = load i64, ptr %623, align 8, !tbaa !19
   %625 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.571248, i64 %624)
@@ -1628,7 +1628,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %629
 
 629:                                              ; preds = %619, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.611715 = phi i64 [ %622, %619 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.601714 = phi i64 [ %622, %619 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.581378 = phi i64 [ %628, %619 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.581249 = phi i64 [ %625, %619 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.591120 = phi i64 [ %.581119, %619 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1638,7 +1638,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.59 = phi ptr [ %.58, %619 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %630 = getelementptr inbounds i8, ptr %.58860, i64 -552
   %631 = load i64, ptr %630, align 8, !tbaa !19
-  %632 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.611715, i64 %631)
+  %632 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.601714, i64 %631)
   %633 = getelementptr inbounds i8, ptr %.58731, i64 -552
   %634 = load i64, ptr %633, align 8, !tbaa !19
   %635 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.581249, i64 %634)
@@ -1648,7 +1648,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %639
 
 639:                                              ; preds = %629, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.621716 = phi i64 [ %632, %629 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.611715 = phi i64 [ %632, %629 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.591379 = phi i64 [ %638, %629 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.591250 = phi i64 [ %635, %629 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.601121 = phi i64 [ %.591120, %629 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1658,7 +1658,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.60 = phi ptr [ %.59, %629 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %640 = getelementptr inbounds i8, ptr %.59861, i64 -544
   %641 = load i64, ptr %640, align 8, !tbaa !19
-  %642 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.621716, i64 %641)
+  %642 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.611715, i64 %641)
   %643 = getelementptr inbounds i8, ptr %.59732, i64 -544
   %644 = load i64, ptr %643, align 8, !tbaa !19
   %645 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.591250, i64 %644)
@@ -1668,7 +1668,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %649
 
 649:                                              ; preds = %639, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.631717 = phi i64 [ %642, %639 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.621716 = phi i64 [ %642, %639 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.601380 = phi i64 [ %648, %639 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.601251 = phi i64 [ %645, %639 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.611122 = phi i64 [ %.601121, %639 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1678,7 +1678,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.61 = phi ptr [ %.60, %639 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %650 = getelementptr inbounds i8, ptr %.60862, i64 -536
   %651 = load i64, ptr %650, align 8, !tbaa !19
-  %652 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.631717, i64 %651)
+  %652 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.621716, i64 %651)
   %653 = getelementptr inbounds i8, ptr %.60733, i64 -536
   %654 = load i64, ptr %653, align 8, !tbaa !19
   %655 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.601251, i64 %654)
@@ -1688,7 +1688,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %659
 
 659:                                              ; preds = %649, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.641718 = phi i64 [ %652, %649 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.631717 = phi i64 [ %652, %649 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.611381 = phi i64 [ %658, %649 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.611252 = phi i64 [ %655, %649 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.621123 = phi i64 [ %.611122, %649 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1698,7 +1698,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.62 = phi ptr [ %.61, %649 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %660 = getelementptr inbounds i8, ptr %.61863, i64 -528
   %661 = load i64, ptr %660, align 8, !tbaa !19
-  %662 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.641718, i64 %661)
+  %662 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.631717, i64 %661)
   %663 = getelementptr inbounds i8, ptr %.61734, i64 -528
   %664 = load i64, ptr %663, align 8, !tbaa !19
   %665 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.611252, i64 %664)
@@ -1708,7 +1708,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %669
 
 669:                                              ; preds = %659, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.651719 = phi i64 [ %662, %659 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.641718 = phi i64 [ %662, %659 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.621382 = phi i64 [ %668, %659 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.621253 = phi i64 [ %665, %659 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.631124 = phi i64 [ %.621123, %659 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1718,7 +1718,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.63 = phi ptr [ %.62, %659 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %670 = getelementptr inbounds i8, ptr %.62864, i64 -520
   %671 = load i64, ptr %670, align 8, !tbaa !19
-  %672 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.651719, i64 %671)
+  %672 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.641718, i64 %671)
   %673 = getelementptr inbounds i8, ptr %.62735, i64 -520
   %674 = load i64, ptr %673, align 8, !tbaa !19
   %675 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.621253, i64 %674)
@@ -1728,7 +1728,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %679
 
 679:                                              ; preds = %669, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.661720 = phi i64 [ %672, %669 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.651719 = phi i64 [ %672, %669 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.631383 = phi i64 [ %678, %669 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.631254 = phi i64 [ %675, %669 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.641125 = phi i64 [ %.631124, %669 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1738,7 +1738,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.64 = phi ptr [ %.63, %669 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %680 = getelementptr inbounds i8, ptr %.63865, i64 -512
   %681 = load i64, ptr %680, align 8, !tbaa !19
-  %682 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.661720, i64 %681)
+  %682 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.651719, i64 %681)
   %683 = getelementptr inbounds i8, ptr %.63736, i64 -512
   %684 = load i64, ptr %683, align 8, !tbaa !19
   %685 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.631254, i64 %684)
@@ -1748,7 +1748,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %689
 
 689:                                              ; preds = %679, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.671721 = phi i64 [ %682, %679 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.661720 = phi i64 [ %682, %679 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.641384 = phi i64 [ %688, %679 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.641255 = phi i64 [ %685, %679 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.651126 = phi i64 [ %.641125, %679 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1758,7 +1758,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.65 = phi ptr [ %.64, %679 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %690 = getelementptr inbounds i8, ptr %.64866, i64 -504
   %691 = load i64, ptr %690, align 8, !tbaa !19
-  %692 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.671721, i64 %691)
+  %692 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.661720, i64 %691)
   %693 = getelementptr inbounds i8, ptr %.64737, i64 -504
   %694 = load i64, ptr %693, align 8, !tbaa !19
   %695 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.641255, i64 %694)
@@ -1768,7 +1768,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %699
 
 699:                                              ; preds = %689, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.681722 = phi i64 [ %692, %689 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.671721 = phi i64 [ %692, %689 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.651385 = phi i64 [ %698, %689 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.651256 = phi i64 [ %695, %689 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.661127 = phi i64 [ %.651126, %689 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1778,7 +1778,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.66 = phi ptr [ %.65, %689 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %700 = getelementptr inbounds i8, ptr %.65867, i64 -496
   %701 = load i64, ptr %700, align 8, !tbaa !19
-  %702 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.681722, i64 %701)
+  %702 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.671721, i64 %701)
   %703 = getelementptr inbounds i8, ptr %.65738, i64 -496
   %704 = load i64, ptr %703, align 8, !tbaa !19
   %705 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.651256, i64 %704)
@@ -1788,7 +1788,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %709
 
 709:                                              ; preds = %699, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.691723 = phi i64 [ %702, %699 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.681722 = phi i64 [ %702, %699 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.661386 = phi i64 [ %708, %699 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.661257 = phi i64 [ %705, %699 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.671128 = phi i64 [ %.661127, %699 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1798,7 +1798,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.67 = phi ptr [ %.66, %699 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %710 = getelementptr inbounds i8, ptr %.66868, i64 -488
   %711 = load i64, ptr %710, align 8, !tbaa !19
-  %712 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.691723, i64 %711)
+  %712 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.681722, i64 %711)
   %713 = getelementptr inbounds i8, ptr %.66739, i64 -488
   %714 = load i64, ptr %713, align 8, !tbaa !19
   %715 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.661257, i64 %714)
@@ -1808,7 +1808,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %719
 
 719:                                              ; preds = %709, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.701724 = phi i64 [ %712, %709 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.691723 = phi i64 [ %712, %709 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.671387 = phi i64 [ %718, %709 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.671258 = phi i64 [ %715, %709 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.681129 = phi i64 [ %.671128, %709 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1818,7 +1818,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.68 = phi ptr [ %.67, %709 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %720 = getelementptr inbounds i8, ptr %.67869, i64 -480
   %721 = load i64, ptr %720, align 8, !tbaa !19
-  %722 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.701724, i64 %721)
+  %722 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.691723, i64 %721)
   %723 = getelementptr inbounds i8, ptr %.67740, i64 -480
   %724 = load i64, ptr %723, align 8, !tbaa !19
   %725 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.671258, i64 %724)
@@ -1828,7 +1828,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %729
 
 729:                                              ; preds = %719, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.711725 = phi i64 [ %722, %719 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.701724 = phi i64 [ %722, %719 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.681388 = phi i64 [ %728, %719 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.681259 = phi i64 [ %725, %719 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.691130 = phi i64 [ %.681129, %719 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1838,7 +1838,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.69 = phi ptr [ %.68, %719 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %730 = getelementptr inbounds i8, ptr %.68870, i64 -472
   %731 = load i64, ptr %730, align 8, !tbaa !19
-  %732 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.711725, i64 %731)
+  %732 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.701724, i64 %731)
   %733 = getelementptr inbounds i8, ptr %.68741, i64 -472
   %734 = load i64, ptr %733, align 8, !tbaa !19
   %735 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.681259, i64 %734)
@@ -1848,7 +1848,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %739
 
 739:                                              ; preds = %729, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.721726 = phi i64 [ %732, %729 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.711725 = phi i64 [ %732, %729 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.691389 = phi i64 [ %738, %729 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.691260 = phi i64 [ %735, %729 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.701131 = phi i64 [ %.691130, %729 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1858,7 +1858,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.70 = phi ptr [ %.69, %729 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %740 = getelementptr inbounds i8, ptr %.69871, i64 -464
   %741 = load i64, ptr %740, align 8, !tbaa !19
-  %742 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.721726, i64 %741)
+  %742 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.711725, i64 %741)
   %743 = getelementptr inbounds i8, ptr %.69742, i64 -464
   %744 = load i64, ptr %743, align 8, !tbaa !19
   %745 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.691260, i64 %744)
@@ -1868,7 +1868,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %749
 
 749:                                              ; preds = %739, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.731727 = phi i64 [ %742, %739 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.721726 = phi i64 [ %742, %739 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.701390 = phi i64 [ %748, %739 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.701261 = phi i64 [ %745, %739 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.711132 = phi i64 [ %.701131, %739 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1878,7 +1878,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.71 = phi ptr [ %.70, %739 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %750 = getelementptr inbounds i8, ptr %.70872, i64 -456
   %751 = load i64, ptr %750, align 8, !tbaa !19
-  %752 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.731727, i64 %751)
+  %752 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.721726, i64 %751)
   %753 = getelementptr inbounds i8, ptr %.70743, i64 -456
   %754 = load i64, ptr %753, align 8, !tbaa !19
   %755 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.701261, i64 %754)
@@ -1888,7 +1888,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %759
 
 759:                                              ; preds = %749, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.741728 = phi i64 [ %752, %749 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.731727 = phi i64 [ %752, %749 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.711391 = phi i64 [ %758, %749 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.711262 = phi i64 [ %755, %749 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.721133 = phi i64 [ %.711132, %749 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1898,7 +1898,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.72 = phi ptr [ %.71, %749 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %760 = getelementptr inbounds i8, ptr %.71873, i64 -448
   %761 = load i64, ptr %760, align 8, !tbaa !19
-  %762 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.741728, i64 %761)
+  %762 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.731727, i64 %761)
   %763 = getelementptr inbounds i8, ptr %.71744, i64 -448
   %764 = load i64, ptr %763, align 8, !tbaa !19
   %765 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.711262, i64 %764)
@@ -1908,7 +1908,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %769
 
 769:                                              ; preds = %759, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.751729 = phi i64 [ %762, %759 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.741728 = phi i64 [ %762, %759 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.721392 = phi i64 [ %768, %759 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.721263 = phi i64 [ %765, %759 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.731134 = phi i64 [ %.721133, %759 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1918,7 +1918,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.73 = phi ptr [ %.72, %759 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %770 = getelementptr inbounds i8, ptr %.72874, i64 -440
   %771 = load i64, ptr %770, align 8, !tbaa !19
-  %772 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.751729, i64 %771)
+  %772 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.741728, i64 %771)
   %773 = getelementptr inbounds i8, ptr %.72745, i64 -440
   %774 = load i64, ptr %773, align 8, !tbaa !19
   %775 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.721263, i64 %774)
@@ -1928,7 +1928,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %779
 
 779:                                              ; preds = %769, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.761730 = phi i64 [ %772, %769 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.751729 = phi i64 [ %772, %769 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.731393 = phi i64 [ %778, %769 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.731264 = phi i64 [ %775, %769 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.741135 = phi i64 [ %.731134, %769 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1938,7 +1938,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.74 = phi ptr [ %.73, %769 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %780 = getelementptr inbounds i8, ptr %.73875, i64 -432
   %781 = load i64, ptr %780, align 8, !tbaa !19
-  %782 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.761730, i64 %781)
+  %782 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.751729, i64 %781)
   %783 = getelementptr inbounds i8, ptr %.73746, i64 -432
   %784 = load i64, ptr %783, align 8, !tbaa !19
   %785 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.731264, i64 %784)
@@ -1948,7 +1948,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %789
 
 789:                                              ; preds = %779, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.771731 = phi i64 [ %782, %779 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.761730 = phi i64 [ %782, %779 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.741394 = phi i64 [ %788, %779 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.741265 = phi i64 [ %785, %779 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.751136 = phi i64 [ %.741135, %779 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1958,7 +1958,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.75 = phi ptr [ %.74, %779 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %790 = getelementptr inbounds i8, ptr %.74876, i64 -424
   %791 = load i64, ptr %790, align 8, !tbaa !19
-  %792 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.771731, i64 %791)
+  %792 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.761730, i64 %791)
   %793 = getelementptr inbounds i8, ptr %.74747, i64 -424
   %794 = load i64, ptr %793, align 8, !tbaa !19
   %795 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.741265, i64 %794)
@@ -1968,7 +1968,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %799
 
 799:                                              ; preds = %789, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.781732 = phi i64 [ %792, %789 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.771731 = phi i64 [ %792, %789 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.751395 = phi i64 [ %798, %789 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.751266 = phi i64 [ %795, %789 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.761137 = phi i64 [ %.751136, %789 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1978,7 +1978,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.76 = phi ptr [ %.75, %789 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %800 = getelementptr inbounds i8, ptr %.75877, i64 -416
   %801 = load i64, ptr %800, align 8, !tbaa !19
-  %802 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.781732, i64 %801)
+  %802 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.771731, i64 %801)
   %803 = getelementptr inbounds i8, ptr %.75748, i64 -416
   %804 = load i64, ptr %803, align 8, !tbaa !19
   %805 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.751266, i64 %804)
@@ -1988,7 +1988,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %809
 
 809:                                              ; preds = %799, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.791733 = phi i64 [ %802, %799 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.781732 = phi i64 [ %802, %799 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.761396 = phi i64 [ %808, %799 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.761267 = phi i64 [ %805, %799 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.771138 = phi i64 [ %.761137, %799 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -1998,7 +1998,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.77 = phi ptr [ %.76, %799 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %810 = getelementptr inbounds i8, ptr %.76878, i64 -408
   %811 = load i64, ptr %810, align 8, !tbaa !19
-  %812 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.791733, i64 %811)
+  %812 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.781732, i64 %811)
   %813 = getelementptr inbounds i8, ptr %.76749, i64 -408
   %814 = load i64, ptr %813, align 8, !tbaa !19
   %815 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.761267, i64 %814)
@@ -2008,7 +2008,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %819
 
 819:                                              ; preds = %809, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.801734 = phi i64 [ %812, %809 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.791733 = phi i64 [ %812, %809 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.771397 = phi i64 [ %818, %809 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.771268 = phi i64 [ %815, %809 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.781139 = phi i64 [ %.771138, %809 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2018,7 +2018,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.78 = phi ptr [ %.77, %809 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %820 = getelementptr inbounds i8, ptr %.77879, i64 -400
   %821 = load i64, ptr %820, align 8, !tbaa !19
-  %822 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.801734, i64 %821)
+  %822 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.791733, i64 %821)
   %823 = getelementptr inbounds i8, ptr %.77750, i64 -400
   %824 = load i64, ptr %823, align 8, !tbaa !19
   %825 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.771268, i64 %824)
@@ -2028,7 +2028,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %829
 
 829:                                              ; preds = %819, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.811735 = phi i64 [ %822, %819 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.801734 = phi i64 [ %822, %819 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.781398 = phi i64 [ %828, %819 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.781269 = phi i64 [ %825, %819 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.791140 = phi i64 [ %.781139, %819 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2038,7 +2038,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.79 = phi ptr [ %.78, %819 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %830 = getelementptr inbounds i8, ptr %.78880, i64 -392
   %831 = load i64, ptr %830, align 8, !tbaa !19
-  %832 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.811735, i64 %831)
+  %832 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.801734, i64 %831)
   %833 = getelementptr inbounds i8, ptr %.78751, i64 -392
   %834 = load i64, ptr %833, align 8, !tbaa !19
   %835 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.781269, i64 %834)
@@ -2048,7 +2048,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %839
 
 839:                                              ; preds = %829, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.821736 = phi i64 [ %832, %829 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.811735 = phi i64 [ %832, %829 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.791399 = phi i64 [ %838, %829 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.791270 = phi i64 [ %835, %829 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.801141 = phi i64 [ %.791140, %829 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2058,7 +2058,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.80 = phi ptr [ %.79, %829 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %840 = getelementptr inbounds i8, ptr %.79881, i64 -384
   %841 = load i64, ptr %840, align 8, !tbaa !19
-  %842 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.821736, i64 %841)
+  %842 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.811735, i64 %841)
   %843 = getelementptr inbounds i8, ptr %.79752, i64 -384
   %844 = load i64, ptr %843, align 8, !tbaa !19
   %845 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.791270, i64 %844)
@@ -2068,7 +2068,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %849
 
 849:                                              ; preds = %839, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.831737 = phi i64 [ %842, %839 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.821736 = phi i64 [ %842, %839 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.801400 = phi i64 [ %848, %839 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.801271 = phi i64 [ %845, %839 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.811142 = phi i64 [ %.801141, %839 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2078,7 +2078,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.81 = phi ptr [ %.80, %839 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %850 = getelementptr inbounds i8, ptr %.80882, i64 -376
   %851 = load i64, ptr %850, align 8, !tbaa !19
-  %852 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.831737, i64 %851)
+  %852 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.821736, i64 %851)
   %853 = getelementptr inbounds i8, ptr %.80753, i64 -376
   %854 = load i64, ptr %853, align 8, !tbaa !19
   %855 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.801271, i64 %854)
@@ -2088,7 +2088,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %859
 
 859:                                              ; preds = %849, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.841738 = phi i64 [ %852, %849 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.831737 = phi i64 [ %852, %849 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.811401 = phi i64 [ %858, %849 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.811272 = phi i64 [ %855, %849 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.821143 = phi i64 [ %.811142, %849 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2098,7 +2098,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.82 = phi ptr [ %.81, %849 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %860 = getelementptr inbounds i8, ptr %.81883, i64 -368
   %861 = load i64, ptr %860, align 8, !tbaa !19
-  %862 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.841738, i64 %861)
+  %862 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.831737, i64 %861)
   %863 = getelementptr inbounds i8, ptr %.81754, i64 -368
   %864 = load i64, ptr %863, align 8, !tbaa !19
   %865 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.811272, i64 %864)
@@ -2108,7 +2108,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %869
 
 869:                                              ; preds = %859, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.851739 = phi i64 [ %862, %859 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.841738 = phi i64 [ %862, %859 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.821402 = phi i64 [ %868, %859 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.821273 = phi i64 [ %865, %859 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.831144 = phi i64 [ %.821143, %859 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2118,7 +2118,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.83 = phi ptr [ %.82, %859 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %870 = getelementptr inbounds i8, ptr %.82884, i64 -360
   %871 = load i64, ptr %870, align 8, !tbaa !19
-  %872 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.851739, i64 %871)
+  %872 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.841738, i64 %871)
   %873 = getelementptr inbounds i8, ptr %.82755, i64 -360
   %874 = load i64, ptr %873, align 8, !tbaa !19
   %875 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.821273, i64 %874)
@@ -2128,7 +2128,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %879
 
 879:                                              ; preds = %869, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.861740 = phi i64 [ %872, %869 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.851739 = phi i64 [ %872, %869 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.831403 = phi i64 [ %878, %869 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.831274 = phi i64 [ %875, %869 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.841145 = phi i64 [ %.831144, %869 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2138,7 +2138,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.84 = phi ptr [ %.83, %869 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %880 = getelementptr inbounds i8, ptr %.83885, i64 -352
   %881 = load i64, ptr %880, align 8, !tbaa !19
-  %882 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.861740, i64 %881)
+  %882 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.851739, i64 %881)
   %883 = getelementptr inbounds i8, ptr %.83756, i64 -352
   %884 = load i64, ptr %883, align 8, !tbaa !19
   %885 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.831274, i64 %884)
@@ -2148,7 +2148,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %889
 
 889:                                              ; preds = %879, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.871741 = phi i64 [ %882, %879 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.861740 = phi i64 [ %882, %879 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.841404 = phi i64 [ %888, %879 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.841275 = phi i64 [ %885, %879 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.851146 = phi i64 [ %.841145, %879 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2158,7 +2158,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.85 = phi ptr [ %.84, %879 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %890 = getelementptr inbounds i8, ptr %.84886, i64 -344
   %891 = load i64, ptr %890, align 8, !tbaa !19
-  %892 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.871741, i64 %891)
+  %892 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.861740, i64 %891)
   %893 = getelementptr inbounds i8, ptr %.84757, i64 -344
   %894 = load i64, ptr %893, align 8, !tbaa !19
   %895 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.841275, i64 %894)
@@ -2168,7 +2168,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %899
 
 899:                                              ; preds = %889, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.881742 = phi i64 [ %892, %889 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.871741 = phi i64 [ %892, %889 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.851405 = phi i64 [ %898, %889 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.851276 = phi i64 [ %895, %889 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.861147 = phi i64 [ %.851146, %889 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2178,7 +2178,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.86 = phi ptr [ %.85, %889 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %900 = getelementptr inbounds i8, ptr %.85887, i64 -336
   %901 = load i64, ptr %900, align 8, !tbaa !19
-  %902 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.881742, i64 %901)
+  %902 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.871741, i64 %901)
   %903 = getelementptr inbounds i8, ptr %.85758, i64 -336
   %904 = load i64, ptr %903, align 8, !tbaa !19
   %905 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.851276, i64 %904)
@@ -2188,7 +2188,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %909
 
 909:                                              ; preds = %899, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.891743 = phi i64 [ %902, %899 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.881742 = phi i64 [ %902, %899 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.861406 = phi i64 [ %908, %899 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.861277 = phi i64 [ %905, %899 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.871148 = phi i64 [ %.861147, %899 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2198,7 +2198,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.87 = phi ptr [ %.86, %899 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %910 = getelementptr inbounds i8, ptr %.86888, i64 -328
   %911 = load i64, ptr %910, align 8, !tbaa !19
-  %912 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.891743, i64 %911)
+  %912 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.881742, i64 %911)
   %913 = getelementptr inbounds i8, ptr %.86759, i64 -328
   %914 = load i64, ptr %913, align 8, !tbaa !19
   %915 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.861277, i64 %914)
@@ -2208,7 +2208,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %919
 
 919:                                              ; preds = %909, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.901744 = phi i64 [ %912, %909 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.891743 = phi i64 [ %912, %909 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.871407 = phi i64 [ %918, %909 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.871278 = phi i64 [ %915, %909 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.881149 = phi i64 [ %.871148, %909 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2218,7 +2218,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.88 = phi ptr [ %.87, %909 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %920 = getelementptr inbounds i8, ptr %.87889, i64 -320
   %921 = load i64, ptr %920, align 8, !tbaa !19
-  %922 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.901744, i64 %921)
+  %922 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.891743, i64 %921)
   %923 = getelementptr inbounds i8, ptr %.87760, i64 -320
   %924 = load i64, ptr %923, align 8, !tbaa !19
   %925 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.871278, i64 %924)
@@ -2228,7 +2228,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %929
 
 929:                                              ; preds = %919, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.911745 = phi i64 [ %922, %919 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.901744 = phi i64 [ %922, %919 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.881408 = phi i64 [ %928, %919 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.881279 = phi i64 [ %925, %919 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.891150 = phi i64 [ %.881149, %919 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2238,7 +2238,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.89 = phi ptr [ %.88, %919 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %930 = getelementptr inbounds i8, ptr %.88890, i64 -312
   %931 = load i64, ptr %930, align 8, !tbaa !19
-  %932 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.911745, i64 %931)
+  %932 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.901744, i64 %931)
   %933 = getelementptr inbounds i8, ptr %.88761, i64 -312
   %934 = load i64, ptr %933, align 8, !tbaa !19
   %935 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.881279, i64 %934)
@@ -2248,7 +2248,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %939
 
 939:                                              ; preds = %929, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.921746 = phi i64 [ %932, %929 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.911745 = phi i64 [ %932, %929 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.891409 = phi i64 [ %938, %929 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.891280 = phi i64 [ %935, %929 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.901151 = phi i64 [ %.891150, %929 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2258,7 +2258,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.90 = phi ptr [ %.89, %929 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %940 = getelementptr inbounds i8, ptr %.89891, i64 -304
   %941 = load i64, ptr %940, align 8, !tbaa !19
-  %942 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.921746, i64 %941)
+  %942 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.911745, i64 %941)
   %943 = getelementptr inbounds i8, ptr %.89762, i64 -304
   %944 = load i64, ptr %943, align 8, !tbaa !19
   %945 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.891280, i64 %944)
@@ -2268,7 +2268,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %949
 
 949:                                              ; preds = %939, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.931747 = phi i64 [ %942, %939 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.921746 = phi i64 [ %942, %939 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.901410 = phi i64 [ %948, %939 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.901281 = phi i64 [ %945, %939 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.911152 = phi i64 [ %.901151, %939 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2278,7 +2278,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.91 = phi ptr [ %.90, %939 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %950 = getelementptr inbounds i8, ptr %.90892, i64 -296
   %951 = load i64, ptr %950, align 8, !tbaa !19
-  %952 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.931747, i64 %951)
+  %952 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.921746, i64 %951)
   %953 = getelementptr inbounds i8, ptr %.90763, i64 -296
   %954 = load i64, ptr %953, align 8, !tbaa !19
   %955 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.901281, i64 %954)
@@ -2288,7 +2288,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %959
 
 959:                                              ; preds = %949, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.941748 = phi i64 [ %952, %949 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.931747 = phi i64 [ %952, %949 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.911411 = phi i64 [ %958, %949 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.911282 = phi i64 [ %955, %949 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.921153 = phi i64 [ %.911152, %949 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2298,7 +2298,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.92 = phi ptr [ %.91, %949 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %960 = getelementptr inbounds i8, ptr %.91893, i64 -288
   %961 = load i64, ptr %960, align 8, !tbaa !19
-  %962 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.941748, i64 %961)
+  %962 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.931747, i64 %961)
   %963 = getelementptr inbounds i8, ptr %.91764, i64 -288
   %964 = load i64, ptr %963, align 8, !tbaa !19
   %965 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.911282, i64 %964)
@@ -2308,7 +2308,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %969
 
 969:                                              ; preds = %959, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.951749 = phi i64 [ %962, %959 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.941748 = phi i64 [ %962, %959 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.921412 = phi i64 [ %968, %959 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.921283 = phi i64 [ %965, %959 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.931154 = phi i64 [ %.921153, %959 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2318,7 +2318,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.93 = phi ptr [ %.92, %959 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %970 = getelementptr inbounds i8, ptr %.92894, i64 -280
   %971 = load i64, ptr %970, align 8, !tbaa !19
-  %972 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.951749, i64 %971)
+  %972 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.941748, i64 %971)
   %973 = getelementptr inbounds i8, ptr %.92765, i64 -280
   %974 = load i64, ptr %973, align 8, !tbaa !19
   %975 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.921283, i64 %974)
@@ -2328,7 +2328,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %979
 
 979:                                              ; preds = %969, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.961750 = phi i64 [ %972, %969 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.951749 = phi i64 [ %972, %969 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.931413 = phi i64 [ %978, %969 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.931284 = phi i64 [ %975, %969 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.941155 = phi i64 [ %.931154, %969 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2338,7 +2338,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.94 = phi ptr [ %.93, %969 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %980 = getelementptr inbounds i8, ptr %.93895, i64 -272
   %981 = load i64, ptr %980, align 8, !tbaa !19
-  %982 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.961750, i64 %981)
+  %982 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.951749, i64 %981)
   %983 = getelementptr inbounds i8, ptr %.93766, i64 -272
   %984 = load i64, ptr %983, align 8, !tbaa !19
   %985 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.931284, i64 %984)
@@ -2348,7 +2348,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %989
 
 989:                                              ; preds = %979, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.971751 = phi i64 [ %982, %979 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.961750 = phi i64 [ %982, %979 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.941414 = phi i64 [ %988, %979 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.941285 = phi i64 [ %985, %979 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.951156 = phi i64 [ %.941155, %979 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2358,7 +2358,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.95 = phi ptr [ %.94, %979 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %990 = getelementptr inbounds i8, ptr %.94896, i64 -264
   %991 = load i64, ptr %990, align 8, !tbaa !19
-  %992 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.971751, i64 %991)
+  %992 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.961750, i64 %991)
   %993 = getelementptr inbounds i8, ptr %.94767, i64 -264
   %994 = load i64, ptr %993, align 8, !tbaa !19
   %995 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.941285, i64 %994)
@@ -2368,7 +2368,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %999
 
 999:                                              ; preds = %989, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.981752 = phi i64 [ %992, %989 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.971751 = phi i64 [ %992, %989 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.951415 = phi i64 [ %998, %989 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.951286 = phi i64 [ %995, %989 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.961157 = phi i64 [ %.951156, %989 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2378,7 +2378,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.96 = phi ptr [ %.95, %989 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1000 = getelementptr inbounds i8, ptr %.95897, i64 -256
   %1001 = load i64, ptr %1000, align 8, !tbaa !19
-  %1002 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.981752, i64 %1001)
+  %1002 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.971751, i64 %1001)
   %1003 = getelementptr inbounds i8, ptr %.95768, i64 -256
   %1004 = load i64, ptr %1003, align 8, !tbaa !19
   %1005 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.951286, i64 %1004)
@@ -2388,7 +2388,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1009
 
 1009:                                             ; preds = %999, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.991753 = phi i64 [ %1002, %999 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.981752 = phi i64 [ %1002, %999 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.961416 = phi i64 [ %1008, %999 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.961287 = phi i64 [ %1005, %999 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.971158 = phi i64 [ %.961157, %999 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2398,7 +2398,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.97 = phi ptr [ %.96, %999 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1010 = getelementptr inbounds i8, ptr %.96898, i64 -248
   %1011 = load i64, ptr %1010, align 8, !tbaa !19
-  %1012 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.991753, i64 %1011)
+  %1012 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.981752, i64 %1011)
   %1013 = getelementptr inbounds i8, ptr %.96769, i64 -248
   %1014 = load i64, ptr %1013, align 8, !tbaa !19
   %1015 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.961287, i64 %1014)
@@ -2408,7 +2408,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1019
 
 1019:                                             ; preds = %1009, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1001754 = phi i64 [ %1012, %1009 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.991753 = phi i64 [ %1012, %1009 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.971417 = phi i64 [ %1018, %1009 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.971288 = phi i64 [ %1015, %1009 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.981159 = phi i64 [ %.971158, %1009 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2418,7 +2418,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.98 = phi ptr [ %.97, %1009 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1020 = getelementptr inbounds i8, ptr %.97899, i64 -240
   %1021 = load i64, ptr %1020, align 8, !tbaa !19
-  %1022 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1001754, i64 %1021)
+  %1022 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.991753, i64 %1021)
   %1023 = getelementptr inbounds i8, ptr %.97770, i64 -240
   %1024 = load i64, ptr %1023, align 8, !tbaa !19
   %1025 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.971288, i64 %1024)
@@ -2428,7 +2428,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1029
 
 1029:                                             ; preds = %1019, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1011755 = phi i64 [ %1022, %1019 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1001754 = phi i64 [ %1022, %1019 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.981418 = phi i64 [ %1028, %1019 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.981289 = phi i64 [ %1025, %1019 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.991160 = phi i64 [ %.981159, %1019 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2438,7 +2438,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.99 = phi ptr [ %.98, %1019 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1030 = getelementptr inbounds i8, ptr %.98900, i64 -232
   %1031 = load i64, ptr %1030, align 8, !tbaa !19
-  %1032 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1011755, i64 %1031)
+  %1032 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1001754, i64 %1031)
   %1033 = getelementptr inbounds i8, ptr %.98771, i64 -232
   %1034 = load i64, ptr %1033, align 8, !tbaa !19
   %1035 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.981289, i64 %1034)
@@ -2448,7 +2448,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1039
 
 1039:                                             ; preds = %1029, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1021756 = phi i64 [ %1032, %1029 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1011755 = phi i64 [ %1032, %1029 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.991419 = phi i64 [ %1038, %1029 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.991290 = phi i64 [ %1035, %1029 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1001161 = phi i64 [ %.991160, %1029 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2458,7 +2458,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.100 = phi ptr [ %.99, %1029 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1040 = getelementptr inbounds i8, ptr %.99901, i64 -224
   %1041 = load i64, ptr %1040, align 8, !tbaa !19
-  %1042 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1021756, i64 %1041)
+  %1042 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1011755, i64 %1041)
   %1043 = getelementptr inbounds i8, ptr %.99772, i64 -224
   %1044 = load i64, ptr %1043, align 8, !tbaa !19
   %1045 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.991290, i64 %1044)
@@ -2468,7 +2468,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1049
 
 1049:                                             ; preds = %1039, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1031757 = phi i64 [ %1042, %1039 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1021756 = phi i64 [ %1042, %1039 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1001420 = phi i64 [ %1048, %1039 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1001291 = phi i64 [ %1045, %1039 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1011162 = phi i64 [ %.1001161, %1039 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2478,7 +2478,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.101 = phi ptr [ %.100, %1039 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1050 = getelementptr inbounds i8, ptr %.100902, i64 -216
   %1051 = load i64, ptr %1050, align 8, !tbaa !19
-  %1052 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1031757, i64 %1051)
+  %1052 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1021756, i64 %1051)
   %1053 = getelementptr inbounds i8, ptr %.100773, i64 -216
   %1054 = load i64, ptr %1053, align 8, !tbaa !19
   %1055 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1001291, i64 %1054)
@@ -2488,7 +2488,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1059
 
 1059:                                             ; preds = %1049, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1041758 = phi i64 [ %1052, %1049 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1031757 = phi i64 [ %1052, %1049 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1011421 = phi i64 [ %1058, %1049 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1011292 = phi i64 [ %1055, %1049 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1021163 = phi i64 [ %.1011162, %1049 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2498,7 +2498,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.102 = phi ptr [ %.101, %1049 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1060 = getelementptr inbounds i8, ptr %.101903, i64 -208
   %1061 = load i64, ptr %1060, align 8, !tbaa !19
-  %1062 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1041758, i64 %1061)
+  %1062 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1031757, i64 %1061)
   %1063 = getelementptr inbounds i8, ptr %.101774, i64 -208
   %1064 = load i64, ptr %1063, align 8, !tbaa !19
   %1065 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1011292, i64 %1064)
@@ -2508,7 +2508,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1069
 
 1069:                                             ; preds = %1059, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1051759 = phi i64 [ %1062, %1059 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1041758 = phi i64 [ %1062, %1059 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1021422 = phi i64 [ %1068, %1059 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1021293 = phi i64 [ %1065, %1059 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1031164 = phi i64 [ %.1021163, %1059 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2518,7 +2518,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.103 = phi ptr [ %.102, %1059 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1070 = getelementptr inbounds i8, ptr %.102904, i64 -200
   %1071 = load i64, ptr %1070, align 8, !tbaa !19
-  %1072 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1051759, i64 %1071)
+  %1072 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1041758, i64 %1071)
   %1073 = getelementptr inbounds i8, ptr %.102775, i64 -200
   %1074 = load i64, ptr %1073, align 8, !tbaa !19
   %1075 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1021293, i64 %1074)
@@ -2528,7 +2528,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1079
 
 1079:                                             ; preds = %1069, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1061760 = phi i64 [ %1072, %1069 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1051759 = phi i64 [ %1072, %1069 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1031423 = phi i64 [ %1078, %1069 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1031294 = phi i64 [ %1075, %1069 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1041165 = phi i64 [ %.1031164, %1069 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2538,7 +2538,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.104 = phi ptr [ %.103, %1069 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1080 = getelementptr inbounds i8, ptr %.103905, i64 -192
   %1081 = load i64, ptr %1080, align 8, !tbaa !19
-  %1082 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1061760, i64 %1081)
+  %1082 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1051759, i64 %1081)
   %1083 = getelementptr inbounds i8, ptr %.103776, i64 -192
   %1084 = load i64, ptr %1083, align 8, !tbaa !19
   %1085 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1031294, i64 %1084)
@@ -2548,7 +2548,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1089
 
 1089:                                             ; preds = %1079, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1071761 = phi i64 [ %1082, %1079 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1061760 = phi i64 [ %1082, %1079 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1041424 = phi i64 [ %1088, %1079 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1041295 = phi i64 [ %1085, %1079 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1051166 = phi i64 [ %.1041165, %1079 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2558,7 +2558,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.105 = phi ptr [ %.104, %1079 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1090 = getelementptr inbounds i8, ptr %.104906, i64 -184
   %1091 = load i64, ptr %1090, align 8, !tbaa !19
-  %1092 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1071761, i64 %1091)
+  %1092 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1061760, i64 %1091)
   %1093 = getelementptr inbounds i8, ptr %.104777, i64 -184
   %1094 = load i64, ptr %1093, align 8, !tbaa !19
   %1095 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1041295, i64 %1094)
@@ -2568,7 +2568,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1099
 
 1099:                                             ; preds = %1089, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1081762 = phi i64 [ %1092, %1089 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1071761 = phi i64 [ %1092, %1089 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1051425 = phi i64 [ %1098, %1089 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1051296 = phi i64 [ %1095, %1089 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1061167 = phi i64 [ %.1051166, %1089 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2578,7 +2578,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.106 = phi ptr [ %.105, %1089 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1100 = getelementptr inbounds i8, ptr %.105907, i64 -176
   %1101 = load i64, ptr %1100, align 8, !tbaa !19
-  %1102 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1081762, i64 %1101)
+  %1102 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1071761, i64 %1101)
   %1103 = getelementptr inbounds i8, ptr %.105778, i64 -176
   %1104 = load i64, ptr %1103, align 8, !tbaa !19
   %1105 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1051296, i64 %1104)
@@ -2588,7 +2588,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1109
 
 1109:                                             ; preds = %1099, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1091763 = phi i64 [ %1102, %1099 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1081762 = phi i64 [ %1102, %1099 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1061426 = phi i64 [ %1108, %1099 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1061297 = phi i64 [ %1105, %1099 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1071168 = phi i64 [ %.1061167, %1099 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2598,7 +2598,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.107 = phi ptr [ %.106, %1099 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1110 = getelementptr inbounds i8, ptr %.106908, i64 -168
   %1111 = load i64, ptr %1110, align 8, !tbaa !19
-  %1112 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1091763, i64 %1111)
+  %1112 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1081762, i64 %1111)
   %1113 = getelementptr inbounds i8, ptr %.106779, i64 -168
   %1114 = load i64, ptr %1113, align 8, !tbaa !19
   %1115 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1061297, i64 %1114)
@@ -2608,7 +2608,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1119
 
 1119:                                             ; preds = %1109, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1101764 = phi i64 [ %1112, %1109 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1091763 = phi i64 [ %1112, %1109 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1071427 = phi i64 [ %1118, %1109 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1071298 = phi i64 [ %1115, %1109 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1081169 = phi i64 [ %.1071168, %1109 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2618,7 +2618,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.108 = phi ptr [ %.107, %1109 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1120 = getelementptr inbounds i8, ptr %.107909, i64 -160
   %1121 = load i64, ptr %1120, align 8, !tbaa !19
-  %1122 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1101764, i64 %1121)
+  %1122 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1091763, i64 %1121)
   %1123 = getelementptr inbounds i8, ptr %.107780, i64 -160
   %1124 = load i64, ptr %1123, align 8, !tbaa !19
   %1125 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1071298, i64 %1124)
@@ -2628,7 +2628,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1129
 
 1129:                                             ; preds = %1119, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1111765 = phi i64 [ %1122, %1119 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1101764 = phi i64 [ %1122, %1119 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1081428 = phi i64 [ %1128, %1119 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1081299 = phi i64 [ %1125, %1119 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1091170 = phi i64 [ %.1081169, %1119 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2638,7 +2638,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.109 = phi ptr [ %.108, %1119 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1130 = getelementptr inbounds i8, ptr %.108910, i64 -152
   %1131 = load i64, ptr %1130, align 8, !tbaa !19
-  %1132 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1111765, i64 %1131)
+  %1132 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1101764, i64 %1131)
   %1133 = getelementptr inbounds i8, ptr %.108781, i64 -152
   %1134 = load i64, ptr %1133, align 8, !tbaa !19
   %1135 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1081299, i64 %1134)
@@ -2648,7 +2648,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1139
 
 1139:                                             ; preds = %1129, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1121766 = phi i64 [ %1132, %1129 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1111765 = phi i64 [ %1132, %1129 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1091429 = phi i64 [ %1138, %1129 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1091300 = phi i64 [ %1135, %1129 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1101171 = phi i64 [ %.1091170, %1129 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2658,7 +2658,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.110 = phi ptr [ %.109, %1129 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1140 = getelementptr inbounds i8, ptr %.109911, i64 -144
   %1141 = load i64, ptr %1140, align 8, !tbaa !19
-  %1142 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1121766, i64 %1141)
+  %1142 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1111765, i64 %1141)
   %1143 = getelementptr inbounds i8, ptr %.109782, i64 -144
   %1144 = load i64, ptr %1143, align 8, !tbaa !19
   %1145 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1091300, i64 %1144)
@@ -2668,7 +2668,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1149
 
 1149:                                             ; preds = %1139, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1131767 = phi i64 [ %1142, %1139 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1121766 = phi i64 [ %1142, %1139 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1101430 = phi i64 [ %1148, %1139 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1101301 = phi i64 [ %1145, %1139 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1111172 = phi i64 [ %.1101171, %1139 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2678,7 +2678,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.111 = phi ptr [ %.110, %1139 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1150 = getelementptr inbounds i8, ptr %.110912, i64 -136
   %1151 = load i64, ptr %1150, align 8, !tbaa !19
-  %1152 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1131767, i64 %1151)
+  %1152 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1121766, i64 %1151)
   %1153 = getelementptr inbounds i8, ptr %.110783, i64 -136
   %1154 = load i64, ptr %1153, align 8, !tbaa !19
   %1155 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1101301, i64 %1154)
@@ -2688,7 +2688,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1159
 
 1159:                                             ; preds = %1149, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1141768 = phi i64 [ %1152, %1149 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1131767 = phi i64 [ %1152, %1149 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1111431 = phi i64 [ %1158, %1149 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1111302 = phi i64 [ %1155, %1149 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1121173 = phi i64 [ %.1111172, %1149 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2698,7 +2698,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.112 = phi ptr [ %.111, %1149 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1160 = getelementptr inbounds i8, ptr %.111913, i64 -128
   %1161 = load i64, ptr %1160, align 8, !tbaa !19
-  %1162 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1141768, i64 %1161)
+  %1162 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1131767, i64 %1161)
   %1163 = getelementptr inbounds i8, ptr %.111784, i64 -128
   %1164 = load i64, ptr %1163, align 8, !tbaa !19
   %1165 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1111302, i64 %1164)
@@ -2708,7 +2708,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1169
 
 1169:                                             ; preds = %1159, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1151769 = phi i64 [ %1162, %1159 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1141768 = phi i64 [ %1162, %1159 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1121432 = phi i64 [ %1168, %1159 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1121303 = phi i64 [ %1165, %1159 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1131174 = phi i64 [ %.1121173, %1159 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2718,7 +2718,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.113 = phi ptr [ %.112, %1159 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1170 = getelementptr inbounds i8, ptr %.112914, i64 -120
   %1171 = load i64, ptr %1170, align 8, !tbaa !19
-  %1172 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1151769, i64 %1171)
+  %1172 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1141768, i64 %1171)
   %1173 = getelementptr inbounds i8, ptr %.112785, i64 -120
   %1174 = load i64, ptr %1173, align 8, !tbaa !19
   %1175 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1121303, i64 %1174)
@@ -2728,7 +2728,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1179
 
 1179:                                             ; preds = %1169, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1161770 = phi i64 [ %1172, %1169 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1151769 = phi i64 [ %1172, %1169 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1131433 = phi i64 [ %1178, %1169 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1131304 = phi i64 [ %1175, %1169 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1141175 = phi i64 [ %.1131174, %1169 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2738,7 +2738,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.114 = phi ptr [ %.113, %1169 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1180 = getelementptr inbounds i8, ptr %.113915, i64 -112
   %1181 = load i64, ptr %1180, align 8, !tbaa !19
-  %1182 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1161770, i64 %1181)
+  %1182 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1151769, i64 %1181)
   %1183 = getelementptr inbounds i8, ptr %.113786, i64 -112
   %1184 = load i64, ptr %1183, align 8, !tbaa !19
   %1185 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1131304, i64 %1184)
@@ -2748,7 +2748,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1189
 
 1189:                                             ; preds = %1179, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1171771 = phi i64 [ %1182, %1179 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1161770 = phi i64 [ %1182, %1179 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1141434 = phi i64 [ %1188, %1179 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1141305 = phi i64 [ %1185, %1179 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1151176 = phi i64 [ %.1141175, %1179 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2758,7 +2758,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.115 = phi ptr [ %.114, %1179 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1190 = getelementptr inbounds i8, ptr %.114916, i64 -104
   %1191 = load i64, ptr %1190, align 8, !tbaa !19
-  %1192 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1171771, i64 %1191)
+  %1192 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1161770, i64 %1191)
   %1193 = getelementptr inbounds i8, ptr %.114787, i64 -104
   %1194 = load i64, ptr %1193, align 8, !tbaa !19
   %1195 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1141305, i64 %1194)
@@ -2768,7 +2768,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1199
 
 1199:                                             ; preds = %1189, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1181772 = phi i64 [ %1192, %1189 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1171771 = phi i64 [ %1192, %1189 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1151435 = phi i64 [ %1198, %1189 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1151306 = phi i64 [ %1195, %1189 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1161177 = phi i64 [ %.1151176, %1189 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2778,7 +2778,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.116 = phi ptr [ %.115, %1189 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1200 = getelementptr inbounds i8, ptr %.115917, i64 -96
   %1201 = load i64, ptr %1200, align 8, !tbaa !19
-  %1202 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1181772, i64 %1201)
+  %1202 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1171771, i64 %1201)
   %1203 = getelementptr inbounds i8, ptr %.115788, i64 -96
   %1204 = load i64, ptr %1203, align 8, !tbaa !19
   %1205 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1151306, i64 %1204)
@@ -2788,7 +2788,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1209
 
 1209:                                             ; preds = %1199, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1191773 = phi i64 [ %1202, %1199 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1181772 = phi i64 [ %1202, %1199 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1161436 = phi i64 [ %1208, %1199 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1161307 = phi i64 [ %1205, %1199 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1171178 = phi i64 [ %.1161177, %1199 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2798,7 +2798,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.117 = phi ptr [ %.116, %1199 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1210 = getelementptr inbounds i8, ptr %.116918, i64 -88
   %1211 = load i64, ptr %1210, align 8, !tbaa !19
-  %1212 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1191773, i64 %1211)
+  %1212 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1181772, i64 %1211)
   %1213 = getelementptr inbounds i8, ptr %.116789, i64 -88
   %1214 = load i64, ptr %1213, align 8, !tbaa !19
   %1215 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1161307, i64 %1214)
@@ -2808,7 +2808,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1219
 
 1219:                                             ; preds = %1209, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1201774 = phi i64 [ %1212, %1209 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1191773 = phi i64 [ %1212, %1209 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1171437 = phi i64 [ %1218, %1209 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1171308 = phi i64 [ %1215, %1209 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1181179 = phi i64 [ %.1171178, %1209 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2818,7 +2818,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.118 = phi ptr [ %.117, %1209 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1220 = getelementptr inbounds i8, ptr %.117919, i64 -80
   %1221 = load i64, ptr %1220, align 8, !tbaa !19
-  %1222 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1201774, i64 %1221)
+  %1222 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1191773, i64 %1221)
   %1223 = getelementptr inbounds i8, ptr %.117790, i64 -80
   %1224 = load i64, ptr %1223, align 8, !tbaa !19
   %1225 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1171308, i64 %1224)
@@ -2828,7 +2828,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1229
 
 1229:                                             ; preds = %1219, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1211775 = phi i64 [ %1222, %1219 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1201774 = phi i64 [ %1222, %1219 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1181438 = phi i64 [ %1228, %1219 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1181309 = phi i64 [ %1225, %1219 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1191180 = phi i64 [ %.1181179, %1219 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2838,7 +2838,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.119 = phi ptr [ %.118, %1219 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1230 = getelementptr inbounds i8, ptr %.118920, i64 -72
   %1231 = load i64, ptr %1230, align 8, !tbaa !19
-  %1232 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1211775, i64 %1231)
+  %1232 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1201774, i64 %1231)
   %1233 = getelementptr inbounds i8, ptr %.118791, i64 -72
   %1234 = load i64, ptr %1233, align 8, !tbaa !19
   %1235 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1181309, i64 %1234)
@@ -2848,7 +2848,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1239
 
 1239:                                             ; preds = %1229, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1221776 = phi i64 [ %1232, %1229 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1211775 = phi i64 [ %1232, %1229 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1191439 = phi i64 [ %1238, %1229 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1191310 = phi i64 [ %1235, %1229 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1201181 = phi i64 [ %.1191180, %1229 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2858,7 +2858,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.120 = phi ptr [ %.119, %1229 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1240 = getelementptr inbounds i8, ptr %.119921, i64 -64
   %1241 = load i64, ptr %1240, align 8, !tbaa !19
-  %1242 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1221776, i64 %1241)
+  %1242 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1211775, i64 %1241)
   %1243 = getelementptr inbounds i8, ptr %.119792, i64 -64
   %1244 = load i64, ptr %1243, align 8, !tbaa !19
   %1245 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1191310, i64 %1244)
@@ -2868,7 +2868,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1249
 
 1249:                                             ; preds = %1239, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1231777 = phi i64 [ %1242, %1239 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1221776 = phi i64 [ %1242, %1239 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1201440 = phi i64 [ %1248, %1239 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1201311 = phi i64 [ %1245, %1239 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1211182 = phi i64 [ %.1201181, %1239 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2878,7 +2878,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.121 = phi ptr [ %.120, %1239 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1250 = getelementptr inbounds i8, ptr %.120922, i64 -56
   %1251 = load i64, ptr %1250, align 8, !tbaa !19
-  %1252 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1231777, i64 %1251)
+  %1252 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1221776, i64 %1251)
   %1253 = getelementptr inbounds i8, ptr %.120793, i64 -56
   %1254 = load i64, ptr %1253, align 8, !tbaa !19
   %1255 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1201311, i64 %1254)
@@ -2888,7 +2888,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1259
 
 1259:                                             ; preds = %1249, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1241778 = phi i64 [ %1252, %1249 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1231777 = phi i64 [ %1252, %1249 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1211441 = phi i64 [ %1258, %1249 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1211312 = phi i64 [ %1255, %1249 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1221183 = phi i64 [ %.1211182, %1249 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2898,7 +2898,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.122 = phi ptr [ %.121, %1249 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1260 = getelementptr inbounds i8, ptr %.121923, i64 -48
   %1261 = load i64, ptr %1260, align 8, !tbaa !19
-  %1262 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1241778, i64 %1261)
+  %1262 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1231777, i64 %1261)
   %1263 = getelementptr inbounds i8, ptr %.121794, i64 -48
   %1264 = load i64, ptr %1263, align 8, !tbaa !19
   %1265 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1211312, i64 %1264)
@@ -2908,7 +2908,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1269
 
 1269:                                             ; preds = %1259, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1251779 = phi i64 [ %1262, %1259 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1241778 = phi i64 [ %1262, %1259 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1221442 = phi i64 [ %1268, %1259 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1221313 = phi i64 [ %1265, %1259 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1231184 = phi i64 [ %.1221183, %1259 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2918,7 +2918,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.123 = phi ptr [ %.122, %1259 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1270 = getelementptr inbounds i8, ptr %.122924, i64 -40
   %1271 = load i64, ptr %1270, align 8, !tbaa !19
-  %1272 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1251779, i64 %1271)
+  %1272 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1241778, i64 %1271)
   %1273 = getelementptr inbounds i8, ptr %.122795, i64 -40
   %1274 = load i64, ptr %1273, align 8, !tbaa !19
   %1275 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1221313, i64 %1274)
@@ -2928,7 +2928,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1279
 
 1279:                                             ; preds = %1269, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1261780 = phi i64 [ %1272, %1269 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1251779 = phi i64 [ %1272, %1269 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1231443 = phi i64 [ %1278, %1269 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1231314 = phi i64 [ %1275, %1269 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1241185 = phi i64 [ %.1231184, %1269 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2938,7 +2938,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.124 = phi ptr [ %.123, %1269 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1280 = getelementptr inbounds i8, ptr %.123925, i64 -32
   %1281 = load i64, ptr %1280, align 8, !tbaa !19
-  %1282 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1261780, i64 %1281)
+  %1282 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1251779, i64 %1281)
   %1283 = getelementptr inbounds i8, ptr %.123796, i64 -32
   %1284 = load i64, ptr %1283, align 8, !tbaa !19
   %1285 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1231314, i64 %1284)
@@ -2948,7 +2948,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1289
 
 1289:                                             ; preds = %1279, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1271781 = phi i64 [ %1282, %1279 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1261780 = phi i64 [ %1282, %1279 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1241444 = phi i64 [ %1288, %1279 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1241315 = phi i64 [ %1285, %1279 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1251186 = phi i64 [ %.1241185, %1279 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2958,7 +2958,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.125 = phi ptr [ %.124, %1279 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1290 = getelementptr inbounds i8, ptr %.124926, i64 -24
   %1291 = load i64, ptr %1290, align 8, !tbaa !19
-  %1292 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1271781, i64 %1291)
+  %1292 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1261780, i64 %1291)
   %1293 = getelementptr inbounds i8, ptr %.124797, i64 -24
   %1294 = load i64, ptr %1293, align 8, !tbaa !19
   %1295 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1241315, i64 %1294)
@@ -2968,7 +2968,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1299
 
 1299:                                             ; preds = %1289, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1281782 = phi i64 [ %1292, %1289 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1271781 = phi i64 [ %1292, %1289 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1251445 = phi i64 [ %1298, %1289 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1251316 = phi i64 [ %1295, %1289 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1261187 = phi i64 [ %.1251186, %1289 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2978,7 +2978,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.126 = phi ptr [ %.125, %1289 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1300 = getelementptr inbounds i8, ptr %.125927, i64 -16
   %1301 = load i64, ptr %1300, align 8, !tbaa !19
-  %1302 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1281782, i64 %1301)
+  %1302 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1271781, i64 %1301)
   %1303 = getelementptr inbounds i8, ptr %.125798, i64 -16
   %1304 = load i64, ptr %1303, align 8, !tbaa !19
   %1305 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1251316, i64 %1304)
@@ -2988,7 +2988,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   br label %1309
 
 1309:                                             ; preds = %1299, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
-  %.1291783 = phi i64 [ %1302, %1299 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
+  %.1281782 = phi i64 [ %1302, %1299 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1261446 = phi i64 [ %1308, %1299 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1261317 = phi i64 [ %1305, %1299 ], [ 0, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %.1271188 = phi i64 [ %.1261187, %1299 ], [ %.01061, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
@@ -2998,7 +2998,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %.127 = phi ptr [ %.126, %1299 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ]
   %1310 = getelementptr inbounds i8, ptr %.126928, i64 -8
   %1311 = load i64, ptr %1310, align 8, !tbaa !19
-  %1312 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1291783, i64 %1311)
+  %1312 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1281782, i64 %1311)
   %1313 = getelementptr inbounds i8, ptr %.126799, i64 -8
   %1314 = load i64, ptr %1313, align 8, !tbaa !19
   %1315 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1261317, i64 %1314)
@@ -3017,7 +3017,7 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %1328 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.1261446, i64 %1327)
   %1329 = add i64 %.1271188, -1
   %.not = icmp eq i64 %1329, 0
-  br i1 %.not, label %.thread, label %1330
+  br i1 %.not, label %1334, label %1330
 
 1330:                                             ; preds = %1309
   %1331 = getelementptr inbounds nuw i8, ptr %.127, i64 1024
@@ -3025,275 +3025,278 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %25, %27
   %1333 = getelementptr inbounds nuw i8, ptr %.127, i64 3072
   br label %39, !llvm.loop !20
 
-.thread:                                          ; preds = %1309, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit, %7
-  %.11785 = phi ptr [ %1, %7 ], [ %38, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %.127, %1309 ]
-  %.11655 = phi i64 [ %5, %7 ], [ %31, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %1328, %1309 ]
-  %.1 = phi i64 [ %2, %7 ], [ %33, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit ], [ %33, %1309 ]
-  %1334 = lshr i64 %.1, 3
-  %1335 = and i64 %.1, 7
-  %1336 = and i64 %.1, 248
-  %1337 = getelementptr inbounds nuw i8, ptr %.11785, i64 %1336
-  switch i64 %1334, label %1446 [
-    i64 27, label %1338
-    i64 26, label %1342
-    i64 25, label %1346
-    i64 24, label %1350
-    i64 23, label %1354
-    i64 22, label %1358
-    i64 21, label %1362
-    i64 20, label %1366
-    i64 19, label %1370
-    i64 18, label %1374
-    i64 17, label %1378
-    i64 16, label %1382
-    i64 15, label %1386
-    i64 14, label %1390
-    i64 13, label %1394
-    i64 12, label %1398
-    i64 11, label %1402
-    i64 10, label %1406
-    i64 9, label %1410
-    i64 8, label %1414
-    i64 7, label %1418
-    i64 6, label %1422
-    i64 5, label %1426
-    i64 4, label %1430
-    i64 3, label %1434
-    i64 2, label %1438
-    i64 1, label %1442
+default.unreachable:                              ; preds = %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
+  unreachable
+
+1334:                                             ; preds = %1309, %7
+  %.11785 = phi ptr [ %1, %7 ], [ %.127, %1309 ]
+  %.11655 = phi i64 [ %5, %7 ], [ %1328, %1309 ]
+  %.1 = phi i64 [ %2, %7 ], [ %33, %1309 ]
+  %1335 = lshr i64 %.1, 3
+  %1336 = and i64 %.1, 7
+  %1337 = and i64 %.1, 248
+  %1338 = getelementptr inbounds nuw i8, ptr %.11785, i64 %1337
+  switch i64 %1335, label %1447 [
+    i64 27, label %1339
+    i64 26, label %1343
+    i64 25, label %1347
+    i64 24, label %1351
+    i64 23, label %1355
+    i64 22, label %1359
+    i64 21, label %1363
+    i64 20, label %1367
+    i64 19, label %1371
+    i64 18, label %1375
+    i64 17, label %1379
+    i64 16, label %1383
+    i64 15, label %1387
+    i64 14, label %1391
+    i64 13, label %1395
+    i64 12, label %1399
+    i64 11, label %1403
+    i64 10, label %1407
+    i64 9, label %1411
+    i64 8, label %1415
+    i64 7, label %1419
+    i64 6, label %1423
+    i64 5, label %1427
+    i64 4, label %1431
+    i64 3, label %1435
+    i64 2, label %1439
+    i64 1, label %1443
   ]
 
-1338:                                             ; preds = %.thread
-  %1339 = getelementptr inbounds i8, ptr %1337, i64 -216
-  %1340 = load i64, ptr %1339, align 8, !tbaa !19
-  %1341 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.11655, i64 %1340)
-  br label %1342
+1339:                                             ; preds = %1334
+  %1340 = getelementptr inbounds i8, ptr %1338, i64 -216
+  %1341 = load i64, ptr %1340, align 8, !tbaa !19
+  %1342 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.11655, i64 %1341)
+  br label %1343
 
-1342:                                             ; preds = %1338, %.thread
-  %.131 = phi i64 [ %1341, %1338 ], [ %.11655, %.thread ]
-  %1343 = getelementptr inbounds i8, ptr %1337, i64 -208
-  %1344 = load i64, ptr %1343, align 8, !tbaa !19
-  %1345 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.131, i64 %1344)
-  br label %1346
+1343:                                             ; preds = %1339, %1334
+  %.130 = phi i64 [ %1342, %1339 ], [ %.11655, %1334 ]
+  %1344 = getelementptr inbounds i8, ptr %1338, i64 -208
+  %1345 = load i64, ptr %1344, align 8, !tbaa !19
+  %1346 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.130, i64 %1345)
+  br label %1347
 
-1346:                                             ; preds = %1342, %.thread
-  %.132 = phi i64 [ %1345, %1342 ], [ %.11655, %.thread ]
-  %1347 = getelementptr inbounds i8, ptr %1337, i64 -200
-  %1348 = load i64, ptr %1347, align 8, !tbaa !19
-  %1349 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.132, i64 %1348)
-  br label %1350
+1347:                                             ; preds = %1343, %1334
+  %.131 = phi i64 [ %1346, %1343 ], [ %.11655, %1334 ]
+  %1348 = getelementptr inbounds i8, ptr %1338, i64 -200
+  %1349 = load i64, ptr %1348, align 8, !tbaa !19
+  %1350 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.131, i64 %1349)
+  br label %1351
 
-1350:                                             ; preds = %1346, %.thread
-  %.133 = phi i64 [ %1349, %1346 ], [ %.11655, %.thread ]
-  %1351 = getelementptr inbounds i8, ptr %1337, i64 -192
-  %1352 = load i64, ptr %1351, align 8, !tbaa !19
-  %1353 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.133, i64 %1352)
-  br label %1354
+1351:                                             ; preds = %1347, %1334
+  %.132 = phi i64 [ %1350, %1347 ], [ %.11655, %1334 ]
+  %1352 = getelementptr inbounds i8, ptr %1338, i64 -192
+  %1353 = load i64, ptr %1352, align 8, !tbaa !19
+  %1354 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.132, i64 %1353)
+  br label %1355
 
-1354:                                             ; preds = %1350, %.thread
-  %.134 = phi i64 [ %1353, %1350 ], [ %.11655, %.thread ]
-  %1355 = getelementptr inbounds i8, ptr %1337, i64 -184
-  %1356 = load i64, ptr %1355, align 8, !tbaa !19
-  %1357 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.134, i64 %1356)
-  br label %1358
+1355:                                             ; preds = %1351, %1334
+  %.133 = phi i64 [ %1354, %1351 ], [ %.11655, %1334 ]
+  %1356 = getelementptr inbounds i8, ptr %1338, i64 -184
+  %1357 = load i64, ptr %1356, align 8, !tbaa !19
+  %1358 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.133, i64 %1357)
+  br label %1359
 
-1358:                                             ; preds = %1354, %.thread
-  %.135 = phi i64 [ %1357, %1354 ], [ %.11655, %.thread ]
-  %1359 = getelementptr inbounds i8, ptr %1337, i64 -176
-  %1360 = load i64, ptr %1359, align 8, !tbaa !19
-  %1361 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.135, i64 %1360)
-  br label %1362
+1359:                                             ; preds = %1355, %1334
+  %.134 = phi i64 [ %1358, %1355 ], [ %.11655, %1334 ]
+  %1360 = getelementptr inbounds i8, ptr %1338, i64 -176
+  %1361 = load i64, ptr %1360, align 8, !tbaa !19
+  %1362 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.134, i64 %1361)
+  br label %1363
 
-1362:                                             ; preds = %1358, %.thread
-  %.136 = phi i64 [ %1361, %1358 ], [ %.11655, %.thread ]
-  %1363 = getelementptr inbounds i8, ptr %1337, i64 -168
-  %1364 = load i64, ptr %1363, align 8, !tbaa !19
-  %1365 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.136, i64 %1364)
-  br label %1366
+1363:                                             ; preds = %1359, %1334
+  %.135 = phi i64 [ %1362, %1359 ], [ %.11655, %1334 ]
+  %1364 = getelementptr inbounds i8, ptr %1338, i64 -168
+  %1365 = load i64, ptr %1364, align 8, !tbaa !19
+  %1366 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.135, i64 %1365)
+  br label %1367
 
-1366:                                             ; preds = %1362, %.thread
-  %.137 = phi i64 [ %1365, %1362 ], [ %.11655, %.thread ]
-  %1367 = getelementptr inbounds i8, ptr %1337, i64 -160
-  %1368 = load i64, ptr %1367, align 8, !tbaa !19
-  %1369 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.137, i64 %1368)
-  br label %1370
+1367:                                             ; preds = %1363, %1334
+  %.136 = phi i64 [ %1366, %1363 ], [ %.11655, %1334 ]
+  %1368 = getelementptr inbounds i8, ptr %1338, i64 -160
+  %1369 = load i64, ptr %1368, align 8, !tbaa !19
+  %1370 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.136, i64 %1369)
+  br label %1371
 
-1370:                                             ; preds = %1366, %.thread
-  %.138 = phi i64 [ %1369, %1366 ], [ %.11655, %.thread ]
-  %1371 = getelementptr inbounds i8, ptr %1337, i64 -152
-  %1372 = load i64, ptr %1371, align 8, !tbaa !19
-  %1373 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.138, i64 %1372)
-  br label %1374
+1371:                                             ; preds = %1367, %1334
+  %.137 = phi i64 [ %1370, %1367 ], [ %.11655, %1334 ]
+  %1372 = getelementptr inbounds i8, ptr %1338, i64 -152
+  %1373 = load i64, ptr %1372, align 8, !tbaa !19
+  %1374 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.137, i64 %1373)
+  br label %1375
 
-1374:                                             ; preds = %1370, %.thread
-  %.139 = phi i64 [ %1373, %1370 ], [ %.11655, %.thread ]
-  %1375 = getelementptr inbounds i8, ptr %1337, i64 -144
-  %1376 = load i64, ptr %1375, align 8, !tbaa !19
-  %1377 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.139, i64 %1376)
-  br label %1378
+1375:                                             ; preds = %1371, %1334
+  %.138 = phi i64 [ %1374, %1371 ], [ %.11655, %1334 ]
+  %1376 = getelementptr inbounds i8, ptr %1338, i64 -144
+  %1377 = load i64, ptr %1376, align 8, !tbaa !19
+  %1378 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.138, i64 %1377)
+  br label %1379
 
-1378:                                             ; preds = %1374, %.thread
-  %.140 = phi i64 [ %1377, %1374 ], [ %.11655, %.thread ]
-  %1379 = getelementptr inbounds i8, ptr %1337, i64 -136
-  %1380 = load i64, ptr %1379, align 8, !tbaa !19
-  %1381 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.140, i64 %1380)
-  br label %1382
+1379:                                             ; preds = %1375, %1334
+  %.139 = phi i64 [ %1378, %1375 ], [ %.11655, %1334 ]
+  %1380 = getelementptr inbounds i8, ptr %1338, i64 -136
+  %1381 = load i64, ptr %1380, align 8, !tbaa !19
+  %1382 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.139, i64 %1381)
+  br label %1383
 
-1382:                                             ; preds = %1378, %.thread
-  %.141 = phi i64 [ %1381, %1378 ], [ %.11655, %.thread ]
-  %1383 = getelementptr inbounds i8, ptr %1337, i64 -128
-  %1384 = load i64, ptr %1383, align 8, !tbaa !19
-  %1385 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.141, i64 %1384)
-  br label %1386
+1383:                                             ; preds = %1379, %1334
+  %.140 = phi i64 [ %1382, %1379 ], [ %.11655, %1334 ]
+  %1384 = getelementptr inbounds i8, ptr %1338, i64 -128
+  %1385 = load i64, ptr %1384, align 8, !tbaa !19
+  %1386 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.140, i64 %1385)
+  br label %1387
 
-1386:                                             ; preds = %1382, %.thread
-  %.142 = phi i64 [ %1385, %1382 ], [ %.11655, %.thread ]
-  %1387 = getelementptr inbounds i8, ptr %1337, i64 -120
-  %1388 = load i64, ptr %1387, align 8, !tbaa !19
-  %1389 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.142, i64 %1388)
-  br label %1390
+1387:                                             ; preds = %1383, %1334
+  %.141 = phi i64 [ %1386, %1383 ], [ %.11655, %1334 ]
+  %1388 = getelementptr inbounds i8, ptr %1338, i64 -120
+  %1389 = load i64, ptr %1388, align 8, !tbaa !19
+  %1390 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.141, i64 %1389)
+  br label %1391
 
-1390:                                             ; preds = %1386, %.thread
-  %.143 = phi i64 [ %1389, %1386 ], [ %.11655, %.thread ]
-  %1391 = getelementptr inbounds i8, ptr %1337, i64 -112
-  %1392 = load i64, ptr %1391, align 8, !tbaa !19
-  %1393 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.143, i64 %1392)
-  br label %1394
+1391:                                             ; preds = %1387, %1334
+  %.142 = phi i64 [ %1390, %1387 ], [ %.11655, %1334 ]
+  %1392 = getelementptr inbounds i8, ptr %1338, i64 -112
+  %1393 = load i64, ptr %1392, align 8, !tbaa !19
+  %1394 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.142, i64 %1393)
+  br label %1395
 
-1394:                                             ; preds = %1390, %.thread
-  %.144 = phi i64 [ %1393, %1390 ], [ %.11655, %.thread ]
-  %1395 = getelementptr inbounds i8, ptr %1337, i64 -104
-  %1396 = load i64, ptr %1395, align 8, !tbaa !19
-  %1397 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.144, i64 %1396)
-  br label %1398
+1395:                                             ; preds = %1391, %1334
+  %.143 = phi i64 [ %1394, %1391 ], [ %.11655, %1334 ]
+  %1396 = getelementptr inbounds i8, ptr %1338, i64 -104
+  %1397 = load i64, ptr %1396, align 8, !tbaa !19
+  %1398 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.143, i64 %1397)
+  br label %1399
 
-1398:                                             ; preds = %1394, %.thread
-  %.145 = phi i64 [ %1397, %1394 ], [ %.11655, %.thread ]
-  %1399 = getelementptr inbounds i8, ptr %1337, i64 -96
-  %1400 = load i64, ptr %1399, align 8, !tbaa !19
-  %1401 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.145, i64 %1400)
-  br label %1402
+1399:                                             ; preds = %1395, %1334
+  %.144 = phi i64 [ %1398, %1395 ], [ %.11655, %1334 ]
+  %1400 = getelementptr inbounds i8, ptr %1338, i64 -96
+  %1401 = load i64, ptr %1400, align 8, !tbaa !19
+  %1402 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.144, i64 %1401)
+  br label %1403
 
-1402:                                             ; preds = %1398, %.thread
-  %.146 = phi i64 [ %1401, %1398 ], [ %.11655, %.thread ]
-  %1403 = getelementptr inbounds i8, ptr %1337, i64 -88
-  %1404 = load i64, ptr %1403, align 8, !tbaa !19
-  %1405 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.146, i64 %1404)
-  br label %1406
+1403:                                             ; preds = %1399, %1334
+  %.145 = phi i64 [ %1402, %1399 ], [ %.11655, %1334 ]
+  %1404 = getelementptr inbounds i8, ptr %1338, i64 -88
+  %1405 = load i64, ptr %1404, align 8, !tbaa !19
+  %1406 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.145, i64 %1405)
+  br label %1407
 
-1406:                                             ; preds = %1402, %.thread
-  %.147 = phi i64 [ %1405, %1402 ], [ %.11655, %.thread ]
-  %1407 = getelementptr inbounds i8, ptr %1337, i64 -80
-  %1408 = load i64, ptr %1407, align 8, !tbaa !19
-  %1409 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.147, i64 %1408)
-  br label %1410
+1407:                                             ; preds = %1403, %1334
+  %.146 = phi i64 [ %1406, %1403 ], [ %.11655, %1334 ]
+  %1408 = getelementptr inbounds i8, ptr %1338, i64 -80
+  %1409 = load i64, ptr %1408, align 8, !tbaa !19
+  %1410 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.146, i64 %1409)
+  br label %1411
 
-1410:                                             ; preds = %1406, %.thread
-  %.148 = phi i64 [ %1409, %1406 ], [ %.11655, %.thread ]
-  %1411 = getelementptr inbounds i8, ptr %1337, i64 -72
-  %1412 = load i64, ptr %1411, align 8, !tbaa !19
-  %1413 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.148, i64 %1412)
-  br label %1414
+1411:                                             ; preds = %1407, %1334
+  %.147 = phi i64 [ %1410, %1407 ], [ %.11655, %1334 ]
+  %1412 = getelementptr inbounds i8, ptr %1338, i64 -72
+  %1413 = load i64, ptr %1412, align 8, !tbaa !19
+  %1414 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.147, i64 %1413)
+  br label %1415
 
-1414:                                             ; preds = %1410, %.thread
-  %.149 = phi i64 [ %1413, %1410 ], [ %.11655, %.thread ]
-  %1415 = getelementptr inbounds i8, ptr %1337, i64 -64
-  %1416 = load i64, ptr %1415, align 8, !tbaa !19
-  %1417 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.149, i64 %1416)
-  br label %1418
+1415:                                             ; preds = %1411, %1334
+  %.148 = phi i64 [ %1414, %1411 ], [ %.11655, %1334 ]
+  %1416 = getelementptr inbounds i8, ptr %1338, i64 -64
+  %1417 = load i64, ptr %1416, align 8, !tbaa !19
+  %1418 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.148, i64 %1417)
+  br label %1419
 
-1418:                                             ; preds = %1414, %.thread
-  %.150 = phi i64 [ %1417, %1414 ], [ %.11655, %.thread ]
-  %1419 = getelementptr inbounds i8, ptr %1337, i64 -56
-  %1420 = load i64, ptr %1419, align 8, !tbaa !19
-  %1421 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.150, i64 %1420)
-  br label %1422
+1419:                                             ; preds = %1415, %1334
+  %.149 = phi i64 [ %1418, %1415 ], [ %.11655, %1334 ]
+  %1420 = getelementptr inbounds i8, ptr %1338, i64 -56
+  %1421 = load i64, ptr %1420, align 8, !tbaa !19
+  %1422 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.149, i64 %1421)
+  br label %1423
 
-1422:                                             ; preds = %1418, %.thread
-  %.151 = phi i64 [ %1421, %1418 ], [ %.11655, %.thread ]
-  %1423 = getelementptr inbounds i8, ptr %1337, i64 -48
-  %1424 = load i64, ptr %1423, align 8, !tbaa !19
-  %1425 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.151, i64 %1424)
-  br label %1426
+1423:                                             ; preds = %1419, %1334
+  %.150 = phi i64 [ %1422, %1419 ], [ %.11655, %1334 ]
+  %1424 = getelementptr inbounds i8, ptr %1338, i64 -48
+  %1425 = load i64, ptr %1424, align 8, !tbaa !19
+  %1426 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.150, i64 %1425)
+  br label %1427
 
-1426:                                             ; preds = %1422, %.thread
-  %.152 = phi i64 [ %1425, %1422 ], [ %.11655, %.thread ]
-  %1427 = getelementptr inbounds i8, ptr %1337, i64 -40
-  %1428 = load i64, ptr %1427, align 8, !tbaa !19
-  %1429 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.152, i64 %1428)
-  br label %1430
+1427:                                             ; preds = %1423, %1334
+  %.151 = phi i64 [ %1426, %1423 ], [ %.11655, %1334 ]
+  %1428 = getelementptr inbounds i8, ptr %1338, i64 -40
+  %1429 = load i64, ptr %1428, align 8, !tbaa !19
+  %1430 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.151, i64 %1429)
+  br label %1431
 
-1430:                                             ; preds = %1426, %.thread
-  %.153 = phi i64 [ %1429, %1426 ], [ %.11655, %.thread ]
-  %1431 = getelementptr inbounds i8, ptr %1337, i64 -32
-  %1432 = load i64, ptr %1431, align 8, !tbaa !19
-  %1433 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.153, i64 %1432)
-  br label %1434
+1431:                                             ; preds = %1427, %1334
+  %.152 = phi i64 [ %1430, %1427 ], [ %.11655, %1334 ]
+  %1432 = getelementptr inbounds i8, ptr %1338, i64 -32
+  %1433 = load i64, ptr %1432, align 8, !tbaa !19
+  %1434 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.152, i64 %1433)
+  br label %1435
 
-1434:                                             ; preds = %1430, %.thread
-  %.154 = phi i64 [ %1433, %1430 ], [ %.11655, %.thread ]
-  %1435 = getelementptr inbounds i8, ptr %1337, i64 -24
-  %1436 = load i64, ptr %1435, align 8, !tbaa !19
-  %1437 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.154, i64 %1436)
-  br label %1438
+1435:                                             ; preds = %1431, %1334
+  %.153 = phi i64 [ %1434, %1431 ], [ %.11655, %1334 ]
+  %1436 = getelementptr inbounds i8, ptr %1338, i64 -24
+  %1437 = load i64, ptr %1436, align 8, !tbaa !19
+  %1438 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.153, i64 %1437)
+  br label %1439
 
-1438:                                             ; preds = %1434, %.thread
-  %.155 = phi i64 [ %1437, %1434 ], [ %.11655, %.thread ]
-  %1439 = getelementptr inbounds i8, ptr %1337, i64 -16
-  %1440 = load i64, ptr %1439, align 8, !tbaa !19
-  %1441 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.155, i64 %1440)
-  br label %1442
+1439:                                             ; preds = %1435, %1334
+  %.154 = phi i64 [ %1438, %1435 ], [ %.11655, %1334 ]
+  %1440 = getelementptr inbounds i8, ptr %1338, i64 -16
+  %1441 = load i64, ptr %1440, align 8, !tbaa !19
+  %1442 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.154, i64 %1441)
+  br label %1443
 
-1442:                                             ; preds = %1438, %.thread
-  %.156 = phi i64 [ %1441, %1438 ], [ %.11655, %.thread ]
-  %1443 = getelementptr inbounds i8, ptr %1337, i64 -8
-  %1444 = load i64, ptr %1443, align 8, !tbaa !19
-  %1445 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.156, i64 %1444)
-  br label %1446
+1443:                                             ; preds = %1439, %1334
+  %.155 = phi i64 [ %1442, %1439 ], [ %.11655, %1334 ]
+  %1444 = getelementptr inbounds i8, ptr %1338, i64 -8
+  %1445 = load i64, ptr %1444, align 8, !tbaa !19
+  %1446 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 %.155, i64 %1445)
+  br label %1447
 
-1446:                                             ; preds = %.thread, %1442, %3
-  %.01784 = phi ptr [ %1337, %.thread ], [ %1337, %1442 ], [ %1, %3 ]
-  %.01654 = phi i64 [ %.11655, %.thread ], [ %1445, %1442 ], [ %5, %3 ]
-  %.0 = phi i64 [ %1335, %.thread ], [ %1335, %1442 ], [ %2, %3 ]
-  %1447 = trunc i64 %.01654 to i32
+1447:                                             ; preds = %1334, %1443, %3
+  %.01784 = phi ptr [ %1338, %1334 ], [ %1338, %1443 ], [ %1, %3 ]
+  %.01654 = phi i64 [ %.11655, %1334 ], [ %1446, %1443 ], [ %5, %3 ]
+  %.0 = phi i64 [ %1336, %1334 ], [ %1336, %1443 ], [ %2, %3 ]
+  %1448 = trunc i64 %.01654 to i32
   %.not.i1455 = icmp samesign ult i64 %.0, 4
-  br i1 %.not.i1455, label %1452, label %1448
+  br i1 %.not.i1455, label %1453, label %1449
 
-1448:                                             ; preds = %1446
-  %1449 = load i32, ptr %.01784, align 4, !tbaa !15
-  %1450 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %1447, i32 %1449)
-  %1451 = getelementptr inbounds nuw i8, ptr %.01784, i64 4
-  br label %1452
+1449:                                             ; preds = %1447
+  %1450 = load i32, ptr %.01784, align 4, !tbaa !15
+  %1451 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %1448, i32 %1450)
+  %1452 = getelementptr inbounds nuw i8, ptr %.01784, i64 4
+  br label %1453
 
-1452:                                             ; preds = %1448, %1446
-  %.51789 = phi ptr [ %.01784, %1446 ], [ %1451, %1448 ]
-  %.0.i1456 = phi i32 [ %1447, %1446 ], [ %1450, %1448 ]
-  %1453 = and i64 %.0, 2
-  %.not14.i1457 = icmp eq i64 %1453, 0
-  br i1 %.not14.i1457, label %1458, label %1454
+1453:                                             ; preds = %1449, %1447
+  %.51789 = phi ptr [ %.01784, %1447 ], [ %1452, %1449 ]
+  %.0.i1456 = phi i32 [ %1448, %1447 ], [ %1451, %1449 ]
+  %1454 = and i64 %.0, 2
+  %.not14.i1457 = icmp eq i64 %1454, 0
+  br i1 %.not14.i1457, label %1459, label %1455
 
-1454:                                             ; preds = %1452
-  %1455 = load i16, ptr %.51789, align 2, !tbaa !17
-  %1456 = tail call noundef i32 @llvm.x86.sse42.crc32.32.16(i32 %.0.i1456, i16 %1455)
-  %1457 = getelementptr inbounds nuw i8, ptr %.51789, i64 2
-  br label %1458
+1455:                                             ; preds = %1453
+  %1456 = load i16, ptr %.51789, align 2, !tbaa !17
+  %1457 = tail call noundef i32 @llvm.x86.sse42.crc32.32.16(i32 %.0.i1456, i16 %1456)
+  %1458 = getelementptr inbounds nuw i8, ptr %.51789, i64 2
+  br label %1459
 
-1458:                                             ; preds = %1454, %1452
-  %.61790 = phi ptr [ %.51789, %1452 ], [ %1457, %1454 ]
-  %.1.i1458 = phi i32 [ %.0.i1456, %1452 ], [ %1456, %1454 ]
-  %1459 = and i64 %.0, 1
-  %.not15.i1459 = icmp eq i64 %1459, 0
-  br i1 %.not15.i1459, label %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit1461, label %1460
+1459:                                             ; preds = %1455, %1453
+  %.61790 = phi ptr [ %.51789, %1453 ], [ %1458, %1455 ]
+  %.1.i1458 = phi i32 [ %.0.i1456, %1453 ], [ %1457, %1455 ]
+  %1460 = and i64 %.0, 1
+  %.not15.i1459 = icmp eq i64 %1460, 0
+  br i1 %.not15.i1459, label %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit1461, label %1461
 
-1460:                                             ; preds = %1458
-  %1461 = load i8, ptr %.61790, align 1, !tbaa !13
-  %1462 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %.1.i1458, i8 %1461)
+1461:                                             ; preds = %1459
+  %1462 = load i8, ptr %.61790, align 1, !tbaa !13
+  %1463 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %.1.i1458, i8 %1462)
   br label %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit1461
 
-_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit1461:  ; preds = %1458, %1460
-  %.2.i1460 = phi i32 [ %1462, %1460 ], [ %.1.i1458, %1458 ]
-  %1463 = xor i32 %.2.i1460, -1
-  ret i32 %1463
+_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit1461:  ; preds = %1459, %1461
+  %.2.i1460 = phi i32 [ %1463, %1461 ], [ %.1.i1458, %1459 ]
+  %1464 = xor i32 %.2.i1460, -1
+  ret i32 %1464
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

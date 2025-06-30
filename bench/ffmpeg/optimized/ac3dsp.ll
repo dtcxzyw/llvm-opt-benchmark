@@ -941,7 +941,7 @@ define internal void @ac3_update_bap_counts_c(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @ac3_compute_mantissa_size_c(ptr noundef readonly captures(none) %0) #4 {
+define internal range(i32 0, -2147483648) i32 @ac3_compute_mantissa_size_c(ptr noundef readonly captures(none) %0) #4 {
   br label %2
 
 2:                                                ; preds = %1, %33
@@ -953,7 +953,7 @@ define internal i32 @ac3_compute_mantissa_size_c(ptr noundef readonly captures(n
   %6 = udiv i16 %5, 3
   %7 = zext nneg i16 %6 to i32
   %8 = mul nuw nsw i32 %7, 5
-  %9 = add nsw i32 %8, %.025
+  %9 = add nuw nsw i32 %8, %.025
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = load i16, ptr %10, align 2, !tbaa !14
   %12 = udiv i16 %11, 3
@@ -967,8 +967,8 @@ define internal i32 @ac3_compute_mantissa_size_c(ptr noundef readonly captures(n
   %19 = load i16, ptr %18, align 2, !tbaa !14
   %20 = zext i16 %19 to i32
   %21 = mul nuw nsw i32 %20, 3
-  %22 = add i32 %9, %21
-  %23 = add i32 %22, %17
+  %22 = add nuw nsw i32 %9, %21
+  %23 = add nuw nsw i32 %22, %17
   br label %24
 
 24:                                               ; preds = %2, %24
@@ -981,7 +981,7 @@ define internal i32 @ac3_compute_mantissa_size_c(ptr noundef readonly captures(n
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
   %31 = mul nuw nsw i32 %30, %27
-  %32 = add nsw i32 %31, %.123
+  %32 = add nuw nsw i32 %31, %.123
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %33, label %24, !llvm.loop !52

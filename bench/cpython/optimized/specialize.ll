@@ -1058,7 +1058,7 @@ define hidden void @_Py_Specialize_LoadSuperAttr(i64 %0, i64 %1, ptr noundef cap
   %23 = trunc nsw i32 %notmask.i.i.i to i16
   %24 = xor i16 %23, -1
   %25 = shl nuw i16 %24, 4
-  %26 = or i16 %25, %narrow.i.i.i
+  %26 = add nuw nsw i16 %25, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %13, %21
@@ -1766,7 +1766,7 @@ do_specialize_instance_load_attr.exit.thread.i:   ; preds = %do_specialize_insta
   %292 = trunc nsw i32 %notmask.i.i.i to i16
   %293 = xor i16 %292, -1
   %294 = shl nuw i16 %293, 4
-  %295 = or i16 %294, %narrow.i.i.i
+  %295 = add nuw nsw i16 %294, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %.critedge, %290
@@ -2025,7 +2025,7 @@ Py_XDECREF.exit:                                  ; preds = %9, %8, %3, %special
   %109 = trunc nsw i32 %notmask.i.i.i to i16
   %110 = xor i16 %109, -1
   %111 = shl nuw i16 %110, 4
-  %112 = or i16 %111, %narrow.i.i.i
+  %112 = add nuw nsw i16 %111, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %Py_XDECREF.exit, %107
@@ -2188,7 +2188,7 @@ define hidden void @_Py_Specialize_LoadGlobal(ptr noundef %0, ptr noundef %1, pt
   %64 = trunc nsw i32 %notmask.i.i.i.i to i16
   %65 = xor i16 %64, -1
   %66 = shl nuw i16 %65, 4
-  %67 = or i16 %66, %narrow.i.i.i.i
+  %67 = add nuw nsw i16 %66, %narrow.i.i.i.i
   br label %unspecialize.exit.i
 
 unspecialize.exit.i:                              ; preds = %62, %54
@@ -2412,7 +2412,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink
   %104 = trunc nsw i32 %notmask.i.i.i to i16
   %105 = xor i16 %104, -1
   %106 = shl nuw i16 %105, 4
-  %107 = or i16 %106, %narrow.i.i.i
+  %107 = add nuw nsw i16 %106, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %Py_DECREF.exit, %102
@@ -2491,7 +2491,7 @@ define hidden void @_Py_Specialize_StoreSubscr(i64 %0, i64 %1, ptr noundef captu
   %32 = trunc nsw i32 %notmask.i.i.i to i16
   %33 = xor i16 %32, -1
   %34 = shl nuw i16 %33, 4
-  %35 = or i16 %34, %narrow.i.i.i
+  %35 = add nuw nsw i16 %34, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %22, %30
@@ -2518,7 +2518,7 @@ unspecialize.exit:                                ; preds = %22, %30
   %46 = trunc nsw i32 %notmask.i.i.i24 to i16
   %47 = xor i16 %46, -1
   %48 = shl nuw i16 %47, 4
-  %49 = or i16 %48, %narrow.i.i.i23
+  %49 = add nuw nsw i16 %48, %narrow.i.i.i23
   br label %unspecialize.exit25
 
 unspecialize.exit25:                              ; preds = %36, %44
@@ -2555,7 +2555,7 @@ unspecialize.exit25:                              ; preds = %36, %44
   %64 = trunc nsw i32 %notmask.i.i.i29 to i16
   %65 = xor i16 %64, -1
   %66 = shl nuw i16 %65, 4
-  %67 = or i16 %66, %narrow.i.i.i28
+  %67 = add nuw nsw i16 %66, %narrow.i.i.i28
   br label %unspecialize.exit30
 
 unspecialize.exit30:                              ; preds = %54, %62
@@ -3069,7 +3069,7 @@ specialize_c_call.exit.thread47:                  ; preds = %170, %167, %66, %62
   %211 = trunc nsw i32 %notmask.i.i.i to i16
   %212 = xor i16 %211, -1
   %213 = shl nuw i16 %212, 4
-  %214 = or i16 %213, %narrow.i.i.i
+  %214 = add nuw nsw i16 %213, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %specialize_c_call.exit.thread47, %209
@@ -3285,7 +3285,7 @@ function_kind.exit.i18:                           ; preds = %44, %41, %35
   %71 = trunc nsw i32 %notmask.i.i.i to i16
   %72 = xor i16 %71, -1
   %73 = shl nuw i16 %72, 4
-  %74 = or i16 %73, %narrow.i.i.i
+  %74 = add nuw nsw i16 %73, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %61, %69
@@ -3503,7 +3503,7 @@ binary_op_extended_specialization.exit:           ; preds = %72, %68
   %86 = trunc nsw i32 %notmask.i.i.i to i16
   %87 = xor i16 %86, -1
   %88 = shl nuw i16 %87, 4
-  %89 = or i16 %88, %narrow.i.i.i
+  %89 = add nuw nsw i16 %88, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %binary_op_extended_specialization.exit, %84
@@ -3575,7 +3575,7 @@ define hidden void @_Py_Specialize_CompareOp(i64 %0, i64 %1, ptr noundef capture
   %31 = trunc nsw i32 %notmask.i.i.i to i16
   %32 = xor i16 %31, -1
   %33 = shl nuw i16 %32, 4
-  %34 = or i16 %33, %narrow.i.i.i
+  %34 = add nuw nsw i16 %33, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %21, %29
@@ -3628,7 +3628,7 @@ define hidden void @_Py_Specialize_UnpackSequence(i64 %0, ptr noundef captures(n
   %19 = trunc nsw i32 %notmask.i.i.i to i16
   %20 = xor i16 %19, -1
   %21 = shl nuw i16 %20, 4
-  %22 = or i16 %21, %narrow.i.i.i
+  %22 = add nuw nsw i16 %21, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %9, %17
@@ -3681,7 +3681,7 @@ unspecialize.exit:                                ; preds = %9, %17
   %42 = trunc nsw i32 %notmask.i.i.i22 to i16
   %43 = xor i16 %42, -1
   %44 = shl nuw i16 %43, 4
-  %45 = or i16 %44, %narrow.i.i.i21
+  %45 = add nuw nsw i16 %44, %narrow.i.i.i21
   br label %unspecialize.exit23
 
 unspecialize.exit23:                              ; preds = %32, %40
@@ -3714,7 +3714,7 @@ unspecialize.exit23:                              ; preds = %32, %40
   %58 = trunc nsw i32 %notmask.i.i.i27 to i16
   %59 = xor i16 %58, -1
   %60 = shl nuw i16 %59, 4
-  %61 = or i16 %60, %narrow.i.i.i26
+  %61 = add nuw nsw i16 %60, %narrow.i.i.i26
   br label %unspecialize.exit28
 
 unspecialize.exit28:                              ; preds = %48, %56
@@ -3789,7 +3789,7 @@ define hidden void @_Py_Specialize_ForIter(i64 %0, ptr noundef captures(none) in
   %32 = trunc nsw i32 %notmask.i.i to i16
   %33 = xor i16 %32, -1
   %34 = shl nuw i16 %33, 4
-  %35 = or i16 %34, %narrow.i.i
+  %35 = add nuw nsw i16 %34, %narrow.i.i
   br label %adaptive_counter_backoff.exit
 
 adaptive_counter_backoff.exit:                    ; preds = %8, %11, %14, %25, %30, %26
@@ -3843,7 +3843,7 @@ define hidden void @_Py_Specialize_Send(i64 %0, ptr noundef captures(none) %1) l
   %26 = trunc nsw i32 %notmask.i.i.i to i16
   %27 = xor i16 %26, -1
   %28 = shl nuw i16 %27, 4
-  %29 = or i16 %28, %narrow.i.i.i
+  %29 = add nuw nsw i16 %28, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %16, %24
@@ -3924,7 +3924,7 @@ define hidden void @_Py_Specialize_ToBool(i64 %0, ptr noundef captures(none) %1)
   %29 = trunc nsw i32 %notmask.i.i.i to i16
   %30 = xor i16 %29, -1
   %31 = shl nuw i16 %30, 4
-  %32 = or i16 %31, %narrow.i.i.i
+  %32 = add nuw nsw i16 %31, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %19, %27
@@ -4033,7 +4033,7 @@ define hidden void @_Py_Specialize_ContainsOp(i64 %0, ptr noundef captures(none)
   %20 = trunc nsw i32 %notmask.i.i.i to i16
   %21 = xor i16 %20, -1
   %22 = shl nuw i16 %21, 4
-  %23 = or i16 %22, %narrow.i.i.i
+  %23 = add nuw nsw i16 %22, %narrow.i.i.i
   br label %unspecialize.exit
 
 unspecialize.exit:                                ; preds = %10, %18

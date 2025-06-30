@@ -25252,7 +25252,7 @@ if.end:                                           ; preds = %"_ZN5eastl8pop_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN5eastl11adjust_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElS4_Z13TestAlgorithmvE4$_44EEvT_T0_S8_S8_OT1_T2_"(ptr noundef captures(none) %first, i64 noundef range(i64 0, 576460752303423487) %topPosition, i64 noundef range(i64 -1152921504606846977, 1152921504606846976) %heapSize, i64 noundef range(i64 0, 576460752303423487) %position, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %invariant.gep.i = getelementptr i8, ptr %first, i64 8
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %childPosition.0.in25.i = shl nuw nsw i64 %position, 1
   %childPosition.026.i = add nuw nsw i64 %childPosition.0.in25.i, 2
   %cmp27.i = icmp slt i64 %childPosition.026.i, %heapSize
@@ -25262,8 +25262,8 @@ for.body.i:                                       ; preds = %entry, %_ZN5eastl10
   %childPosition.030.i = phi i64 [ %childPosition.0.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.026.i, %entry ]
   %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %entry ]
   %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %entry ]
-  %add.ptr.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
-  %gep.i = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep.i, i64 %childPosition.0.in29.i
+  %add.ptr.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
+  %gep.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %invariant.gep.i, i64 %childPosition.0.in29.i
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
   %add.ptr1.val.i = load ptr, ptr %gep.i, align 8
   %add.ptr.val.val.i = load i32, ptr %add.ptr.val.i, align 4
@@ -25271,8 +25271,8 @@ for.body.i:                                       ; preds = %entry, %_ZN5eastl10
   %cmp.i.i = icmp slt i32 %add.ptr.val.val.i, %add.ptr1.val.val.i
   %dec.i = or disjoint i64 %childPosition.0.in29.i, 1
   %spec.select.i = select i1 %cmp.i.i, i64 %dec.i, i64 %childPosition.030.i
-  %add.ptr2.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.028.i
+  %add.ptr2.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %spec.select.i
+  %add.ptr4.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.028.i
   %0 = load ptr, ptr %add.ptr2.i, align 8
   store ptr null, ptr %add.ptr2.i, align 8
   %1 = load ptr, ptr %add.ptr4.i, align 8
@@ -25289,8 +25289,8 @@ _ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i:    ; preds = %invoke.cont3.i.i.i
   br label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
 
 _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i: ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i, %invoke.cont3.i.i.i, %for.body.i
-  %childPosition.0.in.i = shl nsw i64 %spec.select.i, 1
-  %childPosition.0.i = add nsw i64 %childPosition.0.in.i, 2
+  %childPosition.0.in.i = shl nuw nsw i64 %spec.select.i, 1
+  %childPosition.0.i = add nuw nsw i64 %childPosition.0.in.i, 2
   %cmp.i = icmp slt i64 %childPosition.0.i, %heapSize
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !931
 
@@ -25303,8 +25303,8 @@ for.end.i:                                        ; preds = %_ZN5eastl10unique_p
 
 if.then9.i:                                       ; preds = %for.end.i
   %sub10.i = or disjoint i64 %childPosition.0.in.lcssa.i, 1
-  %add.ptr11.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %sub10.i
-  %add.ptr13.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa.i
+  %add.ptr11.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %sub10.i
+  %add.ptr13.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa.i
   %2 = load ptr, ptr %add.ptr11.i, align 8
   store ptr null, ptr %add.ptr11.i, align 8
   %3 = load ptr, ptr %add.ptr13.i, align 8
@@ -25322,7 +25322,7 @@ _ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i:  ; preds = %invoke.cont3.i.i21.
 
 if.end16.i:                                       ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i, %invoke.cont3.i.i21.i, %if.then9.i, %for.end.i
   %position.addr.1.i = phi i64 [ %position.addr.0.lcssa.i, %for.end.i ], [ %sub10.i, %if.then9.i ], [ %sub10.i, %invoke.cont3.i.i21.i ], [ %sub10.i, %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i ]
-  %cmp18.i.i.i = icmp sgt i64 %position.addr.1.i, %topPosition
+  %cmp18.i.i.i = icmp samesign ugt i64 %position.addr.1.i, %topPosition
   br i1 %cmp18.i.i.i, label %land.rhs.i.i.i, label %for.end.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %if.end16.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i
@@ -25568,7 +25568,7 @@ if.end:                                           ; preds = %"_ZN5eastl8pop_heap
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN5eastl11adjust_heapIPNS_10unique_ptrIiNS_14default_deleteIiEEEElS4_Z13TestAlgorithmvE4$_45EEvT_T0_S8_S8_OT1_T2_"(ptr noundef captures(none) %first, i64 noundef range(i64 0, 576460752303423487) %topPosition, i64 noundef range(i64 -1152921504606846977, 1152921504606846976) %heapSize, i64 noundef range(i64 0, 576460752303423487) %position, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %invariant.gep.i = getelementptr i8, ptr %first, i64 8
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %first, i64 8
   %childPosition.0.in25.i = shl nuw nsw i64 %position, 1
   %childPosition.026.i = add nuw nsw i64 %childPosition.0.in25.i, 2
   %cmp27.i = icmp slt i64 %childPosition.026.i, %heapSize
@@ -25578,8 +25578,8 @@ for.body.i:                                       ; preds = %entry, %_ZN5eastl10
   %childPosition.030.i = phi i64 [ %childPosition.0.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.026.i, %entry ]
   %childPosition.0.in29.i = phi i64 [ %childPosition.0.in.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %childPosition.0.in25.i, %entry ]
   %position.addr.028.i = phi i64 [ %spec.select.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i ], [ %position, %entry ]
-  %add.ptr.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
-  %gep.i = getelementptr %"class.eastl::unique_ptr", ptr %invariant.gep.i, i64 %childPosition.0.in29.i
+  %add.ptr.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %childPosition.030.i
+  %gep.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %invariant.gep.i, i64 %childPosition.0.in29.i
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
   %add.ptr1.val.i = load ptr, ptr %gep.i, align 8
   %add.ptr.val.val.i = load i32, ptr %add.ptr.val.i, align 4
@@ -25587,8 +25587,8 @@ for.body.i:                                       ; preds = %entry, %_ZN5eastl10
   %cmp.i.i = icmp slt i32 %add.ptr.val.val.i, %add.ptr1.val.val.i
   %dec.i = or disjoint i64 %childPosition.0.in29.i, 1
   %spec.select.i = select i1 %cmp.i.i, i64 %dec.i, i64 %childPosition.030.i
-  %add.ptr2.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.028.i
+  %add.ptr2.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %spec.select.i
+  %add.ptr4.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.028.i
   %0 = load ptr, ptr %add.ptr2.i, align 8
   store ptr null, ptr %add.ptr2.i, align 8
   %1 = load ptr, ptr %add.ptr4.i, align 8
@@ -25605,8 +25605,8 @@ _ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i:    ; preds = %invoke.cont3.i.i.i
   br label %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i
 
 _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i: ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i.i, %invoke.cont3.i.i.i, %for.body.i
-  %childPosition.0.in.i = shl nsw i64 %spec.select.i, 1
-  %childPosition.0.i = add nsw i64 %childPosition.0.in.i, 2
+  %childPosition.0.in.i = shl nuw nsw i64 %spec.select.i, 1
+  %childPosition.0.i = add nuw nsw i64 %childPosition.0.in.i, 2
   %cmp.i = icmp slt i64 %childPosition.0.i, %heapSize
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !939
 
@@ -25619,8 +25619,8 @@ for.end.i:                                        ; preds = %_ZN5eastl10unique_p
 
 if.then9.i:                                       ; preds = %for.end.i
   %sub10.i = or disjoint i64 %childPosition.0.in.lcssa.i, 1
-  %add.ptr11.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %sub10.i
-  %add.ptr13.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa.i
+  %add.ptr11.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %sub10.i
+  %add.ptr13.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.0.lcssa.i
   %2 = load ptr, ptr %add.ptr11.i, align 8
   store ptr null, ptr %add.ptr11.i, align 8
   %3 = load ptr, ptr %add.ptr13.i, align 8
@@ -25638,7 +25638,7 @@ _ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i:  ; preds = %invoke.cont3.i.i21.
 
 if.end16.i:                                       ; preds = %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i, %invoke.cont3.i.i21.i, %if.then9.i, %for.end.i
   %position.addr.1.i = phi i64 [ %position.addr.0.lcssa.i, %for.end.i ], [ %sub10.i, %if.then9.i ], [ %sub10.i, %invoke.cont3.i.i21.i ], [ %sub10.i, %_ZNK5eastl14default_deleteIiEclEPi.exit.i.i23.i ]
-  %cmp18.i.i.i = icmp sgt i64 %position.addr.1.i, %topPosition
+  %cmp18.i.i.i = icmp samesign ugt i64 %position.addr.1.i, %topPosition
   br i1 %cmp18.i.i.i, label %land.rhs.i.i.i, label %for.end.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %if.end16.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEEaSEOS3_.exit.i.i.i

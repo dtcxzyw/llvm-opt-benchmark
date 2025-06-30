@@ -212,8 +212,8 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br i1 %30, label %31, label %.thread115
 
 31:                                               ; preds = %29
-  %32 = add nuw nsw i32 %.06497, 1
-  %33 = icmp ugt i32 %.06497, 1
+  %32 = add i32 %.06497, 1
+  %33 = icmp ugt i32 %32, 2
   br i1 %33, label %.loopexit, label %38
 
 .thread115:                                       ; preds = %.thread113, %29
@@ -246,7 +246,7 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br i1 %43, label %.loopexit.sink.split, label %44
 
 44:                                               ; preds = %.critedge._crit_edge
-  %45 = zext nneg i32 %.064.lcssa.ph to i64
+  %45 = zext i32 %.064.lcssa.ph to i64
   %46 = lshr i64 %.072.lcssa.ph, 3
   %47 = mul nuw i64 %46, 6
   %48 = and i64 %.072.lcssa.ph, 7

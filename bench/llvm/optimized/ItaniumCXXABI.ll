@@ -19695,7 +19695,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit95: ; pr
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i132
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i132
-  %387 = zext i32 %397 to i64
+  %387 = zext nneg i32 %397 to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %365
@@ -21627,7 +21627,7 @@ declare i64 @_ZN5clang20ItaniumVTableContext26getVirtualBaseOffsetOffsetEPKNS_13
 declare noundef nonnull align 8 dereferenceable(80) ptr @_ZNK5clang10ASTContext18getASTRecordLayoutEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(23216), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL28ComputeVMIClassTypeInfoFlagsPKN5clang16CXXBaseSpecifierERN12_GLOBAL__N_19SeenBasesE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(304) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL28ComputeVMIClassTypeInfoFlagsPKN5clang16CXXBaseSpecifierERN12_GLOBAL__N_19SeenBasesE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(304) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !861
   %.sroa.0.0.copyload.i.i = load i64, ptr %4, align 8, !tbaa !384

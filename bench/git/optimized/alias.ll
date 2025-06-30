@@ -361,7 +361,7 @@ define dso_local range(i32 -3, 2147483647) i32 @split_cmdline(ptr noundef %0, pt
   br i1 %29, label %30, label %st_mult.exit
 
 30:                                               ; preds = %25
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.1, i64 noundef 8, i64 noundef range(i64 16, 0) %.) #11
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.1, i64 noundef 8, i64 noundef %.) #11
   unreachable
 
 st_mult.exit:                                     ; preds = %25

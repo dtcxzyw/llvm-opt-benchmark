@@ -146,14 +146,14 @@ define dso_local void @luaJIT_profile_start(ptr noundef %0, ptr noundef readonly
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @profile_state, i64 24), i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #7
-  %37 = sdiv i32 %.025.lcssa, 1000
-  %38 = sext i32 %37 to i64
+  %37 = udiv i32 %.025.lcssa, 1000
+  %38 = zext nneg i32 %37 to i64
   store i64 %38, ptr %5, align 8, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %38, ptr %39, align 8, !tbaa !58
-  %40 = srem i32 %.025.lcssa, 1000
-  %41 = mul nsw i32 %40, 1000
-  %42 = sext i32 %41 to i64
+  %40 = urem i32 %.025.lcssa, 1000
+  %41 = mul nuw nsw i32 %40, 1000
+  %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %42, ptr %43, align 8, !tbaa !59
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24

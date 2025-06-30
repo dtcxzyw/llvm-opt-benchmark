@@ -8012,7 +8012,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
 
 27:                                               ; preds = %13
   %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1506
-  %29 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %20, i64 noundef range(i64 1, 0) 16) #64, !noalias !1506
+  %29 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %20, i64 noundef range(i64 1, -9223372036854775807) 16) #64, !noalias !1506
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17hea262098d98cf011E.llvm.1710812290736639100.exit"
 
@@ -8209,7 +8209,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
 
 23:                                               ; preds = %11
   %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1553
-  %25 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %16, i64 noundef range(i64 1, 0) 16) #64, !noalias !1553
+  %25 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %16, i64 noundef range(i64 1, -9223372036854775807) 16) #64, !noalias !1553
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17h67beb4a2ecf0dc99E.llvm.1710812290736639100.exit"
 
@@ -8355,7 +8355,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
 
 28:                                               ; preds = %15
   %29 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1578
-  %30 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %21, i64 noundef range(i64 1, 0) 16) #64, !noalias !1578
+  %30 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %21, i64 noundef range(i64 1, -9223372036854775807) 16) #64, !noalias !1578
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17h96b657e8a5409cebE.llvm.1710812290736639100.exit"
 
@@ -35997,7 +35997,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized
 
 14:                                               ; preds = %6
   %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !6932
-  %16 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %11, i64 noundef range(i64 1, 0) 16) #64, !noalias !6932
+  %16 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %11, i64 noundef range(i64 1, -9223372036854775807) 16) #64, !noalias !6932
   %17 = icmp eq ptr %16, null
   br i1 %17, label %23, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$17new_uninitialized17h8d391bb5a0077f6fE.exit"
 
@@ -36080,7 +36080,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized
 
 19:                                               ; preds = %10
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !6935
-  %21 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %16, i64 noundef range(i64 1, 0) 16) #64, !noalias !6935
+  %21 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %16, i64 noundef range(i64 1, -9223372036854775807) 16) #64, !noalias !6935
   %22 = icmp eq ptr %21, null
   br i1 %22, label %28, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$17new_uninitialized17h8d391bb5a0077f6fE.exit"
 
@@ -36159,7 +36159,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized
 
 17:                                               ; preds = %7
   %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !6938
-  %19 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %14, i64 noundef range(i64 1, 0) 16) #64, !noalias !6938
+  %19 = tail call noalias noundef align 16 ptr @__rust_alloc(i64 noundef %14, i64 noundef range(i64 1, -9223372036854775807) 16) #64, !noalias !6938
   %20 = icmp eq ptr %19, null
   br i1 %20, label %26, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$17new_uninitialized17h8d391bb5a0077f6fE.exit"
 
@@ -37866,7 +37866,7 @@ define hidden void @"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$22fallible_with_ca
   %52 = icmp ult i64 %2, -9223372036854775807
   tail call void @llvm.assume(i1 %52)
   %53 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !7160
-  %54 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %46, i64 noundef range(i64 1, 0) %2) #64, !noalias !7160
+  %54 = tail call noalias noundef ptr @__rust_alloc(i64 noundef %46, i64 noundef range(i64 1, -9223372036854775807) %2) #64, !noalias !7160
   %55 = icmp eq ptr %54, null
   br i1 %55, label %61, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$17new_uninitialized17h8d391bb5a0077f6fE.exit"
 

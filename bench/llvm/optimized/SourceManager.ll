@@ -19475,7 +19475,7 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %14 = and i64 %6, 32
   %15 = icmp eq i64 %14, 0
   %16 = or disjoint i64 %10, 1
-  %17 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %16
   %18 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %11
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -19499,8 +19499,8 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
   %.036.i.i = phi i64 [ %38, %37 ], [ %.013.i, %21 ]
   %24 = shl i64 %.036.i.i, 1
   %25 = add i64 %24, 2
-  %26 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %25
-  %27 = getelementptr %"struct.std::pair.317", ptr %0, i64 %24
+  %26 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %25
+  %27 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %24
   %28 = getelementptr i8, ptr %26, i64 24
   %.val28.i.i = load i64, ptr %28, align 8, !tbaa !353
   %29 = getelementptr i8, ptr %27, i64 56
@@ -19527,8 +19527,8 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
 
 37:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i"
   %38 = phi i64 [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i.i" ], [ %spec.select.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i.i" ]
-  %39 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %.036.i.i
+  %39 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %38
+  %40 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.036.i.i
   %41 = load ptr, ptr %39, align 8, !tbaa !312
   store ptr %41, ptr %40, align 8, !tbaa !356
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -19551,14 +19551,14 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
 
 48:                                               ; preds = %46, %._crit_edge.i.i
   %.127.i.i = phi i64 [ %16, %46 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %49 = icmp sgt i64 %.127.i.i, %.013.i
+  %49 = icmp samesign ugt i64 %.127.i.i, %.013.i
   br i1 %49, label %.lr.ph.i.i.i, label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i"
 
 .lr.ph.i.i.i:                                     ; preds = %48, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i"
   %.0133.i.i.i = phi i64 [ %.04.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i" ], [ %.127.i.i, %48 ]
   %.04.in.i.i.i = add nsw i64 %.0133.i.i.i, -1
   %.04.i.i.i = sdiv i64 %.04.in.i.i.i, 2
-  %50 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %.04.i.i.i
+  %50 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.04.i.i.i
   %51 = getelementptr i8, ptr %50, i64 8
   %52 = getelementptr i8, ptr %50, i64 24
   %.val14.i.i.i = load i64, ptr %52, align 8, !tbaa !353
@@ -19583,7 +19583,7 @@ define internal fastcc void @"_ZSt13__heap_selectIPSt4pairIPKN5clang9FileEntryEZ
 
 "_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i.i", %48
   %.013.lcssa.i.i.i = phi i64 [ %.127.i.i, %48 ], [ %.0133.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i.i" ], [ %.04.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i.i" ]
-  %60 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %.013.lcssa.i.i.i
+  %60 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.013.lcssa.i.i.i
   store ptr %.sroa.03.0.copyload.i, ptr %60, align 8, !tbaa !356
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %.sroa.44.0.copyload.i, ptr %61, align 8, !tbaa !45
@@ -19899,8 +19899,8 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
   %.036.i = phi i64 [ %27, %26 ], [ 0, %3 ]
   %13 = shl i64 %.036.i, 1
   %14 = add i64 %13, 2
-  %15 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %14
-  %16 = getelementptr %"struct.std::pair.317", ptr %0, i64 %13
+  %15 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %14
+  %16 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %13
   %17 = getelementptr i8, ptr %15, i64 24
   %.val28.i = load i64, ptr %17, align 8, !tbaa !353
   %18 = getelementptr i8, ptr %16, i64 56
@@ -19927,8 +19927,8 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
 
 26:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i"
   %27 = phi i64 [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.thread.i" ], [ %spec.select.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESH_EEbT_T0_.exit.i" ]
-  %28 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %27
-  %29 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %.036.i
+  %28 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %27
+  %29 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.036.i
   %30 = load ptr, ptr %28, align 8, !tbaa !312
   store ptr %30, ptr %29, align 8, !tbaa !356
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -19941,67 +19941,70 @@ define internal fastcc void @"_ZSt10__pop_heapIPSt4pairIPKN5clang9FileEntryEZNKS
   %.0.lcssa.i = phi i64 [ 0, %3 ], [ %27, %26 ]
   %34 = and i64 %8, 32
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %48
+  br i1 %35, label %36, label %47
 
 36:                                               ; preds = %._crit_edge.i
   %37 = add nsw i64 %9, -2
   %38 = ashr exact i64 %37, 1
   %39 = icmp eq i64 %.0.lcssa.i, %38
-  br i1 %39, label %40, label %48
+  br i1 %39, label %.thread, label %47
 
-40:                                               ; preds = %36
-  %41 = shl nsw i64 %.0.lcssa.i, 1
-  %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %42
-  %44 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %.0.lcssa.i
-  %45 = load ptr, ptr %43, align 8, !tbaa !312
-  store ptr %45, ptr %44, align 8, !tbaa !356
+.thread:                                          ; preds = %36
+  %40 = shl nsw i64 %.0.lcssa.i, 1
+  %41 = or disjoint i64 %40, 1
+  %42 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %41
+  %43 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.0.lcssa.i
+  %44 = load ptr, ptr %42, align 8, !tbaa !312
+  store ptr %44, ptr %43, align 8, !tbaa !356
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull readonly align 8 dereferenceable(24) %46, i64 24, i1 false), !tbaa.struct !351
-  br label %48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull readonly align 8 dereferenceable(24) %45, i64 24, i1 false), !tbaa.struct !351
+  br label %.lr.ph.i.i.preheader
 
-48:                                               ; preds = %40, %36, %._crit_edge.i
-  %.127.i = phi i64 [ %42, %40 ], [ %.0.lcssa.i, %36 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %49 = icmp sgt i64 %.127.i, 0
-  br i1 %49, label %.lr.ph.i.i, label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit"
+47:                                               ; preds = %36, %._crit_edge.i
+  %.not = icmp eq i64 %.0.lcssa.i, 0
+  br i1 %.not, label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit", label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %48, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i"
-  %.0133.i.i = phi i64 [ %.04.i.i78, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i" ], [ %.127.i, %48 ]
+.lr.ph.i.i.preheader:                             ; preds = %.thread, %47
+  %.0133.i.i.ph = phi i64 [ %.0.lcssa.i, %47 ], [ %41, %.thread ]
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i"
+  %.0133.i.i = phi i64 [ %.04.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i" ], [ %.0133.i.i.ph, %.lr.ph.i.i.preheader ]
   %.04.in.i.i = add nsw i64 %.0133.i.i, -1
-  %.04.i.i78 = lshr i64 %.04.in.i.i, 1
-  %50 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.04.i.i78
-  %51 = getelementptr i8, ptr %50, i64 8
-  %52 = getelementptr i8, ptr %50, i64 24
-  %.val14.i.i = load i64, ptr %52, align 8, !tbaa !353
-  %53 = icmp ugt i64 %.val14.i.i, %.sroa.66.0.copyload
-  br i1 %53, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i"
+  %.04.i.i = sdiv i64 %.04.in.i.i, 2
+  %48 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.04.i.i
+  %49 = getelementptr i8, ptr %48, i64 8
+  %50 = getelementptr i8, ptr %48, i64 24
+  %.val14.i.i = load i64, ptr %50, align 8, !tbaa !353
+  %51 = icmp ugt i64 %.val14.i.i, %.sroa.66.0.copyload
+  br i1 %51, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i": ; preds = %.lr.ph.i.i
-  %.val.i.i = load i32, ptr %51, align 4
-  %54 = icmp eq i64 %.val14.i.i, %.sroa.66.0.copyload
-  %55 = icmp ult i32 %.val.i.i, %.sroa.44.0.copyload
-  %spec.select.i.i.i.i = select i1 %54, i1 %55, i1 false
+  %.val.i.i = load i32, ptr %49, align 4
+  %52 = icmp eq i64 %.val14.i.i, %.sroa.66.0.copyload
+  %53 = icmp ult i32 %.val.i.i, %.sroa.44.0.copyload
+  %spec.select.i.i.i.i = select i1 %52, i1 %53, i1 false
   br i1 %spec.select.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i", label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i", %.lr.ph.i.i
-  %56 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.0133.i.i
-  %57 = load ptr, ptr %50, align 8, !tbaa !312
-  store ptr %57, ptr %56, align 8, !tbaa !356
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull readonly align 8 dereferenceable(24) %51, i64 24, i1 false), !tbaa.struct !351
-  %.not = icmp ult i64 %.04.in.i.i, 2
-  br i1 %.not, label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit", label %.lr.ph.i.i, !llvm.loop !590
+  %54 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.0133.i.i
+  %55 = load ptr, ptr %48, align 8, !tbaa !312
+  store ptr %55, ptr %54, align 8, !tbaa !356
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull readonly align 8 dereferenceable(24) %49, i64 24, i1 false), !tbaa.struct !351
+  %57 = icmp sgt i64 %.0133.i.i, 2
+  br i1 %57, label %.lr.ph.i.i, label %"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit", !llvm.loop !590
 
-"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i", %48
-  %.013.lcssa.i.i = phi i64 [ %.127.i, %48 ], [ 0, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i" ], [ %.0133.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i" ]
-  %59 = getelementptr inbounds %"struct.std::pair.317", ptr %0, i64 %.013.lcssa.i.i
-  store ptr %.sroa.03.0.copyload, ptr %59, align 8, !tbaa !356
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 %.sroa.44.0.copyload, ptr %60, align 8, !tbaa !45
-  %.sroa.6.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 12
+"_ZSt13__adjust_heapIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLocAddressSpaceUsageERNS1_17DiagnosticsEngineESt8optionalIjEE4InfoElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS5_25noteSLocAddressSpaceUsageES7_S9_E3$_1EEEvT_T0_SJ_T1_T2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i", %47
+  %.013.lcssa.i.i = phi i64 [ 0, %47 ], [ %.04.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.thread.i.i" ], [ %.0133.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK5clang13SourceManager25noteSLocAddressSpaceUsageERNS2_17DiagnosticsEngineESt8optionalIjEE3$_1EclIPSt4pairIPKNS2_9FileEntryEZNKS3_25noteSLocAddressSpaceUsageES5_S7_E4InfoESG_EEbT_RT0_.exit.i.i" ]
+  %58 = getelementptr inbounds nuw %"struct.std::pair.317", ptr %0, i64 %.013.lcssa.i.i
+  store ptr %.sroa.03.0.copyload, ptr %58, align 8, !tbaa !356
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store i32 %.sroa.44.0.copyload, ptr %59, align 8, !tbaa !45
+  %.sroa.6.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %58, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6.8..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5, i64 12, i1 false)
-  %.sroa.632.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %.sroa.632.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i64 %.sroa.66.0.copyload, ptr %.sroa.632.8..sroa_idx.i, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.5)
   ret void

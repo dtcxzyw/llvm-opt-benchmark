@@ -76,7 +76,7 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
   %9 = add nsw i64 %8, 2147483648
   %10 = lshr i64 %9, 32
   %11 = trunc nuw i64 %10 to i32
-  %12 = add nsw i32 %.04863, 1
+  %12 = add nuw nsw i32 %.04863, 1
   %spec.select = tail call i32 @llvm.smax.i32(i32 %11, i32 %12)
   %13 = icmp eq i32 %.04863, 0
   %14 = icmp sgt i32 %.04863, 255
@@ -87,8 +87,8 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
 
 15:                                               ; preds = %7
   %16 = trunc i32 %spec.select to i8
-  %17 = sext i32 %.04863 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %17
+  %17 = zext nneg i32 %.04863 to i64
+  %18 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %17
   store i8 %16, ptr %18, align 1, !tbaa !17
   br label %19
 

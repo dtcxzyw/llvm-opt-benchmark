@@ -905,13 +905,13 @@ check_flag.exit50.preheader:                      ; preds = %9
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %.055 = phi i64 [ %25, %24 ], [ %.04458, %.preheader ]
-  %17 = getelementptr inbounds nuw double, ptr %1, i64 %.055
+  %17 = getelementptr inbounds double, ptr %1, i64 %.055
   %18 = load double, ptr %17, align 8, !tbaa !17
   %19 = fcmp ult double %16, %18
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %21 = getelementptr i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !17
   %23 = fcmp ugt double %16, %22
   br i1 %23, label %24, label %check_flag.exit50
@@ -923,18 +923,18 @@ check_flag.exit50.preheader:                      ; preds = %9
 
 check_flag.exit50:                                ; preds = %24, %20, %.preheader
   %.2 = phi i64 [ %.04458, %.preheader ], [ %.055, %20 ], [ %13, %24 ]
-  %26 = getelementptr inbounds nuw double, ptr %7, i64 %.2
+  %26 = getelementptr inbounds double, ptr %7, i64 %.2
   %27 = load double, ptr %26, align 8, !tbaa !17
-  %28 = add nuw nsw i64 %.2, 1
-  %29 = getelementptr inbounds nuw double, ptr %1, i64 %28
+  %28 = add nsw i64 %.2, 1
+  %29 = getelementptr inbounds double, ptr %1, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !17
   %31 = fsub double %16, %30
   %32 = fmul double %27, %31
-  %33 = getelementptr inbounds nuw double, ptr %1, i64 %.2
+  %33 = getelementptr inbounds double, ptr %1, i64 %.2
   %34 = load double, ptr %33, align 8, !tbaa !17
   %35 = fsub double %34, %30
   %36 = fdiv double %32, %35
-  %37 = getelementptr inbounds nuw double, ptr %7, i64 %28
+  %37 = getelementptr inbounds double, ptr %7, i64 %28
   %38 = load double, ptr %37, align 8, !tbaa !17
   %39 = fsub double %16, %34
   %40 = fmul double %38, %39

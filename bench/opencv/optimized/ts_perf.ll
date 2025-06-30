@@ -32479,7 +32479,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_c
 
 70:                                               ; preds = %64, %60, %._crit_edge
   %.128 = phi i64 [ %66, %64 ], [ %.0.lcssa, %60 ], [ %.0.lcssa, %._crit_edge ]
-  %71 = icmp sgt i64 %.128, %1
+  %71 = icmp samesign ugt i64 %.128, %1
   br i1 %71, label %.lr.ph.i, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %70
@@ -32497,7 +32497,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_c
   %.0138.i = phi i64 [ %.128, %.lr.ph.i ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i" ]
   %.09.in.i = add nsw i64 %.0138.i, -1
   %.09.i = sdiv i64 %.09.in.i, 2
-  %80 = getelementptr inbounds i32, ptr %0, i64 %.09.i
+  %80 = getelementptr inbounds nuw i32, ptr %0, i64 %.09.i
   %.val14.i = load i32, ptr %80, align 4, !tbaa !136
   %81 = sext i32 %.val14.i to i64
   %82 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.val.val.i, i64 %81
@@ -32557,7 +32557,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_c
 
 "_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %86, %93, %100, %102, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", %70
   %.013.lcssa.i = phi i64 [ %.128, %70 ], [ %.0138.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i" ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i" ], [ %.0138.i, %86 ], [ %.0138.i, %93 ], [ %.0138.i, %100 ], [ %.0138.i, %102 ]
-  %114 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
+  %114 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i
   store i32 %3, ptr %114, align 4, !tbaa !136
   ret void
 }

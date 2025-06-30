@@ -2862,10 +2862,10 @@ common.ret:                                       ; preds = %4, %4, %4, %126, %1
   %.031.i.i = phi i32 [ %.0.i.i.i, %dissect_openflow_queue_prop_v4.exit.i.i ], [ %677, %.lr.ph.i135 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %680 = load i32, ptr @ett_openflow_v4_queue_prop, align 4
-  %681 = call ptr @proto_tree_add_subtree(ptr noundef %660, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.031.i.i, i32 noundef -1, i32 noundef %680, ptr noundef nonnull %5, ptr noundef nonnull @.str.1155)
-  %682 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.031.i.i)
+  %681 = call ptr @proto_tree_add_subtree(ptr noundef %660, ptr noundef %0, i32 noundef range(i32 -2147483632, 65535) %.031.i.i, i32 noundef -1, i32 noundef %680, ptr noundef nonnull %5, ptr noundef nonnull @.str.1155)
+  %682 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 -2147483632, 65535) %.031.i.i)
   %683 = load i32, ptr @hf_openflow_v4_queue_prop_property, align 4
-  %684 = call ptr @proto_tree_add_item(ptr noundef %681, i32 noundef %683, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.031.i.i, i32 noundef 2, i32 noundef 0)
+  %684 = call ptr @proto_tree_add_item(ptr noundef %681, i32 noundef %683, ptr noundef %0, i32 noundef range(i32 -2147483632, 65535) %.031.i.i, i32 noundef 2, i32 noundef 0)
   %685 = add nsw i32 %.031.i.i, 2
   %686 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %685)
   %687 = load ptr, ptr %5, align 8
@@ -3708,9 +3708,9 @@ dissect_openflow_group_desc_v4.exit:              ; preds = %.lr.ph.i131, %.lr.p
 .lr.ph.i133:                                      ; preds = %.lr.ph165, %.lr.ph.i133
   %.01.i134 = phi i32 [ %523, %.lr.ph.i133 ], [ %513, %.lr.ph165 ]
   %516 = load i32, ptr @ett_openflow_v4_meter_band_stats, align 4
-  %517 = call ptr @proto_tree_add_subtree(ptr noundef %484, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.01.i134, i32 noundef 16, i32 noundef %516, ptr noundef null, ptr noundef nonnull @.str.1150)
+  %517 = call ptr @proto_tree_add_subtree(ptr noundef %484, ptr noundef %0, i32 noundef range(i32 -2147483608, 65535) %.01.i134, i32 noundef 16, i32 noundef %516, ptr noundef null, ptr noundef nonnull @.str.1150)
   %518 = load i32, ptr @hf_openflow_v4_meter_band_stats_packet_band_count, align 4
-  %519 = call ptr @proto_tree_add_item(ptr noundef %517, i32 noundef %518, ptr noundef %0, i32 noundef range(i32 -2147483648, 65535) %.01.i134, i32 noundef 8, i32 noundef 0)
+  %519 = call ptr @proto_tree_add_item(ptr noundef %517, i32 noundef %518, ptr noundef %0, i32 noundef range(i32 -2147483608, 65535) %.01.i134, i32 noundef 8, i32 noundef 0)
   %520 = add nsw i32 %.01.i134, 8
   %521 = load i32, ptr @hf_openflow_v4_meter_band_stats_byte_band_count, align 4
   %522 = call ptr @proto_tree_add_item(ptr noundef %517, i32 noundef %521, ptr noundef %0, i32 noundef %520, i32 noundef 8, i32 noundef 0)
@@ -4899,7 +4899,7 @@ dissect_openflow_table_feature_prop_v4.exit:      ; preds = %.lr.ph, %.loopexit.
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 196604) i32 @dissect_openflow_meter_band_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483636, 196604) i32 @dissect_openflow_meter_band_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %6 = load i32, ptr @ett_openflow_v4_meter_band, align 4

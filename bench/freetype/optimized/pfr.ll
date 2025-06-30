@@ -5427,7 +5427,7 @@ default.unreachable:                              ; preds = %455, %.lr.ph214.i
   %.3.i110 = phi i32 [ 3, %497 ], [ %.1211.i, %500 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %391, ptr noundef nonnull align 8 dereferenceable(16) %.0111209.i, i64 16, i1 false), !tbaa.struct !293
   %503 = getelementptr inbounds nuw i8, ptr %.0111209.i, i64 16
-  %504 = add nuw i32 %.0212.i, 1
+  %504 = add nuw nsw i32 %.0212.i, 1
   %505 = icmp ult i32 %504, %.3.i110
   br i1 %505, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !294
 

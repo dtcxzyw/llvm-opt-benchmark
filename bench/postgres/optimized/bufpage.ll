@@ -1986,8 +1986,8 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 
 96:                                               ; preds = %91, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv, %40
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  %exitcond = icmp eq i64 %indvars.iv, %40
+  br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %96, %75
   %97 = add i32 %77, %51

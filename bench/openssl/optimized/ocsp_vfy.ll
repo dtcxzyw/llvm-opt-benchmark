@@ -602,7 +602,7 @@ declare i32 @X509_pubkey_digest(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @ocsp_match_issuerid(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @ocsp_match_issuerid(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [50 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %.not = icmp eq ptr %1, null

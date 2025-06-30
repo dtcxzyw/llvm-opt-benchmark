@@ -5332,7 +5332,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cx
   %.0134.i = phi i64 [ %.1, %.lr.ph.i ], [ %.05.i, %138 ]
   %.05.in.i = add nsw i64 %.0134.i, -1
   %.05.i = sdiv i64 %.05.in.i, 2
-  %86 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.05.i
+  %86 = getelementptr inbounds nuw %"class.llvm::Register", ptr %0, i64 %.05.i
   %.val14.i = load i32, ptr %86, align 4, !tbaa !248
   %87 = load ptr, ptr %84, align 8, !tbaa !345
   %88 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %87, i32 %.val14.i, i16 1) #21
@@ -5396,7 +5396,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cx
 
 _ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit: ; preds = %85, %138, %82
   %.013.lcssa.i = phi i64 [ %.1, %82 ], [ %.0134.i, %85 ], [ %.05.i, %138 ]
-  %142 = getelementptr inbounds %"class.llvm::Register", ptr %0, i64 %.013.lcssa.i
+  %142 = getelementptr inbounds nuw %"class.llvm::Register", ptr %0, i64 %.013.lcssa.i
   store i32 %3, ptr %142, align 4, !tbaa !248
   ret void
 }

@@ -11240,8 +11240,7 @@ define noalias noundef ptr @Abc_NtkLevelize(ptr noundef captures(none) %0) local
   %2 = tail call i32 @Abc_NtkLevel(ptr noundef %0)
   %3 = add nuw nsw i32 %2, 1
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %or.cond.i.i = icmp samesign ult i32 %2, 7
-  %spec.store.select.i.i = select i1 %or.cond.i.i, i32 8, i32 %3
+  %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 range(i32 1, -2147483648) %3, i32 8)
   store i32 %spec.store.select.i.i, ptr %4, align 8, !tbaa !153
   %5 = shl nuw nsw i32 %spec.store.select.i.i, 3
   %6 = zext nneg i32 %5 to i64
@@ -11249,60 +11248,60 @@ define noalias noundef ptr @Abc_NtkLevelize(ptr noundef captures(none) %0) local
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %8, align 8, !tbaa !151
   %wide.trip.count.i = zext nneg i32 %3 to i64
-  br label %.lr.ph.i
+  br label %9
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %.lr.ph.i ]
+9:                                                ; preds = %9, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
-  store ptr %calloc.i, ptr %9, align 8, !tbaa !38
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  store ptr %calloc.i, ptr %10, align 8, !tbaa !38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_VecStart.exit, label %.lr.ph.i, !llvm.loop !157
+  br i1 %exitcond.not.i, label %Vec_VecStart.exit, label %9, !llvm.loop !157
 
-Vec_VecStart.exit:                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %3, ptr %10, align 4, !tbaa !149
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !35
-  %13 = getelementptr i8, ptr %12, i64 4
-  %.val15 = load i32, ptr %13, align 4, !tbaa !41
-  %14 = icmp sgt i32 %.val15, 0
-  br i1 %14, label %.lr.ph, label %.critedge
+Vec_VecStart.exit:                                ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %3, ptr %11, align 4, !tbaa !149
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load ptr, ptr %12, align 8, !tbaa !35
+  %14 = getelementptr i8, ptr %13, i64 4
+  %.val15 = load i32, ptr %14, align 4, !tbaa !41
+  %15 = icmp sgt i32 %.val15, 0
+  br i1 %15, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Vec_VecStart.exit, %25
-  %15 = phi ptr [ %26, %25 ], [ %12, %Vec_VecStart.exit ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %Vec_VecStart.exit ]
-  %16 = getelementptr i8, ptr %15, i64 8
-  %.val13.val = load ptr, ptr %16, align 8, !tbaa !36
-  %17 = getelementptr inbounds nuw ptr, ptr %.val13.val, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !38
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %25, label %20
+.lr.ph:                                           ; preds = %Vec_VecStart.exit, %26
+  %16 = phi ptr [ %27, %26 ], [ %13, %Vec_VecStart.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %Vec_VecStart.exit ]
+  %17 = getelementptr i8, ptr %16, i64 8
+  %.val13.val = load ptr, ptr %17, align 8, !tbaa !36
+  %18 = getelementptr inbounds nuw ptr, ptr %.val13.val, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 8, !tbaa !38
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %26, label %21
 
-20:                                               ; preds = %.lr.ph
-  %21 = getelementptr i8, ptr %18, i64 20
-  %.val14 = load i32, ptr %21, align 4
-  %22 = and i32 %.val14, 15
-  %.not = icmp eq i32 %22, 7
-  br i1 %.not, label %23, label %25
+21:                                               ; preds = %.lr.ph
+  %22 = getelementptr i8, ptr %19, i64 20
+  %.val14 = load i32, ptr %22, align 4
+  %23 = and i32 %.val14, 15
+  %.not = icmp eq i32 %23, 7
+  br i1 %.not, label %24, label %26
 
-23:                                               ; preds = %20
-  %24 = lshr i32 %.val14, 12
-  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %4, i32 noundef %24, ptr noundef nonnull %18)
-  %.pre = load ptr, ptr %11, align 8, !tbaa !35
-  br label %25
+24:                                               ; preds = %21
+  %25 = lshr i32 %.val14, 12
+  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %4, i32 noundef %25, ptr noundef nonnull %19)
+  %.pre = load ptr, ptr %12, align 8, !tbaa !35
+  br label %26
 
-25:                                               ; preds = %23, %20, %.lr.ph
-  %26 = phi ptr [ %.pre, %23 ], [ %15, %20 ], [ %15, %.lr.ph ]
+26:                                               ; preds = %24, %21, %.lr.ph
+  %27 = phi ptr [ %.pre, %24 ], [ %16, %21 ], [ %16, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %27 = getelementptr i8, ptr %26, i64 4
-  %.val = load i32, ptr %27, align 4, !tbaa !41
-  %28 = sext i32 %.val to i64
-  %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.critedge, !llvm.loop !158
+  %28 = getelementptr i8, ptr %27, i64 4
+  %.val = load i32, ptr %28, align 4, !tbaa !41
+  %29 = sext i32 %.val to i64
+  %30 = icmp slt i64 %indvars.iv.next, %29
+  br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !158
 
-.critedge:                                        ; preds = %25, %Vec_VecStart.exit
+.critedge:                                        ; preds = %26, %Vec_VecStart.exit
   ret ptr %4
 }
 
@@ -13809,6 +13808,9 @@ declare void @llvm.va_end.p0(ptr) #17
 declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -13819,9 +13821,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #18

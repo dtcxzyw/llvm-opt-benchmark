@@ -2737,7 +2737,7 @@ u_getUnicodeProperties_77.exit:                   ; preds = %13, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @uscript_getScriptExtensions_77(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @uscript_getScriptExtensions_77(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #6 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %.loopexit, label %6
 

@@ -3817,7 +3817,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i64 0, 4294967296) i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef writeonly captures(none) %buf, i64 noundef %bufLen, i32 noundef %length, i8 noundef zeroext range(i8 -5, 6) %type, i8 noundef zeroext %flags, i32 noundef %stream, ptr noundef nonnull readonly captures(none) %padding, ptr noundef nonnull readonly captures(none) %priority) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i64 0, 4294967296) i64 @_ZN8proxygen5http212_GLOBAL__N_116writeFrameHeaderEPhmjNS0_9FrameTypeEhjN5folly8OptionalIhEENS5_INS0_14PriorityUpdateEEE(ptr noundef writeonly captures(none) %buf, i64 noundef %bufLen, i32 noundef %length, i8 noundef zeroext range(i8 -5, 6) %type, i8 noundef zeroext range(i8 0, -128) %flags, i32 noundef %stream, ptr noundef nonnull readonly captures(none) %padding, ptr noundef nonnull readonly captures(none) %priority) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i61 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %comb.i.i44 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
@@ -3876,12 +3876,12 @@ if.end.i:                                         ; preds = %while.end45.i, %if.
 if.end111.i:                                      ; preds = %_ZN5folly8OptionalIhEC2ERKS1_.exit, %if.end.i
   %headerSize.0 = phi i64 [ %add72.i, %if.end.i ], [ %conv, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
   %length.addr.0.i = phi i32 [ %length.addr.1.i, %if.end.i ], [ %length, %_ZN5folly8OptionalIhEC2ERKS1_.exit ]
-  %8 = and i8 %flags, -9
+  %8 = or i8 %flags, 8
+  %9 = and i8 %flags, 119
   %tobool.i.i.i.mask = and i8 %1, 1
   %add148.i = zext nneg i8 %tobool.i.i.i.mask to i64
   %headerSize.1 = add nuw nsw i64 %headerSize.0, %add148.i
-  %masksel = select i1 %tobool.i.i.i, i8 8, i8 0
-  %flags.addr.0 = or disjoint i8 %8, %masksel
+  %flags.addr.0 = select i1 %tobool.i.i.i, i8 %8, i8 %9
   %length.addr.2.i = add i32 %length.addr.0.i, %add147.i
   %and190.i = shl i32 %length.addr.2.i, 8
   %conv191.i = zext i8 %type to i32
@@ -3899,8 +3899,8 @@ if.else.i:                                        ; preds = %if.end111.i
           to label %.noexc21 unwind label %terminate.lpad
 
 .noexc21:                                         ; preds = %if.else.i
-  %9 = load ptr, ptr %comb.i.i, align 8
-  %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %bufLen)
+  %10 = load ptr, ptr %comb.i.i, align 8
+  %call.i1.i.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %bufLen)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc21
@@ -3916,7 +3916,7 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
           to label %invoke.cont6 unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %.noexc21
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #25
   br label %terminate.lpad.body
@@ -3951,8 +3951,8 @@ while.end:                                        ; preds = %invoke.cont6.thread
   store i32 %call15, ptr %incdec.ptr, align 1
   %add.ptr16 = getelementptr inbounds nuw i8, ptr %buf, i64 9
   %sub = sub i64 %bufLen, %conv
-  %11 = load i8, ptr %hasValue.i.i.i, align 1
-  %tobool.i.i = trunc i8 %11 to i1
+  %12 = load i8, ptr %hasValue.i.i.i, align 1
+  %tobool.i.i = trunc i8 %12 to i1
   br i1 %tobool.i.i, label %while.cond19, label %if.end
 
 while.cond19:                                     ; preds = %while.end
@@ -3969,8 +3969,8 @@ if.else.i26:                                      ; preds = %while.cond19
           to label %.noexc35 unwind label %terminate.lpad
 
 .noexc35:                                         ; preds = %if.else.i26
-  %12 = load ptr, ptr %comb.i.i23, align 8
-  %call.i1.i.i27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 0)
+  %13 = load ptr, ptr %comb.i.i23, align 8
+  %call.i1.i.i27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 0)
           to label %invoke.cont.i.i29 unwind label %lpad.i.i28
 
 invoke.cont.i.i29:                                ; preds = %.noexc35
@@ -3986,7 +3986,7 @@ invoke.cont3.i.i33:                               ; preds = %invoke.cont1.i.i31
           to label %invoke.cont25 unwind label %lpad.i.i28
 
 lpad.i.i28:                                       ; preds = %invoke.cont3.i.i33, %invoke.cont1.i.i31, %invoke.cont.i.i29, %.noexc35
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i23) #25
   br label %terminate.lpad.body
@@ -4015,13 +4015,13 @@ invoke.cont32:                                    ; preds = %invoke.cont31
   unreachable
 
 while.end34:                                      ; preds = %invoke.cont25.while.end34_crit_edge, %invoke.cont25.thread
-  %14 = phi i8 [ %.pre, %invoke.cont25.while.end34_crit_edge ], [ %11, %invoke.cont25.thread ]
-  %tobool.i.i.i40 = trunc i8 %14 to i1
+  %15 = phi i8 [ %.pre, %invoke.cont25.while.end34_crit_edge ], [ %12, %invoke.cont25.thread ]
+  %tobool.i.i.i40 = trunc i8 %15 to i1
   br i1 %tobool.i.i.i40, label %invoke.cont35, label %if.then.i.i.i81.invoke
 
 invoke.cont35:                                    ; preds = %while.end34
-  %15 = load i8, ptr %padding, align 1
-  store i8 %15, ptr %add.ptr16, align 1
+  %16 = load i8, ptr %padding, align 1
+  store i8 %16, ptr %add.ptr16, align 1
   %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %buf, i64 10
   %dec = add i64 %sub, -1
   br label %if.end
@@ -4029,13 +4029,13 @@ invoke.cont35:                                    ; preds = %while.end34
 if.end:                                           ; preds = %invoke.cont35, %while.end
   %bufLen.addr.0 = phi i64 [ %dec, %invoke.cont35 ], [ %sub, %while.end ]
   %buf.addr.0 = phi ptr [ %incdec.ptr37, %invoke.cont35 ], [ %add.ptr16, %while.end ]
-  %16 = load i8, ptr %hasValue.i.i.i17, align 8
-  %tobool.i.i43 = trunc i8 %16 to i1
+  %17 = load i8, ptr %hasValue.i.i.i17, align 8
+  %tobool.i.i43 = trunc i8 %17 to i1
   br i1 %tobool.i.i43, label %while.cond40, label %if.end84
 
 while.cond40:                                     ; preds = %if.end
-  %17 = load i32, ptr @_ZN8proxygen5http218kFramePrioritySizeE, align 4
-  %conv.i45 = zext i32 %17 to i64
+  %18 = load i32, ptr @_ZN8proxygen5http218kFramePrioritySizeE, align 4
+  %conv.i45 = zext i32 %18 to i64
   %cmp.not.i46 = icmp ult i64 %bufLen.addr.0, %conv.i45
   br i1 %cmp.not.i46, label %if.else.i48, label %invoke.cont46.thread
 
@@ -4049,8 +4049,8 @@ if.else.i48:                                      ; preds = %while.cond40
           to label %.noexc53 unwind label %terminate.lpad
 
 .noexc53:                                         ; preds = %if.else.i48
-  %18 = load ptr, ptr %comb.i.i44, align 8
-  %call.i1.i.i49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %bufLen.addr.0)
+  %19 = load ptr, ptr %comb.i.i44, align 8
+  %call.i1.i.i49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %bufLen.addr.0)
           to label %invoke.cont1.i.i51 unwind label %lpad.i.i50
 
 invoke.cont1.i.i51:                               ; preds = %.noexc53
@@ -4058,7 +4058,7 @@ invoke.cont1.i.i51:                               ; preds = %.noexc53
           to label %invoke.cont2.i.i unwind label %lpad.i.i50
 
 invoke.cont2.i.i:                                 ; preds = %invoke.cont1.i.i51
-  %call.i2.i.i52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call3.i.i, i32 noundef %17)
+  %call.i2.i.i52 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call3.i.i, i32 noundef %18)
           to label %invoke.cont4.i.i unwind label %lpad.i.i50
 
 invoke.cont4.i.i:                                 ; preds = %invoke.cont2.i.i
@@ -4066,7 +4066,7 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont2.i.i
           to label %invoke.cont46 unwind label %lpad.i.i50
 
 lpad.i.i50:                                       ; preds = %invoke.cont4.i.i, %invoke.cont2.i.i, %invoke.cont1.i.i51, %.noexc53
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i44) #25
   br label %terminate.lpad.body
@@ -4095,13 +4095,13 @@ invoke.cont53:                                    ; preds = %invoke.cont52
   unreachable
 
 while.cond56:                                     ; preds = %invoke.cont46.while.cond56_crit_edge, %invoke.cont46.thread
-  %20 = phi i8 [ %.pre117, %invoke.cont46.while.cond56_crit_edge ], [ %16, %invoke.cont46.thread ]
-  %tobool.i.i.i58 = trunc i8 %20 to i1
+  %21 = phi i8 [ %.pre117, %invoke.cont46.while.cond56_crit_edge ], [ %17, %invoke.cont46.thread ]
+  %tobool.i.i.i58 = trunc i8 %21 to i1
   br i1 %tobool.i.i.i58, label %invoke.cont59, label %if.then.i.i.i81.invoke
 
 invoke.cont59:                                    ; preds = %while.cond56
-  %21 = load i64, ptr %priority, align 8
-  %cmp.not.i63 = icmp ugt i64 %21, 4294967295
+  %22 = load i64, ptr %priority, align 8
+  %cmp.not.i63 = icmp ugt i64 %22, 4294967295
   br i1 %cmp.not.i63, label %if.else.i65, label %invoke.cont65.thread
 
 invoke.cont65.thread:                             ; preds = %invoke.cont59
@@ -4114,8 +4114,8 @@ if.else.i65:                                      ; preds = %invoke.cont59
           to label %.noexc75 unwind label %terminate.lpad
 
 .noexc75:                                         ; preds = %if.else.i65
-  %22 = load ptr, ptr %comb.i.i61, align 8
-  %call.i1.i.i66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %22, i64 noundef %21)
+  %23 = load ptr, ptr %comb.i.i61, align 8
+  %call.i1.i.i66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %22)
           to label %invoke.cont1.i.i68 unwind label %lpad.i.i67
 
 invoke.cont1.i.i68:                               ; preds = %.noexc75
@@ -4131,7 +4131,7 @@ invoke.cont4.i.i72:                               ; preds = %invoke.cont2.i.i70
           to label %invoke.cont65 unwind label %lpad.i.i67
 
 lpad.i.i67:                                       ; preds = %invoke.cont4.i.i72, %invoke.cont2.i.i70, %invoke.cont1.i.i68, %.noexc75
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i61) #25
   br label %terminate.lpad.body
@@ -4160,8 +4160,8 @@ invoke.cont72:                                    ; preds = %invoke.cont71
   unreachable
 
 while.end74:                                      ; preds = %invoke.cont65.while.end74_crit_edge, %invoke.cont65.thread
-  %24 = phi i8 [ %.pre118, %invoke.cont65.while.end74_crit_edge ], [ %20, %invoke.cont65.thread ]
-  %tobool.i.i.i80 = trunc i8 %24 to i1
+  %25 = phi i8 [ %.pre118, %invoke.cont65.while.end74_crit_edge ], [ %21, %invoke.cont65.thread ]
+  %tobool.i.i.i80 = trunc i8 %25 to i1
   br i1 %tobool.i.i.i80, label %invoke.cont81, label %if.then.i.i.i81.invoke
 
 if.then.i.i.i81.invoke:                           ; preds = %while.end74, %while.cond56, %while.end34
@@ -4172,19 +4172,19 @@ if.then.i.i.i81.cont:                             ; preds = %if.then.i.i.i81.inv
   unreachable
 
 invoke.cont81:                                    ; preds = %while.end74
-  %25 = load i64, ptr %priority, align 8
-  %conv78 = trunc i64 %25 to i32
+  %26 = load i64, ptr %priority, align 8
+  %conv78 = trunc i64 %26 to i32
   %exclusive = getelementptr inbounds nuw i8, ptr %priority, i64 8
-  %26 = load i8, ptr %exclusive, align 8
-  %tobool = trunc i8 %26 to i1
+  %27 = load i8, ptr %exclusive, align 8
+  %tobool = trunc i8 %27 to i1
   %weight = getelementptr inbounds nuw i8, ptr %priority, i64 9
-  %27 = load i8, ptr %weight, align 1
+  %28 = load i8, ptr %weight, align 1
   %or.i = or i32 %conv78, -2147483648
   %spec.select.i = select i1 %tobool, i32 %or.i, i32 %conv78
   %call10.i = call i32 @htonl(i32 noundef %spec.select.i) #26
   store i32 %call10.i, ptr %buf.addr.0, align 1
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.addr.0, i64 4
-  store i8 %27, ptr %add.ptr.i, align 1
+  store i8 %28, ptr %add.ptr.i, align 1
   br label %if.end84
 
 if.end84:                                         ; preds = %invoke.cont81, %if.end
@@ -4192,14 +4192,14 @@ if.end84:                                         ; preds = %invoke.cont81, %if.
   ret i64 %conv85
 
 terminate.lpad:                                   ; preds = %if.then.i.i.i81.invoke, %if.else.i65, %if.else.i48, %if.else.i26, %if.else.i, %invoke.cont71, %while.body69, %invoke.cont52, %while.body50, %invoke.cont31, %while.body29, %invoke.cont11, %while.body
-  %28 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %lpad.i.i28, %terminate.lpad, %lpad.i.i67, %lpad.i.i50, %lpad.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i ], [ %13, %lpad.i.i28 ], [ %19, %lpad.i.i50 ], [ %28, %terminate.lpad ], [ %23, %lpad.i.i67 ]
-  %29 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %29) #24
+  %eh.lpad-body = phi { ptr, i32 } [ %11, %lpad.i.i ], [ %14, %lpad.i.i28 ], [ %20, %lpad.i.i50 ], [ %29, %terminate.lpad ], [ %24, %lpad.i.i67 ]
+  %30 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %30) #24
   unreachable
 }
 

@@ -1687,7 +1687,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %51 = load i32, ptr %50, align 8
   %52 = add nuw nsw i32 %.2, 2
-  %53 = getelementptr i8, ptr %49, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %51, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %55 = load i32, ptr %54, align 8
@@ -1700,7 +1700,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   store i32 13, ptr %58, align 4
   %59 = load i32, ptr %54, align 8
   %60 = add nuw nsw i32 %.2, 4
-  %61 = getelementptr i8, ptr %49, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 %59, ptr %61, align 4
   br label %62
 
@@ -1717,7 +1717,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   store i32 14, ptr %67, align 4
   %68 = load i32, ptr %63, align 8
   %69 = add nuw nsw i32 %.3, 2
-  %70 = getelementptr i8, ptr %67, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 %68, ptr %70, align 4
   br label %71
 
@@ -1734,7 +1734,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   store i32 15, ptr %76, align 4
   %77 = load i32, ptr %72, align 4
   %78 = add nuw nsw i32 %.4, 2
-  %79 = getelementptr i8, ptr %76, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 %77, ptr %79, align 4
   br label %80
 
@@ -1751,7 +1751,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   store i32 16, ptr %85, align 4
   %86 = load i32, ptr %81, align 8
   %87 = add nuw nsw i32 %.5, 2
-  %88 = getelementptr i8, ptr %85, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %86, ptr %88, align 4
   br label %89
 
@@ -1768,7 +1768,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   store i32 17, ptr %94, align 4
   %95 = load i32, ptr %90, align 4
   %96 = add nuw nsw i32 %.6, 2
-  %97 = getelementptr i8, ptr %94, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i32 %95, ptr %97, align 4
   br label %98
 
@@ -1806,7 +1806,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   store i32 100000, ptr %114, align 4
   %115 = load i32, ptr %110, align 4
   %116 = add nuw nsw i32 %.8, 2
-  %117 = getelementptr i8, ptr %114, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store i32 %115, ptr %117, align 4
   br label %118
 
@@ -1823,7 +1823,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   store i32 100001, ptr %123, align 4
   %124 = load i32, ptr %119, align 8
   %125 = add nuw nsw i32 %.9, 2
-  %126 = getelementptr i8, ptr %123, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 4
   store i32 %124, ptr %126, align 4
   br label %127
 
@@ -1839,7 +1839,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   %132 = getelementptr inbounds nuw i32, ptr %1, i64 %131
   store i32 32785, ptr %132, align 4
   %133 = add nuw nsw i32 %.10, 2
-  %134 = getelementptr i8, ptr %132, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
   store i32 8377, ptr %134, align 4
   br label %135
 
@@ -1855,7 +1855,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   %140 = getelementptr inbounds nuw i32, ptr %1, i64 %139
   store i32 8370, ptr %140, align 4
   %141 = add nuw nsw i32 %.11, 2
-  %142 = getelementptr i8, ptr %140, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store i32 1, ptr %142, align 4
   br label %143
 
@@ -1882,7 +1882,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   %.not135 = icmp eq i32 %156, 0
   %157 = select i1 %.not135, i32 32769, i32 32768
   %158 = add nuw nsw i32 %.12, 2
-  %159 = getelementptr i8, ptr %155, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 4
   store i32 %157, ptr %159, align 4
   br label %160
 
@@ -1907,7 +1907,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   %171 = getelementptr inbounds nuw i32, ptr %1, i64 %170
   store i32 34, ptr %171, align 4
   %172 = add nuw nsw i32 %.13, 2
-  %173 = getelementptr i8, ptr %171, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 4
   store i32 32771, ptr %173, align 4
   br label %174
 

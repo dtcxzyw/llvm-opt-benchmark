@@ -4184,7 +4184,7 @@ get_vlc2.exit55:                                  ; preds = %88, %106
 declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @kempf_restore_buf(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull readonly captures(none) %8, i32 noundef range(i32 1, 257) %9, i32 noundef %10) unnamed_addr #8 {
+define internal fastcc void @kempf_restore_buf(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull readonly captures(none) %8, i32 noundef range(i32 1, 257) %9, i32 noundef range(i32 -2147483648, 256) %10) unnamed_addr #8 {
   %12 = add nsw i32 %6, 15
   %13 = and i32 %12, -16
   %or.cond.i = icmp ugt i32 %1, 268435455

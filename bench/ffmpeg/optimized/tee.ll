@@ -1019,7 +1019,7 @@ close_slaves.exit:                                ; preds = %442, %._crit_edge14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tee_write_packet(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -2147483648, 1) i32 @tee_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [64 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !4

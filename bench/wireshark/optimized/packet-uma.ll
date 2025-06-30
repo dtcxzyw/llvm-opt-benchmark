@@ -1082,10 +1082,10 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   br label %37
 
 37:                                               ; preds = %31, %19
-  %.sink634 = phi i32 [ 2, %31 ], [ 3, %19 ]
+  %.sink636 = phi i32 [ 2, %31 ], [ 3, %19 ]
   %.0599 = phi i16 [ %32, %31 ], [ %25, %19 ]
   %.0 = phi i32 [ %17, %31 ], [ %20, %19 ]
-  %38 = add nsw i32 %3, %.sink634
+  %38 = add nsw i32 %3, %.sink636
   switch i8 %10, label %548 [
     i8 1, label %45
     i8 2, label %48
@@ -1713,9 +1713,9 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %.1625 = phi i32 [ %383, %.lr.ph626 ], [ %38, %.preheader ]
   %381 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
   %382 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %381, ptr noundef %0, i32 noundef %.1625, i32 noundef 1, i32 noundef 0)
-  %383 = add nsw i32 %.1625, 1
-  %exitcond630 = icmp eq i32 %.1625, %44
-  br i1 %exitcond630, label %.loopexit, label %.lr.ph626, !llvm.loop !12
+  %383 = add i32 %.1625, 1
+  %exitcond632.not = icmp eq i32 %.1625, %44
+  br i1 %exitcond632.not, label %.loopexit, label %.lr.ph626, !llvm.loop !12
 
 384:                                              ; preds = %37
   %385 = load i32, ptr @hf_uma_urr_cbs, align 4
@@ -1894,10 +1894,10 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   br label %499
 
 499:                                              ; preds = %487, %492
-  %.sink631 = phi i32 [ %494, %492 ], [ 2, %487 ]
+  %.sink633 = phi i32 [ %494, %492 ], [ 2, %487 ]
   %.sink = phi i32 [ %496, %492 ], [ 4, %487 ]
   %unc_ipv4_address.sink = phi ptr [ %498, %492 ], [ @unc_ipv4_address, %487 ]
-  store i32 %.sink631, ptr %9, align 8
+  store i32 %.sink633, ptr %9, align 8
   %500 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.sink, ptr %500, align 4
   %501 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1968,17 +1968,17 @@ define internal fastcc range(i32 -2147483646, 98306) i32 @dissect_uma_IE(ptr nou
   %.3622 = phi i32 [ %544, %.lr.ph623 ], [ %38, %.preheader615 ]
   %542 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
   %543 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %542, ptr noundef %0, i32 noundef %.3622, i32 noundef 1, i32 noundef 0)
-  %544 = add nsw i32 %.3622, 1
-  %exitcond629 = icmp eq i32 %.3622, %42
-  br i1 %exitcond629, label %.loopexit, label %.lr.ph623, !llvm.loop !13
+  %544 = add i32 %.3622, 1
+  %exitcond630.not = icmp eq i32 %.3622, %42
+  br i1 %exitcond630.not, label %.loopexit, label %.lr.ph623, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.preheader617, %.lr.ph
   %.4620 = phi i32 [ %547, %.lr.ph ], [ %38, %.preheader617 ]
   %545 = load i32, ptr @hf_uma_urr_RXLEV_NCELL, align 4
   %546 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %545, ptr noundef %0, i32 noundef %.4620, i32 noundef 1, i32 noundef 0)
-  %547 = add nsw i32 %.4620, 1
-  %exitcond = icmp eq i32 %.4620, %40
-  br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  %547 = add i32 %.4620, 1
+  %exitcond.not = icmp eq i32 %.4620, %40
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 548:                                              ; preds = %37
   %549 = load i32, ptr @hf_uma_data, align 4

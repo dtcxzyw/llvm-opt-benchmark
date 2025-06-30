@@ -1273,7 +1273,7 @@ define hidden void @nghttp2_frame_unpack_ping_payload(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -501, -502) i32 @nghttp2_frame_pack_goaway(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @nghttp2_frame_pack_goaway(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !68

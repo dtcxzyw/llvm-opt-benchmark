@@ -1190,7 +1190,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @psmouse_queue_work(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @alps_report_buttons(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 8) %4) unnamed_addr #0 align 16 {
+define internal fastcc void @alps_report_buttons(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 18) %2, i32 noundef range(i32 0, 12) %3, i32 noundef range(i32 0, 8) %4) unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %.thread5, label %.thread2
 

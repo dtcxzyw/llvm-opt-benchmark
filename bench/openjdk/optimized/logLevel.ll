@@ -42,7 +42,7 @@ define hidden noundef range(i32 0, 8) i32 @_ZN8LogLevel11from_stringEPKc(ptr nou
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8LogLevel11fuzzy_matchEPKc(ptr noundef %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i32 0, 8) i32 @_ZN8LogLevel11fuzzy_matchEPKc(ptr noundef %0) local_unnamed_addr #2 align 2 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   br label %3
 

@@ -4503,7 +4503,7 @@ define internal fastcc noundef ptr @refresh_cache_ent(ptr noundef %0, ptr nounde
 declare void @display_progress(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @replace_index_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @replace_index_entry(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds ptr, ptr %4, i64 %5

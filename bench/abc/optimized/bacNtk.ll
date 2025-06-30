@@ -1818,8 +1818,8 @@ Bac_ObjSetName.exit250:                           ; preds = %210, %._crit_edge.i
 
 259:                                              ; preds = %255
   %.val168 = load ptr, ptr %254, align 8, !tbaa !23
-  %260 = zext nneg i32 %.0132369 to i64
-  %261 = getelementptr inbounds nuw i32, ptr %.val168, i64 %260
+  %260 = sext i32 %.0132369 to i64
+  %261 = getelementptr inbounds i32, ptr %.val168, i64 %260
   %262 = load i32, ptr %261, align 4, !tbaa !24
   %.val.i.i251 = load ptr, ptr %253, align 8, !tbaa !34
   %263 = sext i32 %262 to i64
@@ -1863,13 +1863,13 @@ Bac_ObjNameId.exit257:                            ; preds = %267, %272
 
 Bac_NtkInfoRange.exit:                            ; preds = %Bac_ObjNameId.exit257, %280
   %285 = phi i32 [ %284, %280 ], [ 1, %Bac_ObjNameId.exit257 ]
-  %286 = add nuw nsw i32 %285, %.0132369
+  %286 = add nsw i32 %285, %.0132369
   br label %318
 
 287:                                              ; preds = %255
   %.val191 = load ptr, ptr %251, align 8, !tbaa !23
-  %288 = zext nneg i32 %.0130370 to i64
-  %289 = getelementptr inbounds nuw i32, ptr %.val191, i64 %288
+  %288 = sext i32 %.0130370 to i64
+  %289 = getelementptr inbounds i32, ptr %.val191, i64 %288
   %290 = load i32, ptr %289, align 4, !tbaa !24
   %.val165 = load ptr, ptr %252, align 8, !tbaa !23
   %291 = sext i32 %290 to i64
@@ -1916,7 +1916,7 @@ Bac_ObjNameId.exit265:                            ; preds = %298, %303
 
 Bac_NtkInfoRange.exit267:                         ; preds = %Bac_ObjNameId.exit265, %311
   %316 = phi i32 [ %315, %311 ], [ 1, %Bac_ObjNameId.exit265 ]
-  %317 = add nuw nsw i32 %316, %.0130370
+  %317 = add nsw i32 %316, %.0130370
   br label %318
 
 318:                                              ; preds = %255, %Bac_NtkInfoRange.exit, %Bac_NtkInfoRange.exit267

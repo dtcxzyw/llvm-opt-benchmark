@@ -372,12 +372,12 @@ _PyMutex_Lock.exit:                               ; preds = %0, %3
   %61 = zext nneg i32 %.12.i to i64
   %62 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %61
   store i8 102, ptr %62, align 1, !tbaa !10
-  %63 = add nuw nsw i32 %.12.i, 2
-  %64 = zext nneg i32 %60 to i64
-  %65 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %64
-  store i8 117, ptr %65, align 1, !tbaa !10
+  %63 = zext nneg i32 %60 to i64
+  %64 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %63
+  store i8 117, ptr %64, align 1, !tbaa !10
+  %65 = add nuw nsw i32 %.12.i, 2
   %66 = add nuw nsw i32 %.12.i, 3
-  %67 = zext nneg i32 %63 to i64
+  %67 = zext nneg i32 %65 to i64
   %68 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %67
   store i8 122, ptr %68, align 1, !tbaa !10
   %69 = zext nneg i32 %66 to i64
@@ -409,19 +409,19 @@ _PyMutex_Lock.exit:                               ; preds = %0, %3
 
 _ctypes_init_fielddesc_locked.exit:               ; preds = %59, %82
   %.20.i = phi i32 [ %83, %82 ], [ %78, %59 ]
-  %86 = add nuw nsw i32 %.20.i, 1
-  %87 = zext nneg i32 %.20.i to i64
-  %88 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %87
-  store i8 79, ptr %88, align 1, !tbaa !10
-  %89 = add nuw nsw i32 %.20.i, 2
-  %90 = zext nneg i32 %86 to i64
-  %91 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %90
-  store i8 118, ptr %91, align 1, !tbaa !10
-  %92 = add nuw nsw i32 %.20.i, 3
-  %93 = zext nneg i32 %89 to i64
-  %94 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %93
-  store i8 63, ptr %94, align 1, !tbaa !10
-  %95 = zext nneg i32 %92 to i64
+  %86 = zext nneg i32 %.20.i to i64
+  %87 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %86
+  store i8 79, ptr %87, align 1, !tbaa !10
+  %88 = add nuw nsw i32 %.20.i, 1
+  %89 = zext nneg i32 %88 to i64
+  %90 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %89
+  store i8 118, ptr %90, align 1, !tbaa !10
+  %91 = add nuw nsw i32 %.20.i, 2
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %92
+  store i8 63, ptr %93, align 1, !tbaa !10
+  %94 = add nuw nsw i32 %.20.i, 3
+  %95 = zext nneg i32 %94 to i64
   %96 = getelementptr [26 x i8], ptr getelementptr inbounds nuw (i8, ptr @formattable, i64 1728), i64 0, i64 %95
   store i8 103, ptr %96, align 1, !tbaa !10
   %97 = add nuw nsw i32 %.20.i, 4

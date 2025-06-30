@@ -1260,7 +1260,7 @@ define internal fastcc i32 @get_se_golomb_long(ptr noundef captures(none) %0) un
   %30 = sub nsw i32 0, %.sroa.46.0.copyload.i.i
   %31 = sub nsw i32 %.sroa.77.0.copyload.i.i, %.sroa.46.0.copyload.i.i
   %32 = icmp slt i32 %29, %30
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %29, i32 %31)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %29, i32 %31)
   %.0.i.i.i = select i1 %32, i32 %30, i32 %..i.i.i
   %33 = add nsw i32 %.0.i.i.i, %.sroa.46.0.copyload.i.i
   store i32 %33, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !28
@@ -2983,7 +2983,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hrd_parameters(ptr 
   %74 = sub nsw i32 0, %.sroa.46.0.copyload.i.i
   %75 = sub nsw i32 %.sroa.77.0.copyload.i.i, %.sroa.46.0.copyload.i.i
   %76 = icmp slt i32 %73, %74
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %73, i32 %75)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %73, i32 %75)
   %.0.i.i.i = select i1 %76, i32 %74, i32 %..i.i.i
   %77 = add nsw i32 %.0.i.i.i, %.sroa.46.0.copyload.i.i
   store i32 %77, ptr %4, align 8, !tbaa !28
@@ -3074,7 +3074,7 @@ get_ue_golomb_long.exit:                          ; preds = %45, %87, %91
   %138 = sub nsw i32 0, %.sroa.46.0.copyload.i.i34
   %139 = sub nsw i32 %.sroa.77.0.copyload.i.i36, %.sroa.46.0.copyload.i.i34
   %140 = icmp slt i32 %137, %138
-  %..i.i.i43 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %137, i32 %139)
+  %..i.i.i43 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %137, i32 %139)
   %.0.i.i.i44 = select i1 %140, i32 %138, i32 %..i.i.i43
   %141 = add nsw i32 %.0.i.i.i44, %.sroa.46.0.copyload.i.i34
   store i32 %141, ptr %4, align 8, !tbaa !28

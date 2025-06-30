@@ -2117,7 +2117,7 @@ define internal fastcc void @dissect_q933_number_ie(ptr noundef %0, i32 noundef 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -1, 4) i32 @dissect_q933_uint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 2147483647, 256) %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @dissect_q933_uint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -5, 256) %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %.not = icmp sgt i8 %7, -1
   br i1 %.not, label %8, label %33
@@ -2126,7 +2126,7 @@ define internal fastcc range(i32 -1, 4) i32 @dissect_q933_uint16_value(ptr nound
   %9 = zext nneg i8 %7 to i32
   %10 = shl nuw nsw i32 %9, 14
   %11 = add i32 %2, 1
-  %12 = add i32 %3, -1
+  %12 = add nsw i32 %3, -1
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %30, label %14
 
@@ -2139,7 +2139,7 @@ define internal fastcc range(i32 -1, 4) i32 @dissect_q933_uint16_value(ptr nound
   %17 = zext nneg i8 %15 to i32
   %18 = shl nuw nsw i32 %17, 7
   %19 = add i32 %2, 2
-  %20 = add i32 %3, -2
+  %20 = add nsw i32 %3, -2
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %30, label %22
 

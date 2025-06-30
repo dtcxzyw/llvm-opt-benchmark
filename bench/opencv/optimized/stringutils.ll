@@ -804,8 +804,8 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i235, %
 183:                                              ; preds = %176, %_ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit
   %184 = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 %.1.i215)
   %185 = shl nsw i32 %184, 1
-  %186 = shl nsw i32 %.0167.lcssa404, 1
-  %187 = add nsw i32 %186, %.0169.lcssa403
+  %186 = shl nuw nsw i32 %.0167.lcssa404, 1
+  %187 = add nuw nsw i32 %186, %.0169.lcssa403
   br i1 %.0154.lcssa407, label %188, label %.thread
 
 188:                                              ; preds = %183

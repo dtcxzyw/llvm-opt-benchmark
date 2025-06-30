@@ -4245,7 +4245,7 @@ declare i32 @SUNNonlinSolSetup(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -21, -22) i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !77
   %6 = icmp eq ptr %5, null

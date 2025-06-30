@@ -212,7 +212,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
 83:                                               ; preds = %80, %78
   %.pn.i.i = phi i32 [ %79, %78 ], [ %.0137.i.i, %80 ]
   %.0.i.i = phi i32 [ %76, %78 ], [ %spec.select.i.i, %80 ]
-  %.7151.i.i = add nsw i32 %.pn.i.i, %.1145.i.i
+  %.7151.i.i = add nuw nsw i32 %.pn.i.i, %.1145.i.i
   %84 = add nsw i32 %.0.i.i, -1
   %85 = icmp sgt i32 %.0.i.i, 0
   %86 = sub i32 1, %.0.i.i
@@ -246,17 +246,17 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
 
 101:                                              ; preds = %100
   %.not181.i.i = icmp ugt ptr %.1135.i.i, %28
-  %102 = ashr i32 %.7151.i.i, 3
-  %103 = sext i32 %102 to i64
+  %102 = lshr i32 %.7151.i.i, 3
+  %103 = zext nneg i32 %102 to i64
   br i1 %.not181.i.i, label %104, label %._crit_edge27, !prof !8
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %.1135.i.i, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %.1135.i.i, i64 %103
   %.not182.i.i = icmp ugt ptr %105, %30
   br i1 %.not182.i.i, label %108, label %._crit_edge27
 
 ._crit_edge27:                                    ; preds = %101, %104
-  %106 = getelementptr inbounds i8, ptr %.1135.i.i, i64 %103
+  %106 = getelementptr inbounds nuw i8, ptr %.1135.i.i, i64 %103
   %107 = and i32 %.7151.i.i, 7
   br label %112
 

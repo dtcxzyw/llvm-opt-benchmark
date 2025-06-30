@@ -708,7 +708,7 @@ default.unreachable:                              ; preds = %10
 
 select_opcode.exit:                               ; preds = %5, %11, %15
   %.0.i = phi i32 [ %14, %11 ], [ %18, %15 ], [ %1, %5 ]
-  %19 = call ptr @dfvm_insn_new(i32 noundef %.0.i)
+  %19 = call ptr @dfvm_insn_new(i32 noundef range(i32 0, 45) %.0.i)
   %20 = call ptr @dfvm_value_ref(ptr noundef %7)
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %20, ptr %21, align 8
@@ -1470,7 +1470,7 @@ gen_arithmetic.exit:                              ; preds = %306, %311
   %.sink87 = phi ptr [ %310, %306 ], [ %312, %311 ]
   %.sink84 = phi ptr [ null, %306 ], [ %316, %311 ]
   %.018.i = phi ptr [ %310, %306 ], [ %316, %311 ]
-  %317 = call ptr @dfvm_insn_new(i32 noundef %.0.i67)
+  %317 = call ptr @dfvm_insn_new(i32 noundef range(i32 0, 45) %.0.i67)
   %318 = call ptr @dfvm_value_ref(ptr noundef %303)
   %319 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store ptr %318, ptr %319, align 8

@@ -195,7 +195,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.4 = private unnamed_addr constant [26 x i8] c"  latency summary (msec):\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @parseOptions(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local i32 @parseOptions(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %0, 1
   br i1 %3, label %sub_0.lr.ph, label %.loopexit
 

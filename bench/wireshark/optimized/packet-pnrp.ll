@@ -1637,8 +1637,8 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_ipv6_endpoint_structure(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 -8, -131070) %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = add i32 %1, 18
+define internal fastcc void @dissect_ipv6_endpoint_structure(ptr noundef %0, i32 noundef range(i32 -2147483636, 65646) %1, i32 noundef range(i32 -8, -131070) %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = add nsw i32 %1, 18
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %5)
   %7 = icmp sgt i32 %6, -1
   %8 = icmp sgt i32 %2, 17

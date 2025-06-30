@@ -8317,9 +8317,9 @@ split:                                            ; preds = %.preheader, %._crit
 .preheader124:                                    ; preds = %46, %66
   %.093128 = phi i64 [ %.194, %66 ], [ %17, %46 ]
   %.297127 = phi i64 [ %.398, %66 ], [ 0, %46 ]
-  %54 = add nsw i64 %.093128, %.297127
-  %55 = ashr i64 %54, 1
-  %56 = getelementptr inbounds %struct.AF_EdgeRec_, ptr %13, i64 %55
+  %54 = add nuw nsw i64 %.093128, %.297127
+  %55 = lshr i64 %54, 1
+  %56 = getelementptr inbounds nuw %struct.AF_EdgeRec_, ptr %13, i64 %55
   %57 = load i16, ptr %56, align 8, !tbaa !206
   %58 = icmp slt i16 %.092.in, %57
   br i1 %58, label %66, label %59
@@ -8329,7 +8329,7 @@ split:                                            ; preds = %.preheader, %._crit
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = add nsw i64 %55, 1
+  %62 = add nuw nsw i64 %55, 1
   br label %66
 
 63:                                               ; preds = %59

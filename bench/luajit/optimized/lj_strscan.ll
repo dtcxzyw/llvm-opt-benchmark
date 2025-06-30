@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lj_char_bits = external hidden local_unnamed_addr constant [257 x i8], align 16
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
-define hidden i32 @lj_strscan_scan(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 8) i32 @lj_strscan_scan(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %7 = load i8, ptr %0, align 1, !tbaa !4
@@ -608,7 +608,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @strscan_oct(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 3, 1) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 8) i32 @strscan_oct(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 3, 8) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #2 {
   %6 = icmp ugt i32 %4, 22
   br i1 %6, label %.loopexit, label %7
 
@@ -685,7 +685,7 @@ define internal fastcc i32 @strscan_oct(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
-define internal fastcc noundef i32 @strscan_hex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #3 {
+define internal fastcc range(i32 0, 8) i32 @strscan_hex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 1, 8) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #3 {
   %8 = icmp ugt i32 %6, 16
   %.not79 = icmp eq i32 %6, 0
   br i1 %.not79, label %._crit_edge, label %.lr.ph.preheader
@@ -894,7 +894,7 @@ strscan_double.exit:                              ; preds = %90, %93
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
-define internal fastcc noundef i32 @strscan_bin(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #3 {
+define internal fastcc range(i32 0, 8) i32 @strscan_bin(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 1, 8) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #3 {
   %8 = icmp ne i32 %4, 0
   %9 = icmp ugt i32 %6, 64
   %or.cond = or i1 %8, %9
@@ -1002,7 +1002,7 @@ strscan_double.exit:                              ; preds = %40, %46
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
-define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @strscan_dec(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 1, 8) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #8
   %.not = icmp eq i32 %6, 0
@@ -1151,8 +1151,8 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   %umin = zext nneg i32 %68 to i64
   %69 = add nuw nsw i64 %umin, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.2222.ptr, i8 0, i64 %69, i1 false), !tbaa !4
-  %70 = add nsw i64 %.2222.idx, %umin
-  %71 = add nsw i64 %70, 1
+  %70 = add nuw nsw i64 %.2222.idx, %umin
+  %71 = add nuw nsw i64 %70, 1
   %72 = add nsw i32 %.1240, -2
   %73 = lshr i32 %63, 1
   %74 = lshr i32 %66, 1
@@ -1480,7 +1480,7 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   %.3 = phi i32 [ %.2191394, %.lr.ph395 ], [ %.4, %212 ]
   %.0186 = phi i32 [ %.2204391, %.lr.ph395 ], [ %229, %212 ]
   %.0184 = phi i32 [ 0, %.lr.ph395 ], [ %221, %212 ]
-  %213 = zext nneg i32 %.0186 to i64
+  %213 = zext i32 %.0186 to i64
   %214 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %213
   %215 = load i8, ptr %214, align 1, !tbaa !4
   %216 = zext i8 %215 to i32
@@ -1494,12 +1494,12 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   %223 = icmp eq i32 %222, 0
   %224 = icmp eq i32 %.0186, %.3205
   %or.cond296 = select i1 %223, i1 %224, i1 false
-  %225 = add nuw nsw i32 %.3205, 1
+  %225 = add i32 %.3205, 1
   %226 = and i32 %225, 511
   %.4206 = select i1 %or.cond296, i32 %226, i32 %.3205
   %227 = sext i1 %or.cond296 to i32
   %.4 = add nsw i32 %.3, %227
-  %228 = add nuw nsw i32 %.0186, 1
+  %228 = add i32 %.0186, 1
   %229 = and i32 %228, 511
   %.not283 = icmp eq i32 %229, %.6201392
   br i1 %.not283, label %.preheader332, label %212, !llvm.loop !24
@@ -1548,11 +1548,11 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
   %.6201.lcssa = phi i32 [ %.0195.lcssa, %.critedge ], [ %.7340, %.loopexit333 ], [ %.0195373, %.lr.ph376 ]
   %.1193.lcssa = phi i32 [ %.0192.lcssa, %.critedge ], [ %230, %.loopexit333 ], [ %.0192374, %.lr.ph376 ]
   %.2191.lcssa = phi i32 [ 9, %.critedge ], [ %.4, %.loopexit333 ], [ %.0189375, %.lr.ph376 ]
-  %249 = zext nneg i32 %.2204.lcssa to i64
+  %249 = zext i32 %.2204.lcssa to i64
   %250 = getelementptr inbounds nuw [512 x i8], ptr %8, i64 0, i64 %249
   %251 = load i8, ptr %250, align 1, !tbaa !4
   %252 = zext i8 %251 to i64
-  %.0.in401 = add nuw nsw i32 %.2204.lcssa, 1
+  %.0.in401 = add i32 %.2204.lcssa, 1
   %.0402 = and i32 %.0.in401, 511
   %253 = add nsw i32 %.2191.lcssa, -1
   %254 = icmp sgt i32 %.2191.lcssa, 1

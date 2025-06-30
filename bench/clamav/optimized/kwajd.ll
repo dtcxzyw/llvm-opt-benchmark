@@ -1281,7 +1281,7 @@ define internal fastcc range(i32 0, 9) i32 @lzh_decompress(ptr noundef nonnull %
   %255 = zext nneg i32 %254 to i64
   %256 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %255
   %257 = load i8, ptr %256, align 1, !tbaa !31
-  %258 = zext i32 %.1323614 to i64
+  %258 = zext nneg i32 %.1323614 to i64
   %259 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %258
   store i8 %257, ptr %259, align 1, !tbaa !31
   %260 = load ptr, ptr %0, align 8, !tbaa !40

@@ -571,7 +571,7 @@ define range(i64 -1, 1) i64 @gf_deserialize(ptr noundef captures(none) %0, ptr n
   %.not39 = icmp eq i64 %indvars.iv57, 7
   %23 = and i128 %.138.lcssa, 72057594037927935
   %24 = select i1 %.not39, i128 %.138.lcssa, i128 %23
-  %25 = trunc i128 %24 to i64
+  %25 = trunc nuw nsw i128 %24 to i64
   %26 = getelementptr inbounds nuw [8 x i64], ptr %0, i64 0, i64 %indvars.iv57
   store i64 %25, ptr %26, align 8, !tbaa !7
   %27 = add i32 %.135.lcssa, -56
@@ -598,7 +598,7 @@ define range(i64 -1, 1) i64 @gf_deserialize(ptr noundef captures(none) %0, ptr n
 
 40:                                               ; preds = %36, %37
   %41 = phi i64 [ %39, %37 ], [ -1, %36 ]
-  %42 = trunc i128 %28 to i64
+  %42 = trunc nuw nsw i128 %28 to i64
   %43 = icmp eq i64 %42, 0
   %44 = select i1 %43, i64 %41, i64 0
   %45 = trunc nsw i128 %35 to i64

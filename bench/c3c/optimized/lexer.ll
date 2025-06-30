@@ -3770,7 +3770,7 @@ default.unreachable138:                           ; preds = %69
 
 75:                                               ; preds = %73, %69, %68
   %.1 = phi i32 [ %.064.ph, %68 ], [ 0, %69 ], [ %spec.select, %73 ]
-  %76 = zext nneg i32 %.1 to i64
+  %76 = zext i32 %.1 to i64
   %77 = add i64 %.063.ph.ph, %76
   %78 = and i64 %77, 3
   %.not69 = icmp eq i64 %78, 0

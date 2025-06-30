@@ -587,7 +587,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 16) i32 @inet_spg_consistent_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %. = select i1 %3, i32 1, i32 15
   %5 = load i8, ptr %0, align 1
   %6 = and i8 %5, 1

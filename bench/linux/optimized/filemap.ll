@@ -9280,7 +9280,7 @@ define internal fastcc ptr @do_sync_mmap_readahead(ptr noundef readonly captures
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @filemap_map_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local range(i32 0, 512) i32 @filemap_map_pages(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca %struct.wait_page_key, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

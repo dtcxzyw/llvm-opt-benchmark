@@ -9548,7 +9548,7 @@ common.resume:                                    ; preds = %.body.i87, %900, %.
 "_ZN10image_webp8lossless24LosslessDecoder$LT$R$GT$22plane_code_to_distance17h51c66213e8c6f4abE.exit.i": ; preds = %753, %751
   %.sroa.0.0.i.i = phi i64 [ %752, %751 ], [ %spec.select.i.i39, %753 ]
   %766 = icmp ult i64 %.sroa.03.0539.i, %.sroa.0.0.i.i
-  %767 = sub i64 %613, %.sroa.03.0539.i
+  %767 = sub nsw i64 %613, %.sroa.03.0539.i
   %768 = icmp ult i64 %767, %733
   %or.cond.i = select i1 %766, i1 true, i1 %768
   br i1 %or.cond.i, label %790, label %769

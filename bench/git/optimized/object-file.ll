@@ -3888,7 +3888,7 @@ find_cached_object.exit._crit_edge:               ; preds = %find_cached_object.
   br i1 %mul.ov.i, label %44, label %st_mult.exit
 
 44:                                               ; preds = %38
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.79, i64 noundef 64, i64 noundef range(i64 -2147483648, 4294967296) %43) #26
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.79, i64 noundef 64, i64 noundef range(i64 -1073741824, 4294967296) %43) #26
   unreachable
 
 st_mult.exit:                                     ; preds = %38

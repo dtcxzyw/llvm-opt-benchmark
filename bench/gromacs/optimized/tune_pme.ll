@@ -6054,13 +6054,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.us.i:   ; preds = %_ZNKSt7__cxx1112bas
   store float -1.000000e+00, ptr %2253, align 4, !tbaa !8
   store i32 -1, ptr %1883, align 8, !tbaa !263
   %2254 = call ptr @fgets(ptr noundef nonnull %43, i32 noundef 4096, ptr noundef %2251)
-  %.not93.i.us.i = icmp eq ptr %2254, null
-  br i1 %.not93.i.us.i, label %._crit_edge.i200.us.i, label %.lr.ph.i198.us.i
+  %.not94.i.us.i = icmp eq ptr %2254, null
+  br i1 %.not94.i.us.i, label %._crit_edge.i200.us.i, label %.lr.ph.i198.us.i
 
 .lr.ph.i198.us.i:                                 ; preds = %2250, %2336
-  %.05496.i.us.i = phi i1 [ %.1.i.us.i, %2336 ], [ false, %2250 ]
-  %.05595.i.us.i = phi i1 [ %.156.i.us.i, %2336 ], [ false, %2250 ]
-  %.05894.i.us.i = phi i32 [ %.159.i.us.i, %2336 ], [ %spec.store.select.i.i, %2250 ]
+  %.05497.i.us.i = phi i1 [ %.1.i.us.i, %2336 ], [ false, %2250 ]
+  %.05596.i.us.i = phi i1 [ %.156.i.us.i, %2336 ], [ false, %2250 ]
+  %.05895.i.us.i = phi i32 [ %.159.i.us.i, %2336 ], [ %spec.store.select.i.i, %2250 ]
   invoke void @_Z5ltrimPc(ptr noundef nonnull %43)
           to label %.noexc204.us.i unwind label %.loopexit.split-lp.loopexit.split.us.i
 
@@ -6083,7 +6083,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.us.i:   ; preds = %_ZNKSt7__cxx1112bas
   br label %2395
 
 2264:                                             ; preds = %.noexc204.us.i
-  %or.cond.i.us.i = select i1 %1819, i1 true, i1 %.05595.i.us.i
+  %or.cond.i.us.i = select i1 %1819, i1 true, i1 %.05596.i.us.i
   br i1 %or.cond.i.us.i, label %2277, label %2265
 
 2265:                                             ; preds = %2264
@@ -6106,9 +6106,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.us.i:   ; preds = %_ZNKSt7__cxx1112bas
   br label %2277
 
 2277:                                             ; preds = %2272, %2267, %2265, %2264
-  %.156.i.us.i = phi i1 [ %.05595.i.us.i, %2264 ], [ true, %2272 ], [ false, %2265 ], [ true, %2267 ]
-  %.1.i.us.i = phi i1 [ %.05496.i.us.i, %2264 ], [ %.05496.i.us.i, %2272 ], [ %.05496.i.us.i, %2265 ], [ true, %2267 ]
-  switch i32 %.05894.i.us.i, label %default.unreachable [
+  %.156.i.us.i = phi i1 [ %.05596.i.us.i, %2264 ], [ true, %2272 ], [ false, %2265 ], [ true, %2267 ]
+  %.1.i.us.i = phi i1 [ %.05497.i.us.i, %2264 ], [ %.05497.i.us.i, %2272 ], [ %.05497.i.us.i, %2265 ], [ true, %2267 ]
+  switch i32 %.05895.i.us.i, label %default.unreachable [
     i32 0, label %2311
     i32 1, label %2295
     i32 2, label %2289

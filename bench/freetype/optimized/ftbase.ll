@@ -1030,7 +1030,7 @@ define noundef range(i64 0, -65535) i64 @FT_FloorFix(i64 noundef %0) local_unnam
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define hidden range(i64 -4611686018427387904, -9223372036854775808) i64 @FT_Hypot(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 {
+define hidden range(i64 -2147483647, -9223372036854775808) i64 @FT_Hypot(i64 noundef %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.FT_Vector_, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #34
   store i64 %0, ptr %3, align 8, !tbaa !157
@@ -1042,7 +1042,7 @@ define hidden range(i64 -4611686018427387904, -9223372036854775808) i64 @FT_Hypo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -4611686018427387904, -9223372036854775808) i64 @FT_Vector_Length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define range(i64 -2147483647, -9223372036854775808) i64 @FT_Vector_Length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %2
 
@@ -1147,7 +1147,7 @@ ft_trig_pseudo_polarize.exit:                     ; preds = %33
 49:                                               ; preds = %ft_trig_pseudo_polarize.exit
   %50 = add nsw i32 %.0.i, -1
   %51 = zext nneg i32 %50 to i64
-  %52 = shl nuw i64 1, %51
+  %52 = shl nuw nsw i64 1, %51
   %53 = add nsw i64 %47, %52
   %54 = zext nneg i32 %.0.i to i64
   %55 = ashr i64 %53, %54

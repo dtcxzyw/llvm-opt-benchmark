@@ -1410,9 +1410,9 @@ Abc_TtMinBase.exit.loopexit.i.us:                 ; preds = %Abc_TtHasVar.exit.t
 671:                                              ; preds = %669
   %672 = getelementptr inbounds nuw [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %665, i64 %indvars.iv.next.i.i.i.us
   %673 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.us to i32
-  %674 = shl nuw nsw i32 1, %673
+  %674 = shl nuw i32 1, %673
   %.neg.i.i.i.i.us = shl nsw i32 -1, %.020.i.i.i.us
-  %675 = add nsw i32 %674, %.neg.i.i.i.i.us
+  %675 = add i32 %674, %.neg.i.i.i.i.us
   %676 = load i64, ptr %672, align 8, !tbaa !61
   %677 = and i64 %676, %.01619.i.i.i.us
   %678 = getelementptr inbounds nuw i8, ptr %672, i64 8
@@ -1474,9 +1474,9 @@ Abc_Tt6Expand.exit.i.i.us:                        ; preds = %691, %619
 709:                                              ; preds = %707
   %710 = getelementptr inbounds nuw [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %703, i64 %indvars.iv.next.i47.i.i.us
   %711 = trunc nuw nsw i64 %indvars.iv.next.i47.i.i.us to i32
-  %712 = shl nuw nsw i32 1, %711
+  %712 = shl nuw i32 1, %711
   %.neg.i.i51.i.i.us = shl nsw i32 -1, %.020.i45.i.i.us
-  %713 = add nsw i32 %712, %.neg.i.i51.i.i.us
+  %713 = add i32 %712, %.neg.i.i51.i.i.us
   %714 = load i64, ptr %710, align 8, !tbaa !61
   %715 = and i64 %714, %.01619.i46.i.i.us
   %716 = getelementptr inbounds nuw i8, ptr %710, i64 8
@@ -1865,8 +1865,8 @@ Sbd_CutSetCutIsContainedOrder.exit.thread.thread.i.i.us: ; preds = %893, %883
   br i1 %exitcond.not67.i.i.us, label %.preheader.i.i199.us, label %.outer.i.i.us, !llvm.loop !89
 
 .preheader.i.i199.us:                             ; preds = %Sbd_CutSetCutIsContainedOrder.exit.thread.thread.i.i.us, %._crit_edge.i.i.us
-  %901 = add nuw i32 %.1376.us, 1
-  %wide.trip.count62.i.i.us = zext i32 %901 to i64
+  %901 = add nuw nsw i32 %.1376.us, 1
+  %wide.trip.count62.i.i.us = zext nneg i32 %901 to i64
   br label %.lr.ph55.i.i.us
 
 .lr.ph55.i.i.us:                                  ; preds = %915, %.preheader.i.i199.us

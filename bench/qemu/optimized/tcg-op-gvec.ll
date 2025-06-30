@@ -4787,7 +4787,7 @@ check_size_align.exit:                            ; preds = %7, %9
 declare void @tcg_gen_dup_mem_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 0) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 6) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 {
   %6 = icmp ugt i32 %2, 7
   tail call void @llvm.assume(i1 %6)
   %7 = and i32 %1, 8

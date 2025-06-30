@@ -23,7 +23,7 @@ define internal noundef i32 @decode_init(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decode_frame(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 53, 0) i32 @decode_frame(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32

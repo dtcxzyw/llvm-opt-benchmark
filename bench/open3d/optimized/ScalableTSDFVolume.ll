@@ -3320,8 +3320,8 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   ]
 
 .preheader371:                                    ; preds = %231
-  %232 = sext i32 %.3107 to i64
-  %233 = getelementptr inbounds [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %232
+  %232 = zext nneg i32 %.3107 to i64
+  %233 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %232
   %234 = load i32, ptr %233, align 4, !tbaa !27
   br label %241
 
@@ -3332,7 +3332,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   ]
 
 .lr.ph:                                           ; preds = %.preheader368
-  %235 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %232, i64 0
+  %235 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %232, i64 0
   %236 = load i32, ptr %235, align 16, !tbaa !27
   %237 = load ptr, ptr %0, align 8, !tbaa !191
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 120
@@ -4352,12 +4352,12 @@ _ZNSt10_HashtableIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEESt4pairIKS2_iENS0_17alig
   %668 = sext i32 %667 to i64
   %669 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %668
   %670 = add nuw nsw i64 %indvars.iv474, 2
-  %671 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %232, i64 %670
+  %671 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %232, i64 %670
   %672 = load i32, ptr %671, align 4, !tbaa !27
   %673 = sext i32 %672 to i64
   %674 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %673
   %675 = add nuw nsw i64 %indvars.iv474, 1
-  %676 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %232, i64 %675
+  %676 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %232, i64 %675
   %677 = load i32, ptr %676, align 4, !tbaa !27
   %678 = sext i32 %677 to i64
   %679 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %678
@@ -4446,7 +4446,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
 _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %684
   %707 = phi ptr [ %704, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %686, %684 ]
   %indvars.iv.next475 = add nuw nsw i64 %indvars.iv474, 3
-  %708 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %232, i64 %indvars.iv.next475
+  %708 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %232, i64 %indvars.iv.next475
   %709 = load i32, ptr %708, align 4, !tbaa !27
   %.not123 = icmp eq i32 %709, -1
   br i1 %.not123, label %.loopexit369, label %665, !llvm.loop !236

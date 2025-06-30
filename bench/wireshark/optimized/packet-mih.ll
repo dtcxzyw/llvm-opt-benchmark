@@ -1152,7 +1152,7 @@ switch.lookup:                                    ; preds = %52
 120:                                              ; preds = %118
   %121 = add nuw nsw i32 %.0175, 1
   %122 = trunc nuw nsw i64 %.1177 to i32
-  %123 = add nuw i32 %121, %122
+  %123 = add nuw nsw i32 %121, %122
   %124 = load i32, ptr @ett_tlv, align 4
   %125 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0182199)
   %126 = zext i8 %125 to i32
@@ -1194,7 +1194,7 @@ switch.lookup:                                    ; preds = %52
   %147 = add i32 %121, %.0182199
   tail call fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %147, ptr noundef %128, i8 noundef zeroext %.1, i32 noundef %122)
   %148 = add i32 %147, %122
-  %149 = sub i32 %.0178201, %123
+  %149 = sub nsw i32 %.0178201, %123
   %150 = icmp sgt i32 %149, 0
   br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
@@ -1278,7 +1278,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8

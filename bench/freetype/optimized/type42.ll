@@ -2390,34 +2390,34 @@ define internal void @t42_parse_sfnts(ptr noundef captures(none) initializes((80
   %27 = ptrtoint ptr %8 to i64
   %28 = load ptr, ptr %1, align 8, !tbaa !85
   %29 = icmp ult ptr %28, %8
-  br i1 %29, label %.lr.ph699, label %._crit_edge700
+  br i1 %29, label %.lr.ph700, label %._crit_edge701
 
-.lr.ph699:                                        ; preds = %.preheader290, %.thread
+.lr.ph700:                                        ; preds = %.preheader290, %.thread
   %30 = phi ptr [ %155, %.thread ], [ %28, %.preheader290 ]
-  %.0698 = phi i32 [ %.5, %.thread ], [ 0, %.preheader290 ]
-  %.0143697 = phi i64 [ %.3146, %.thread ], [ 0, %.preheader290 ]
-  %.0147696 = phi i64 [ %.5152, %.thread ], [ 12, %.preheader290 ]
-  %.0160695 = phi i64 [ %.4164233, %.thread ], [ 0, %.preheader290 ]
-  %.0165694 = phi i64 [ %.2167228, %.thread ], [ 0, %.preheader290 ]
-  %.0168693 = phi i32 [ %.5173, %.thread ], [ 0, %.preheader290 ]
-  %.1176692 = phi i8 [ %.3178227, %.thread ], [ 0, %.preheader290 ]
-  %.1181691 = phi ptr [ %.4184226, %.thread ], [ null, %.preheader290 ]
+  %.0699 = phi i32 [ %.5, %.thread ], [ 0, %.preheader290 ]
+  %.0143698 = phi i64 [ %.3146, %.thread ], [ 0, %.preheader290 ]
+  %.0147697 = phi i64 [ %.5152, %.thread ], [ 12, %.preheader290 ]
+  %.0160696 = phi i64 [ %.4164233, %.thread ], [ 0, %.preheader290 ]
+  %.0165695 = phi i64 [ %.2167228, %.thread ], [ 0, %.preheader290 ]
+  %.0168694 = phi i32 [ %.5173, %.thread ], [ 0, %.preheader290 ]
+  %.1176693 = phi i8 [ %.3178227, %.thread ], [ 0, %.preheader290 ]
+  %.1181692 = phi ptr [ %.4184226, %.thread ], [ null, %.preheader290 ]
   %31 = load i8, ptr %30, align 1, !tbaa !89
   switch i8 %31, label %56 [
     i8 93, label %32
     i8 60, label %34
   ]
 
-32:                                               ; preds = %.lr.ph699
+32:                                               ; preds = %.lr.ph700
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %33, ptr %1, align 8, !tbaa !85
-  store i64 %.0143697, ptr %11, align 8, !tbaa !163
+  store i64 %.0143698, ptr %11, align 8, !tbaa !163
   %.pre502 = load i32, ptr %24, align 8, !tbaa !87
   br label %.thread261
 
-34:                                               ; preds = %.lr.ph699
-  %35 = icmp eq ptr %.1181691, null
-  %36 = icmp ne i8 %.1176692, 0
+34:                                               ; preds = %.lr.ph700
+  %35 = icmp eq ptr %.1181692, null
+  %36 = icmp ne i8 %.1176693, 0
   %or.cond = select i1 %35, i1 true, i1 %36
   br i1 %or.cond, label %38, label %37
 
@@ -2448,7 +2448,7 @@ define internal void @t42_parse_sfnts(ptr noundef captures(none) initializes((80
   br label %.thread250
 
 49:                                               ; preds = %41
-  %50 = call ptr @ft_mem_qrealloc(ptr noundef %6, i64 noundef 1, i64 noundef %.0165694, i64 noundef %47, ptr noundef %.1181691, ptr noundef nonnull %3) #13
+  %50 = call ptr @ft_mem_qrealloc(ptr noundef %6, i64 noundef 1, i64 noundef %.0165695, i64 noundef %47, ptr noundef %.1181692, ptr noundef nonnull %3) #13
   %51 = load i32, ptr %3, align 4, !tbaa !74
   %.not203 = icmp eq i32 %51, 0
   br i1 %.not203, label %52, label %.thread250
@@ -2460,13 +2460,13 @@ define internal void @t42_parse_sfnts(ptr noundef captures(none) initializes((80
   %55 = load i64, ptr %4, align 8, !tbaa !169
   br label %77
 
-56:                                               ; preds = %.lr.ph699
+56:                                               ; preds = %.lr.ph700
   %57 = add i8 %31, -48
   %58 = icmp ult i8 %57, 10
   br i1 %58, label %59, label %77
 
 59:                                               ; preds = %56
-  %.not198 = icmp eq i8 %.1176692, 0
+  %.not198 = icmp eq i8 %.1176693, 0
   br i1 %.not198, label %61, label %60
 
 60:                                               ; preds = %59
@@ -2509,10 +2509,10 @@ define internal void @t42_parse_sfnts(ptr noundef captures(none) initializes((80
   br label %79
 
 77:                                               ; preds = %52, %56
-  %.4184 = phi ptr [ %50, %52 ], [ %.1181691, %56 ]
-  %.3178 = phi i8 [ 1, %52 ], [ %.1176692, %56 ]
-  %.2167 = phi i64 [ %47, %52 ], [ %.0165694, %56 ]
-  %.3163 = phi i64 [ %55, %52 ], [ %.0160695, %56 ]
+  %.4184 = phi ptr [ %50, %52 ], [ %.1181692, %56 ]
+  %.3178 = phi i8 [ 1, %52 ], [ %.1176693, %56 ]
+  %.2167 = phi i64 [ %47, %52 ], [ %.0165695, %56 ]
+  %.3163 = phi i64 [ %55, %52 ], [ %.0160696, %56 ]
   %.not204 = icmp eq ptr %.4184, null
   br i1 %.not204, label %78, label %79
 
@@ -2522,7 +2522,7 @@ define internal void @t42_parse_sfnts(ptr noundef captures(none) initializes((80
 
 79:                                               ; preds = %.thread220, %77
   %.3163229 = phi i64 [ %63, %.thread220 ], [ %.3163, %77 ]
-  %.2167228 = phi i64 [ %.0165694, %.thread220 ], [ %.2167, %77 ]
+  %.2167228 = phi i64 [ %.0165695, %.thread220 ], [ %.2167, %77 ]
   %.3178227 = phi i8 [ 0, %.thread220 ], [ %.3178, %77 ]
   %.4184226 = phi ptr [ %71, %.thread220 ], [ %.4184, %77 ]
   %80 = and i64 %.3163229, 1
@@ -2554,12 +2554,12 @@ select.unfold:                                    ; preds = %81, %79
   br label %.lr.ph405
 
 .lr.ph405:                                        ; preds = %.lr.ph405.preheader, %148
-  %.2404 = phi i32 [ %.5, %148 ], [ %.0698, %.lr.ph405.preheader ]
-  %.2145401 = phi i64 [ %.3146, %148 ], [ %.0143697, %.lr.ph405.preheader ]
-  %.2149400 = phi i64 [ %.5152, %148 ], [ %.0147696, %.lr.ph405.preheader ]
+  %.2404 = phi i32 [ %.5, %148 ], [ %.0699, %.lr.ph405.preheader ]
+  %.2145401 = phi i64 [ %.3146, %148 ], [ %.0143698, %.lr.ph405.preheader ]
+  %.2149400 = phi i64 [ %.5152, %148 ], [ %.0147697, %.lr.ph405.preheader ]
   %.0154399 = phi i64 [ %153, %148 ], [ 0, %.lr.ph405.preheader ]
-  %.2170398 = phi i32 [ %.5173, %148 ], [ %.0168693, %.lr.ph405.preheader ]
-  switch i32 %.2170398, label %default.unreachable [
+  %.2170398 = phi i32 [ %.5173, %148 ], [ %.0168694, %.lr.ph405.preheader ]
+  switch i32 %.2170398, label %default.unreachable504 [
     i32 0, label %91
     i32 1, label %110
     i32 2, label %146
@@ -2672,7 +2672,7 @@ select.unfold:                                    ; preds = %81, %79
   store i32 3, ptr %3, align 4, !tbaa !74
   br label %.thread250
 
-default.unreachable:                              ; preds = %.lr.ph405
+default.unreachable504:                           ; preds = %.lr.ph405
   unreachable
 
 148:                                              ; preds = %146, %110, %91
@@ -2694,49 +2694,49 @@ default.unreachable:                              ; preds = %.lr.ph405
   call void %154(ptr noundef nonnull %1) #13
   %155 = load ptr, ptr %1, align 8, !tbaa !85
   %156 = icmp ult ptr %155, %8
-  br i1 %156, label %.lr.ph699, label %._crit_edge700
+  br i1 %156, label %.lr.ph700, label %._crit_edge701
 
 .thread..thread250.loopexit412_crit_edge:         ; preds = %107
   %.pre501.pre = load i32, ptr %3, align 4, !tbaa !74
   br label %.thread250, !llvm.loop !268
 
-._crit_edge700:                                   ; preds = %.thread, %.preheader290
+._crit_edge701:                                   ; preds = %.thread, %.preheader290
   %.1181.lcssa = phi ptr [ null, %.preheader290 ], [ %.4184226, %.thread ]
   %.1176.lcssa = phi i8 [ 0, %.preheader290 ], [ %.3178227, %.thread ]
   store i32 3, ptr %3, align 4, !tbaa !74
   br label %.thread250
 
-.thread250:                                       ; preds = %49, %._crit_edge, %.thread..thread250.loopexit412_crit_edge, %60, %65, %74, %138, %.thread234, %37, %48, %78, %87, %147, %19, %._crit_edge700, %18
-  %157 = phi i32 [ 3, %18 ], [ %22, %19 ], [ 3, %._crit_edge700 ], [ 3, %.thread234 ], [ 3, %37 ], [ 3, %48 ], [ 3, %78 ], [ 3, %87 ], [ 3, %147 ], [ 3, %138 ], [ 3, %60 ], [ 3, %65 ], [ 3, %74 ], [ %.pre501.pre, %.thread..thread250.loopexit412_crit_edge ], [ %145, %._crit_edge ], [ %51, %49 ]
-  %.0180 = phi ptr [ null, %18 ], [ null, %19 ], [ %.1181.lcssa, %._crit_edge700 ], [ %.4184226, %.thread234 ], [ %.1181691, %37 ], [ %.1181691, %48 ], [ null, %78 ], [ %.4184226, %87 ], [ %.4184226, %147 ], [ %.4184226, %138 ], [ %.1181691, %60 ], [ %.1181691, %65 ], [ %71, %74 ], [ %.4184226, %.thread..thread250.loopexit412_crit_edge ], [ %.4184226, %._crit_edge ], [ %50, %49 ]
-  %.0175 = phi i8 [ 0, %18 ], [ 0, %19 ], [ %.1176.lcssa, %._crit_edge700 ], [ %.3178227, %.thread234 ], [ 0, %37 ], [ %.1176692, %48 ], [ %.3178, %78 ], [ %.3178227, %87 ], [ %.3178227, %147 ], [ %.3178227, %138 ], [ %.1176692, %60 ], [ 0, %65 ], [ 0, %74 ], [ %.3178227, %.thread..thread250.loopexit412_crit_edge ], [ %.3178227, %._crit_edge ], [ %.1176692, %49 ]
+.thread250:                                       ; preds = %49, %._crit_edge, %.thread..thread250.loopexit412_crit_edge, %60, %65, %74, %138, %.thread234, %37, %48, %78, %87, %147, %19, %._crit_edge701, %18
+  %157 = phi i32 [ 3, %18 ], [ %22, %19 ], [ 3, %._crit_edge701 ], [ 3, %.thread234 ], [ 3, %37 ], [ 3, %48 ], [ 3, %78 ], [ 3, %87 ], [ 3, %147 ], [ 3, %138 ], [ 3, %60 ], [ 3, %65 ], [ 3, %74 ], [ %.pre501.pre, %.thread..thread250.loopexit412_crit_edge ], [ %145, %._crit_edge ], [ %51, %49 ]
+  %.0180 = phi ptr [ null, %18 ], [ null, %19 ], [ %.1181.lcssa, %._crit_edge701 ], [ %.4184226, %.thread234 ], [ %.1181692, %37 ], [ %.1181692, %48 ], [ null, %78 ], [ %.4184226, %87 ], [ %.4184226, %147 ], [ %.4184226, %138 ], [ %.1181692, %60 ], [ %.1181692, %65 ], [ %71, %74 ], [ %.4184226, %.thread..thread250.loopexit412_crit_edge ], [ %.4184226, %._crit_edge ], [ %50, %49 ]
+  %.0175 = phi i8 [ 0, %18 ], [ 0, %19 ], [ %.1176.lcssa, %._crit_edge701 ], [ %.3178227, %.thread234 ], [ 0, %37 ], [ %.1176693, %48 ], [ %.3178, %78 ], [ %.3178227, %87 ], [ %.3178227, %147 ], [ %.3178227, %138 ], [ %.1176693, %60 ], [ 0, %65 ], [ 0, %74 ], [ %.3178227, %.thread..thread250.loopexit412_crit_edge ], [ %.3178227, %._crit_edge ], [ %.1176693, %49 ]
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %157, ptr %158, align 8, !tbaa !87
   br label %.thread261
 
 .thread261:                                       ; preds = %32, %.thread250
   %159 = phi i32 [ %157, %.thread250 ], [ %.pre502, %32 ]
-  %.5185 = phi ptr [ %.0180, %.thread250 ], [ %.1181691, %32 ]
-  %.4179 = phi i8 [ %.0175, %.thread250 ], [ %.1176692, %32 ]
+  %.5185 = phi ptr [ %.0180, %.thread250 ], [ %.1181692, %32 ]
+  %.4179 = phi i8 [ %.0175, %.thread250 ], [ %.1176693, %32 ]
   %.not210 = icmp eq i32 %159, 0
   br i1 %.not210, label %161, label %.thread261.thread
 
 .thread261.thread:                                ; preds = %38, %.thread261
-  %.4179514 = phi i8 [ %.4179, %.thread261 ], [ %.1176692, %38 ]
-  %.5185512 = phi ptr [ %.5185, %.thread261 ], [ %.1181691, %38 ]
+  %.4179515 = phi i8 [ %.4179, %.thread261 ], [ %.1176693, %38 ]
+  %.5185513 = phi ptr [ %.5185, %.thread261 ], [ %.1181692, %38 ]
   %160 = load ptr, ptr %9, align 8, !tbaa !143
   call void @ft_mem_free(ptr noundef %6, ptr noundef %160) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br label %161
 
 161:                                              ; preds = %.thread261.thread, %.thread261
-  %.4179515 = phi i8 [ %.4179514, %.thread261.thread ], [ %.4179, %.thread261 ]
-  %.5185513 = phi ptr [ %.5185512, %.thread261.thread ], [ %.5185, %.thread261 ]
-  %.not211 = icmp eq i8 %.4179515, 0
+  %.4179516 = phi i8 [ %.4179515, %.thread261.thread ], [ %.4179, %.thread261 ]
+  %.5185514 = phi ptr [ %.5185513, %.thread261.thread ], [ %.5185, %.thread261 ]
+  %.not211 = icmp eq i8 %.4179516, 0
   br i1 %.not211, label %.thread.thread280, label %162
 
 162:                                              ; preds = %161
-  call void @ft_mem_free(ptr noundef %6, ptr noundef %.5185513) #13
+  call void @ft_mem_free(ptr noundef %6, ptr noundef %.5185514) #13
   br label %.thread.thread280
 
 .thread.thread280:                                ; preds = %66, %161, %162

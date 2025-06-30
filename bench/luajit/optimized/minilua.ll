@@ -38243,7 +38243,7 @@ tofile.exit:                                      ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @f_read(ptr noundef %0) #0 {
+define internal range(i32 -2147483648, 2147483647) i32 @f_read(ptr noundef %0) #0 {
   %2 = tail call fastcc ptr @luaL_checkudata(ptr noundef %0)
   %3 = load ptr, ptr %2, align 8, !tbaa !81
   %4 = icmp eq ptr %3, null
@@ -38799,7 +38799,7 @@ declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #27
 declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @g_read(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @g_read(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %5, align 8, !tbaa !62
@@ -39834,7 +39834,7 @@ define internal noundef i32 @io_output(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @io_read(ptr noundef initializes((136, 148)) %0) #0 {
+define internal range(i32 -2147483648, 2147483647) i32 @io_read(ptr noundef initializes((136, 148)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

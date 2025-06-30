@@ -32035,14 +32035,14 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %21
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %50 = icmp sgt i64 %.127, %1
+  %50 = icmp samesign ugt i64 %.127, %1
   br i1 %50, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIN4llvm9StringRefEjElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_10AsmPrinter16emitFunctionBodyEvE3$_1EEEvT_T0_SC_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %49, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_1EclIPSt4pairINS2_9StringRefEjES9_EEbT_RT0_.exit.thread.i"
   %.01310.i = phi i64 [ %.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_1EclIPSt4pairINS2_9StringRefEjES9_EEbT_RT0_.exit.thread.i" ], [ %.127, %49 ]
   %.011.in.i = add nsw i64 %.01310.i, -1
   %.011.i = sdiv i64 %.011.in.i, 2
-  %51 = getelementptr inbounds %"struct.std::pair.1055", ptr %0, i64 %.011.i
+  %51 = getelementptr inbounds nuw %"struct.std::pair.1055", ptr %0, i64 %.011.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8, !tbaa !1213
   %54 = icmp ugt i32 %53, %.sroa.3.0.copyload
@@ -32084,7 +32084,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %57
 
 "_ZSt11__push_heapIPSt4pairIN4llvm9StringRefEjElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_10AsmPrinter16emitFunctionBodyEvE3$_1EEEvT_T0_SC_T1_RT2_.exit": ; preds = %55, %.thread.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_1EclIPSt4pairINS2_9StringRefEjES9_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_1EclIPSt4pairINS2_9StringRefEjES9_EEbT_RT0_.exit.thread.i", %49
   %.013.lcssa.i = phi i64 [ %.127, %49 ], [ %.01310.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_1EclIPSt4pairINS2_9StringRefEjES9_EEbT_RT0_.exit.i" ], [ %.011.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_1EclIPSt4pairINS2_9StringRefEjES9_EEbT_RT0_.exit.thread.i" ], [ %.01310.i, %55 ], [ %.01310.i, %.thread.i.i.i.i.i ]
-  %65 = getelementptr inbounds %"struct.std::pair.1055", ptr %0, i64 %.013.lcssa.i
+  %65 = getelementptr inbounds nuw %"struct.std::pair.1055", ptr %0, i64 %.013.lcssa.i
   store ptr %.sroa.032.0.copyload, ptr %65, align 8, !tbaa !46
   %.sroa.5.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx30, align 8, !tbaa !47

@@ -20731,7 +20731,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 52
   %.sroa.437.0.copyload = load i32, ptr %.sroa.437.0..sroa_idx, align 4
-  %58 = icmp sgt i64 %.127, %1
+  %58 = icmp samesign ugt i64 %.127, %1
   br i1 %58, label %.lr.ph.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %57
@@ -20745,7 +20745,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
   %.0134.i = phi i64 [ %.127, %.lr.ph.i ], [ %.05.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i ]
   %.05.in.i = add nsw i64 %.0134.i, -1
   %.05.i = sdiv i64 %.05.in.i, 2
-  %60 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.05.i
+  %60 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.05.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 36
   %62 = load i64, ptr %61, align 4
   %.sroa.013.0.extract.trunc.i.i.i = trunc i64 %62 to i32
@@ -20800,7 +20800,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNested
 _ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit: ; preds = %67, %77, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, %57
   %.013.lcssa.i = phi i64 [ %.127, %57 ], [ %.0134.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i ], [ %.05.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i ], [ %.0134.i, %77 ], [ %.0134.i, %67 ]
   %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %85 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.013.lcssa.i
+  %85 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.013.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %85, ptr noundef nonnull align 8 dereferenceable(36) %3, i64 36, i1 false)
   %.sroa.4.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %85, i64 36
   store i64 %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx29, align 4
@@ -24454,7 +24454,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %.0133.i.i.us.i.i.i = phi i64 [ %.04.i.i.us.i.i.i, %36 ], [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ]
   %.04.in.i.i.us.i.i.i = add nsw i64 %.0133.i.i.us.i.i.i, -1
   %.04.i.i.us.i.i.i = sdiv i64 %.04.in.i.i.us.i.i.i, 2
-  %34 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i.us.i.i.i
+  %34 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i.us.i.i.i
   %.val.i.i.us.i.i.i = load i32, ptr %34, align 4, !tbaa !51
   %35 = icmp ult i32 %.val.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i.i.us.i.i.i
   br i1 %35, label %36, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i"
@@ -24468,7 +24468,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
 
 "_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i": ; preds = %36, %.lr.ph.i.i.us.i.i.i, %.split.us.i.i.i
   %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.015.us.i.i.i, %.split.us.i.i.i ], [ %.0133.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.04.i.i.us.i.i.i, %36 ]
-  %40 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
+  %40 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
   store i64 %.sroa.02.0.copyload.us.i.i.i, ptr %40, align 4
   %.not.us.i.i.i = icmp eq i64 %.015.us.i.i.i, 0
   %41 = add nsw i64 %.015.us.i.i.i, -1
@@ -24519,7 +24519,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %60 ], [ %.1.i.i.i.i, %56 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %58 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i.i.i.i
+  %58 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load i32, ptr %58, align 4, !tbaa !51
   %59 = icmp ult i32 %.val.i.i.i.i.i, %.sroa.0.0.extract.trunc.i.i.i.i.i
   br i1 %59, label %60, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
@@ -24533,7 +24533,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
 
 "_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i": ; preds = %60, %.lr.ph.i.i.i.i.i, %56
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %56 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %60 ]
-  %64 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %64 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i64 %.sroa.02.0.copyload.i.i.i, ptr %64, align 4
   %.not.i.i.i = icmp eq i64 %.015.i.i.i, 0
   %65 = add nsw i64 %.015.i.i.i, -1
@@ -24622,7 +24622,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
 
 "_ZSt10__pop_heapIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_RT0_.exit.i.i": ; preds = %97, %.lr.ph.i.i.i.i11.i, %94
   %.013.lcssa.i.i.i.i15.i = phi i64 [ 0, %94 ], [ %.0133.i.i.i.i12.i, %.lr.ph.i.i.i.i11.i ], [ 0, %97 ]
-  %100 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.i.i15.i
+  %100 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.013.lcssa.i.i.i.i15.i
   store i64 %.sroa.02.0.copyload.i.i7.i, ptr %100, align 4
   %101 = icmp sgt i64 %69, 8
   br i1 %101, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPN4llvm8coverage24CounterExpressionBuilder4TermEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !1046
@@ -28529,8 +28529,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEEl
   %.031 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit" ], [ %1, %4 ]
   %9 = shl i64 %.031, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"class.llvm::SmallVector.684", ptr %0, i64 %10
-  %12 = getelementptr %"class.llvm::SmallVector.684", ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw %"class.llvm::SmallVector.684", ptr %0, i64 %10
+  %12 = getelementptr inbounds nuw %"class.llvm::SmallVector.684", ptr %0, i64 %9
   %13 = getelementptr i8, ptr %11, i64 8
   %.val28 = load i64, ptr %13, align 8, !tbaa !608
   %14 = getelementptr i8, ptr %12, i64 48
@@ -28544,7 +28544,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEEl
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESK_EEbT_T0_.exit"
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.val29 = load ptr, ptr %17, align 8, !tbaa !599
   %.val = load ptr, ptr %11, align 8, !tbaa !599
   %18 = tail call noundef i32 @memcmp(ptr noundef readonly %.val, ptr noundef readonly %.val29, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i) #27
@@ -28559,8 +28559,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEEl
   %22 = icmp slt i64 %21, 0
   %23 = or disjoint i64 %9, 1
   %spec.select = select i1 %22, i64 %23, i64 %10
-  %24 = getelementptr inbounds %"class.llvm::SmallVector.684", ptr %0, i64 %spec.select
-  %25 = getelementptr inbounds %"class.llvm::SmallVector.684", ptr %0, i64 %.031
+  %24 = getelementptr inbounds nuw %"class.llvm::SmallVector.684", ptr %0, i64 %spec.select
+  %25 = getelementptr inbounds nuw %"class.llvm::SmallVector.684", ptr %0, i64 %.031
   %26 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIhEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef nonnull align 8 dereferenceable(34) %24)
   %27 = icmp slt i64 %spec.select, %7
   br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !1123
@@ -28580,8 +28580,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEEl
 34:                                               ; preds = %30
   %35 = shl nsw i64 %.0.lcssa, 1
   %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds %"class.llvm::SmallVector.684", ptr %0, i64 %36
-  %38 = getelementptr inbounds %"class.llvm::SmallVector.684", ptr %0, i64 %.0.lcssa
+  %37 = getelementptr inbounds nuw %"class.llvm::SmallVector.684", ptr %0, i64 %36
+  %38 = getelementptr inbounds nuw %"class.llvm::SmallVector.684", ptr %0, i64 %.0.lcssa
   %39 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIhEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(34) %38, ptr noundef nonnull align 8 dereferenceable(34) %37)
   br label %40
 
@@ -28603,14 +28603,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm11SmallVectorIhLj10EEEl
   br label %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit
 
 _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit:        ; preds = %40, %46
-  %48 = icmp sgt i64 %.127, %1
+  %48 = icmp samesign ugt i64 %.127, %1
   br i1 %48, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit, %58
   %.0133.i = phi i64 [ %.04.i, %58 ], [ %.127, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %49 = getelementptr inbounds %"class.llvm::SmallVector.684", ptr %0, i64 %.04.i
+  %49 = getelementptr inbounds nuw %"class.llvm::SmallVector.684", ptr %0, i64 %.04.i
   %50 = getelementptr i8, ptr %49, i64 8
   %.val14.i = load i64, ptr %50, align 8, !tbaa !608
   %.val16.i = load i64, ptr %42, align 8, !tbaa !608
@@ -28645,7 +28645,7 @@ _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit:        ; preds = %40, %46
 
 "_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.exit.i", %58, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit
   %.013.lcssa.i = phi i64 [ %.127, %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.exit.i" ], [ %.04.i, %58 ]
-  %62 = getelementptr inbounds %"class.llvm::SmallVector.684", ptr %0, i64 %.013.lcssa.i
+  %62 = getelementptr inbounds nuw %"class.llvm::SmallVector.684", ptr %0, i64 %.013.lcssa.i
   %63 = icmp eq ptr %62, %5
   br i1 %63, label %_ZN4llvm15SmallVectorImplIhEaSEOS1_.exit, label %64
 

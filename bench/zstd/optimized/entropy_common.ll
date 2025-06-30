@@ -220,7 +220,7 @@ define i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %0, ptr nou
 86:                                               ; preds = %83, %81
   %.pn.i.i = phi i32 [ %82, %81 ], [ %.0137.i.i, %83 ]
   %.0.i.i = phi i32 [ %79, %81 ], [ %spec.select.i.i, %83 ]
-  %.7151.i.i = add nsw i32 %.pn.i.i, %.1145.i.i
+  %.7151.i.i = add nuw nsw i32 %.pn.i.i, %.1145.i.i
   %87 = add nsw i32 %.0.i.i, -1
   %88 = icmp sgt i32 %.0.i.i, 0
   %89 = sub i32 1, %.0.i.i
@@ -254,17 +254,17 @@ define i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %0, ptr nou
 
 104:                                              ; preds = %103
   %.not181.i.i = icmp ugt ptr %.1135.i.i, %31
-  %105 = ashr i32 %.7151.i.i, 3
-  %106 = sext i32 %105 to i64
+  %105 = lshr i32 %.7151.i.i, 3
+  %106 = zext nneg i32 %105 to i64
   br i1 %.not181.i.i, label %107, label %._crit_edge37, !prof !7
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %.1135.i.i, i64 %106
+  %108 = getelementptr inbounds nuw i8, ptr %.1135.i.i, i64 %106
   %.not182.i.i = icmp ugt ptr %108, %33
   br i1 %.not182.i.i, label %111, label %._crit_edge37
 
 ._crit_edge37:                                    ; preds = %104, %107
-  %109 = getelementptr inbounds i8, ptr %.1135.i.i, i64 %106
+  %109 = getelementptr inbounds nuw i8, ptr %.1135.i.i, i64 %106
   %110 = and i32 %.7151.i.i, 7
   br label %115
 
@@ -487,7 +487,7 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
 82:                                               ; preds = %79, %77
   %.pn.i = phi i32 [ %78, %77 ], [ %.0137.i, %79 ]
   %.0.i = phi i32 [ %75, %77 ], [ %spec.select.i, %79 ]
-  %.7151.i = add nsw i32 %.pn.i, %.1145.i
+  %.7151.i = add nuw nsw i32 %.pn.i, %.1145.i
   %83 = add nsw i32 %.0.i, -1
   %84 = icmp sgt i32 %.0.i, 0
   %85 = sub i32 1, %.0.i
@@ -521,17 +521,17 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
 
 100:                                              ; preds = %99
   %.not181.i = icmp ugt ptr %.1135.i, %27
-  %101 = ashr i32 %.7151.i, 3
-  %102 = sext i32 %101 to i64
+  %101 = lshr i32 %.7151.i, 3
+  %102 = zext nneg i32 %101 to i64
   br i1 %.not181.i, label %103, label %._crit_edge30, !prof !7
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %.1135.i, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %.1135.i, i64 %102
   %.not182.i = icmp ugt ptr %104, %29
   br i1 %.not182.i, label %107, label %._crit_edge30
 
 ._crit_edge30:                                    ; preds = %100, %103
-  %105 = getelementptr inbounds i8, ptr %.1135.i, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %.1135.i, i64 %102
   %106 = and i32 %.7151.i, 7
   br label %111
 

@@ -1963,12 +1963,12 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   br i1 %.not107.i.i.i, label %808, label %802
 
 802:                                              ; preds = %801
-  %803 = zext i32 %.sroa.0.3.i.i.i to i64
+  %803 = zext nneg i32 %.sroa.0.3.i.i.i to i64
   %804 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %803
   store i32 21691, ptr %804, align 16, !tbaa !44
   %805 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %803, i32 1
   store i32 0, ptr %805, align 4, !tbaa !46
-  %806 = add i32 %.sroa.0.3.i.i.i, 1
+  %806 = add nuw nsw i32 %.sroa.0.3.i.i.i, 1
   %807 = getelementptr inbounds nuw i8, ptr %804, i64 24
   store i64 %777, ptr %807, align 8, !tbaa !50
   br label %808
@@ -1979,12 +1979,12 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   br i1 %.not108.i.i.i, label %815, label %809
 
 809:                                              ; preds = %808
-  %810 = zext i32 %.sroa.0.4.i.i.i to i64
+  %810 = zext nneg i32 %.sroa.0.4.i.i.i to i64
   %811 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %810
   store i32 21708, ptr %811, align 16, !tbaa !44
   %812 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %810, i32 1
   store i32 0, ptr %812, align 4, !tbaa !46
-  %813 = add i32 %.sroa.0.4.i.i.i, 1
+  %813 = add nuw nsw i32 %.sroa.0.4.i.i.i, 1
   %814 = getelementptr inbounds nuw i8, ptr %811, i64 24
   store i64 %783, ptr %814, align 8, !tbaa !50
   br label %815
@@ -1995,12 +1995,12 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   br i1 %.not109.i.i.i, label %.thread.i.i.i, label %816
 
 816:                                              ; preds = %815
-  %817 = zext i32 %.sroa.0.5.i.i.i to i64
+  %817 = zext nneg i32 %.sroa.0.5.i.i.i to i64
   %818 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %817
   store i32 21725, ptr %818, align 16, !tbaa !44
   %819 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %817, i32 1
   store i32 0, ptr %819, align 4, !tbaa !46
-  %820 = add i32 %.sroa.0.5.i.i.i, 1
+  %820 = add nuw nsw i32 %.sroa.0.5.i.i.i, 1
   %821 = getelementptr inbounds nuw i8, ptr %818, i64 24
   store i64 %786, ptr %821, align 8, !tbaa !50
   br label %.thread.i.i.i
@@ -2054,22 +2054,22 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 845:                                              ; preds = %842
   %846 = zext nneg i32 %.0223.ph.i.i.i to i64
   %847 = sdiv i64 %836, %846
-  %848 = zext i32 %.sroa.0.1.i.i.i to i64
+  %848 = zext nneg i32 %.sroa.0.1.i.i.i to i64
   %849 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %848
   store i32 21680, ptr %849, align 16, !tbaa !44
   %850 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %848, i32 1
   store i32 0, ptr %850, align 4, !tbaa !46
-  %851 = add i32 %.sroa.0.1.i.i.i, 1
+  %851 = add nuw nsw i32 %.sroa.0.1.i.i.i, 1
   %852 = getelementptr inbounds nuw i8, ptr %849, i64 24
   store i64 %847, ptr %852, align 8, !tbaa !50
   %853 = sdiv i32 %.085.i.i.i, %.0224.ph.i.i.i
   %854 = sext i32 %853 to i64
-  %855 = zext i32 %851 to i64
+  %855 = zext nneg i32 %851 to i64
   %856 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %855
   store i32 21690, ptr %856, align 16, !tbaa !44
   %857 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %855, i32 1
   store i32 0, ptr %857, align 4, !tbaa !46
-  %858 = add i32 %.sroa.0.1.i.i.i, 2
+  %858 = add nuw nsw i32 %.sroa.0.1.i.i.i, 2
   %859 = getelementptr inbounds nuw i8, ptr %856, i64 24
   store i64 %854, ptr %859, align 8, !tbaa !50
   br label %.thread236.i.i.i
@@ -2082,30 +2082,30 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %864 = call i32 @av_reduce(ptr noundef nonnull %11, ptr noundef nonnull %472, i64 noundef %861, i64 noundef %863, i64 noundef 1048576) #14
   %865 = load i32, ptr %11, align 4, !tbaa !131
   %866 = sext i32 %865 to i64
-  %867 = zext i32 %.sroa.0.1.i.i.i to i64
+  %867 = zext nneg i32 %.sroa.0.1.i.i.i to i64
   %868 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %867
   store i32 21680, ptr %868, align 16, !tbaa !44
   %869 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %867, i32 1
   store i32 0, ptr %869, align 4, !tbaa !46
-  %870 = add i32 %.sroa.0.1.i.i.i, 1
+  %870 = add nuw nsw i32 %.sroa.0.1.i.i.i, 1
   %871 = getelementptr inbounds nuw i8, ptr %868, i64 24
   store i64 %866, ptr %871, align 8, !tbaa !50
   %872 = load i32, ptr %472, align 4, !tbaa !132
   %873 = sext i32 %872 to i64
-  %874 = zext i32 %870 to i64
+  %874 = zext nneg i32 %870 to i64
   %875 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %874
   store i32 21690, ptr %875, align 16, !tbaa !44
   %876 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %874, i32 1
   store i32 0, ptr %876, align 4, !tbaa !46
-  %877 = add i32 %.sroa.0.1.i.i.i, 2
+  %877 = add nuw nsw i32 %.sroa.0.1.i.i.i, 2
   %878 = getelementptr inbounds nuw i8, ptr %875, i64 24
   store i64 %873, ptr %878, align 8, !tbaa !50
-  %879 = zext i32 %877 to i64
+  %879 = zext nneg i32 %877 to i64
   %880 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %879
   store i32 21682, ptr %880, align 16, !tbaa !44
   %881 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %879, i32 1
   store i32 0, ptr %881, align 4, !tbaa !46
-  %882 = add i32 %.sroa.0.1.i.i.i, 3
+  %882 = add nuw nsw i32 %.sroa.0.1.i.i.i, 3
   %883 = getelementptr inbounds nuw i8, ptr %880, i64 24
   store i64 3, ptr %883, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
@@ -2124,22 +2124,22 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 888:                                              ; preds = %885
   %889 = sdiv i32 %.083.i.i.i, %.0223.ph.i.i.i
   %890 = sext i32 %889 to i64
-  %891 = zext i32 %.sroa.0.1.i.i.i to i64
+  %891 = zext nneg i32 %.sroa.0.1.i.i.i to i64
   %892 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %891
   store i32 21680, ptr %892, align 16, !tbaa !44
   %893 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %891, i32 1
   store i32 0, ptr %893, align 4, !tbaa !46
-  %894 = add i32 %.sroa.0.1.i.i.i, 1
+  %894 = add nuw nsw i32 %.sroa.0.1.i.i.i, 1
   %895 = getelementptr inbounds nuw i8, ptr %892, i64 24
   store i64 %890, ptr %895, align 8, !tbaa !50
   %896 = sdiv i32 %.085.i.i.i, %.0224.ph.i.i.i
   %897 = sext i32 %896 to i64
-  %898 = zext i32 %894 to i64
+  %898 = zext nneg i32 %894 to i64
   %899 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %898
   store i32 21690, ptr %899, align 16, !tbaa !44
   %900 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %898, i32 1
   store i32 0, ptr %900, align 4, !tbaa !46
-  %901 = add i32 %.sroa.0.1.i.i.i, 2
+  %901 = add nuw nsw i32 %.sroa.0.1.i.i.i, 2
   %902 = getelementptr inbounds nuw i8, ptr %899, i64 24
   store i64 %897, ptr %902, align 8, !tbaa !50
   br label %.thread236.i.i.i
@@ -2150,12 +2150,12 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   br i1 %905, label %.thread236.i.i.i, label %906
 
 906:                                              ; preds = %903
-  %907 = zext i32 %.sroa.0.1.i.i.i to i64
+  %907 = zext nneg i32 %.sroa.0.1.i.i.i to i64
   %908 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %907
   store i32 21682, ptr %908, align 16, !tbaa !44
   %909 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %907, i32 1
   store i32 0, ptr %909, align 4, !tbaa !46
-  %910 = add i32 %.sroa.0.1.i.i.i, 1
+  %910 = add nuw nsw i32 %.sroa.0.1.i.i.i, 1
   %911 = getelementptr inbounds nuw i8, ptr %908, i64 24
   store i64 4, ptr %911, align 8, !tbaa !50
   br label %.thread236.i.i.i
@@ -2171,12 +2171,12 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %916 = getelementptr inbounds nuw i8, ptr %497, i64 8
   %917 = load i32, ptr %916, align 8, !tbaa !102
   store i32 %917, ptr %8, align 4, !tbaa !50
-  %918 = zext i32 %.sroa.0.8.i.i.i to i64
+  %918 = zext nneg i32 %.sroa.0.8.i.i.i to i64
   %919 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %918
   store i32 3061028, ptr %919, align 16, !tbaa !44
   %920 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %918, i32 1
   store i32 5, ptr %920, align 4, !tbaa !46
-  %921 = add i32 %.sroa.0.8.i.i.i, 1
+  %921 = add nuw nsw i32 %.sroa.0.8.i.i.i, 1
   %922 = getelementptr inbounds nuw i8, ptr %919, i64 16
   store i64 4, ptr %922, align 16, !tbaa !133
   %923 = getelementptr inbounds nuw i8, ptr %919, i64 24
@@ -6575,7 +6575,7 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
   %.059 = phi ptr [ %50, %.lr.ph.i.i93.preheader ], [ null, %start_ebml_master.exit ]
   %52 = load i32, ptr %9, align 8, !tbaa !250
   %.not2026.not.i = icmp eq i32 %52, 0
-  br i1 %.not2026.not.i, label %.thread120, label %.lr.ph30.i
+  br i1 %.not2026.not.i, label %.thread121, label %.lr.ph30.i
 
 .lr.ph30.i:                                       ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6642,9 +6642,9 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
   br label %88
 
 88:                                               ; preds = %.lr.ph, %126
-  %indvars.iv155 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next156, %126 ]
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next157, %126 ]
   %89 = load ptr, ptr %65, align 8, !tbaa !252
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv155
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv156
   %91 = load ptr, ptr %90, align 8, !tbaa !253
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load i64, ptr %92, align 8, !tbaa !259
@@ -6657,7 +6657,7 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
   br i1 %.not76, label %102, label %100
 
 100:                                              ; preds = %88
-  %101 = add nuw nsw i64 %indvars.iv155, 1
+  %101 = add nuw nsw i64 %indvars.iv156, 1
   br label %104
 
 102:                                              ; preds = %88
@@ -6674,7 +6674,7 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
 
 108:                                              ; preds = %104
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.91, i64 noundef %96, i64 noundef %99) #14
-  br label %.thread123
+  br label %.thread124
 
 109:                                              ; preds = %104
   store i32 182, ptr %4, align 16, !tbaa !44
@@ -6716,17 +6716,17 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
   %117 = load ptr, ptr %2, align 8, !tbaa !57
   %118 = call fastcc i32 @ebml_writer_elem_len(ptr noundef nonnull %4, i32 noundef %.sroa.0.0)
   %119 = icmp slt i32 %118, 0
-  br i1 %119, label %.thread123, label %120
+  br i1 %119, label %.thread124, label %120
 
 120:                                              ; preds = %116
   %121 = call fastcc i32 @ebml_writer_elem_write(ptr noundef nonnull %4, ptr noundef %117)
-  br i1 %.not78, label %.thread115, label %122
+  br i1 %.not78, label %.thread116, label %122
 
-.thread115:                                       ; preds = %120
+.thread116:                                       ; preds = %120
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #14
   br label %126
 
-.thread123:                                       ; preds = %116, %108
+.thread124:                                       ; preds = %116, %108
   %.2.ph = phi i32 [ -1094995529, %108 ], [ %118, %116 ]
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #14
   br label %144
@@ -6737,16 +6737,16 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
   %124 = call fastcc i32 @mkv_write_tag(ptr noundef %6, ptr noundef %123, ptr noundef nonnull %.059, i32 noundef 0, i32 noundef 25540, i64 noundef %105)
   %125 = icmp sgt i32 %124, -1
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4) #14
-  br i1 %125, label %126, label %.thread126
+  br i1 %125, label %126, label %.thread127
 
-126:                                              ; preds = %.thread115, %122
-  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
+126:                                              ; preds = %.thread116, %122
+  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %127 = load i32, ptr %9, align 8, !tbaa !250
   %128 = zext i32 %127 to i64
-  %129 = icmp samesign ult i64 %indvars.iv.next156, %128
-  br i1 %129, label %88, label %.thread120, !llvm.loop !262
+  %129 = icmp samesign ult i64 %indvars.iv.next157, %128
+  br i1 %129, label %88, label %.thread121, !llvm.loop !262
 
-.thread120:                                       ; preds = %126, %51
+.thread121:                                       ; preds = %126, %51
   %130 = load ptr, ptr %2, align 8, !tbaa !57
   %131 = call i64 @avio_seek(ptr noundef %130, i64 noundef 0, i32 noundef 1) #14
   %132 = add nsw i64 %38, -8
@@ -6754,13 +6754,13 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
   %134 = icmp slt i64 %133, 0
   br i1 %134, label %end_ebml_master.exit, label %135
 
-135:                                              ; preds = %.thread120
+135:                                              ; preds = %.thread121
   %136 = sub nsw i64 %131, %38
   call fastcc void @put_ebml_length(ptr noundef %130, i64 noundef %136, i32 noundef range(i32 -2147483647, -2147483648) 8)
   %137 = call i64 @avio_seek(ptr noundef %130, i64 noundef %131, i32 noundef 0) #14
   br label %end_ebml_master.exit
 
-end_ebml_master.exit:                             ; preds = %.thread120, %135
+end_ebml_master.exit:                             ; preds = %.thread121, %135
   store i32 1, ptr %12, align 8, !tbaa !251
   %138 = call fastcc i32 @end_ebml_master_crc32(ptr noundef %8, ptr noundef nonnull %2, ptr noundef %6, i32 noundef 272869232, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %139 = icmp slt i32 %138, 0
@@ -6775,23 +6775,23 @@ end_ebml_master.exit:                             ; preds = %.thread120, %135
   %143 = call fastcc i32 @end_ebml_master_crc32(ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %6, i32 noundef 307544935, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   br label %start_ebml_master_crc32.exit
 
-144:                                              ; preds = %.thread123, %end_ebml_master.exit
-  %.4 = phi i32 [ %138, %end_ebml_master.exit ], [ %.2.ph, %.thread123 ]
+144:                                              ; preds = %.thread124, %end_ebml_master.exit
+  %.4 = phi i32 [ %138, %end_ebml_master.exit ], [ %.2.ph, %.thread124 ]
   %.not80 = icmp eq ptr %.059, null
-  br i1 %.not80, label %145, label %.thread126
+  br i1 %.not80, label %145, label %.thread127
 
-.thread126:                                       ; preds = %122, %144
-  %.4129 = phi i32 [ %.4, %144 ], [ %124, %122 ]
+.thread127:                                       ; preds = %122, %144
+  %.4130 = phi i32 [ %.4, %144 ], [ %124, %122 ]
   call void @ffio_free_dyn_buf(ptr noundef nonnull %.059) #14
   br label %145
 
-145:                                              ; preds = %.thread126, %144
-  %.4130 = phi i32 [ %.4129, %.thread126 ], [ %.4, %144 ]
+145:                                              ; preds = %.thread127, %144
+  %.4131 = phi i32 [ %.4130, %.thread127 ], [ %.4, %144 ]
   call void @ffio_free_dyn_buf(ptr noundef nonnull %2) #14
   br label %start_ebml_master_crc32.exit
 
 start_ebml_master_crc32.exit:                     ; preds = %14, %140, %1, %11, %145, %142
-  %.0 = phi i32 [ %.4130, %145 ], [ %143, %142 ], [ 0, %11 ], [ 0, %1 ], [ 0, %140 ], [ %15, %14 ]
+  %.0 = phi i32 [ %.4131, %145 ], [ %143, %142 ], [ 0, %11 ], [ 0, %1 ], [ 0, %140 ], [ %15, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   ret i32 %.0

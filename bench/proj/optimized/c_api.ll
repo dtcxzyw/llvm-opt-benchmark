@@ -21309,7 +21309,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.ex
   br i1 %.not58, label %165, label %161
 
 161:                                              ; preds = %160
-  %162 = getelementptr inbounds ptr, ptr %.034, i64 %.145
+  %162 = getelementptr inbounds nuw ptr, ptr %.034, i64 %.145
   store ptr null, ptr %162, align 8, !tbaa !341
   call void @proj_celestial_body_list_destroy(ptr noundef nonnull %.034)
   br label %165

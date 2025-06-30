@@ -3771,7 +3771,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL18stbsp__real_to_strPPKcP
 
 52:                                               ; preds = %31
   %53 = icmp sgt i32 %32, 18
-  %spec.select.i = tail call i32 @llvm.abs.i32(i32 range(i32 -2147483629, -2147483648) %33, i1 true)
+  %spec.select.i = tail call i32 @llvm.abs.i32(i32 range(i32 -524270, 1048595) %33, i1 true)
   %54 = mul nuw nsw i32 %spec.select.i, 713
   %55 = lshr i32 %54, 14
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %55, i32 13)
@@ -3816,8 +3816,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL18stbsp__real_to_strPPKcP
 82:                                               ; preds = %80
   %83 = fadd double %.1.i, %81
   %84 = add nsw i32 %spec.store.select.i, -1
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds [13 x double], ptr @_ZL13stbsp__negtop, i64 0, i64 %85
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds nuw [13 x double], ptr @_ZL13stbsp__negtop, i64 0, i64 %85
   %87 = load double, ptr %86, align 8
   %88 = bitcast double %83 to i64
   %89 = and i64 %88, -134217728
@@ -3835,7 +3835,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL18stbsp__real_to_strPPKcP
   %101 = tail call double @llvm.fmuladd.f64(double %90, double %98, double %100)
   %102 = tail call double @llvm.fmuladd.f64(double %97, double %93, double %101)
   %103 = tail call double @llvm.fmuladd.f64(double %97, double %98, double %102)
-  %104 = getelementptr inbounds [13 x double], ptr @_ZL16stbsp__negtoperr, i64 0, i64 %85
+  %104 = getelementptr inbounds nuw [13 x double], ptr @_ZL16stbsp__negtoperr, i64 0, i64 %85
   %105 = load double, ptr %104, align 8, !tbaa !20
   %106 = fmul double %95, %87
   %107 = tail call double @llvm.fmuladd.f64(double %83, double %105, double %106)
@@ -3901,8 +3901,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL18stbsp__real_to_strPPKcP
 153:                                              ; preds = %151
   %154 = fadd double %.3.i, %152
   %155 = add nsw i32 %spec.store.select.i, -1
-  %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds [13 x double], ptr @_ZL10stbsp__top, i64 0, i64 %156
+  %156 = zext nneg i32 %155 to i64
+  %157 = getelementptr inbounds nuw [13 x double], ptr @_ZL10stbsp__top, i64 0, i64 %156
   %158 = load double, ptr %157, align 8
   %159 = bitcast double %154 to i64
   %160 = and i64 %159, -134217728
@@ -3920,7 +3920,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL18stbsp__real_to_strPPKcP
   %172 = tail call double @llvm.fmuladd.f64(double %161, double %169, double %171)
   %173 = tail call double @llvm.fmuladd.f64(double %168, double %164, double %172)
   %174 = tail call double @llvm.fmuladd.f64(double %168, double %169, double %173)
-  %175 = getelementptr inbounds [13 x double], ptr @_ZL13stbsp__toperr, i64 0, i64 %156
+  %175 = getelementptr inbounds nuw [13 x double], ptr @_ZL13stbsp__toperr, i64 0, i64 %156
   %176 = load double, ptr %175, align 8, !tbaa !20
   %177 = fmul double %166, %158
   %178 = tail call double @llvm.fmuladd.f64(double %154, double %176, double %177)

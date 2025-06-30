@@ -1206,7 +1206,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   br i1 %146, label %27, label %._crit_edge185.loopexit, !llvm.loop !20
 
 ._crit_edge185.loopexit:                          ; preds = %140
-  %147 = add nsw i32 %.1101, 1
+  %147 = add nuw nsw i32 %.1101, 1
   br label %._crit_edge185
 
 ._crit_edge185:                                   ; preds = %._crit_edge185.loopexit, %15

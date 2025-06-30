@@ -3052,8 +3052,8 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
   %14 = call i32 @mbedtls_oid_get_oid_by_md(i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #14
   %.not70 = icmp eq i32 %14, 0
   %.not71 = icmp eq i32 %1, %13
-  %or.cond = and i1 %.not71, %.not70
-  br i1 %or.cond, label %15, label %.thread
+  %or.cond73 = and i1 %.not71, %.not70
+  br i1 %or.cond73, label %15, label %.thread
 
 15:                                               ; preds = %12
   %16 = add nuw nsw i32 %1, 8
@@ -3069,8 +3069,8 @@ define internal fastcc range(i32 -16512, 1) i32 @rsa_rsassa_pkcs1_v15_encode(i32
   %24 = add i64 %18, %23
   %25 = icmp uge i64 %24, %23
   %26 = icmp uge i64 %3, %24
-  %or.cond73.not = and i1 %25, %26
-  br i1 %or.cond73.not, label %30, label %.thread
+  %or.cond74.not = and i1 %25, %26
+  br i1 %or.cond74.not, label %30, label %.thread
 
 27:                                               ; preds = %5
   %28 = zext i32 %1 to i64

@@ -6681,7 +6681,7 @@ ValidJsonBehaviorDefaultExpr.exit.thread78:       ; preds = %16, %16, %16, %Vali
 46:                                               ; preds = %39
   %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %47)
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.196, i32 noundef %.062) #9
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.196, i32 noundef range(i32 2, 1) %.062) #9
   tail call void @errfinish(ptr noundef nonnull @.str.41, i32 noundef 4885, ptr noundef nonnull @__func__.GetJsonBehaviorConst) #9
   unreachable
 

@@ -5472,7 +5472,7 @@ switch.lookup4408:                                ; preds = %255
   %.85 = phi i32 [ %1640, %1634 ], [ %.84, %1641 ]
   %1644 = icmp sgt i32 %.843732, -1
   %1645 = add i32 %.193640, 3
-  %1646 = add i32 %.173981, -3
+  %1646 = add nsw i32 %.173981, -3
   br i1 %1644, label %1647, label %1650
 
 1647:                                             ; preds = %1643
@@ -5557,7 +5557,7 @@ switch.lookup4408:                                ; preds = %255
   %1693 = load i32, ptr @hf_gsm_a_gm_rac_down_dual_carrier_dtm_cap, align 4
   %1694 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %1693, ptr noundef %0, i32 noundef %1673, i32 noundef 1, i32 noundef 0)
   %1695 = add i32 %.193640, 7
-  %1696 = add i32 %.173981, -7
+  %1696 = add nsw i32 %.173981, -7
   br label %1697
 
 1697:                                             ; preds = %1692, %1647
@@ -5974,7 +5974,7 @@ switch.lookup4408:                                ; preds = %255
   %.99 = phi i32 [ %1925, %1919 ], [ %.98, %1926 ]
   %1929 = icmp sgt i32 %.983746, -1
   %1930 = add i32 %.203641, 14
-  %1931 = add i32 %.183982, -14
+  %1931 = add nsw i32 %.183982, -14
   %1932 = shl i32 %.983746, 1
   %1933 = trunc nuw i32 %.983883 to i8
   %1934 = add i8 %1933, -1
@@ -6016,7 +6016,7 @@ switch.lookup4408:                                ; preds = %255
   %1953 = load i32, ptr @hf_gsm_a_gm_rac_alt_efta_multi_slot_class, align 4
   %1954 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %1953, ptr noundef %0, i32 noundef %1930, i32 noundef 4, i32 noundef 0)
   %1955 = add i32 %.203641, 18
-  %1956 = add i32 %.183982, -18
+  %1956 = add nsw i32 %.183982, -18
   %1957 = shl i32 %.1003748, 4
   %1958 = add i8 %.1003885, -4
   %1959 = icmp ult i32 %1956, 3
@@ -6054,7 +6054,7 @@ switch.lookup4408:                                ; preds = %255
   %1976 = load i32, ptr @hf_gsm_a_gm_rac_efta_multi_slot_cap_red_down_dual_carrier, align 4
   %1977 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %1976, ptr noundef %0, i32 noundef %1955, i32 noundef 3, i32 noundef 0)
   %1978 = add i32 %.203641, 21
-  %1979 = add i32 %.183982, -21
+  %1979 = add nsw i32 %.183982, -21
   %1980 = shl i32 %.1013749, 3
   %1981 = add i8 %.1013886, -3
   br label %1982
@@ -6660,7 +6660,7 @@ switch.lookup4408:                                ; preds = %255
   br i1 %2317, label %2319, label %2322
 
 2319:                                             ; preds = %2316
-  %2320 = add i32 %.193983, -17
+  %2320 = add nsw i32 %.193983, -17
   %2321 = shl nuw i32 %.1173765, 1
   br label %2460
 
@@ -6789,7 +6789,7 @@ switch.lookup4408:                                ; preds = %255
   %.233644 = phi i32 [ %2388, %2385 ], [ %2342, %2340 ]
   %.1213604 = phi i32 [ %.1233606, %2385 ], [ %.1203603, %2340 ]
   %.121 = phi i32 [ %.123, %2385 ], [ %.120, %2340 ]
-  %2390 = add i32 %.193983, %.sink
+  %2390 = add nsw i32 %.193983, %.sink
   %.1203768 = shl i32 %.1203768.in, 1
   %2391 = icmp ult i32 %2390, 2
   br i1 %2391, label %.thread, label %2392
@@ -6826,7 +6826,7 @@ switch.lookup4408:                                ; preds = %255
   %2408 = load i32, ptr @hf_gsm_a_gm_rac_dlmc_max_bandwidth, align 4
   %2409 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %2408, ptr noundef %0, i32 noundef %.233644, i32 noundef 2, i32 noundef 0)
   %2410 = add i32 %.233644, 2
-  %2411 = add i32 %2390, -2
+  %2411 = add nsw i32 %2390, -2
   %2412 = shl i32 %.1233771, 2
   %2413 = add i8 %.1233908, -2
   %2414 = icmp ult i32 %2411, 6
@@ -6864,7 +6864,7 @@ switch.lookup4408:                                ; preds = %255
   %2431 = load i32, ptr @hf_gsm_a_gm_rac_dlmc_max_nb_dl_ts, align 4
   %2432 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %2431, ptr noundef %0, i32 noundef %2410, i32 noundef 6, i32 noundef 0)
   %2433 = add i32 %.233644, 8
-  %2434 = add i32 %2390, -8
+  %2434 = add nsw i32 %2390, -8
   %2435 = shl i32 %.1243772, 6
   %2436 = add i8 %.1243909, -6
   %2437 = icmp ult i32 %2434, 3
@@ -6902,7 +6902,7 @@ switch.lookup4408:                                ; preds = %255
   %2454 = load i32, ptr @hf_gsm_a_gm_rac_dlmc_max_nb_dl_carriers, align 4
   %2455 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %2454, ptr noundef %0, i32 noundef %2433, i32 noundef 3, i32 noundef 0)
   %2456 = add i32 %.233644, 11
-  %2457 = add i32 %2390, -11
+  %2457 = add nsw i32 %2390, -11
   %2458 = shl i32 %.1253773, 3
   %2459 = add i8 %.1253910, -3
   br label %2460
@@ -7024,7 +7024,7 @@ switch.lookup4408:                                ; preds = %255
   %2521 = load i32, ptr @hf_gsm_a_gm_rac_ec_pch_mon_support, align 4
   %2522 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %2521, ptr noundef %0, i32 noundef %2501, i32 noundef 2, i32 noundef 0)
   %2523 = add i32 %.223643, 4
-  %2524 = add i32 %.203984, -4
+  %2524 = add nsw i32 %.203984, -4
   %2525 = shl i32 %.1283776, 2
   %2526 = add i8 %.1283913, -2
   %2527 = icmp eq i32 %2524, 0
@@ -7061,7 +7061,7 @@ switch.lookup4408:                                ; preds = %255
 
 2543:                                             ; preds = %2541
   %2544 = add i32 %.223643, 5
-  %2545 = add i32 %.203984, -5
+  %2545 = add nsw i32 %.203984, -5
   %2546 = shl nuw i32 %.1293777, 1
   %2547 = add i8 %.1293914, -1
   br label %2572
@@ -7102,7 +7102,7 @@ switch.lookup4408:                                ; preds = %255
   %2566 = load i32, ptr @hf_gsm_a_gm_rac_ms_sync_accuracy, align 4
   %2567 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %2566, ptr noundef %0, i32 noundef %2523, i32 noundef 4, i32 noundef 0)
   %2568 = add i32 %.223643, 8
-  %2569 = add i32 %.203984, -8
+  %2569 = add nsw i32 %.203984, -8
   %2570 = shl i32 %.1313779, 4
   %2571 = add i8 %.1313916, -4
   br label %2572
@@ -7224,7 +7224,7 @@ switch.lookup4408:                                ; preds = %255
   %2632 = load i32, ptr @hf_gsm_a_gm_rac_ec_paging_ind_chan_mon_support, align 4
   %2633 = call ptr @proto_tree_add_bits_item(ptr noundef %41, i32 noundef %2632, ptr noundef %0, i32 noundef %2613, i32 noundef 1, i32 noundef 0)
   %2634 = add i32 %.243645, 3
-  %2635 = add i32 %.223986, -3
+  %2635 = add nsw i32 %.223986, -3
   %2636 = shl i32 %.1343782, 1
   %.not42934331 = icmp eq i32 %2635, 0
   br i1 %.not42934331, label %.thread, label %.lr.ph

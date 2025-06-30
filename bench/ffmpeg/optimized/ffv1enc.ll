@@ -10488,8 +10488,8 @@ put_rac.exit157.i:                                ; preds = %renorm_encoder.exit
   %2580 = load i64, ptr %2579, align 8, !tbaa !95
   %2581 = add i64 %2580, 1
   store i64 %2581, ptr %2579, align 8, !tbaa !95
-  %2582 = getelementptr [2 x i64], ptr %2329, i64 %.pre-phi189.i
-  %2583 = getelementptr i8, ptr %2582, i64 176
+  %2582 = getelementptr inbounds nuw [2 x i64], ptr %2329, i64 %.pre-phi189.i
+  %2583 = getelementptr inbounds nuw i8, ptr %2582, i64 176
   %2584 = getelementptr inbounds nuw [2 x i64], ptr %2583, i64 0, i64 %2578
   %2585 = load i64, ptr %2584, align 8, !tbaa !95
   %2586 = add i64 %2585, 1
@@ -13350,8 +13350,8 @@ put_rac.exit216:                                  ; preds = %475, %renorm_encode
   %524 = load i64, ptr %523, align 8, !tbaa !95
   %525 = add i64 %524, 1
   store i64 %525, ptr %523, align 8, !tbaa !95
-  %526 = getelementptr [2 x i64], ptr %276, i64 %.pre-phi1006
-  %527 = getelementptr i8, ptr %526, i64 176
+  %526 = getelementptr inbounds nuw [2 x i64], ptr %276, i64 %.pre-phi1006
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 176
   %528 = getelementptr inbounds nuw [2 x i64], ptr %527, i64 0, i64 %522
   %529 = load i64, ptr %528, align 8, !tbaa !95
   %530 = add i64 %529, 1
@@ -16040,8 +16040,8 @@ put_rac.exit457:                                  ; preds = %1943, %renorm_encod
   %1992 = load i64, ptr %1991, align 8, !tbaa !95
   %1993 = add i64 %1992, 1
   store i64 %1993, ptr %1991, align 8, !tbaa !95
-  %1994 = getelementptr [2 x i64], ptr %1740, i64 %.pre-phi1010
-  %1995 = getelementptr i8, ptr %1994, i64 176
+  %1994 = getelementptr inbounds nuw [2 x i64], ptr %1740, i64 %.pre-phi1010
+  %1995 = getelementptr inbounds nuw i8, ptr %1994, i64 176
   %1996 = getelementptr inbounds nuw [2 x i64], ptr %1995, i64 0, i64 %1990
   %1997 = load i64, ptr %1996, align 8, !tbaa !95
   %1998 = add i64 %1997, 1
@@ -19001,8 +19001,8 @@ put_rac.exit281:                                  ; preds = %589, %renorm_encode
   %638 = load i64, ptr %637, align 8, !tbaa !95
   %639 = add i64 %638, 1
   store i64 %639, ptr %637, align 8, !tbaa !95
-  %640 = getelementptr [2 x i64], ptr %388, i64 %.pre-phi1047
-  %641 = getelementptr i8, ptr %640, i64 176
+  %640 = getelementptr inbounds nuw [2 x i64], ptr %388, i64 %.pre-phi1047
+  %641 = getelementptr inbounds nuw i8, ptr %640, i64 176
   %642 = getelementptr inbounds nuw [2 x i64], ptr %641, i64 0, i64 %636
   %643 = load i64, ptr %642, align 8, !tbaa !95
   %644 = add i64 %643, 1
@@ -21615,8 +21615,8 @@ put_rac.exit522:                                  ; preds = %2019, %renorm_encod
   %2068 = load i64, ptr %2067, align 8, !tbaa !95
   %2069 = add i64 %2068, 1
   store i64 %2069, ptr %2067, align 8, !tbaa !95
-  %2070 = getelementptr [2 x i64], ptr %1816, i64 %.pre-phi1051
-  %2071 = getelementptr i8, ptr %2070, i64 176
+  %2070 = getelementptr inbounds nuw [2 x i64], ptr %1816, i64 %.pre-phi1051
+  %2071 = getelementptr inbounds nuw i8, ptr %2070, i64 176
   %2072 = getelementptr inbounds nuw [2 x i64], ptr %2071, i64 0, i64 %2066
   %2073 = load i64, ptr %2072, align 8, !tbaa !95
   %2074 = add i64 %2073, 1
@@ -24623,8 +24623,8 @@ put_rac.exit296:                                  ; preds = %626, %renorm_encode
   %675 = load i64, ptr %674, align 8, !tbaa !95
   %676 = add i64 %675, 1
   store i64 %676, ptr %674, align 8, !tbaa !95
-  %677 = getelementptr [2 x i64], ptr %425, i64 %.pre-phi1064
-  %678 = getelementptr i8, ptr %677, i64 176
+  %677 = getelementptr inbounds nuw [2 x i64], ptr %425, i64 %.pre-phi1064
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 176
   %679 = getelementptr inbounds nuw [2 x i64], ptr %678, i64 0, i64 %673
   %680 = load i64, ptr %679, align 8, !tbaa !95
   %681 = add i64 %680, 1
@@ -27248,8 +27248,8 @@ put_rac.exit537:                                  ; preds = %2068, %renorm_encod
   %2117 = load i64, ptr %2116, align 8, !tbaa !95
   %2118 = add i64 %2117, 1
   store i64 %2118, ptr %2116, align 8, !tbaa !95
-  %2119 = getelementptr [2 x i64], ptr %1865, i64 %.pre-phi1068
-  %2120 = getelementptr i8, ptr %2119, i64 176
+  %2119 = getelementptr inbounds nuw [2 x i64], ptr %1865, i64 %.pre-phi1068
+  %2120 = getelementptr inbounds nuw i8, ptr %2119, i64 176
   %2121 = getelementptr inbounds nuw [2 x i64], ptr %2120, i64 0, i64 %2115
   %2122 = load i64, ptr %2121, align 8, !tbaa !95
   %2123 = add i64 %2122, 1

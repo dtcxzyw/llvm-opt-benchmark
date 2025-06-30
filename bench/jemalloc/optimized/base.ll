@@ -249,7 +249,7 @@ sz_psz2u.exit:                                    ; preds = %7, %20
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %sz_psz2u.exit
-  %48 = call ptr @je_extent_alloc_mmap(ptr noundef null, i64 noundef %43, i64 noundef 2097152, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
+  %48 = call ptr @je_extent_alloc_mmap(ptr noundef null, i64 noundef range(i64 0, -2097151) %43, i64 noundef 2097152, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %base_map.exit.thread, label %base_map.exit.thread61
 
@@ -259,7 +259,7 @@ base_map.exit.thread:                             ; preds = %47
   br label %172
 
 base_map.exit.thread61:                           ; preds = %47
-  call void @je_pages_set_thp_state(ptr noundef nonnull %48, i64 noundef %43) #10
+  call void @je_pages_set_thp_state(ptr noundef nonnull %48, i64 noundef range(i64 0, -2097151) %43) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
   br label %85
@@ -272,7 +272,7 @@ base_map.exit.thread61:                           ; preds = %47
 
 52:                                               ; preds = %49
   %.val26.i.i = load i32, ptr %2, align 8, !tbaa !47
-  %53 = call ptr @je_ehooks_default_alloc_impl(ptr noundef %0, ptr noundef null, i64 noundef %43, i64 noundef 2097152, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.val26.i.i) #10
+  %53 = call ptr @je_ehooks_default_alloc_impl(ptr noundef %0, ptr noundef null, i64 noundef range(i64 0, -2097151) %43, i64 noundef 2097152, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.val26.i.i) #10
   br label %base_map.exit
 
 54:                                               ; preds = %49
@@ -308,7 +308,7 @@ tsd_fetch_impl.exit.i.i.i:                        ; preds = %60, %56, %54
 ehooks_pre_reentrancy.exit.i.i:                   ; preds = %69, %tsd_fetch_impl.exit.i.i.i
   %70 = load ptr, ptr %.0.i.i.i.i, align 8, !tbaa !49
   %.val.i.i = load i32, ptr %2, align 8, !tbaa !47
-  %71 = call ptr %70(ptr noundef nonnull %.0.i.i.i.i, ptr noundef null, i64 noundef %43, i64 noundef 2097152, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.val.i.i) #10
+  %71 = call ptr %70(ptr noundef nonnull %.0.i.i.i.i, ptr noundef null, i64 noundef range(i64 0, -2097151) %43, i64 noundef 2097152, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %.val.i.i) #10
   br i1 %55, label %72, label %tsd_fetch_impl.exit.i27.i.i
 
 72:                                               ; preds = %ehooks_pre_reentrancy.exit.i.i

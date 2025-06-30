@@ -785,7 +785,7 @@ l_str2d.exit.thread:                              ; preds = %select.unfold, %.th
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 1, 0) i32 @luaO_utf8esc(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden range(i32 -2147483647, -2147483648) i32 @luaO_utf8esc(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = icmp ult i64 %1, 128
   br i1 %3, label %21, label %.preheader
 
@@ -926,7 +926,7 @@ define hidden ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ._crit_edge.thread:                               ; preds = %3
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
-  br label %532
+  br label %531
 
 .lr.ph:                                           ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -939,8 +939,8 @@ define hidden ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %28
 
 28:                                               ; preds = %.lr.ph, %addstr2buff.exit44
-  %29 = phi ptr [ %19, %.lr.ph ], [ %528, %addstr2buff.exit44 ]
-  %.0113 = phi ptr [ %1, %.lr.ph ], [ %527, %addstr2buff.exit44 ]
+  %29 = phi ptr [ %19, %.lr.ph ], [ %527, %addstr2buff.exit44 ]
+  %.0113 = phi ptr [ %1, %.lr.ph ], [ %526, %addstr2buff.exit44 ]
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %.0113 to i64
   %32 = sub i64 %30, %31
@@ -1026,7 +1026,7 @@ define hidden ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr noundef
 addstr2buff.exit:                                 ; preds = %28, %42, %.thread.i, %63
   %69 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !4
-  switch i8 %70, label %489 [
+  switch i8 %70, label %488 [
     i8 115, label %71
     i8 99, label %123
     i8 100, label %172
@@ -1034,7 +1034,7 @@ addstr2buff.exit:                                 ; preds = %28, %42, %.thread.i
     i8 102, label %277
     i8 112, label %329
     i8 85, label %381
-    i8 37, label %454
+    i8 37, label %453
   ]
 
 71:                                               ; preds = %addstr2buff.exit
@@ -1753,377 +1753,377 @@ luaO_utf8esc.exit:                                ; preds = %392, %405
   %.sink.i = trunc i64 %.sink.in.i to i8
   %413 = getelementptr inbounds i8, ptr %13, i64 %.sink26.i
   store i8 %.sink.i, ptr %413, align 1, !tbaa !4
-  %414 = sext i32 %.014.i to i64
-  %415 = sub nsw i64 0, %414
-  %416 = getelementptr inbounds i8, ptr %23, i64 %415
-  %417 = zext i32 %.014.i to i64
-  %418 = load i64, ptr %16, align 8, !tbaa !27
-  %419 = load i64, ptr %17, align 8, !tbaa !28
-  %420 = sub i64 %418, %419
-  %421 = load i32, ptr %18, align 8, !tbaa !29
-  %.not.i77 = icmp eq i32 %421, 0
-  br i1 %.not.i77, label %422, label %addstr2buff.exit84
+  %narrow = sub nsw i32 0, %.014.i
+  %414 = sext i32 %narrow to i64
+  %415 = getelementptr inbounds i8, ptr %23, i64 %414
+  %416 = zext i32 %.014.i to i64
+  %417 = load i64, ptr %16, align 8, !tbaa !27
+  %418 = load i64, ptr %17, align 8, !tbaa !28
+  %419 = sub i64 %417, %418
+  %420 = load i32, ptr %18, align 8, !tbaa !29
+  %.not.i77 = icmp eq i32 %420, 0
+  br i1 %.not.i77, label %421, label %addstr2buff.exit84
 
-422:                                              ; preds = %luaO_utf8esc.exit
-  %423 = icmp ult i64 %420, %417
-  br i1 %423, label %424, label %._crit_edge.i78
+421:                                              ; preds = %luaO_utf8esc.exit
+  %422 = icmp ult i64 %419, %416
+  br i1 %422, label %423, label %._crit_edge.i78
 
-._crit_edge.i78:                                  ; preds = %422
+._crit_edge.i78:                                  ; preds = %421
   %.pre.i80 = load ptr, ptr %15, align 8, !tbaa !26
-  br label %448
+  br label %447
 
-424:                                              ; preds = %422
-  %425 = sub i64 4611686018427387903, %419
-  %426 = icmp ult i64 %425, %417
-  br i1 %426, label %427, label %431
+423:                                              ; preds = %421
+  %424 = sub i64 4611686018427387903, %418
+  %425 = icmp ult i64 %424, %416
+  br i1 %425, label %426, label %430
 
-427:                                              ; preds = %424
-  %428 = load ptr, ptr %15, align 8, !tbaa !26
-  %429 = getelementptr inbounds nuw i8, ptr %428, i64 %419
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %429, ptr nonnull readonly align 1 %416, i64 %420, i1 false)
-  %430 = load i64, ptr %16, align 8, !tbaa !27
-  store i64 %430, ptr %17, align 8, !tbaa !28
+426:                                              ; preds = %423
+  %427 = load ptr, ptr %15, align 8, !tbaa !26
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 %418
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %428, ptr nonnull readonly align 1 %415, i64 %419, i1 false)
+  %429 = load i64, ptr %16, align 8, !tbaa !27
+  store i64 %429, ptr %17, align 8, !tbaa !28
   store i32 2, ptr %18, align 8, !tbaa !29
   br label %addstr2buff.exit84
 
-431:                                              ; preds = %424
-  %432 = add i64 %418, %417
-  %433 = load ptr, ptr %15, align 8, !tbaa !26
-  %434 = icmp eq ptr %433, %14
-  %435 = load ptr, ptr %7, align 8, !tbaa !22
-  br i1 %434, label %436, label %438
+430:                                              ; preds = %423
+  %431 = add i64 %417, %416
+  %432 = load ptr, ptr %15, align 8, !tbaa !26
+  %433 = icmp eq ptr %432, %14
+  %434 = load ptr, ptr %7, align 8, !tbaa !22
+  br i1 %433, label %435, label %437
 
-436:                                              ; preds = %431
-  %437 = call ptr @luaM_realloc_(ptr noundef %435, ptr noundef null, i64 noundef 0, i64 noundef %432) #18
-  br label %440
+435:                                              ; preds = %430
+  %436 = call ptr @luaM_realloc_(ptr noundef %434, ptr noundef null, i64 noundef 0, i64 noundef %431) #18
+  br label %439
 
-438:                                              ; preds = %431
-  %439 = call ptr @luaM_realloc_(ptr noundef %435, ptr noundef %433, i64 noundef %418, i64 noundef %432) #18
-  br label %440
+437:                                              ; preds = %430
+  %438 = call ptr @luaM_realloc_(ptr noundef %434, ptr noundef %432, i64 noundef %417, i64 noundef %431) #18
+  br label %439
 
-440:                                              ; preds = %438, %436
-  %441 = phi ptr [ %437, %436 ], [ %439, %438 ]
-  %.not46.i81 = icmp eq ptr %441, null
-  br i1 %.not46.i81, label %.thread.i83, label %442
+439:                                              ; preds = %437, %435
+  %440 = phi ptr [ %436, %435 ], [ %438, %437 ]
+  %.not46.i81 = icmp eq ptr %440, null
+  br i1 %.not46.i81, label %.thread.i83, label %441
 
-.thread.i83:                                      ; preds = %440
+.thread.i83:                                      ; preds = %439
   store i32 1, ptr %18, align 8, !tbaa !29
   br label %addstr2buff.exit84
 
-442:                                              ; preds = %440
-  %443 = load ptr, ptr %15, align 8, !tbaa !26
-  %444 = icmp eq ptr %443, %14
-  br i1 %444, label %445, label %447
+441:                                              ; preds = %439
+  %442 = load ptr, ptr %15, align 8, !tbaa !26
+  %443 = icmp eq ptr %442, %14
+  br i1 %443, label %444, label %446
 
-445:                                              ; preds = %442
-  %446 = load i64, ptr %17, align 8, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %441, ptr align 1 %443, i64 %446, i1 false)
+444:                                              ; preds = %441
+  %445 = load i64, ptr %17, align 8, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %440, ptr align 1 %442, i64 %445, i1 false)
+  br label %446
+
+446:                                              ; preds = %444, %441
+  store ptr %440, ptr %15, align 8, !tbaa !26
+  store i64 %431, ptr %16, align 8, !tbaa !27
+  %.pre47.i82 = load i64, ptr %17, align 8, !tbaa !28
   br label %447
 
-447:                                              ; preds = %445, %442
-  store ptr %441, ptr %15, align 8, !tbaa !26
-  store i64 %432, ptr %16, align 8, !tbaa !27
-  %.pre47.i82 = load i64, ptr %17, align 8, !tbaa !28
-  br label %448
-
-448:                                              ; preds = %447, %._crit_edge.i78
-  %449 = phi i64 [ %419, %._crit_edge.i78 ], [ %.pre47.i82, %447 ]
-  %450 = phi ptr [ %.pre.i80, %._crit_edge.i78 ], [ %441, %447 ]
-  %451 = getelementptr inbounds nuw i8, ptr %450, i64 %449
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %451, ptr nonnull readonly align 1 %416, i64 %417, i1 false)
-  %452 = load i64, ptr %17, align 8, !tbaa !28
-  %453 = add i64 %452, %417
-  store i64 %453, ptr %17, align 8, !tbaa !28
+447:                                              ; preds = %446, %._crit_edge.i78
+  %448 = phi i64 [ %418, %._crit_edge.i78 ], [ %.pre47.i82, %446 ]
+  %449 = phi ptr [ %.pre.i80, %._crit_edge.i78 ], [ %440, %446 ]
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 %448
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %450, ptr nonnull readonly align 1 %415, i64 %416, i1 false)
+  %451 = load i64, ptr %17, align 8, !tbaa !28
+  %452 = add i64 %451, %416
+  store i64 %452, ptr %17, align 8, !tbaa !28
   br label %addstr2buff.exit84
 
-addstr2buff.exit84:                               ; preds = %luaO_utf8esc.exit, %427, %.thread.i83, %448
+addstr2buff.exit84:                               ; preds = %luaO_utf8esc.exit, %426, %.thread.i83, %447
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #18
   br label %addstr2buff.exit44
 
-454:                                              ; preds = %addstr2buff.exit
-  %455 = load i64, ptr %16, align 8, !tbaa !27
-  %456 = load i64, ptr %17, align 8, !tbaa !28
-  %457 = sub i64 %455, %456
-  %458 = load i32, ptr %18, align 8, !tbaa !29
-  %.not.i85 = icmp eq i32 %458, 0
-  br i1 %.not.i85, label %459, label %addstr2buff.exit44
+453:                                              ; preds = %addstr2buff.exit
+  %454 = load i64, ptr %16, align 8, !tbaa !27
+  %455 = load i64, ptr %17, align 8, !tbaa !28
+  %456 = sub i64 %454, %455
+  %457 = load i32, ptr %18, align 8, !tbaa !29
+  %.not.i85 = icmp eq i32 %457, 0
+  br i1 %.not.i85, label %458, label %addstr2buff.exit44
 
-459:                                              ; preds = %454
-  %460 = icmp eq i64 %455, %456
-  br i1 %460, label %461, label %._crit_edge.i86
+458:                                              ; preds = %453
+  %459 = icmp eq i64 %454, %455
+  br i1 %459, label %460, label %._crit_edge.i86
 
-._crit_edge.i86:                                  ; preds = %459
+._crit_edge.i86:                                  ; preds = %458
   %.pre.i88 = load ptr, ptr %15, align 8, !tbaa !26
-  br label %483
+  br label %482
 
-461:                                              ; preds = %459
-  %462 = icmp eq i64 %455, 4611686018427387903
-  br i1 %462, label %463, label %466
+460:                                              ; preds = %458
+  %461 = icmp eq i64 %454, 4611686018427387903
+  br i1 %461, label %462, label %465
 
-463:                                              ; preds = %461
-  %464 = load ptr, ptr %15, align 8, !tbaa !26
-  %465 = getelementptr inbounds nuw i8, ptr %464, i64 4611686018427387903
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %465, ptr nonnull align 1 @.str.3, i64 %457, i1 false)
+462:                                              ; preds = %460
+  %463 = load ptr, ptr %15, align 8, !tbaa !26
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 4611686018427387903
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %464, ptr nonnull align 1 @.str.3, i64 %456, i1 false)
   store i64 4611686018427387903, ptr %17, align 8, !tbaa !28
   store i32 2, ptr %18, align 8, !tbaa !29
   br label %addstr2buff.exit44
 
-466:                                              ; preds = %461
-  %467 = add i64 %455, 1
-  %468 = load ptr, ptr %15, align 8, !tbaa !26
-  %469 = icmp eq ptr %468, %14
-  %470 = load ptr, ptr %7, align 8, !tbaa !22
-  br i1 %469, label %471, label %473
+465:                                              ; preds = %460
+  %466 = add i64 %454, 1
+  %467 = load ptr, ptr %15, align 8, !tbaa !26
+  %468 = icmp eq ptr %467, %14
+  %469 = load ptr, ptr %7, align 8, !tbaa !22
+  br i1 %468, label %470, label %472
 
-471:                                              ; preds = %466
-  %472 = call ptr @luaM_realloc_(ptr noundef %470, ptr noundef null, i64 noundef 0, i64 noundef %467) #18
-  br label %475
+470:                                              ; preds = %465
+  %471 = call ptr @luaM_realloc_(ptr noundef %469, ptr noundef null, i64 noundef 0, i64 noundef %466) #18
+  br label %474
 
-473:                                              ; preds = %466
-  %474 = call ptr @luaM_realloc_(ptr noundef %470, ptr noundef %468, i64 noundef %455, i64 noundef %467) #18
-  br label %475
+472:                                              ; preds = %465
+  %473 = call ptr @luaM_realloc_(ptr noundef %469, ptr noundef %467, i64 noundef %454, i64 noundef %466) #18
+  br label %474
 
-475:                                              ; preds = %473, %471
-  %476 = phi ptr [ %472, %471 ], [ %474, %473 ]
-  %.not46.i89 = icmp eq ptr %476, null
-  br i1 %.not46.i89, label %.thread.i91, label %477
+474:                                              ; preds = %472, %470
+  %475 = phi ptr [ %471, %470 ], [ %473, %472 ]
+  %.not46.i89 = icmp eq ptr %475, null
+  br i1 %.not46.i89, label %.thread.i91, label %476
 
-.thread.i91:                                      ; preds = %475
+.thread.i91:                                      ; preds = %474
   store i32 1, ptr %18, align 8, !tbaa !29
   br label %addstr2buff.exit44
 
-477:                                              ; preds = %475
-  %478 = load ptr, ptr %15, align 8, !tbaa !26
-  %479 = icmp eq ptr %478, %14
-  br i1 %479, label %480, label %482
+476:                                              ; preds = %474
+  %477 = load ptr, ptr %15, align 8, !tbaa !26
+  %478 = icmp eq ptr %477, %14
+  br i1 %478, label %479, label %481
 
-480:                                              ; preds = %477
-  %481 = load i64, ptr %17, align 8, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %476, ptr align 1 %478, i64 %481, i1 false)
+479:                                              ; preds = %476
+  %480 = load i64, ptr %17, align 8, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %475, ptr align 1 %477, i64 %480, i1 false)
+  br label %481
+
+481:                                              ; preds = %479, %476
+  store ptr %475, ptr %15, align 8, !tbaa !26
+  store i64 %466, ptr %16, align 8, !tbaa !27
+  %.pre47.i90 = load i64, ptr %17, align 8, !tbaa !28
   br label %482
 
-482:                                              ; preds = %480, %477
-  store ptr %476, ptr %15, align 8, !tbaa !26
-  store i64 %467, ptr %16, align 8, !tbaa !27
-  %.pre47.i90 = load i64, ptr %17, align 8, !tbaa !28
-  br label %483
-
-483:                                              ; preds = %482, %._crit_edge.i86
-  %484 = phi i64 [ %456, %._crit_edge.i86 ], [ %.pre47.i90, %482 ]
-  %485 = phi ptr [ %.pre.i88, %._crit_edge.i86 ], [ %476, %482 ]
-  %486 = getelementptr inbounds nuw i8, ptr %485, i64 %484
-  store i8 37, ptr %486, align 1
-  %487 = load i64, ptr %17, align 8, !tbaa !28
-  %488 = add i64 %487, 1
-  store i64 %488, ptr %17, align 8, !tbaa !28
+482:                                              ; preds = %481, %._crit_edge.i86
+  %483 = phi i64 [ %455, %._crit_edge.i86 ], [ %.pre47.i90, %481 ]
+  %484 = phi ptr [ %.pre.i88, %._crit_edge.i86 ], [ %475, %481 ]
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 %483
+  store i8 37, ptr %485, align 1
+  %486 = load i64, ptr %17, align 8, !tbaa !28
+  %487 = add i64 %486, 1
+  store i64 %487, ptr %17, align 8, !tbaa !28
   br label %addstr2buff.exit44
 
-489:                                              ; preds = %addstr2buff.exit
-  %490 = load i64, ptr %16, align 8, !tbaa !27
-  %491 = load i64, ptr %17, align 8, !tbaa !28
-  %492 = sub i64 %490, %491
-  %493 = load i32, ptr %18, align 8, !tbaa !29
-  %.not.i93 = icmp eq i32 %493, 0
-  br i1 %.not.i93, label %494, label %addstr2buff.exit44
+488:                                              ; preds = %addstr2buff.exit
+  %489 = load i64, ptr %16, align 8, !tbaa !27
+  %490 = load i64, ptr %17, align 8, !tbaa !28
+  %491 = sub i64 %489, %490
+  %492 = load i32, ptr %18, align 8, !tbaa !29
+  %.not.i93 = icmp eq i32 %492, 0
+  br i1 %.not.i93, label %493, label %addstr2buff.exit44
 
-494:                                              ; preds = %489
-  %495 = icmp ult i64 %492, 2
-  br i1 %495, label %496, label %._crit_edge.i94
+493:                                              ; preds = %488
+  %494 = icmp ult i64 %491, 2
+  br i1 %494, label %495, label %._crit_edge.i94
 
-._crit_edge.i94:                                  ; preds = %494
+._crit_edge.i94:                                  ; preds = %493
   %.pre.i96 = load ptr, ptr %15, align 8, !tbaa !26
-  br label %520
+  br label %519
 
-496:                                              ; preds = %494
-  %497 = and i64 %491, -2
-  %498 = icmp eq i64 %497, 4611686018427387902
-  br i1 %498, label %499, label %503
+495:                                              ; preds = %493
+  %496 = and i64 %490, -2
+  %497 = icmp eq i64 %496, 4611686018427387902
+  br i1 %497, label %498, label %502
 
-499:                                              ; preds = %496
-  %500 = load ptr, ptr %15, align 8, !tbaa !26
-  %501 = getelementptr inbounds nuw i8, ptr %500, i64 %491
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %501, ptr nonnull readonly align 1 %29, i64 %492, i1 false)
-  %502 = load i64, ptr %16, align 8, !tbaa !27
-  store i64 %502, ptr %17, align 8, !tbaa !28
+498:                                              ; preds = %495
+  %499 = load ptr, ptr %15, align 8, !tbaa !26
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 %490
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %500, ptr nonnull readonly align 1 %29, i64 %491, i1 false)
+  %501 = load i64, ptr %16, align 8, !tbaa !27
+  store i64 %501, ptr %17, align 8, !tbaa !28
   store i32 2, ptr %18, align 8, !tbaa !29
   br label %addstr2buff.exit44
 
-503:                                              ; preds = %496
-  %504 = add i64 %490, 2
-  %505 = load ptr, ptr %15, align 8, !tbaa !26
-  %506 = icmp eq ptr %505, %14
-  %507 = load ptr, ptr %7, align 8, !tbaa !22
-  br i1 %506, label %508, label %510
+502:                                              ; preds = %495
+  %503 = add i64 %489, 2
+  %504 = load ptr, ptr %15, align 8, !tbaa !26
+  %505 = icmp eq ptr %504, %14
+  %506 = load ptr, ptr %7, align 8, !tbaa !22
+  br i1 %505, label %507, label %509
 
-508:                                              ; preds = %503
-  %509 = call ptr @luaM_realloc_(ptr noundef %507, ptr noundef null, i64 noundef 0, i64 noundef %504) #18
-  br label %512
+507:                                              ; preds = %502
+  %508 = call ptr @luaM_realloc_(ptr noundef %506, ptr noundef null, i64 noundef 0, i64 noundef %503) #18
+  br label %511
 
-510:                                              ; preds = %503
-  %511 = call ptr @luaM_realloc_(ptr noundef %507, ptr noundef %505, i64 noundef %490, i64 noundef %504) #18
-  br label %512
+509:                                              ; preds = %502
+  %510 = call ptr @luaM_realloc_(ptr noundef %506, ptr noundef %504, i64 noundef %489, i64 noundef %503) #18
+  br label %511
 
-512:                                              ; preds = %510, %508
-  %513 = phi ptr [ %509, %508 ], [ %511, %510 ]
-  %.not46.i97 = icmp eq ptr %513, null
-  br i1 %.not46.i97, label %.thread.i99, label %514
+511:                                              ; preds = %509, %507
+  %512 = phi ptr [ %508, %507 ], [ %510, %509 ]
+  %.not46.i97 = icmp eq ptr %512, null
+  br i1 %.not46.i97, label %.thread.i99, label %513
 
-.thread.i99:                                      ; preds = %512
+.thread.i99:                                      ; preds = %511
   store i32 1, ptr %18, align 8, !tbaa !29
   br label %addstr2buff.exit44
 
-514:                                              ; preds = %512
-  %515 = load ptr, ptr %15, align 8, !tbaa !26
-  %516 = icmp eq ptr %515, %14
-  br i1 %516, label %517, label %519
+513:                                              ; preds = %511
+  %514 = load ptr, ptr %15, align 8, !tbaa !26
+  %515 = icmp eq ptr %514, %14
+  br i1 %515, label %516, label %518
 
-517:                                              ; preds = %514
-  %518 = load i64, ptr %17, align 8, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %513, ptr align 1 %515, i64 %518, i1 false)
+516:                                              ; preds = %513
+  %517 = load i64, ptr %17, align 8, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %512, ptr align 1 %514, i64 %517, i1 false)
+  br label %518
+
+518:                                              ; preds = %516, %513
+  store ptr %512, ptr %15, align 8, !tbaa !26
+  store i64 %503, ptr %16, align 8, !tbaa !27
+  %.pre47.i98 = load i64, ptr %17, align 8, !tbaa !28
   br label %519
 
-519:                                              ; preds = %517, %514
-  store ptr %513, ptr %15, align 8, !tbaa !26
-  store i64 %504, ptr %16, align 8, !tbaa !27
-  %.pre47.i98 = load i64, ptr %17, align 8, !tbaa !28
-  br label %520
-
-520:                                              ; preds = %519, %._crit_edge.i94
-  %521 = phi i64 [ %491, %._crit_edge.i94 ], [ %.pre47.i98, %519 ]
-  %522 = phi ptr [ %.pre.i96, %._crit_edge.i94 ], [ %513, %519 ]
-  %523 = getelementptr inbounds nuw i8, ptr %522, i64 %521
-  %524 = load i16, ptr %29, align 1
-  store i16 %524, ptr %523, align 1
-  %525 = load i64, ptr %17, align 8, !tbaa !28
-  %526 = add i64 %525, 2
-  store i64 %526, ptr %17, align 8, !tbaa !28
+519:                                              ; preds = %518, %._crit_edge.i94
+  %520 = phi i64 [ %490, %._crit_edge.i94 ], [ %.pre47.i98, %518 ]
+  %521 = phi ptr [ %.pre.i96, %._crit_edge.i94 ], [ %512, %518 ]
+  %522 = getelementptr inbounds nuw i8, ptr %521, i64 %520
+  %523 = load i16, ptr %29, align 1
+  store i16 %523, ptr %522, align 1
+  %524 = load i64, ptr %17, align 8, !tbaa !28
+  %525 = add i64 %524, 2
+  store i64 %525, ptr %17, align 8, !tbaa !28
   br label %addstr2buff.exit44
 
-addstr2buff.exit44:                               ; preds = %520, %.thread.i99, %499, %489, %483, %.thread.i91, %463, %454, %117, %.thread.i43, %96, %82, %addstr2buff.exit84, %addstr2buff.exit76, %addnum2buff.exit68, %addnum2buff.exit60, %addnum2buff.exit, %addstr2buff.exit52
-  %527 = getelementptr inbounds nuw i8, ptr %29, i64 2
-  %528 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %527, i32 noundef 37) #19
-  %.not = icmp eq ptr %528, null
+addstr2buff.exit44:                               ; preds = %519, %.thread.i99, %498, %488, %482, %.thread.i91, %462, %453, %117, %.thread.i43, %96, %82, %addstr2buff.exit84, %addstr2buff.exit76, %addnum2buff.exit68, %addnum2buff.exit60, %addnum2buff.exit, %addstr2buff.exit52
+  %526 = getelementptr inbounds nuw i8, ptr %29, i64 2
+  %527 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %526, i32 noundef 37) #19
+  %.not = icmp eq ptr %527, null
   br i1 %.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %addstr2buff.exit44
   %.pre = load i64, ptr %16, align 8, !tbaa !27
   %.pre116 = load i64, ptr %17, align 8, !tbaa !28
   %.pre117 = load i32, ptr %18, align 8, !tbaa !29
-  %529 = icmp eq i32 %.pre117, 0
-  %530 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %527) #19
-  %531 = sub i64 %.pre, %.pre116
-  br i1 %529, label %532, label %addstr2buff.exit108
+  %528 = icmp eq i32 %.pre117, 0
+  %529 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %526) #19
+  %530 = sub i64 %.pre, %.pre116
+  br i1 %528, label %531, label %addstr2buff.exit108
 
-532:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  %533 = phi i64 [ 219, %._crit_edge.thread ], [ %531, %._crit_edge ]
-  %534 = phi i64 [ %20, %._crit_edge.thread ], [ %530, %._crit_edge ]
-  %.0.lcssa120 = phi ptr [ %1, %._crit_edge.thread ], [ %527, %._crit_edge ]
-  %535 = phi i64 [ 219, %._crit_edge.thread ], [ %.pre, %._crit_edge ]
-  %536 = phi i64 [ 0, %._crit_edge.thread ], [ %.pre116, %._crit_edge ]
-  %537 = icmp ugt i64 %534, %533
-  br i1 %537, label %538, label %._crit_edge.i102
+531:                                              ; preds = %._crit_edge.thread, %._crit_edge
+  %532 = phi i64 [ 219, %._crit_edge.thread ], [ %530, %._crit_edge ]
+  %533 = phi i64 [ %20, %._crit_edge.thread ], [ %529, %._crit_edge ]
+  %.0.lcssa120 = phi ptr [ %1, %._crit_edge.thread ], [ %526, %._crit_edge ]
+  %534 = phi i64 [ 219, %._crit_edge.thread ], [ %.pre, %._crit_edge ]
+  %535 = phi i64 [ 0, %._crit_edge.thread ], [ %.pre116, %._crit_edge ]
+  %536 = icmp ugt i64 %533, %532
+  br i1 %536, label %537, label %._crit_edge.i102
 
-._crit_edge.i102:                                 ; preds = %532
+._crit_edge.i102:                                 ; preds = %531
   %.pre.i104 = load ptr, ptr %15, align 8, !tbaa !26
-  br label %562
+  br label %561
 
-538:                                              ; preds = %532
-  %539 = sub i64 4611686018427387903, %536
-  %540 = icmp ugt i64 %534, %539
-  br i1 %540, label %541, label %545
+537:                                              ; preds = %531
+  %538 = sub i64 4611686018427387903, %535
+  %539 = icmp ugt i64 %533, %538
+  br i1 %539, label %540, label %544
 
-541:                                              ; preds = %538
-  %542 = load ptr, ptr %15, align 8, !tbaa !26
-  %543 = getelementptr inbounds nuw i8, ptr %542, i64 %536
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %543, ptr nonnull readonly align 1 %.0.lcssa120, i64 %533, i1 false)
-  %544 = load i64, ptr %16, align 8, !tbaa !27
-  store i64 %544, ptr %17, align 8, !tbaa !28
+540:                                              ; preds = %537
+  %541 = load ptr, ptr %15, align 8, !tbaa !26
+  %542 = getelementptr inbounds nuw i8, ptr %541, i64 %535
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %542, ptr nonnull readonly align 1 %.0.lcssa120, i64 %532, i1 false)
+  %543 = load i64, ptr %16, align 8, !tbaa !27
+  store i64 %543, ptr %17, align 8, !tbaa !28
   store i32 2, ptr %18, align 8, !tbaa !29
   br label %addstr2buff.exit108
 
-545:                                              ; preds = %538
-  %546 = add i64 %535, %534
-  %547 = load ptr, ptr %15, align 8, !tbaa !26
-  %548 = icmp eq ptr %547, %14
-  %549 = load ptr, ptr %7, align 8, !tbaa !22
-  br i1 %548, label %550, label %552
+544:                                              ; preds = %537
+  %545 = add i64 %534, %533
+  %546 = load ptr, ptr %15, align 8, !tbaa !26
+  %547 = icmp eq ptr %546, %14
+  %548 = load ptr, ptr %7, align 8, !tbaa !22
+  br i1 %547, label %549, label %551
 
-550:                                              ; preds = %545
-  %551 = call ptr @luaM_realloc_(ptr noundef %549, ptr noundef null, i64 noundef 0, i64 noundef %546) #18
-  br label %554
+549:                                              ; preds = %544
+  %550 = call ptr @luaM_realloc_(ptr noundef %548, ptr noundef null, i64 noundef 0, i64 noundef %545) #18
+  br label %553
 
-552:                                              ; preds = %545
-  %553 = call ptr @luaM_realloc_(ptr noundef %549, ptr noundef %547, i64 noundef %535, i64 noundef %546) #18
-  br label %554
+551:                                              ; preds = %544
+  %552 = call ptr @luaM_realloc_(ptr noundef %548, ptr noundef %546, i64 noundef %534, i64 noundef %545) #18
+  br label %553
 
-554:                                              ; preds = %552, %550
-  %555 = phi ptr [ %551, %550 ], [ %553, %552 ]
-  %.not46.i105 = icmp eq ptr %555, null
-  br i1 %.not46.i105, label %.thread.i107, label %556
+553:                                              ; preds = %551, %549
+  %554 = phi ptr [ %550, %549 ], [ %552, %551 ]
+  %.not46.i105 = icmp eq ptr %554, null
+  br i1 %.not46.i105, label %.thread.i107, label %555
 
-.thread.i107:                                     ; preds = %554
+.thread.i107:                                     ; preds = %553
   store i32 1, ptr %18, align 8, !tbaa !29
   br label %addstr2buff.exit108
 
-556:                                              ; preds = %554
-  %557 = load ptr, ptr %15, align 8, !tbaa !26
-  %558 = icmp eq ptr %557, %14
-  br i1 %558, label %559, label %561
+555:                                              ; preds = %553
+  %556 = load ptr, ptr %15, align 8, !tbaa !26
+  %557 = icmp eq ptr %556, %14
+  br i1 %557, label %558, label %560
 
-559:                                              ; preds = %556
-  %560 = load i64, ptr %17, align 8, !tbaa !28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %555, ptr align 1 %557, i64 %560, i1 false)
+558:                                              ; preds = %555
+  %559 = load i64, ptr %17, align 8, !tbaa !28
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %554, ptr align 1 %556, i64 %559, i1 false)
+  br label %560
+
+560:                                              ; preds = %558, %555
+  store ptr %554, ptr %15, align 8, !tbaa !26
+  store i64 %545, ptr %16, align 8, !tbaa !27
+  %.pre47.i106 = load i64, ptr %17, align 8, !tbaa !28
   br label %561
 
-561:                                              ; preds = %559, %556
-  store ptr %555, ptr %15, align 8, !tbaa !26
-  store i64 %546, ptr %16, align 8, !tbaa !27
-  %.pre47.i106 = load i64, ptr %17, align 8, !tbaa !28
-  br label %562
-
-562:                                              ; preds = %561, %._crit_edge.i102
-  %563 = phi i64 [ %536, %._crit_edge.i102 ], [ %.pre47.i106, %561 ]
-  %564 = phi ptr [ %.pre.i104, %._crit_edge.i102 ], [ %555, %561 ]
-  %565 = getelementptr inbounds nuw i8, ptr %564, i64 %563
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %565, ptr nonnull readonly align 1 %.0.lcssa120, i64 %534, i1 false)
-  %566 = load i64, ptr %17, align 8, !tbaa !28
-  %567 = add i64 %566, %534
-  store i64 %567, ptr %17, align 8, !tbaa !28
+561:                                              ; preds = %560, %._crit_edge.i102
+  %562 = phi i64 [ %535, %._crit_edge.i102 ], [ %.pre47.i106, %560 ]
+  %563 = phi ptr [ %.pre.i104, %._crit_edge.i102 ], [ %554, %560 ]
+  %564 = getelementptr inbounds nuw i8, ptr %563, i64 %562
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %564, ptr nonnull readonly align 1 %.0.lcssa120, i64 %533, i1 false)
+  %565 = load i64, ptr %17, align 8, !tbaa !28
+  %566 = add i64 %565, %533
+  store i64 %566, ptr %17, align 8, !tbaa !28
   br label %addstr2buff.exit108
 
-addstr2buff.exit108:                              ; preds = %._crit_edge, %541, %.thread.i107, %562
-  %568 = load ptr, ptr %7, align 8, !tbaa !22
-  %569 = call i32 @luaD_rawrunprotected(ptr noundef %568, ptr noundef nonnull @pushbuff, ptr noundef nonnull %7) #18
-  %.not.i109 = icmp eq i32 %569, 0
-  br i1 %.not.i109, label %570, label %581
+addstr2buff.exit108:                              ; preds = %._crit_edge, %540, %.thread.i107, %561
+  %567 = load ptr, ptr %7, align 8, !tbaa !22
+  %568 = call i32 @luaD_rawrunprotected(ptr noundef %567, ptr noundef nonnull @pushbuff, ptr noundef nonnull %7) #18
+  %.not.i109 = icmp eq i32 %568, 0
+  br i1 %.not.i109, label %569, label %580
 
-570:                                              ; preds = %addstr2buff.exit108
-  %571 = getelementptr inbounds nuw i8, ptr %568, i64 16
-  %572 = load ptr, ptr %571, align 8, !tbaa !4
-  %573 = getelementptr inbounds i8, ptr %572, i64 -16
-  %574 = load ptr, ptr %573, align 8, !tbaa !4
-  %575 = getelementptr inbounds nuw i8, ptr %574, i64 11
-  %576 = load i8, ptr %575, align 1, !tbaa !34
-  %577 = icmp sgt i8 %576, -1
-  %578 = getelementptr inbounds nuw i8, ptr %574, i64 24
-  br i1 %577, label %581, label %579
+569:                                              ; preds = %addstr2buff.exit108
+  %570 = getelementptr inbounds nuw i8, ptr %567, i64 16
+  %571 = load ptr, ptr %570, align 8, !tbaa !4
+  %572 = getelementptr inbounds i8, ptr %571, i64 -16
+  %573 = load ptr, ptr %572, align 8, !tbaa !4
+  %574 = getelementptr inbounds nuw i8, ptr %573, i64 11
+  %575 = load i8, ptr %574, align 1, !tbaa !34
+  %576 = icmp sgt i8 %575, -1
+  %577 = getelementptr inbounds nuw i8, ptr %573, i64 24
+  br i1 %576, label %580, label %578
 
-579:                                              ; preds = %570
-  %580 = load ptr, ptr %578, align 8, !tbaa !35
-  br label %581
+578:                                              ; preds = %569
+  %579 = load ptr, ptr %577, align 8, !tbaa !35
+  br label %580
 
-581:                                              ; preds = %579, %570, %addstr2buff.exit108
-  %.0.i110 = phi ptr [ null, %addstr2buff.exit108 ], [ %580, %579 ], [ %578, %570 ]
-  %582 = load ptr, ptr %15, align 8, !tbaa !26
-  %.not13.i = icmp eq ptr %582, %14
-  br i1 %.not13.i, label %clearbuff.exit, label %583
+580:                                              ; preds = %578, %569, %addstr2buff.exit108
+  %.0.i110 = phi ptr [ null, %addstr2buff.exit108 ], [ %579, %578 ], [ %577, %569 ]
+  %581 = load ptr, ptr %15, align 8, !tbaa !26
+  %.not13.i = icmp eq ptr %581, %14
+  br i1 %.not13.i, label %clearbuff.exit, label %582
 
-583:                                              ; preds = %581
-  %584 = load i64, ptr %16, align 8, !tbaa !27
-  call void @luaM_free_(ptr noundef %568, ptr noundef %582, i64 noundef %584) #18
+582:                                              ; preds = %580
+  %583 = load i64, ptr %16, align 8, !tbaa !27
+  call void @luaM_free_(ptr noundef %567, ptr noundef %581, i64 noundef %583) #18
   br label %clearbuff.exit
 
-clearbuff.exit:                                   ; preds = %581, %583
+clearbuff.exit:                                   ; preds = %580, %582
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #18
   ret ptr %.0.i110
 }

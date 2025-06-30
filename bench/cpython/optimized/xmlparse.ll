@@ -17159,7 +17159,7 @@ hashTableIterNext.exit118:                        ; preds = %211
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @storeAtts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 44) i32 @storeAtts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.siphash, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -20278,7 +20278,7 @@ storeRawNames.exit:                               ; preds = %60, %.lr.ph.i, %41,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 3) %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 44) i32 @appendAttributeValue(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 3) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8

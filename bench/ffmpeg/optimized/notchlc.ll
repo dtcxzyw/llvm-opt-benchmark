@@ -1874,9 +1874,9 @@ bytestream2_get_byte.exit96:                      ; preds = %.preheader14
   %106 = phi ptr [ %89, %93 ], [ %80, %bytestream2_get_byte.exit96.thread ], [ %101, %bytestream2_get_byte.exit96 ]
   %.074 = phi i32 [ %95, %93 ], [ %.175, %bytestream2_get_byte.exit96.thread ], [ %104, %bytestream2_get_byte.exit96 ]
   %.not = icmp ult i32 %.3, %91
-  %107 = add nuw nsw i32 %.3, 65536
+  %107 = add i32 %.3, 65536
   %.3.pn = select i1 %.not, i32 %107, i32 %.3
-  %108 = sub nuw i32 %.3.pn, %91
+  %108 = sub i32 %.3.pn, %91
   %109 = add i32 %.074, %.3
   %110 = icmp ult i32 %109, 65536
   br i1 %110, label %111, label %.preheader65

@@ -6504,10 +6504,10 @@ put_bits.exit297.us:                              ; preds = %453, %put_bits.exit
   %472 = zext i8 %471 to i32
   %473 = add nuw nsw i32 %472, %462
   %474 = add nuw nsw i32 %473, %.1.i.us
-  %.not309.us = icmp eq i32 %474, 0
-  br i1 %.not309.us, label %.loopexit.us, label %.lr.ph.i298.us
+  %.not.i298.us = icmp eq i32 %474, 0
+  br i1 %.not.i298.us, label %.loopexit.us, label %.lr.ph.i299.us
 
-.lr.ph.i298.us:                                   ; preds = %put_bits.exit297.us, %put_bits.exit.i.us
+.lr.ph.i299.us:                                   ; preds = %put_bits.exit297.us, %put_bits.exit.i.us
   %.04.i.us = phi i32 [ %475, %put_bits.exit.i.us ], [ %474, %put_bits.exit297.us ]
   %475 = add nsw i32 %.04.i.us, -1
   %476 = lshr i32 %.0224.us, %475
@@ -6516,7 +6516,7 @@ put_bits.exit297.us:                              ; preds = %453, %put_bits.exit
   %479 = icmp eq i32 %478, 8
   br i1 %479, label %480, label %put_bits.exit.i.us
 
-480:                                              ; preds = %.lr.ph.i298.us
+480:                                              ; preds = %.lr.ph.i299.us
   %481 = load ptr, ptr %9, align 8, !tbaa !94
   %482 = load i8, ptr %481, align 1, !tbaa !62
   %483 = icmp eq i8 %482, -1
@@ -6528,8 +6528,8 @@ put_bits.exit297.us:                              ; preds = %453, %put_bits.exit
   %.pre.i.i.us = load i32, ptr %11, align 8, !tbaa !254
   br label %put_bits.exit.i.us
 
-put_bits.exit.i.us:                               ; preds = %480, %.lr.ph.i298.us
-  %486 = phi i32 [ %.pre.i.i.us, %480 ], [ %478, %.lr.ph.i298.us ]
+put_bits.exit.i.us:                               ; preds = %480, %.lr.ph.i299.us
+  %486 = phi i32 [ %.pre.i.i.us, %480 ], [ %478, %.lr.ph.i299.us ]
   %487 = add nsw i32 %486, 1
   store i32 %487, ptr %11, align 8, !tbaa !254
   %488 = sub nsw i32 7, %486
@@ -6540,7 +6540,7 @@ put_bits.exit.i.us:                               ; preds = %480, %.lr.ph.i298.u
   %493 = or i8 %491, %492
   store i8 %493, ptr %490, align 1, !tbaa !62
   %494 = icmp samesign ugt i32 %.04.i.us, 1
-  br i1 %494, label %.lr.ph.i298.us, label %.loopexit.us, !llvm.loop !268
+  br i1 %494, label %.lr.ph.i299.us, label %.loopexit.us, !llvm.loop !268
 
 .loopexit.us:                                     ; preds = %put_bits.exit.i.us, %put_bits.exit297.us, %put_bits.exit289.us
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
@@ -6569,23 +6569,23 @@ put_bits.exit.i.us:                               ; preds = %480, %.lr.ph.i298.u
 ._crit_edge352:                                   ; preds = %.loopexit318, %.preheader319
   %501 = phi i8 [ 0, %.preheader319 ], [ %498, %.loopexit318 ]
   %502 = load i32, ptr %11, align 8, !tbaa !254
-  %.not.i299 = icmp eq i32 %502, 0
-  br i1 %.not.i299, label %j2k_flush.exit300, label %503
+  %.not.i300 = icmp eq i32 %502, 0
+  br i1 %.not.i300, label %j2k_flush.exit301, label %503
 
 503:                                              ; preds = %._crit_edge352
   store i32 0, ptr %11, align 8, !tbaa !254
   %504 = load ptr, ptr %9, align 8, !tbaa !94
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 1
   store ptr %505, ptr %9, align 8, !tbaa !94
-  br label %j2k_flush.exit300
+  br label %j2k_flush.exit301
 
-j2k_flush.exit300:                                ; preds = %._crit_edge352, %503
+j2k_flush.exit301:                                ; preds = %._crit_edge352, %503
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %507 = load i32, ptr %506, align 8, !tbaa !131
   %.not248 = icmp eq i32 %507, 0
   br i1 %.not248, label %512, label %508
 
-508:                                              ; preds = %j2k_flush.exit300
+508:                                              ; preds = %j2k_flush.exit301
   %509 = load ptr, ptr %9, align 8, !tbaa !34
   store i16 -27905, ptr %509, align 1, !tbaa !62
   %510 = load ptr, ptr %9, align 8, !tbaa !34
@@ -6594,8 +6594,8 @@ j2k_flush.exit300:                                ; preds = %._crit_edge352, %50
   %.pre456 = load i8, ptr %1, align 8, !tbaa !140
   br label %512
 
-512:                                              ; preds = %508, %j2k_flush.exit300
-  %513 = phi i8 [ %.pre456, %508 ], [ %501, %j2k_flush.exit300 ]
+512:                                              ; preds = %508, %j2k_flush.exit301
+  %513 = phi i8 [ %.pre456, %508 ], [ %501, %j2k_flush.exit301 ]
   %.not374 = icmp eq i8 %513, 0
   br i1 %.not374, label %put_num.exit, label %.lr.ph365
 

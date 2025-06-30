@@ -72,7 +72,7 @@ init_bins.exit:                                   ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mmap_probe(ptr noundef %0, i64 noundef range(i64 17, -4095) %1) unnamed_addr #0 {
+define internal fastcc ptr @mmap_probe(ptr noundef %0, i64 noundef range(i64 1, -4095) %1) unnamed_addr #0 {
   %3 = tail call ptr @__errno_location() #10
   %4 = load i32, ptr %3, align 4, !tbaa !27
   %invariant.op = add i64 %1, 16777216
@@ -1907,7 +1907,7 @@ tmalloc_large.exit.thread:                        ; preds = %281, %._crit_edge.i
   br i1 %497, label %498, label %500, !prof !56
 
 498:                                              ; preds = %496
-  %499 = tail call fastcc ptr @direct_alloc(ptr noundef nonnull %0, i64 noundef range(i64 16, 0) %.0144)
+  %499 = tail call fastcc ptr @direct_alloc(ptr noundef nonnull %0, i64 noundef range(i64 -1, -113) %.0144)
   %.not.i180 = icmp eq ptr %499, null
   br i1 %.not.i180, label %500, label %alloc_sys.exit
 

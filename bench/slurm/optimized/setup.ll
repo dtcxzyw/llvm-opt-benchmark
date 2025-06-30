@@ -606,7 +606,7 @@ _setup_stepd_kvs.exit.thread:                     ; preds = %.loopexit43, %249
   br label %_setup_stepd_job_info.exit
 
 _setup_stepd_job_info.exit:                       ; preds = %166, %171, %_setup_stepd_kvs.exit.thread, %_setup_stepd_sockets.exit.thread, %111, %104, %.loopexit
-  %.0 = phi i32 [ %268, %.loopexit ], [ -1, %104 ], [ -1, %111 ], [ -1, %_setup_stepd_sockets.exit.thread ], [ %.0.i33.ph, %_setup_stepd_kvs.exit.thread ], [ -1, %171 ], [ -1, %166 ]
+  %.0 = phi i32 [ %268, %.loopexit ], [ -1, %111 ], [ -1, %104 ], [ -1, %_setup_stepd_sockets.exit.thread ], [ %.0.i33.ph, %_setup_stepd_kvs.exit.thread ], [ -1, %171 ], [ -1, %166 ]
   ret i32 %.0
 }
 

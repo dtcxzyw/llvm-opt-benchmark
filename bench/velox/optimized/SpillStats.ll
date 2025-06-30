@@ -866,21 +866,20 @@ entry:
   %spec.select99 = zext i1 %cmp179 to i32
   %gtCount.11 = add nuw nsw i32 %gtCount.10, %spec.select99
   %inc175 = zext i1 %cmp173.not to i32
-  %ltCount.11 = add nuw nsw i32 %ltCount.10, %inc175
   %spillMaxLevelExceededCount = getelementptr inbounds nuw i8, ptr %this, i64 96
   %24 = load i64, ptr %spillMaxLevelExceededCount, align 8
   %spillMaxLevelExceededCount188 = getelementptr inbounds nuw i8, ptr %other, i64 96
   %25 = load i64, ptr %spillMaxLevelExceededCount188, align 8
-  %cmp189.not = icmp ult i64 %24, %25
+  %cmp189 = icmp ult i64 %24, %25
   %cmp195 = icmp ugt i64 %24, %25
-  %spec.select100 = zext i1 %cmp195 to i32
-  %inc191 = zext i1 %cmp189.not to i32
-  %26 = or i32 %gtCount.11, %spec.select100
-  %cmp203 = icmp ne i32 %26, 0
-  %27 = or i32 %ltCount.11, %inc191
-  %cmp204 = icmp ne i32 %27, 0
-  %28 = select i1 %cmp203, i1 %cmp204, i1 false
-  br i1 %28, label %if.then206, label %if.end207
+  %.gtCount.11 = select i1 %cmp195, i32 1, i32 %gtCount.11
+  %gtCount.12 = select i1 %cmp189, i32 %gtCount.11, i32 %.gtCount.11
+  %cmp203 = icmp ne i32 %gtCount.12, 0
+  %26 = or i32 %ltCount.10, %inc175
+  %cmp204100 = icmp ne i32 %26, 0
+  %cmp204 = select i1 %cmp189, i1 true, i1 %cmp204100
+  %27 = select i1 %cmp203, i1 %cmp204, i1 false
+  br i1 %27, label %if.then206, label %if.end207
 
 if.then206:                                       ; preds = %entry
   tail call void @llvm.trap()

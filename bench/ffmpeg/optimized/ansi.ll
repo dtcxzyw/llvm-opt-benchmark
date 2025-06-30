@@ -1171,8 +1171,8 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %570 = phi i32 [ %563, %.lr.ph.i105 ], [ %646, %645 ]
   %spec.select294.i = phi i32 [ %564, %.lr.ph.i105 ], [ %spec.select.i, %645 ]
   %.0226293.i = phi i32 [ 0, %.lr.ph.i105 ], [ %647, %645 ]
-  %571 = sext i32 %.0226293.i to i64
-  %572 = getelementptr inbounds [4 x i32], ptr %565, i64 0, i64 %571
+  %571 = zext nneg i32 %.0226293.i to i64
+  %572 = getelementptr inbounds nuw [4 x i32], ptr %565, i64 0, i64 %571
   %573 = load i32, ptr %572, align 4, !tbaa !42
   switch i32 %573, label %580 [
     i32 0, label %574
@@ -1219,21 +1219,21 @@ erase_line.exit267.i:                             ; preds = %465, %457
   ]
 
 588:                                              ; preds = %587
-  %589 = add nsw i32 %.0226293.i, 2
+  %589 = add nuw nsw i32 %.0226293.i, 2
   %590 = icmp slt i32 %589, %spec.select294.i
   br i1 %590, label %591, label %.thread287.i
 
 591:                                              ; preds = %588
-  %592 = add nsw i32 %.0226293.i, 1
-  %593 = sext i32 %592 to i64
-  %594 = getelementptr inbounds [4 x i32], ptr %565, i64 0, i64 %593
+  %592 = add nuw nsw i32 %.0226293.i, 1
+  %593 = zext nneg i32 %592 to i64
+  %594 = getelementptr inbounds nuw [4 x i32], ptr %565, i64 0, i64 %593
   %595 = load i32, ptr %594, align 4, !tbaa !42
   %596 = icmp eq i32 %595, 5
   br i1 %596, label %597, label %.thread287.i
 
 597:                                              ; preds = %591
-  %598 = sext i32 %589 to i64
-  %599 = getelementptr inbounds [4 x i32], ptr %565, i64 0, i64 %598
+  %598 = zext nneg i32 %589 to i64
+  %599 = getelementptr inbounds nuw [4 x i32], ptr %565, i64 0, i64 %598
   %600 = load i32, ptr %599, align 4, !tbaa !42
   %601 = icmp slt i32 %600, 256
   br i1 %601, label %602, label %.thread287.i
@@ -1279,21 +1279,21 @@ erase_line.exit267.i:                             ; preds = %465, %457
   ]
 
 621:                                              ; preds = %620
-  %622 = add nsw i32 %.0226293.i, 2
+  %622 = add nuw nsw i32 %.0226293.i, 2
   %623 = icmp slt i32 %622, %spec.select294.i
   br i1 %623, label %624, label %.thread287.i
 
 624:                                              ; preds = %621
-  %625 = add nsw i32 %.0226293.i, 1
-  %626 = sext i32 %625 to i64
-  %627 = getelementptr inbounds [4 x i32], ptr %565, i64 0, i64 %626
+  %625 = add nuw nsw i32 %.0226293.i, 1
+  %626 = zext nneg i32 %625 to i64
+  %627 = getelementptr inbounds nuw [4 x i32], ptr %565, i64 0, i64 %626
   %628 = load i32, ptr %627, align 4, !tbaa !42
   %629 = icmp eq i32 %628, 5
   br i1 %629, label %630, label %.thread287.i
 
 630:                                              ; preds = %624
-  %631 = sext i32 %622 to i64
-  %632 = getelementptr inbounds [4 x i32], ptr %565, i64 0, i64 %631
+  %631 = zext nneg i32 %622 to i64
+  %632 = getelementptr inbounds nuw [4 x i32], ptr %565, i64 0, i64 %631
   %633 = load i32, ptr %632, align 4, !tbaa !42
   %634 = icmp slt i32 %633, 256
   br i1 %634, label %635, label %.thread287.i
@@ -1326,7 +1326,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
 645:                                              ; preds = %.thread287.i, %644, %642, %614, %611, %609, %582, %575, %574
   %646 = phi i32 [ %570, %574 ], [ %570, %575 ], [ %570, %582 ], [ %570, %609 ], [ %570, %611 ], [ %570, %614 ], [ %570, %642 ], [ %570, %644 ], [ %.pre.i, %.thread287.i ]
   %.1.i = phi i32 [ %.0226293.i, %574 ], [ %.0226293.i, %575 ], [ %.0226293.i, %582 ], [ %589, %609 ], [ %.0226293.i, %611 ], [ %.0226293.i, %614 ], [ %622, %642 ], [ %.0226293.i, %644 ], [ %.0226293.i, %.thread287.i ]
-  %647 = add nsw i32 %.1.i, 1
+  %647 = add nuw nsw i32 %.1.i, 1
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %646, i32 4)
   %648 = icmp slt i32 %647, %spec.select.i
   br i1 %648, label %569, label %.loopexit, !llvm.loop !66

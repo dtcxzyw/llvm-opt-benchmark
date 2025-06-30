@@ -2313,7 +2313,7 @@ ivi_decode_coded_blocks.exit.thread.i.i:          ; preds = %803, %._crit_edge.i
   br label %.loopexit.i
 
 ivi_decode_coded_blocks.exit.i.i:                 ; preds = %820
-  %824 = call fastcc i32 @ivi_mc(ptr noundef nonnull readonly %86, ptr noundef nonnull readonly %ff_ivi_mc_8x8_delta.ff_ivi_mc_4x4_delta.i.i, ptr noundef nonnull readonly %ff_ivi_mc_avg_8x8_delta.ff_ivi_mc_avg_4x4_delta.i.i, i32 noundef %.1181.i.i, i32 noundef range(i32 -128, 128) %.1163.i.i, i32 noundef range(i32 -128, 128) %.1166.i.i, i32 noundef range(i32 -128, 128) %.1169.i.i, i32 noundef range(i32 -128, 128) %.1172.i.i, i32 noundef %.1152.i.i, i32 noundef range(i32 -1, 4) %.1156.i.i)
+  %824 = call fastcc i32 @ivi_mc(ptr noundef nonnull readonly %86, ptr noundef nonnull readonly %ff_ivi_mc_8x8_delta.ff_ivi_mc_4x4_delta.i.i, ptr noundef nonnull readonly %ff_ivi_mc_avg_8x8_delta.ff_ivi_mc_avg_4x4_delta.i.i, i32 noundef %.1181.i.i, i32 noundef range(i32 -128, 128) %.1163.i.i, i32 noundef range(i32 -128, 128) %.1166.i.i, i32 noundef range(i32 -128, 128) %.1169.i.i, i32 noundef range(i32 -128, 128) %.1172.i.i, i32 noundef range(i32 -1, 4) %.1152.i.i, i32 noundef range(i32 -1, 4) %.1156.i.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   %825 = icmp slt i32 %824, 0
@@ -2927,7 +2927,7 @@ declare void @ff_ivi_mc_8x8_no_delta(ptr noundef, ptr noundef, i64 noundef, i32 
 declare void @ff_ivi_mc_4x4_no_delta(ptr noundef, ptr noundef, i64 noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1094995529, 1) i32 @ivi_mc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 -128, 128) %4, i32 noundef range(i32 -128, 128) %5, i32 noundef range(i32 -128, 128) %6, i32 noundef range(i32 -128, 128) %7, i32 noundef %8, i32 noundef range(i32 -1, 4) %9) unnamed_addr #2 {
+define internal fastcc range(i32 -1094995529, 1) i32 @ivi_mc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 -128, 128) %4, i32 noundef range(i32 -128, 128) %5, i32 noundef range(i32 -128, 128) %6, i32 noundef range(i32 -128, 128) %7, i32 noundef range(i32 -1, 4) %8, i32 noundef range(i32 -1, 4) %9) unnamed_addr #2 {
   %11 = sext i32 %3 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load i64, ptr %12, align 8, !tbaa !69

@@ -11739,10 +11739,10 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit145:          ; preds = %179
   br label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_5ValueEEEDcPT0_.exit.thread
 
 200:                                              ; preds = %.preheader
-  %201 = sub i32 0, %.198
+  %201 = sub nsw i32 0, %.198
   %202 = and i32 %.198, %201
   %203 = tail call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %12) #30
-  %204 = shl i32 %202, 3
+  %204 = shl nuw nsw i32 %202, 3
   %205 = tail call range(i32 3, 33) i32 @llvm.cttz.i32(i32 %204, i1 true)
   %206 = lshr i32 128, %205
   %207 = tail call noundef ptr @_ZN4llvm18ScalableVectorType3getEPNS_4TypeEj(ptr noundef %203, i32 noundef %206) #30

@@ -338,7 +338,7 @@ define internal fastcc void @dissect_nv_pairs(ptr noundef %0, ptr noundef readon
 16:                                               ; preds = %13, %11
   %.sink = phi i32 [ 4, %13 ], [ 1, %11 ]
   %.046 = phi i32 [ %15, %13 ], [ %12, %11 ]
-  %17 = add i32 %.048, %.sink
+  %17 = add nsw i32 %.048, %.sink
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %17)
   %19 = icmp sgt i8 %18, -1
   br i1 %19, label %20, label %22

@@ -1426,7 +1426,7 @@ split_slab_page_into_freelist.exit:               ; preds = %68, %get_page_from_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slabs_pick_any_for_reassign(i32 noundef %0) local_unnamed_addr #4 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @slabs_pick_any_for_reassign(i32 noundef %0) local_unnamed_addr #4 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #21
   %slabs_pick_any_for_reassign.cur.promoted = load i32, ptr @slabs_pick_any_for_reassign.cur, align 4
   br label %3

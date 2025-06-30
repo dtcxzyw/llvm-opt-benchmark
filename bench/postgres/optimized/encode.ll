@@ -581,22 +581,22 @@ define internal i64 @pg_base64_encode(ptr noundef readonly captures(address) %0,
 ; Function Attrs: nounwind uwtable
 define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %.not99 = icmp eq i64 %1, 0
-  br i1 %.not99, label %.outer._crit_edge.thread, label %.lr.ph
+  %.not103 = icmp eq i64 %1, 0
+  br i1 %.not103, label %.outer._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.outer
-  %.0.ph96 = phi i32 [ %.270, %.outer ], [ 0, %3 ]
-  %.052.ph95 = phi i32 [ %.153, %.outer ], [ 0, %3 ]
-  %.054.ph94 = phi i32 [ %.155, %.outer ], [ 0, %3 ]
-  %.058.ph93 = phi ptr [ %6, %.outer ], [ %0, %3 ]
-  %.059.ph92 = phi ptr [ %.160, %.outer ], [ %2, %3 ]
+  %.0.ph100 = phi i32 [ %.270, %.outer ], [ 0, %3 ]
+  %.052.ph99 = phi i32 [ %.153, %.outer ], [ 0, %3 ]
+  %.054.ph98 = phi i32 [ %.155, %.outer ], [ 0, %3 ]
+  %.058.ph97 = phi ptr [ %6, %.outer ], [ %0, %3 ]
+  %.059.ph96 = phi ptr [ %.160, %.outer ], [ %2, %3 ]
   br label %5
 
 5:                                                ; preds = %.lr.ph, %.backedge
-  %.05888 = phi ptr [ %.058.ph93, %.lr.ph ], [ %6, %.backedge ]
-  %6 = getelementptr inbounds nuw i8, ptr %.05888, i64 1
-  %7 = load i8, ptr %.05888, align 1
-  switch i8 %7, label %20 [
+  %.05892 = phi ptr [ %.058.ph97, %.lr.ph ], [ %6, %.backedge ]
+  %6 = getelementptr inbounds nuw i8, ptr %.05892, i64 1
+  %7 = load i8, ptr %.05892, align 1
+  switch i8 %7, label %23 [
     i8 32, label %.backedge
     i8 13, label %.backedge
     i8 10, label %.backedge
@@ -609,130 +609,120 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %8, label %5, label %.outer._crit_edge
 
 9:                                                ; preds = %5
-  %.not64 = icmp eq i32 %.0.ph96, 0
-  br i1 %.not64, label %10, label %32
+  %.not64 = icmp eq i32 %.0.ph100, 0
+  br i1 %.not64, label %10, label %35
 
 10:                                               ; preds = %9
-  switch i32 %.052.ph95, label %16 [
+  switch i32 %.052.ph99, label %19 [
     i32 2, label %.thread71
-    i32 3, label %.thread74
+    i32 3, label %.thread81
   ]
 
 .thread71:                                        ; preds = %10
-  %11 = shl i32 %.054.ph94, 6
+  %11 = shl i32 %.054.ph98, 6
   br label %.outer
 
-.thread74:                                        ; preds = %10
-  %12 = shl i32 %.054.ph94, 6
+.thread81:                                        ; preds = %10
+  %12 = shl i32 %.054.ph98, 6
   %13 = lshr i32 %12, 16
   %14 = trunc i32 %13 to i8
-  %15 = getelementptr inbounds nuw i8, ptr %.059.ph92, i64 1
-  store i8 %14, ptr %.059.ph92, align 1
-  br label %43
+  %15 = getelementptr inbounds nuw i8, ptr %.059.ph96, i64 1
+  store i8 %14, ptr %.059.ph96, align 1
+  %16 = lshr i32 %12, 8
+  %17 = trunc i32 %16 to i8
+  %18 = getelementptr inbounds nuw i8, ptr %.059.ph96, i64 2
+  store i8 %17, ptr %15, align 1
+  br label %.outer
 
-16:                                               ; preds = %10
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #7
+19:                                               ; preds = %10
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %20)
+  %21 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @__func__.pg_base64_decode) #7
   unreachable
 
-20:                                               ; preds = %5
-  %21 = add i8 %7, -1
-  %or.cond11 = icmp ult i8 %21, 126
-  br i1 %or.cond11, label %22, label %.thread
+23:                                               ; preds = %5
+  %24 = add i8 %7, -1
+  %or.cond11 = icmp ult i8 %24, 126
+  br i1 %or.cond11, label %25, label %.thread
 
-22:                                               ; preds = %20
-  %23 = zext nneg i8 %7 to i64
-  %24 = getelementptr inbounds nuw [128 x i8], ptr @b64lookup, i64 0, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = zext nneg i8 %25 to i32
-  %27 = icmp slt i8 %25, 0
-  br i1 %27, label %.thread, label %32
+25:                                               ; preds = %23
+  %26 = zext nneg i8 %7 to i64
+  %27 = getelementptr inbounds nuw [128 x i8], ptr @b64lookup, i64 0, i64 %26
+  %28 = load i8, ptr %27, align 1
+  %29 = zext nneg i8 %28 to i32
+  %30 = icmp slt i8 %28, 0
+  br i1 %30, label %.thread, label %35
 
-.thread:                                          ; preds = %20, %22
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %30 = tail call i32 @pg_mblen(ptr noundef nonnull %.05888) #7
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %30, ptr noundef nonnull %.05888) #7
+.thread:                                          ; preds = %23, %25
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %31)
+  %32 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %33 = tail call i32 @pg_mblen(ptr noundef nonnull %.05892) #7
+  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %33, ptr noundef nonnull %.05892) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 378, ptr noundef nonnull @__func__.pg_base64_decode) #7
   unreachable
 
-32:                                               ; preds = %9, %22
-  %.056 = phi i32 [ %26, %22 ], [ 0, %9 ]
-  %33 = shl i32 %.054.ph94, 6
-  %34 = add i32 %.056, %33
-  %35 = add i32 %.052.ph95, 1
-  %36 = icmp eq i32 %35, 4
-  br i1 %36, label %37, label %.outer
+35:                                               ; preds = %9, %25
+  %.056 = phi i32 [ %29, %25 ], [ 0, %9 ]
+  %36 = shl i32 %.054.ph98, 6
+  %37 = add i32 %.056, %36
+  %38 = add i32 %.052.ph99, 1
+  %39 = icmp eq i32 %38, 4
+  br i1 %39, label %40, label %.outer
 
-37:                                               ; preds = %32
-  %38 = lshr i32 %34, 16
-  %39 = trunc i32 %38 to i8
-  %40 = getelementptr inbounds nuw i8, ptr %.059.ph92, i64 1
-  store i8 %39, ptr %.059.ph92, align 1
-  %41 = icmp eq i32 %.0.ph96, 0
-  %42 = icmp sgt i32 %.0.ph96, 1
-  %or.cond13 = or i1 %41, %42
-  br i1 %or.cond13, label %43, label %50
+40:                                               ; preds = %35
+  %41 = lshr i32 %37, 16
+  %42 = trunc i32 %41 to i8
+  %43 = getelementptr inbounds nuw i8, ptr %.059.ph96, i64 1
+  store i8 %42, ptr %.059.ph96, align 1
+  %or.cond13.not = icmp eq i32 %.0.ph100, 1
+  br i1 %or.cond13.not, label %.outer, label %44
 
-43:                                               ; preds = %.thread74, %37
-  %44 = phi i1 [ false, %.thread74 ], [ %41, %37 ]
-  %45 = phi ptr [ %15, %.thread74 ], [ %40, %37 ]
-  %.26978 = phi i32 [ 2, %.thread74 ], [ %.0.ph96, %37 ]
-  %46 = phi i32 [ %12, %.thread74 ], [ %34, %37 ]
-  %47 = lshr i32 %46, 8
-  %48 = trunc i32 %47 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %.059.ph92, i64 2
-  store i8 %48, ptr %45, align 1
-  br label %50
+44:                                               ; preds = %40
+  %45 = icmp eq i32 %.0.ph100, 0
+  %46 = lshr i32 %37, 8
+  %47 = trunc i32 %46 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %.059.ph96, i64 2
+  store i8 %47, ptr %43, align 1
+  br i1 %45, label %49, label %.outer
 
-50:                                               ; preds = %37, %43
-  %51 = phi i1 [ %44, %43 ], [ false, %37 ]
-  %.26977 = phi i32 [ %.26978, %43 ], [ %.0.ph96, %37 ]
-  %52 = phi i32 [ %46, %43 ], [ %34, %37 ]
-  %.261 = phi ptr [ %49, %43 ], [ %40, %37 ]
-  %53 = icmp sgt i32 %.26977, 2
-  %or.cond15 = or i1 %51, %53
-  br i1 %or.cond15, label %54, label %.outer
-
-54:                                               ; preds = %50
-  %55 = trunc i32 %52 to i8
-  %56 = getelementptr inbounds nuw i8, ptr %.261, i64 1
-  store i8 %55, ptr %.261, align 1
+49:                                               ; preds = %44
+  %50 = trunc i32 %37 to i8
+  %51 = getelementptr inbounds nuw i8, ptr %.059.ph96, i64 3
+  store i8 %50, ptr %48, align 1
   br label %.outer
 
-.outer:                                           ; preds = %.thread71, %54, %50, %32
-  %.270 = phi i32 [ %.0.ph96, %32 ], [ %.26977, %54 ], [ %.26977, %50 ], [ 1, %.thread71 ]
-  %.160 = phi ptr [ %.059.ph92, %32 ], [ %56, %54 ], [ %.261, %50 ], [ %.059.ph92, %.thread71 ]
-  %.155 = phi i32 [ %34, %32 ], [ 0, %54 ], [ 0, %50 ], [ %11, %.thread71 ]
-  %.153 = phi i32 [ %35, %32 ], [ 0, %54 ], [ 0, %50 ], [ 3, %.thread71 ]
-  %57 = icmp ult ptr %6, %4
-  br i1 %57, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
+.outer:                                           ; preds = %40, %.thread81, %44, %.thread71, %49, %35
+  %.270 = phi i32 [ %.0.ph100, %35 ], [ 0, %49 ], [ 1, %.thread71 ], [ %.0.ph100, %44 ], [ 2, %.thread81 ], [ 1, %40 ]
+  %.160 = phi ptr [ %.059.ph96, %35 ], [ %51, %49 ], [ %.059.ph96, %.thread71 ], [ %48, %44 ], [ %18, %.thread81 ], [ %43, %40 ]
+  %.155 = phi i32 [ %37, %35 ], [ 0, %49 ], [ %11, %.thread71 ], [ 0, %44 ], [ 0, %.thread81 ], [ 0, %40 ]
+  %.153 = phi i32 [ %38, %35 ], [ 0, %49 ], [ 3, %.thread71 ], [ 0, %44 ], [ 0, %.thread81 ], [ 0, %40 ]
+  %52 = icmp ult ptr %6, %4
+  br i1 %52, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
-  %.059.ph.lcssa87 = phi ptr [ %.059.ph92, %.backedge ], [ %.160, %.outer ]
-  %.052.ph.lcssa85 = phi i32 [ %.052.ph95, %.backedge ], [ %.153, %.outer ]
-  %.not = icmp eq i32 %.052.ph.lcssa85, 0
-  br i1 %.not, label %.outer._crit_edge.thread, label %58
+  %.059.ph.lcssa91 = phi ptr [ %.059.ph96, %.backedge ], [ %.160, %.outer ]
+  %.052.ph.lcssa89 = phi i32 [ %.052.ph99, %.backedge ], [ %.153, %.outer ]
+  %.not = icmp eq i32 %.052.ph.lcssa89, 0
+  br i1 %.not, label %.outer._crit_edge.thread, label %53
 
-58:                                               ; preds = %.outer._crit_edge
-  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %59)
-  %60 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %61 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #7
-  %62 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.14) #7
+53:                                               ; preds = %.outer._crit_edge
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %54)
+  %55 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #7
+  %57 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.14) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 399, ptr noundef nonnull @__func__.pg_base64_decode) #7
   unreachable
 
 .outer._crit_edge.thread:                         ; preds = %3, %.outer._crit_edge
-  %.059.ph.lcssa87117 = phi ptr [ %.059.ph.lcssa87, %.outer._crit_edge ], [ %2, %3 ]
-  %63 = ptrtoint ptr %.059.ph.lcssa87117 to i64
-  %64 = ptrtoint ptr %2 to i64
-  %65 = sub i64 %63, %64
-  ret i64 %65
+  %.059.ph.lcssa91121 = phi ptr [ %.059.ph.lcssa91, %.outer._crit_edge ], [ %2, %3 ]
+  %58 = ptrtoint ptr %.059.ph.lcssa91121 to i64
+  %59 = ptrtoint ptr %2 to i64
+  %60 = sub i64 %58, %59
+  ret i64 %60
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

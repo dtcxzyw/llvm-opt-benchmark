@@ -2037,8 +2037,8 @@ _ZNSt13unordered_mapIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEiN6open3d7utility10ha
   ]
 
 .preheader262:                                    ; preds = %108
-  %109 = sext i32 %.347 to i64
-  %110 = getelementptr inbounds [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %109
+  %109 = zext nneg i32 %.347 to i64
+  %110 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !53
   %.sroa.0250.12.vec.insert = insertelement <4 x i32> %52, i32 %storemerge63298, i64 2
   %112 = load ptr, ptr %0, align 8
@@ -2057,7 +2057,7 @@ _ZNSt13unordered_mapIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEiN6open3d7utility10ha
   ]
 
 .lr.ph:                                           ; preds = %.preheader
-  %119 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %109, i64 0
+  %119 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %109, i64 0
   %120 = load i32, ptr %119, align 16, !tbaa !53
   %121 = load ptr, ptr %0, align 8, !tbaa !144
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 120
@@ -2875,12 +2875,12 @@ _ZNSt13unordered_mapIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEiN6open3d7utility10ha
   %472 = sext i32 %471 to i64
   %473 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %472
   %474 = add nuw nsw i64 %indvars.iv331, 2
-  %475 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %109, i64 %474
+  %475 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %109, i64 %474
   %476 = load i32, ptr %475, align 4, !tbaa !53
   %477 = sext i32 %476 to i64
   %478 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %477
   %479 = add nuw nsw i64 %indvars.iv331, 1
-  %480 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %109, i64 %479
+  %480 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %109, i64 %479
   %481 = load i32, ptr %480, align 4, !tbaa !53
   %482 = sext i32 %481 to i64
   %483 = getelementptr inbounds [12 x i32], ptr %4, i64 0, i64 %482
@@ -2969,7 +2969,7 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJ
 _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %488
   %511 = phi ptr [ %508, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %490, %488 ]
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 3
-  %512 = getelementptr inbounds [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %109, i64 %indvars.iv.next332
+  %512 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN12_GLOBAL__N_19tri_tableE, i64 0, i64 %109, i64 %indvars.iv.next332
   %513 = load i32, ptr %512, align 4, !tbaa !53
   %.not = icmp eq i32 %513, -1
   br i1 %.not, label %.thread254, label %469, !llvm.loop !184

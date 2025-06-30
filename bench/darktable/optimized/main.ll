@@ -2422,7 +2422,7 @@ declare ptr @dt_exif_xmp_encode_internal(ptr noundef, i32 noundef, ptr noundef, 
 declare float @thinplate_color_pos(float noundef, float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_xml_plugin(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef range(i32 2, 5) %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #7 {
+define internal fastcc void @print_xml_plugin(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 4) %1, i32 noundef range(i32 2, 5) %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #7 {
   %7 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 11, i64 1, ptr nonnull %0)
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.35, i32 noundef %1) #24
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, i32 noundef %2) #24

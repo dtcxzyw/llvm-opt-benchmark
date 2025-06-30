@@ -531,7 +531,7 @@ define { i64, ptr } @_ZNK9grpc_core23CompressionAlgorithmSet8ToStringEv(ptr noun
   br i1 %exitcond.not.i.i, label %_ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv.exit, label %3, !llvm.loop !30
 
 _ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv.exit: ; preds = %3
-  %11 = zext i32 %.1.i.i to i64
+  %11 = zext nneg i32 %.1.i.i to i64
   %12 = getelementptr inbounds nuw [8 x %"class.std::basic_string_view"], ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 0, i64 %11
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !tbaa !23
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -542,7 +542,7 @@ _ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #14 align 2 {
+define noundef range(i32 0, -2147483648) i32 @_ZNK9grpc_core23CompressionAlgorithmSet15ToLegacyBitmaskEv(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #14 align 2 {
   %2 = load i8, ptr %0, align 1, !tbaa !6
   br label %3
 
@@ -586,7 +586,7 @@ define void @_ZNK9grpc_core23CompressionAlgorithmSet7ToSliceEv(ptr dead_on_unwin
   br i1 %exitcond.not.i.i.i, label %_ZNK9grpc_core23CompressionAlgorithmSet8ToStringEv.exit, label %4, !llvm.loop !30
 
 _ZNK9grpc_core23CompressionAlgorithmSet8ToStringEv.exit: ; preds = %4
-  %12 = zext i32 %.1.i.i.i to i64
+  %12 = zext nneg i32 %.1.i.i.i to i64
   %13 = getelementptr inbounds nuw [8 x %"class.std::basic_string_view"], ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 0, i64 %12
   %.sroa.0.0.copyload.i.i = load i64, ptr %13, align 8, !tbaa !23
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8

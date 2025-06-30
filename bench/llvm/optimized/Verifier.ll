@@ -88107,7 +88107,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9
 
 69:                                               ; preds = %63, %59, %._crit_edge
   %.128 = phi i64 [ %65, %63 ], [ %.0.lcssa, %59 ], [ %.0.lcssa, %._crit_edge ]
-  %70 = icmp sgt i64 %.128, %1
+  %70 = icmp samesign ugt i64 %.128, %1
   br i1 %70, label %.lr.ph.i, label %"_ZSt11__push_heapIPPN4llvm13IntrinsicInstElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_T0_SC_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %69
@@ -88118,7 +88118,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9
   %.0133.i = phi i64 [ %.128, %.lr.ph.i ], [ %.04.i, %114 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %73 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %73 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %73, align 8, !tbaa !424
   %74 = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %75 = load i32, ptr %74, align 4
@@ -88188,7 +88188,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9
 
 "_ZSt11__push_heapIPPN4llvm13IntrinsicInstElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_T0_SC_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPPN4llvm13IntrinsicInstES9_EEbT_RT0_.exit.i", %114, %69
   %.013.lcssa.i = phi i64 [ %.128, %69 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPPN4llvm13IntrinsicInstES9_EEbT_RT0_.exit.i" ], [ %.04.i, %114 ]
-  %117 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %117 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %117, align 8, !tbaa !424
   ret void
 }

@@ -2995,16 +2995,16 @@ string_to_IOR.exit.i:                             ; preds = %49, %31, %.lr.ph.i.
   %.0.lcssa.ph.i.in.i = phi i64 [ %indvars.iv.next.i, %49 ], [ %indvars.iv.i, %31 ], [ %indvars.iv.i, %.lr.ph.i.i ]
   %.0.lcssa.ph.i.i = trunc i64 %.0.lcssa.ph.i.in.i to i32
   %57 = add i32 %.0.lcssa.ph.i.i, -4
-  %.not24.i = icmp eq i32 %57, 0
-  br i1 %.not24.i, label %string_to_IOR.exit.thread.i, label %58
+  %.not.i = icmp eq i32 %57, 0
+  br i1 %.not.i, label %string_to_IOR.exit.thread.i, label %58
 
 58:                                               ; preds = %string_to_IOR.exit.i
   %59 = lshr exact i32 %57, 1
   %60 = tail call ptr @tvb_new_real_data(ptr noundef nonnull %22, i32 noundef %59, i32 noundef %59)
   %61 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %60, i32 noundef 0)
   store i32 1, ptr %1, align 4
-  %.not.i = icmp eq i8 %61, 0
-  call fastcc void @decode_IOR(ptr noundef %60, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0, i1 noundef zeroext %.not.i)
+  %.not20.i = icmp eq i8 %61, 0
+  call fastcc void @decode_IOR(ptr noundef %60, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0, i1 noundef zeroext %.not20.i)
   tail call void @tvb_free(ptr noundef %60)
   br label %string_to_IOR.exit.thread.i
 

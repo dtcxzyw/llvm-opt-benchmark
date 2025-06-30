@@ -171,115 +171,115 @@ define dso_local i64 @gin_extract_jsonb(ptr noundef readonly captures(none) %0) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %16
+  br i1 %14, label %15, label %init_gin_entries.exit
 
 15:                                               ; preds = %1
   store i32 0, ptr %10, align 4
-  br label %61
+  br label %60
 
-16:                                               ; preds = %1
-  %17 = shl nuw nsw i32 %13, 1
-  %18 = shl nuw i32 %13, 4
-  %19 = zext i32 %18 to i64
-  %20 = tail call ptr @palloc(i64 noundef %19) #8
-  %21 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %11) #8
-  store ptr %21, ptr %2, align 8
+init_gin_entries.exit:                            ; preds = %1
+  %16 = shl nuw nsw i32 %13, 1
+  %17 = shl i32 %12, 4
+  %18 = zext i32 %17 to i64
+  %19 = tail call ptr @palloc(i64 noundef %18) #8
+  %20 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %11) #8
+  store ptr %20, ptr %2, align 8
   br label %.outer
 
-.outer:                                           ; preds = %.sink.split, %16
-  %.sroa.27.0.ph = phi i32 [ %.sroa.27.1.ph, %.sink.split ], [ %17, %16 ]
-  %.sroa.16.0.ph = phi i32 [ %56, %.sink.split ], [ 0, %16 ]
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.4.sink, %.sink.split ], [ %20, %16 ]
-  br label %22
+.outer:                                           ; preds = %.sink.split, %init_gin_entries.exit
+  %.sroa.27.0.ph = phi i32 [ %.sroa.27.1.ph, %.sink.split ], [ %16, %init_gin_entries.exit ]
+  %.sroa.16.0.ph = phi i32 [ %55, %.sink.split ], [ 0, %init_gin_entries.exit ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.4.sink, %.sink.split ], [ %19, %init_gin_entries.exit ]
+  br label %21
 
-22:                                               ; preds = %.outer, %22
-  %23 = call i32 @JsonbIteratorNext(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false) #8
-  switch i32 %23, label %22 [
-    i32 0, label %59
-    i32 1, label %24
-    i32 3, label %34
-    i32 2, label %46
+21:                                               ; preds = %.outer, %21
+  %22 = call i32 @JsonbIteratorNext(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false) #8
+  switch i32 %22, label %21 [
+    i32 0, label %58
+    i32 1, label %23
+    i32 3, label %33
+    i32 2, label %45
   ], !llvm.loop !4
 
-24:                                               ; preds = %22
-  %25 = call fastcc i64 @make_scalar_key(ptr noundef %3, i1 noundef zeroext true)
-  %.not.i = icmp slt i32 %.sroa.16.0.ph, %.sroa.27.0.ph
-  br i1 %.not.i, label %.sink.split, label %26
-
-26:                                               ; preds = %24
-  %.not14.i = icmp eq i32 %.sroa.27.0.ph, 0
-  br i1 %.not14.i, label %32, label %27
-
-27:                                               ; preds = %26
-  %28 = shl i32 %.sroa.27.0.ph, 1
-  %29 = sext i32 %28 to i64
-  %30 = shl nsw i64 %29, 3
-  %31 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %30) #8
-  br label %.sink.split
-
-32:                                               ; preds = %26
-  %33 = call ptr @palloc(i64 noundef 64) #8
-  br label %.sink.split
-
-34:                                               ; preds = %22
-  %35 = load i32, ptr %3, align 8
-  %36 = icmp eq i32 %35, 1
-  %37 = call fastcc i64 @make_scalar_key(ptr noundef %3, i1 noundef zeroext %36)
+23:                                               ; preds = %21
+  %24 = call fastcc i64 @make_scalar_key(ptr noundef %3, i1 noundef zeroext true)
   %.not.i11 = icmp slt i32 %.sroa.16.0.ph, %.sroa.27.0.ph
-  br i1 %.not.i11, label %.sink.split, label %38
+  br i1 %.not.i11, label %.sink.split, label %25
 
-38:                                               ; preds = %34
-  %.not14.i12 = icmp eq i32 %.sroa.27.0.ph, 0
-  br i1 %.not14.i12, label %44, label %39
+25:                                               ; preds = %23
+  %.not14.i = icmp eq i32 %.sroa.27.0.ph, 0
+  br i1 %.not14.i, label %31, label %26
 
-39:                                               ; preds = %38
-  %40 = shl i32 %.sroa.27.0.ph, 1
-  %41 = sext i32 %40 to i64
-  %42 = shl nsw i64 %41, 3
-  %43 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %42) #8
+26:                                               ; preds = %25
+  %27 = shl i32 %.sroa.27.0.ph, 1
+  %28 = sext i32 %27 to i64
+  %29 = shl nsw i64 %28, 3
+  %30 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %29) #8
   br label %.sink.split
 
-44:                                               ; preds = %38
-  %45 = call ptr @palloc(i64 noundef 64) #8
+31:                                               ; preds = %25
+  %32 = call ptr @palloc(i64 noundef 64) #8
   br label %.sink.split
 
-46:                                               ; preds = %22
-  %47 = call fastcc i64 @make_scalar_key(ptr noundef %3, i1 noundef zeroext false)
-  %.not.i16 = icmp slt i32 %.sroa.16.0.ph, %.sroa.27.0.ph
-  br i1 %.not.i16, label %.sink.split, label %48
+33:                                               ; preds = %21
+  %34 = load i32, ptr %3, align 8
+  %35 = icmp eq i32 %34, 1
+  %36 = call fastcc i64 @make_scalar_key(ptr noundef %3, i1 noundef zeroext %35)
+  %.not.i12 = icmp slt i32 %.sroa.16.0.ph, %.sroa.27.0.ph
+  br i1 %.not.i12, label %.sink.split, label %37
 
-48:                                               ; preds = %46
-  %.not14.i17 = icmp eq i32 %.sroa.27.0.ph, 0
-  br i1 %.not14.i17, label %54, label %49
+37:                                               ; preds = %33
+  %.not14.i13 = icmp eq i32 %.sroa.27.0.ph, 0
+  br i1 %.not14.i13, label %43, label %38
 
-49:                                               ; preds = %48
-  %50 = shl i32 %.sroa.27.0.ph, 1
-  %51 = sext i32 %50 to i64
-  %52 = shl nsw i64 %51, 3
-  %53 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %52) #8
+38:                                               ; preds = %37
+  %39 = shl i32 %.sroa.27.0.ph, 1
+  %40 = sext i32 %39 to i64
+  %41 = shl nsw i64 %40, 3
+  %42 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %41) #8
   br label %.sink.split
 
-54:                                               ; preds = %48
-  %55 = call ptr @palloc(i64 noundef 64) #8
+43:                                               ; preds = %37
+  %44 = call ptr @palloc(i64 noundef 64) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %54, %49, %46, %44, %39, %34, %32, %27, %24
-  %.sroa.0.4.sink = phi ptr [ %33, %32 ], [ %31, %27 ], [ %.sroa.0.0.ph, %24 ], [ %45, %44 ], [ %43, %39 ], [ %.sroa.0.0.ph, %34 ], [ %55, %54 ], [ %53, %49 ], [ %.sroa.0.0.ph, %46 ]
-  %.sink = phi i64 [ %25, %32 ], [ %25, %27 ], [ %25, %24 ], [ %37, %44 ], [ %37, %39 ], [ %37, %34 ], [ %47, %54 ], [ %47, %49 ], [ %47, %46 ]
-  %.sroa.27.1.ph = phi i32 [ 8, %32 ], [ %28, %27 ], [ %.sroa.27.0.ph, %24 ], [ 8, %44 ], [ %40, %39 ], [ %.sroa.27.0.ph, %34 ], [ 8, %54 ], [ %50, %49 ], [ %.sroa.27.0.ph, %46 ]
-  %56 = add i32 %.sroa.16.0.ph, 1
-  %57 = sext i32 %.sroa.16.0.ph to i64
-  %58 = getelementptr inbounds i64, ptr %.sroa.0.4.sink, i64 %57
-  store i64 %.sink, ptr %58, align 8
+45:                                               ; preds = %21
+  %46 = call fastcc i64 @make_scalar_key(ptr noundef %3, i1 noundef zeroext false)
+  %.not.i17 = icmp slt i32 %.sroa.16.0.ph, %.sroa.27.0.ph
+  br i1 %.not.i17, label %.sink.split, label %47
+
+47:                                               ; preds = %45
+  %.not14.i18 = icmp eq i32 %.sroa.27.0.ph, 0
+  br i1 %.not14.i18, label %53, label %48
+
+48:                                               ; preds = %47
+  %49 = shl i32 %.sroa.27.0.ph, 1
+  %50 = sext i32 %49 to i64
+  %51 = shl nsw i64 %50, 3
+  %52 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %51) #8
+  br label %.sink.split
+
+53:                                               ; preds = %47
+  %54 = call ptr @palloc(i64 noundef 64) #8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %53, %48, %45, %43, %38, %33, %31, %26, %23
+  %.sroa.0.4.sink = phi ptr [ %32, %31 ], [ %30, %26 ], [ %.sroa.0.0.ph, %23 ], [ %44, %43 ], [ %42, %38 ], [ %.sroa.0.0.ph, %33 ], [ %54, %53 ], [ %52, %48 ], [ %.sroa.0.0.ph, %45 ]
+  %.sink = phi i64 [ %24, %31 ], [ %24, %26 ], [ %24, %23 ], [ %36, %43 ], [ %36, %38 ], [ %36, %33 ], [ %46, %53 ], [ %46, %48 ], [ %46, %45 ]
+  %.sroa.27.1.ph = phi i32 [ 8, %31 ], [ %27, %26 ], [ %.sroa.27.0.ph, %23 ], [ 8, %43 ], [ %39, %38 ], [ %.sroa.27.0.ph, %33 ], [ 8, %53 ], [ %49, %48 ], [ %.sroa.27.0.ph, %45 ]
+  %55 = add i32 %.sroa.16.0.ph, 1
+  %56 = sext i32 %.sroa.16.0.ph to i64
+  %57 = getelementptr inbounds i64, ptr %.sroa.0.4.sink, i64 %56
+  store i64 %.sink, ptr %57, align 8
   br label %.outer, !llvm.loop !4
 
-59:                                               ; preds = %22
+58:                                               ; preds = %21
   store i32 %.sroa.16.0.ph, ptr %10, align 4
-  %60 = ptrtoint ptr %.sroa.0.0.ph to i64
-  br label %61
+  %59 = ptrtoint ptr %.sroa.0.0.ph to i64
+  br label %60
 
-61:                                               ; preds = %59, %15
-  %.0 = phi i64 [ 0, %15 ], [ %60, %59 ]
+60:                                               ; preds = %58, %15
+  %.0 = phi i64 [ 0, %15 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   ret i64 %.0
@@ -1071,131 +1071,131 @@ define dso_local i64 @gin_extract_jsonb_path(ptr noundef readonly captures(none)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+  br i1 %15, label %16, label %init_gin_entries.exit
 
 16:                                               ; preds = %1
   store i32 0, ptr %11, align 4
-  br label %61
+  br label %60
 
-17:                                               ; preds = %1
-  %18 = shl nuw nsw i32 %14, 1
-  %19 = shl nuw i32 %14, 4
-  %20 = zext i32 %19 to i64
-  %21 = tail call ptr @palloc(i64 noundef %20) #8
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %22, align 8
+init_gin_entries.exit:                            ; preds = %1
+  %17 = shl nuw nsw i32 %14, 1
+  %18 = shl i32 %13, 4
+  %19 = zext i32 %18 to i64
+  %20 = tail call ptr @palloc(i64 noundef %19) #8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr null, ptr %21, align 8
   store i32 0, ptr %4, align 8
-  %23 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %12) #8
-  store ptr %23, ptr %2, align 8
+  %22 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %12) #8
+  store ptr %22, ptr %2, align 8
   br label %.outer
 
-.outer:                                           ; preds = %add_gin_entry.exit, %17
-  %.sroa.13.0.ph = phi i32 [ %.sroa.13.2, %add_gin_entry.exit ], [ %18, %17 ]
-  %.sroa.8.0.ph = phi i32 [ %42, %add_gin_entry.exit ], [ 0, %17 ]
-  %.sroa.0.0.ph = phi ptr [ %.sroa.0.2, %add_gin_entry.exit ], [ %21, %17 ]
-  %.0.ph = phi ptr [ %.0.ph48, %add_gin_entry.exit ], [ %4, %17 ]
-  br label %.outer47
+.outer:                                           ; preds = %add_gin_entry.exit, %init_gin_entries.exit
+  %.sroa.13.0.ph = phi i32 [ %.sroa.13.2, %add_gin_entry.exit ], [ %17, %init_gin_entries.exit ]
+  %.sroa.8.0.ph = phi i32 [ %41, %add_gin_entry.exit ], [ 0, %init_gin_entries.exit ]
+  %.sroa.0.0.ph = phi ptr [ %.sroa.0.2, %add_gin_entry.exit ], [ %20, %init_gin_entries.exit ]
+  %.0.ph = phi ptr [ %.0.ph49, %add_gin_entry.exit ], [ %4, %init_gin_entries.exit ]
+  br label %.outer48
 
-.outer47:                                         ; preds = %.outer47.backedge, %.outer
-  %.0.ph48 = phi ptr [ %.0.ph, %.outer ], [ %.0.ph48.be, %.outer47.backedge ]
-  br label %24
+.outer48:                                         ; preds = %.outer48.backedge, %.outer
+  %.0.ph49 = phi ptr [ %.0.ph, %.outer ], [ %.0.ph49.be, %.outer48.backedge ]
+  br label %23
 
-24:                                               ; preds = %.outer47, %30
-  %25 = call i32 @JsonbIteratorNext(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false) #8
-  switch i32 %25, label %56 [
-    i32 0, label %59
-    i32 4, label %26
-    i32 6, label %26
-    i32 1, label %30
-    i32 3, label %31
-    i32 2, label %31
-    i32 5, label %48
-    i32 7, label %48
+23:                                               ; preds = %.outer48, %29
+  %24 = call i32 @JsonbIteratorNext(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false) #8
+  switch i32 %24, label %55 [
+    i32 0, label %58
+    i32 4, label %25
+    i32 6, label %25
+    i32 1, label %29
+    i32 3, label %30
+    i32 2, label %30
+    i32 5, label %47
+    i32 7, label %47
   ]
 
-26:                                               ; preds = %24, %24
-  %27 = call ptr @palloc(i64 noundef 16) #8
-  %28 = load i32, ptr %.0.ph48, align 8
-  store i32 %28, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %.0.ph48, ptr %29, align 8
-  br label %.outer47.backedge
+25:                                               ; preds = %23, %23
+  %26 = call ptr @palloc(i64 noundef 16) #8
+  %27 = load i32, ptr %.0.ph49, align 8
+  store i32 %27, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr %.0.ph49, ptr %28, align 8
+  br label %.outer48.backedge
 
-.outer47.backedge:                                ; preds = %26, %55, %53
-  %.0.ph48.be = phi ptr [ %50, %53 ], [ %50, %55 ], [ %27, %26 ]
-  br label %.outer47, !llvm.loop !15
+.outer48.backedge:                                ; preds = %25, %54, %52
+  %.0.ph49.be = phi ptr [ %49, %52 ], [ %49, %54 ], [ %26, %25 ]
+  br label %.outer48, !llvm.loop !15
 
-30:                                               ; preds = %24
-  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph48) #8
-  br label %24, !llvm.loop !15
+29:                                               ; preds = %23
+  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph49) #8
+  br label %23, !llvm.loop !15
 
-31:                                               ; preds = %24, %24
-  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph48) #8
-  %32 = load i32, ptr %.0.ph48, align 8
-  %33 = zext i32 %32 to i64
-  %.not.i = icmp slt i32 %.sroa.8.0.ph, %.sroa.13.0.ph
-  br i1 %.not.i, label %add_gin_entry.exit, label %34
+30:                                               ; preds = %23, %23
+  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph49) #8
+  %31 = load i32, ptr %.0.ph49, align 8
+  %32 = zext i32 %31 to i64
+  %.not.i32 = icmp slt i32 %.sroa.8.0.ph, %.sroa.13.0.ph
+  br i1 %.not.i32, label %add_gin_entry.exit, label %33
 
-34:                                               ; preds = %31
+33:                                               ; preds = %30
   %.not14.i = icmp eq i32 %.sroa.13.0.ph, 0
-  br i1 %.not14.i, label %40, label %35
+  br i1 %.not14.i, label %39, label %34
 
-35:                                               ; preds = %34
-  %36 = shl i32 %.sroa.13.0.ph, 1
-  %37 = sext i32 %36 to i64
-  %38 = shl nsw i64 %37, 3
-  %39 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %38) #8
+34:                                               ; preds = %33
+  %35 = shl i32 %.sroa.13.0.ph, 1
+  %36 = sext i32 %35 to i64
+  %37 = shl nsw i64 %36, 3
+  %38 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %37) #8
   br label %add_gin_entry.exit
 
-40:                                               ; preds = %34
-  %41 = call ptr @palloc(i64 noundef 64) #8
+39:                                               ; preds = %33
+  %40 = call ptr @palloc(i64 noundef 64) #8
   br label %add_gin_entry.exit
 
-add_gin_entry.exit:                               ; preds = %31, %35, %40
-  %.sroa.13.2 = phi i32 [ 8, %40 ], [ %36, %35 ], [ %.sroa.13.0.ph, %31 ]
-  %.sroa.0.2 = phi ptr [ %41, %40 ], [ %39, %35 ], [ %.sroa.0.0.ph, %31 ]
-  %42 = add i32 %.sroa.8.0.ph, 1
-  %43 = sext i32 %.sroa.8.0.ph to i64
-  %44 = getelementptr inbounds i64, ptr %.sroa.0.2, i64 %43
-  store i64 %33, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %.0.ph48, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = load i32, ptr %46, align 8
-  store i32 %47, ptr %.0.ph48, align 8
+add_gin_entry.exit:                               ; preds = %30, %34, %39
+  %.sroa.13.2 = phi i32 [ 8, %39 ], [ %35, %34 ], [ %.sroa.13.0.ph, %30 ]
+  %.sroa.0.2 = phi ptr [ %40, %39 ], [ %38, %34 ], [ %.sroa.0.0.ph, %30 ]
+  %41 = add i32 %.sroa.8.0.ph, 1
+  %42 = sext i32 %.sroa.8.0.ph to i64
+  %43 = getelementptr inbounds i64, ptr %.sroa.0.2, i64 %42
+  store i64 %32, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0.ph49, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i32, ptr %45, align 8
+  store i32 %46, ptr %.0.ph49, align 8
   br label %.outer, !llvm.loop !15
 
-48:                                               ; preds = %24, %24
-  %49 = getelementptr inbounds nuw i8, ptr %.0.ph48, i64 8
-  %50 = load ptr, ptr %49, align 8
-  call void @pfree(ptr noundef nonnull %.0.ph48) #8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %.not31 = icmp eq ptr %52, null
-  br i1 %.not31, label %55, label %53
+47:                                               ; preds = %23, %23
+  %48 = getelementptr inbounds nuw i8, ptr %.0.ph49, i64 8
+  %49 = load ptr, ptr %48, align 8
+  call void @pfree(ptr noundef nonnull %.0.ph49) #8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %.not31 = icmp eq ptr %51, null
+  br i1 %.not31, label %54, label %52
 
-53:                                               ; preds = %48
-  %54 = load i32, ptr %52, align 8
-  store i32 %54, ptr %50, align 8
-  br label %.outer47.backedge
+52:                                               ; preds = %47
+  %53 = load i32, ptr %51, align 8
+  store i32 %53, ptr %49, align 8
+  br label %.outer48.backedge
 
-55:                                               ; preds = %48
-  store i32 0, ptr %50, align 8
-  br label %.outer47.backedge
+54:                                               ; preds = %47
+  store i32 0, ptr %49, align 8
+  br label %.outer48.backedge
 
-56:                                               ; preds = %24
-  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %57)
-  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %25) #8
+55:                                               ; preds = %23
+  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %56)
+  %57 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %24) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1170, ptr noundef nonnull @__func__.gin_extract_jsonb_path) #8
   unreachable
 
-59:                                               ; preds = %24
+58:                                               ; preds = %23
   store i32 %.sroa.8.0.ph, ptr %11, align 4
-  %60 = ptrtoint ptr %.sroa.0.0.ph to i64
-  br label %61
+  %59 = ptrtoint ptr %.sroa.0.0.ph to i64
+  br label %60
 
-61:                                               ; preds = %59, %16
-  %.027 = phi i64 [ 0, %16 ], [ %60, %59 ]
+60:                                               ; preds = %58, %16
+  %.027 = phi i64 [ 0, %16 ], [ %59, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8

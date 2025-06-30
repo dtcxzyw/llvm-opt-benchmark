@@ -1003,7 +1003,7 @@ define i32 @pmix_mca_base_var_group_component_register(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_mca_base_var_group_deregister(i32 noundef %0) local_unnamed_addr #0 {
+define noundef range(i32 -46, 1) i32 @pmix_mca_base_var_group_deregister(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = icmp sgt i32 %0, -1
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_groups, i64 128), align 8
@@ -1781,13 +1781,13 @@ pmix_mca_base_var_group_get_internal.exit:        ; preds = %2, %11, %pmix_point
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @pmix_mca_base_var_group_get_count() local_unnamed_addr #5 {
+define range(i32 -2147483647, -2147483648) i32 @pmix_mca_base_var_group_get_count() local_unnamed_addr #5 {
   %1 = load i32, ptr @pmix_mca_base_var_group_count, align 4, !tbaa !3
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @pmix_mca_base_var_group_get_stamp() local_unnamed_addr #5 {
+define range(i32 -2147483647, -2147483648) i32 @pmix_mca_base_var_group_get_stamp() local_unnamed_addr #5 {
   %1 = load i32, ptr @pmix_mca_base_var_groups_timestamp, align 4, !tbaa !3
   ret i32 %1
 }

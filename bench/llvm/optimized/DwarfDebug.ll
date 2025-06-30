@@ -36846,7 +36846,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %.1 = phi i64 [ %61, %59 ], [ %.0.lcssa, %55 ], [ %.0.lcssa, %._crit_edge ]
   %.fr11.i = freeze ptr %4
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %66 = icmp sgt i64 %.1, %1
+  %66 = icmp samesign ugt i64 %.1, %1
   br i1 %66, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %64
@@ -36862,7 +36862,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
   %.0133.i = phi i64 [ %.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.exit.i" ], [ %.1, %.lr.ph.i ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %72 = getelementptr inbounds %"struct.llvm::DwarfCompileUnit::GlobalExpr", ptr %0, i64 %.04.i
+  %72 = getelementptr inbounds nuw %"struct.llvm::DwarfCompileUnit::GlobalExpr", ptr %0, i64 %.04.i
   %73 = getelementptr i8, ptr %72, i64 8
   %.val.i = load ptr, ptr %73, align 8, !tbaa !1267
   %.not12.i = icmp eq ptr %.val.i, null
@@ -36915,7 +36915,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm16DwarfCompileUnit10Glo
 
 "_ZSt11__push_heapIPN4llvm16DwarfCompileUnit10GlobalExprElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRNS0_15SmallVectorImplIS2_EEE3$_1EEEvT_T0_SD_T1_RT2_.exit": ; preds = %93, %97, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.exit.i", %64, %.lr.ph.i
   %.013.lcssa.i = phi i64 [ %.1, %64 ], [ %.1, %.lr.ph.i ], [ %.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL15sortGlobalExprsRN4llvm15SmallVectorImplINS2_16DwarfCompileUnit10GlobalExprEEEE3$_1EclIPS5_S5_EEbT_RT0_.exit.i" ], [ %.0133.i, %97 ], [ %.0133.i, %93 ]
-  %100 = getelementptr inbounds %"struct.llvm::DwarfCompileUnit::GlobalExpr", ptr %0, i64 %.013.lcssa.i
+  %100 = getelementptr inbounds nuw %"struct.llvm::DwarfCompileUnit::GlobalExpr", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %100, align 8, !tbaa !1265
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %.fr11.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !1267
@@ -51122,7 +51122,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEP
   %.0133.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %61 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %57 = getelementptr inbounds %"struct.std::pair.1226", ptr %0, i64 %.04.i.i.i.i.i
+  %57 = getelementptr inbounds nuw %"struct.std::pair.1226", ptr %0, i64 %.04.i.i.i.i.i
   %58 = getelementptr i8, ptr %57, i64 16
   %.val.i.i.i.i.i = load ptr, ptr %58, align 8, !tbaa !1743
   %59 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 16
@@ -51141,7 +51141,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEP
 
 "_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_T0_SM_T1_T2_.exit.i.i.i": ; preds = %61, %56, %53
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %53 ], [ %.0133.i.i.i.i.i, %56 ], [ %.04.i.i.i.i.i, %61 ]
-  %65 = getelementptr inbounds %"struct.std::pair.1226", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %65 = getelementptr inbounds nuw %"struct.std::pair.1226", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %.sroa.43.0.copyload.i.i.i, ptr %66, align 8, !tbaa !1743
@@ -51249,7 +51249,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEP
 
 "_ZSt10__pop_heapIPSt4pairIN4llvm9StringRefEPKNS1_3DIEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10DwarfDebug19emitDebugPubSectionEbS2_PNS1_16DwarfCompileUnitERKNS1_9StringMapIS5_NS1_15MallocAllocatorEEEE3$_0EEEvT_SL_SL_RT0_.exit.i21.i": ; preds = %109, %104, %102
   %.013.lcssa.i.i.i.i22.i = phi i64 [ 0, %102 ], [ %.0133.i.i.i.i15.i, %104 ], [ 0, %109 ]
-  %112 = getelementptr inbounds %"struct.std::pair.1226", ptr %0, i64 %.013.lcssa.i.i.i.i22.i
+  %112 = getelementptr inbounds nuw %"struct.std::pair.1226", ptr %0, i64 %.013.lcssa.i.i.i.i22.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i5.i, i64 16, i1 false)
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %.sroa.43.0.copyload.i.i9.i, ptr %113, align 8, !tbaa !1743

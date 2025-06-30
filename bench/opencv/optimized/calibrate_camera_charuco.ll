@@ -3879,7 +3879,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i106.i: ; preds =
 
 1245:                                             ; preds = %1231
   %1246 = getelementptr inbounds nuw i8, ptr %1214, i64 16
-  invoke void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) %1214, ptr noundef nonnull align 8 dereferenceable(32) %1246, i32 noundef %spec.select222)
+  invoke void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) %1214, ptr noundef nonnull align 8 dereferenceable(32) %1246, i32 noundef range(i32 0, 16) %spec.select222)
           to label %.noexc112.i481 unwind label %1204
 
 .noexc112.i481:                                   ; preds = %1245

@@ -4601,7 +4601,7 @@ get_vlc2.exit133.i.i:                             ; preds = %1163, %1142, %1123
   %.0109.i.i = phi i32 [ %1203, %1199 ], [ %1198, %1185 ]
   %.0108.i.i = phi i32 [ %1206, %1199 ], [ %1196, %1185 ]
   %.0107.in.in.i.i = phi i32 [ %1216, %1199 ], [ %1193, %1185 ]
-  %1218 = add nsw i32 %.0109.i.i, %.0111147.i.i
+  %1218 = add nuw nsw i32 %.0109.i.i, %.0111147.i.i
   %.not128.i.i = icmp slt i32 %1218, %992
   br i1 %.not128.i.i, label %1219, label %1236
 
@@ -4611,12 +4611,12 @@ get_vlc2.exit133.i.i:                             ; preds = %1163, %1142, %1123
   %1220 = xor i32 %.0107.i.i, %.0108.i.i
   %.0107.neg.i.i = xor i32 %.0107.in.i.i, 1
   %1221 = add nsw i32 %1220, %.0107.neg.i.i
-  %1222 = sext i32 %1218 to i64
-  %1223 = getelementptr inbounds i32, ptr %1004, i64 %1222
+  %1222 = zext nneg i32 %1218 to i64
+  %1223 = getelementptr inbounds nuw i32, ptr %1004, i64 %1222
   %1224 = load i32, ptr %1223, align 4, !tbaa !56
   %1225 = add nsw i32 %1221, %1224
   store i32 %1225, ptr %1223, align 4, !tbaa !56
-  %1226 = add nsw i32 %1218, 1
+  %1226 = add nuw nsw i32 %1218, 1
   %1227 = icmp slt i32 %1226, %992
   br i1 %1227, label %1123, label %.thread141.i.i, !llvm.loop !202
 

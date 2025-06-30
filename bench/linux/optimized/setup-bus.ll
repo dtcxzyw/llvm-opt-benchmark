@@ -1366,21 +1366,21 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
 43:                                               ; preds = %36, %27
   %44 = phi ptr [ %15, %27 ], [ %37, %36 ]
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %289, label %46
+  br i1 %45, label %284, label %46
 
 46:                                               ; preds = %43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %9, i8 0, i64 192, i1 false), !annotation !5
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %289
+  br i1 %49, label %50, label %284
 
 50:                                               ; preds = %46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %9, i8 0, i64 192, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %51
-  br i1 %53, label %.thread22, label %54
+  br i1 %53, label %.loopexit, label %54
 
 54:                                               ; preds = %50
   %55 = icmp eq ptr %7, null
@@ -1562,176 +1562,171 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef 
   %171 = phi i64 [ %164, %160 ], [ %67, %65 ]
   %172 = load ptr, ptr %57, align 8
   %173 = icmp eq ptr %172, %51
-  br i1 %173, label %174, label %56, !llvm.loop !17
+  br i1 %173, label %.loopexit.loopexit, label %56, !llvm.loop !17
 
-174:                                              ; preds = %167
-  %175 = icmp slt i32 %170, 0
-  br i1 %175, label %.loopexit, label %.thread22
+.loopexit.loopexit:                               ; preds = %167
+  %174 = add nuw i32 %170, 1
+  br label %.loopexit
 
-.thread22:                                        ; preds = %50, %174
-  %176 = phi i64 [ %171, %174 ], [ 0, %50 ]
-  %177 = phi i32 [ %170, %174 ], [ 0, %50 ]
-  %178 = phi i64 [ %169, %174 ], [ 0, %50 ]
-  %179 = phi i64 [ %168, %174 ], [ 0, %50 ]
-  %180 = add nuw i32 %177, 1
-  %181 = tail call i32 @llvm.smax.i32(i32 %180, i32 1)
-  %182 = zext nneg i32 %181 to i64
-  br label %183
+.loopexit:                                        ; preds = %.loopexit.loopexit, %50
+  %175 = phi i64 [ 0, %50 ], [ %168, %.loopexit.loopexit ]
+  %176 = phi i64 [ 0, %50 ], [ %169, %.loopexit.loopexit ]
+  %177 = phi i32 [ 1, %50 ], [ %174, %.loopexit.loopexit ]
+  %178 = phi i64 [ 0, %50 ], [ %171, %.loopexit.loopexit ]
+  %179 = tail call i32 @llvm.smax.i32(i32 %177, i32 1)
+  %180 = zext nneg i32 %179 to i64
+  br label %181
 
-183:                                              ; preds = %198, %.thread22
-  %184 = phi i64 [ 0, %.thread22 ], [ %203, %198 ]
-  %185 = phi i64 [ 0, %.thread22 ], [ %199, %198 ]
-  %186 = phi i64 [ 0, %.thread22 ], [ %202, %198 ]
-  %187 = shl nuw i64 1048576, %184
-  %188 = icmp eq i64 %186, 0
-  br i1 %188, label %198, label %189
+181:                                              ; preds = %196, %.loopexit
+  %182 = phi i64 [ 0, %.loopexit ], [ %201, %196 ]
+  %183 = phi i64 [ 0, %.loopexit ], [ %197, %196 ]
+  %184 = phi i64 [ 0, %.loopexit ], [ %200, %196 ]
+  %185 = shl nuw i64 1048576, %182
+  %186 = icmp eq i64 %184, 0
+  br i1 %186, label %196, label %187
 
-189:                                              ; preds = %183
-  %190 = shl i64 %185, 1
-  %191 = add i64 %186, -1
-  %192 = add i64 %191, %190
-  %193 = sub i64 0, %185
-  %194 = and i64 %192, %193
-  %195 = icmp ult i64 %194, %187
-  %196 = lshr exact i64 %187, 1
-  %197 = select i1 %195, i64 %196, i64 %185
-  br label %198
+187:                                              ; preds = %181
+  %188 = shl i64 %183, 1
+  %189 = add i64 %184, -1
+  %190 = add i64 %189, %188
+  %191 = sub i64 0, %183
+  %192 = and i64 %190, %191
+  %193 = icmp ult i64 %192, %185
+  %194 = lshr exact i64 %185, 1
+  %195 = select i1 %193, i64 %194, i64 %183
+  br label %196
 
-198:                                              ; preds = %189, %183
-  %199 = phi i64 [ %187, %183 ], [ %197, %189 ]
-  %200 = getelementptr i64, ptr %9, i64 %184
-  %201 = load i64, ptr %200, align 8
-  %202 = add i64 %201, %186
-  %203 = add nuw nsw i64 %184, 1
-  %204 = icmp eq i64 %203, %182
-  br i1 %204, label %.loopexit, label %183, !llvm.loop !18
+196:                                              ; preds = %187, %181
+  %197 = phi i64 [ %185, %181 ], [ %195, %187 ]
+  %198 = getelementptr i64, ptr %9, i64 %182
+  %199 = load i64, ptr %198, align 8
+  %200 = add i64 %199, %184
+  %201 = add nuw nsw i64 %182, 1
+  %202 = icmp eq i64 %201, %180
+  br i1 %202, label %203, label %181, !llvm.loop !18
 
-.loopexit:                                        ; preds = %198, %174
-  %205 = phi i64 [ %171, %174 ], [ %176, %198 ]
-  %206 = phi i64 [ %169, %174 ], [ %178, %198 ]
-  %207 = phi i64 [ %168, %174 ], [ %179, %198 ]
-  %208 = phi i64 [ 0, %174 ], [ %199, %198 ]
-  %209 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %210 = load i64, ptr %209, align 8
-  %211 = and i64 %210, 512
-  %212 = icmp eq i64 %211, 0
-  br i1 %212, label %213, label %226
+203:                                              ; preds = %196
+  %204 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %205 = load i64, ptr %204, align 8
+  %206 = and i64 %205, 512
+  %207 = icmp eq i64 %206, 0
+  br i1 %207, label %208, label %221
 
-213:                                              ; preds = %.loopexit
-  %214 = and i64 %210, 256
-  %215 = icmp eq i64 %214, 0
-  br i1 %215, label %226, label %216
+208:                                              ; preds = %203
+  %209 = and i64 %205, 256
+  %210 = icmp eq i64 %209, 0
+  br i1 %210, label %221, label %211
 
-216:                                              ; preds = %213
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %218 = load ptr, ptr %217, align 8
-  %219 = icmp eq ptr %218, null
-  br i1 %219, label %225, label %220
+211:                                              ; preds = %208
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %213 = load ptr, ptr %212, align 8
+  %214 = icmp eq ptr %213, null
+  br i1 %214, label %220, label %215
 
-220:                                              ; preds = %216
-  %221 = getelementptr inbounds nuw i8, ptr %218, i64 1689
-  %222 = load i40, ptr %221, align 1
-  %223 = and i40 %222, 1073741824
-  %224 = icmp eq i40 %223, 0
-  br i1 %224, label %225, label %226
+215:                                              ; preds = %211
+  %216 = getelementptr inbounds nuw i8, ptr %213, i64 1689
+  %217 = load i40, ptr %216, align 1
+  %218 = and i40 %217, 1073741824
+  %219 = icmp eq i40 %218, 0
+  br i1 %219, label %220, label %221
 
-225:                                              ; preds = %220, %216
-  br label %226
+220:                                              ; preds = %215, %211
+  br label %221
 
-226:                                              ; preds = %225, %220, %213, %.loopexit
-  %227 = phi i64 [ 4096, %225 ], [ 1, %213 ], [ 1048576, %.loopexit ], [ 1024, %220 ]
-  %228 = tail call i64 @pcibios_window_alignment(ptr noundef %0, i64 noundef %210)
-  %229 = tail call i64 @llvm.umax.i64(i64 %227, i64 %228)
-  %230 = tail call i64 @llvm.umax.i64(i64 %208, i64 %229)
-  %231 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %232 = load i64, ptr %231, align 8
-  %233 = load i64, ptr %44, align 8
-  %234 = add i64 %232, 1
-  %235 = sub i64 %234, %233
-  %236 = tail call i64 @llvm.umax.i64(i64 %205, i64 %5)
-  %237 = icmp eq i64 %235, 1
-  %238 = tail call i64 @llvm.umax.i64(i64 %236, i64 %235)
-  %239 = select i1 %237, i64 %236, i64 %238
-  %240 = add i64 %230, -1
-  %241 = add i64 %239, %240
-  %242 = sub i64 0, %230
-  %243 = and i64 %241, %242
-  %244 = tail call i64 @llvm.umax.i64(i64 %230, i64 %207)
-  %245 = icmp ne ptr %7, null
-  br i1 %245, label %246, label %257
+221:                                              ; preds = %220, %215, %208, %203
+  %222 = phi i64 [ 4096, %220 ], [ 1, %208 ], [ 1048576, %203 ], [ 1024, %215 ]
+  %223 = tail call i64 @pcibios_window_alignment(ptr noundef %0, i64 noundef %205)
+  %224 = tail call i64 @llvm.umax.i64(i64 %222, i64 %223)
+  %225 = tail call i64 @llvm.umax.i64(i64 %197, i64 %224)
+  %226 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %227 = load i64, ptr %226, align 8
+  %228 = load i64, ptr %44, align 8
+  %229 = add i64 %227, 1
+  %230 = sub i64 %229, %228
+  %231 = tail call i64 @llvm.umax.i64(i64 %178, i64 %5)
+  %232 = icmp eq i64 %230, 1
+  %233 = tail call i64 @llvm.umax.i64(i64 %231, i64 %230)
+  %234 = select i1 %232, i64 %231, i64 %233
+  %235 = add i64 %225, -1
+  %236 = add i64 %234, %235
+  %237 = sub i64 0, %225
+  %238 = and i64 %236, %237
+  %239 = tail call i64 @llvm.umax.i64(i64 %225, i64 %175)
+  %240 = icmp ne ptr %7, null
+  br i1 %240, label %241, label %252
 
-246:                                              ; preds = %226
-  %247 = icmp ne i64 %6, 0
-  %248 = icmp ne i64 %206, 0
-  %249 = select i1 %247, i1 true, i1 %248
-  br i1 %249, label %250, label %257
+241:                                              ; preds = %221
+  %242 = icmp ne i64 %6, 0
+  %243 = icmp ne i64 %176, 0
+  %244 = select i1 %242, i1 true, i1 %243
+  br i1 %244, label %245, label %252
 
-250:                                              ; preds = %246
-  %251 = tail call i64 @llvm.umax.i64(i64 %239, i64 %6)
-  %252 = add i64 %206, -1
-  %253 = add i64 %252, %244
-  %254 = add i64 %253, %251
-  %255 = sub i64 0, %244
-  %256 = and i64 %254, %255
-  br label %257
+245:                                              ; preds = %241
+  %246 = tail call i64 @llvm.umax.i64(i64 %234, i64 %6)
+  %247 = add i64 %176, -1
+  %248 = add i64 %247, %239
+  %249 = add i64 %248, %246
+  %250 = sub i64 0, %239
+  %251 = and i64 %249, %250
+  br label %252
 
-257:                                              ; preds = %250, %246, %226
-  %258 = phi i64 [ %256, %250 ], [ %243, %246 ], [ %243, %226 ]
-  %259 = icmp ne i64 %243, 0
-  %260 = icmp ne i64 %258, 0
-  %261 = select i1 %259, i1 true, i1 %260
-  br i1 %261, label %274, label %262
+252:                                              ; preds = %245, %241, %221
+  %253 = phi i64 [ %251, %245 ], [ %238, %241 ], [ %238, %221 ]
+  %254 = icmp ne i64 %238, 0
+  %255 = icmp ne i64 %253, 0
+  %256 = select i1 %254, i1 true, i1 %255
+  br i1 %256, label %269, label %257
 
-262:                                              ; preds = %257
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %264 = load ptr, ptr %263, align 8
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %273, label %266
+257:                                              ; preds = %252
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %259 = load ptr, ptr %258, align 8
+  %260 = icmp eq ptr %259, null
+  br i1 %260, label %268, label %261
 
-266:                                              ; preds = %262
-  %267 = icmp eq i64 %233, 0
-  %268 = icmp eq i64 %232, 0
-  %269 = select i1 %267, i1 %268, i1 false
-  br i1 %269, label %273, label %270
+261:                                              ; preds = %257
+  %262 = icmp eq i64 %228, 0
+  %263 = icmp eq i64 %227, 0
+  %264 = select i1 %262, i1 %263, i1 false
+  br i1 %264, label %268, label %265
 
-270:                                              ; preds = %266
-  %271 = getelementptr inbounds nuw i8, ptr %264, i64 184
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %271, ptr noundef nonnull @.str.15, ptr noundef nonnull %44, ptr noundef nonnull %272) #13
-  br label %273
+265:                                              ; preds = %261
+  %266 = getelementptr inbounds nuw i8, ptr %259, i64 184
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %266, ptr noundef nonnull @.str.15, ptr noundef nonnull %44, ptr noundef nonnull %267) #13
+  br label %268
 
-273:                                              ; preds = %270, %266, %262
-  store i64 0, ptr %209, align 8
-  br label %289
+268:                                              ; preds = %265, %261, %257
+  store i64 0, ptr %204, align 8
+  br label %284
 
-274:                                              ; preds = %257
-  store i64 %230, ptr %44, align 8
-  %275 = add i64 %243, %240
-  store i64 %275, ptr %231, align 8
-  %276 = load i64, ptr %209, align 8
-  %277 = or i64 %276, 524288
-  store i64 %277, ptr %209, align 8
-  %278 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %279 = load ptr, ptr %278, align 8
-  %280 = icmp ne ptr %279, null
-  %281 = icmp ugt i64 %258, %243
-  %282 = and i1 %245, %281
-  %283 = select i1 %280, i1 %282, i1 false
-  br i1 %283, label %284, label %289
+269:                                              ; preds = %252
+  store i64 %225, ptr %44, align 8
+  %270 = add i64 %238, %235
+  store i64 %270, ptr %226, align 8
+  %271 = load i64, ptr %204, align 8
+  %272 = or i64 %271, 524288
+  store i64 %272, ptr %204, align 8
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %274 = load ptr, ptr %273, align 8
+  %275 = icmp ne ptr %274, null
+  %276 = icmp ugt i64 %253, %238
+  %277 = and i1 %240, %276
+  %278 = select i1 %275, i1 %277, i1 false
+  br i1 %278, label %279, label %284
 
-284:                                              ; preds = %274
-  %285 = sub nuw i64 %258, %243
-  tail call fastcc void @add_to_list(ptr noundef nonnull %7, ptr noundef nonnull %279, ptr noundef nonnull %44, i64 noundef %285, i64 noundef %244)
-  %286 = load ptr, ptr %278, align 8
-  %287 = getelementptr inbounds nuw i8, ptr %286, i64 184
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %287, ptr noundef nonnull @.str.18, ptr noundef nonnull %44, ptr noundef nonnull %288, i64 noundef %285, i64 noundef %244) #13
-  br label %289
+279:                                              ; preds = %269
+  %280 = sub nuw i64 %253, %238
+  tail call fastcc void @add_to_list(ptr noundef nonnull %7, ptr noundef nonnull %274, ptr noundef nonnull %44, i64 noundef %280, i64 noundef %239)
+  %281 = load ptr, ptr %273, align 8
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 184
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %282, ptr noundef nonnull @.str.18, ptr noundef nonnull %44, ptr noundef nonnull %283, i64 noundef %280, i64 noundef %239) #13
+  br label %284
 
-289:                                              ; preds = %284, %274, %273, %46, %43
-  %290 = phi i32 [ 0, %273 ], [ -28, %43 ], [ 0, %46 ], [ 0, %284 ], [ 0, %274 ]
+284:                                              ; preds = %279, %269, %268, %46, %43
+  %285 = phi i32 [ 0, %268 ], [ -28, %43 ], [ 0, %46 ], [ 0, %279 ], [ 0, %269 ]
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %9) #12
-  ret i32 %290
+  ret i32 %285
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

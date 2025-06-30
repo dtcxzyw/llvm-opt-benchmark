@@ -1065,7 +1065,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 175:                                              ; preds = %172
   %176 = load i32, ptr @hf_tacplus_data, align 4
   %177 = zext i8 %170 to i32
-  %178 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %176, ptr noundef nonnull %.096102105, i32 noundef %168, i32 noundef %177, i32 noundef 0)
+  %178 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %176, ptr noundef nonnull %.096102105, i32 noundef range(i32 8, 1030) %168, i32 noundef %177, i32 noundef 0)
   br label %dissect_tacplus_body.exit
 
 179:                                              ; preds = %169
@@ -1076,7 +1076,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 182:                                              ; preds = %179
   %183 = load i32, ptr @hf_tacplus_auth_password, align 4
   %184 = zext i8 %170 to i32
-  %185 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %183, ptr noundef nonnull %.096102105, i32 noundef %168, i32 noundef %184, i32 noundef 0)
+  %185 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %183, ptr noundef nonnull %.096102105, i32 noundef range(i32 8, 1030) %168, i32 noundef %184, i32 noundef 0)
   br label %dissect_tacplus_body.exit
 
 186:                                              ; preds = %169
@@ -1088,9 +1088,9 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %190 = zext i8 %170 to i32
   %191 = add i8 %170, -17
   %192 = load i32, ptr @ett_tacplus_body_chap, align 4
-  %193 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef %168, i32 noundef %190, i32 noundef %192, ptr noundef null, ptr noundef nonnull @.str.261)
+  %193 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef range(i32 8, 1030) %168, i32 noundef %190, i32 noundef %192, ptr noundef null, ptr noundef nonnull @.str.261)
   %194 = load i32, ptr @hf_tacplus_chap_id, align 4
-  %195 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef nonnull %.096102105, i32 noundef %168, i32 noundef 1, i32 noundef 0)
+  %195 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef nonnull %.096102105, i32 noundef range(i32 8, 1030) %168, i32 noundef 1, i32 noundef 0)
   %196 = add nuw nsw i32 %168, 1
   %197 = load i32, ptr @hf_tacplus_chap_challenge, align 4
   %198 = zext i8 %191 to i32
@@ -1109,9 +1109,9 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
   %207 = zext i8 %170 to i32
   %208 = add i8 %170, -50
   %209 = load i32, ptr @ett_tacplus_body_chap, align 4
-  %210 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef %168, i32 noundef %207, i32 noundef %209, ptr noundef null, ptr noundef nonnull @.str.262)
+  %210 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef range(i32 8, 1030) %168, i32 noundef %207, i32 noundef %209, ptr noundef null, ptr noundef nonnull @.str.262)
   %211 = load i32, ptr @hf_tacplus_mschap_id, align 4
-  %212 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef nonnull %.096102105, i32 noundef %168, i32 noundef 1, i32 noundef 0)
+  %212 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef nonnull %.096102105, i32 noundef range(i32 8, 1030) %168, i32 noundef 1, i32 noundef 0)
   %213 = add nuw nsw i32 %168, 1
   %214 = load i32, ptr @hf_tacplus_mschap_challenge, align 4
   %215 = zext i8 %208 to i32
@@ -1129,9 +1129,9 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 223:                                              ; preds = %220
   %224 = zext i8 %170 to i32
   %225 = load i32, ptr @ett_tacplus_body_chap, align 4
-  %226 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef %168, i32 noundef %224, i32 noundef %225, ptr noundef null, ptr noundef nonnull @.str.263)
+  %226 = call ptr @proto_tree_add_subtree(ptr noundef %.081, ptr noundef nonnull %.096102105, i32 noundef range(i32 8, 1030) %168, i32 noundef %224, i32 noundef %225, ptr noundef null, ptr noundef nonnull @.str.263)
   %227 = load i32, ptr @hf_tacplus_arap_nas_challenge, align 4
-  %228 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %227, ptr noundef nonnull %.096102105, i32 noundef %168, i32 noundef 8, i32 noundef 0)
+  %228 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %227, ptr noundef nonnull %.096102105, i32 noundef range(i32 8, 1030) %168, i32 noundef 8, i32 noundef 0)
   %229 = add nuw nsw i32 %168, 8
   %230 = load i32, ptr @hf_tacplus_arap_remote_challenge, align 4
   %231 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %230, ptr noundef nonnull %.096102105, i32 noundef %229, i32 noundef 8, i32 noundef 0)
@@ -1148,7 +1148,7 @@ proto_item_set_hidden.exit:                       ; preds = %41, %59, %62
 238:                                              ; preds = %235
   %239 = load i32, ptr @hf_tacplus_data, align 4
   %240 = zext i8 %170 to i32
-  %241 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %239, ptr noundef nonnull %.096102105, i32 noundef %168, i32 noundef %240, i32 noundef 0)
+  %241 = call ptr @proto_tree_add_item(ptr noundef %.081, i32 noundef %239, ptr noundef nonnull %.096102105, i32 noundef range(i32 8, 1030) %168, i32 noundef %240, i32 noundef 0)
   br label %dissect_tacplus_body.exit
 
 242:                                              ; preds = %162
@@ -1553,7 +1553,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_tacplus_args_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 6, 10) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_tacplus_args_list(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 6, 131332) %2, i32 noundef range(i32 6, 10) %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

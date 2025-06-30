@@ -622,7 +622,7 @@ HIDAPI_GIP_DecodeHeader.exit.i:                   ; preds = %DecodeVariableInt.e
   br label %HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i
 
 HIDAPI_GIP_DestroyChunkBuffer.exit.i.i.i:         ; preds = %256, %254
-  %257 = zext i32 %244 to i64
+  %257 = zext nneg i32 %244 to i64
   %258 = call noalias ptr @SDL_malloc_REAL(i64 noundef %257) #9
   store ptr %258, ptr %26, align 8
   %.not.i.not.i.i = icmp eq ptr %258, null
@@ -719,7 +719,7 @@ HIDAPI_GIP_AcknowledgePacket.exit.i.i:            ; preds = %SendProtocolPacket.
   br i1 %.not19.i.i.i, label %293, label %289
 
 289:                                              ; preds = %288
-  %290 = zext i32 %261 to i64
+  %290 = zext nneg i32 %261 to i64
   %291 = getelementptr inbounds nuw i8, ptr %283, i64 %290
   %292 = zext i32 %250 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %291, ptr nonnull readonly align 1 %252, i64 %292, i1 false)

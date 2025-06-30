@@ -1420,7 +1420,7 @@ define dso_local range(i32 -19, 1) i32 @cppc_get_perf_caps(i32 noundef %0, ptr n
 declare dso_local void @down_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @send_pcc_cmd(i32 noundef %0, i16 noundef zeroext range(i16 0, 2) %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @send_pcc_cmd(i32 noundef %0, i16 noundef zeroext range(i16 0, 2) %1) unnamed_addr #2 align 16 {
   %3 = alloca i16, align 2
   store i16 %1, ptr %3, align 2
   %4 = sext i32 %0 to i64

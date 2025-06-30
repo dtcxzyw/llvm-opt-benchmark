@@ -2021,7 +2021,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @process_control_avps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65540) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @process_control_avps(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 6, 65550) %3, i32 noundef range(i32 0, 65540) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [20 x i8], align 16
   %9 = alloca ptr, align 8
   %10 = alloca [16 x i8], align 16
@@ -2034,7 +2034,7 @@ define internal fastcc void @process_control_avps(ptr noundef %0, ptr noundef %1
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %17, i64 noundef 8) #10
   store i32 %5, ptr %18, align 4
-  %19 = icmp slt i32 %3, %4
+  %19 = icmp samesign ult i32 %3, %4
   br i1 %19, label %.lr.ph677, label %update_session.exit
 
 .lr.ph677:                                        ; preds = %7

@@ -9477,7 +9477,7 @@ _ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit: ; preds = %24
   br i1 %25, label %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit.thread, label %26
 
 26:                                               ; preds = %_ZN6icu_77L12binarySearchEPKPKciiNS_11StringPieceE.exit
-  %27 = add nsw i32 %15, 1
+  %27 = add nuw nsw i32 %15, 1
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds [24 x i32], ptr @_ZN6icu_77L8gOffsetsE, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !12

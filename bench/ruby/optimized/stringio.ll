@@ -2377,7 +2377,7 @@ RSTRING_PTR.exit65:                               ; preds = %RSTRING_PTR.exit, %
 124:                                              ; preds = %RSTRING_PTR.exit65
   %125 = load i64, ptr %110, align 8, !tbaa !23
   %126 = getelementptr inbounds i8, ptr %.sroa.2.0.i64, i64 %125
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.sroa.2.0.i, ptr noundef nonnull readonly align 1 %126, i64 noundef %spec.select, i1 noundef false) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.sroa.2.0.i, ptr noundef nonnull readonly align 1 %126, i64 noundef range(i64 1, 0) %spec.select, i1 noundef false) #16
   %.pre86.pre = load i64, ptr %4, align 8, !tbaa !6
   br label %ruby_nonempty_memcpy.exit
 
@@ -2631,7 +2631,7 @@ RSTRING_PTR.exit:                                 ; preds = %87, %98
 RSTRING_PTR.exit37:                               ; preds = %104, %RSTRING_PTR.exit
   %.sroa.2.0.i36 = phi ptr [ %.sroa.2.0.copyload.i35, %104 ], [ %103, %RSTRING_PTR.exit ]
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i36, i64 %.0.i28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.sroa.2.0.i, ptr noundef nonnull readonly align 1 %105, i64 noundef %spec.select, i1 noundef false) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.sroa.2.0.i, ptr noundef nonnull readonly align 1 %105, i64 noundef range(i64 1, 0) %spec.select, i1 noundef false) #16
   %106 = load i64, ptr %6, align 8, !tbaa !6
   br label %strio_substr.exit
 
@@ -4906,7 +4906,7 @@ RSTRING_PTR.exit54:                               ; preds = %28, %32
   %40 = getelementptr inbounds i8, ptr %.045, i64 %.0
   %.not = icmp eq ptr %1, null
   %41 = select i1 %.not, ptr %.045, ptr %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 1 dereferenceable(1) %41, i64 noundef %2, i1 noundef false) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 1 dereferenceable(1) %41, i64 noundef range(i64 1, 0) %2, i1 noundef false) #16
   store i64 %.0, ptr %4, align 8, !tbaa !23
   ret void
 }

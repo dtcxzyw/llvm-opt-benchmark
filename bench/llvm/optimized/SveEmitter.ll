@@ -25152,14 +25152,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.033 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.033, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %11
   %gep = getelementptr %"class.std::unique_ptr.70", ptr %invariant.gep, i64 %10
   %.val = load ptr, ptr %12, align 8, !tbaa !120
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef %gep)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef nonnull %gep)
   %14 = or disjoint i64 %10, 1
   %spec.select = select i1 %13, i64 %14, i64 %11
-  %15 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.033
+  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.033
   %17 = load ptr, ptr %15, align 8, !tbaa !120
   store ptr null, ptr %15, align 8, !tbaa !120
   %18 = load ptr, ptr %16, align 8, !tbaa !120
@@ -25190,8 +25190,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 27:                                               ; preds = %23
   %28 = shl nsw i64 %.0.lcssa, 1
   %29 = or disjoint i64 %28, 1
-  %30 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %29
-  %31 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
   %32 = load ptr, ptr %30, align 8, !tbaa !120
   store ptr null, ptr %30, align 8, !tbaa !120
   %33 = load ptr, ptr %31, align 8, !tbaa !120
@@ -25208,7 +25208,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !120
   %35 = inttoptr i64 %.val.i.i.i to ptr
   store ptr null, ptr %3, align 8, !tbaa !120
-  %36 = icmp sgt i64 %.127, %1
+  %36 = icmp samesign ugt i64 %.127, %1
   br i1 %36, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
@@ -25222,7 +25222,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %42 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
+  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %42, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
   call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(337) %.val.i, i32 noundef 1)
@@ -25306,7 +25306,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 
 .critedge.i:                                      ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i", %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
   %.013.lcssa.i = phi i64 [ %.127, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i" ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
-  %66 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
+  %66 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
   %67 = load ptr, ptr %66, align 8, !tbaa !120
   store ptr %35, ptr %66, align 8, !tbaa !120
   %.not.i.i.i.i15.i = icmp eq ptr %67, null
@@ -25855,14 +25855,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.033 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.033, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %11
   %gep = getelementptr %"class.std::unique_ptr.70", ptr %invariant.gep, i64 %10
   %.val = load ptr, ptr %12, align 8, !tbaa !120
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef %gep)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef nonnull %gep)
   %14 = or disjoint i64 %10, 1
   %spec.select = select i1 %13, i64 %14, i64 %11
-  %15 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.033
+  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.033
   %17 = load ptr, ptr %15, align 8, !tbaa !120
   store ptr null, ptr %15, align 8, !tbaa !120
   %18 = load ptr, ptr %16, align 8, !tbaa !120
@@ -25893,8 +25893,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 27:                                               ; preds = %23
   %28 = shl nsw i64 %.0.lcssa, 1
   %29 = or disjoint i64 %28, 1
-  %30 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %29
-  %31 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
   %32 = load ptr, ptr %30, align 8, !tbaa !120
   store ptr null, ptr %30, align 8, !tbaa !120
   %33 = load ptr, ptr %31, align 8, !tbaa !120
@@ -25911,7 +25911,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !120
   %35 = inttoptr i64 %.val.i.i.i to ptr
   store ptr null, ptr %3, align 8, !tbaa !120
-  %36 = icmp sgt i64 %.127, %1
+  %36 = icmp samesign ugt i64 %.127, %1
   br i1 %36, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
@@ -25925,7 +25925,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %42 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
+  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %42, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
   call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(337) %.val.i, i32 noundef 1)
@@ -26009,7 +26009,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 
 .critedge.i:                                      ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i", %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
   %.013.lcssa.i = phi i64 [ %.127, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i" ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
-  %66 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
+  %66 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
   %67 = load ptr, ptr %66, align 8, !tbaa !120
   store ptr %35, ptr %66, align 8, !tbaa !120
   %.not.i.i.i.i15.i = icmp eq ptr %67, null
@@ -26557,14 +26557,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.033 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.033, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %11
   %gep = getelementptr %"class.std::unique_ptr.70", ptr %invariant.gep, i64 %10
   %.val = load ptr, ptr %12, align 8, !tbaa !120
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef %gep)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef nonnull %gep)
   %14 = or disjoint i64 %10, 1
   %spec.select = select i1 %13, i64 %14, i64 %11
-  %15 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.033
+  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.033
   %17 = load ptr, ptr %15, align 8, !tbaa !120
   store ptr null, ptr %15, align 8, !tbaa !120
   %18 = load ptr, ptr %16, align 8, !tbaa !120
@@ -26595,8 +26595,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 27:                                               ; preds = %23
   %28 = shl nsw i64 %.0.lcssa, 1
   %29 = or disjoint i64 %28, 1
-  %30 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %29
-  %31 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
   %32 = load ptr, ptr %30, align 8, !tbaa !120
   store ptr null, ptr %30, align 8, !tbaa !120
   %33 = load ptr, ptr %31, align 8, !tbaa !120
@@ -26613,7 +26613,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !120
   %35 = inttoptr i64 %.val.i.i.i to ptr
   store ptr null, ptr %3, align 8, !tbaa !120
-  %36 = icmp sgt i64 %.127, %1
+  %36 = icmp samesign ugt i64 %.127, %1
   br i1 %36, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
@@ -26627,7 +26627,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %42 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
+  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %42, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
   call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(337) %.val.i, i32 noundef 1)
@@ -26711,7 +26711,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 
 .critedge.i:                                      ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i", %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
   %.013.lcssa.i = phi i64 [ %.127, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i" ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
-  %66 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
+  %66 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
   %67 = load ptr, ptr %66, align 8, !tbaa !120
   store ptr %35, ptr %66, align 8, !tbaa !120
   %.not.i.i.i.i15.i = icmp eq ptr %67, null
@@ -27508,14 +27508,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.033 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.033, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %11
   %gep = getelementptr %"class.std::unique_ptr.70", ptr %invariant.gep, i64 %10
   %.val = load ptr, ptr %12, align 8, !tbaa !120
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef %gep)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef nonnull %gep)
   %14 = or disjoint i64 %10, 1
   %spec.select = select i1 %13, i64 %14, i64 %11
-  %15 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.033
+  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.033
   %17 = load ptr, ptr %15, align 8, !tbaa !120
   store ptr null, ptr %15, align 8, !tbaa !120
   %18 = load ptr, ptr %16, align 8, !tbaa !120
@@ -27546,8 +27546,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 27:                                               ; preds = %23
   %28 = shl nsw i64 %.0.lcssa, 1
   %29 = or disjoint i64 %28, 1
-  %30 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %29
-  %31 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
   %32 = load ptr, ptr %30, align 8, !tbaa !120
   store ptr null, ptr %30, align 8, !tbaa !120
   %33 = load ptr, ptr %31, align 8, !tbaa !120
@@ -27564,7 +27564,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !120
   %35 = inttoptr i64 %.val.i.i.i to ptr
   store ptr null, ptr %3, align 8, !tbaa !120
-  %36 = icmp sgt i64 %.127, %1
+  %36 = icmp samesign ugt i64 %.127, %1
   br i1 %36, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
@@ -27578,7 +27578,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %42 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
+  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %42, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
   call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(337) %.val.i, i32 noundef 1)
@@ -27662,7 +27662,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 
 .critedge.i:                                      ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i", %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
   %.013.lcssa.i = phi i64 [ %.127, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i" ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
-  %66 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
+  %66 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
   %67 = load ptr, ptr %66, align 8, !tbaa !120
   store ptr %35, ptr %66, align 8, !tbaa !120
   %.not.i.i.i.i15.i = icmp eq ptr %67, null
@@ -28208,14 +28208,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.033 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.033, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %11
   %gep = getelementptr %"class.std::unique_ptr.70", ptr %invariant.gep, i64 %10
   %.val = load ptr, ptr %12, align 8, !tbaa !120
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef %gep)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef nonnull %gep)
   %14 = or disjoint i64 %10, 1
   %spec.select = select i1 %13, i64 %14, i64 %11
-  %15 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.033
+  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.033
   %17 = load ptr, ptr %15, align 8, !tbaa !120
   store ptr null, ptr %15, align 8, !tbaa !120
   %18 = load ptr, ptr %16, align 8, !tbaa !120
@@ -28246,8 +28246,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 27:                                               ; preds = %23
   %28 = shl nsw i64 %.0.lcssa, 1
   %29 = or disjoint i64 %28, 1
-  %30 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %29
-  %31 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
   %32 = load ptr, ptr %30, align 8, !tbaa !120
   store ptr null, ptr %30, align 8, !tbaa !120
   %33 = load ptr, ptr %31, align 8, !tbaa !120
@@ -28264,7 +28264,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !120
   %35 = inttoptr i64 %.val.i.i.i to ptr
   store ptr null, ptr %3, align 8, !tbaa !120
-  %36 = icmp sgt i64 %.127, %1
+  %36 = icmp samesign ugt i64 %.127, %1
   br i1 %36, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
@@ -28278,7 +28278,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %42 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
+  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %42, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
   call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(337) %.val.i, i32 noundef 1)
@@ -28362,7 +28362,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 
 .critedge.i:                                      ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i", %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
   %.013.lcssa.i = phi i64 [ %.127, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i" ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
-  %66 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
+  %66 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
   %67 = load ptr, ptr %66, align 8, !tbaa !120
   store ptr %35, ptr %66, align 8, !tbaa !120
   %.not.i.i.i.i15.i = icmp eq ptr %67, null
@@ -28908,14 +28908,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.033 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.033, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %11
   %gep = getelementptr %"class.std::unique_ptr.70", ptr %invariant.gep, i64 %10
   %.val = load ptr, ptr %12, align 8, !tbaa !120
-  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef %gep)
+  %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_110SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESF_EEbT_T0_"(ptr %.val, ptr noundef nonnull %gep)
   %14 = or disjoint i64 %10, 1
   %spec.select = select i1 %13, i64 %14, i64 %11
-  %15 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.033
+  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.033
   %17 = load ptr, ptr %15, align 8, !tbaa !120
   store ptr null, ptr %15, align 8, !tbaa !120
   %18 = load ptr, ptr %16, align 8, !tbaa !120
@@ -28946,8 +28946,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 27:                                               ; preds = %23
   %28 = shl nsw i64 %.0.lcssa, 1
   %29 = or disjoint i64 %28, 1
-  %30 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %29
-  %31 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
+  %30 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.0.lcssa
   %32 = load ptr, ptr %30, align 8, !tbaa !120
   store ptr null, ptr %30, align 8, !tbaa !120
   %33 = load ptr, ptr %31, align 8, !tbaa !120
@@ -28964,7 +28964,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i.i = load i64, ptr %3, align 8, !tbaa !120
   %35 = inttoptr i64 %.val.i.i.i to ptr
   store ptr null, ptr %3, align 8, !tbaa !120
-  %36 = icmp sgt i64 %.127, %1
+  %36 = icmp samesign ugt i64 %.127, %1
   br i1 %36, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
@@ -28978,7 +28978,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %42 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
+  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %42, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
   call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(337) %.val.i, i32 noundef 1)
@@ -29062,7 +29062,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 
 .critedge.i:                                      ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i", %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29
   %.013.lcssa.i = phi i64 [ %.127, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit29 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_110SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EclIPSt10unique_ptrINS2_9IntrinsicESt14default_deleteISB_EESE_EEbT_RT0_.exit.i" ], [ %.04.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit.i ]
-  %66 = getelementptr inbounds %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
+  %66 = getelementptr inbounds nuw %"class.std::unique_ptr.70", ptr %0, i64 %.013.lcssa.i
   %67 = load ptr, ptr %66, align 8, !tbaa !120
   store ptr %35, ptr %66, align 8, !tbaa !120
   %.not.i.i.i.i15.i = icmp eq ptr %67, null

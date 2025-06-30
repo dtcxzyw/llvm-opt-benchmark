@@ -232,9 +232,9 @@ _ZN4llvm5ErrorD2Ev.exit33:                        ; preds = %43
   call void @_ZN4llvm18BinaryStreamReader13readSubstreamERNS_18BinarySubstreamRefEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(56) %54, i32 noundef %51) #20
   %55 = load ptr, ptr %0, align 8, !tbaa !14
   %.not57 = icmp eq ptr %55, null
-  br i1 %.not57, label %_ZN4llvm5ErrorD2Ev.exit34.preheader, label %.critedge27
+  br i1 %.not57, label %.critedge.preheader, label %.critedge27
 
-_ZN4llvm5ErrorD2Ev.exit34.preheader:              ; preds = %_ZN4llvm5ErrorD2Ev.exit33
+.critedge.preheader:                              ; preds = %_ZN4llvm5ErrorD2Ev.exit33
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -243,18 +243,18 @@ _ZN4llvm5ErrorD2Ev.exit34.preheader:              ; preds = %_ZN4llvm5ErrorD2Ev.
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  br label %.backedge
+  br label %.critedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %_ZN4llvm5ErrorD2Ev.exit34.preheader
+.critedge:                                        ; preds = %.critedge.backedge, %.critedge.preheader
   %64 = load i8, ptr %56, align 8, !tbaa !8, !range !91, !noundef !92
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %68
 
-66:                                               ; preds = %.backedge
+66:                                               ; preds = %.critedge
   %67 = load i64, ptr %59, align 8, !tbaa !93
   br label %_ZNK4llvm18BinaryStreamReader5emptyEv.exit
 
-68:                                               ; preds = %.backedge
+68:                                               ; preds = %.critedge
   %69 = load ptr, ptr %57, align 8, !tbaa !94
   %.not.i.i.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i.i.i, label %_ZNK4llvm18BinaryStreamReader5emptyEv.exit, label %70
@@ -301,15 +301,12 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %79
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i37, i32 %.0.copyload.i.i.i36, i32 %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20, !noalias !99
   store ptr null, ptr %0, align 8, !tbaa !14, !alias.scope !96
-  switch i32 %spec.select.i.i.i.i, label %.backedge.backedge [
+  switch i32 %spec.select.i.i.i.i, label %.critedge.backedge [
     i32 20091201, label %88
     i32 20140508, label %91
     i32 1297370958, label %89
     i32 1229867341, label %90
   ]
-
-.backedge.backedge:                               ; preds = %_ZN4llvm5ErrorD2Ev.exit38, %96, %_ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  br label %.backedge, !llvm.loop !102
 
 88:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit38
   br label %91
@@ -323,22 +320,22 @@ _ZN4llvm5ErrorD2Ev.exit38:                        ; preds = %79
 91:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit38, %88, %90, %89
   %.sink60 = phi i32 [ 2, %90 ], [ 4, %89 ], [ 1, %88 ], [ 1, %_ZN4llvm5ErrorD2Ev.exit38 ]
   %.3 = phi i1 [ false, %90 ], [ false, %89 ], [ true, %88 ], [ false, %_ZN4llvm5ErrorD2Ev.exit38 ]
-  %92 = load i32, ptr %60, align 8, !tbaa !104
+  %92 = load i32, ptr %60, align 8, !tbaa !102
   %93 = or i32 %92, %.sink60
-  store i32 %93, ptr %60, align 8, !tbaa !104
-  %94 = load ptr, ptr %62, align 8, !tbaa !105
-  %95 = load ptr, ptr %63, align 8, !tbaa !106
+  store i32 %93, ptr %60, align 8, !tbaa !102
+  %94 = load ptr, ptr %62, align 8, !tbaa !103
+  %95 = load ptr, ptr %63, align 8, !tbaa !104
   %.not.i39 = icmp eq ptr %94, %95
   br i1 %.not.i39, label %98, label %96
 
 96:                                               ; preds = %91
-  store i32 %spec.select.i.i.i.i, ptr %94, align 4, !tbaa !107
+  store i32 %spec.select.i.i.i.i, ptr %94, align 4, !tbaa !105
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  store ptr %97, ptr %62, align 8, !tbaa !105
-  br i1 %.3, label %_ZN4llvm5ErrorD2Ev.exit40, label %.backedge.backedge
+  store ptr %97, ptr %62, align 8, !tbaa !103
+  br label %.critedge29
 
 98:                                               ; preds = %91
-  %99 = load ptr, ptr %61, align 8, !tbaa !109
+  %99 = load ptr, ptr %61, align 8, !tbaa !107
   %100 = ptrtoint ptr %94 to i64
   %101 = ptrtoint ptr %99 to i64
   %102 = sub i64 %100, %101
@@ -361,7 +358,7 @@ _ZNKSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %110 = shl nuw nsw i64 %109, 2
   %111 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %110) #21
   %112 = getelementptr inbounds i8, ptr %111, i64 %102
-  store i32 %spec.select.i.i.i.i, ptr %112, align 4, !tbaa !107
+  store i32 %spec.select.i.i.i.i, ptr %112, align 4, !tbaa !105
   %113 = icmp sgt i64 %102, 0
   br i1 %113, label %114, label %_ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -379,13 +376,19 @@ _ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %116, %_ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %111, ptr %61, align 8, !tbaa !109
-  store ptr %115, ptr %62, align 8, !tbaa !105
+  store ptr %111, ptr %61, align 8, !tbaa !107
+  store ptr %115, ptr %62, align 8, !tbaa !103
   %117 = getelementptr inbounds nuw i32, ptr %111, i64 %109
-  store ptr %117, ptr %63, align 8, !tbaa !106
-  br i1 %.3, label %_ZN4llvm5ErrorD2Ev.exit40, label %.backedge.backedge
+  store ptr %117, ptr %63, align 8, !tbaa !104
+  br label %.critedge29
 
-_ZN4llvm5ErrorD2Ev.exit40:                        ; preds = %_ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %96, %_ZNK4llvm18BinaryStreamReader5emptyEv.exit
+.critedge29:                                      ; preds = %_ZNSt6vectorIN4llvm3pdb17PdbRaw_FeatureSigESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %96
+  br i1 %.3, label %_ZN4llvm5ErrorD2Ev.exit40, label %.critedge.backedge
+
+.critedge.backedge:                               ; preds = %.critedge29, %_ZN4llvm5ErrorD2Ev.exit38
+  br label %.critedge, !llvm.loop !108
+
+_ZN4llvm5ErrorD2Ev.exit40:                        ; preds = %_ZNK4llvm18BinaryStreamReader5emptyEv.exit, %.critedge29
   store ptr null, ptr %0, align 8, !tbaa !14
   br label %.critedge27
 
@@ -647,9 +650,9 @@ define dso_local noundef i32 @_ZNK4llvm3pdb10InfoStream11getFeaturesEv(ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { ptr, i64 } @_ZNK4llvm3pdb10InfoStream20getFeatureSignaturesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !109
+  %3 = load ptr, ptr %2, align 8, !tbaa !107
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !105
+  %5 = load ptr, ptr %4, align 8, !tbaa !103
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %3 to i64
   %8 = sub i64 %6, %7
@@ -1526,14 +1529,14 @@ attributes #23 = { builtin nounwind }
 !99 = !{!100, !97}
 !100 = distinct !{!100, !101, !"_ZN4llvm18BinaryStreamReader11readIntegerIjEENS_5ErrorERT_: argument 0"}
 !101 = distinct !{!101, !"_ZN4llvm18BinaryStreamReader11readIntegerIjEENS_5ErrorERT_"}
-!102 = distinct !{!102, !103}
-!103 = !{!"llvm.loop.mustprogress"}
-!104 = !{!68, !68, i64 0}
-!105 = !{!67, !5, i64 8}
-!106 = !{!67, !5, i64 16}
-!107 = !{!108, !108, i64 0}
-!108 = !{!"_ZTSN4llvm3pdb17PdbRaw_FeatureSigE", !6, i64 0}
-!109 = !{!67, !5, i64 0}
+!102 = !{!68, !68, i64 0}
+!103 = !{!67, !5, i64 8}
+!104 = !{!67, !5, i64 16}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"_ZTSN4llvm3pdb17PdbRaw_FeatureSigE", !6, i64 0}
+!107 = !{!67, !5, i64 0}
+!108 = distinct !{!108, !109}
+!109 = !{!"llvm.loop.mustprogress"}
 !110 = !{!50, !51, i64 0}
 !111 = !{!112, !69, i64 8}
 !112 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !69, i64 8, !69, i64 12}
@@ -1570,11 +1573,11 @@ attributes #23 = { builtin nounwind }
 !143 = distinct !{!143, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
 !144 = !{!145}
 !145 = distinct !{!145, !143, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!146 = distinct !{!146, !103}
+!146 = distinct !{!146, !109}
 !147 = !{!148}
 !148 = distinct !{!148, !149, !"_ZN4llvm5Error11takePayloadEv: argument 0"}
 !149 = distinct !{!149, !"_ZN4llvm5Error11takePayloadEv"}
-!150 = distinct !{!150, !103}
+!150 = distinct !{!150, !109}
 !151 = !{!152}
 !152 = distinct !{!152, !153, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !153 = distinct !{!153, !"_ZSt19__relocate_object_aISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}

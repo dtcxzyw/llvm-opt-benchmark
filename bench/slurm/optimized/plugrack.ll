@@ -688,7 +688,7 @@ define internal noundef i32 @_foreach_plugin(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @load_plugins(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 8004) i32 @load_plugins(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.plugrack_foreach_args_t, align 8
   %8 = alloca %struct.plugrack_foreach_args_t, align 8
   %9 = alloca ptr, align 8
@@ -771,7 +771,7 @@ plugrack_read_dir.exit:                           ; preds = %30
 41:                                               ; preds = %plugrack_read_dir.exit, %plugrack_read_dir.exit.thread
   %.017.i96 = phi i32 [ -1, %plugrack_read_dir.exit.thread ], [ %.0.i, %plugrack_read_dir.exit ]
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 776), align 8
-  %43 = call ptr @slurm_strerror(i32 noundef -1) #11
+  %43 = call ptr @slurm_strerror(i32 noundef %.017.i96) #11
   %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.load_plugins, ptr noundef %42, ptr noundef %43) #11
   br label %.thread109
 

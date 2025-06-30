@@ -292,7 +292,7 @@ define internal noundef i32 @socketTransport_getCapabilities(ptr readnone captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @socketTransport_attach(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
+define internal range(i32 0, 204) i32 @socketTransport_attach(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8

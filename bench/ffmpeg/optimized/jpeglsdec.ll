@@ -1928,7 +1928,7 @@ define internal fastcc i32 @ls_get_code_regular(ptr noundef captures(none) %0, p
 
 37:                                               ; preds = %29, %15
   %.1 = phi i32 [ %.0, %15 ], [ %spec.select, %29 ]
-  %38 = tail call i32 @llvm.abs.i32(i32 %.1, i1 true)
+  %38 = tail call i32 @llvm.abs.i32(i32 range(i32 -1073741825, 1073741825) %.1, i1 true)
   %39 = icmp samesign ugt i32 %38, 65535
   br i1 %39, label %ff_jpegls_update_state_regular.exit, label %40
 

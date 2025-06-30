@@ -997,7 +997,7 @@ define internal fastcc void @dissect_mp4_url_body(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_mp4_stsd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_mp4_stsd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 21) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_mp4_full_box_ver, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %8 = add i32 %1, 1

@@ -16464,14 +16464,14 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit40:          ; preds = %68, %_ZN4llvm12Dens
   store i32 0, ptr %121, align 4, !tbaa !370
   %123 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %124 = load i8, ptr %123, align 8, !tbaa !404, !range !29, !noundef !12
-  %125 = icmp sgt i64 %.127, %1
+  %125 = icmp samesign ugt i64 %.127, %1
   br i1 %125, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %113, %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit.i
   %.0133.i = phi i64 [ %.04.i, %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit.i ], [ %.127, %113 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %126 = getelementptr inbounds %"struct.llvm::coro::AllocaInfo", ptr %0, i64 %.04.i
+  %126 = getelementptr inbounds nuw %"struct.llvm::coro::AllocaInfo", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %126, align 8, !tbaa !372
   %.val.i.i.i = load ptr, ptr %4, align 8, !tbaa !379
   %.val.val.i.i.i = load ptr, ptr %.val.i.i.i, align 8, !tbaa !725
@@ -16580,7 +16580,7 @@ _ZN4llvm4coro10AllocaInfoaSEOS1_.exit.i:          ; preds = %_ZN4llvm12DenseMapB
 
 .critedge.i:                                      ; preds = %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit.i, %.lr.ph.i, %113
   %.013.lcssa.i = phi i64 [ %.127, %113 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %_ZN4llvm4coro10AllocaInfoaSEOS1_.exit.i ]
-  %172 = getelementptr inbounds %"struct.llvm::coro::AllocaInfo", ptr %0, i64 %.013.lcssa.i
+  %172 = getelementptr inbounds nuw %"struct.llvm::coro::AllocaInfo", ptr %0, i64 %.013.lcssa.i
   store ptr %114, ptr %172, align 8, !tbaa !372
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 24

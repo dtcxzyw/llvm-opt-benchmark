@@ -12538,7 +12538,7 @@ stbi__jpeg_get_bit.exit185:                       ; preds = %.stbi__jpeg_get_bit
 
 stbi__jpeg_get_bit.exit185.thread:                ; preds = %stbi__jpeg_get_bit.exit185, %293, %268, %stbi__jpeg_get_bits.exit181, %266
   %299 = phi i32 [ %263, %266 ], [ %286, %stbi__jpeg_get_bits.exit181 ], [ %263, %268 ], [ %.pr.i184, %293 ], [ %298, %stbi__jpeg_get_bit.exit185 ]
-  %.0126 = phi i32 [ 15, %266 ], [ 64, %stbi__jpeg_get_bits.exit181 ], [ 64, %268 ], [ %265, %293 ], [ %265, %stbi__jpeg_get_bit.exit185 ]
+  %.0126 = phi i32 [ %265, %266 ], [ 64, %stbi__jpeg_get_bits.exit181 ], [ 64, %268 ], [ %265, %293 ], [ %265, %stbi__jpeg_get_bit.exit185 ]
   %.0125 = phi i32 [ 0, %266 ], [ 0, %stbi__jpeg_get_bits.exit181 ], [ 0, %268 ], [ %178, %293 ], [ %spec.select, %stbi__jpeg_get_bit.exit185 ]
   %300 = load i32, ptr %179, align 8, !tbaa !160
   %.not157253 = icmp sgt i32 %.6121, %300

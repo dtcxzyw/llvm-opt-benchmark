@@ -465,7 +465,7 @@ truehd_layout.exit101:                            ; preds = %243, %mlp_samplerat
   %325 = sub nsw i32 0, %322
   %326 = sub nsw i32 %37, %322
   %327 = icmp slt i32 %324, %325
-  %..i.i102 = tail call i32 @llvm.smin.i32(i32 range(i32 -144, 337) %324, i32 %326)
+  %..i.i102 = tail call i32 @llvm.smin.i32(i32 range(i32 -144, -2147483648) %324, i32 %326)
   %.0.i.i103 = select i1 %327, i32 %325, i32 %..i.i102
   %328 = add nsw i32 %.0.i.i103, %322
   store i32 %328, ptr %34, align 8, !tbaa !13

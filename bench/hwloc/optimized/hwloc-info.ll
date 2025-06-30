@@ -2216,7 +2216,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare i32 @hwloc_topology_set_flags(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @hwloc_utils_enable_input_format(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull captures(none) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #12 {
+define internal fastcc noundef range(i32 0, 2) i32 @hwloc_utils_enable_input_format(ptr noundef %0, i64 noundef range(i64 8, 12) %1, ptr noundef nonnull %2, ptr noundef nonnull captures(none) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #12 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.stat, align 8
   %9 = alloca ptr, align 8

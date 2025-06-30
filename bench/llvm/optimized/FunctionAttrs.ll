@@ -22194,15 +22194,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm11InstructionE
   %.030 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.030, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair.615", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %0, i64 %10
   %gep = getelementptr %"struct.std::pair.615", ptr %invariant.gep, i64 %9
   %.val = load ptr, ptr %11, align 8, !tbaa !922
   %.val28 = load ptr, ptr %gep, align 8, !tbaa !922
   %12 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val, ptr noundef %.val28) #23
   %13 = or disjoint i64 %9, 1
   %spec.select = select i1 %12, i64 %13, i64 %10
-  %14 = getelementptr inbounds %"struct.std::pair.615", ptr %0, i64 %spec.select
-  %15 = getelementptr inbounds %"struct.std::pair.615", ptr %0, i64 %.030
+  %14 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %0, i64 %spec.select
+  %15 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %0, i64 %.030
   %16 = load ptr, ptr %14, align 8, !tbaa !814
   store ptr %16, ptr %15, align 8, !tbaa !922
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -22231,7 +22231,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm11InstructionE
   %31 = shl nuw nsw i64 %.0.lcssa, 1
   %32 = or disjoint i64 %31, 1
   %33 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %0, i64 %32
-  %34 = getelementptr inbounds %"struct.std::pair.615", ptr %0, i64 %.0.lcssa
+  %34 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %0, i64 %.0.lcssa
   %35 = load ptr, ptr %33, align 8, !tbaa !814
   store ptr %35, ptr %34, align 8, !tbaa !922
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -22276,7 +22276,7 @@ _ZNSt4pairIPN4llvm11InstructionEN12_GLOBAL__N_118ArgumentAccessInfoEEC2EOS5_.exi
   %.0133.i = phi i64 [ %.04.i, %59 ], [ %.127, %_ZNSt4pairIPN4llvm11InstructionEN12_GLOBAL__N_118ArgumentAccessInfoEEC2EOS5_.exit ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %57 = getelementptr inbounds %"struct.std::pair.615", ptr %0, i64 %.04.i
+  %57 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %57, align 8, !tbaa !922
   %.val14.i = load ptr, ptr %5, align 8, !tbaa !922
   %58 = call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val.i, ptr noundef %.val14.i) #23
@@ -22298,7 +22298,7 @@ _ZNSt4pairIPN4llvm11InstructionEN12_GLOBAL__N_118ArgumentAccessInfoEEC2EOS5_.exi
 
 "_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionEN12_GLOBAL__N_118ArgumentAccessInfoEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZZL16inferInitializesRNS1_8ArgumentERNS1_8FunctionEENK3$_0clEPKNS1_10BasicBlockEEUlRS6_SJ_E_EEEvT_T0_SN_T1_RT2_.exit": ; preds = %.lr.ph.i, %59, %_ZNSt4pairIPN4llvm11InstructionEN12_GLOBAL__N_118ArgumentAccessInfoEEC2EOS5_.exit
   %.013.lcssa.i = phi i64 [ %.127, %_ZNSt4pairIPN4llvm11InstructionEN12_GLOBAL__N_118ArgumentAccessInfoEEC2EOS5_.exit ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %59 ]
-  %69 = getelementptr inbounds %"struct.std::pair.615", ptr %0, i64 %.013.lcssa.i
+  %69 = getelementptr inbounds nuw %"struct.std::pair.615", ptr %0, i64 %.013.lcssa.i
   %70 = load ptr, ptr %5, align 8, !tbaa !814
   store ptr %70, ptr %69, align 8, !tbaa !922
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8

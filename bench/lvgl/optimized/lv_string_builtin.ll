@@ -186,7 +186,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   store volatile i8 %113, ptr %.2213242, align 1, !tbaa !3
   %114 = getelementptr inbounds nuw i8, ptr %.2213242, i64 1
   %115 = getelementptr inbounds nuw i8, ptr %.2243, i64 1
-  %116 = add i64 %.2219241, -1
+  %116 = add nsw i64 %.2219241, -1
   %.not227 = icmp eq i64 %116, 0
   br i1 %.not227, label %.loopexit, label %.lr.ph244, !llvm.loop !9
 
@@ -279,7 +279,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   store volatile i8 %156, ptr %.5216258, align 1, !tbaa !3
   %157 = getelementptr inbounds nuw i8, ptr %.5216258, i64 1
   %158 = getelementptr inbounds nuw i8, ptr %.5259, i64 1
-  %159 = add i64 %.6257, -1
+  %159 = add nsw i64 %.6257, -1
   %.not226 = icmp eq i64 %159, 0
   br i1 %.not226, label %.loopexit, label %.lr.ph260, !llvm.loop !14
 

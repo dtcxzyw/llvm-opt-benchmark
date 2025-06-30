@@ -2482,8 +2482,8 @@ _ZL28canProveExitOnFirstIterationPN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoE
   br label %.thread65
 
 975:                                              ; preds = %_ZL16deleteLoopIfDeadPN4llvm4LoopERNS_13DominatorTreeERNS_15ScalarEvolutionERNS_8LoopInfoEPNS_9MemorySSAERNS_25OptimizationRemarkEmitterE.exit.thread, %_ZL28canProveExitOnFirstIterationPN4llvm4LoopERNS_13DominatorTreeERNS_8LoopInfoE.exit.i, %414, %418, %419
-  %.not67 = icmp eq i32 %.0.i59, 0
-  br i1 %.not67, label %976, label %_ZN4llvm10LPMUpdater17markLoopAsDeletedERNS_4LoopENS_9StringRefE.exit
+  %.not67 = icmp eq i32 %.0.i59, 1
+  br i1 %.not67, label %_ZN4llvm10LPMUpdater17markLoopAsDeletedERNS_4LoopENS_9StringRefE.exit, label %976
 
 976:                                              ; preds = %975
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24

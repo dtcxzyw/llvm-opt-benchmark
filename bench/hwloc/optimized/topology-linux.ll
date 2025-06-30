@@ -1837,7 +1837,7 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_thisthread_membind(ptr nou
 
 11:                                               ; preds = %4
   %12 = zext i32 %6 to i64
-  %13 = call i64 (i64, ...) @syscall(i64 noundef 239, ptr noundef nonnull %5, ptr noundef nonnull %10, i64 noundef range(i64 -2147483648, 4294967296) %12, ptr noundef null, i32 noundef 0) #28
+  %13 = call i64 (i64, ...) @syscall(i64 noundef 239, ptr noundef nonnull %5, ptr noundef nonnull %10, i64 noundef %12, ptr noundef null, i32 noundef 0) #28
   %14 = and i64 %13, 2147483648
   %.not20 = icmp eq i64 %14, 0
   br i1 %.not20, label %15, label %.sink.split
@@ -1978,7 +1978,7 @@ define internal range(i32 -1, 1) i32 @hwloc_linux_get_area_membind(ptr noundef %
   %.05281.us = phi i32 [ %.1.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph84 ]
   %.05380.us = phi i32 [ %.154.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph84 ]
   %.05579.us = phi i32 [ %.156.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph84 ]
-  %27 = call i64 (i64, ...) @syscall(i64 noundef 239, ptr noundef nonnull %7, ptr noundef nonnull %13, i64 noundef range(i64 -2147483648, 4294967296) %24, ptr noundef %.04983.us, i32 noundef 2) #28
+  %27 = call i64 (i64, ...) @syscall(i64 noundef 239, ptr noundef nonnull %7, ptr noundef nonnull %13, i64 noundef %24, ptr noundef %.04983.us, i32 noundef 2) #28
   %28 = and i64 %27, 2147483648
   %.not60.us = icmp eq i64 %28, 0
   br i1 %.not60.us, label %29, label %hwloc_linux_membind_mask_to_nodeset.exit
@@ -2043,7 +2043,7 @@ hwloc_linux_mask_is_empty.exit.us:                ; preds = %.lr.ph.i.us, %.loop
   %.05281.us89 = phi i1 [ %or.cond5.us98, %hwloc_linux_mask_is_empty.exit.us93 ], [ false, %.lr.ph84 ]
   %.05380.us90 = phi i32 [ %.154.us97, %hwloc_linux_mask_is_empty.exit.us93 ], [ 0, %.lr.ph84 ]
   %.05579.us91 = phi i32 [ %.156.us96, %hwloc_linux_mask_is_empty.exit.us93 ], [ 0, %.lr.ph84 ]
-  %47 = call i64 (i64, ...) @syscall(i64 noundef 239, ptr noundef nonnull %7, ptr noundef nonnull %13, i64 noundef range(i64 -2147483648, 4294967296) %24, ptr noundef %.04983.us87, i32 noundef 2) #28
+  %47 = call i64 (i64, ...) @syscall(i64 noundef 239, ptr noundef nonnull %7, ptr noundef nonnull %13, i64 noundef %24, ptr noundef %.04983.us87, i32 noundef 2) #28
   %48 = and i64 %47, 2147483648
   %.not60.us92 = icmp eq i64 %48, 0
   br i1 %.not60.us92, label %49, label %hwloc_linux_membind_mask_to_nodeset.exit
@@ -3474,7 +3474,7 @@ hwloc__alloc_read_path_as_cpulist.exit.thread:    ; preds = %hwloc__alloc_read_p
   %17 = phi ptr [ %33, %27 ], [ %16, %hwloc__alloc_read_path_as_cpulist.exit.thread ]
   %18 = phi i32 [ %29, %27 ], [ %12, %hwloc__alloc_read_path_as_cpulist.exit.thread ]
   %19 = sext i32 %18 to i64
-  %20 = call i64 (i64, ...) @syscall(i64 noundef 239, ptr noundef nonnull %1, ptr noundef nonnull %17, i64 noundef range(i64 -2147483648, 4294967296) %19, ptr noundef null, i32 noundef 0) #28
+  %20 = call i64 (i64, ...) @syscall(i64 noundef 239, ptr noundef nonnull %1, ptr noundef nonnull %17, i64 noundef %19, ptr noundef null, i32 noundef 0) #28
   call void @free(ptr noundef nonnull %17) #28
   %21 = and i64 %20, 4294967295
   %.not18 = icmp eq i64 %21, 0
@@ -16299,8 +16299,8 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_linux_knl_identify_8nodes(ptr
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %24
-  %29 = add i32 %.085, 1
-  %30 = zext i32 %.085 to i64
+  %29 = add nuw nsw i32 %.085, 1
+  %30 = zext nneg i32 %.085 to i64
   %31 = getelementptr inbounds nuw i32, ptr %2, i64 %30
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %32, ptr %31, align 4, !tbaa !3

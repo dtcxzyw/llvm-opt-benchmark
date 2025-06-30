@@ -70,7 +70,7 @@ define internal i32 @dfpwm_enc_frame(ptr noundef %0, ptr noundef %1, ptr noundef
 
 27:                                               ; preds = %49
   %scevgep.i = getelementptr i8, ptr %.03969.i, i64 8
-  %28 = trunc i32 %51 to i8
+  %28 = trunc nuw i32 %51 to i8
   %29 = getelementptr inbounds nuw i8, ptr %.070.i, i64 1
   store i8 %28, ptr %.070.i, align 1, !tbaa !42
   %30 = add nuw nsw i32 %.04567.i, 1

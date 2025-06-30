@@ -11964,7 +11964,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %48 = select i1 %47, i32 -1, i32 %43
   %49 = add nsw i32 %41, -1
   %50 = icmp eq i32 %48, 0
-  %51 = add nsw i32 %49, %48
+  %51 = add nuw nsw i32 %49, %48
   br label %52
 
 52:                                               ; preds = %128, %46
@@ -12001,7 +12001,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
 
 69:                                               ; preds = %67, %65
   %70 = phi ptr [ %68, %67 ], [ %55, %65 ]
-  %71 = sext i32 %54 to i64
+  %71 = zext nneg i32 %54 to i64
   %72 = getelementptr [8 x i16], ptr %5, i64 0, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = tail call i16 @llvm.bswap.i16(i16 %73)
@@ -12085,7 +12085,7 @@ define internal fastcc noundef ptr @ip6_compressed_string(ptr noundef writeonly 
   %129 = phi ptr [ %64, %62 ], [ %109, %91 ], [ %122, %112 ], [ %127, %123 ]
   %130 = phi i32 [ %51, %62 ], [ %54, %91 ], [ %54, %112 ], [ %54, %123 ]
   %131 = phi i8 [ 0, %62 ], [ 1, %91 ], [ 1, %112 ], [ 1, %123 ]
-  %132 = add i32 %130, 1
+  %132 = add nuw nsw i32 %130, 1
   %133 = icmp slt i32 %132, %16
   br i1 %133, label %52, label %134, !llvm.loop !88
 

@@ -7164,7 +7164,7 @@ _ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.t
   %.288167 = phi i8 [ 1, %97 ], [ %.067120, %_ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.thread85 ]
   %.149 = phi i64 [ %98, %97 ], [ %.048.ph147, %_ZN7uu_sort15numeric_str_cmp7NumInfo15is_invalid_char17h9471ff473f7ea521E.exit.thread85 ]
   %92 = xor i8 %.288167, 1
-  %93 = zext i8 %92 to i64
+  %93 = zext nneg i8 %92 to i64
   %spec.select = add i64 %.149, %93
   %or.cond3 = or i1 %9, %91
   %.sroa.9.1 = select i1 %or.cond3, i64 %.sroa.9.0.ph150, i64 %.sroa.11.0118

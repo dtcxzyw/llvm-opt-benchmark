@@ -1162,7 +1162,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12
   %197 = load ptr, ptr %3, align 8, !tbaa !135
   %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %196
   %199 = load ptr, ptr %198, align 8, !tbaa !142
-  %200 = trunc nuw i8 %spec.select to i1
+  %200 = trunc i8 %spec.select to i1
   br i1 %200, label %201, label %.thread
 
 201:                                              ; preds = %193
@@ -1423,12 +1423,11 @@ _ZNK4llvm15MachineFunction21getCallSiteBeginLabelEPNS_8MCSymbolE.exit.thread: ; 
   br label %325
 
 325:                                              ; preds = %.critedge, %_ZN4llvm23SmallVectorTemplateBaseINS_10EHStreamer13CallSiteEntryELb1EE9push_backERKS2_.exit102, %_ZNK4llvm15MachineFunction21getCallSiteBeginLabelEPNS_8MCSymbolE.exit.thread
-  %.782 = phi i1 [ true, %_ZNK4llvm15MachineFunction21getCallSiteBeginLabelEPNS_8MCSymbolE.exit.thread ], [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_10EHStreamer13CallSiteEntryELb1EE9push_backERKS2_.exit102 ], [ %.580, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #19
   br label %326
 
 326:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit, %.thread, %325, %130, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit, %_ZN4llvm10EHStreamer22callToNoUnwindFunctionEPKNS_12MachineInstrE.exit
-  %.378 = phi i1 [ %.277131, %_ZN4llvm10EHStreamer22callToNoUnwindFunctionEPKNS_12MachineInstrE.exit ], [ %.277131, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.277131, %130 ], [ %.277131, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit ], [ %.782, %325 ], [ false, %.thread ]
+  %.378 = phi i1 [ %.277131, %_ZN4llvm10EHStreamer22callToNoUnwindFunctionEPKNS_12MachineInstrE.exit ], [ %.277131, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.277131, %130 ], [ %.277131, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit ], [ true, %325 ], [ false, %.thread ]
   %.474 = phi i8 [ %158, %_ZN4llvm10EHStreamer22callToNoUnwindFunctionEPKNS_12MachineInstrE.exit ], [ %.272132, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.272132, %130 ], [ %spec.select, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit ], [ %spec.select, %325 ], [ %spec.select, %.thread ]
   %.3 = phi ptr [ %.2133, %_ZN4llvm10EHStreamer22callToNoUnwindFunctionEPKNS_12MachineInstrE.exit ], [ %.2133, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.2133, %130 ], [ %.2133, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolENS_10EHStreamer8PadRangeENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit ], [ %235, %325 ], [ %235, %.thread ]
   %327 = icmp ne ptr %.sroa.0116.0134, null
@@ -1469,7 +1468,7 @@ _ZN4llvm26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEppEv.exit: ; preds 
   br i1 %341, label %342, label %376
 
 342:                                              ; preds = %338, %._crit_edge
-  %343 = trunc nuw i8 %.272.lcssa to i1
+  %343 = trunc i8 %.272.lcssa to i1
   %.not4 = xor i1 %343, true
   %or.cond6 = or i1 %19, %.not4
   %.pre150 = load i32, ptr %29, align 8, !tbaa !136
@@ -4726,7 +4725,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
 
 52:                                               ; preds = %46, %42, %._crit_edge
   %.128 = phi i64 [ %48, %46 ], [ %.0.lcssa, %42 ], [ %.0.lcssa, %._crit_edge ]
-  %53 = icmp sgt i64 %.128, %1
+  %53 = icmp samesign ugt i64 %.128, %1
   br i1 %53, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %52
@@ -4743,7 +4742,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
   %.0139.i = phi i64 [ %.128, %.lr.ph.i ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i" ]
   %.010.in.i = add nsw i64 %.0139.i, -1
   %.010.i = sdiv i64 %.010.in.i, 2
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %.010.i
+  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %.010.i
   %.val.i = load ptr, ptr %60, align 8, !tbaa !142
   %61 = getelementptr i8, ptr %.val.i, i64 96
   %.val.val.i = load ptr, ptr %61, align 8, !tbaa !129
@@ -4789,7 +4788,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
 
 "_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i", %72, %52
   %.0136.i = phi i64 [ %.128, %52 ], [ %.0139.i, %72 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i" ], [ %.0139.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i" ]
-  %79 = getelementptr inbounds ptr, ptr %0, i64 %.0136.i
+  %79 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i
   store ptr %3, ptr %79, align 8, !tbaa !142
   ret void
 }

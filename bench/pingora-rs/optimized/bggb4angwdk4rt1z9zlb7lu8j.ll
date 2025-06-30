@@ -293,7 +293,7 @@ define void @_ZN14pingora_ketama9Continuum3new17h4c06efabe3c73940E(ptr dead_on_u
   %104 = shl nuw nsw i64 %98, 3
   %105 = icmp ne ptr %97, null
   call void @llvm.assume(i1 %105)
-  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %97, i64 noundef range(i64 1, 0) %104, i64 noundef 4) #15
+  call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %97, i64 noundef range(i64 1, -9223372036854775808) %104, i64 noundef 4) #15
   br label %.thread61
 
 106:                                              ; preds = %96

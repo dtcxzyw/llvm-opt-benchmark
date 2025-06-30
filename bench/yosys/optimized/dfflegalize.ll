@@ -12693,7 +12693,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DffLegalizePass21emulate_split_s
   %89 = and i32 %88, %81
   %90 = icmp eq i32 %89, 0
   %.not906 = select i1 %.not134, i1 %90, i1 false
-  %or.cond.not902 = or i1 %.not904, %.not906
+  %or.cond.not902 = select i1 %.not904, i1 true, i1 %.not906
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 2248
   %92 = load i32, ptr %91, align 8
   %.not135 = icmp eq i32 %92, 0

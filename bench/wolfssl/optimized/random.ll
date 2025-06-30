@@ -216,7 +216,7 @@ define ptr @wc_rng_new(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unn
 declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -209, 3) i32 @_InitRng(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -209, 4) i32 @_InitRng(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [52 x i8], align 16
   %7 = icmp eq ptr %0, null
   br i1 %7, label %84, label %8
@@ -445,7 +445,7 @@ wc_RNG_TestSeed.exit.thread73:                    ; preds = %.thread71, %wc_RNG_
 declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 3) i32 @wc_rng_new_ex(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -209, 4) i32 @wc_rng_new_ex(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @wolfSSL_Malloc(i64 noundef 32) #9
   store ptr %6, ptr %0, align 8, !tbaa !25
   %7 = icmp eq ptr %6, null
@@ -741,25 +741,25 @@ define internal fastcc void @ForceZero(ptr noundef nonnull %0, i32 noundef range
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 3) i32 @wc_InitRng(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -209, 4) i32 @wc_InitRng(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @_InitRng(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef -2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 3) i32 @wc_InitRng_ex(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -209, 4) i32 @wc_InitRng_ex(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @_InitRng(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 3) i32 @wc_InitRngNonce(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -209, 4) i32 @wc_InitRngNonce(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @_InitRng(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef null, i32 noundef -2)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -209, 3) i32 @wc_InitRngNonce_ex(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -209, 4) i32 @wc_InitRngNonce_ex(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @_InitRng(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
   ret i32 %6
 }

@@ -2784,7 +2784,7 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit35.i.i.i: ; preds = %_ZNKSt7__c
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %133 ], [ %.128.i.i.i.i, %104 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %106 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %106, align 8, !tbaa !13
   %.val.val.i.i.i.i.i = load ptr, ptr %.val.i.i.i.i.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #26
@@ -2895,7 +2895,7 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx
 
 _ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i: ; preds = %133, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i.i.i, %104
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %104 ], [ %.0133.i.i.i.i.i, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i.i.i ], [ %.04.i.i.i.i.i, %133 ]
-  %137 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %137 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %65, ptr %137, align 8, !tbaa !13
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %138 = add nsw i64 %.014.i.i.i, -1
@@ -3185,7 +3185,7 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i33.i: ; preds = %_ZNKSt7__cxx
 
 _ZSt10__pop_heapIPP10tactic_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_S8_S8_RT0_.exit.i34.i: ; preds = %230, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i33.i, %202
   %.013.lcssa.i.i.i.i35.i = phi i64 [ 0, %202 ], [ %.0133.i.i.i.i13.i, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i33.i ], [ 0, %230 ]
-  %233 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i35.i
+  %233 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i35.i
   store ptr %149, ptr %233, align 8, !tbaa !13
   %234 = icmp sgt i64 %152, 8
   br i1 %234, label %147, label %_ZSt14__partial_sortIPP10tactic_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_S8_S8_T0_.exit, !llvm.loop !254
@@ -4041,7 +4041,7 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit35.i.i.i: ; preds = %_Z
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %133 ], [ %.128.i.i.i.i, %104 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %106 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %106, align 8, !tbaa !43
   %.val.val.i.i.i.i.i = load ptr, ptr %.val.i.i.i.i.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #26
@@ -4152,7 +4152,7 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i.i.i: ; preds = %_ZNK
 
 _ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i: ; preds = %133, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i.i.i, %104
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %104 ], [ %.0133.i.i.i.i.i, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i.i.i ], [ %.04.i.i.i.i.i, %133 ]
-  %137 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %137 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %65, ptr %137, align 8, !tbaa !43
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %138 = add nsw i64 %.014.i.i.i, -1
@@ -4442,7 +4442,7 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i33.i: ; preds = %_ZNK
 
 _ZSt10__pop_heapIPP14simplifier_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_S8_S8_RT0_.exit.i34.i: ; preds = %230, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i33.i, %202
   %.013.lcssa.i.i.i.i35.i = phi i64 [ 0, %202 ], [ %.0133.i.i.i.i13.i, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i33.i ], [ 0, %230 ]
-  %233 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i35.i
+  %233 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i35.i
   store ptr %149, ptr %233, align 8, !tbaa !43
   %234 = icmp sgt i64 %152, 8
   br i1 %234, label %147, label %_ZSt14__partial_sortIPP14simplifier_cmdN9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_S8_S8_T0_.exit, !llvm.loop !263
@@ -5853,7 +5853,7 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit35.i.i.i: ; preds = %_ZNKSt7__cx
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %133 ], [ %.128.i.i.i.i, %104 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %106 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %106, align 8, !tbaa !224
   %.val.val.i.i.i.i.i = load ptr, ptr %.val.i.i.i.i.i, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #26
@@ -5964,7 +5964,7 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1
 
 _ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i: ; preds = %133, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i.i.i, %104
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %104 ], [ %.0133.i.i.i.i.i, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i.i.i ], [ %.04.i.i.i.i.i, %133 ]
-  %137 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %137 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %65, ptr %137, align 8, !tbaa !224
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %138 = add nsw i64 %.014.i.i.i, -1
@@ -6254,7 +6254,7 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i33.i: ; preds = %_ZNKSt7__cxx1
 
 _ZSt10__pop_heapIPP10probe_infoN9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_S8_S8_RT0_.exit.i34.i: ; preds = %230, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i33.i, %202
   %.013.lcssa.i.i.i.i35.i = phi i64 [ 0, %202 ], [ %.0133.i.i.i.i13.i, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i33.i ], [ 0, %230 ]
-  %233 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i35.i
+  %233 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i35.i
   store ptr %149, ptr %233, align 8, !tbaa !224
   %234 = icmp sgt i64 %152, 8
   br i1 %234, label %147, label %_ZSt14__partial_sortIPP10probe_infoN9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_S8_S8_T0_.exit, !llvm.loop !274

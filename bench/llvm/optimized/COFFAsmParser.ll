@@ -744,7 +744,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser21par
   %159 = and i32 %158, 2
   %.not74.i = icmp eq i32 %159, 0
   %spec.select84.i = select i1 %.not74.i, i32 0, i32 536870944
-  %160 = shl nuw nsw i32 %158, 3
+  %160 = shl i32 %158, 3
   %161 = and i32 %160, 64
   %spec.select100.i = or disjoint i32 %spec.select84.i, %161
   %162 = and i32 %158, 5

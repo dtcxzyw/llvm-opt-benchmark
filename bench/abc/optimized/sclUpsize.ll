@@ -6031,7 +6031,7 @@ define void @Abc_SclUndoRecentChanges(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.val21 = load ptr, ptr %5, align 8, !tbaa !30
-  %.idx = mul nuw nsw i64 %indvars.iv.next, 12
+  %.idx = mul nsw i64 %indvars.iv.next, 12
   %11 = getelementptr inbounds nuw i8, ptr %.val21, i64 %.idx
   %12 = load i32, ptr %11, align 4, !tbaa !31
   %.val25 = load ptr, ptr %6, align 8, !tbaa !34
@@ -7232,7 +7232,7 @@ Abc_Clock.exit296:                                ; preds = %375, %378
   %indvars.iv.i299 = phi i64 [ %412, %.lr.ph.i298 ], [ %indvars.iv.next.i300, %434 ]
   %indvars.iv.next.i300 = add nsw i64 %indvars.iv.i299, -1
   %.val21.i = load ptr, ptr %408, align 8, !tbaa !30
-  %.idx.i = mul nuw nsw i64 %indvars.iv.next.i300, 12
+  %.idx.i = mul nsw i64 %indvars.iv.next.i300, 12
   %414 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 %.idx.i
   %415 = load i32, ptr %414, align 4, !tbaa !31
   %.val25.i301 = load ptr, ptr %409, align 8, !tbaa !34

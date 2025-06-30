@@ -4633,7 +4633,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i:        ; preds = %14, %.lr.ph
   %.128 = phi i64 [ %39, %37 ], [ %.0.lcssa, %33 ], [ %.0.lcssa, %._crit_edge ]
   %.0.in1.i = add nsw i64 %.128, -1
   %.02.i = sdiv i64 %.0.in1.i, 2
-  %44 = icmp sgt i64 %.128, %1
+  %44 = icmp samesign ugt i64 %.128, %1
   br i1 %44, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %43
@@ -4647,7 +4647,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i:        ; preds = %14, %.lr.ph
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %56
   %.04.us.i = phi i64 [ %.0.us.i, %56 ], [ %.02.i, %.lr.ph.i ]
   %.0133.us.i = phi i64 [ %.04.us.i, %56 ], [ %.128, %.lr.ph.i ]
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.04.us.i
+  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.us.i
   %.val.us.i = load ptr, ptr %48, align 8, !tbaa !38
   %49 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 24
   %50 = load i16, ptr %49, align 8, !tbaa !28
@@ -4680,7 +4680,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i:   ; preds = %.lr.ph.split.us.i
 62:                                               ; preds = %72, %.lr.ph.split.i
   %.04.i = phi i64 [ %.02.i, %.lr.ph.split.i ], [ %.0.i, %72 ]
   %.0133.i = phi i64 [ %.128, %.lr.ph.split.i ], [ %.04.i, %72 ]
-  %63 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %63, align 8, !tbaa !38
   %64 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %65 = load i16, ptr %64, align 8, !tbaa !28
@@ -4710,7 +4710,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i:      ; preds = %67, %62
 
 "_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i, %72, %.lr.ph.split.us.i, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i, %56, %43
   %.013.lcssa.i = phi i64 [ %.128, %43 ], [ %.0133.us.i, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i ], [ %.04.us.i, %56 ], [ %.0133.us.i, %.lr.ph.split.us.i ], [ %.0133.i, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i ], [ %.04.i, %72 ]
-  %75 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %75, align 8, !tbaa !38
   ret void
 }

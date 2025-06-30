@@ -1903,7 +1903,7 @@ get_label_flags.exit:                             ; preds = %20, %31, %36
   ]
 
 94:                                               ; preds = %87
-  %95 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %89, i32 noundef %93, ptr noundef %47, i32 noundef %.sroa.0.0.extract.trunc.i102, i32 noundef %.1) #7
+  %95 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %89, i32 noundef %93, ptr noundef %47, i32 noundef %.sroa.0.0.extract.trunc.i102, i32 noundef range(i32 0, 16) %.1) #7
   %96 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #7
   %97 = sdiv i32 %96, 2
   %.neg.i = sdiv i32 %95, -2
@@ -1911,7 +1911,7 @@ get_label_flags.exit:                             ; preds = %20, %31, %36
   br label %.sink.split.i
 
 99:                                               ; preds = %87
-  %100 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %89, i32 noundef %93, ptr noundef %47, i32 noundef %.sroa.0.0.extract.trunc.i102, i32 noundef %.1) #7
+  %100 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %89, i32 noundef %93, ptr noundef %47, i32 noundef %.sroa.0.0.extract.trunc.i102, i32 noundef range(i32 0, 16) %.1) #7
   %101 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #7
   %102 = sub i32 %101, %100
   br label %.sink.split.i
@@ -2108,7 +2108,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   ]
 
 83:                                               ; preds = %.loopexit122
-  %84 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %79, i32 noundef %82, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef %.185) #7
+  %84 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %79, i32 noundef %82, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef range(i32 0, 16) %.185) #7
   %85 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #7
   %86 = sdiv i32 %85, 2
   %.neg.i = sdiv i32 %84, -2
@@ -2116,7 +2116,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   br label %calculate_x_coordinate.exit
 
 88:                                               ; preds = %.loopexit122
-  %89 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %79, i32 noundef %82, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef %.185) #7
+  %89 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %79, i32 noundef %82, ptr noundef %24, i32 noundef %.sroa.0.0.extract.trunc.i104, i32 noundef range(i32 0, 16) %.185) #7
   %90 = call i32 @lv_area_get_width(ptr noundef nonnull %4) #7
   %91 = sub i32 %90, %89
   br label %calculate_x_coordinate.exit

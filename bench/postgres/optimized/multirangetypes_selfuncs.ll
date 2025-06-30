@@ -1513,7 +1513,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   %68 = fdiv double %67, %56
   %69 = fcmp ogt double %.086127, 0.000000e+00
   %70 = fcmp ogt double %68, 0.000000e+00
-  %or.cond3 = or i1 %69, %70
+  %or.cond3 = select i1 %69, i1 true, i1 %70
   br i1 %or.cond3, label %71, label %76
 
 71:                                               ; preds = %66

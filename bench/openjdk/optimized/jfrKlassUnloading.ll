@@ -327,7 +327,7 @@ _ZN12JfrPredicateImXadL_Z15compare_traceidRKmS1_EEE4testEP13GrowableArrayImEm.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN17JfrKlassUnloading17event_class_countEv() local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 -9223372036854775807, -9223372036854775808) i64 @_ZN17JfrKlassUnloading17event_class_countEv() local_unnamed_addr #1 align 2 {
   %1 = load i64, ptr @_ZL26event_klass_unloaded_count, align 8
   ret i64 %1
 }

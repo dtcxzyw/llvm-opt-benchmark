@@ -4847,8 +4847,8 @@ decode_band_numwavs.exit.i:                       ; preds = %2634
   %2765 = add i32 %2764, %2754
   %2766 = tail call i32 @llvm.umin.i32(i32 %2423, i32 %2765)
   store i32 %2766, ptr %8, align 8, !tbaa !26
-  %.neg.i.i = shl nsw i32 -2, %2754
-  %2767 = add nsw i32 %.neg.i.i, 1024
+  %.neg.i.i = shl i32 -2, %2754
+  %2767 = add i32 %.neg.i.i, 1024
   %2768 = add i32 %2767, %2763
   store i32 %2768, ptr %2730, align 4, !tbaa !137
   br label %2769

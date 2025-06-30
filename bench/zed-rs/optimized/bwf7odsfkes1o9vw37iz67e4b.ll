@@ -1279,69 +1279,69 @@ default.unreachable:                              ; preds = %.noexc134.i
   %194 = icmp ult i64 %182, 83
   br i1 %194, label %.preheader.i.i, label %.lr.ph.i.i153
 
-.preheader.i.i:                                   ; preds = %199, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i"
-  %.sroa.014.0.lcssa.i.i = phi i8 [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i" ], [ %.sroa.014.3.i.i, %199 ]
-  %.sroa.06.0.lcssa.i.i = phi i64 [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i" ], [ %200, %199 ]
+.preheader.i.i:                                   ; preds = %207, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i"
+  %.sroa.014.0.lcssa.i.i = phi i8 [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i" ], [ %.sroa.014.3.i.i, %207 ]
+  %.sroa.06.0.lcssa.i.i = phi i64 [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i" ], [ %208, %207 ]
   %195 = add i64 %.sroa.06.0.lcssa.i.i, 34
   %196 = icmp uge i64 %195, %182
   %197 = trunc nuw i8 %.sroa.014.0.lcssa.i.i to i1
   %or.cond353.i.i = select i1 %196, i1 true, i1 %197
   br i1 %or.cond353.i.i, label %._crit_edge.i.i, label %.lr.ph55.i.i
 
-.lr.ph.i.i153:                                    ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i", %199
-  %.sroa.06.051.i.i = phi i64 [ %200, %199 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i" ]
+.lr.ph.i.i153:                                    ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i", %207
+  %.sroa.06.051.i.i = phi i64 [ %208, %207 ], [ 0, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5ff74cc0e1e3b185E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !179
   store i64 0, ptr %14, align 8, !noalias !179
   %198 = getelementptr i8, ptr %183, i64 %.sroa.06.051.i.i
-  br label %216
+  br label %199
 
-199:                                              ; preds = %208
-  %200 = add i64 %.sroa.06.051.i.i, 64
+199:                                              ; preds = %199, %.lr.ph.i.i153
+  %.sroa.023.047.i.i = phi i64 [ 0, %.lr.ph.i.i153 ], [ %200, %199 ]
+  %200 = add nuw nsw i64 %.sroa.023.047.i.i, 1
+  %201 = shl nuw nsw i64 %.sroa.023.047.i.i, 4
+  %202 = getelementptr i8, ptr %198, i64 %201
+  %.val3.i.i.i = load <16 x i8>, ptr %202, align 1, !alias.scope !180, !noalias !181
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 18
+  %.val.i.i.i154 = load <16 x i8>, ptr %203, align 1, !alias.scope !180, !noalias !181
+  %204 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 102)
+  %205 = icmp eq <16 x i8> %.val.i.i.i154, splat (i8 104)
+  %narrow.i.i.i = select <16 x i1> %204, <16 x i1> %205, <16 x i1> zeroinitializer
+  %206 = getelementptr inbounds nuw [4 x i16], ptr %14, i64 0, i64 %.sroa.023.047.i.i
+  store <16 x i1> %narrow.i.i.i, ptr %206, align 2, !noalias !179
+  %exitcond.not.i.i = icmp eq i64 %200, 4
+  br i1 %exitcond.not.i.i, label %.preheader45.i.i, label %199
+
+207:                                              ; preds = %216
+  %208 = add i64 %.sroa.06.051.i.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !179
-  %201 = add i64 %.sroa.06.051.i.i, 146
-  %202 = icmp uge i64 %201, %182
-  %203 = trunc nuw i8 %.sroa.014.3.i.i to i1
-  %or.cond.i.i155 = select i1 %202, i1 true, i1 %203
+  %209 = add i64 %.sroa.06.051.i.i, 146
+  %210 = icmp uge i64 %209, %182
+  %211 = trunc nuw i8 %.sroa.014.3.i.i to i1
+  %or.cond.i.i155 = select i1 %210, i1 true, i1 %211
   br i1 %or.cond.i.i155, label %.preheader.i.i, label %.lr.ph.i.i153
 
-.preheader45.i.i:                                 ; preds = %216, %208
-  %.sroa.028.049.i.i = phi i64 [ %204, %208 ], [ 0, %216 ]
-  %.sroa.014.248.i.i = phi i8 [ %.sroa.014.3.i.i, %208 ], [ 0, %216 ]
-  %204 = add nuw nsw i64 %.sroa.028.049.i.i, 1
-  %205 = getelementptr inbounds nuw [4 x i16], ptr %14, i64 0, i64 %.sroa.028.049.i.i
-  %206 = load i16, ptr %205, align 2, !noalias !179, !noundef !4
-  %207 = icmp eq i16 %206, 0
-  br i1 %207, label %208, label %209
+.preheader45.i.i:                                 ; preds = %199, %216
+  %.sroa.028.049.i.i = phi i64 [ %212, %216 ], [ 0, %199 ]
+  %.sroa.014.248.i.i = phi i8 [ %.sroa.014.3.i.i, %216 ], [ 0, %199 ]
+  %212 = add nuw nsw i64 %.sroa.028.049.i.i, 1
+  %213 = getelementptr inbounds nuw [4 x i16], ptr %14, i64 0, i64 %.sroa.028.049.i.i
+  %214 = load i16, ptr %213, align 2, !noalias !179, !noundef !4
+  %215 = icmp eq i16 %214, 0
+  br i1 %215, label %216, label %217
 
-208:                                              ; preds = %209, %.preheader45.i.i
-  %.sroa.014.3.i.i = phi i8 [ %.sroa.014.248.i.i, %.preheader45.i.i ], [ %215, %209 ]
-  %exitcond61.not.i.i = icmp eq i64 %204, 4
-  br i1 %exitcond61.not.i.i, label %199, label %.preheader45.i.i
+216:                                              ; preds = %217, %.preheader45.i.i
+  %.sroa.014.3.i.i = phi i8 [ %.sroa.014.248.i.i, %.preheader45.i.i ], [ %223, %217 ]
+  %exitcond61.not.i.i = icmp eq i64 %212, 4
+  br i1 %exitcond61.not.i.i, label %207, label %.preheader45.i.i
 
-209:                                              ; preds = %.preheader45.i.i
-  %210 = shl nuw nsw i64 %.sroa.028.049.i.i, 4
-  %211 = add nuw nsw i64 %210, %.sroa.06.051.i.i
-  %212 = trunc nuw i8 %.sroa.014.248.i.i to i1
-  %213 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h8d0c582849ea49f2E"(ptr noalias noundef readonly align 8 dereferenceable(32) %15, i64 noundef %211, i16 noundef %206, i1 noundef zeroext %212), !noalias !85
-  %214 = or i1 %213, %212
-  %215 = zext i1 %214 to i8
-  br label %208
-
-216:                                              ; preds = %216, %.lr.ph.i.i153
-  %.sroa.023.047.i.i = phi i64 [ 0, %.lr.ph.i.i153 ], [ %217, %216 ]
-  %217 = add nuw nsw i64 %.sroa.023.047.i.i, 1
-  %218 = shl nuw nsw i64 %.sroa.023.047.i.i, 4
-  %219 = getelementptr i8, ptr %198, i64 %218
-  %.val3.i.i.i = load <16 x i8>, ptr %219, align 1, !alias.scope !180, !noalias !181
-  %220 = getelementptr inbounds nuw i8, ptr %219, i64 18
-  %.val.i.i.i154 = load <16 x i8>, ptr %220, align 1, !alias.scope !180, !noalias !181
-  %221 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 102)
-  %222 = icmp eq <16 x i8> %.val.i.i.i154, splat (i8 104)
-  %narrow.i.i.i = select <16 x i1> %221, <16 x i1> %222, <16 x i1> zeroinitializer
-  %223 = getelementptr inbounds nuw [4 x i16], ptr %14, i64 0, i64 %.sroa.023.047.i.i
-  store <16 x i1> %narrow.i.i.i, ptr %223, align 2, !noalias !179
-  %exitcond.not.i.i = icmp eq i64 %217, 4
-  br i1 %exitcond.not.i.i, label %.preheader45.i.i, label %216
+217:                                              ; preds = %.preheader45.i.i
+  %218 = shl nuw nsw i64 %.sroa.028.049.i.i, 4
+  %219 = add nuw nsw i64 %218, %.sroa.06.051.i.i
+  %220 = trunc nuw i8 %.sroa.014.248.i.i to i1
+  %221 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h8d0c582849ea49f2E"(ptr noalias noundef readonly align 8 dereferenceable(32) %15, i64 noundef %219, i16 noundef %214, i1 noundef zeroext %220), !noalias !85
+  %222 = or i1 %221, %220
+  %223 = zext i1 %222 to i8
+  br label %216
 
 ._crit_edge.i.i:                                  ; preds = %237, %.preheader.i.i
   %.sroa.014.1.lcssa.i.i = phi i8 [ %.sroa.014.0.lcssa.i.i, %.preheader.i.i ], [ %.sroa.014.5.i.i, %237 ]

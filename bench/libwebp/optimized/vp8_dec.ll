@@ -1146,7 +1146,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
 145:                                              ; preds = %135
   %146 = trunc nuw i32 %141 to i8
   store i8 %146, ptr %10, align 1, !tbaa !88
-  %147 = trunc i32 %144 to i8
+  %147 = trunc nuw i32 %144 to i8
   store i8 %147, ptr %6, align 1, !tbaa !88
   %148 = getelementptr inbounds nuw i8, ptr %13, i64 788
   store i32 %90, ptr %148, align 4, !tbaa !94
@@ -2141,7 +2141,7 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483640, -2147483648) i32 @GetLargeValue(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc range(i32 -2147483637, -2147483648) i32 @GetLargeValue(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %4 = load i8, ptr %3, align 1, !tbaa !31
   %5 = zext i8 %4 to i32

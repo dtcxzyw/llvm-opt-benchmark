@@ -690,7 +690,7 @@ FindMatchLength.exit271:                          ; preds = %FindMatchLength.exi
 199:                                              ; preds = %.lr.ph312.split.us.split
   %200 = icmp slt i32 %.8310.us, 4095
   %201 = zext i1 %200 to i32
-  %spec.select261.us = add nuw nsw i32 %.8310.us, %201
+  %spec.select261.us = add nsw i32 %.8310.us, %201
   %202 = or i32 %spec.select261.us, 4096
   %203 = getelementptr inbounds nuw i32, ptr %183, i64 %196
   store i32 %202, ptr %203, align 4, !tbaa !32
@@ -723,7 +723,7 @@ FindMatchLength.exit271:                          ; preds = %FindMatchLength.exi
 218:                                              ; preds = %214
   %219 = icmp slt i32 %.8310, 4095
   %220 = zext i1 %219 to i32
-  %spec.select261 = add nuw nsw i32 %.8310, %220
+  %spec.select261 = add nsw i32 %.8310, %220
   %spec.select262 = select i1 %219, i32 %206, i32 %.0192311
   %221 = or i32 %spec.select261, %182
   %222 = getelementptr inbounds nuw i32, ptr %183, i64 %211

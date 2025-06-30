@@ -9272,7 +9272,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPP3applN9__gnu_cxx5__ops15_I
   %.01317.i.i.i.i.i = phi i64 [ %.018.i.i.i.i.i, %54 ], [ %.128.i.i.i.i, %50 ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i.i.i.i = sdiv i64 %.018.in.i.i.i.i.i, 2
-  %52 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i.i.i.i
+  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !103
   %53 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113index_lt_procclEP3appS2_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %.val.i.i.i.i.i, ptr noundef %36)
   br i1 %53, label %54, label %_ZSt13__adjust_heapIPP3applS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113index_lt_procEEEEvT_T0_SA_T1_T2_.exit.i.i.i
@@ -9286,7 +9286,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPP3applN9__gnu_cxx5__ops15_I
 
 _ZSt13__adjust_heapIPP3applS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113index_lt_procEEEEvT_T0_SA_T1_T2_.exit.i.i.i: ; preds = %54, %.lr.ph.i.i.i.i.i, %50
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %50 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i.i.i.i, %54 ]
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %36, ptr %58, align 8, !tbaa !103
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -9384,7 +9384,7 @@ _ZSt13__adjust_heapIPP3applS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_1
 
 _ZSt10__pop_heapIPP3appN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113index_lt_procEEEEvT_S9_S9_RT0_.exit.i18.i: ; preds = %94, %.lr.ph.i.i.i.i13.i, %91
   %.013.lcssa.i.i.i.i19.i = phi i64 [ 0, %91 ], [ %.01317.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ], [ 0, %94 ]
-  %97 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i19.i
+  %97 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i19.i
   store ptr %63, ptr %97, align 8, !tbaa !103
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)

@@ -337,7 +337,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
 
 127:                                              ; preds = %.preheader
   %128 = call i64 @llvm.cttz.i64(i64 %125, i1 true), !range !53
-  %129 = add i64 %128, %121
+  %129 = add nuw nsw i64 %128, %121
   %130 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %129)
   %131 = shl nsw i64 -1, %128
   %132 = xor i64 %131, %125

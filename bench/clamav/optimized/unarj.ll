@@ -98,7 +98,7 @@ is_arj_archive.exit:                              ; preds = %13
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %23, i64 2)
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %25 = load ptr, ptr %24, align 8, !tbaa !13
-  %26 = tail call ptr %25(ptr noundef nonnull %19, i64 noundef %15, i64 noundef range(i64 0, 4294967296) %spec.select.i.i, i32 noundef 0) #12
+  %26 = tail call ptr %25(ptr noundef nonnull %19, i64 noundef %15, i64 noundef %spec.select.i.i, i32 noundef 0) #12
   %.not26.i.i = icmp eq ptr %26, null
   br i1 %.not26.i.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit.i
 
@@ -148,7 +148,7 @@ fmap_readn.exit.i:                                ; preds = %22
   %spec.select.i96.i = tail call i64 @llvm.umin.i64(i64 %41, i64 30)
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %47 = load ptr, ptr %46, align 8, !tbaa !13
-  %48 = tail call ptr %47(ptr noundef nonnull %37, i64 noundef %40, i64 noundef range(i64 0, 4294967296) %spec.select.i96.i, i32 noundef 0) #12
+  %48 = tail call ptr %47(ptr noundef nonnull %37, i64 noundef %40, i64 noundef %spec.select.i96.i, i32 noundef 0) #12
   %.not26.i97.i = icmp eq ptr %48, null
   br i1 %.not26.i97.i, label %arj_read_main_header.exit.thread, label %fmap_readn.exit99.i
 
@@ -433,7 +433,7 @@ is_arj_archive.exit:                              ; preds = %17
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %27, i64 2)
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %29 = load ptr, ptr %28, align 8, !tbaa !13
-  %30 = tail call ptr %29(ptr noundef nonnull %23, i64 noundef %19, i64 noundef range(i64 0, 4294967296) %spec.select.i.i, i32 noundef 0) #12
+  %30 = tail call ptr %29(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %spec.select.i.i, i32 noundef 0) #12
   %.not26.i.i = icmp eq ptr %30, null
   br i1 %.not26.i.i, label %arj_read_file_header.exit, label %fmap_readn.exit.i
 
@@ -483,7 +483,7 @@ fmap_readn.exit.i:                                ; preds = %26
   %spec.select.i116.i = tail call i64 @llvm.umin.i64(i64 %45, i64 30)
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 104
   %51 = load ptr, ptr %50, align 8, !tbaa !13
-  %52 = tail call ptr %51(ptr noundef nonnull %41, i64 noundef %44, i64 noundef range(i64 0, 4294967296) %spec.select.i116.i, i32 noundef 0) #12
+  %52 = tail call ptr %51(ptr noundef nonnull %41, i64 noundef %44, i64 noundef %spec.select.i116.i, i32 noundef 0) #12
   %.not26.i117.i = icmp eq ptr %52, null
   br i1 %.not26.i117.i, label %arj_read_file_header.exit, label %fmap_readn.exit119.i
 
@@ -876,7 +876,7 @@ define i32 @cli_unarj_extract_file(ptr noundef %0, ptr noundef captures(address_
   %.03560.i.i = phi i32 [ %60, %80 ], [ 16, %.lr.ph.split.i.preheader.i ]
   %59 = zext i8 %57 to i32
   %60 = sub nuw nsw i32 %.03560.i.i, %58
-  %61 = shl i32 %59, %60
+  %61 = shl nuw nsw i32 %59, %60
   %62 = trunc i32 %61 to i16
   %63 = or i16 %56, %62
   store i16 %63, ptr %44, align 2, !tbaa !53
@@ -898,7 +898,7 @@ fmap_need_off_once_len.exit.i.i:                  ; preds = %67
   %69 = sub nuw i64 %68, %.pre74.i378.i
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %69, i64 8192)
   %70 = load ptr, ptr %49, align 8, !tbaa !13
-  %71 = call ptr %70(ptr noundef nonnull %33, i64 noundef %.pre74.i378.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i.i, i32 noundef 0) #12
+  %71 = call ptr %70(ptr noundef nonnull %33, i64 noundef %.pre74.i378.i, i64 noundef %spec.select.i.i.i, i32 noundef 0) #12
   %.not20.i.i.i = icmp eq ptr %71, null
   br i1 %.not20.i.i.i, label %fmap_need_off_once_len.exit.thread.i.i, label %.thread.i.i
 
@@ -1054,7 +1054,7 @@ fmap_need_off_once_len.exit.i232.i:               ; preds = %137
   %139 = sub nuw i64 %138, %.pre74.i226385.i
   %spec.select.i.i233.i = call i64 @llvm.umin.i64(i64 %139, i64 8192)
   %140 = load ptr, ptr %112, align 8, !tbaa !13
-  %141 = call ptr %140(ptr noundef nonnull %110, i64 noundef %.pre74.i226385.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i233.i, i32 noundef 0) #12
+  %141 = call ptr %140(ptr noundef nonnull %110, i64 noundef %.pre74.i226385.i, i64 noundef %spec.select.i.i233.i, i32 noundef 0) #12
   %.not20.i.i234.i = icmp eq ptr %141, null
   store ptr %141, ptr %30, align 8, !tbaa !55
   br i1 %.not20.i.i234.i, label %.loopexit.i231.i, label %.thread.i235.i
@@ -1198,7 +1198,7 @@ fmap_need_off_once_len.exit.i206.i:               ; preds = %200
   %202 = sub nuw i64 %201, %.pre74.i200392.i
   %spec.select.i.i207.i = call i64 @llvm.umin.i64(i64 %202, i64 8192)
   %203 = load ptr, ptr %175, align 8, !tbaa !13
-  %204 = call ptr %203(ptr noundef nonnull %173, i64 noundef %.pre74.i200392.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i207.i, i32 noundef 0) #12
+  %204 = call ptr %203(ptr noundef nonnull %173, i64 noundef %.pre74.i200392.i, i64 noundef %spec.select.i.i207.i, i32 noundef 0) #12
   %.not20.i.i208.i = icmp eq ptr %204, null
   store ptr %204, ptr %30, align 8, !tbaa !55
   br i1 %.not20.i.i208.i, label %.loopexit.i205.i, label %.thread.i209.i
@@ -1329,7 +1329,7 @@ fmap_need_off_once_len.exit.i180.i:               ; preds = %258
   %260 = sub nuw i64 %259, %.pre74.i174413.i
   %spec.select.i.i181.i = call i64 @llvm.umin.i64(i64 %260, i64 8192)
   %261 = load ptr, ptr %235, align 8, !tbaa !13
-  %262 = call ptr %261(ptr noundef nonnull %233, i64 noundef %.pre74.i174413.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i181.i, i32 noundef 0) #12
+  %262 = call ptr %261(ptr noundef nonnull %233, i64 noundef %.pre74.i174413.i, i64 noundef %spec.select.i.i181.i, i32 noundef 0) #12
   %.not20.i.i182.i = icmp eq ptr %262, null
   store ptr %262, ptr %30, align 8, !tbaa !55
   br i1 %.not20.i.i182.i, label %fill_buf.exit188.thread.i, label %.thread.i183.i
@@ -1546,7 +1546,7 @@ fmap_need_off_once_len.exit.i154.i:               ; preds = %357
   %359 = sub nuw i64 %358, %.pre74.i148399.i
   %spec.select.i.i155.i = call i64 @llvm.umin.i64(i64 %359, i64 8192)
   %360 = load ptr, ptr %332, align 8, !tbaa !13
-  %361 = call ptr %360(ptr noundef nonnull %330, i64 noundef %.pre74.i148399.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i155.i, i32 noundef 0) #12
+  %361 = call ptr %360(ptr noundef nonnull %330, i64 noundef %.pre74.i148399.i, i64 noundef %spec.select.i.i155.i, i32 noundef 0) #12
   %.not20.i.i156.i = icmp eq ptr %361, null
   store ptr %361, ptr %30, align 8, !tbaa !55
   br i1 %.not20.i.i156.i, label %.loopexit.i153.i, label %.thread.i157.i
@@ -1704,7 +1704,7 @@ fmap_need_off_once_len.exit.i128.i:               ; preds = %423
   %425 = sub nuw i64 %424, %.pre74.i122406.i
   %spec.select.i.i129.i = call i64 @llvm.umin.i64(i64 %425, i64 8192)
   %426 = load ptr, ptr %398, align 8, !tbaa !13
-  %427 = call ptr %426(ptr noundef nonnull %396, i64 noundef %.pre74.i122406.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i129.i, i32 noundef 0) #12
+  %427 = call ptr %426(ptr noundef nonnull %396, i64 noundef %.pre74.i122406.i, i64 noundef %spec.select.i.i129.i, i32 noundef 0) #12
   %.not20.i.i130.i = icmp eq ptr %427, null
   store ptr %427, ptr %30, align 8, !tbaa !55
   br i1 %.not20.i.i130.i, label %fill_buf.exit136.thread.i, label %.thread.i131.i
@@ -1963,7 +1963,7 @@ fmap_need_off_once_len.exit.i102.i:               ; preds = %538
   %540 = sub nuw i64 %539, %.pre74.i96420.i
   %spec.select.i.i103.i = call i64 @llvm.umin.i64(i64 %540, i64 8192)
   %541 = load ptr, ptr %513, align 8, !tbaa !13
-  %542 = call ptr %541(ptr noundef nonnull %511, i64 noundef %.pre74.i96420.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i103.i, i32 noundef 0) #12
+  %542 = call ptr %541(ptr noundef nonnull %511, i64 noundef %.pre74.i96420.i, i64 noundef %spec.select.i.i103.i, i32 noundef 0) #12
   %.not20.i.i104.i = icmp eq ptr %542, null
   store ptr %542, ptr %30, align 8, !tbaa !55
   br i1 %.not20.i.i104.i, label %.loopexit.i101.i, label %.thread.i105.i
@@ -2187,7 +2187,7 @@ fmap_need_off_once_len.exit.i284.i:               ; preds = %648
   %650 = sub nuw i64 %649, %.pre74.i278427.i
   %spec.select.i.i285.i = call i64 @llvm.umin.i64(i64 %650, i64 8192)
   %651 = load ptr, ptr %623, align 8, !tbaa !13
-  %652 = call ptr %651(ptr noundef nonnull %621, i64 noundef %.pre74.i278427.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i285.i, i32 noundef 0) #12
+  %652 = call ptr %651(ptr noundef nonnull %621, i64 noundef %.pre74.i278427.i, i64 noundef %spec.select.i.i285.i, i32 noundef 0) #12
   %.not20.i.i286.i = icmp eq ptr %652, null
   store ptr %652, ptr %30, align 8, !tbaa !55
   br i1 %.not20.i.i286.i, label %.loopexit.i283.i, label %.thread.i287.i
@@ -2351,7 +2351,7 @@ fmap_need_off_once_len.exit.i258.i:               ; preds = %727
   %729 = sub nuw i64 %728, %.pre74.i252434.i
   %spec.select.i.i259.i = call i64 @llvm.umin.i64(i64 %729, i64 8192)
   %730 = load ptr, ptr %702, align 8, !tbaa !13
-  %731 = call ptr %730(ptr noundef nonnull %700, i64 noundef %.pre74.i252434.i, i64 noundef range(i64 0, 4294967296) %spec.select.i.i259.i, i32 noundef 0) #12
+  %731 = call ptr %730(ptr noundef nonnull %700, i64 noundef %.pre74.i252434.i, i64 noundef %spec.select.i.i259.i, i32 noundef 0) #12
   %.not20.i.i260.i = icmp eq ptr %731, null
   store ptr %731, ptr %30, align 8, !tbaa !55
   br i1 %.not20.i.i260.i, label %.loopexit.i257.i, label %.thread.i261.i
@@ -2589,7 +2589,7 @@ fmap_need_off_once_len.exit:                      ; preds = %9
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 1, 4294967296) %15, i64 %16)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !13
-  %19 = tail call ptr %18(ptr noundef nonnull %10, i64 noundef %11, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #12
+  %19 = tail call ptr %18(ptr noundef nonnull %10, i64 noundef %11, i64 noundef %spec.select.i, i32 noundef 0) #12
   %.not20.i.not = icmp eq ptr %19, null
   br i1 %.not20.i.not, label %fmap_need_off_once_len.exit.thread, label %20
 
@@ -2645,7 +2645,7 @@ define internal fastcc range(i32 0, 27) i32 @decode_f(ptr noundef nonnull captur
   %.03560.i93 = phi i32 [ %18, %36 ], [ 16, %.lr.ph.split.i92.preheader ]
   %17 = zext i8 %15 to i32
   %18 = sub nuw nsw i32 %.03560.i93, %16
-  %19 = shl i32 %17, %18
+  %19 = shl nuw nsw i32 %17, %18
   %20 = trunc i32 %19 to i16
   %21 = or i16 %.sroa.85246.12, %20
   %.not.i94 = icmp eq i32 %.sroa.146.15, 0
@@ -2665,7 +2665,7 @@ fmap_need_off_once_len.exit.i101:                 ; preds = %25
   %27 = sub nuw i64 %26, %.sroa.23.16
   %spec.select.i.i102 = tail call i64 @llvm.umin.i64(i64 %27, i64 8192)
   %28 = load ptr, ptr %11, align 8, !tbaa !13
-  %29 = tail call ptr %28(ptr noundef nonnull %4, i64 noundef %.sroa.23.16, i64 noundef range(i64 0, 4294967296) %spec.select.i.i102, i32 noundef 0) #12
+  %29 = tail call ptr %28(ptr noundef nonnull %4, i64 noundef %.sroa.23.16, i64 noundef %spec.select.i.i102, i32 noundef 0) #12
   %.not20.i.i103 = icmp eq ptr %29, null
   br i1 %.not20.i.i103, label %.sink.split, label %.thread.i104
 
@@ -2823,7 +2823,7 @@ fmap_need_off_once_len.exit.i153:                 ; preds = %92
   %94 = sub nuw i64 %93, %.sroa.23.24
   %spec.select.i.i154 = tail call i64 @llvm.umin.i64(i64 %94, i64 8192)
   %95 = load ptr, ptr %47, align 8, !tbaa !13
-  %96 = tail call ptr %95(ptr noundef nonnull %4, i64 noundef %.sroa.23.24, i64 noundef range(i64 0, 4294967296) %spec.select.i.i154, i32 noundef 0) #12
+  %96 = tail call ptr %95(ptr noundef nonnull %4, i64 noundef %.sroa.23.24, i64 noundef %spec.select.i.i154, i32 noundef 0) #12
   %.not20.i.i155 = icmp eq ptr %96, null
   br i1 %.not20.i.i155, label %fill_buf.exit161, label %.thread.i156
 
@@ -2977,7 +2977,7 @@ fmap_need_off_once_len.exit.i127:                 ; preds = %163
   %165 = sub nuw i64 %164, %.sroa.23.20
   %spec.select.i.i128 = tail call i64 @llvm.umin.i64(i64 %165, i64 8192)
   %166 = load ptr, ptr %47, align 8, !tbaa !13
-  %167 = tail call ptr %166(ptr noundef nonnull %4, i64 noundef %.sroa.23.20, i64 noundef range(i64 0, 4294967296) %spec.select.i.i128, i32 noundef 0) #12
+  %167 = tail call ptr %166(ptr noundef nonnull %4, i64 noundef %.sroa.23.20, i64 noundef %spec.select.i.i128, i32 noundef 0) #12
   %.not20.i.i129 = icmp eq ptr %167, null
   br i1 %.not20.i.i129, label %.lr.ph.i, label %.thread.i130
 
@@ -3146,7 +3146,7 @@ fmap_need_off_once_len.exit.i:                    ; preds = %236
   %238 = sub nuw i64 %237, %.sroa.23.9
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %238, i64 8192)
   %239 = load ptr, ptr %47, align 8, !tbaa !13
-  %240 = tail call ptr %239(ptr noundef nonnull %4, i64 noundef %.sroa.23.9, i64 noundef range(i64 0, 4294967296) %spec.select.i.i, i32 noundef 0) #12
+  %240 = tail call ptr %239(ptr noundef nonnull %4, i64 noundef %.sroa.23.9, i64 noundef %spec.select.i.i, i32 noundef 0) #12
   %.not20.i.i = icmp eq ptr %240, null
   br i1 %.not20.i.i, label %fill_buf.exit, label %.thread.i75
 
@@ -3331,7 +3331,7 @@ fmap_need_off_once_len.exit.i205:                 ; preds = %318
   %320 = sub nuw i64 %319, %.sroa.23.32
   %spec.select.i.i206 = tail call i64 @llvm.umin.i64(i64 %320, i64 8192)
   %321 = load ptr, ptr %47, align 8, !tbaa !13
-  %322 = tail call ptr %321(ptr noundef nonnull %4, i64 noundef %.sroa.23.32, i64 noundef range(i64 0, 4294967296) %spec.select.i.i206, i32 noundef 0) #12
+  %322 = tail call ptr %321(ptr noundef nonnull %4, i64 noundef %.sroa.23.32, i64 noundef %spec.select.i.i206, i32 noundef 0) #12
   %.not20.i.i207 = icmp eq ptr %322, null
   br i1 %.not20.i.i207, label %fill_buf.exit213, label %.thread.i208
 
@@ -3481,7 +3481,7 @@ fmap_need_off_once_len.exit.i179:                 ; preds = %389
   %391 = sub nuw i64 %390, %.sroa.23.28
   %spec.select.i.i180 = tail call i64 @llvm.umin.i64(i64 %391, i64 8192)
   %392 = load ptr, ptr %47, align 8, !tbaa !13
-  %393 = tail call ptr %392(ptr noundef nonnull %4, i64 noundef %.sroa.23.28, i64 noundef range(i64 0, 4294967296) %spec.select.i.i180, i32 noundef 0) #12
+  %393 = tail call ptr %392(ptr noundef nonnull %4, i64 noundef %.sroa.23.28, i64 noundef %spec.select.i.i180, i32 noundef 0) #12
   %.not20.i.i181 = icmp eq ptr %393, null
   br i1 %.not20.i.i181, label %fill_buf.exit187, label %.thread.i182
 
@@ -3777,7 +3777,7 @@ fmap_need_off_once_len.exit:                      ; preds = %56
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %60, i64 8192)
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 104
   %62 = load ptr, ptr %61, align 8, !tbaa !13
-  %63 = tail call ptr %62(ptr noundef nonnull %57, i64 noundef %.pre74, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #12
+  %63 = tail call ptr %62(ptr noundef nonnull %57, i64 noundef %.pre74, i64 noundef %spec.select.i, i32 noundef 0) #12
   %.not20.i = icmp eq ptr %63, null
   store ptr %63, ptr %26, align 8, !tbaa !55
   br i1 %.not20.i, label %.loopexit, label %.thread

@@ -1764,7 +1764,7 @@ define internal void @stderr_cb(ptr readonly captures(none) %0, i64 %1, ptr %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef range(i32 0, 4) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #11 {
+define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef range(i32 0, 4) %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #11 {
   tail call void @jq_start(ptr noundef %0, i64 %1, ptr %2, i32 noundef %3) #19
   %7 = tail call { i64, ptr } @jq_next(ptr noundef %0) #19
   %8 = extractvalue { i64, ptr } %7, 0

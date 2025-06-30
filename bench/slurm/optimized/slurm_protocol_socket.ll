@@ -116,7 +116,7 @@ define dso_local range(i64 -1, 4294967296) i64 @slurm_msg_recvfrom_timeout(i32 n
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, -2147483648) i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @slurm_recv_timeout(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.pollfd, align 4
   %6 = alloca %struct.timeval, align 8
   %7 = alloca i32, align 4

@@ -8726,7 +8726,7 @@ Abc_NtkAddBuffsEval2.exit:                        ; preds = %197, %204, %180
   %212 = or disjoint i32 %210, %211
   store i32 %212, ptr %207, align 4
   %213 = add nsw i32 %.0163286, 1
-  %214 = add nsw i32 %.0.lcssa363, %.0162287
+  %214 = add nuw nsw i32 %.0.lcssa363, %.0162287
   br label %.critedge16.thread
 
 .critedge16.thread:                               ; preds = %170, %.critedge18, %.critedge18.thread

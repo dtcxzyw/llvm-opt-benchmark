@@ -20370,7 +20370,7 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__secondChild.026 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__secondChild.026, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds i32, ptr %__first, i64 %mul
+  %add.ptr = getelementptr inbounds nuw i32, ptr %__first, i64 %mul
   %gep = getelementptr i32, ptr %invariant.gep, i64 %add
   %add.ptr.val = load i32, ptr %add.ptr, align 4
   %add.ptr3.val = load i32, ptr %gep, align 4
@@ -20394,9 +20394,9 @@ if.end.i.i.i.i:                                   ; preds = %while.body
   %cmp.i.i.not = icmp eq i64 %3, 0
   %dec = or disjoint i64 %add, 1
   %spec.select = select i1 %cmp.i.i.not, i64 %mul, i64 %dec
-  %add.ptr4 = getelementptr inbounds i32, ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw i32, ptr %__first, i64 %spec.select
   %4 = load i32, ptr %add.ptr4, align 4
-  %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.026
+  %add.ptr5 = getelementptr inbounds nuw i32, ptr %__first, i64 %__secondChild.026
   store i32 %4, ptr %add.ptr5, align 4
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !154
@@ -20416,22 +20416,22 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds i32, ptr %__first, i64 %sub13
+  %add.ptr14 = getelementptr inbounds nuw i32, ptr %__first, i64 %sub13
   %5 = load i32, ptr %add.ptr14, align 4
-  %add.ptr15 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.0.lcssa
+  %add.ptr15 = getelementptr inbounds nuw i32, ptr %__first, i64 %__secondChild.0.lcssa
   store i32 %5, ptr %add.ptr15, align 4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then10, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__secondChild.0.lcssa, %land.lhs.true ], [ %__secondChild.0.lcssa, %while.end ]
-  %cmp5.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  %cmp5.i = icmp samesign ugt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp5.i, label %land.rhs.i, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_RT2_.exit"
 
 land.rhs.i:                                       ; preds = %if.end17, %while.body.i
   %__holeIndex.addr.06.i = phi i64 [ %__parent.07.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end17 ]
   %__parent.07.in.i = add nsw i64 %__holeIndex.addr.06.i, -1
   %__parent.07.i = sdiv i64 %__parent.07.in.i, 2
-  %add.ptr.i = getelementptr inbounds i32, ptr %__first, i64 %__parent.07.i
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__parent.07.i
   %add.ptr.val.i = load i32, ptr %add.ptr.i, align 4
   %__comp.val.val.i = load ptr, ptr %__comp.coerce, align 8
   %6 = getelementptr i8, ptr %__comp.val.val.i, i64 136
@@ -20462,7 +20462,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i", %while.body.i, %if.end17
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end17 ], [ %__holeIndex.addr.06.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i" ], [ %__parent.07.i, %while.body.i ]
-  %add.ptr5.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr5.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store i32 %__value, ptr %add.ptr5.i, align 4
   ret void
 }

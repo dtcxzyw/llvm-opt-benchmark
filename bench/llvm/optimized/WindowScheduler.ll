@@ -3714,7 +3714,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph, %1
   %26 = load i32, ptr %15, align 8, !tbaa !26
   %27 = add i32 %26, 1
   store i32 %27, ptr %15, align 8, !tbaa !26
-  %28 = add i32 %.016, %13
+  %28 = add nuw nsw i32 %.016, %13
   %29 = icmp ult i32 %28, %8
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !496
 

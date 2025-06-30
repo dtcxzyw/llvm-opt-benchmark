@@ -906,8 +906,8 @@ _ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit: ; preds
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 128
-  %.not25 = icmp eq i32 %13, 0
-  br i1 %.not25, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit9, label %_ZNK11ConstMethod18method_annotationsEv.exit
+  %.not27 = icmp eq i32 %13, 0
+  br i1 %.not27, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit9, label %_ZNK11ConstMethod18method_annotationsEv.exit
 
 _ZNK11ConstMethod18method_annotationsEv.exit:     ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -933,8 +933,8 @@ _ZNK11ConstMethod18method_annotationsEv.exit:     ; preds = %10
 _ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit9: ; preds = %20, %_ZNK11ConstMethod18method_annotationsEv.exit, %10
   %26 = phi i32 [ %.pre, %20 ], [ %12, %_ZNK11ConstMethod18method_annotationsEv.exit ], [ %12, %10 ]
   %27 = and i32 %26, 256
-  %.not26 = icmp eq i32 %27, 0
-  br i1 %.not26, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit13, label %_ZNK11ConstMethod21parameter_annotationsEv.exit
+  %.not28 = icmp eq i32 %27, 0
+  br i1 %.not28, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit13, label %_ZNK11ConstMethod21parameter_annotationsEv.exit
 
 _ZNK11ConstMethod21parameter_annotationsEv.exit:  ; preds = %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit9
   %28 = and i32 %26, 128
@@ -957,14 +957,14 @@ _ZNK11ConstMethod21parameter_annotationsEv.exit:  ; preds = %_ZN15MetadataFactor
   %39 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #13
   %40 = zext nneg i32 %38 to i64
   tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull %34, i64 noundef %40, i1 noundef zeroext false) #13
-  %.pre29 = load i32, ptr %11, align 4
+  %.pre31 = load i32, ptr %11, align 4
   br label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit13
 
 _ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit13: ; preds = %35, %_ZNK11ConstMethod21parameter_annotationsEv.exit, %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit9
-  %41 = phi i32 [ %.pre29, %35 ], [ %26, %_ZNK11ConstMethod21parameter_annotationsEv.exit ], [ %26, %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit9 ]
+  %41 = phi i32 [ %.pre31, %35 ], [ %26, %_ZNK11ConstMethod21parameter_annotationsEv.exit ], [ %26, %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit9 ]
   %42 = and i32 %41, 512
-  %.not27 = icmp eq i32 %42, 0
-  br i1 %.not27, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit19, label %_ZNK11ConstMethod16type_annotationsEv.exit
+  %.not29 = icmp eq i32 %42, 0
+  br i1 %.not29, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit19, label %_ZNK11ConstMethod16type_annotationsEv.exit
 
 _ZNK11ConstMethod16type_annotationsEv.exit:       ; preds = %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit13
   %43 = and i32 %41, 128
@@ -992,46 +992,47 @@ _ZNK11ConstMethod16type_annotationsEv.exit:       ; preds = %_ZN15MetadataFactor
   %58 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #13
   %59 = zext nneg i32 %57 to i64
   tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull %53, i64 noundef %59, i1 noundef zeroext false) #13
-  %.pre30 = load i32, ptr %11, align 4
+  %.pre32 = load i32, ptr %11, align 4
   br label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit19
 
 _ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit19: ; preds = %54, %_ZNK11ConstMethod16type_annotationsEv.exit, %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit13
-  %60 = phi i32 [ %.pre30, %54 ], [ %41, %_ZNK11ConstMethod16type_annotationsEv.exit ], [ %41, %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit13 ]
+  %60 = phi i32 [ %.pre32, %54 ], [ %41, %_ZNK11ConstMethod16type_annotationsEv.exit ], [ %41, %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit13 ]
   %61 = and i32 %60, 1024
-  %.not28 = icmp eq i32 %61, 0
-  br i1 %.not28, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit24, label %_ZNK11ConstMethod19default_annotationsEv.exit
+  %.not30 = icmp eq i32 %61, 0
+  br i1 %.not30, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit26, label %_ZNK11ConstMethod19default_annotationsEv.exit
 
 _ZNK11ConstMethod19default_annotationsEv.exit:    ; preds = %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit19
   %62 = and i32 %60, 128
   %.not.i.i21 = icmp eq i32 %62, 0
-  %spec.select.neg.i.i = select i1 %.not.i.i21, i32 -1, i32 -2
-  %63 = shl i32 %60, 23
-  %64 = ashr i32 %63, 31
-  %65 = shl i32 %60, 22
-  %66 = ashr i32 %65, 31
-  %.1.neg.i.i = add nsw i32 %66, %64
-  %.2.neg.i.i = add nsw i32 %.1.neg.i.i, %spec.select.neg.i.i
+  %spec.select.i.i22 = select i1 %.not.i.i21, i32 1, i32 2
+  %63 = lshr i32 %60, 8
+  %64 = and i32 %63, 1
+  %65 = lshr i32 %60, 9
+  %66 = and i32 %65, 1
+  %.1.i.i23 = add nuw nsw i32 %66, %64
+  %.2.i.i = add nuw nsw i32 %.1.i.i23, %spec.select.i.i22
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load i32, ptr %67, align 8
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i64, ptr %0, i64 %69
-  %71 = sext i32 %.2.neg.i.i to i64
-  %72 = getelementptr inbounds ptr, ptr %70, i64 %71
-  %73 = load ptr, ptr %72, align 8
-  %.not.i22 = icmp eq ptr %73, null
-  br i1 %.not.i22, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit24, label %74
+  %71 = zext nneg i32 %.2.i.i to i64
+  %72 = sub nsw i64 0, %71
+  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %.not.i24 = icmp eq ptr %74, null
+  br i1 %.not.i24, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit26, label %75
 
-74:                                               ; preds = %_ZNK11ConstMethod19default_annotationsEv.exit
-  %75 = load i32, ptr %73, align 4
-  %76 = tail call i32 @llvm.smax.i32(i32 %75, i32 1)
-  %narrow.i.i.i23 = add nuw i32 %76, 14
-  %77 = lshr i32 %narrow.i.i.i23, 3
-  %78 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #13
-  %79 = zext nneg i32 %77 to i64
-  tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %78, ptr noundef nonnull %73, i64 noundef %79, i1 noundef zeroext false) #13
-  br label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit24
+75:                                               ; preds = %_ZNK11ConstMethod19default_annotationsEv.exit
+  %76 = load i32, ptr %74, align 4
+  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 1)
+  %narrow.i.i.i25 = add nuw i32 %77, 14
+  %78 = lshr i32 %narrow.i.i.i25, 3
+  %79 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #13
+  %80 = zext nneg i32 %78 to i64
+  tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull %74, i64 noundef %80, i1 noundef zeroext false) #13
+  br label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit26
 
-_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit24: ; preds = %74, %_ZNK11ConstMethod19default_annotationsEv.exit, %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit19
+_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit26: ; preds = %75, %_ZNK11ConstMethod19default_annotationsEv.exit, %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit19
   ret void
 }
 
@@ -2243,20 +2244,21 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod24default_annotations_addrEv
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 128
   %.not = icmp eq i32 %4, 0
-  %spec.select.neg = select i1 %.not, i32 -1, i32 -2
-  %5 = shl i32 %3, 23
-  %6 = ashr i32 %5, 31
-  %7 = shl i32 %3, 22
-  %8 = ashr i32 %7, 31
-  %.1.neg = add nsw i32 %8, %6
-  %.2.neg = add nsw i32 %.1.neg, %spec.select.neg
+  %spec.select = select i1 %.not, i32 1, i32 2
+  %5 = lshr i32 %3, 8
+  %6 = and i32 %5, 1
+  %7 = lshr i32 %3, 9
+  %8 = and i32 %7, 1
+  %.1 = add nuw nsw i32 %8, %6
+  %.2 = add nuw nsw i32 %.1, %spec.select
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i64, ptr %0, i64 %11
-  %13 = sext i32 %.2.neg to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
-  ret ptr %14
+  %13 = zext nneg i32 %.2 to i64
+  %14 = sub nsw i64 0, %13
+  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2311,8 +2313,8 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit: ; preds = %
   %28 = sext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %27, i64 %28, i1 false)
   %.pr = load ptr, ptr %21, align 8
-  %.not79 = icmp eq ptr %.pr, null
-  br i1 %.not79, label %29, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
+  %.not81 = icmp eq ptr %.pr, null
+  br i1 %.not81, label %29, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
 
 29:                                               ; preds = %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2327,8 +2329,8 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit: ; preds = %
 35:                                               ; preds = %29, %4
   %36 = phi i32 [ %.pre, %29 ], [ %6, %4 ]
   %37 = and i32 %36, 256
-  %.not80 = icmp eq i32 %37, 0
-  br i1 %.not80, label %69, label %_ZNK11ConstMethod21parameter_annotationsEv.exit
+  %.not82 = icmp eq i32 %37, 0
+  br i1 %.not82, label %69, label %_ZNK11ConstMethod21parameter_annotationsEv.exit
 
 _ZNK11ConstMethod21parameter_annotationsEv.exit:  ; preds = %35
   %38 = and i32 %36, 128
@@ -2376,9 +2378,9 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit37: ; preds =
   %58 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %59 = sext i32 %45 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull readonly align 1 %58, i64 %59, i1 false)
-  %.pr73 = load ptr, ptr %52, align 8
-  %.not81 = icmp eq ptr %.pr73, null
-  br i1 %.not81, label %60, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
+  %.pr75 = load ptr, ptr %52, align 8
+  %.not83 = icmp eq ptr %.pr75, null
+  br i1 %.not83, label %60, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
 
 60:                                               ; preds = %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit37
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2392,14 +2394,14 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit37: ; preds =
   %67 = getelementptr inbounds i64, ptr %0, i64 %66
   %68 = getelementptr inbounds ptr, ptr %67, i64 %spec.select.i.i39
   store ptr %49, ptr %68, align 8
-  %.pre86 = load i32, ptr %5, align 4
+  %.pre88 = load i32, ptr %5, align 4
   br label %69
 
 69:                                               ; preds = %60, %35
-  %70 = phi i32 [ %.pre86, %60 ], [ %36, %35 ]
+  %70 = phi i32 [ %.pre88, %60 ], [ %36, %35 ]
   %71 = and i32 %70, 512
-  %.not82 = icmp eq i32 %71, 0
-  br i1 %.not82, label %111, label %_ZNK11ConstMethod16type_annotationsEv.exit
+  %.not84 = icmp eq i32 %71, 0
+  br i1 %.not84, label %111, label %_ZNK11ConstMethod16type_annotationsEv.exit
 
 _ZNK11ConstMethod16type_annotationsEv.exit:       ; preds = %69
   %72 = and i32 %70, 128
@@ -2452,9 +2454,9 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit52: ; preds =
   %96 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %97 = sext i32 %83 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr nonnull readonly align 1 %96, i64 %97, i1 false)
-  %.pr75 = load ptr, ptr %90, align 8
-  %.not83 = icmp eq ptr %.pr75, null
-  br i1 %.not83, label %98, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
+  %.pr77 = load ptr, ptr %90, align 8
+  %.not85 = icmp eq ptr %.pr77, null
+  br i1 %.not85, label %98, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
 
 98:                                               ; preds = %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit52
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2473,94 +2475,96 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit52: ; preds =
   %109 = sub nsw i64 0, %108
   %110 = getelementptr inbounds ptr, ptr %107, i64 %109
   store ptr %87, ptr %110, align 8
-  %.pre87 = load i32, ptr %5, align 4
+  %.pre89 = load i32, ptr %5, align 4
   br label %111
 
 111:                                              ; preds = %98, %69
-  %112 = phi i32 [ %.pre87, %98 ], [ %70, %69 ]
+  %112 = phi i32 [ %.pre89, %98 ], [ %70, %69 ]
   %113 = and i32 %112, 1024
-  %.not84 = icmp eq i32 %113, 0
-  br i1 %.not84, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread, label %_ZNK11ConstMethod19default_annotationsEv.exit
+  %.not86 = icmp eq i32 %113, 0
+  br i1 %.not86, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread, label %_ZNK11ConstMethod19default_annotationsEv.exit
 
 _ZNK11ConstMethod19default_annotationsEv.exit:    ; preds = %111
   %114 = and i32 %112, 128
   %.not.i.i57 = icmp eq i32 %114, 0
-  %spec.select.neg.i.i = select i1 %.not.i.i57, i32 -1, i32 -2
-  %115 = shl i32 %112, 23
-  %116 = ashr i32 %115, 31
-  %117 = shl i32 %112, 22
-  %118 = ashr i32 %117, 31
-  %.1.neg.i.i = add nsw i32 %118, %116
-  %.2.neg.i.i = add nsw i32 %.1.neg.i.i, %spec.select.neg.i.i
+  %spec.select.i.i58 = select i1 %.not.i.i57, i32 1, i32 2
+  %115 = lshr i32 %112, 8
+  %116 = and i32 %115, 1
+  %117 = lshr i32 %112, 9
+  %118 = and i32 %117, 1
+  %.1.i.i59 = add nuw nsw i32 %118, %116
+  %.2.i.i = add nuw nsw i32 %.1.i.i59, %spec.select.i.i58
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %120 = load i32, ptr %119, align 8
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds i64, ptr %2, i64 %121
-  %123 = sext i32 %.2.neg.i.i to i64
-  %124 = getelementptr inbounds ptr, ptr %122, i64 %123
-  %125 = load ptr, ptr %124, align 8
-  %126 = load i32, ptr %125, align 4
-  %127 = tail call i32 @llvm.smax.i32(i32 %126, i32 1)
-  %narrow.i.i.i.i.i58 = add nuw i32 %127, 14
-  %128 = lshr i32 %narrow.i.i.i.i.i58, 3
-  %129 = zext nneg i32 %128 to i64
-  %130 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %1, i64 noundef %129, i32 noundef 2, ptr noundef %3) #13
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59, label %132
+  %123 = zext nneg i32 %.2.i.i to i64
+  %124 = sub nsw i64 0, %123
+  %125 = getelementptr inbounds ptr, ptr %122, i64 %124
+  %126 = load ptr, ptr %125, align 8
+  %127 = load i32, ptr %126, align 4
+  %128 = tail call i32 @llvm.smax.i32(i32 %127, i32 1)
+  %narrow.i.i.i.i.i60 = add nuw i32 %128, 14
+  %129 = lshr i32 %narrow.i.i.i.i.i60, 3
+  %130 = zext nneg i32 %129 to i64
+  %131 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %1, i64 noundef %130, i32 noundef 2, ptr noundef %3) #13
+  %132 = icmp eq ptr %131, null
+  br i1 %132, label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i61, label %133
 
-132:                                              ; preds = %_ZNK11ConstMethod19default_annotationsEv.exit
-  store i32 %126, ptr %130, align 4
-  br label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59
+133:                                              ; preds = %_ZNK11ConstMethod19default_annotationsEv.exit
+  store i32 %127, ptr %131, align 4
+  br label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i61
 
-_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59: ; preds = %132, %_ZNK11ConstMethod19default_annotationsEv.exit
-  %133 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %134 = load ptr, ptr %133, align 8
-  %.not.i.i60 = icmp eq ptr %134, null
-  br i1 %.not.i.i60, label %.preheader.i.i62, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
+_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i61: ; preds = %133, %_ZNK11ConstMethod19default_annotationsEv.exit
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %135 = load ptr, ptr %134, align 8
+  %.not.i.i62 = icmp eq ptr %135, null
+  br i1 %.not.i.i62, label %.preheader.i.i64, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
 
-.preheader.i.i62:                                 ; preds = %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59
-  %135 = icmp sgt i32 %126, 0
-  br i1 %135, label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i64, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit67
+.preheader.i.i64:                                 ; preds = %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i61
+  %136 = icmp sgt i32 %127, 0
+  br i1 %136, label %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i66, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit69
 
-_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i64: ; preds = %.preheader.i.i62
-  %136 = getelementptr inbounds nuw i8, ptr %130, i64 4
-  %137 = zext nneg i32 %126 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %136, i8 0, i64 %137, i1 false)
-  %.pr.i65 = load ptr, ptr %133, align 8
-  %.not.i66 = icmp eq ptr %.pr.i65, null
-  br i1 %.not.i66, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit67, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
+_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i66: ; preds = %.preheader.i.i64
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 4
+  %138 = zext nneg i32 %127 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %137, i8 0, i64 %138, i1 false)
+  %.pr.i67 = load ptr, ptr %134, align 8
+  %.not.i68 = icmp eq ptr %.pr.i67, null
+  br i1 %.not.i68, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit69, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
 
-_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit67: ; preds = %.preheader.i.i62, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i64
-  %138 = getelementptr inbounds nuw i8, ptr %130, i64 4
-  %139 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  %140 = sext i32 %126 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %138, ptr nonnull readonly align 1 %139, i64 %140, i1 false)
-  %.pr77 = load ptr, ptr %133, align 8
-  %.not85 = icmp eq ptr %.pr77, null
-  br i1 %.not85, label %141, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
+_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit69: ; preds = %.preheader.i.i64, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i66
+  %139 = getelementptr inbounds nuw i8, ptr %131, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  %141 = sext i32 %127 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %139, ptr nonnull readonly align 1 %140, i64 %141, i1 false)
+  %.pr79 = load ptr, ptr %134, align 8
+  %.not87 = icmp eq ptr %.pr79, null
+  br i1 %.not87, label %142, label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
 
-141:                                              ; preds = %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit67
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %143 = load i32, ptr %142, align 4
-  %144 = and i32 %143, 128
-  %.not.i.i68 = icmp eq i32 %144, 0
-  %spec.select.neg.i.i69 = select i1 %.not.i.i68, i32 -1, i32 -2
-  %145 = shl i32 %143, 23
-  %146 = ashr i32 %145, 31
-  %147 = shl i32 %143, 22
-  %148 = ashr i32 %147, 31
-  %.1.neg.i.i70 = add nsw i32 %148, %146
-  %.2.neg.i.i71 = add nsw i32 %.1.neg.i.i70, %spec.select.neg.i.i69
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %150 = load i32, ptr %149, align 8
-  %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i64, ptr %0, i64 %151
-  %153 = sext i32 %.2.neg.i.i71 to i64
-  %154 = getelementptr inbounds ptr, ptr %152, i64 %153
-  store ptr %130, ptr %154, align 8
+142:                                              ; preds = %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit69
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %144 = load i32, ptr %143, align 4
+  %145 = and i32 %144, 128
+  %.not.i.i70 = icmp eq i32 %145, 0
+  %spec.select.i.i71 = select i1 %.not.i.i70, i32 1, i32 2
+  %146 = lshr i32 %144, 8
+  %147 = and i32 %146, 1
+  %148 = lshr i32 %144, 9
+  %149 = and i32 %148, 1
+  %.1.i.i72 = add nuw nsw i32 %149, %147
+  %.2.i.i73 = add nuw nsw i32 %.1.i.i72, %spec.select.i.i71
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %151 = load i32, ptr %150, align 8
+  %152 = sext i32 %151 to i64
+  %153 = getelementptr inbounds i64, ptr %0, i64 %152
+  %154 = zext nneg i32 %.2.i.i73 to i64
+  %155 = sub nsw i64 0, %154
+  %156 = getelementptr inbounds ptr, ptr %153, i64 %155
+  store ptr %131, ptr %156, align 8
   br label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
 
-_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread: ; preds = %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i64, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i49, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i44, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i34, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i29, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i, %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit67, %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit52, %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit37, %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit, %141, %111
+_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread: ; preds = %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i66, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i61, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i49, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i44, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i34, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i29, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread.exit.i, %_ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i, %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit69, %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit52, %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit37, %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit, %142, %111
   ret void
 }
 
@@ -2616,8 +2620,8 @@ define hidden void @_ZN11ConstMethod21metaspace_pointers_doEP16MetaspaceClosure(
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 128
-  %.not12 = icmp eq i32 %35, 0
-  br i1 %.not12, label %46, label %36
+  %.not14 = icmp eq i32 %35, 0
+  br i1 %.not14, label %46, label %36
 
 36:                                               ; preds = %5
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2640,8 +2644,8 @@ define hidden void @_ZN11ConstMethod21metaspace_pointers_doEP16MetaspaceClosure(
 46:                                               ; preds = %36, %5
   %47 = phi i32 [ %.pre, %36 ], [ %34, %5 ]
   %48 = and i32 %47, 256
-  %.not13 = icmp eq i32 %48, 0
-  br i1 %.not13, label %60, label %49
+  %.not15 = icmp eq i32 %48, 0
+  br i1 %.not15, label %60, label %49
 
 49:                                               ; preds = %46
   %50 = and i32 %47, 128
@@ -2661,14 +2665,14 @@ define hidden void @_ZN11ConstMethod21metaspace_pointers_doEP16MetaspaceClosure(
   store ptr %55, ptr %59, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %56, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %56) #13
-  %.pre16 = load i32, ptr %33, align 4
+  %.pre18 = load i32, ptr %33, align 4
   br label %60
 
 60:                                               ; preds = %49, %46
-  %61 = phi i32 [ %.pre16, %49 ], [ %47, %46 ]
+  %61 = phi i32 [ %.pre18, %49 ], [ %47, %46 ]
   %62 = and i32 %61, 512
-  %.not14 = icmp eq i32 %62, 0
-  br i1 %.not14, label %78, label %63
+  %.not16 = icmp eq i32 %62, 0
+  br i1 %.not16, label %78, label %63
 
 63:                                               ; preds = %60
   %64 = and i32 %61, 128
@@ -2693,43 +2697,44 @@ define hidden void @_ZN11ConstMethod21metaspace_pointers_doEP16MetaspaceClosure(
   store ptr %73, ptr %77, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %74, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %74) #13
-  %.pre17 = load i32, ptr %33, align 4
+  %.pre19 = load i32, ptr %33, align 4
   br label %78
 
 78:                                               ; preds = %63, %60
-  %79 = phi i32 [ %.pre17, %63 ], [ %61, %60 ]
+  %79 = phi i32 [ %.pre19, %63 ], [ %61, %60 ]
   %80 = and i32 %79, 1024
-  %.not15 = icmp eq i32 %80, 0
-  br i1 %.not15, label %97, label %81
+  %.not17 = icmp eq i32 %80, 0
+  br i1 %.not17, label %98, label %81
 
 81:                                               ; preds = %78
   %82 = and i32 %79, 128
   %.not.i10 = icmp eq i32 %82, 0
-  %spec.select.neg.i = select i1 %.not.i10, i32 -1, i32 -2
-  %83 = shl i32 %79, 23
-  %84 = ashr i32 %83, 31
-  %85 = shl i32 %79, 22
-  %86 = ashr i32 %85, 31
-  %.1.neg.i = add nsw i32 %86, %84
-  %.2.neg.i = add nsw i32 %.1.neg.i, %spec.select.neg.i
+  %spec.select.i11 = select i1 %.not.i10, i32 1, i32 2
+  %83 = lshr i32 %79, 8
+  %84 = and i32 %83, 1
+  %85 = lshr i32 %79, 9
+  %86 = and i32 %85, 1
+  %.1.i12 = add nuw nsw i32 %86, %84
+  %.2.i = add nuw nsw i32 %.1.i12, %spec.select.i11
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %88 = load i32, ptr %87, align 8
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i64, ptr %0, i64 %89
-  %91 = sext i32 %.2.neg.i to i64
-  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
-  %93 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store i32 2, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, i8 0, i64 16, i1 false)
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  store ptr %92, ptr %96, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %93, align 8
-  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %93) #13
-  br label %97
+  %91 = zext nneg i32 %.2.i to i64
+  %92 = sub nsw i64 0, %91
+  %93 = getelementptr inbounds ptr, ptr %90, i64 %92
+  %94 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store i32 2, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  store ptr %93, ptr %97, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure13OtherArrayRefIhEE, i64 16), ptr %94, align 8
+  tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %94) #13
+  br label %98
 
-97:                                               ; preds = %81, %78
+98:                                               ; preds = %81, %78
   ret void
 }
 

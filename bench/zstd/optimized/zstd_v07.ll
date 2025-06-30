@@ -669,7 +669,7 @@ define range(i64 -46, 1) i64 @FSEv07_buildDTable(ptr noundef captures(none) %0, 
 36:                                               ; preds = %.lr.ph88, %40
   %.06787 = phi i32 [ 0, %.lr.ph88 ], [ %41, %40 ]
   %.16986 = phi i32 [ %.06892, %.lr.ph88 ], [ %.2, %40 ]
-  %37 = zext i32 %.16986 to i64
+  %37 = zext nneg i32 %.16986 to i64
   %.idx = shl nuw nsw i64 %37, 2
   %gep85 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i8 %35, ptr %gep85, align 2, !tbaa !17
@@ -677,7 +677,7 @@ define range(i64 -46, 1) i64 @FSEv07_buildDTable(ptr noundef captures(none) %0, 
 
 38:                                               ; preds = %38, %36
   %.169.pn = phi i32 [ %.16986, %36 ], [ %.2, %38 ]
-  %.pn = add i32 %30, %.169.pn
+  %.pn = add nuw i32 %30, %.169.pn
   %.2 = and i32 %.pn, %9
   %39 = icmp ugt i32 %.2, %.165
   br i1 %39, label %38, label %40, !llvm.loop !20
@@ -6216,7 +6216,7 @@ ZSTDv07_buildSeqTable.exit.thread149.i.i:         ; preds = %ZSTDv07_buildSeqTab
 360:                                              ; preds = %364, %.lr.ph88.i.i
   %.06787.i.i = phi i32 [ 0, %.lr.ph88.i.i ], [ %365, %364 ]
   %.16986.i.i = phi i32 [ %.06892.i.i, %.lr.ph88.i.i ], [ %.2.i135.i, %364 ]
-  %361 = zext i32 %.16986.i.i to i64
+  %361 = zext nneg i32 %.16986.i.i to i64
   %.idx.i.i = shl nuw nsw i64 %361, 2
   %gep85.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %.idx.i.i
   store i8 %359, ptr %gep85.i.i, align 2, !tbaa !17
@@ -6224,7 +6224,7 @@ ZSTDv07_buildSeqTable.exit.thread149.i.i:         ; preds = %ZSTDv07_buildSeqTab
 
 362:                                              ; preds = %362, %360
   %.169.pn.i.i = phi i32 [ %.16986.i.i, %360 ], [ %.2.i135.i, %362 ]
-  %.pn.i.i = add i32 %.169.pn.i.i, 23
+  %.pn.i.i = add nuw nsw i32 %.169.pn.i.i, 23
   %.2.i135.i = and i32 %.pn.i.i, 31
   %363 = icmp ugt i32 %.2.i135.i, %.165.i131.i
   br i1 %363, label %362, label %364, !llvm.loop !20

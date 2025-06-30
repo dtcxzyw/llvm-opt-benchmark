@@ -2707,7 +2707,7 @@ define dso_local i32 @dmaengine_desc_set_metadata_len(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 2, 1) i32 @dma_wait_for_async_tx(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define dso_local i32 @dma_wait_for_async_tx(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
   %2 = alloca %struct.dma_tx_state, align 4
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = icmp eq ptr %0, null

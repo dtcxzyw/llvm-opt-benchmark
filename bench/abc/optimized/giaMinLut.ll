@@ -2240,8 +2240,8 @@ Abc_TtFindFirstBit2.exit.thread:                  ; preds = %.lr.ph.i40
   %77 = trunc i64 %.424.i.i to i32
   %78 = and i32 %77, 1
   %79 = xor i32 %78, 1
-  %.5.i.i = add i32 %.4.i.i, %57
-  %80 = add i32 %.5.i.i, %79
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %57
+  %80 = add nuw nsw i32 %.5.i.i, %79
   br label %.sink.split
 
 81:                                               ; preds = %.lr.ph.i40
@@ -2419,8 +2419,8 @@ Abc_TtFindFirstBit2.exit.thread:                  ; preds = %.lr.ph.i46
   %77 = trunc i64 %.424.i.i to i32
   %78 = and i32 %77, 1
   %79 = xor i32 %78, 1
-  %.5.i.i = add i32 %.4.i.i, %57
-  %80 = add i32 %.5.i.i, %79
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %57
+  %80 = add nuw nsw i32 %.5.i.i, %79
   br label %.sink.split
 
 81:                                               ; preds = %.lr.ph.i46

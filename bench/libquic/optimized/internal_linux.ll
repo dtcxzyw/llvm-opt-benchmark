@@ -1939,7 +1939,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i64 -2147483648000000, 2147483648000001) i64 @_ZN4base8internal23GetUserCpuTimeSinceBootEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN4base8internal23GetUserCpuTimeSinceBootEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.base::FilePath", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::map", align 8

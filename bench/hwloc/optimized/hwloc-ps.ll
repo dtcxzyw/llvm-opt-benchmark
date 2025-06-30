@@ -1019,7 +1019,7 @@ declare ptr @hwloc_topology_get_support(ptr noundef) local_unnamed_addr #9
 declare ptr @hwloc_topology_get_topology_cpuset(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc void @run(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 0, 16) %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca %struct.hwloc_ps_process, align 8
   %6 = load i64, ptr @children_of_pid, align 8, !tbaa !4
   %.not = icmp eq i64 %6, -1

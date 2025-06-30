@@ -6632,7 +6632,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #12
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %249, label %3
+  br i1 %.not, label %248, label %3
 
 3:                                                ; preds = %2
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.275) #22
@@ -6642,7 +6642,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 6:                                                ; preds = %3
   %7 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %7(ptr noundef %1, ptr noundef nonnull @.str.275) #19
-  br label %249
+  br label %248
 
 8:                                                ; preds = %3
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.276) #22
@@ -6652,7 +6652,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 11:                                               ; preds = %8
   %12 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %12(ptr noundef %1, ptr noundef nonnull @.str.276) #19
-  br label %249
+  br label %248
 
 13:                                               ; preds = %8
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.277) #22
@@ -6664,7 +6664,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %17(ptr noundef %1, ptr noundef nonnull @.str.276) #19
   %18 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %18(ptr noundef %1, ptr noundef nonnull @.str.278) #19
-  br label %249
+  br label %248
 
 19:                                               ; preds = %13
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.279) #22
@@ -6674,7 +6674,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 22:                                               ; preds = %19
   %23 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %23(ptr noundef %1, ptr noundef nonnull @.str.279) #19
-  br label %249
+  br label %248
 
 24:                                               ; preds = %19
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.280) #22
@@ -6686,7 +6686,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %28(ptr noundef %1, ptr noundef nonnull @.str.281) #19
   %29 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %29(ptr noundef %1, ptr noundef nonnull @.str.282) #19
-  br label %249
+  br label %248
 
 30:                                               ; preds = %24
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.283) #22
@@ -6698,7 +6698,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %34(ptr noundef %1, ptr noundef nonnull @.str.281) #19
   %35 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %35(ptr noundef %1, ptr noundef nonnull @.str.284) #19
-  br label %249
+  br label %248
 
 36:                                               ; preds = %30
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @.str.285) #22
@@ -6708,7 +6708,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 39:                                               ; preds = %36
   %40 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %40(ptr noundef %1, ptr noundef nonnull @.str.282) #19
-  br label %249
+  br label %248
 
 41:                                               ; preds = %36
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.282) #22
@@ -6720,7 +6720,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %45(ptr noundef %1, ptr noundef nonnull @.str.282) #19
   %46 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %46(ptr noundef %1, ptr noundef nonnull @.str.286) #19
-  br label %249
+  br label %248
 
 47:                                               ; preds = %41
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(12) @.str.287) #22
@@ -6730,7 +6730,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 50:                                               ; preds = %47
   %51 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %51(ptr noundef %1, ptr noundef nonnull @.str.284) #19
-  br label %249
+  br label %248
 
 52:                                               ; preds = %47
   %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.288) #22
@@ -6742,7 +6742,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %56(ptr noundef %1, ptr noundef nonnull @.str.284) #19
   %57 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %57(ptr noundef %1, ptr noundef nonnull @.str.286) #19
-  br label %249
+  br label %248
 
 58:                                               ; preds = %52
   %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.289) #22
@@ -6757,7 +6757,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 64:                                               ; preds = %61, %58
   %65 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %65(ptr noundef %1, ptr noundef nonnull @.str.289) #19
-  br label %249
+  br label %248
 
 66:                                               ; preds = %61
   %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.291) #22
@@ -6767,7 +6767,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 69:                                               ; preds = %66
   %70 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %70(ptr noundef %1, ptr noundef nonnull @.str.291) #19
-  br label %249
+  br label %248
 
 71:                                               ; preds = %66
   %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.292) #22
@@ -6777,7 +6777,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 74:                                               ; preds = %71
   %75 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %75(ptr noundef %1, ptr noundef nonnull @.str.292) #19
-  br label %249
+  br label %248
 
 76:                                               ; preds = %71
   %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.293) #22
@@ -6787,7 +6787,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 79:                                               ; preds = %76
   %80 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %80(ptr noundef %1, ptr noundef nonnull @.str.293) #19
-  br label %249
+  br label %248
 
 81:                                               ; preds = %76
   %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.294) #22
@@ -6797,7 +6797,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 84:                                               ; preds = %81
   %85 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %85(ptr noundef %1, ptr noundef nonnull @.str.295) #19
-  br label %249
+  br label %248
 
 86:                                               ; preds = %81
   %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.296) #22
@@ -6812,7 +6812,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 92:                                               ; preds = %89, %86
   %93 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %93(ptr noundef %1, ptr noundef nonnull @.str.296) #19
-  br label %249
+  br label %248
 
 94:                                               ; preds = %89
   %95 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.298, i64 noundef 6) #22
@@ -6822,7 +6822,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 97:                                               ; preds = %94
   %98 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %98(ptr noundef %1, ptr noundef nonnull @.str.298) #19
-  br label %249
+  br label %248
 
 99:                                               ; preds = %94
   %100 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.299) #22
@@ -6832,7 +6832,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 102:                                              ; preds = %99
   %103 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %103(ptr noundef %1, ptr noundef nonnull @.str.299) #19
-  br label %249
+  br label %248
 
 104:                                              ; preds = %99
   %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.300) #22
@@ -6846,7 +6846,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %109(ptr noundef %1, ptr noundef nonnull @.str.276) #19
   %110 = load ptr, ptr @fp_gtk_style_context_set_junction_sides, align 8
   tail call void %110(ptr noundef %1, i32 noundef 12) #19
-  br label %249
+  br label %248
 
 111:                                              ; preds = %104
   %112 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(16) @.str.301) #22
@@ -6860,7 +6860,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %116(ptr noundef %1, ptr noundef nonnull @.str.276) #19
   %117 = load ptr, ptr @fp_gtk_style_context_set_junction_sides, align 8
   tail call void %117(ptr noundef %1, i32 noundef 3) #19
-  br label %249
+  br label %248
 
 118:                                              ; preds = %111
   %119 = load i8, ptr %0, align 1
@@ -6880,7 +6880,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %125(ptr noundef %1, ptr noundef nonnull @.str.276) #19
   %126 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %126(ptr noundef %1, ptr noundef nonnull @.str.303) #19
-  br label %249
+  br label %248
 
 127:                                              ; preds = %118, %120
   %128 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.304) #22
@@ -6892,7 +6892,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %131(ptr noundef %1, ptr noundef nonnull @.str.304) #19
   %132 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %132(ptr noundef %1, ptr noundef nonnull @.str.303) #19
-  br label %249
+  br label %248
 
 133:                                              ; preds = %127
   %134 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str.305) #22
@@ -6909,7 +6909,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %140(ptr noundef %1, ptr noundef nonnull @.str.304) #19
   %141 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %141(ptr noundef %1, ptr noundef nonnull @.str.307) #19
-  br label %249
+  br label %248
 
 142:                                              ; preds = %136
   %143 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.308) #22
@@ -6921,7 +6921,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %146(ptr noundef %1, ptr noundef nonnull @.str.308) #19
   %147 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %147(ptr noundef %1, ptr noundef nonnull @.str.286) #19
-  br label %249
+  br label %248
 
 148:                                              ; preds = %142
   %149 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.286) #22
@@ -6933,7 +6933,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %152(ptr noundef %1, ptr noundef nonnull @.str.309) #19
   %153 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %153(ptr noundef %1, ptr noundef nonnull @.str.286) #19
-  br label %249
+  br label %248
 
 154:                                              ; preds = %148
   %155 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(11) @.str.310) #22
@@ -6943,7 +6943,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 157:                                              ; preds = %154
   %158 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %158(ptr noundef %1, ptr noundef nonnull @.str.311) #19
-  br label %249
+  br label %248
 
 159:                                              ; preds = %154
   %160 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.312) #22
@@ -6953,7 +6953,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 162:                                              ; preds = %159
   %163 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %163(ptr noundef %1, ptr noundef nonnull @.str.312) #19
-  br label %249
+  br label %248
 
 164:                                              ; preds = %159
   %165 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.313) #22
@@ -6963,7 +6963,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 167:                                              ; preds = %164
   %168 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %168(ptr noundef %1, ptr noundef nonnull @.str.314) #19
-  br label %249
+  br label %248
 
 169:                                              ; preds = %164
   %170 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.315) #22
@@ -6978,7 +6978,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 175:                                              ; preds = %172, %169
   %176 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %176(ptr noundef %1, ptr noundef nonnull @.str.316) #19
-  br label %249
+  br label %248
 
 177:                                              ; preds = %172
   %178 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.317) #22
@@ -6988,7 +6988,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 180:                                              ; preds = %177
   %181 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %181(ptr noundef %1, ptr noundef nonnull @.str.317) #19
-  br label %249
+  br label %248
 
 182:                                              ; preds = %177
   %183 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @.str.318) #22
@@ -6998,7 +6998,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 185:                                              ; preds = %182
   %186 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %186(ptr noundef %1, ptr noundef nonnull @.str.319) #19
-  br label %249
+  br label %248
 
 187:                                              ; preds = %182
   %188 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.320) #22
@@ -7008,7 +7008,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 190:                                              ; preds = %187
   %191 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %191(ptr noundef %1, ptr noundef nonnull @.str.320) #19
-  br label %249
+  br label %248
 
 192:                                              ; preds = %187
   %193 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.321) #22
@@ -7020,7 +7020,7 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   tail call void %196(ptr noundef %1, ptr noundef nonnull @.str.320) #19
   %197 = load ptr, ptr @fp_gtk_style_context_add_region, align 8
   tail call void %197(ptr noundef %1, ptr noundef nonnull @.str.321, i32 noundef 0) #19
-  br label %249
+  br label %248
 
 198:                                              ; preds = %192
   %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.322) #22
@@ -7030,20 +7030,20 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
 201:                                              ; preds = %198
   %202 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
   tail call void %202(ptr noundef %1, ptr noundef nonnull @.str.323) #19
-  br label %249
+  br label %248
 
 203:                                              ; preds = %198
   %204 = load ptr, ptr @fp_g_str_has_prefix, align 8
   %205 = tail call i32 %204(ptr noundef nonnull %0, ptr noundef nonnull @.str.281) #19
   %.not127 = icmp eq i32 %205, 0
-  br i1 %.not127, label %249, label %206
+  br i1 %.not127, label %248, label %206
 
 206:                                              ; preds = %203
   %207 = load ptr, ptr @fp_g_strsplit, align 8
   %208 = tail call ptr %207(ptr noundef nonnull %0, ptr noundef nonnull @.str.324, i32 noundef -1) #19
   %209 = load ptr, ptr %208, align 8
   %.not128131 = icmp eq ptr %209, null
-  br i1 %.not128131, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not128131, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %206, %237
   %210 = phi ptr [ %241, %237 ], [ %209, %206 ]
@@ -7107,28 +7107,27 @@ define internal fastcc void @transform_detail_string(ptr noundef %0, ptr noundef
   %240 = getelementptr inbounds nuw ptr, ptr %208, i64 %239
   %241 = load ptr, ptr %240, align 8
   %.not128 = icmp eq ptr %241, null
-  br i1 %.not128, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not128, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %237
+._crit_edge.loopexit:                             ; preds = %237
   %242 = icmp eq i32 %.1121, 0
-  %243 = and i32 %.1, -4
-  %spec.select144 = select i1 %242, i32 %243, i32 %.1
-  br label %._crit_edge.thread
+  %243 = select i1 %242, i32 0, i32 %.1
+  br label %._crit_edge
 
-._crit_edge.thread:                               ; preds = %._crit_edge, %206
-  %.0122.lcssa142 = phi i32 [ 0, %206 ], [ %.1123, %._crit_edge ]
-  %244 = phi i32 [ 0, %206 ], [ %spec.select144, %._crit_edge ]
-  %245 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
-  tail call void %245(ptr noundef %1, ptr noundef nonnull @.str.281) #19
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %206
+  %.0122.lcssa = phi i32 [ 0, %206 ], [ %.1123, %._crit_edge.loopexit ]
+  %.0120.lcssa = phi i32 [ 0, %206 ], [ %243, %._crit_edge.loopexit ]
+  %244 = load ptr, ptr @fp_gtk_style_context_add_class, align 8
+  tail call void %244(ptr noundef %1, ptr noundef nonnull @.str.281) #19
+  %245 = load ptr, ptr @fp_gtk_style_context_add_region, align 8
+  tail call void %245(ptr noundef %1, ptr noundef nonnull @.str.331, i32 noundef %.0120.lcssa) #19
   %246 = load ptr, ptr @fp_gtk_style_context_add_region, align 8
-  tail call void %246(ptr noundef %1, ptr noundef nonnull @.str.331, i32 noundef %244) #19
-  %247 = load ptr, ptr @fp_gtk_style_context_add_region, align 8
-  tail call void %247(ptr noundef %1, ptr noundef nonnull @.str.332, i32 noundef %.0122.lcssa142) #19
-  %248 = load ptr, ptr @fp_g_strfreev, align 8
-  tail call void %248(ptr noundef nonnull %208) #19
-  br label %249
+  tail call void %246(ptr noundef %1, ptr noundef nonnull @.str.332, i32 noundef %.0122.lcssa) #19
+  %247 = load ptr, ptr @fp_g_strfreev, align 8
+  tail call void %247(ptr noundef nonnull %208) #19
+  br label %248
 
-249:                                              ; preds = %11, %22, %33, %44, %55, %69, %79, %92, %102, %114, %130, %145, %157, %167, %180, %190, %201, %._crit_edge.thread, %203, %195, %185, %175, %162, %151, %139, %124, %107, %97, %84, %74, %64, %50, %39, %27, %16, %2, %6
+248:                                              ; preds = %11, %22, %33, %44, %55, %69, %79, %92, %102, %114, %130, %145, %157, %167, %180, %190, %201, %._crit_edge, %203, %195, %185, %175, %162, %151, %139, %124, %107, %97, %84, %74, %64, %50, %39, %27, %16, %2, %6
   ret void
 }
 

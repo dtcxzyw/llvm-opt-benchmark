@@ -1765,14 +1765,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %96 = load i32, ptr %95, align 8, !tbaa !52
   store i32 %96, ptr %94, align 8, !tbaa !52
-  %97 = icmp sgt i64 %.1, %1
+  %97 = icmp samesign ugt i64 %.1, %1
   br i1 %97, label %.lr.ph.i, label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %69, %133
   %.0133.i = phi i64 [ %.04.i, %133 ], [ %.1, %69 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %98 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.04.i
+  %98 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.04.i
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 32
@@ -1842,7 +1842,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
 "_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit": ; preds = %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit", %69
   %137 = phi ptr [ %73, %69 ], [ %.pre, %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit" ]
   %.013.lcssa.i = phi i64 [ %.1, %69 ], [ %.013.lcssa.i.ph, %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit" ]
-  %138 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.013.lcssa.i
+  %138 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.013.lcssa.i
   %139 = load ptr, ptr %138, align 8, !tbaa !50
   store ptr %137, ptr %138, align 8, !tbaa !50
   store ptr %139, ptr %5, align 8, !tbaa !50

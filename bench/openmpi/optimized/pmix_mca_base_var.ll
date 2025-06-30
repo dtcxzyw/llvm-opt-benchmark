@@ -3320,7 +3320,7 @@ var_get.exit33.thread:                            ; preds = %pmix_pointer_array_
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define i32 @pmix_mca_base_var_get_count() local_unnamed_addr #15 {
+define range(i32 -2147483647, -2147483648) i32 @pmix_mca_base_var_get_count() local_unnamed_addr #15 {
   %1 = load i32, ptr @pmix_mca_base_var_count, align 4, !tbaa !16
   ret i32 %1
 }

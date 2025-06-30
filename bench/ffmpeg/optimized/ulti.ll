@@ -891,7 +891,7 @@ declare i32 @ff_reget_buffer(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ulti_grad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 {
+define internal fastcc void @ulti_grad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) %3, i32 noundef range(i32 0, 256) %4, i32 noundef %5) unnamed_addr #4 {
   %7 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
   %8 = and i32 %5, 8
@@ -1263,9 +1263,9 @@ define internal fastcc void @ulti_grad(ptr noundef readonly captures(none) %0, i
   %219 = mul nsw i32 %218, %208
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i8, ptr %216, i64 %220
-  %222 = ashr i32 %4, 4
-  %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds [16 x i8], ptr @ulti_chromas, i64 0, i64 %223
+  %222 = lshr i32 %4, 4
+  %223 = zext nneg i32 %222 to i64
+  %224 = getelementptr inbounds nuw [16 x i8], ptr @ulti_chromas, i64 0, i64 %223
   %225 = load i8, ptr %224, align 1, !tbaa !47
   store i8 %225, ptr %213, align 1, !tbaa !47
   %226 = and i32 %4, 15

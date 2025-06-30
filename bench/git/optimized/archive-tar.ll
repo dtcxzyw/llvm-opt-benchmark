@@ -187,7 +187,7 @@ define internal fastcc range(i32 -1, 1) i32 @tar_filter_config(ptr noundef %0, p
   br i1 %37, label %38, label %st_mult.exit
 
 38:                                               ; preds = %31
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.37, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %36) #12
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.37, i64 noundef 8, i64 noundef range(i64 -1073741824, 2147483648) %36) #12
   unreachable
 
 st_mult.exit:                                     ; preds = %31

@@ -675,7 +675,7 @@ declare ptr @rpc_num2string(i16 noundef zeroext) local_unnamed_addr #2
 declare i32 @slurm_send_rc_msg(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @_forward_comm_set(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.slurm_msg, align 8
   %3 = alloca i32, align 4
   %4 = load i16, ptr %0, align 8

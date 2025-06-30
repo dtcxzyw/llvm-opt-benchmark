@@ -1184,7 +1184,7 @@ switch.lookup:                                    ; preds = %9
   br i1 %.not58, label %38, label %.thread
 
 38:                                               ; preds = %36
-  %39 = call range(i32 0, 65) i32 @llvm.umin.i32(i32 %26, i32 range(i32 0, 65) %switch.load)
+  %39 = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %26, i32 range(i32 0, -2147483648) %switch.load)
   %40 = zext i32 %.04065 to i64
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 %40
   %42 = zext nneg i32 %39 to i64

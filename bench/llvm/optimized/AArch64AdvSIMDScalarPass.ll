@@ -816,7 +816,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb
 _ZNK12_GLOBAL__N_120AArch64AdvSIMDScalar23isProfitableToTransformERKN4llvm12MachineInstrE.exit.i: ; preds = %.critedge2.i.i.i.i.i, %._crit_edge.loopexit.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.thread.i.i
   %.439.lcssa.i.i = phi i32 [ %.5.i.i, %._crit_edge.loopexit.i.i ], [ %.237.i.i, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.thread.i.i ], [ %.237.i.i, %.critedge2.i.i.i.i.i ]
   %.031.lcssa.i.i = phi i32 [ %151, %._crit_edge.loopexit.i.i ], [ 1, %_ZNK4llvm19MachineRegisterInfo9def_emptyENS_8RegisterE.exit59.thread.i.i ], [ 1, %.critedge2.i.i.i.i.i ]
-  %spec.select46.i.i = sub nsw i32 %.2.i.i, %.031.lcssa.i.i
+  %spec.select46.i.i = sub nuw nsw i32 %.2.i.i, %.031.lcssa.i.i
   %.not41.i.i = icmp ule i32 %spec.select46.i.i, %.439.lcssa.i.i
   %166 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12TransformAll, i64 120), align 8, !range !50
   %167 = trunc nuw i8 %166 to i1

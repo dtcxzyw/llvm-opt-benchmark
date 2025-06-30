@@ -217,8 +217,8 @@ define void @_Z13simplify_argsB5cxx11iPPKc(ptr dead_on_unwind noalias writable s
 24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, %.lr.ph132
   %.022131 = phi i32 [ 1, %.lr.ph132 ], [ %263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
-  %25 = sext i32 %.022131 to i64
-  %26 = getelementptr inbounds ptr, ptr %2, i64 %25
+  %25 = zext nneg i32 %.022131 to i64
+  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !14
   store ptr %13, ptr %8, align 8, !tbaa !22
   %28 = icmp eq ptr %27, null
@@ -917,7 +917,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i75, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  %263 = add nsw i32 %.224, 1
+  %263 = add nuw nsw i32 %.224, 1
   %264 = icmp slt i32 %263, %1
   %or.cond = select i1 %44, i1 %264, i1 false
   br i1 %or.cond, label %24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76._crit_edge, !llvm.loop !42

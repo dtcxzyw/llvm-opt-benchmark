@@ -497,8 +497,8 @@ get_size.exit.i:                                  ; preds = %.preheader292.i
 
 131:                                              ; preds = %129
   %132 = call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #9
-  %133 = add nuw i32 %127, 6
-  %134 = zext i32 %133 to i64
+  %133 = add nuw nsw i32 %127, 6
+  %134 = zext nneg i32 %133 to i64
   %135 = call i32 @ffio_ensure_seekback(ptr noundef %0, i64 noundef %134) #9
   %.not212.i = icmp eq i32 %135, 0
   br i1 %.not212.i, label %136, label %.thread272.i

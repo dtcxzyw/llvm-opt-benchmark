@@ -297,10 +297,10 @@ thread-pre-split:                                 ; preds = %79
 
 106:                                              ; preds = %105
   %.not141 = icmp eq i32 %.188, 0
-  %107 = add nsw i32 %.1.ph223, 16
+  %107 = add nuw nsw i32 %.1.ph223, 16
   %.4 = select i1 %.not141, i32 %107, i32 %.188
   %108 = icmp eq ptr %.194.ph219, %6
-  %109 = sext i32 %.4 to i64
+  %109 = zext nneg i32 %.4 to i64
   br i1 %108, label %.loopexit153.loopexit, label %111
 
 .loopexit153.loopexit:                            ; preds = %106
@@ -309,7 +309,7 @@ thread-pre-split:                                 ; preds = %79
   br label %.loopexit153
 
 111:                                              ; preds = %106
-  %112 = shl nsw i64 %109, 2
+  %112 = shl nuw nsw i64 %109, 2
   %113 = call ptr @_erealloc(ptr noundef %.194.ph219, i64 noundef %112) #13
   br label %.loopexit153
 
@@ -319,8 +319,8 @@ thread-pre-split:                                 ; preds = %79
   br i1 %114, label %.lr.ph214.preheader, label %.loopexit
 
 .lr.ph214.preheader:                              ; preds = %.loopexit153
-  %115 = sext i32 %.1.ph223 to i64
-  %116 = shl nsw i64 %115, 2
+  %115 = zext i32 %.1.ph223 to i64
+  %116 = shl nuw nsw i64 %115, 2
   %scevgep = getelementptr i8, ptr %.497, i64 %116
   %117 = xor i32 %.1.ph223, -1
   %118 = add i32 %.4, %117
@@ -333,12 +333,12 @@ thread-pre-split:                                 ; preds = %79
 .loopexit:                                        ; preds = %.lr.ph214.preheader, %.loopexit153, %105
   %.396 = phi ptr [ %.194.ph219, %105 ], [ %.497, %.loopexit153 ], [ %.497, %.lr.ph214.preheader ]
   %.3 = phi i32 [ %.1.ph223, %105 ], [ %.4, %.loopexit153 ], [ %.4, %.lr.ph214.preheader ]
-  %122 = sext i32 %.191 to i64
-  %123 = getelementptr inbounds i32, ptr %.396, i64 %122
+  %122 = zext nneg i32 %.191 to i64
+  %123 = getelementptr inbounds nuw i32, ptr %.396, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !9
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %123, align 4, !tbaa !9
-  %126 = add nsw i32 %.191, 1
+  %126 = add nuw nsw i32 %.191, 1
   %.promoted.pre = load ptr, ptr %4, align 8, !tbaa !4
   br label %.outer
 

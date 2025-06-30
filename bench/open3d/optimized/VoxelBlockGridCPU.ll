@@ -55689,8 +55689,8 @@ _ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfttEEvRKNS_4c
   ]
 
 113:                                              ; preds = %92
-  %114 = sext i32 %91 to i64
-  %115 = getelementptr inbounds [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %114
+  %114 = zext nneg i32 %91 to i64
+  %115 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !19
   %117 = load ptr, ptr %4, align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -58848,8 +58848,8 @@ _ZZZN6open3d1t8geometry6kernel10voxel_grid22ExtractTriangleMeshCPUIfffEEvRKNS_4c
   ]
 
 112:                                              ; preds = %91
-  %113 = sext i32 %90 to i64
-  %114 = getelementptr inbounds [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %113
+  %113 = zext nneg i32 %90 to i64
+  %114 = getelementptr inbounds nuw [256 x i32], ptr @_ZN12_GLOBAL__N_110edge_tableE, i64 0, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !19
   %116 = load ptr, ptr %4, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 168

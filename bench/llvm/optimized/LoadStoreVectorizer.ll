@@ -18029,15 +18029,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1
   %.034 = phi i64 [ %spec.select, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit ], [ %1, %4 ]
   %8 = shl i64 %.034, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %9
   %gep = getelementptr %"struct.(anonymous namespace)::ChainElem", ptr %invariant.gep, i64 %8
   %.val29 = load ptr, ptr %10, align 8, !tbaa !293
   %.val30 = load ptr, ptr %gep, align 8, !tbaa !293
   %11 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val29, ptr noundef %.val30) #19
   %12 = or disjoint i64 %8, 1
   %spec.select = select i1 %11, i64 %12, i64 %9
-  %13 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %spec.select
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.034
+  %13 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %spec.select
+  %14 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.034
   %15 = load ptr, ptr %13, align 8, !tbaa !293
   store ptr %15, ptr %14, align 8, !tbaa !293
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -18081,8 +18081,8 @@ _ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit:          ; preds = %.lr.ph, %20, %23
 35:                                               ; preds = %31
   %36 = shl nsw i64 %.0.lcssa, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %37
-  %39 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0.lcssa
+  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %37
+  %39 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0.lcssa
   %40 = load ptr, ptr %38, align 8, !tbaa !293
   store ptr %40, ptr %39, align 8, !tbaa !293
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -18118,14 +18118,14 @@ _ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31:        ; preds = %35, %45, %48
   %57 = load i32, ptr %56, align 8, !tbaa !291
   %58 = load i64, ptr %55, align 8
   store i32 0, ptr %56, align 8, !tbaa !291
-  %59 = icmp sgt i64 %.127, %1
+  %59 = icmp samesign ugt i64 %.127, %1
   br i1 %59, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %53, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
   %.0133.i = phi i64 [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ], [ %.127, %53 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %60 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.04.i
+  %60 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %60, align 8, !tbaa !293
   %61 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val.i, ptr noundef %54) #19
   br i1 %61, label %62, label %.critedge.i
@@ -18162,7 +18162,7 @@ _ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i:        ; preds = %72, %69, %62
 
 .critedge.i:                                      ; preds = %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, %.lr.ph.i, %53
   %.013.lcssa.i = phi i64 [ %.127, %53 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ]
-  %78 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.lcssa.i
+  %78 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.lcssa.i
   store ptr %54, ptr %78, align 8, !tbaa !293
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -19428,11 +19428,11 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1
   %.030 = phi i64 [ %spec.select, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit ], [ %1, %4 ]
   %9 = shl i64 %.030, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %10
-  %12 = getelementptr %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %9
-  %13 = getelementptr i8, ptr %12, i64 24
+  %11 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %10
+  %12 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = getelementptr i8, ptr %12, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !291
   %18 = icmp ult i32 %17, 65
@@ -19463,8 +19463,8 @@ _ZNK4llvm5APIntneERKS0_.exit.i.i:                 ; preds = %.lr.ph
   %.0.i.i = phi i1 [ %26, %24 ], [ %30, %27 ]
   %31 = or disjoint i64 %9, 1
   %spec.select = select i1 %.0.i.i, i64 %31, i64 %10
-  %32 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %spec.select
-  %33 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.030
+  %32 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %spec.select
+  %33 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.030
   %34 = load ptr, ptr %32, align 8, !tbaa !293
   store ptr %34, ptr %33, align 8, !tbaa !293
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -19508,8 +19508,8 @@ _ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit:          ; preds = %"_ZN9__gnu_cxx5__op
 54:                                               ; preds = %50
   %55 = shl nsw i64 %.0.lcssa, 1
   %56 = or disjoint i64 %55, 1
-  %57 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %56
-  %58 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0.lcssa
+  %57 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0.lcssa
   %59 = load ptr, ptr %57, align 8, !tbaa !293
   store ptr %59, ptr %58, align 8, !tbaa !293
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -19550,14 +19550,14 @@ _ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29:        ; preds = %54, %64, %67
   %79 = load i64, ptr %75, align 8
   store i64 %79, ptr %74, align 8
   store i32 0, ptr %77, align 8, !tbaa !291
-  %80 = icmp sgt i64 %.127, %1
+  %80 = icmp samesign ugt i64 %.127, %1
   br i1 %80, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %72, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
   %.0133.i = phi i64 [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ], [ %.127, %72 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %81 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.04.i
+  %81 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.04.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %84 = load i32, ptr %83, align 8, !tbaa !291
@@ -19621,7 +19621,7 @@ _ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i:        ; preds = %107, %104, %97
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %72
   %111 = phi ptr [ %73, %72 ], [ %.pre, %.critedge.i.loopexit ]
   %.013.lcssa.i = phi i64 [ %.127, %72 ], [ %.013.lcssa.i.ph, %.critedge.i.loopexit ]
-  %112 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.lcssa.i
+  %112 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.lcssa.i
   store ptr %111, ptr %112, align 8, !tbaa !293
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 16

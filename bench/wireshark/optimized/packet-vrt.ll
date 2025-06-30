@@ -1285,12 +1285,12 @@ define internal i32 @dissect_vrt(ptr noundef %0, ptr noundef readonly captures(n
 96:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %97 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.4)
+  %97 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 4, 33) %.4)
   %98 = load i32, ptr @hf_vrt_cif, align 16
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %98, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0)
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %98, ptr noundef %0, i32 noundef range(i32 4, 33) %.4, i32 noundef 4, i32 noundef 0)
   %100 = load i32, ptr @ett_cif0, align 4
   %101 = tail call ptr @proto_item_add_subtree(ptr noundef %99, i32 noundef %100)
-  tail call void @proto_tree_add_bitmask_list(ptr noundef %101, ptr noundef %0, i32 noundef %.4, i32 noundef 1, ptr noundef nonnull @dissect_context_cif0.oct1_flags, i32 noundef 0)
+  tail call void @proto_tree_add_bitmask_list(ptr noundef %101, ptr noundef %0, i32 noundef range(i32 4, 33) %.4, i32 noundef 1, ptr noundef nonnull @dissect_context_cif0.oct1_flags, i32 noundef 0)
   %102 = add nuw nsw i32 %.4, 1
   tail call void @proto_tree_add_bitmask_list(ptr noundef %101, ptr noundef %0, i32 noundef %102, i32 noundef 1, ptr noundef nonnull @dissect_context_cif0.oct2_flags, i32 noundef 0)
   %103 = add nuw nsw i32 %.4, 2

@@ -12980,7 +12980,7 @@ node_new_str.exit:                                ; preds = %131
 
 ._crit_edge139.thread:                            ; preds = %49, %._crit_edge139
   %.0102.lcssa157 = phi i32 [ %.1103.ph, %._crit_edge139 ], [ 0, %49 ]
-  %158 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef %.0102.lcssa157, ptr noundef nonnull readonly %6)
+  %158 = call fastcc noundef ptr @make_list_or_alt(i32 noundef 7, i32 noundef range(i32 2, 1) %.0102.lcssa157, ptr noundef nonnull readonly %6)
   br label %159
 
 159:                                              ; preds = %._crit_edge139.thread, %156

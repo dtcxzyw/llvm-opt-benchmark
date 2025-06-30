@@ -2338,7 +2338,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ._crit_edge:                                      ; preds = %288, %169
   %.1.lcssa = phi i32 [ %.0, %169 ], [ %.2, %288 ]
-  %292 = sub i32 0, %.1.lcssa
+  %292 = sub nsw i32 0, %.1.lcssa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %260, %249, %238, %226, %212, %201, %190, %149, %131, %113, %87, %77, %68, %18, %4, %._crit_edge, %287, %285, %284, %280, %279, %275, %274, %268, %257, %246, %235, %223, %220, %209, %198, %187, %168, %166, %157, %148, %139, %130, %121, %110, %108, %106, %105, %104, %102, %100, %98, %85, %84, %82, %66, %64, %61, %._crit_edge316, %55, %40, %36, %35, %32, %29, %15, %12
@@ -8090,7 +8090,7 @@ unicode_byte_type.exit247.thread:                 ; preds = %227, %227, %227, %2
 
 ._crit_edge:                                      ; preds = %unicode_byte_type.exit247.thread, %180
   %.1.lcssa = phi i32 [ %.0207, %180 ], [ %.2, %unicode_byte_type.exit247.thread ]
-  %279 = sub i32 0, %.1.lcssa
+  %279 = sub nsw i32 0, %.1.lcssa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %223, %unicode_byte_type.exit247.thread388, %255, %unicode_byte_type.exit244.thread382, %215, %unicode_byte_type.exit.thread368, %145, %140, %112, %97, %84, %29, %4, %5, %._crit_edge, %unicode_byte_type.exit244.thread, %274, %273, %269, %268, %264, %263, %259, %257, %254, %251, %220, %219, %217, %214, %211, %unicode_byte_type.exit.thread, %153, %149, %144, %137, %135, %133, %unicode_byte_type.exit241.thread, %132, %130, %128, %126, %110, %109, %107, %82, %80, %77, %._crit_edge308, %unicode_byte_type.exit238.thread, %54, %unicode_byte_type.exit235.thread, %unicode_byte_type.exit235.thread374, %48, %45, %26, %23
@@ -14070,7 +14070,7 @@ unicode_byte_type.exit247.thread:                 ; preds = %232, %232, %232, %2
 
 ._crit_edge:                                      ; preds = %unicode_byte_type.exit247.thread, %183
   %.1.lcssa = phi i32 [ %.0207, %183 ], [ %.2, %unicode_byte_type.exit247.thread ]
-  %286 = sub i32 0, %.1.lcssa
+  %286 = sub nsw i32 0, %.1.lcssa
   br label %.loopexit
 
 .loopexit:                                        ; preds = %228, %unicode_byte_type.exit247.thread388, %262, %unicode_byte_type.exit244.thread382, %220, %unicode_byte_type.exit.thread368, %147, %142, %114, %99, %86, %30, %4, %5, %._crit_edge, %unicode_byte_type.exit244.thread, %281, %280, %276, %275, %271, %270, %266, %264, %261, %258, %225, %224, %222, %219, %216, %unicode_byte_type.exit.thread, %155, %151, %146, %139, %137, %135, %unicode_byte_type.exit241.thread, %134, %132, %130, %128, %112, %111, %109, %84, %82, %79, %._crit_edge308, %unicode_byte_type.exit238.thread, %56, %unicode_byte_type.exit235.thread, %unicode_byte_type.exit235.thread374, %50, %47, %27, %24

@@ -11029,7 +11029,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i:         ; preds = %13, %.lr.ph
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !99
   store ptr null, ptr %56, align 8, !tbaa !99
-  %58 = icmp sgt i64 %.1, %1
+  %58 = icmp samesign ugt i64 %.1, %1
   br i1 %58, label %.lr.ph.i.preheader, label %"_ZSt11__push_heapIPN3opt13weighted_coreElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_T0_SA_T1_RT2_.exit"
 
 .lr.ph.i.preheader:                               ; preds = %38
@@ -11041,7 +11041,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i:         ; preds = %13, %.lr.ph
   %.0133.i = phi i64 [ %.04.i, %68 ], [ %.1, %.lr.ph.i.preheader ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %61 = getelementptr inbounds %"struct.opt::weighted_core", ptr %0, i64 %.04.i
+  %61 = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %61, align 8, !tbaa !46
   %62 = icmp eq ptr %.val.i, null
   br i1 %62, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i, label %63
@@ -11065,7 +11065,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i:       ; preds = %63, %.lr.ph.i
 
 "_ZSt11__push_heapIPN3opt13weighted_coreElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_5cores14disjoint_coresEvE3$_0EEEvT_T0_SA_T1_RT2_.exit": ; preds = %68, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i, %.lr.ph.i.preheader, %38
   %.013.lcssa.i = phi i64 [ %.1, %38 ], [ %.1, %.lr.ph.i.preheader ], [ %.0133.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i ], [ %.04.i, %68 ]
-  %72 = getelementptr inbounds %"struct.opt::weighted_core", ptr %0, i64 %.013.lcssa.i
+  %72 = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %0, i64 %.013.lcssa.i
   %73 = icmp eq ptr %72, %5
   br i1 %73, label %81, label %74
 
@@ -12674,7 +12674,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15
   %.0133.i = phi i64 [ %.128, %.lr.ph.i ], [ %.04.i, %75 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %34 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val14.i = load ptr, ptr %34, align 8, !tbaa !54
   %35 = tail call noundef ptr @_ZNK7obj_mapI4expr8rationalE9find_coreEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef %.val14.i)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -12740,7 +12740,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15
 
 "_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %67, %71, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEE3$_0EclIPPS5_SD_EEbT_RT0_.exit.i", %75, %30
   %.013.lcssa.i = phi i64 [ %.128, %30 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEE3$_0EclIPPS5_SD_EEbT_RT0_.exit.i" ], [ %.04.i, %75 ], [ %.0133.i, %71 ], [ %.0133.i, %67 ]
-  %79 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %79 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %79, align 8, !tbaa !54
   ret void
 }

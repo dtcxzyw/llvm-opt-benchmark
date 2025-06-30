@@ -7065,9 +7065,9 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   %155 = phi i32 [ 0, %149 ], [ 64, %147 ], [ 32, %146 ], [ 0, %140 ], [ 96, %148 ], [ 96, %131 ]
   %.fr = freeze i32 %152
   %156 = icmp eq i32 %.fr, 1
-  %157 = mul i32 %.fr, %151
-  %158 = mul i32 %157, %153
-  %159 = zext i32 %158 to i64
+  %157 = mul nuw nsw i32 %.fr, %151
+  %158 = mul nuw nsw i32 %157, %153
+  %159 = zext nneg i32 %158 to i64
   %160 = mul nsw i64 %159, %23
   %161 = mul i32 %21, 1000
   %162 = zext i32 %161 to i64
@@ -7083,7 +7083,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   %172 = udiv i64 %171, 1000000
   %173 = trunc i64 %172 to i32
   %174 = shl i32 %173, 9
-  %175 = shl i32 %.fr, 8
+  %175 = shl nuw nsw i32 %.fr, 8
   %spec.select = select i1 %156, i32 0, i32 128
   %176 = or i32 %174, %164
   %177 = or i32 %176, -2147483648

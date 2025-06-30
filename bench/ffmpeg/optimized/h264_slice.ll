@@ -970,7 +970,7 @@ define range(i32 -2147483648, 1) i32 @ff_h264_queue_decode_slice(ptr noundef %0,
   %60 = sub nsw i32 0, %.sroa.46.0.copyload.i.i.i
   %61 = sub nsw i32 %.sroa.77.0.copyload.i.i.i, %.sroa.46.0.copyload.i.i.i
   %62 = icmp slt i32 %59, %60
-  %..i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %59, i32 %61)
+  %..i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %59, i32 %61)
   %.0.i.i.i.i = select i1 %62, i32 %60, i32 %..i.i.i.i
   %63 = add nsw i32 %.0.i.i.i.i, %.sroa.46.0.copyload.i.i.i
   store i32 %63, ptr %.sroa.46.0..sroa_idx.i.i.i, align 8, !tbaa !166
@@ -1323,7 +1323,7 @@ get_ue_golomb.exit.i:                             ; preds = %154
   %286 = sub nsw i32 0, %.sroa.46.0.copyload.i.i262.i
   %287 = sub nsw i32 %.sroa.77.0.copyload.i.i.i, %.sroa.46.0.copyload.i.i262.i
   %288 = icmp slt i32 %285, %286
-  %..i.i.i271.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %285, i32 %287)
+  %..i.i.i271.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %285, i32 %287)
   %.0.i.i.i272.i = select i1 %288, i32 %286, i32 %..i.i.i271.i
   %289 = add nsw i32 %.0.i.i.i272.i, %.sroa.46.0.copyload.i.i262.i
   store i32 %289, ptr %.sroa.46.0..sroa_idx.i.i.i, align 8, !tbaa !166

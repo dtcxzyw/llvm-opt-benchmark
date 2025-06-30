@@ -47662,7 +47662,7 @@ pm_constant_read_node_create.exit:                ; preds = %248
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %267 = load ptr, ptr %266, align 8, !tbaa !74
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %269 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %268, ptr noundef %265, ptr noundef %267, i32 noundef range(i32 0, 279) %2) #31
+  %269 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %268, ptr noundef %265, ptr noundef %267, i32 noundef %2) #31
   %270 = load ptr, ptr %264, align 8, !tbaa !165
   %271 = load ptr, ptr %266, align 8, !tbaa !74
   %272 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #34
@@ -47923,7 +47923,7 @@ pm_alternation_pattern_node_create.exit94:        ; preds = %50
 59:                                               ; preds = %.critedge
   %60 = load ptr, ptr %.sroa.3123.0..sroa_idx, align 8, !tbaa !165
   %61 = load ptr, ptr %.sroa.4124.0..sroa_idx, align 8, !tbaa !74
-  %62 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %10, ptr noundef %60, ptr noundef %61, i32 noundef range(i32 0, 279) %3) #31
+  %62 = tail call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %10, ptr noundef %60, ptr noundef %61, i32 noundef %3) #31
   %63 = load ptr, ptr %.sroa.3123.0..sroa_idx, align 8, !tbaa !165
   %64 = load ptr, ptr %.sroa.4124.0..sroa_idx, align 8, !tbaa !74
   %65 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #34
@@ -50149,22 +50149,22 @@ define internal fastcc zeroext range(i16 0, 576) i16 @pm_regular_expression_flag
   br label %36
 
 23:                                               ; preds = %.lr.ph
-  %24 = and i16 %.126, 31807
+  %24 = and i16 %.126, -961
   %25 = or disjoint i16 %24, 64
   br label %36
 
 26:                                               ; preds = %.lr.ph
-  %27 = and i16 %.126, 31807
+  %27 = and i16 %.126, -961
   %28 = or disjoint i16 %27, 128
   br label %36
 
 29:                                               ; preds = %.lr.ph
-  %30 = and i16 %.126, 31807
+  %30 = and i16 %.126, -961
   %31 = or disjoint i16 %30, 256
   br label %36
 
 32:                                               ; preds = %.lr.ph
-  %33 = and i16 %.126, 31807
+  %33 = and i16 %.126, -961
   %34 = or disjoint i16 %33, 512
   br label %36
 

@@ -53,24 +53,24 @@ define dso_local ptr @cb_insert(ptr noundef captures(none) %0, ptr noundef %1, i
 
 cb_internal_best_match.exit:                      ; preds = %21, %6
   %.0.lcssa.i = phi ptr [ %4, %6 ], [ %30, %21 ]
-  %.not88 = icmp eq i64 %2, 0
-  br i1 %.not88, label %.loopexit, label %.lr.ph
+  %.not87 = icmp eq i64 %2, 0
+  br i1 %.not87, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %cb_internal_best_match.exit
   %33 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 21
   br label %34
 
 34:                                               ; preds = %.lr.ph, %39
-  %.06180 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %35 = getelementptr inbounds nuw [0 x i8], ptr %33, i64 0, i64 %.06180
+  %.06179 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
+  %35 = getelementptr inbounds nuw [0 x i8], ptr %33, i64 0, i64 %.06179
   %36 = load i8, ptr %35, align 1, !tbaa !12
-  %37 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %.06180
+  %37 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %.06179
   %38 = load i8, ptr %37, align 1, !tbaa !12
   %.not70 = icmp eq i8 %36, %38
   br i1 %.not70, label %39, label %41
 
 39:                                               ; preds = %34
-  %40 = add nuw i64 %.06180, 1
+  %40 = add nuw i64 %.06179, 1
   %exitcond.not = icmp eq i64 %40, %2
   br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !16
 
@@ -89,80 +89,77 @@ cb_internal_best_match.exit:                      ; preds = %21, %6
   %53 = xor i64 %52, 255
   %54 = zext i8 %36 to i64
   %55 = or i64 %53, %54
-  %56 = trunc i64 %.06180 to i32
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %56, ptr %57, align 8, !tbaa !10
-  %58 = trunc nuw i64 %53 to i8
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i8 %58, ptr %59, align 4, !tbaa !12
-  %60 = shl nuw nsw i64 %55, 24
-  %61 = add nuw nsw i64 %60, 16777216
-  %62 = and i64 %61, 9223372032559808512
-  %sext = sub nuw nsw i64 4294967296, %62
-  %63 = lshr exact i64 %sext, 32
-  %64 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %63
-  store ptr %1, ptr %64, align 8, !tbaa !13
-  %65 = load ptr, ptr %0, align 8, !tbaa !13
-  %66 = ptrtoint ptr %65 to i64
-  %67 = and i64 %66, 1
-  %.not7181 = icmp eq i64 %67, 0
-  br i1 %.not7181, label %._crit_edge, label %.lr.ph83.preheader
+  %56 = add nuw nsw i64 %55, 1
+  %57 = lshr i64 %56, 8
+  %58 = trunc i64 %.06179 to i32
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %58, ptr %59, align 8, !tbaa !10
+  %60 = trunc nuw i64 %53 to i8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i8 %60, ptr %61, align 4, !tbaa !12
+  %62 = sub nuw nsw i64 1, %57
+  %63 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %62
+  store ptr %1, ptr %63, align 8, !tbaa !13
+  %64 = load ptr, ptr %0, align 8, !tbaa !13
+  %65 = ptrtoint ptr %64 to i64
+  %66 = and i64 %65, 1
+  %.not7180 = icmp eq i64 %66, 0
+  br i1 %.not7180, label %._crit_edge, label %.lr.ph82.preheader
 
-.lr.ph83.preheader:                               ; preds = %41
-  %68 = add nsw i64 %66, -1
-  %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load i32, ptr %70, align 8, !tbaa !10
-  %72 = zext i32 %71 to i64
-  %73 = icmp ult i64 %.06180, %72
-  br i1 %73, label %._crit_edge, label %.lr.ph107
+.lr.ph82.preheader:                               ; preds = %41
+  %67 = add nsw i64 %65, -1
+  %68 = inttoptr i64 %67 to ptr
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load i32, ptr %69, align 8, !tbaa !10
+  %71 = zext i32 %70 to i64
+  %72 = icmp ult i64 %.06179, %71
+  br i1 %72, label %._crit_edge, label %.lr.ph106
 
-.lr.ph83:                                         ; preds = %._crit_edge94
-  %74 = add nsw i64 %96, -1
-  %75 = inttoptr i64 %74 to ptr
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load i32, ptr %76, align 8, !tbaa !10
-  %78 = zext i32 %77 to i64
-  %79 = icmp ult i64 %.06180, %78
-  br i1 %79, label %._crit_edge, label %.lr.ph107
+.lr.ph82:                                         ; preds = %._crit_edge93
+  %73 = add nsw i64 %95, -1
+  %74 = inttoptr i64 %73 to ptr
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = load i32, ptr %75, align 8, !tbaa !10
+  %77 = zext i32 %76 to i64
+  %78 = icmp ult i64 %.06179, %77
+  br i1 %78, label %._crit_edge, label %.lr.ph106
 
-.lr.ph107:                                        ; preds = %.lr.ph83.preheader, %.lr.ph83
-  %80 = phi i64 [ %78, %.lr.ph83 ], [ %72, %.lr.ph83.preheader ]
-  %81 = phi ptr [ %75, %.lr.ph83 ], [ %69, %.lr.ph83.preheader ]
-  %.06382106 = phi ptr [ %94, %.lr.ph83 ], [ %0, %.lr.ph83.preheader ]
-  %82 = phi ptr [ %95, %.lr.ph83 ], [ %65, %.lr.ph83.preheader ]
-  %83 = icmp eq i64 %.06180, %80
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 20
-  %85 = load i8, ptr %84, align 4, !tbaa !12
-  %86 = zext i8 %85 to i64
-  %87 = icmp samesign ult i64 %53, %86
-  %or.cond = select i1 %83, i1 %87, i1 false
-  br i1 %or.cond, label %._crit_edge, label %._crit_edge94
+.lr.ph106:                                        ; preds = %.lr.ph82.preheader, %.lr.ph82
+  %79 = phi i64 [ %77, %.lr.ph82 ], [ %71, %.lr.ph82.preheader ]
+  %80 = phi ptr [ %74, %.lr.ph82 ], [ %68, %.lr.ph82.preheader ]
+  %.06381105 = phi ptr [ %93, %.lr.ph82 ], [ %0, %.lr.ph82.preheader ]
+  %81 = phi ptr [ %94, %.lr.ph82 ], [ %64, %.lr.ph82.preheader ]
+  %82 = icmp eq i64 %.06179, %79
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 20
+  %84 = load i8, ptr %83, align 4, !tbaa !12
+  %85 = zext i8 %84 to i64
+  %86 = icmp samesign ult i64 %53, %85
+  %or.cond = select i1 %82, i1 %86, i1 false
+  br i1 %or.cond, label %._crit_edge, label %._crit_edge93
 
-._crit_edge94:                                    ; preds = %.lr.ph107
-  %88 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %80
-  %89 = load i8, ptr %88, align 1, !tbaa !12
-  %90 = or i8 %85, %89
-  %91 = zext i8 %90 to i64
-  %92 = add nuw nsw i64 %91, 1
-  %93 = lshr i64 %92, 8
-  %94 = getelementptr inbounds nuw ptr, ptr %81, i64 %93
-  %95 = load ptr, ptr %94, align 8, !tbaa !13
-  %96 = ptrtoint ptr %95 to i64
-  %97 = and i64 %96, 1
-  %.not71 = icmp eq i64 %97, 0
-  br i1 %.not71, label %._crit_edge, label %.lr.ph83
+._crit_edge93:                                    ; preds = %.lr.ph106
+  %87 = getelementptr inbounds nuw [0 x i8], ptr %7, i64 0, i64 %79
+  %88 = load i8, ptr %87, align 1, !tbaa !12
+  %89 = or i8 %84, %88
+  %90 = zext i8 %89 to i64
+  %91 = add nuw nsw i64 %90, 1
+  %92 = lshr i64 %91, 8
+  %93 = getelementptr inbounds nuw ptr, ptr %80, i64 %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !13
+  %95 = ptrtoint ptr %94 to i64
+  %96 = and i64 %95, 1
+  %.not71 = icmp eq i64 %96, 0
+  br i1 %.not71, label %._crit_edge, label %.lr.ph82
 
-._crit_edge:                                      ; preds = %.lr.ph107, %._crit_edge94, %.lr.ph83, %.lr.ph83.preheader, %41
-  %98 = phi ptr [ %65, %41 ], [ %65, %.lr.ph83.preheader ], [ %95, %.lr.ph83 ], [ %95, %._crit_edge94 ], [ %82, %.lr.ph107 ]
-  %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph83.preheader ], [ %94, %.lr.ph83 ], [ %94, %._crit_edge94 ], [ %.06382106, %.lr.ph107 ]
-  %99 = lshr i64 %61, 32
-  %100 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %99
-  store ptr %98, ptr %100, align 8, !tbaa !13
-  %101 = ptrtoint ptr %1 to i64
-  %102 = add i64 %101, 1
-  %103 = inttoptr i64 %102 to ptr
-  store ptr %103, ptr %.063.lcssa, align 8, !tbaa !13
+._crit_edge:                                      ; preds = %.lr.ph106, %._crit_edge93, %.lr.ph82, %.lr.ph82.preheader, %41
+  %97 = phi ptr [ %64, %41 ], [ %64, %.lr.ph82.preheader ], [ %94, %.lr.ph82 ], [ %94, %._crit_edge93 ], [ %81, %.lr.ph106 ]
+  %.063.lcssa = phi ptr [ %0, %41 ], [ %0, %.lr.ph82.preheader ], [ %93, %.lr.ph82 ], [ %93, %._crit_edge93 ], [ %.06381105, %.lr.ph106 ]
+  %98 = getelementptr inbounds nuw [2 x ptr], ptr %1, i64 0, i64 %57
+  store ptr %97, ptr %98, align 8, !tbaa !13
+  %99 = ptrtoint ptr %1 to i64
+  %100 = add i64 %99, 1
+  %101 = inttoptr i64 %100 to ptr
+  store ptr %101, ptr %.063.lcssa, align 8, !tbaa !13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %cb_internal_best_match.exit, %._crit_edge, %5

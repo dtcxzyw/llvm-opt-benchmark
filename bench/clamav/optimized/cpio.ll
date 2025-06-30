@@ -61,7 +61,7 @@ define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   %spec.select.i = call i64 @llvm.umin.i64(i64 %11, i64 26)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = call ptr %13(ptr noundef nonnull %10, i64 noundef %.0109, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #9
+  %14 = call ptr %13(ptr noundef nonnull %10, i64 noundef %.0109, i64 noundef %spec.select.i, i32 noundef 0) #9
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -114,7 +114,7 @@ fmap_readn.exit:                                  ; preds = %8
   %spec.select.i90 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %29, i64 %35)
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %37 = load ptr, ptr %36, align 8, !tbaa !25
-  %38 = call ptr %37(ptr noundef nonnull %28, i64 noundef %17, i64 noundef range(i64 0, 4294967296) %spec.select.i90, i32 noundef 0) #9
+  %38 = call ptr %37(ptr noundef nonnull %28, i64 noundef %17, i64 noundef %spec.select.i90, i32 noundef 0) #9
   %.not.i91 = icmp eq ptr %38, null
   br i1 %.not.i91, label %fmap_readn.exit.thread.sink.split, label %39
 
@@ -304,7 +304,7 @@ define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 76)
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %20 = load ptr, ptr %19, align 8, !tbaa !25
-  %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.058, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #9
+  %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.058, i64 noundef %spec.select.i, i32 noundef 0) #9
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -358,7 +358,7 @@ fmap_readn.exit:                                  ; preds = %15
   %spec.select.i46 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %38, i64 %44)
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %46 = load ptr, ptr %45, align 8, !tbaa !25
-  %47 = call ptr %46(ptr noundef nonnull %37, i64 noundef %24, i64 noundef range(i64 0, 4294967296) %spec.select.i46, i32 noundef 0) #9
+  %47 = call ptr %46(ptr noundef nonnull %37, i64 noundef %24, i64 noundef %spec.select.i46, i32 noundef 0) #9
   %.not.i47 = icmp eq ptr %47, null
   br i1 %.not.i47, label %fmap_readn.exit.thread.sink.split, label %48
 
@@ -520,7 +520,7 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 110)
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %20 = load ptr, ptr %19, align 8, !tbaa !25
-  %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.075, i64 noundef range(i64 0, 4294967296) %spec.select.i, i32 noundef 0) #9
+  %21 = call ptr %20(ptr noundef nonnull %17, i64 noundef %.075, i64 noundef %spec.select.i, i32 noundef 0) #9
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -582,7 +582,7 @@ fmap_readn.exit:                                  ; preds = %15
   %spec.select.i63 = call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %39, i64 %45)
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %47 = load ptr, ptr %46, align 8, !tbaa !25
-  %48 = call ptr %47(ptr noundef nonnull %38, i64 noundef %24, i64 noundef range(i64 0, 4294967296) %spec.select.i63, i32 noundef 0) #9
+  %48 = call ptr %47(ptr noundef nonnull %38, i64 noundef %24, i64 noundef %spec.select.i63, i32 noundef 0) #9
   %.not.i64 = icmp eq ptr %48, null
   br i1 %.not.i64, label %fmap_readn.exit.thread.sink.split, label %49
 

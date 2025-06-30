@@ -2426,7 +2426,7 @@ define noundef i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..sign.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i8 -128, 65) i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..sign..Signed$GT$6signum17h1c0c0af2acbcf20dE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
+define noundef range(i8 0, -63) i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..sign..Signed$GT$6signum17h1c0c0af2acbcf20dE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #4 {
   %2 = load i8, ptr %0, align 1, !noundef !4
   %3 = icmp eq i8 %2, -128
   br i1 %3, label %6, label %4
@@ -3043,7 +3043,7 @@ define noundef range(i8 0, -127) i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i8 -128, 65) i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$6signum17h2c1984dc401fdbc9E"(i8 noundef %0) unnamed_addr #0 {
+define noundef range(i8 0, -63) i8 @"_ZN66_$LT$softposit..p8e0..P8E0$u20$as$u20$num_traits..float..Float$GT$6signum17h2c1984dc401fdbc9E"(i8 noundef %0) unnamed_addr #0 {
   %2 = icmp eq i8 %0, -128
   br i1 %2, label %5, label %3
 

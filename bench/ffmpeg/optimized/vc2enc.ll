@@ -3219,7 +3219,7 @@ put_vc2_ue_uint_inline.exit:                      ; preds = %put_vc2_ue_uint_inl
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @put_bits63(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #10 {
+define internal fastcc void @put_bits63(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #10 {
   %4 = icmp slt i32 %1, 32
   br i1 %4, label %5, label %35
 

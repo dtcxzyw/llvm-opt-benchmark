@@ -317,30 +317,30 @@ define i32 @ossl_ffc_params_full_validate(ptr noundef %0, ptr noundef %1, i32 no
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !13
   %49 = call i32 @BN_check_prime(ptr noundef %48, ptr noundef nonnull %45, ptr noundef null) #4
-  %.not34.not = icmp eq i32 %49, 1
-  br i1 %.not34.not, label %.critedge, label %.sink.split
+  %.not34 = icmp eq i32 %49, 1
+  br i1 %.not34, label %50, label %.sink.split
 
-.critedge:                                        ; preds = %46
-  %50 = load ptr, ptr %1, align 8, !tbaa !7
-  %51 = call i32 @BN_check_prime(ptr noundef %50, ptr noundef nonnull %45, ptr noundef null) #4
-  %.not36 = icmp eq i32 %51, 1
-  br i1 %.not36, label %52, label %.sink.split
+50:                                               ; preds = %46
+  %51 = load ptr, ptr %1, align 8, !tbaa !7
+  %52 = call i32 @BN_check_prime(ptr noundef %51, ptr noundef nonnull %45, ptr noundef null) #4
+  %.not36 = icmp eq i32 %52, 1
+  br i1 %.not36, label %53, label %.sink.split
 
-.sink.split:                                      ; preds = %.critedge, %46
-  %.sink40 = phi i32 [ 172, %46 ], [ 178, %.critedge ]
-  %.sink = phi i32 [ 113, %46 ], [ 115, %.critedge ]
+.sink.split:                                      ; preds = %50, %46
+  %.sink42 = phi i32 [ 172, %46 ], [ 178, %50 ]
+  %.sink = phi i32 [ 113, %46 ], [ 115, %50 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink40, ptr noundef nonnull @__func__.ossl_ffc_params_full_validate) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink42, ptr noundef nonnull @__func__.ossl_ffc_params_full_validate) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.sink, ptr noundef null) #4
-  br label %52
+  br label %53
 
-52:                                               ; preds = %.sink.split, %.critedge
-  %.3 = phi i32 [ 1, %.critedge ], [ 0, %.sink.split ]
+53:                                               ; preds = %.sink.split, %50
+  %.3 = phi i32 [ 1, %50 ], [ 0, %.sink.split ]
   call void @BN_CTX_free(ptr noundef nonnull %45) #4
   br label %ossl_ffc_params_FIPS186_2_validate.exit
 
-ossl_ffc_params_FIPS186_2_validate.exit:          ; preds = %52, %44, %35, %31, %30, %23, %22, %42, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %42 ], [ 0, %22 ], [ %29, %23 ], [ %41, %35 ], [ 0, %31 ], [ 0, %30 ], [ %.3, %52 ], [ 0, %44 ]
+ossl_ffc_params_FIPS186_2_validate.exit:          ; preds = %53, %44, %35, %31, %30, %23, %22, %42, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %42 ], [ 0, %22 ], [ %29, %23 ], [ %41, %35 ], [ 0, %31 ], [ 0, %30 ], [ %.3, %53 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 %.0
 }

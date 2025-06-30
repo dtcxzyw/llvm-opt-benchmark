@@ -220,7 +220,7 @@ define dso_local range(i32 0, 4) i32 @hvc_poll(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 0, 4) i32 @__hvc_poll(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca [16 x i8], align 64

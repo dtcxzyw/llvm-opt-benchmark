@@ -4180,7 +4180,7 @@ _ZNK4llvm17VLIWResourceModel10isInPacketEPNS_5SUnitE.exit244: ; preds = %492, %_
 declare noundef i32 @_ZN4llvm11getWeakLeftEPKNS_5SUnitEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm23ConvergingVLIWScheduler17pickNodeFromQueueERNS0_17VLIWSchedBoundaryERKNS_18RegPressureTrackerERNS0_14SchedCandidateE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(188) %1, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm23ConvergingVLIWScheduler17pickNodeFromQueueERNS0_17VLIWSchedBoundaryERKNS_18RegPressureTrackerERNS0_14SchedCandidateE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(188) %1, ptr noundef nonnull align 8 dereferenceable(352) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::ArrayRef.43", align 8
   %6 = alloca %"struct.llvm::RegPressureDelta", align 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4469,7 +4469,7 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler20pickNodeBidrect
   %14 = load ptr, ptr %13, align 8, !tbaa !155
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 5488
   %16 = call noundef i32 @_ZN4llvm23ConvergingVLIWScheduler17pickNodeFromQueueERNS0_17VLIWSchedBoundaryERKNS_18RegPressureTrackerERNS0_14SchedCandidateE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(188) %5, ptr noundef nonnull align 8 dereferenceable(352) %15, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %17 = and i32 %16, -2
+  %17 = and i32 %16, 6
   %or.cond = icmp eq i32 %17, 2
   br i1 %or.cond, label %18, label %20
 
@@ -4484,7 +4484,7 @@ define dso_local noundef ptr @_ZN4llvm23ConvergingVLIWScheduler20pickNodeBidrect
   %21 = load ptr, ptr %13, align 8, !tbaa !155
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4808
   %23 = call noundef i32 @_ZN4llvm23ConvergingVLIWScheduler17pickNodeFromQueueERNS0_17VLIWSchedBoundaryERKNS_18RegPressureTrackerERNS0_14SchedCandidateE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull align 8 dereferenceable(188) %9, ptr noundef nonnull align 8 dereferenceable(352) %22, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  %24 = and i32 %23, -2
+  %24 = and i32 %23, 6
   %or.cond3 = icmp eq i32 %24, 2
   br i1 %or.cond3, label %35, label %25
 

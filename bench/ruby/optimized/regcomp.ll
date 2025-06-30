@@ -1671,7 +1671,7 @@ tailrecurse.backedge:                             ; preds = %13, %tailrecurse, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @setup_tree(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #4 {
+define internal fastcc i32 @setup_tree(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 64) %2, ptr noundef nonnull %3) unnamed_addr #4 {
   %.sroa.0.i.i = alloca %struct.StrNode, align 8
   %5 = alloca [7 x i8], align 1
   %6 = alloca [13 x %struct.OnigCaseFoldCodeItem], align 16
@@ -1695,7 +1695,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 9, label %.preheader342
     i32 5, label %359
     i32 0, label %80
-    i32 7, label %508
+    i32 7, label %507
     i32 6, label %429
     i32 4, label %313
   ]
@@ -2627,13 +2627,13 @@ expand_case_fold_string.exit:                     ; preds = %88, %90, %.sink.spl
   switch i32 %431, label %common.ret813 [
     i32 2, label %432
     i32 1, label %440
-    i32 4, label %462
-    i32 8, label %487
+    i32 4, label %461
+    i32 8, label %486
     i32 16, label %tailrecurse.backedge
   ]
 
-common.ret813:                                    ; preds = %522, %531, %468, %472, %476, %483, %479, %462, %expand_case_fold_string.exit, %84, %80, %.thread325, %516, %520, %524, %528, %.thread320, %313, %52, %next_setup.exit, %next_setup.exit.thread, %77, %72, %349, %327, %508, %429, %tailrecurse, %499, %502, %432
-  %common.ret813.op = phi i32 [ %439, %432 ], [ %.3, %.thread320 ], [ -122, %516 ], [ %521, %520 ], [ -122, %524 ], [ %530, %528 ], [ 0, %84 ], [ %.097.i, %expand_case_fold_string.exit ], [ 0, %80 ], [ %.3237.ph, %.thread325 ], [ %465, %462 ], [ %465, %479 ], [ %465, %483 ], [ %465, %476 ], [ %465, %472 ], [ %465, %468 ], [ %532, %531 ], [ %523, %522 ], [ 0, %313 ], [ -5, %52 ], [ 0, %next_setup.exit.thread ], [ %16, %next_setup.exit ], [ %75, %72 ], [ 0, %77 ], [ -208, %327 ], [ 0, %349 ], [ 0, %508 ], [ 0, %429 ], [ 0, %tailrecurse ], [ -208, %502 ], [ -209, %499 ]
+common.ret813:                                    ; preds = %521, %530, %467, %471, %475, %482, %478, %461, %expand_case_fold_string.exit, %84, %80, %.thread325, %515, %519, %523, %527, %.thread320, %313, %52, %next_setup.exit, %next_setup.exit.thread, %77, %72, %349, %327, %507, %429, %tailrecurse, %498, %501, %432
+  %common.ret813.op = phi i32 [ %439, %432 ], [ %.3, %.thread320 ], [ -122, %515 ], [ %520, %519 ], [ -122, %523 ], [ %529, %527 ], [ 0, %84 ], [ %.097.i, %expand_case_fold_string.exit ], [ 0, %80 ], [ %.3237.ph, %.thread325 ], [ %464, %461 ], [ %464, %478 ], [ %464, %482 ], [ %464, %475 ], [ %464, %471 ], [ %464, %467 ], [ %531, %530 ], [ %522, %521 ], [ 0, %313 ], [ -5, %52 ], [ 0, %next_setup.exit.thread ], [ %16, %next_setup.exit ], [ %75, %72 ], [ 0, %77 ], [ -208, %327 ], [ 0, %349 ], [ 0, %507 ], [ 0, %429 ], [ 0, %tailrecurse ], [ -208, %501 ], [ -209, %498 ]
   ret i32 %common.ret813.op
 
 432:                                              ; preds = %429
@@ -2676,156 +2676,155 @@ common.ret813:                                    ; preds = %522, %531, %468, %4
 
 454:                                              ; preds = %448
   %455 = or i32 %spec.select311, 32
-  br label %460
+  br label %459
 
 456:                                              ; preds = %448
-  %457 = and i32 %.tr340.ph, 32
-  %.not292 = icmp eq i32 %457, 0
-  br i1 %.not292, label %460, label %458
+  %.not292 = icmp samesign ult i32 %.tr340.ph, 32
+  br i1 %.not292, label %459, label %457
 
-458:                                              ; preds = %456
-  %459 = or disjoint i32 %450, 128
-  store i32 %459, ptr %449, align 4, !tbaa !34
-  br label %460
+457:                                              ; preds = %456
+  %458 = or disjoint i32 %450, 128
+  store i32 %458, ptr %449, align 4, !tbaa !34
+  br label %459
 
-460:                                              ; preds = %456, %458, %454
-  %.2233 = phi i32 [ %455, %454 ], [ %spec.select311, %458 ], [ %spec.select311, %456 ]
-  %461 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+459:                                              ; preds = %456, %457, %454
+  %.2233 = phi i32 [ %455, %454 ], [ %spec.select311, %457 ], [ %spec.select311, %456 ]
+  %460 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   br label %tailrecurse.outer.backedge
 
-tailrecurse.outer.backedge:                       ; preds = %460, %513
-  %.tr.ph.be.in = phi ptr [ %514, %513 ], [ %461, %460 ]
-  %.tr340.ph.be = phi i32 [ %515, %513 ], [ %.2233, %460 ]
+tailrecurse.outer.backedge:                       ; preds = %459, %512
+  %.tr.ph.be.in = phi ptr [ %513, %512 ], [ %460, %459 ]
+  %.tr340.ph.be = phi i32 [ %514, %512 ], [ %.2233, %459 ]
   %.tr.ph.be = load ptr, ptr %.tr.ph.be.in, align 8, !tbaa !59
   br label %tailrecurse.outer
 
-462:                                              ; preds = %429
-  %463 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %464 = load ptr, ptr %463, align 8, !tbaa !144
-  %465 = tail call fastcc i32 @setup_tree(ptr noundef %464, ptr noundef %1, i32 noundef %.tr340.ph, ptr noundef %3)
-  %466 = load i32, ptr %464, align 8, !tbaa !34
-  %467 = icmp eq i32 %466, 5
-  br i1 %467, label %468, label %common.ret813
+461:                                              ; preds = %429
+  %462 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %463 = load ptr, ptr %462, align 8, !tbaa !144
+  %464 = tail call fastcc i32 @setup_tree(ptr noundef %463, ptr noundef %1, i32 noundef %.tr340.ph, ptr noundef %3)
+  %465 = load i32, ptr %463, align 8, !tbaa !34
+  %466 = icmp eq i32 %465, 5
+  br i1 %466, label %467, label %common.ret813
 
-468:                                              ; preds = %462
-  %469 = getelementptr inbounds nuw i8, ptr %464, i64 20
-  %470 = load i32, ptr %469, align 4, !tbaa !148
-  %471 = icmp eq i32 %470, -1
-  br i1 %471, label %472, label %common.ret813
+467:                                              ; preds = %461
+  %468 = getelementptr inbounds nuw i8, ptr %463, i64 20
+  %469 = load i32, ptr %468, align 4, !tbaa !148
+  %470 = icmp eq i32 %469, -1
+  br i1 %470, label %471, label %common.ret813
 
-472:                                              ; preds = %468
-  %473 = getelementptr inbounds nuw i8, ptr %464, i64 16
-  %474 = load i32, ptr %473, align 8, !tbaa !150
-  %475 = icmp slt i32 %474, 2
-  br i1 %475, label %476, label %common.ret813
+471:                                              ; preds = %467
+  %472 = getelementptr inbounds nuw i8, ptr %463, i64 16
+  %473 = load i32, ptr %472, align 8, !tbaa !150
+  %474 = icmp slt i32 %473, 2
+  br i1 %474, label %475, label %common.ret813
 
-476:                                              ; preds = %472
-  %477 = getelementptr inbounds nuw i8, ptr %464, i64 24
-  %478 = load i32, ptr %477, align 8, !tbaa !146
-  %.not287 = icmp eq i32 %478, 0
-  br i1 %.not287, label %common.ret813, label %479
+475:                                              ; preds = %471
+  %476 = getelementptr inbounds nuw i8, ptr %463, i64 24
+  %477 = load i32, ptr %476, align 8, !tbaa !146
+  %.not287 = icmp eq i32 %477, 0
+  br i1 %.not287, label %common.ret813, label %478
 
-479:                                              ; preds = %476
-  %480 = getelementptr inbounds nuw i8, ptr %464, i64 8
-  %481 = load ptr, ptr %480, align 8, !tbaa !151
-  %482 = load i32, ptr %481, align 8, !tbaa !34
-  %.not288 = icmp ugt i32 %482, 4
-  br i1 %.not288, label %common.ret813, label %483
+478:                                              ; preds = %475
+  %479 = getelementptr inbounds nuw i8, ptr %463, i64 8
+  %480 = load ptr, ptr %479, align 8, !tbaa !151
+  %481 = load i32, ptr %480, align 8, !tbaa !34
+  %.not288 = icmp ugt i32 %481, 4
+  br i1 %.not288, label %common.ret813, label %482
 
-483:                                              ; preds = %479
-  %484 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %485 = load i32, ptr %484, align 4, !tbaa !34
-  %486 = or i32 %485, 64
-  store i32 %486, ptr %484, align 4, !tbaa !34
+482:                                              ; preds = %478
+  %483 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %484 = load i32, ptr %483, align 4, !tbaa !34
+  %485 = or i32 %484, 64
+  store i32 %485, ptr %483, align 4, !tbaa !34
   br label %common.ret813
 
-487:                                              ; preds = %429
-  %488 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %489 = load i32, ptr %488, align 4, !tbaa !34
-  %490 = and i32 %489, 2048
-  %.not284 = icmp eq i32 %490, 0
-  br i1 %.not284, label %491, label %502
+486:                                              ; preds = %429
+  %487 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %488 = load i32, ptr %487, align 4, !tbaa !34
+  %489 = and i32 %488, 2048
+  %.not284 = icmp eq i32 %489, 0
+  br i1 %.not284, label %490, label %501
 
-491:                                              ; preds = %487
-  %492 = load i32, ptr %8, align 8, !tbaa !52
-  %493 = icmp sgt i32 %492, 0
-  br i1 %493, label %494, label %502
+490:                                              ; preds = %486
+  %491 = load i32, ptr %8, align 8, !tbaa !52
+  %492 = icmp sgt i32 %491, 0
+  br i1 %492, label %493, label %501
 
-494:                                              ; preds = %491
-  %495 = load ptr, ptr %9, align 8, !tbaa !53
-  %496 = getelementptr inbounds nuw i8, ptr %495, i64 8
-  %497 = load i32, ptr %496, align 4, !tbaa !54
-  %498 = and i32 %497, 128
-  %.not285 = icmp eq i32 %498, 0
-  br i1 %.not285, label %502, label %499
+493:                                              ; preds = %490
+  %494 = load ptr, ptr %9, align 8, !tbaa !53
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 8
+  %496 = load i32, ptr %495, align 4, !tbaa !54
+  %497 = and i32 %496, 128
+  %.not285 = icmp eq i32 %497, 0
+  br i1 %.not285, label %501, label %498
 
-499:                                              ; preds = %494
-  %500 = load i32, ptr %3, align 8, !tbaa !132
-  %501 = and i32 %500, 256
-  %.not286 = icmp eq i32 %501, 0
-  br i1 %.not286, label %common.ret813, label %502
+498:                                              ; preds = %493
+  %499 = load i32, ptr %3, align 8, !tbaa !132
+  %500 = and i32 %499, 256
+  %.not286 = icmp eq i32 %500, 0
+  br i1 %.not286, label %common.ret813, label %501
 
-502:                                              ; preds = %499, %494, %491, %487
-  %503 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
-  %504 = load i32, ptr %503, align 4, !tbaa !34
-  %505 = load i32, ptr %10, align 4, !tbaa !58
-  %506 = icmp sgt i32 %504, %505
-  br i1 %506, label %common.ret813, label %tailrecurse.backedge
+501:                                              ; preds = %498, %493, %490, %486
+  %502 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
+  %503 = load i32, ptr %502, align 4, !tbaa !34
+  %504 = load i32, ptr %10, align 4, !tbaa !58
+  %505 = icmp sgt i32 %503, %504
+  br i1 %505, label %common.ret813, label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %502, %508, %429
-  %.sink589 = phi i64 [ 24, %429 ], [ 8, %508 ], [ 24, %502 ]
-  %507 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink589
-  %.tr.be = load ptr, ptr %507, align 8, !tbaa !34
+tailrecurse.backedge:                             ; preds = %501, %507, %429
+  %.sink589 = phi i64 [ 24, %429 ], [ 8, %507 ], [ 24, %501 ]
+  %506 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink589
+  %.tr.be = load ptr, ptr %506, align 8, !tbaa !34
   br label %tailrecurse
 
-508:                                              ; preds = %tailrecurse
-  %509 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %510 = load i32, ptr %509, align 4, !tbaa !138
-  %511 = add i32 %510, -1024
-  %512 = tail call i32 @llvm.fshl.i32(i32 %511, i32 %511, i32 22)
-  switch i32 %512, label %common.ret813 [
+507:                                              ; preds = %tailrecurse
+  %508 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %509 = load i32, ptr %508, align 4, !tbaa !138
+  %510 = add i32 %509, -1024
+  %511 = tail call i32 @llvm.fshl.i32(i32 %510, i32 %510, i32 22)
+  switch i32 %511, label %common.ret813 [
     i32 0, label %tailrecurse.backedge
-    i32 1, label %513
-    i32 3, label %516
-    i32 7, label %524
+    i32 1, label %512
+    i32 3, label %515
+    i32 7, label %523
   ]
 
-513:                                              ; preds = %508
-  %514 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %515 = or i32 %.tr340.ph, 2
+512:                                              ; preds = %507
+  %513 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %514 = or i32 %.tr340.ph, 2
   br label %tailrecurse.outer.backedge
 
-516:                                              ; preds = %508
-  %517 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %518 = load ptr, ptr %517, align 8, !tbaa !141
-  %519 = tail call fastcc i32 @check_type_tree(ptr noundef %518, i32 noundef 3)
-  %.not296 = icmp eq i32 %519, 0
-  br i1 %.not296, label %520, label %common.ret813
+515:                                              ; preds = %507
+  %516 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %517 = load ptr, ptr %516, align 8, !tbaa !141
+  %518 = tail call fastcc i32 @check_type_tree(ptr noundef %517, i32 noundef 3)
+  %.not296 = icmp eq i32 %518, 0
+  br i1 %.not296, label %519, label %common.ret813
 
-520:                                              ; preds = %516
-  %521 = tail call fastcc i32 @setup_tree(ptr noundef %518, ptr noundef %1, i32 noundef %.tr340.ph, ptr noundef %3)
-  %.not298 = icmp eq i32 %521, 0
-  br i1 %.not298, label %522, label %common.ret813
+519:                                              ; preds = %515
+  %520 = tail call fastcc i32 @setup_tree(ptr noundef %517, ptr noundef %1, i32 noundef %.tr340.ph, ptr noundef %3)
+  %.not298 = icmp eq i32 %520, 0
+  br i1 %.not298, label %521, label %common.ret813
 
-522:                                              ; preds = %520
-  %523 = tail call fastcc i32 @setup_look_behind(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %3)
+521:                                              ; preds = %519
+  %522 = tail call fastcc i32 @setup_look_behind(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %3)
   br label %common.ret813
 
-524:                                              ; preds = %508
-  %525 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %526 = load ptr, ptr %525, align 8, !tbaa !141
-  %527 = tail call fastcc i32 @check_type_tree(ptr noundef %526, i32 noundef 2)
-  %.not293 = icmp eq i32 %527, 0
-  br i1 %.not293, label %528, label %common.ret813
+523:                                              ; preds = %507
+  %524 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %525 = load ptr, ptr %524, align 8, !tbaa !141
+  %526 = tail call fastcc i32 @check_type_tree(ptr noundef %525, i32 noundef 2)
+  %.not293 = icmp eq i32 %526, 0
+  br i1 %.not293, label %527, label %common.ret813
 
-528:                                              ; preds = %524
-  %529 = or i32 %.tr340.ph, 2
-  %530 = tail call fastcc i32 @setup_tree(ptr noundef %526, ptr noundef %1, i32 noundef %529, ptr noundef %3)
-  %.not295 = icmp eq i32 %530, 0
-  br i1 %.not295, label %531, label %common.ret813
+527:                                              ; preds = %523
+  %528 = or i32 %.tr340.ph, 2
+  %529 = tail call fastcc i32 @setup_tree(ptr noundef %525, ptr noundef %1, i32 noundef %528, ptr noundef %3)
+  %.not295 = icmp eq i32 %529, 0
+  br i1 %.not295, label %530, label %common.ret813
 
-531:                                              ; preds = %528
-  %532 = tail call fastcc i32 @setup_look_behind(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %3)
+530:                                              ; preds = %527
+  %531 = tail call fastcc i32 @setup_look_behind(ptr noundef nonnull %.tr, ptr noundef %1, ptr noundef %3)
   br label %common.ret813
 }
 

@@ -5931,7 +5931,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
   br label %141
 
 138:                                              ; preds = %134
-  %139 = call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_spdu_config_error, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.083131, i32 noundef %spec.select.i)
+  %139 = call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_spdu_config_error, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.083131, i32 noundef range(i32 -268435455, 805306369) %spec.select.i)
   %140 = load ptr, ptr %73, align 8
   call void @col_append_str(ptr noundef %140, i32 noundef 25, ptr noundef nonnull @.str.324)
   br label %141
@@ -5948,7 +5948,7 @@ dissect_spdu_payload_signal.exit.thread:          ; preds = %119
   br label %149
 
 146:                                              ; preds = %141
-  %147 = call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_spdu_config_error, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.083131, i32 noundef %spec.select.i)
+  %147 = call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_spdu_config_error, ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.083131, i32 noundef range(i32 -268435455, 805306369) %spec.select.i)
   %148 = load ptr, ptr %73, align 8
   call void @col_append_str(ptr noundef %148, i32 noundef 25, ptr noundef nonnull @.str.324)
   br label %149

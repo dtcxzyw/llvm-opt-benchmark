@@ -635,7 +635,7 @@ dh_param_derive_check.exit:                       ; preds = %17, %12, %24, %25, 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, -2147483648) i32 @EVP_PKEY_CTX_get0_dh_kdf_ukm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_CTX_get0_dh_kdf_ukm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ossl_param_st], align 16
   %4 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #4

@@ -3945,440 +3945,439 @@ png_image_format.exit:                            ; preds = %16, %18
   %24 = icmp eq i8 %23, 16
   %25 = or i32 %.1.i, 4
   %spec.select14.i = select i1 %24, i32 %25, i32 %.1.i
-  %26 = and i32 %spec.select14.i, -9
-  %27 = xor i32 %26, %10
-  %28 = and i32 %27, 2
-  %.not190 = icmp eq i32 %28, 0
-  br i1 %.not190, label %36, label %29
+  %26 = xor i32 %spec.select14.i, %10
+  %27 = and i32 %26, 2
+  %.not190 = icmp eq i32 %27, 0
+  br i1 %.not190, label %35, label %28
 
-29:                                               ; preds = %png_image_format.exit
-  %30 = and i32 %10, 2
-  %.not191 = icmp eq i32 %30, 0
-  br i1 %.not191, label %32, label %31
+28:                                               ; preds = %png_image_format.exit
+  %29 = and i32 %10, 2
+  %.not191 = icmp eq i32 %29, 0
+  br i1 %.not191, label %31, label %30
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   tail call void @png_set_gray_to_rgb(ptr noundef nonnull %6) #12
-  br label %34
+  br label %33
 
-32:                                               ; preds = %29
-  %33 = and i32 %spec.select14.i, 1
-  %.not192 = icmp eq i32 %33, 0
+31:                                               ; preds = %28
+  %32 = and i32 %spec.select14.i, 1
+  %.not192 = icmp eq i32 %32, 0
   tail call void @png_set_rgb_to_gray_fixed(ptr noundef nonnull %6, i32 noundef 1, i32 noundef -1, i32 noundef -1) #12
-  br label %34
+  br label %33
 
-34:                                               ; preds = %32, %31
-  %.1157 = phi i1 [ true, %31 ], [ %.not192, %32 ]
-  %35 = and i32 %27, -3
-  br label %36
+33:                                               ; preds = %31, %30
+  %.1157 = phi i1 [ true, %30 ], [ %.not192, %31 ]
+  %34 = and i32 %26, -3
+  br label %35
 
-36:                                               ; preds = %34, %png_image_format.exit
-  %.0162 = phi i32 [ %35, %34 ], [ %27, %png_image_format.exit ]
-  %.0156 = phi i1 [ %.1157, %34 ], [ true, %png_image_format.exit ]
-  %37 = and i32 %spec.select14.i, 4
-  %.not193 = icmp eq i32 %37, 0
-  br i1 %.not193, label %43, label %38
+35:                                               ; preds = %33, %png_image_format.exit
+  %.0162 = phi i32 [ %34, %33 ], [ %26, %png_image_format.exit ]
+  %.0156 = phi i1 [ %.1157, %33 ], [ true, %png_image_format.exit ]
+  %36 = and i32 %spec.select14.i, 4
+  %.not193 = icmp eq i32 %36, 0
+  br i1 %.not193, label %42, label %37
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %40 = load i32, ptr %39, align 8, !tbaa !132
-  %41 = and i32 %40, 4
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %44, label %43
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %39 = load i32, ptr %38, align 8, !tbaa !132
+  %40 = and i32 %39, 4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %43, label %42
 
-43:                                               ; preds = %38, %36
-  br label %44
+42:                                               ; preds = %37, %35
+  br label %43
 
-44:                                               ; preds = %38, %43
-  %.0188 = phi i32 [ -1, %43 ], [ 100000, %38 ]
+43:                                               ; preds = %37, %42
+  %.0188 = phi i32 [ -1, %42 ], [ 100000, %37 ]
   tail call void @png_set_alpha_mode_fixed(ptr noundef nonnull %6, i32 noundef 0, i32 noundef %.0188) #12
-  %45 = and i32 %spec.select14.i, 1
-  %.not194.not = icmp eq i32 %45, 0
-  %.1180 = select i1 %.not.not, i32 0, i32 %45
+  %44 = and i32 %spec.select14.i, 1
+  %.not194.not = icmp eq i32 %44, 0
+  %.1180 = select i1 %.not.not, i32 0, i32 %44
   %.0178 = select i1 %.not.not, i32 -1, i32 100000
-  %46 = and i32 %.0162, 64
-  %.not195 = icmp eq i32 %46, 0
-  %47 = and i32 %.0162, -65
+  %45 = and i32 %.0162, 64
+  %.not195 = icmp eq i32 %45, 0
+  %46 = and i32 %.0162, -65
   %.2181 = select i1 %.not195, i32 %.1180, i32 2
-  br i1 %.0156, label %58, label %48
+  br i1 %.0156, label %57, label %47
 
-48:                                               ; preds = %44
+47:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
-  %49 = tail call i32 @png_resolve_file_gamma(ptr noundef nonnull %6) #12
-  %50 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef %.0178, i32 noundef %49, i32 noundef 100000) #12
-  %.not197 = icmp eq i32 %50, 0
-  br i1 %.not197, label %55, label %51
+  %48 = tail call i32 @png_resolve_file_gamma(ptr noundef nonnull %6) #12
+  %49 = call i32 @png_muldiv(ptr noundef nonnull %2, i32 noundef %.0178, i32 noundef %48, i32 noundef 100000) #12
+  %.not197 = icmp eq i32 %49, 0
+  br i1 %.not197, label %54, label %50
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %2, align 4, !tbaa !134
-  %53 = call i32 @png_gamma_significant(i32 noundef %52) #12
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %57, label %55
+50:                                               ; preds = %47
+  %51 = load i32, ptr %2, align 4, !tbaa !134
+  %52 = call i32 @png_gamma_significant(i32 noundef %51) #12
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %56, label %54
 
-55:                                               ; preds = %51, %48
-  %56 = icmp eq i32 %.2181, 1
-  %spec.select = select i1 %56, i32 0, i32 %.2181
-  %spec.select222 = select i1 %56, i32 2, i32 1
+54:                                               ; preds = %50, %47
+  %55 = icmp eq i32 %.2181, 1
+  %spec.select = select i1 %55, i32 0, i32 %.2181
+  %spec.select222 = select i1 %55, i32 2, i32 1
+  br label %56
+
+56:                                               ; preds = %54, %50
+  %.4183 = phi i32 [ %.2181, %50 ], [ %spec.select, %54 ]
+  %.4 = phi i32 [ 0, %50 ], [ %spec.select222, %54 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   br label %57
 
-57:                                               ; preds = %55, %51
-  %.4183 = phi i32 [ %.2181, %51 ], [ %spec.select, %55 ]
-  %.4 = phi i32 [ 0, %51 ], [ %spec.select222, %55 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
-  br label %58
+57:                                               ; preds = %56, %43
+  %.3182 = phi i32 [ %.4183, %56 ], [ %.2181, %43 ]
+  %.3159 = phi i32 [ %.4, %56 ], [ 0, %43 ]
+  %58 = and i32 %.0162, 4
+  %.not198 = icmp eq i32 %58, 0
+  br i1 %.not198, label %64, label %59
 
-58:                                               ; preds = %57, %44
-  %.3182 = phi i32 [ %.4183, %57 ], [ %.2181, %44 ]
-  %.3159 = phi i32 [ %.4, %57 ], [ 0, %44 ]
-  %59 = and i32 %.0162, 4
-  %.not198 = icmp eq i32 %59, 0
-  br i1 %.not198, label %65, label %60
+59:                                               ; preds = %57
+  br i1 %.not.not, label %61, label %60
 
-60:                                               ; preds = %58
-  br i1 %.not.not, label %62, label %61
-
-61:                                               ; preds = %60
+60:                                               ; preds = %59
   call void @png_set_expand_16(ptr noundef nonnull %6) #12
-  br label %63
+  br label %62
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   call void @png_set_scale_16(ptr noundef nonnull %6) #12
-  br label %63
+  br label %62
 
-63:                                               ; preds = %62, %61
-  %64 = and i32 %.0162, -69
-  br label %65
+62:                                               ; preds = %61, %60
+  %63 = and i32 %.0162, -69
+  br label %64
 
-65:                                               ; preds = %63, %58
-  %.2164 = phi i32 [ %64, %63 ], [ %47, %58 ]
-  %66 = and i32 %.2164, 1
-  %.not199 = icmp eq i32 %66, 0
-  br i1 %.not199, label %93, label %67
+64:                                               ; preds = %62, %57
+  %.2164 = phi i32 [ %63, %62 ], [ %46, %57 ]
+  %65 = and i32 %.2164, 1
+  %.not199 = icmp eq i32 %65, 0
+  br i1 %.not199, label %92, label %66
 
-67:                                               ; preds = %65
-  br i1 %.not194.not, label %87, label %68
+66:                                               ; preds = %64
+  br i1 %.not194.not, label %86, label %67
+
+67:                                               ; preds = %66
+  %.not202 = icmp eq i32 %.3159, 0
+  br i1 %.not202, label %68, label %89
 
 68:                                               ; preds = %67
-  %.not202 = icmp eq i32 %.3159, 0
-  br i1 %.not202, label %69, label %90
+  br i1 %.not.not, label %70, label %69
 
 69:                                               ; preds = %68
-  br i1 %.not.not, label %71, label %70
-
-70:                                               ; preds = %69
   call void @png_set_strip_alpha(ptr noundef nonnull %6) #12
-  br label %90
+  br label %89
 
-71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !143
-  %.not203 = icmp eq ptr %73, null
-  br i1 %.not203, label %90, label %74
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %72 = load ptr, ptr %71, align 8, !tbaa !143
+  %.not203 = icmp eq ptr %72, null
+  br i1 %.not203, label %89, label %73
 
-74:                                               ; preds = %71
+73:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %3) #12
   store i8 0, ptr %3, align 2, !tbaa !153
-  %75 = load i8, ptr %73, align 1, !tbaa !146
-  %76 = zext i8 %75 to i16
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store i16 %76, ptr %77, align 2, !tbaa !156
-  %78 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  %79 = load i8, ptr %78, align 1, !tbaa !144
-  %80 = zext i8 %79 to i16
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i16 %80, ptr %81, align 2, !tbaa !155
-  %82 = getelementptr inbounds nuw i8, ptr %73, i64 2
-  %83 = load i8, ptr %82, align 1, !tbaa !147
-  %84 = zext i8 %83 to i16
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i16 %84, ptr %85, align 2, !tbaa !154
-  %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i16 %80, ptr %86, align 2, !tbaa !157
+  %74 = load i8, ptr %72, align 1, !tbaa !146
+  %75 = zext i8 %74 to i16
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store i16 %75, ptr %76, align 2, !tbaa !156
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 1
+  %78 = load i8, ptr %77, align 1, !tbaa !144
+  %79 = zext i8 %78 to i16
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 %79, ptr %80, align 2, !tbaa !155
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 2
+  %82 = load i8, ptr %81, align 1, !tbaa !147
+  %83 = zext i8 %82 to i16
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 %83, ptr %84, align 2, !tbaa !154
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i16 %79, ptr %85, align 2, !tbaa !157
   call void @png_set_background_fixed(ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #12
-  br label %90
+  br label %89
 
-87:                                               ; preds = %67
+86:                                               ; preds = %66
   %.223 = select i1 %.not.not, i32 255, i32 65535
-  %88 = and i32 %10, 32
-  %.not201 = icmp eq i32 %88, 0
-  %89 = and i32 %.2164, -97
-  %.lobit = lshr exact i32 %88, 5
+  %87 = and i32 %10, 32
+  %.not201 = icmp eq i32 %87, 0
+  %88 = and i32 %.2164, -97
+  %.lobit = lshr exact i32 %87, 5
   %.0186 = xor i32 %.lobit, 1
-  %.5167 = select i1 %.not201, i32 %.2164, i32 %89
+  %.5167 = select i1 %.not201, i32 %.2164, i32 %88
   call void @png_set_add_alpha(ptr noundef nonnull %6, i32 noundef %.223, i32 noundef %.0186) #12
-  br label %90
+  br label %89
 
-90:                                               ; preds = %71, %68, %74, %70, %87
-  %.6185 = phi i32 [ %.3182, %70 ], [ %.3182, %74 ], [ %.3182, %87 ], [ %.3182, %68 ], [ 2, %71 ]
-  %.4166 = phi i32 [ %.2164, %70 ], [ %.2164, %74 ], [ %.5167, %87 ], [ %.2164, %68 ], [ %.2164, %71 ]
-  %.6 = phi i32 [ 0, %70 ], [ 0, %74 ], [ %.3159, %87 ], [ 2, %68 ], [ 0, %71 ]
-  %91 = phi i1 [ true, %70 ], [ true, %74 ], [ true, %87 ], [ true, %68 ], [ false, %71 ]
-  %92 = and i32 %.4166, -2
-  br label %93
+89:                                               ; preds = %70, %67, %73, %69, %86
+  %.6185 = phi i32 [ %.3182, %69 ], [ %.3182, %73 ], [ %.3182, %86 ], [ %.3182, %67 ], [ 2, %70 ]
+  %.4166 = phi i32 [ %.2164, %69 ], [ %.2164, %73 ], [ %.5167, %86 ], [ %.2164, %67 ], [ %.2164, %70 ]
+  %.6 = phi i32 [ 0, %69 ], [ 0, %73 ], [ %.3159, %86 ], [ 2, %67 ], [ 0, %70 ]
+  %90 = phi i1 [ true, %69 ], [ true, %73 ], [ true, %86 ], [ true, %67 ], [ false, %70 ]
+  %91 = and i32 %.4166, -2
+  br label %92
 
-93:                                               ; preds = %90, %65
-  %.5184 = phi i32 [ %.6185, %90 ], [ %.3182, %65 ]
-  %.3165 = phi i32 [ %92, %90 ], [ %.2164, %65 ]
-  %.5 = phi i32 [ %.6, %90 ], [ %.3159, %65 ]
-  %.0154 = phi i1 [ %91, %90 ], [ true, %65 ]
+92:                                               ; preds = %89, %64
+  %.5184 = phi i32 [ %.6185, %89 ], [ %.3182, %64 ]
+  %.3165 = phi i32 [ %91, %89 ], [ %.2164, %64 ]
+  %.5 = phi i32 [ %.6, %89 ], [ %.3159, %64 ]
+  %.0154 = phi i1 [ %90, %89 ], [ true, %64 ]
   call void @png_set_alpha_mode_fixed(ptr noundef nonnull %6, i32 noundef %.5184, i32 noundef %.0178) #12
-  %94 = and i32 %.3165, 16
-  %.not204 = icmp eq i32 %94, 0
-  br i1 %.not204, label %102, label %95
+  %93 = and i32 %.3165, 16
+  %.not204 = icmp eq i32 %93, 0
+  br i1 %.not204, label %101, label %94
 
-95:                                               ; preds = %93
-  %96 = and i32 %10, 2
-  %.not205 = icmp eq i32 %96, 0
-  br i1 %.not205, label %98, label %97
+94:                                               ; preds = %92
+  %95 = and i32 %10, 2
+  %.not205 = icmp eq i32 %95, 0
+  br i1 %.not205, label %97, label %96
 
-97:                                               ; preds = %95
+96:                                               ; preds = %94
   call void @png_set_bgr(ptr noundef nonnull %6) #12
-  br label %100
+  br label %99
 
-98:                                               ; preds = %95
-  %99 = and i32 %10, -19
-  br label %100
+97:                                               ; preds = %94
+  %98 = and i32 %10, -19
+  br label %99
 
-100:                                              ; preds = %98, %97
-  %.1 = phi i32 [ %10, %97 ], [ %99, %98 ]
-  %101 = and i32 %.3165, -17
-  br label %102
+99:                                               ; preds = %97, %96
+  %.1 = phi i32 [ %10, %96 ], [ %98, %97 ]
+  %100 = and i32 %.3165, -17
+  br label %101
 
-102:                                              ; preds = %100, %93
-  %.6168 = phi i32 [ %101, %100 ], [ %.3165, %93 ]
-  %.0153 = phi i32 [ %.1, %100 ], [ %10, %93 ]
-  %103 = and i32 %.6168, 32
-  %.not206 = icmp eq i32 %103, 0
-  br i1 %.not206, label %112, label %104
+101:                                              ; preds = %99, %92
+  %.6168 = phi i32 [ %100, %99 ], [ %.3165, %92 ]
+  %.0153 = phi i32 [ %.1, %99 ], [ %10, %92 ]
+  %102 = and i32 %.6168, 32
+  %.not206 = icmp eq i32 %102, 0
+  br i1 %.not206, label %111, label %103
 
-104:                                              ; preds = %102
-  %105 = and i32 %.0153, 1
-  %.not207 = icmp eq i32 %105, 0
-  br i1 %.not207, label %108, label %106
+103:                                              ; preds = %101
+  %104 = and i32 %.0153, 1
+  %.not207 = icmp eq i32 %104, 0
+  br i1 %.not207, label %107, label %105
 
-106:                                              ; preds = %104
+105:                                              ; preds = %103
   %.not208 = icmp eq i32 %.5, 2
-  br i1 %.not208, label %110, label %107
+  br i1 %.not208, label %109, label %106
 
-107:                                              ; preds = %106
+106:                                              ; preds = %105
   call void @png_set_swap_alpha(ptr noundef nonnull %6) #12
-  br label %110
+  br label %109
 
-108:                                              ; preds = %104
-  %109 = and i32 %.0153, -34
-  br label %110
+107:                                              ; preds = %103
+  %108 = and i32 %.0153, -34
+  br label %109
 
-110:                                              ; preds = %106, %107, %108
-  %.3 = phi i32 [ %.0153, %107 ], [ %.0153, %106 ], [ %109, %108 ]
-  %111 = and i32 %.6168, -33
-  br label %112
+109:                                              ; preds = %105, %106, %107
+  %.3 = phi i32 [ %.0153, %106 ], [ %.0153, %105 ], [ %108, %107 ]
+  %110 = and i32 %.6168, -33
+  br label %111
 
-112:                                              ; preds = %110, %102
-  %.7 = phi i32 [ %111, %110 ], [ %.6168, %102 ]
-  %.2 = phi i32 [ %.3, %110 ], [ %.0153, %102 ]
-  br i1 %.not.not, label %114, label %113
+111:                                              ; preds = %109, %101
+  %.7 = phi i32 [ %110, %109 ], [ %.6168, %101 ]
+  %.2 = phi i32 [ %.3, %109 ], [ %.0153, %101 ]
+  br i1 %.not.not, label %113, label %112
 
-113:                                              ; preds = %112
+112:                                              ; preds = %111
   call void @png_set_swap(ptr noundef nonnull %6) #12
-  br label %114
+  br label %113
 
-114:                                              ; preds = %113, %112
+113:                                              ; preds = %112, %111
   %.not209 = icmp eq i32 %.7, 0
-  br i1 %.not209, label %116, label %115
+  br i1 %.not209, label %115, label %114
 
-115:                                              ; preds = %114
+114:                                              ; preds = %113
   call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.54) #13
   unreachable
 
-116:                                              ; preds = %114
+115:                                              ; preds = %113
   call void @png_set_keep_unknown_chunks(ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, i32 noundef -1) #12
   call void @png_set_keep_unknown_chunks(ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull @png_image_skip_unused_chunks.chunks_to_process, i32 noundef 7) #12
-  %117 = icmp ne i32 %.5, 2
-  %or.cond = and i1 %.0154, %117
-  br i1 %or.cond, label %118, label %120
+  %116 = icmp ne i32 %.5, 2
+  %or.cond = and i1 %.0154, %116
+  br i1 %or.cond, label %117, label %119
 
-118:                                              ; preds = %116
-  %119 = call i32 @png_set_interlace_handling(ptr noundef nonnull %6) #12
-  br label %120
+117:                                              ; preds = %115
+  %118 = call i32 @png_set_interlace_handling(ptr noundef nonnull %6) #12
+  br label %119
 
-120:                                              ; preds = %116, %118
-  %.0160 = phi i32 [ %119, %118 ], [ 0, %116 ]
-  %121 = getelementptr inbounds nuw i8, ptr %6, i64 304
-  %122 = load i32, ptr %121, align 8, !tbaa !23, !alias.scope !193, !noalias !196
-  %123 = and i32 %122, 64
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %125, label %126
+119:                                              ; preds = %115, %117
+  %.0160 = phi i32 [ %118, %117 ], [ 0, %115 ]
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 304
+  %121 = load i32, ptr %120, align 8, !tbaa !23, !alias.scope !193, !noalias !196
+  %122 = and i32 %121, 64
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %124, label %125
 
-125:                                              ; preds = %120
+124:                                              ; preds = %119
   call void @png_read_start_row(ptr noundef nonnull %6) #12, !noalias !196
   call void @png_read_transform_info(ptr noundef nonnull %6, ptr noundef %8) #12
   br label %png_read_update_info.exit
 
-126:                                              ; preds = %120
+125:                                              ; preds = %119
   call void @png_app_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.3) #12, !noalias !196
   br label %png_read_update_info.exit
 
-png_read_update_info.exit:                        ; preds = %125, %126
-  %127 = getelementptr inbounds nuw i8, ptr %8, i64 37
-  %128 = load i8, ptr %127, align 1, !tbaa !181
-  %129 = and i8 %128, 2
-  %spec.select224 = zext nneg i8 %129 to i32
-  %130 = and i8 %128, 4
-  %.not211 = icmp eq i8 %130, 0
-  br i1 %.not211, label %135, label %131
+png_read_update_info.exit:                        ; preds = %124, %125
+  %126 = getelementptr inbounds nuw i8, ptr %8, i64 37
+  %127 = load i8, ptr %126, align 1, !tbaa !181
+  %128 = and i8 %127, 2
+  %spec.select224 = zext nneg i8 %128 to i32
+  %129 = and i8 %127, 4
+  %.not211 = icmp eq i8 %129, 0
+  br i1 %.not211, label %134, label %130
 
-131:                                              ; preds = %png_read_update_info.exit
-  br i1 %.0154, label %132, label %137
+130:                                              ; preds = %png_read_update_info.exit
+  br i1 %.0154, label %131, label %136
 
-132:                                              ; preds = %131
-  %133 = and i32 %.2, 1
-  %.not213 = icmp ne i32 %133, 0
-  %or.cond226.not = select i1 %117, i1 true, i1 %.not213
-  %134 = zext i1 %or.cond226.not to i32
-  %spec.select231 = or disjoint i32 %spec.select224, %134
-  br label %137
+131:                                              ; preds = %130
+  %132 = and i32 %.2, 1
+  %.not213 = icmp ne i32 %132, 0
+  %or.cond226.not = select i1 %116, i1 true, i1 %.not213
+  %133 = zext i1 %or.cond226.not to i32
+  %spec.select231 = or disjoint i32 %spec.select224, %133
+  br label %136
 
-135:                                              ; preds = %png_read_update_info.exit
-  br i1 %.0154, label %137, label %136
+134:                                              ; preds = %png_read_update_info.exit
+  br i1 %.0154, label %136, label %135
 
-136:                                              ; preds = %135
+135:                                              ; preds = %134
   call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.55) #13
   unreachable
 
-137:                                              ; preds = %132, %135, %131
-  %.1172 = phi i32 [ %spec.select224, %131 ], [ %spec.select224, %135 ], [ %spec.select231, %132 ]
-  %138 = and i32 %.2, 64
-  %spec.select227 = or i32 %.1172, %138
-  %139 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %140 = load i8, ptr %139, align 4, !tbaa !182
-  %141 = icmp eq i8 %140, 16
-  %142 = or i32 %spec.select227, 4
-  %.3174 = select i1 %141, i32 %142, i32 %spec.select227
-  %143 = getelementptr inbounds nuw i8, ptr %6, i64 308
-  %144 = load i32, ptr %143, align 4, !tbaa !40
-  %145 = shl i32 %144, 4
-  %146 = and i32 %145, 16
-  %.4175 = or i32 %146, %.3174
-  %147 = and i32 %.2, 32
-  %.not216 = icmp eq i32 %147, 0
-  %or.cond229 = select i1 %117, i1 true, i1 %.not216
-  %148 = or i32 %.4175, 32
-  %.5176 = select i1 %or.cond229, i32 %.4175, i32 %148
-  %149 = and i32 %144, 131072
-  %.not217 = icmp eq i32 %149, 0
-  br i1 %.not217, label %150, label %156
+136:                                              ; preds = %131, %134, %130
+  %.1172 = phi i32 [ %spec.select224, %130 ], [ %spec.select224, %134 ], [ %spec.select231, %131 ]
+  %137 = and i32 %.2, 64
+  %spec.select227 = or i32 %.1172, %137
+  %138 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %139 = load i8, ptr %138, align 4, !tbaa !182
+  %140 = icmp eq i8 %139, 16
+  %141 = or i32 %spec.select227, 4
+  %.3174 = select i1 %140, i32 %141, i32 %spec.select227
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 308
+  %143 = load i32, ptr %142, align 4, !tbaa !40
+  %144 = shl i32 %143, 4
+  %145 = and i32 %144, 16
+  %.4175 = or i32 %145, %.3174
+  %146 = and i32 %.2, 32
+  %.not216 = icmp eq i32 %146, 0
+  %or.cond229 = select i1 %116, i1 true, i1 %.not216
+  %147 = or i32 %.4175, 32
+  %.5176 = select i1 %or.cond229, i32 %.4175, i32 %147
+  %148 = and i32 %143, 131072
+  %.not217 = icmp eq i32 %148, 0
+  br i1 %.not217, label %149, label %155
 
-150:                                              ; preds = %137
-  %151 = and i32 %144, 16777216
-  %.not218 = icmp eq i32 %151, 0
-  br i1 %.not218, label %158, label %152
+149:                                              ; preds = %136
+  %150 = and i32 %143, 16777216
+  %.not218 = icmp eq i32 %150, 0
+  br i1 %.not218, label %157, label %151
 
-152:                                              ; preds = %150
-  %153 = load i32, ptr %121, align 8, !tbaa !23
-  %154 = and i32 %153, 128
-  %155 = icmp ne i32 %154, 0
-  %brmerge = or i1 %155, %117
-  %.5176.mux = select i1 %155, i32 %.5176, i32 %148
-  br i1 %brmerge, label %158, label %157
+151:                                              ; preds = %149
+  %152 = load i32, ptr %120, align 8, !tbaa !23
+  %153 = and i32 %152, 128
+  %154 = icmp ne i32 %153, 0
+  %brmerge = or i1 %154, %116
+  %.5176.mux = select i1 %154, i32 %.5176, i32 %147
+  br i1 %brmerge, label %157, label %156
 
-156:                                              ; preds = %137
-  br i1 %117, label %158, label %157
+155:                                              ; preds = %136
+  br i1 %116, label %157, label %156
 
-157:                                              ; preds = %152, %156
+156:                                              ; preds = %151, %155
   call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.56) #13
   unreachable
 
-158:                                              ; preds = %152, %156, %150
-  %.6177 = phi i32 [ %.5176.mux, %152 ], [ %.5176, %150 ], [ %148, %156 ]
+157:                                              ; preds = %151, %155, %149
+  %.6177 = phi i32 [ %.5176.mux, %151 ], [ %.5176, %149 ], [ %147, %155 ]
   %.not219 = icmp eq i32 %.6177, %.2
-  br i1 %.not219, label %160, label %159
+  br i1 %.not219, label %159, label %158
 
-159:                                              ; preds = %158
+158:                                              ; preds = %157
   call void @png_error(ptr noundef nonnull %6, ptr noundef nonnull @.str.57) #13
   unreachable
 
-160:                                              ; preds = %158
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !140
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %164 = load i32, ptr %163, align 8, !tbaa !141
-  %165 = sext i32 %164 to i64
+159:                                              ; preds = %157
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %161 = load ptr, ptr %160, align 8, !tbaa !140
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %163 = load i32, ptr %162, align 8, !tbaa !141
+  %164 = sext i32 %163 to i64
   %.lobit234 = lshr exact i32 %11, 2
-  %166 = zext nneg i32 %.lobit234 to i64
-  %spec.select230 = shl nsw i64 %165, %166
-  %167 = icmp slt i32 %164, 0
-  br i1 %167, label %168, label %176
+  %165 = zext nneg i32 %.lobit234 to i64
+  %spec.select230 = shl nsw i64 %164, %165
+  %166 = icmp slt i32 %163, 0
+  br i1 %166, label %167, label %175
 
-168:                                              ; preds = %160
-  %169 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %170 = load i32, ptr %169, align 8, !tbaa !114
-  %171 = add i32 %170, -1
-  %172 = zext i32 %171 to i64
-  %173 = mul i64 %spec.select230, %172
-  %174 = sub i64 0, %173
-  %175 = getelementptr inbounds nuw i8, ptr %162, i64 %174
-  br label %176
+167:                                              ; preds = %159
+  %168 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %169 = load i32, ptr %168, align 8, !tbaa !114
+  %170 = add i32 %169, -1
+  %171 = zext i32 %170 to i64
+  %172 = mul i64 %spec.select230, %171
+  %173 = sub i64 0, %172
+  %174 = getelementptr inbounds nuw i8, ptr %161, i64 %173
+  br label %175
 
-176:                                              ; preds = %168, %160
-  %.0170 = phi ptr [ %175, %168 ], [ %162, %160 ]
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.0170, ptr %177, align 8, !tbaa !184
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %spec.select230, ptr %178, align 8, !tbaa !185
-  %brmerge245.not = and i1 %.0154, %117
+175:                                              ; preds = %167, %159
+  %.0170 = phi ptr [ %174, %167 ], [ %161, %159 ]
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %.0170, ptr %176, align 8, !tbaa !184
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i64 %spec.select230, ptr %177, align 8, !tbaa !185
+  %brmerge245.not = and i1 %.0154, %116
   br i1 %brmerge245.not, label %.preheader, label %.loopexit235.sink.split
 
-.preheader:                                       ; preds = %176
-  %179 = icmp sgt i32 %.0160, 0
-  br i1 %179, label %.lr.ph239, label %.loopexit235
+.preheader:                                       ; preds = %175
+  %178 = icmp sgt i32 %.0160, 0
+  br i1 %178, label %.lr.ph239, label %.loopexit235
 
 .lr.ph239:                                        ; preds = %.preheader
-  %180 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %181 = load i32, ptr %180, align 8, !tbaa !114
-  %182 = icmp eq i32 %181, 0
-  br i1 %182, label %.loopexit235, label %.lr.ph239.split
+  %179 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %180 = load i32, ptr %179, align 8, !tbaa !114
+  %181 = icmp eq i32 %180, 0
+  br i1 %181, label %.loopexit235, label %.lr.ph239.split
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph239.split
-  %183 = icmp samesign ugt i32 %.in, 1
-  br i1 %183, label %.lr.ph239.splitthread-pre-split, label %.loopexit235, !llvm.loop !198
+  %182 = icmp samesign ugt i32 %.in, 1
+  br i1 %182, label %.lr.ph239.splitthread-pre-split, label %.loopexit235, !llvm.loop !198
 
 .lr.ph239.splitthread-pre-split:                  ; preds = %.loopexit
-  %.pr = load i32, ptr %180, align 8, !tbaa !114
+  %.pr = load i32, ptr %179, align 8, !tbaa !114
   br label %.lr.ph239.split
 
 .lr.ph239.split:                                  ; preds = %.lr.ph239, %.lr.ph239.splitthread-pre-split
-  %184 = phi i32 [ %.pr, %.lr.ph239.splitthread-pre-split ], [ %181, %.lr.ph239 ]
-  %.in = phi i32 [ %185, %.lr.ph239.splitthread-pre-split ], [ %.0160, %.lr.ph239 ]
-  %185 = add nsw i32 %.in, -1
-  %.not221236 = icmp eq i32 %184, 0
+  %183 = phi i32 [ %.pr, %.lr.ph239.splitthread-pre-split ], [ %180, %.lr.ph239 ]
+  %.in = phi i32 [ %184, %.lr.ph239.splitthread-pre-split ], [ %.0160, %.lr.ph239 ]
+  %184 = add nsw i32 %.in, -1
+  %.not221236 = icmp eq i32 %183, 0
   br i1 %.not221236, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph239.split
-  %186 = load ptr, ptr %177, align 8, !tbaa !184
+  %185 = load ptr, ptr %176, align 8, !tbaa !184
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0238 = phi ptr [ %187, %.lr.ph ], [ %186, %.lr.ph.preheader ]
-  %.0151237 = phi i32 [ %188, %.lr.ph ], [ %184, %.lr.ph.preheader ]
+  %.0238 = phi ptr [ %186, %.lr.ph ], [ %185, %.lr.ph.preheader ]
+  %.0151237 = phi i32 [ %187, %.lr.ph ], [ %183, %.lr.ph.preheader ]
   call void @png_read_row(ptr noundef nonnull %6, ptr noundef %.0238, ptr noundef null)
-  %187 = getelementptr inbounds nuw i8, ptr %.0238, i64 %spec.select230
-  %188 = add i32 %.0151237, -1
-  %.not221 = icmp eq i32 %188, 0
+  %186 = getelementptr inbounds nuw i8, ptr %.0238, i64 %spec.select230
+  %187 = add i32 %.0151237, -1
+  %.not221 = icmp eq i32 %187, 0
   br i1 %.not221, label %.loopexit, label %.lr.ph, !llvm.loop !199
 
-.loopexit235.sink.split:                          ; preds = %176
+.loopexit235.sink.split:                          ; preds = %175
   %png_image_read_composite.mux = select i1 %.0154, ptr @png_image_read_background, ptr @png_image_read_composite
-  %189 = call i64 @png_get_rowbytes(ptr noundef nonnull %6, ptr noundef nonnull %8) #12
-  %190 = call noalias ptr @png_malloc(ptr noundef nonnull %6, i64 noundef %189) #12
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %190, ptr %191, align 8, !tbaa !186
-  %192 = call i32 @png_safe_execute(ptr noundef nonnull %4, ptr noundef nonnull %png_image_read_composite.mux, ptr noundef nonnull %0) #12
-  store ptr null, ptr %191, align 8, !tbaa !186
-  call void @png_free(ptr noundef nonnull %6, ptr noundef %190) #12
+  %188 = call i64 @png_get_rowbytes(ptr noundef nonnull %6, ptr noundef nonnull %8) #12
+  %189 = call noalias ptr @png_malloc(ptr noundef nonnull %6, i64 noundef %188) #12
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %189, ptr %190, align 8, !tbaa !186
+  %191 = call i32 @png_safe_execute(ptr noundef nonnull %4, ptr noundef nonnull %png_image_read_composite.mux, ptr noundef nonnull %0) #12
+  store ptr null, ptr %190, align 8, !tbaa !186
+  call void @png_free(ptr noundef nonnull %6, ptr noundef %189) #12
   br label %.loopexit235
 
 .loopexit235:                                     ; preds = %.loopexit, %.loopexit235.sink.split, %.lr.ph239, %.preheader
-  %.0152 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph239 ], [ %192, %.loopexit235.sink.split ], [ 1, %.loopexit ]
+  %.0152 = phi i32 [ 1, %.preheader ], [ 1, %.lr.ph239 ], [ %191, %.loopexit235.sink.split ], [ 1, %.loopexit ]
   ret i32 %.0152
 }
 

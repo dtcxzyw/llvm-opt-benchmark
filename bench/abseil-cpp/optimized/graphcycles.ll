@@ -3556,7 +3556,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_
   %.0134.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.05.i.i.i.i.i, %62 ]
   %.05.in.i.i.i.i.i = add nsw i64 %.0134.i.i.i.i.i, -1
   %.05.i.i.i.i.i = sdiv i64 %.05.in.i.i.i.i.i, 2
-  %55 = getelementptr inbounds i32, ptr %0, i64 %.05.i.i.i.i.i
+  %55 = getelementptr inbounds nuw i32, ptr %0, i64 %.05.i.i.i.i.i
   %.val14.i.i.i.i.i = load i32, ptr %55, align 4, !tbaa !31
   %56 = zext i32 %.val14.i.i.i.i.i to i64
   %57 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i.i.i, i64 %56
@@ -3574,7 +3574,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_
 
 _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_SI_T1_T2_.exit.i.i.i: ; preds = %62, %54, %49
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %49 ], [ %.0134.i.i.i.i.i, %54 ], [ %.05.i.i.i.i.i, %62 ]
-  %65 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %65 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i32 %26, ptr %65, align 4, !tbaa !31
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %66 = add nsw i64 %.014.i.i.i, -1
@@ -3679,7 +3679,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronizat
 
 _ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %117, %109, %105
   %.013.lcssa.i.i.i.i15.i = phi i64 [ 0, %105 ], [ %.0134.i.i.i.i12.i, %109 ], [ 0, %117 ]
-  %119 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i15.i
+  %119 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.i.i15.i
   store i32 %68, ptr %119, align 4, !tbaa !31
   %120 = icmp sgt i64 %71, 4
   br i1 %120, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_T0_.exit, !llvm.loop !69

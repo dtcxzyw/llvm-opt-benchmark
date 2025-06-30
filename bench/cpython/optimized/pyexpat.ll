@@ -5825,7 +5825,7 @@ declare i32 @PyDict_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @call_with_frame(ptr noundef %0, i32 noundef range(i32 286, 688) %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc ptr @call_with_frame(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call ptr @PyObject_Call(ptr noundef %2, ptr noundef nonnull %3, ptr noundef null) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %12

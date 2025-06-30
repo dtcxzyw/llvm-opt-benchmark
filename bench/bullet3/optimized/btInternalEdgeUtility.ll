@@ -2638,7 +2638,7 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 144
   %60 = load float, ptr %59, align 8, !tbaa !117
   %61 = fcmp olt float %56, %60
-  br i1 %61, label %.thread421, label %62
+  br i1 %61, label %.thread418, label %62
 
 62:                                               ; preds = %21
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2679,7 +2679,7 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
   %98 = tail call float @llvm.fmuladd.f32(float %90, float %90, float %97)
   %99 = tail call noundef float @llvm.fmuladd.f32(float %96, float %96, float %98)
   %100 = fcmp olt float %99, %60
-  br i1 %100, label %.thread421, label %.preheader
+  br i1 %100, label %.thread418, label %.preheader
 
 101:                                              ; preds = %131
   %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 1
@@ -2688,7 +2688,7 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
 
 .preheader:                                       ; preds = %62, %101
   %indvars.iv444 = phi i64 [ %indvars.iv.next445, %101 ], [ 0, %62 ]
-  %.0439 = phi i32 [ %.4, %101 ], [ 0, %62 ]
+  %.0437 = phi i32 [ %.4, %101 ], [ 0, %62 ]
   %102 = getelementptr inbounds nuw %class.btVector3, ptr %64, i64 %indvars.iv444
   %103 = load float, ptr %102, align 4, !tbaa !32
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 4
@@ -2700,7 +2700,7 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
 
 109:                                              ; preds = %.preheader, %130
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %130 ]
-  %.2437 = phi i32 [ %.0439, %.preheader ], [ %.4, %130 ]
+  %.2435 = phi i32 [ %.0437, %.preheader ], [ %.4, %130 ]
   %110 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !32
   %112 = fsub float %103, %111
@@ -2717,29 +2717,29 @@ define linkonce_odr dso_local void @_ZN23btConnectivityProcessor15processTriangl
   br i1 %122, label %123, label %130
 
 123:                                              ; preds = %109
-  %124 = sext i32 %.2437 to i64
-  %125 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %124
+  %124 = zext nneg i32 %.2435 to i64
+  %125 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %124
   store i32 %108, ptr %125, align 4, !tbaa !24
-  %126 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %124
+  %126 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %124
   %127 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %127, ptr %126, align 4, !tbaa !24
-  %128 = add nsw i32 %.2437, 1
-  %129 = icmp sgt i32 %.2437, 1
-  br i1 %129, label %.thread421, label %130
+  %128 = add nuw nsw i32 %.2435, 1
+  %129 = icmp sgt i32 %.2435, 1
+  br i1 %129, label %.thread418, label %130
 
 130:                                              ; preds = %109, %123
-  %.4 = phi i32 [ %128, %123 ], [ %.2437, %109 ]
+  %.4 = phi i32 [ %128, %123 ], [ %.2435, %109 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond, label %131, label %109, !llvm.loop !119
 
 131:                                              ; preds = %130
-  %132 = icmp slt i32 %.4, 3
-  br i1 %132, label %101, label %.thread421
+  %132 = icmp sgt i32 %.4, 2
+  br i1 %132, label %.thread418, label %101
 
 133:                                              ; preds = %101
   %cond2 = icmp eq i32 %.4, 2
-  br i1 %cond2, label %134, label %.thread421
+  br i1 %cond2, label %134, label %.thread418
 
 134:                                              ; preds = %133
   %135 = load i32, ptr %5, align 4, !tbaa !24
@@ -2845,54 +2845,54 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread: ; preds = %183
   %195 = and i32 %194, %162
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 12
   %197 = load i32, ptr %196, align 4, !tbaa !78
-  %.not.i.i150 = icmp ult i32 %195, %197
-  br i1 %.not.i.i150, label %198, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159
+  %.not.i.i148 = icmp ult i32 %195, %197
+  br i1 %.not.i.i148, label %198, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157
 
 198:                                              ; preds = %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread
   %199 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %200 = load ptr, ptr %199, align 8, !tbaa !82
   %201 = sext i32 %195 to i64
   %202 = getelementptr inbounds i32, ptr %200, i64 %201
-  %.012.i.i152 = load i32, ptr %202, align 4, !tbaa !24
-  %.not1113.i.i153 = icmp eq i32 %.012.i.i152, -1
-  br i1 %.not1113.i.i153, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159, label %.lr.ph.i.i154
+  %.012.i.i150 = load i32, ptr %202, align 4, !tbaa !24
+  %.not1113.i.i151 = icmp eq i32 %.012.i.i150, -1
+  br i1 %.not1113.i.i151, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157, label %.lr.ph.i.i152
 
-.lr.ph.i.i154:                                    ; preds = %198
+.lr.ph.i.i152:                                    ; preds = %198
   %203 = getelementptr inbounds nuw i8, ptr %191, i64 120
   %204 = load ptr, ptr %203, align 8, !tbaa !83
   %205 = getelementptr inbounds nuw i8, ptr %191, i64 56
   %206 = load ptr, ptr %205, align 8
   br label %207
 
-207:                                              ; preds = %212, %.lr.ph.i.i154
-  %.014.i.i155 = phi i32 [ %.012.i.i152, %.lr.ph.i.i154 ], [ %.0.i.i156, %212 ]
-  %208 = sext i32 %.014.i.i155 to i64
+207:                                              ; preds = %212, %.lr.ph.i.i152
+  %.014.i.i153 = phi i32 [ %.012.i.i150, %.lr.ph.i.i152 ], [ %.0.i.i154, %212 ]
+  %208 = sext i32 %.014.i.i153 to i64
   %209 = getelementptr inbounds %class.btHashInt, ptr %204, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !87
   %211 = icmp eq i32 %148, %210
-  br i1 %211, label %_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i158, label %212
+  br i1 %211, label %_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i156, label %212
 
 212:                                              ; preds = %207
   %213 = getelementptr inbounds i32, ptr %206, i64 %208
-  %.0.i.i156 = load i32, ptr %213, align 4, !tbaa !24
-  %.not11.i.i157 = icmp eq i32 %.0.i.i156, -1
-  br i1 %.not11.i.i157, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159, label %207, !llvm.loop !89
+  %.0.i.i154 = load i32, ptr %213, align 4, !tbaa !24
+  %.not11.i.i155 = icmp eq i32 %.0.i.i154, -1
+  br i1 %.not11.i.i155, label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157, label %207, !llvm.loop !89
 
-_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i158: ; preds = %207
+_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i156: ; preds = %207
   %214 = getelementptr inbounds nuw i8, ptr %191, i64 88
   %215 = load ptr, ptr %214, align 8, !tbaa !90
   %216 = getelementptr inbounds %struct.btTriangleInfo, ptr %215, i64 %208
-  br label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159
+  br label %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157
 
-_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread, %198, %_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i158
-  %.0.i151 = phi ptr [ %216, %_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i158 ], [ null, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread ], [ null, %198 ], [ null, %212 ]
+_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157: ; preds = %212, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread, %198, %_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i156
+  %.0.i149 = phi ptr [ %216, %_ZNK9btHashMapI9btHashInt14btTriangleInfoE9findIndexERKS0_.exit.i156 ], [ null, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit.thread ], [ null, %198 ], [ null, %212 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
   %.pre = load ptr, ptr %63, align 8, !tbaa !39
   br label %217
 
-217:                                              ; preds = %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit
-  %218 = phi ptr [ %64, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit ], [ %.pre, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159 ]
-  %.095 = phi ptr [ %187, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit ], [ %.0.i151, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159 ]
+217:                                              ; preds = %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit
+  %218 = phi ptr [ %64, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit ], [ %.pre, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157 ]
+  %.095 = phi ptr [ %187, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit ], [ %.0.i149, %_ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit157 ]
   %219 = add nsw i32 %145, %146
   %220 = sext i32 %145 to i64
   %221 = getelementptr inbounds %class.btVector3, ptr %218, i64 %220
@@ -2942,10 +2942,10 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   %253 = fsub float %224, %225
   %254 = sub nsw i32 3, %219
   store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTV15btTriangleShape, i64 16), ptr %10, align 8, !tbaa !20
-  %.ptr5.i165 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %.ptr5.i163 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %255 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %255, align 8, !tbaa !60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr5.i165, ptr noundef nonnull align 4 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.ptr5.i163, ptr noundef nonnull align 4 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !53
   %256 = getelementptr inbounds nuw i8, ptr %10, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull align 4 dereferenceable(16) %245, i64 16, i1 false), !tbaa.struct !53
   %257 = getelementptr inbounds nuw i8, ptr %10, i64 112
@@ -2997,7 +2997,7 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   %295 = fmul float %287, %292
   store float %295, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !32
   %296 = load float, ptr %256, align 8, !tbaa !32
-  %297 = load float, ptr %.ptr5.i165, align 8, !tbaa !32
+  %297 = load float, ptr %.ptr5.i163, align 8, !tbaa !32
   %298 = fsub float %296, %297
   %299 = getelementptr inbounds nuw i8, ptr %10, i64 100
   %300 = load float, ptr %299, align 4, !tbaa !32
@@ -3029,8 +3029,8 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   %326 = fmul float %322, %322
   %327 = call float @llvm.fmuladd.f32(float %319, float %319, float %326)
   %328 = call noundef float @llvm.fmuladd.f32(float %325, float %325, float %327)
-  %sqrt.i.i.i168 = call noundef float @llvm.sqrt.f32(float %328)
-  %329 = fdiv float 1.000000e+00, %sqrt.i.i.i168
+  %sqrt.i.i.i166 = call noundef float @llvm.sqrt.f32(float %328)
+  %329 = fdiv float 1.000000e+00, %sqrt.i.i.i166
   %330 = fmul float %319, %329
   %331 = fmul float %322, %329
   %332 = fmul float %325, %329
@@ -3054,14 +3054,14 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   %349 = fmul float %345, %345
   %350 = call float @llvm.fmuladd.f32(float %342, float %342, float %349)
   %351 = call noundef float @llvm.fmuladd.f32(float %348, float %348, float %350)
-  %sqrt.i.i174 = call noundef float @llvm.sqrt.f32(float %351)
-  %352 = fdiv float 1.000000e+00, %sqrt.i.i174
+  %sqrt.i.i172 = call noundef float @llvm.sqrt.f32(float %351)
+  %352 = fdiv float 1.000000e+00, %sqrt.i.i172
   %353 = fmul float %342, %352
   %354 = insertelement <2 x float> poison, float %353, i64 0
   %355 = fmul float %345, %352
-  %.sroa.0338.4.vec.insert = insertelement <2 x float> %354, float %355, i64 1
+  %.sroa.0336.4.vec.insert = insertelement <2 x float> %354, float %355, i64 1
   %356 = fmul float %348, %352
-  %.sroa.9341.8.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %356, i64 0
+  %.sroa.9339.8.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %356, i64 0
   %357 = load ptr, ptr %63, align 8, !tbaa !39
   %358 = sext i32 %254 to i64
   %359 = getelementptr inbounds %class.btVector3, ptr %357, i64 %358
@@ -3087,11 +3087,11 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
 
 378:                                              ; preds = %248
   %379 = fneg float %353
-  %.sroa.0343.0.vec.insert = insertelement <2 x float> poison, float %379, i64 0
+  %.sroa.0341.0.vec.insert = insertelement <2 x float> poison, float %379, i64 0
   %380 = fneg float %355
-  %.sroa.0343.4.vec.insert = insertelement <2 x float> %.sroa.0343.0.vec.insert, float %380, i64 1
+  %.sroa.0341.4.vec.insert = insertelement <2 x float> %.sroa.0341.0.vec.insert, float %380, i64 1
   %381 = fneg float %356
-  %.sroa.16362.8.vec.insert = insertelement <2 x float> %.sroa.9341.8.vec.insert, float %381, i64 0
+  %.sroa.16360.8.vec.insert = insertelement <2 x float> %.sroa.9339.8.vec.insert, float %381, i64 0
   br label %384
 
 382:                                              ; preds = %217
@@ -3100,8 +3100,8 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   br label %623
 
 384:                                              ; preds = %248, %378
-  %.sroa.0343.0 = phi <2 x float> [ %.sroa.0343.4.vec.insert, %378 ], [ %.sroa.0338.4.vec.insert, %248 ]
-  %.sroa.16362.0 = phi <2 x float> [ %.sroa.16362.8.vec.insert, %378 ], [ %.sroa.9341.8.vec.insert, %248 ]
+  %.sroa.0341.0 = phi <2 x float> [ %.sroa.0341.4.vec.insert, %378 ], [ %.sroa.0336.4.vec.insert, %248 ]
+  %.sroa.16360.0 = phi <2 x float> [ %.sroa.16360.8.vec.insert, %378 ], [ %.sroa.9339.8.vec.insert, %248 ]
   %385 = fneg float %331
   %386 = fmul float %339, %385
   %387 = call float @llvm.fmuladd.f32(float %338, float %332, float %386)
@@ -3114,12 +3114,12 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   %394 = fmul float %390, %390
   %395 = call float @llvm.fmuladd.f32(float %387, float %387, float %394)
   %396 = call noundef float @llvm.fmuladd.f32(float %393, float %393, float %395)
-  %sqrt.i.i185 = call noundef float @llvm.sqrt.f32(float %396)
-  %397 = fdiv float 1.000000e+00, %sqrt.i.i185
+  %sqrt.i.i183 = call noundef float @llvm.sqrt.f32(float %396)
+  %397 = fdiv float 1.000000e+00, %sqrt.i.i183
   %398 = fmul float %387, %397
   %399 = insertelement <2 x float> poison, float %398, i64 0
   %400 = fmul float %390, %397
-  %.sroa.0301.4.vec.insert = insertelement <2 x float> %399, float %400, i64 1
+  %.sroa.0299.4.vec.insert = insertelement <2 x float> %399, float %400, i64 1
   %401 = fmul float %393, %397
   %.sroa.9.8.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %401, i64 0
   %402 = load float, ptr %247, align 4, !tbaa !32
@@ -3143,31 +3143,31 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
 
 419:                                              ; preds = %384
   %420 = fneg float %398
-  %.sroa.0305.0.vec.insert = insertelement <2 x float> poison, float %420, i64 0
+  %.sroa.0303.0.vec.insert = insertelement <2 x float> poison, float %420, i64 0
   %421 = fneg float %400
-  %.sroa.0305.4.vec.insert = insertelement <2 x float> %.sroa.0305.0.vec.insert, float %421, i64 1
+  %.sroa.0303.4.vec.insert = insertelement <2 x float> %.sroa.0303.0.vec.insert, float %421, i64 1
   %422 = fneg float %401
   %.sroa.16.8.vec.insert = insertelement <2 x float> %.sroa.9.8.vec.insert, float %422, i64 0
   br label %423
 
 423:                                              ; preds = %419, %384
-  %.sroa.0305.0 = phi <2 x float> [ %.sroa.0305.4.vec.insert, %419 ], [ %.sroa.0301.4.vec.insert, %384 ]
+  %.sroa.0303.0 = phi <2 x float> [ %.sroa.0303.4.vec.insert, %419 ], [ %.sroa.0299.4.vec.insert, %384 ]
   %.sroa.16.0 = phi <2 x float> [ %.sroa.16.8.vec.insert, %419 ], [ %.sroa.9.8.vec.insert, %384 ]
-  %.sroa.0343.4.vec.extract357 = extractelement <2 x float> %.sroa.0343.0, i64 1
-  %.sroa.16.8.vec.extract328 = extractelement <2 x float> %.sroa.16.0, i64 0
-  %.sroa.16362.8.vec.extract367 = extractelement <2 x float> %.sroa.16362.0, i64 0
-  %.sroa.0305.4.vec.extract319 = extractelement <2 x float> %.sroa.0305.0, i64 1
-  %424 = fneg float %.sroa.0305.4.vec.extract319
-  %425 = fmul float %.sroa.16362.8.vec.extract367, %424
-  %426 = call float @llvm.fmuladd.f32(float %.sroa.0343.4.vec.extract357, float %.sroa.16.8.vec.extract328, float %425)
-  %.sroa.0305.0.vec.extract310 = extractelement <2 x float> %.sroa.0305.0, i64 0
-  %.sroa.0343.0.vec.extract348 = extractelement <2 x float> %.sroa.0343.0, i64 0
-  %427 = fneg float %.sroa.16.8.vec.extract328
-  %428 = fmul float %.sroa.0343.0.vec.extract348, %427
-  %429 = call float @llvm.fmuladd.f32(float %.sroa.16362.8.vec.extract367, float %.sroa.0305.0.vec.extract310, float %428)
-  %430 = fneg float %.sroa.0305.0.vec.extract310
-  %431 = fmul float %.sroa.0343.4.vec.extract357, %430
-  %432 = call float @llvm.fmuladd.f32(float %.sroa.0343.0.vec.extract348, float %.sroa.0305.4.vec.extract319, float %431)
+  %.sroa.0341.4.vec.extract355 = extractelement <2 x float> %.sroa.0341.0, i64 1
+  %.sroa.16.8.vec.extract326 = extractelement <2 x float> %.sroa.16.0, i64 0
+  %.sroa.16360.8.vec.extract365 = extractelement <2 x float> %.sroa.16360.0, i64 0
+  %.sroa.0303.4.vec.extract317 = extractelement <2 x float> %.sroa.0303.0, i64 1
+  %424 = fneg float %.sroa.0303.4.vec.extract317
+  %425 = fmul float %.sroa.16360.8.vec.extract365, %424
+  %426 = call float @llvm.fmuladd.f32(float %.sroa.0341.4.vec.extract355, float %.sroa.16.8.vec.extract326, float %425)
+  %.sroa.0303.0.vec.extract308 = extractelement <2 x float> %.sroa.0303.0, i64 0
+  %.sroa.0341.0.vec.extract346 = extractelement <2 x float> %.sroa.0341.0, i64 0
+  %427 = fneg float %.sroa.16.8.vec.extract326
+  %428 = fmul float %.sroa.0341.0.vec.extract346, %427
+  %429 = call float @llvm.fmuladd.f32(float %.sroa.16360.8.vec.extract365, float %.sroa.0303.0.vec.extract308, float %428)
+  %430 = fneg float %.sroa.0303.0.vec.extract308
+  %431 = fmul float %.sroa.0341.4.vec.extract355, %430
+  %432 = call float @llvm.fmuladd.f32(float %.sroa.0341.0.vec.extract346, float %.sroa.0303.4.vec.extract317, float %431)
   %433 = fmul float %429, %429
   %434 = call float @llvm.fmuladd.f32(float %426, float %426, float %433)
   %435 = call noundef float @llvm.fmuladd.f32(float %432, float %432, float %434)
@@ -3178,39 +3178,39 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   br i1 %439, label %475, label %440
 
 440:                                              ; preds = %423
-  %sqrt.i.i196 = call noundef float @llvm.sqrt.f32(float %435)
-  %441 = fdiv float 1.000000e+00, %sqrt.i.i196
+  %sqrt.i.i194 = call noundef float @llvm.sqrt.f32(float %435)
+  %441 = fdiv float 1.000000e+00, %sqrt.i.i194
   %442 = fmul float %426, %441
   %443 = fmul float %429, %441
   %444 = fmul float %432, %441
-  %445 = fneg float %.sroa.0343.4.vec.extract357
+  %445 = fneg float %.sroa.0341.4.vec.extract355
   %446 = fmul float %444, %445
-  %447 = call float @llvm.fmuladd.f32(float %443, float %.sroa.16362.8.vec.extract367, float %446)
-  %448 = fneg float %.sroa.16362.8.vec.extract367
+  %447 = call float @llvm.fmuladd.f32(float %443, float %.sroa.16360.8.vec.extract365, float %446)
+  %448 = fneg float %.sroa.16360.8.vec.extract365
   %449 = fmul float %442, %448
-  %450 = call float @llvm.fmuladd.f32(float %444, float %.sroa.0343.0.vec.extract348, float %449)
-  %451 = fneg float %.sroa.0343.0.vec.extract348
+  %450 = call float @llvm.fmuladd.f32(float %444, float %.sroa.0341.0.vec.extract346, float %449)
+  %451 = fneg float %.sroa.0341.0.vec.extract346
   %452 = fmul float %443, %451
-  %453 = call float @llvm.fmuladd.f32(float %442, float %.sroa.0343.4.vec.extract357, float %452)
+  %453 = call float @llvm.fmuladd.f32(float %442, float %.sroa.0341.4.vec.extract355, float %452)
   %454 = fmul float %450, %450
   %455 = call float @llvm.fmuladd.f32(float %447, float %447, float %454)
   %456 = call noundef float @llvm.fmuladd.f32(float %453, float %453, float %455)
-  %sqrt.i.i202 = call noundef float @llvm.sqrt.f32(float %456)
-  %457 = fdiv float 1.000000e+00, %sqrt.i.i202
+  %sqrt.i.i200 = call noundef float @llvm.sqrt.f32(float %456)
+  %457 = fdiv float 1.000000e+00, %sqrt.i.i200
   %458 = fmul float %447, %457
   %459 = fmul float %450, %457
   %460 = fmul float %453, %457
-  %461 = fmul float %.sroa.0305.4.vec.extract319, %459
-  %462 = call float @llvm.fmuladd.f32(float %.sroa.0305.0.vec.extract310, float %458, float %461)
-  %463 = call noundef float @llvm.fmuladd.f32(float %.sroa.16.8.vec.extract328, float %460, float %462)
-  %464 = fmul float %.sroa.0343.4.vec.extract357, %.sroa.0305.4.vec.extract319
-  %465 = call float @llvm.fmuladd.f32(float %.sroa.0305.0.vec.extract310, float %.sroa.0343.0.vec.extract348, float %464)
-  %466 = call noundef float @llvm.fmuladd.f32(float %.sroa.16.8.vec.extract328, float %.sroa.16362.8.vec.extract367, float %465)
+  %461 = fmul float %.sroa.0303.4.vec.extract317, %459
+  %462 = call float @llvm.fmuladd.f32(float %.sroa.0303.0.vec.extract308, float %458, float %461)
+  %463 = call noundef float @llvm.fmuladd.f32(float %.sroa.16.8.vec.extract326, float %460, float %462)
+  %464 = fmul float %.sroa.0341.4.vec.extract355, %.sroa.0303.4.vec.extract317
+  %465 = call float @llvm.fmuladd.f32(float %.sroa.0303.0.vec.extract308, float %.sroa.0341.0.vec.extract346, float %464)
+  %466 = call noundef float @llvm.fmuladd.f32(float %.sroa.16.8.vec.extract326, float %.sroa.16360.8.vec.extract365, float %465)
   %467 = call noundef float @atan2f(float noundef %463, float noundef %466) #19, !tbaa !24
   %468 = fsub float 0x400921FB60000000, %467
-  %469 = fmul float %294, %.sroa.0305.4.vec.extract319
-  %470 = call float @llvm.fmuladd.f32(float %293, float %.sroa.0305.0.vec.extract310, float %469)
-  %471 = call noundef float @llvm.fmuladd.f32(float %295, float %.sroa.16.8.vec.extract328, float %470)
+  %469 = fmul float %294, %.sroa.0303.4.vec.extract317
+  %470 = call float @llvm.fmuladd.f32(float %293, float %.sroa.0303.0.vec.extract308, float %469)
+  %471 = call noundef float @llvm.fmuladd.f32(float %295, float %.sroa.16.8.vec.extract326, float %470)
   %472 = fcmp olt float %471, 0.000000e+00
   %473 = fneg float %468
   %474 = select i1 %472, float %468, float %473
@@ -3245,10 +3245,10 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   %492 = fmul float %485, %485
   %493 = call float @llvm.fmuladd.f32(float %480, float %480, float %492)
   %494 = call noundef float @llvm.fmuladd.f32(float %490, float %490, float %493)
-  %sqrt.i.i.i209 = call noundef float @llvm.sqrt.f32(float %494)
+  %sqrt.i.i.i207 = call noundef float @llvm.sqrt.f32(float %494)
   %495 = fmul float %.074, -5.000000e-01
   %496 = call noundef float @sinf(float noundef %495) #19, !tbaa !24
-  %497 = fdiv float %496, %sqrt.i.i.i209
+  %497 = fdiv float %496, %sqrt.i.i.i207
   %498 = fmul float %480, %497
   %499 = fmul float %485, %497
   %500 = fmul float %490, %497
@@ -3266,12 +3266,12 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
 506:                                              ; preds = %476
   %507 = extractvalue { <2 x float>, <2 x float> } %505, 0
   %508 = extractvalue { <2 x float>, <2 x float> } %505, 1
-  %.sroa.0255.0.vec.extract = extractelement <2 x float> %507, i64 0
-  %.sroa.0255.4.vec.extract = extractelement <2 x float> %507, i64 1
-  %509 = fmul float %331, %.sroa.0255.4.vec.extract
-  %510 = call float @llvm.fmuladd.f32(float %.sroa.0255.0.vec.extract, float %330, float %509)
-  %.sroa.10262.8.vec.extract = extractelement <2 x float> %508, i64 0
-  %511 = call noundef float @llvm.fmuladd.f32(float %.sroa.10262.8.vec.extract, float %332, float %510)
+  %.sroa.0253.0.vec.extract = extractelement <2 x float> %507, i64 0
+  %.sroa.0253.4.vec.extract = extractelement <2 x float> %507, i64 1
+  %509 = fmul float %331, %.sroa.0253.4.vec.extract
+  %510 = call float @llvm.fmuladd.f32(float %.sroa.0253.0.vec.extract, float %330, float %509)
+  %.sroa.10260.8.vec.extract = extractelement <2 x float> %508, i64 0
+  %511 = call noundef float @llvm.fmuladd.f32(float %.sroa.10260.8.vec.extract, float %332, float %510)
   %512 = fcmp olt float %511, 0.000000e+00
   br i1 %512, label %513, label %518
 
@@ -3322,10 +3322,10 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   %540 = fmul float %533, %533
   %541 = call float @llvm.fmuladd.f32(float %528, float %528, float %540)
   %542 = call noundef float @llvm.fmuladd.f32(float %538, float %538, float %541)
-  %sqrt.i.i.i215 = call noundef float @llvm.sqrt.f32(float %542)
+  %sqrt.i.i.i213 = call noundef float @llvm.sqrt.f32(float %542)
   %543 = fmul float %.074, -5.000000e-01
   %544 = call noundef float @sinf(float noundef %543) #19, !tbaa !24
-  %545 = fdiv float %544, %sqrt.i.i.i215
+  %545 = fdiv float %544, %sqrt.i.i.i213
   %546 = fmul float %528, %545
   %547 = fmul float %533, %545
   %548 = fmul float %538, %545
@@ -3343,12 +3343,12 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
 554:                                              ; preds = %524
   %555 = extractvalue { <2 x float>, <2 x float> } %553, 0
   %556 = extractvalue { <2 x float>, <2 x float> } %553, 1
-  %.sroa.0238.0.vec.extract = extractelement <2 x float> %555, i64 0
-  %.sroa.0238.4.vec.extract = extractelement <2 x float> %555, i64 1
-  %557 = fmul float %331, %.sroa.0238.4.vec.extract
-  %558 = call float @llvm.fmuladd.f32(float %.sroa.0238.0.vec.extract, float %330, float %557)
-  %.sroa.10245.8.vec.extract = extractelement <2 x float> %556, i64 0
-  %559 = call noundef float @llvm.fmuladd.f32(float %.sroa.10245.8.vec.extract, float %332, float %558)
+  %.sroa.0236.0.vec.extract = extractelement <2 x float> %555, i64 0
+  %.sroa.0236.4.vec.extract = extractelement <2 x float> %555, i64 1
+  %557 = fmul float %331, %.sroa.0236.4.vec.extract
+  %558 = call float @llvm.fmuladd.f32(float %.sroa.0236.0.vec.extract, float %330, float %557)
+  %.sroa.10243.8.vec.extract = extractelement <2 x float> %556, i64 0
+  %559 = call noundef float @llvm.fmuladd.f32(float %.sroa.10243.8.vec.extract, float %332, float %558)
   %560 = fcmp olt float %559, 0.000000e+00
   br i1 %560, label %561, label %566
 
@@ -3400,10 +3400,10 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   %589 = fmul float %582, %582
   %590 = call float @llvm.fmuladd.f32(float %577, float %577, float %589)
   %591 = call noundef float @llvm.fmuladd.f32(float %587, float %587, float %590)
-  %sqrt.i.i.i221 = call noundef float @llvm.sqrt.f32(float %591)
+  %sqrt.i.i.i219 = call noundef float @llvm.sqrt.f32(float %591)
   %592 = fmul float %.074, -5.000000e-01
   %593 = call noundef float @sinf(float noundef %592) #19, !tbaa !24
-  %594 = fdiv float %593, %sqrt.i.i.i221
+  %594 = fdiv float %593, %sqrt.i.i.i219
   %595 = fmul float %577, %594
   %596 = fmul float %582, %594
   %597 = fmul float %587, %594
@@ -3463,7 +3463,7 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #19
   call void @_ZN23btPolyhedralConvexShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %9) #19
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #19
-  br label %.thread421
+  br label %.thread418
 
 622:                                              ; preds = %516, %564, %613
   %.pn104.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %517, %516 ], [ %565, %564 ], [ %614, %613 ]
@@ -3480,12 +3480,12 @@ _ZN9btHashMapI9btHashInt14btTriangleInfoE4findERKS0_.exit159: ; preds = %212, %_
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #19
   resume { ptr, i32 } %.pn104.pn.pn.pn.pn.pn.pn.pn.pn
 
-.thread421:                                       ; preds = %131, %123, %133, %62, %621, %21
+.thread418:                                       ; preds = %131, %123, %133, %62, %621, %21
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #19
   br label %624
 
-624:                                              ; preds = %4, %.thread421
+624:                                              ; preds = %4, %.thread418
   ret void
 }
 

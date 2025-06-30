@@ -111197,7 +111197,7 @@ ma_wait_for_operation_and_unref__pulse.exit:      ; preds = %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -400, 1) i32 @ma_device_init__pulse(ptr noundef initializes((3424, 3456)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #7 {
+define internal i32 @ma_device_init__pulse(ptr noundef initializes((3424, 3456)) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) #7 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca %struct.ma_pa_sink_info, align 8
   %7 = alloca %struct.ma_pa_source_info, align 8

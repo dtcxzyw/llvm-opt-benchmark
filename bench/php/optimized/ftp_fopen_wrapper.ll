@@ -1544,7 +1544,7 @@ get_ftp_result.exit71:                            ; preds = %54, %.backedge.i69,
   ]
 
 106:                                              ; preds = %104
-  %107 = add nsw i32 %.145, 1
+  %107 = add nuw nsw i32 %.145, 1
   %108 = icmp eq i32 %107, 3
   br i1 %108, label %.thread, label %109
 

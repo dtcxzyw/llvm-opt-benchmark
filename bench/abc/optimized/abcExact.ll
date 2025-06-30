@@ -12098,8 +12098,8 @@ Abc_TtFindFirstBit.exit:                          ; preds = %.lr.ph.i65
   %208 = trunc i64 %.424.i.i to i32
   %209 = and i32 %208, 1
   %210 = xor i32 %209, 1
-  %.5.i.i = add i32 %.4.i.i, %188
-  %211 = add i32 %.5.i.i, %210
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %188
+  %211 = add nuw nsw i32 %.5.i.i, %210
   %212 = icmp eq i32 %211, -1
   br i1 %212, label %Ses_CheckGatesConsistency.exit.thread, label %213
 

@@ -2417,13 +2417,13 @@ _ZN9Stockfish12_GLOBAL__N_19PairsDataD2Ev.exit.i.i.i: ; preds = %164, %_ZNSt6vec
   %196 = trunc i8 %194 to i1
   %197 = select i1 %196, i32 3, i32 2
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 128
-  %spec.select195 = select i1 %180, i32 0, i32 %197
+  %spec.select199 = select i1 %180, i32 0, i32 %197
   br label %select.unfold.i.i.i
 
 select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %217
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %217 ], [ 1, %.lr.ph.i.i.i.i ]
   %.06473.i.i.i.i = phi i32 [ %.165.i.i.i.i, %217 ], [ 0, %.lr.ph.i.i.i.i ]
-  %.06770.i.i.i.i = phi i32 [ %199, %217 ], [ %spec.select195, %.lr.ph.i.i.i.i ]
+  %.06770.i.i.i.i = phi i32 [ %199, %217 ], [ %spec.select199, %.lr.ph.i.i.i.i ]
   %199 = add nsw i32 %.06770.i.i.i.i, -1
   %200 = icmp sgt i32 %.06770.i.i.i.i, 1
   br i1 %200, label %208, label %201
@@ -3561,8 +3561,8 @@ _ZSt8count_ifIPN9Stockfish6SquareEZNS0_12_GLOBAL__N_114do_probe_tableINS3_7TBTab
   %741 = and i32 %737, 16
   %.not25.i.i.i = icmp eq i32 %741, 0
   %742 = add nsw i32 %20, 2
-  %743 = sext i32 %742 to i64
-  %744 = getelementptr inbounds [5 x i32], ptr @__const._ZN9Stockfish12_GLOBAL__N_19map_scoreEPNS0_7TBTableILNS0_6TBTypeE1EEENS_4FileEiNS_10Tablebases8WDLScoreE.WDLMap, i64 0, i64 %743
+  %743 = zext nneg i32 %742 to i64
+  %744 = getelementptr inbounds nuw [5 x i32], ptr @__const._ZN9Stockfish12_GLOBAL__N_19map_scoreEPNS0_7TBTableILNS0_6TBTypeE1EEENS_4FileEiNS_10Tablebases8WDLScoreE.WDLMap, i64 0, i64 %743
   %745 = load i32, ptr %744, align 4
   %746 = sext i32 %745 to i64
   %747 = getelementptr inbounds i16, ptr %740, i64 %746
@@ -3644,25 +3644,25 @@ _ZN9Stockfish12_GLOBAL__N_111probe_tableILNS0_6TBTypeE1EiEET0_RKNS_8PositionEPNS
   %779 = getelementptr inbounds nuw i8, ptr %18, i64 2048
   %780 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 8 dereferenceable(2056) %18) #24
   store ptr %780, ptr %779, align 8
-  %.not60119 = icmp eq ptr %18, %780
-  br i1 %.not60119, label %._crit_edge.thread, label %.lr.ph
+  %.not60123 = icmp eq ptr %18, %780
+  br i1 %.not60123, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %778
   %781 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %782 = getelementptr inbounds nuw i8, ptr %19, i64 2048
-  %.lobit.neg.i71 = ashr i32 %20, 31
-  %783 = or i32 %.lobit.neg.i71, 1
+  %.lobit.neg.i73 = ashr i32 %20, 31
+  %783 = or i32 %.lobit.neg.i73, 1
   br label %786
 
 784:                                              ; preds = %830
-  %785 = getelementptr inbounds nuw i8, ptr %.056120, i64 8
+  %785 = getelementptr inbounds nuw i8, ptr %.056124, i64 8
   %.not60 = icmp eq ptr %785, %780
   br i1 %.not60, label %._crit_edge, label %786
 
 786:                                              ; preds = %.lr.ph, %784
-  %.055121 = phi i32 [ 65535, %.lr.ph ], [ %.2, %784 ]
-  %.056120 = phi ptr [ %18, %.lr.ph ], [ %785, %784 ]
-  %.sroa.06.0.copyload = load i16, ptr %.056120, align 4
+  %.055125 = phi i32 [ 65535, %.lr.ph ], [ %.2, %784 ]
+  %.056124 = phi ptr [ %18, %.lr.ph ], [ %785, %784 ]
+  %.sroa.06.0.copyload = load i16, ptr %.056124, align 4
   %787 = and i16 %.sroa.06.0.copyload, 63
   %788 = zext nneg i16 %787 to i64
   %789 = getelementptr inbounds nuw [64 x i32], ptr %0, i64 0, i64 %788
@@ -3727,40 +3727,40 @@ _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit66
   %819 = call noundef ptr @_ZN9Stockfish8generateILNS_7GenTypeE5EEEPNS_7ExtMoveERKNS_8PositionES3_(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 8 dereferenceable(2056) %19) #24
   store ptr %819, ptr %782, align 8
   %820 = icmp eq ptr %819, %19
-  %spec.select = select i1 %820, i32 1, i32 %.055121
+  %spec.select = select i1 %820, i32 1, i32 %.055125
   br label %.critedge
 
 .critedge:                                        ; preds = %818, %814, %_ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit66
   %821 = phi i32 [ 1, %814 ], [ %812, %_ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit66 ], [ 1, %818 ]
-  %.1 = phi i32 [ %.055121, %814 ], [ %.055121, %_ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit66 ], [ %spec.select, %818 ]
+  %.1 = phi i32 [ %.055125, %814 ], [ %.055125, %_ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit66 ], [ %spec.select, %818 ]
   br i1 %802, label %.critedge.thread, label %822
 
 822:                                              ; preds = %.critedge
   %.lobit.neg.i67 = ashr i32 %821, 31
-  %isnotnull.i = icmp ne i32 %821, 0
-  %isnotnull.zext.i = zext i1 %isnotnull.i to i32
-  %823 = or i32 %.lobit.neg.i67, %isnotnull.zext.i
+  %isnotnull.i68 = icmp ne i32 %821, 0
+  %isnotnull.zext.i69 = zext i1 %isnotnull.i68 to i32
+  %823 = or i32 %.lobit.neg.i67, %isnotnull.zext.i69
   %824 = sub nsw i32 %823, %.pn
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %804, %.fold.split.i65, %806, %822, %.critedge
-  %.178 = phi i32 [ %.1, %.critedge ], [ %.1, %822 ], [ %.055121, %806 ], [ %.055121, %.fold.split.i65 ], [ %.055121, %804 ]
+  %.182 = phi i32 [ %.1, %.critedge ], [ %.1, %822 ], [ %.055125, %806 ], [ %.055125, %.fold.split.i65 ], [ %.055125, %804 ]
   %.054 = phi i32 [ %821, %.critedge ], [ %824, %822 ], [ 101, %806 ], [ -101, %.fold.split.i65 ], [ -1, %804 ]
-  %825 = icmp slt i32 %.054, %.178
+  %825 = icmp slt i32 %.054, %.182
   br i1 %825, label %826, label %830
 
 826:                                              ; preds = %.critedge.thread
-  %.lobit.neg.i68 = ashr i32 %.054, 31
-  %isnotnull.i69 = icmp ne i32 %.054, 0
-  %isnotnull.zext.i70 = zext i1 %isnotnull.i69 to i32
-  %827 = or i32 %.lobit.neg.i68, %isnotnull.zext.i70
+  %.lobit.neg.i70 = ashr i32 %.054, 31
+  %isnotnull.i71 = icmp ne i32 %.054, 0
+  %isnotnull.zext.i72 = zext i1 %isnotnull.i71 to i32
+  %827 = or i32 %.lobit.neg.i70, %isnotnull.zext.i72
   %828 = icmp eq i32 %827, %783
-  %spec.select62 = select i1 %828, i32 %.054, i32 %.178
+  %spec.select62 = select i1 %828, i32 %.054, i32 %.182
   %829 = freeze i32 %spec.select62
   br label %830
 
 830:                                              ; preds = %826, %.critedge.thread
-  %.2 = phi i32 [ %.178, %.critedge.thread ], [ %829, %826 ]
+  %.2 = phi i32 [ %.182, %.critedge.thread ], [ %829, %826 ]
   call void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.06.0.copyload) #24
   %831 = load i32, ptr %1, align 4
   %832 = icmp eq i32 %831, 0
@@ -3779,7 +3779,7 @@ _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 -2147483647, 4094) i32 @_ZN9Stockfish12_GLOBAL__N_16searchILb1EEENS_10Tablebases8WDLScoreERNS_8PositionEPNS2_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef captures(none) %1) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -2, 4094) i32 @_ZN9Stockfish12_GLOBAL__N_16searchILb1EEENS_10Tablebases8WDLScoreERNS_8PositionEPNS2_10ProbeStateE(ptr noundef nonnull align 8 dereferenceable(865) %0, ptr noundef captures(none) %1) unnamed_addr #3 {
   %3 = alloca %"struct.Stockfish::StateInfo", align 64
   %4 = alloca %"struct.Stockfish::MoveList", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2048

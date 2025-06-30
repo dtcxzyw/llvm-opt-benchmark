@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [45 x i8] c"allocation request is too large (%zu bytes)\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i64 0, 74) i64 @_mi_bin(i64 noundef %0) local_unnamed_addr #0 {
+define hidden range(i64 -3, 125) i64 @_mi_bin(i64 noundef %0) local_unnamed_addr #0 {
   %2 = add i64 %0, 7
   %3 = lshr i64 %2, 3
   %4 = icmp ult i64 %2, 72

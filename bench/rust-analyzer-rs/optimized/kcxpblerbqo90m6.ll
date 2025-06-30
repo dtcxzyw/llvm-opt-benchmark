@@ -7080,9 +7080,9 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %.not.i36 = icmp ult i64 %67, %3
   br i1 %.not.i36, label %.lr.ph.i37, label %.preheader.i
 
-.preheader.i:                                     ; preds = %73, %59
-  %.067.lcssa.i = phi i8 [ 0, %59 ], [ %.3.i, %73 ]
-  %.065.lcssa.i = phi i64 [ 0, %59 ], [ %74, %73 ]
+.preheader.i:                                     ; preds = %82, %59
+  %.067.lcssa.i = phi i8 [ 0, %59 ], [ %.3.i, %82 ]
+  %.065.lcssa.i = phi i64 [ 0, %59 ], [ %83, %82 ]
   %68 = add nuw nsw i64 %1, 15
   %69 = add i64 %68, %.065.lcssa.i
   %70 = icmp uge i64 %69, %3
@@ -7094,60 +7094,60 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
   %invariant.op.i = add nuw nsw i64 %1, 31
   br label %108
 
-.lr.ph.i37:                                       ; preds = %59, %73
-  %.065146.i = phi i64 [ %74, %73 ], [ 0, %59 ]
+.lr.ph.i37:                                       ; preds = %59, %82
+  %.065146.i = phi i64 [ %83, %82 ], [ 0, %59 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !1124
   store i64 0, ptr %5, align 8, !noalias !1124
   %72 = getelementptr i8, ptr %2, i64 %.065146.i
-  br label %90
+  br label %73
 
-73:                                               ; preds = %82
-  %74 = add i64 %.065146.i, 64
+73:                                               ; preds = %73, %.lr.ph.i37
+  %.sroa.022.0142.i = phi i64 [ 0, %.lr.ph.i37 ], [ %74, %73 ]
+  %74 = add nuw nsw i64 %.sroa.022.0142.i, 1
+  %75 = shl nuw nsw i64 %.sroa.022.0142.i, 4
+  %76 = getelementptr i8, ptr %72, i64 %75
+  %.0.copyload.i.i = load <16 x i8>, ptr %76, align 1, !alias.scope !1113, !noalias !1125
+  %77 = getelementptr inbounds i8, ptr %76, i64 %storemerge127130.i
+  %.0.copyload2.i.i = load <16 x i8>, ptr %77, align 1, !alias.scope !1113, !noalias !1125
+  %78 = icmp eq <16 x i8> %.0.copyload.i.i, %61
+  %79 = icmp eq <16 x i8> %.0.copyload2.i.i, %62
+  %80 = and <16 x i1> %78, %79
+  %81 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.022.0142.i
+  store <16 x i1> %80, ptr %81, align 2, !noalias !1124
+  %exitcond.not.i38 = icmp eq i64 %74, 4
+  br i1 %exitcond.not.i38, label %.preheader138.i, label %73
+
+82:                                               ; preds = %91
+  %83 = add i64 %.065146.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !1124
-  %75 = add i64 %74, %67
-  %76 = icmp uge i64 %75, %3
-  %77 = trunc nuw i8 %.3.i to i1
-  %or.cond.i = select i1 %76, i1 true, i1 %77
+  %84 = add i64 %83, %67
+  %85 = icmp uge i64 %84, %3
+  %86 = trunc nuw i8 %.3.i to i1
+  %or.cond.i = select i1 %85, i1 true, i1 %86
   br i1 %or.cond.i, label %.preheader.i, label %.lr.ph.i37
 
-.preheader138.i:                                  ; preds = %90, %82
-  %.sroa.028.0144.i = phi i64 [ %78, %82 ], [ 0, %90 ]
-  %.2143.i = phi i8 [ %.3.i, %82 ], [ 0, %90 ]
-  %78 = add nuw nsw i64 %.sroa.028.0144.i, 1
-  %79 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.028.0144.i
-  %80 = load i16, ptr %79, align 2, !noalias !1124, !noundef !9
-  %81 = icmp eq i16 %80, 0
-  br i1 %81, label %82, label %83
+.preheader138.i:                                  ; preds = %73, %91
+  %.sroa.028.0144.i = phi i64 [ %87, %91 ], [ 0, %73 ]
+  %.2143.i = phi i8 [ %.3.i, %91 ], [ 0, %73 ]
+  %87 = add nuw nsw i64 %.sroa.028.0144.i, 1
+  %88 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.028.0144.i
+  %89 = load i16, ptr %88, align 2, !noalias !1124, !noundef !9
+  %90 = icmp eq i16 %89, 0
+  br i1 %90, label %91, label %92
 
-82:                                               ; preds = %83, %.preheader138.i
-  %.3.i = phi i8 [ %.2143.i, %.preheader138.i ], [ %89, %83 ]
-  %exitcond158.not.i = icmp eq i64 %78, 4
-  br i1 %exitcond158.not.i, label %73, label %.preheader138.i
+91:                                               ; preds = %92, %.preheader138.i
+  %.3.i = phi i8 [ %.2143.i, %.preheader138.i ], [ %98, %92 ]
+  %exitcond158.not.i = icmp eq i64 %87, 4
+  br i1 %exitcond158.not.i, label %82, label %.preheader138.i
 
-83:                                               ; preds = %.preheader138.i
-  %84 = shl nuw nsw i64 %.sroa.028.0144.i, 4
-  %85 = add nuw nsw i64 %84, %.065146.i
-  %86 = trunc nuw i8 %.2143.i to i1
-  %87 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd92481fe342c2151E"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %85, i16 noundef %80, i1 noundef zeroext %86)
-  %88 = or i1 %87, %86
-  %89 = zext i1 %88 to i8
-  br label %82
-
-90:                                               ; preds = %90, %.lr.ph.i37
-  %.sroa.022.0142.i = phi i64 [ 0, %.lr.ph.i37 ], [ %91, %90 ]
-  %91 = add nuw nsw i64 %.sroa.022.0142.i, 1
-  %92 = shl nuw nsw i64 %.sroa.022.0142.i, 4
-  %93 = getelementptr i8, ptr %72, i64 %92
-  %.0.copyload.i.i = load <16 x i8>, ptr %93, align 1, !alias.scope !1113, !noalias !1125
-  %94 = getelementptr inbounds i8, ptr %93, i64 %storemerge127130.i
-  %.0.copyload2.i.i = load <16 x i8>, ptr %94, align 1, !alias.scope !1113, !noalias !1125
-  %95 = icmp eq <16 x i8> %.0.copyload.i.i, %61
-  %96 = icmp eq <16 x i8> %.0.copyload2.i.i, %62
-  %97 = and <16 x i1> %95, %96
-  %98 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.022.0142.i
-  store <16 x i1> %97, ptr %98, align 2, !noalias !1124
-  %exitcond.not.i38 = icmp eq i64 %91, 4
-  br i1 %exitcond.not.i38, label %.preheader138.i, label %90
+92:                                               ; preds = %.preheader138.i
+  %93 = shl nuw nsw i64 %.sroa.028.0144.i, 4
+  %94 = add nuw nsw i64 %93, %.065146.i
+  %95 = trunc nuw i8 %.2143.i to i1
+  %96 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd92481fe342c2151E"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %94, i16 noundef %89, i1 noundef zeroext %95)
+  %97 = or i1 %96, %95
+  %98 = zext i1 %97 to i8
+  br label %91
 
 ._crit_edge.i:                                    ; preds = %116, %.preheader.i
   %.168.lcssa.i = phi i8 [ %.067.lcssa.i, %.preheader.i ], [ %.5.i, %116 ]

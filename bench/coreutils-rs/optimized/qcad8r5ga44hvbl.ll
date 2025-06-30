@@ -4500,7 +4500,7 @@ _ZN5uu_wc8Settings14number_enabled17h77b05f1ade4b8716E.exit30.i: ; preds = %.lr.
   %127 = add nuw nsw i32 %.19.i.i.i, 1
   %128 = add nuw nsw i32 %127, %126
   %129 = zext nneg i32 %128 to i64
-  %.0.sroa.speculated.i.i = call noundef range(i64 1, 4294967296) i64 @llvm.umax.i64(i64 range(i64 0, 4294967296) %129, i64 range(i64 1, 8) %.3.i)
+  %.0.sroa.speculated.i.i = call noundef range(i64 1, 24) i64 @llvm.umax.i64(i64 range(i64 1, 24) %129, i64 range(i64 1, 8) %.3.i)
   br label %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit
 
 130:                                              ; preds = %107

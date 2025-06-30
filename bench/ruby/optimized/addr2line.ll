@@ -2660,7 +2660,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @follow_debuglink(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef captures(none) %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @follow_debuglink(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef captures(none) %4, i32 noundef range(i32 0, -1) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) @binary_filename, i32 noundef 47) #17
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %27, label %9
@@ -2703,7 +2703,7 @@ append_obj.exit:                                  ; preds = %9, %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @follow_debuglink_build_id(ptr noundef readonly captures(none) %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef captures(none) %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @follow_debuglink_build_id(ptr noundef readonly captures(none) %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef captures(none) %5, i32 noundef range(i32 0, -1) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = load ptr, ptr %4, align 8, !tbaa !7
   %10 = icmp samesign ugt i64 %1, 2032
   br i1 %10, label %39, label %11
@@ -2774,7 +2774,7 @@ append_obj.exit:                                  ; preds = %._crit_edge, %32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_debug_line(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_debug_line(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef range(i32 0, -1) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.LineNumberProgramHeader, align 8
   %11 = getelementptr i8, ptr %2, i64 %3

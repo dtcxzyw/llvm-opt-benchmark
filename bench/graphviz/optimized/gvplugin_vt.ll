@@ -672,7 +672,7 @@ define internal fastcc void @processNup(ptr noundef %0, i32 noundef range(i32 2,
   br i1 %58, label %.preheader62, label %._crit_edge74, !llvm.loop !39
 
 ._crit_edge69.loopexit:                           ; preds = %._crit_edge.us
-  %59 = zext i32 %50 to i64
+  %59 = zext nneg i32 %50 to i64
   br label %._crit_edge69
 
 ._crit_edge69:                                    ; preds = %._crit_edge69.loopexit, %.preheader61

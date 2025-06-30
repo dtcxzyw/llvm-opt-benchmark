@@ -5499,21 +5499,21 @@ define noundef i32 @_ZN2cv17getOptimalDFTSizeEi(i32 noundef %0) local_unnamed_ad
 .preheader:                                       ; preds = %1, %.preheader
   %.01216 = phi i32 [ %.1, %.preheader ], [ 1650, %1 ]
   %.01315 = phi i32 [ %.114, %.preheader ], [ 0, %1 ]
-  %3 = add nsw i32 %.01216, %.01315
-  %4 = ashr i32 %3, 1
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %5
+  %3 = add nuw nsw i32 %.01216, %.01315
+  %4 = lshr i32 %3, 1
+  %5 = zext nneg i32 %4 to i64
+  %6 = getelementptr inbounds nuw [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !46
   %.not = icmp sgt i32 %0, %7
-  %8 = add nsw i32 %4, 1
+  %8 = add nuw nsw i32 %4, 1
   %.114 = select i1 %.not, i32 %8, i32 %.01315
   %.1 = select i1 %.not, i32 %.01216, i32 %4
   %9 = icmp slt i32 %.114, %.1
   br i1 %9, label %.preheader, label %10, !llvm.loop !189
 
 10:                                               ; preds = %.preheader
-  %11 = sext i32 %.1 to i64
-  %12 = getelementptr inbounds [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %11
+  %11 = zext nneg i32 %.1 to i64
+  %12 = getelementptr inbounds nuw [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !46
   br label %14
 
@@ -6025,21 +6025,21 @@ define i32 @cvGetOptimalDFTSize(i32 noundef %0) local_unnamed_addr #10 {
 .preheader.i:                                     ; preds = %1, %.preheader.i
   %.01216.i = phi i32 [ %.1.i, %.preheader.i ], [ 1650, %1 ]
   %.01315.i = phi i32 [ %.114.i, %.preheader.i ], [ 0, %1 ]
-  %3 = add nsw i32 %.01315.i, %.01216.i
-  %4 = ashr i32 %3, 1
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %5
+  %3 = add nuw nsw i32 %.01315.i, %.01216.i
+  %4 = lshr i32 %3, 1
+  %5 = zext nneg i32 %4 to i64
+  %6 = getelementptr inbounds nuw [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !46
   %.not.i = icmp sgt i32 %0, %7
-  %8 = add nsw i32 %4, 1
+  %8 = add nuw nsw i32 %4, 1
   %.114.i = select i1 %.not.i, i32 %8, i32 %.01315.i
   %.1.i = select i1 %.not.i, i32 %.01216.i, i32 %4
   %9 = icmp slt i32 %.114.i, %.1.i
   br i1 %9, label %.preheader.i, label %10, !llvm.loop !189
 
 10:                                               ; preds = %.preheader.i
-  %11 = sext i32 %.1.i to i64
-  %12 = getelementptr inbounds [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %11
+  %11 = zext nneg i32 %.1.i to i64
+  %12 = getelementptr inbounds nuw [1651 x i32], ptr @_ZN2cvL17optimalDFTSizeTabE, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !46
   br label %_ZN2cv17getOptimalDFTSizeEi.exit
 

@@ -134,8 +134,8 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   ]
 
 28:                                               ; preds = %.preheader148
-  %29 = mul i32 %.0108, 10
-  %30 = icmp ugt i32 %29, %.0114
+  %29 = mul nuw nsw i32 %.0108, 10
+  %30 = icmp samesign ugt i32 %29, %.0114
   br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %28
@@ -144,48 +144,48 @@ define internal noundef zeroext i1 @sfloat_ieee_11073_val_from_literal(ptr nound
   br i1 %33, label %.loopexit149, label %.loopexit
 
 34:                                               ; preds = %.preheader148
-  %35 = mul i32 %.0108, 10
+  %35 = mul nuw nsw i32 %.0108, 10
   %36 = or disjoint i32 %35, 1
   br label %.loopexit
 
 37:                                               ; preds = %.preheader148
-  %38 = mul i32 %.0108, 10
-  %39 = add i32 %38, 2
+  %38 = mul nuw nsw i32 %.0108, 10
+  %39 = add nuw nsw i32 %38, 2
   br label %.loopexit
 
 40:                                               ; preds = %.preheader148
-  %41 = mul i32 %.0108, 10
-  %42 = add i32 %41, 3
+  %41 = mul nuw nsw i32 %.0108, 10
+  %42 = add nuw nsw i32 %41, 3
   br label %.loopexit
 
 43:                                               ; preds = %.preheader148
-  %44 = mul i32 %.0108, 10
-  %45 = add i32 %44, 4
+  %44 = mul nuw nsw i32 %.0108, 10
+  %45 = add nuw nsw i32 %44, 4
   br label %.loopexit
 
 46:                                               ; preds = %.preheader148
-  %47 = mul i32 %.0108, 10
-  %48 = add i32 %47, 5
+  %47 = mul nuw nsw i32 %.0108, 10
+  %48 = add nuw nsw i32 %47, 5
   br label %.loopexit
 
 49:                                               ; preds = %.preheader148
-  %50 = mul i32 %.0108, 10
-  %51 = add i32 %50, 6
+  %50 = mul nuw nsw i32 %.0108, 10
+  %51 = add nuw nsw i32 %50, 6
   br label %.loopexit
 
 52:                                               ; preds = %.preheader148
-  %53 = mul i32 %.0108, 10
-  %54 = add i32 %53, 7
+  %53 = mul nuw nsw i32 %.0108, 10
+  %54 = add nuw nsw i32 %53, 7
   br label %.loopexit
 
 55:                                               ; preds = %.preheader148
-  %56 = mul i32 %.0108, 10
-  %57 = add i32 %56, 8
+  %56 = mul nuw nsw i32 %.0108, 10
+  %57 = add nuw nsw i32 %56, 8
   br label %.loopexit
 
 58:                                               ; preds = %.preheader148
-  %59 = mul i32 %.0108, 10
-  %60 = add i32 %59, 9
+  %59 = mul nuw nsw i32 %.0108, 10
+  %60 = add nuw nsw i32 %59, 9
   br label %.loopexit
 
 61:                                               ; preds = %.preheader148
@@ -986,8 +986,8 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   ]
 
 28:                                               ; preds = %.preheader148
-  %29 = mul i32 %.0108, 10
-  %30 = icmp ugt i32 %29, %.0114
+  %29 = mul nuw nsw i32 %.0108, 10
+  %30 = icmp samesign ugt i32 %29, %.0114
   br i1 %30, label %31, label %.loopexit
 
 31:                                               ; preds = %28
@@ -996,48 +996,48 @@ define internal noundef zeroext i1 @float_ieee_11073_val_from_literal(ptr nounde
   br i1 %33, label %.loopexit149, label %.loopexit
 
 34:                                               ; preds = %.preheader148
-  %35 = mul i32 %.0108, 10
+  %35 = mul nuw nsw i32 %.0108, 10
   %36 = or disjoint i32 %35, 1
   br label %.loopexit
 
 37:                                               ; preds = %.preheader148
-  %38 = mul i32 %.0108, 10
-  %39 = add i32 %38, 2
+  %38 = mul nuw nsw i32 %.0108, 10
+  %39 = add nuw nsw i32 %38, 2
   br label %.loopexit
 
 40:                                               ; preds = %.preheader148
-  %41 = mul i32 %.0108, 10
-  %42 = add i32 %41, 3
+  %41 = mul nuw nsw i32 %.0108, 10
+  %42 = add nuw nsw i32 %41, 3
   br label %.loopexit
 
 43:                                               ; preds = %.preheader148
-  %44 = mul i32 %.0108, 10
-  %45 = add i32 %44, 4
+  %44 = mul nuw nsw i32 %.0108, 10
+  %45 = add nuw nsw i32 %44, 4
   br label %.loopexit
 
 46:                                               ; preds = %.preheader148
-  %47 = mul i32 %.0108, 10
-  %48 = add i32 %47, 5
+  %47 = mul nuw nsw i32 %.0108, 10
+  %48 = add nuw nsw i32 %47, 5
   br label %.loopexit
 
 49:                                               ; preds = %.preheader148
-  %50 = mul i32 %.0108, 10
-  %51 = add i32 %50, 6
+  %50 = mul nuw nsw i32 %.0108, 10
+  %51 = add nuw nsw i32 %50, 6
   br label %.loopexit
 
 52:                                               ; preds = %.preheader148
-  %53 = mul i32 %.0108, 10
-  %54 = add i32 %53, 7
+  %53 = mul nuw nsw i32 %.0108, 10
+  %54 = add nuw nsw i32 %53, 7
   br label %.loopexit
 
 55:                                               ; preds = %.preheader148
-  %56 = mul i32 %.0108, 10
-  %57 = add i32 %56, 8
+  %56 = mul nuw nsw i32 %.0108, 10
+  %57 = add nuw nsw i32 %56, 8
   br label %.loopexit
 
 58:                                               ; preds = %.preheader148
-  %59 = mul i32 %.0108, 10
-  %60 = add i32 %59, 9
+  %59 = mul nuw nsw i32 %.0108, 10
+  %60 = add nuw nsw i32 %59, 9
   br label %.loopexit
 
 61:                                               ; preds = %.preheader148

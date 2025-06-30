@@ -30661,7 +30661,7 @@ switch.lookup:                                    ; preds = %27
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11), !noalias !3506
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10), !noalias !3506
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %44, i64 12, i1 false)
-  call void @_ZN6chrono5naive8datetime13NaiveDateTime18checked_sub_signed17h7c8e54348500cd5cE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %11, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %10, i64 noundef range(i64 0, 518401) %45, i32 noundef 0), !noalias !3506
+  call void @_ZN6chrono5naive8datetime13NaiveDateTime18checked_sub_signed17h7c8e54348500cd5cE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %11, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %10, i64 noundef range(i64 0, 371085174288001) %45, i32 noundef 0), !noalias !3506
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10), !noalias !3506
   %46 = load i32, ptr %11, align 4, !noalias !3506, !noundef !37
   %.not.i = icmp eq i32 %46, 0
@@ -30882,7 +30882,7 @@ switch.lookup:                                    ; preds = %24
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11), !noalias !3525
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10), !noalias !3525
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull readonly align 4 dereferenceable(12) %1, i64 12, i1 false), !noalias !3529
-  call void @_ZN6chrono5naive8datetime13NaiveDateTime18checked_sub_signed17h7c8e54348500cd5cE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %11, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %10, i64 noundef range(i64 0, 518401) %39, i32 noundef 0), !noalias !3525
+  call void @_ZN6chrono5naive8datetime13NaiveDateTime18checked_sub_signed17h7c8e54348500cd5cE(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %11, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %10, i64 noundef range(i64 0, 371085174288001) %39, i32 noundef 0), !noalias !3525
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10), !noalias !3525
   %40 = load i32, ptr %11, align 4, !noalias !3525, !noundef !37
   %.not.i = icmp eq i32 %40, 0

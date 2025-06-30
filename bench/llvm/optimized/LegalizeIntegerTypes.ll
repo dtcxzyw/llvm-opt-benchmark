@@ -41731,7 +41731,7 @@ _ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondC
   store i32 %.sroa.9601.0.copyload, ptr %.sroa.9601.0..sroa_idx604, align 8, !tbaa !28
   %.sroa.13606.0..sroa_idx609 = getelementptr inbounds nuw i8, ptr %91, i64 12
   store i32 %.sroa.13606.0.copyload, ptr %.sroa.13606.0..sroa_idx609, align 4
-  %468 = sub i64 %.0.i.i.i.i, %402
+  %468 = sub nsw i64 %.0.i.i.i.i, %402
   %469 = call { ptr, i32 } @_ZN4llvm12SelectionDAG22getShiftAmountConstantEmNS_3EVTERKNS_5SDLocE(ptr noundef nonnull align 8 dereferenceable(952) %467, i64 noundef %468, i16 %.sroa.0410.0.copyload, ptr %.sroa.2412.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %61) #18
   %.fca.0.extract403 = extractvalue { ptr, i32 } %469, 0
   %.fca.1.extract404 = extractvalue { ptr, i32 } %469, 1

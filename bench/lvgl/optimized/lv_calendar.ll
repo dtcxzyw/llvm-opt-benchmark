@@ -328,10 +328,10 @@ define void @lv_calendar_set_month_shown(ptr noundef %0, i32 noundef %1, i32 nou
   br label %12
 
 12:                                               ; preds = %4, %12
-  %.080 = phi i32 [ 0, %4 ], [ %14, %12 ]
+  %.082 = phi i32 [ 0, %4 ], [ %14, %12 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !29
-  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %13, i32 noundef %.080, i32 noundef 64) #5
-  %14 = add nuw nsw i32 %.080, 1
+  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %13, i32 noundef %.082, i32 noundef 64) #5
+  %14 = add nuw nsw i32 %.082, 1
   %exitcond.not = icmp eq i32 %14, 7
   br i1 %exitcond.not, label %15, label %12, !llvm.loop !37
 
@@ -396,166 +396,145 @@ define void @lv_calendar_set_month_shown(ptr noundef %0, i32 noundef %1, i32 nou
   %53 = add nsw i32 %52, %45
   %54 = urem i32 %53, 7
   %55 = trunc nuw nsw i32 %54 to i8
-  %56 = zext nneg i8 %38 to i32
-  %57 = add nuw nsw i32 %54, %56
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 545
-  %59 = add nuw nsw i32 %45, %48
-  %60 = add nuw nsw i32 %59, %46
-  %61 = add nsw i32 %60, %.neg.i
-  %62 = add nsw i32 %61, %16
-  %63 = add nsw i32 %62, 1
-  %64 = sub nsw i32 %63, %47
-  %.fr = freeze i32 %64
-  %65 = urem i32 %.fr, 7
-  %66 = zext nneg i32 %65 to i64
-  %67 = zext nneg i32 %57 to i64
-  br label %68
+  %narrow = add nuw nsw i8 %38, %55
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 545
+  %57 = zext nneg i32 %54 to i64
+  %58 = zext nneg i8 %narrow to i64
+  br label %59
 
-68:                                               ; preds = %.lr.ph, %68
-  %indvars.iv = phi i64 [ %66, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %.06381 = phi i8 [ 1, %.lr.ph ], [ %72, %68 ]
-  %69 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %58, i64 0, i64 %indvars.iv
-  %70 = zext i8 %.06381 to i32
-  %71 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %69, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %70) #5
+59:                                               ; preds = %.lr.ph, %59
+  %indvars.iv = phi i64 [ %57, %.lr.ph ], [ %indvars.iv.next, %59 ]
+  %.06383 = phi i8 [ 1, %.lr.ph ], [ %63, %59 ]
+  %60 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %56, i64 0, i64 %indvars.iv
+  %61 = zext i8 %.06383 to i32
+  %62 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %60, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %61) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = add i8 %.06381, 1
-  %73 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %73, label %68, label %._crit_edge, !llvm.loop !38
+  %63 = add i8 %.06383, 1
+  %64 = icmp samesign ult i64 %indvars.iv.next, %58
+  br i1 %64, label %59, label %._crit_edge, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %68
-  %74 = add nsw i32 %17, -1
-  %75 = icmp slt i32 %17, 2
-  %76 = sext i1 %75 to i32
-  %.010.i71 = add nsw i32 %16, %76
-  %.0.v.i72 = select i1 %75, i32 11, i32 -1
-  %.0.i73 = add nsw i32 %74, %.0.v.i72
-  %77 = icmp sgt i32 %.0.i73, 11
-  %78 = add nsw i32 %.0.i73, -12
-  %79 = zext i1 %77 to i32
-  %.111.i74 = add nsw i32 %.010.i71, %79
-  %.1.i75 = select i1 %77, i32 %78, i32 %.0.i73
-  %80 = icmp eq i32 %.1.i75, 1
-  br i1 %80, label %81, label %91
+._crit_edge:                                      ; preds = %59
+  %65 = add nsw i32 %17, -1
+  %66 = icmp slt i32 %17, 2
+  %67 = sext i1 %66 to i32
+  %.010.i73 = add nsw i32 %16, %67
+  %.0.v.i74 = select i1 %66, i32 11, i32 -1
+  %.0.i75 = add nsw i32 %65, %.0.v.i74
+  %68 = icmp sgt i32 %.0.i75, 11
+  %69 = add nsw i32 %.0.i75, -12
+  %70 = zext i1 %68 to i32
+  %.111.i76 = add nsw i32 %.010.i73, %70
+  %.1.i77 = select i1 %68, i32 %69, i32 %.0.i75
+  %71 = icmp eq i32 %.1.i77, 1
+  br i1 %71, label %72, label %82
 
-81:                                               ; preds = %._crit_edge
-  %82 = and i32 %.111.i74, 3
-  %.not.i.i77 = icmp eq i32 %82, 0
-  br i1 %.not.i.i77, label %83, label %get_month_length.exit78
+72:                                               ; preds = %._crit_edge
+  %73 = and i32 %.111.i76, 3
+  %.not.i.i79 = icmp eq i32 %73, 0
+  br i1 %.not.i.i79, label %74, label %get_month_length.exit80
 
-83:                                               ; preds = %81
-  %84 = urem i32 %.111.i74, 100
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %get_month_length.exit78
+74:                                               ; preds = %72
+  %75 = urem i32 %.111.i76, 100
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %get_month_length.exit80
 
-86:                                               ; preds = %83
-  %87 = urem i32 %.111.i74, 400
-  %88 = icmp eq i32 %87, 0
-  %89 = zext i1 %88 to i8
-  %90 = or disjoint i8 %89, 28
-  br label %get_month_length.exit78
+77:                                               ; preds = %74
+  %78 = urem i32 %.111.i76, 400
+  %79 = icmp eq i32 %78, 0
+  %80 = zext i1 %79 to i8
+  %81 = or disjoint i8 %80, 28
+  br label %get_month_length.exit80
 
-91:                                               ; preds = %._crit_edge
-  %.lhs.trunc.i76 = trunc nsw i32 %.1.i75 to i8
-  %92 = srem i8 %.lhs.trunc.i76, 7
-  %93 = srem i8 %92, 2
-  %94 = sub nsw i8 31, %93
-  br label %get_month_length.exit78
+82:                                               ; preds = %._crit_edge
+  %.lhs.trunc.i78 = trunc nsw i32 %.1.i77 to i8
+  %83 = srem i8 %.lhs.trunc.i78, 7
+  %84 = srem i8 %83, 2
+  %85 = sub nsw i8 31, %84
+  br label %get_month_length.exit80
 
-get_month_length.exit78:                          ; preds = %81, %83, %86, %91
-  %95 = phi i8 [ %94, %91 ], [ 28, %81 ], [ 29, %83 ], [ %90, %86 ]
-  %.not95 = icmp eq i32 %54, 0
-  br i1 %.not95, label %.lr.ph88, label %.lr.ph85
+get_month_length.exit80:                          ; preds = %72, %74, %77, %82
+  %86 = phi i8 [ %85, %82 ], [ 28, %72 ], [ 29, %74 ], [ %81, %77 ]
+  %.not96 = icmp eq i32 %54, 0
+  br i1 %.not96, label %.lr.ph90, label %.lr.ph87
 
-.lr.ph85:                                         ; preds = %get_month_length.exit78
-  %96 = sub nuw nsw i8 %95, %55
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 545
-  %98 = zext nneg i32 %54 to i64
-  br label %113
+.lr.ph87:                                         ; preds = %get_month_length.exit80
+  %narrow70 = sub nuw nsw i8 %86, %55
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 545
+  %88 = zext nneg i32 %54 to i64
+  br label %93
 
-.lr.ph88:                                         ; preds = %113, %get_month_length.exit78
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 545
-  %100 = add nuw nsw i32 %45, %48
-  %101 = add nuw nsw i32 %100, %46
-  %102 = add nsw i32 %101, %.neg.i
-  %103 = add nsw i32 %102, %56
-  %104 = add nuw nsw i32 %103, %16
-  %105 = add nuw nsw i32 %104, 1
-  %106 = sub nsw i32 %105, %47
-  %107 = add nsw i32 %102, %16
-  %108 = add nsw i32 %107, 1
-  %109 = sub nsw i32 %108, %47
-  %.fr105 = freeze i32 %109
-  %110 = urem i32 %.fr105, 7
-  %.neg = sub i32 %110, %.fr105
-  %111 = add i32 %.neg, %106
-  %112 = zext i32 %111 to i64
-  br label %121
+.lr.ph90:                                         ; preds = %93, %get_month_length.exit80
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 545
+  %90 = zext nneg i8 %38 to i64
+  %91 = zext nneg i32 %54 to i64
+  %92 = add nuw nsw i64 %90, %91
+  br label %101
 
-113:                                              ; preds = %.lr.ph85, %113
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next98, %113 ]
-  %.164.in83 = phi i8 [ %96, %.lr.ph85 ], [ %.164, %113 ]
-  %.164 = add i8 %.164.in83, 1
-  %114 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %97, i64 0, i64 %indvars.iv97
-  %115 = zext i8 %.164 to i32
-  %116 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %114, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %115) #5
-  %117 = load ptr, ptr %10, align 8, !tbaa !29
-  %118 = trunc nuw nsw i64 %indvars.iv97 to i32
-  %119 = add nuw nsw i32 %118, 7
-  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %117, i32 noundef %119, i32 noundef 64) #5
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %120 = icmp samesign ult i64 %indvars.iv.next98, %98
-  br i1 %120, label %113, label %.lr.ph88, !llvm.loop !39
+93:                                               ; preds = %.lr.ph87, %93
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next99, %93 ]
+  %.164.in85 = phi i8 [ %narrow70, %.lr.ph87 ], [ %.164, %93 ]
+  %.164 = add i8 %.164.in85, 1
+  %94 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %87, i64 0, i64 %indvars.iv98
+  %95 = zext i8 %.164 to i32
+  %96 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %94, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %95) #5
+  %97 = load ptr, ptr %10, align 8, !tbaa !29
+  %98 = trunc nuw nsw i64 %indvars.iv98 to i32
+  %99 = add nuw nsw i32 %98, 7
+  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %97, i32 noundef %99, i32 noundef 64) #5
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %100 = icmp samesign ult i64 %indvars.iv.next99, %88
+  br i1 %100, label %93, label %.lr.ph90, !llvm.loop !39
 
-121:                                              ; preds = %.lr.ph88, %121
-  %indvars.iv101 = phi i32 [ 1, %.lr.ph88 ], [ %indvars.iv.next102, %121 ]
-  %indvars.iv99 = phi i64 [ %112, %.lr.ph88 ], [ %indvars.iv.next100, %121 ]
-  %122 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %99, i64 0, i64 %indvars.iv99
-  %123 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %122, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %indvars.iv101) #5
-  %124 = load ptr, ptr %10, align 8, !tbaa !29
-  %125 = trunc nuw i64 %indvars.iv99 to i32
-  %126 = add i32 %125, 7
-  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %124, i32 noundef %126, i32 noundef 64) #5
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %indvars.iv.next102 = add nuw nsw i32 %indvars.iv101, 1
-  %127 = icmp samesign ult i64 %indvars.iv99, 41
-  br i1 %127, label %121, label %._crit_edge89, !llvm.loop !40
+101:                                              ; preds = %.lr.ph90, %101
+  %indvars.iv102 = phi i32 [ 1, %.lr.ph90 ], [ %indvars.iv.next103, %101 ]
+  %indvars.iv100 = phi i64 [ %92, %.lr.ph90 ], [ %indvars.iv.next101, %101 ]
+  %102 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %89, i64 0, i64 %indvars.iv100
+  %103 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %102, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %indvars.iv102) #5
+  %104 = load ptr, ptr %10, align 8, !tbaa !29
+  %105 = trunc i64 %indvars.iv100 to i32
+  %106 = add i32 %105, 7
+  tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %104, i32 noundef %106, i32 noundef 64) #5
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+  %indvars.iv.next103 = add nuw nsw i32 %indvars.iv102, 1
+  %exitcond105.not = icmp eq i64 %indvars.iv.next101, 42
+  br i1 %exitcond105.not, label %._crit_edge91, label %101, !llvm.loop !40
 
-._crit_edge89:                                    ; preds = %121
+._crit_edge91:                                    ; preds = %101
   tail call fastcc void @highlight_update(ptr noundef %0)
-  %128 = load ptr, ptr %10, align 8, !tbaa !29
-  %129 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %128) #5
-  %.not70 = icmp eq i32 %129, 65535
-  br i1 %.not70, label %133, label %130
+  %107 = load ptr, ptr %10, align 8, !tbaa !29
+  %108 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %107) #5
+  %.not72 = icmp eq i32 %108, 65535
+  br i1 %.not72, label %112, label %109
 
-130:                                              ; preds = %._crit_edge89
-  %131 = load ptr, ptr %10, align 8, !tbaa !29
-  %132 = add nuw nsw i32 %54, 7
-  tail call void @lv_buttonmatrix_set_selected_button(ptr noundef %131, i32 noundef %132) #5
-  br label %133
+109:                                              ; preds = %._crit_edge91
+  %110 = load ptr, ptr %10, align 8, !tbaa !29
+  %111 = add nuw nsw i32 %54, 7
+  tail call void @lv_buttonmatrix_set_selected_button(ptr noundef %110, i32 noundef %111) #5
+  br label %112
 
-133:                                              ; preds = %130, %._crit_edge89
+112:                                              ; preds = %109, %._crit_edge91
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #5
-  %134 = tail call i32 @lv_obj_get_child_count(ptr noundef nonnull %0) #5
-  %.not96 = icmp eq i32 %134, 0
-  br i1 %.not96, label %._crit_edge93, label %.lr.ph92
+  %113 = tail call i32 @lv_obj_get_child_count(ptr noundef nonnull %0) #5
+  %.not97 = icmp eq i32 %113, 0
+  br i1 %.not97, label %._crit_edge95, label %.lr.ph94
 
-.lr.ph92:                                         ; preds = %133, %140
-  %.490 = phi i32 [ %141, %140 ], [ 0, %133 ]
-  %135 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef %.490) #5
-  %136 = load ptr, ptr %10, align 8, !tbaa !29
-  %137 = icmp eq ptr %135, %136
-  br i1 %137, label %140, label %138
+.lr.ph94:                                         ; preds = %112, %119
+  %.492 = phi i32 [ %120, %119 ], [ 0, %112 ]
+  %114 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef %.492) #5
+  %115 = load ptr, ptr %10, align 8, !tbaa !29
+  %116 = icmp eq ptr %114, %115
+  br i1 %116, label %119, label %117
 
-138:                                              ; preds = %.lr.ph92
-  %139 = tail call i32 @lv_obj_send_event(ptr noundef %135, i32 noundef 35, ptr noundef nonnull %0) #5
-  br label %140
+117:                                              ; preds = %.lr.ph94
+  %118 = tail call i32 @lv_obj_send_event(ptr noundef %114, i32 noundef 35, ptr noundef nonnull %0) #5
+  br label %119
 
-140:                                              ; preds = %.lr.ph92, %138
-  %141 = add nuw i32 %.490, 1
-  %exitcond104.not = icmp eq i32 %141, %134
-  br i1 %exitcond104.not, label %._crit_edge93, label %.lr.ph92, !llvm.loop !41
+119:                                              ; preds = %.lr.ph94, %117
+  %120 = add nuw i32 %.492, 1
+  %exitcond106.not = icmp eq i32 %120, %113
+  br i1 %exitcond106.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !41
 
-._crit_edge93:                                    ; preds = %140, %133
+._crit_edge95:                                    ; preds = %119, %112
   ret void
 }
 

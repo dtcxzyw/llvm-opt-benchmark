@@ -2840,7 +2840,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %246
   br label %.preheader, !llvm.loop !100
 
 324:                                              ; preds = %318
-  %325 = add nsw i32 %306, 1
+  %325 = add nuw nsw i32 %306, 1
   br label %.preheader.backedge
 
 326:                                              ; preds = %301

@@ -199,7 +199,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
   %144 = sub nsw i32 0, %.sroa.46.0.copyload.i.i
   %145 = sub nsw i32 %.sroa.77.0.copyload.i.i, %.sroa.46.0.copyload.i.i
   %146 = icmp slt i32 %143, %144
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %143, i32 %145)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %143, i32 %145)
   %.0.i.i.i = select i1 %146, i32 %144, i32 %..i.i.i
   %147 = add nsw i32 %.0.i.i.i, %.sroa.46.0.copyload.i.i
   store i32 %147, ptr %5, align 8, !tbaa !4
@@ -302,7 +302,7 @@ get_ue_golomb_long.exit:                          ; preds = %157, %161
   %213 = sub nsw i32 0, %.sroa.46.0.copyload.i.i117144
   %214 = sub nsw i32 %.sroa.77.0.copyload.i.i119, %.sroa.46.0.copyload.i.i117144
   %215 = icmp slt i32 %212, %213
-  %..i.i.i126 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %212, i32 %214)
+  %..i.i.i126 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %212, i32 %214)
   %.0.i.i.i127 = select i1 %215, i32 %213, i32 %..i.i.i126
   %216 = add nsw i32 %.0.i.i.i127, %.sroa.46.0.copyload.i.i117144
   store i32 %216, ptr %5, align 8, !tbaa !4

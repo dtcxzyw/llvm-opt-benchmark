@@ -305,7 +305,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.compact_struct_type_to_generic_type = private unnamed_addr constant [14 x i32] [i32 0, i32 2, i32 2, i32 3, i32 6, i32 8, i32 10, i32 4, i32 11, i32 15, i32 14, i32 13, i32 12, i32 16], align 4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @dissect_thrift_t_stop(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @dissect_thrift_t_stop(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %21, label %6
 

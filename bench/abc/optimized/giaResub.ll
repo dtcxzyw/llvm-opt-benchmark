@@ -12361,8 +12361,8 @@ Vec_IntStartFull.exit:                            ; preds = %2, %11
   br i1 %exitcond.not, label %41, label %29, !llvm.loop !197
 
 41:                                               ; preds = %29
-  %42 = sext i32 %.1 to i64
-  %43 = getelementptr inbounds i32, ptr %10, i64 %42
+  %42 = zext nneg i32 %.1 to i64
+  %43 = getelementptr inbounds nuw i32, ptr %10, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !31
   %45 = icmp eq i32 %44, -1
   br i1 %45, label %46, label %47

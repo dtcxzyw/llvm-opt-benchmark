@@ -2250,7 +2250,7 @@ define dso_local i64 @tsvector_filter(ptr noundef readonly captures(none) %0) lo
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %22, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %42
-  %44 = zext i8 %43 to i32
+  %44 = zext nneg i8 %43 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1

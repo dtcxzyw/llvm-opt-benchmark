@@ -46084,7 +46084,7 @@ _ZN4fish6screen4Line14wcswidth_min_017hfc5a97dc9388f398E.exit: ; preds = %.noexc
 
 .lr.ph795:                                        ; preds = %._crit_edge
   %.not11 = xor i1 %.sroa.073.0, true
-  %589 = add i64 %.sroa.0170.0804, -1
+  %589 = add nsw i64 %.sroa.0170.0804, -1
   br label %603
 
 .lr.ph1533:                                       ; preds = %.lr.ph784.preheader, %.lr.ph784

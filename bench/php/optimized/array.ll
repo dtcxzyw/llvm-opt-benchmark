@@ -2795,7 +2795,7 @@ zend_dval_to_lval.exit161:                        ; preds = %87, %89
   %.6 = phi ptr [ %.5140, %77 ], [ %.7, %93 ]
   %.4134 = phi i32 [ %.1131, %77 ], [ %.3133, %93 ]
   %.3 = phi double [ %.2, %77 ], [ %.4, %93 ]
-  %97 = add i32 %.4134, 1
+  %97 = add nuw i32 %.4134, 1
   br label %70
 
 98:                                               ; preds = %49, %.loopexit
@@ -3206,7 +3206,7 @@ zend_dval_to_lval.exit:                           ; preds = %87, %89
   %.6 = phi ptr [ %.5140, %77 ], [ %.7, %93 ]
   %.4134 = phi i32 [ %.1131, %77 ], [ %.3133, %93 ]
   %.3 = phi double [ %.2, %77 ], [ %.4, %93 ]
-  %97 = add i32 %.4134, 1
+  %97 = add nuw i32 %.4134, 1
   br label %70
 
 98:                                               ; preds = %49, %.loopexit

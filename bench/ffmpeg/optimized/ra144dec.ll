@@ -91,7 +91,7 @@ define internal range(i32 -2147483648, 21) i32 @ra144_decode_frame(ptr noundef %
   %35 = shl i32 %33, %34
   %36 = sub nsw i32 32, %28
   %37 = lshr i32 %35, %36
-  %38 = add nsw i32 %.sroa.7.064, %28
+  %38 = add nuw nsw i32 %.sroa.7.064, %28
   %39 = tail call i32 @llvm.umin.i32(i32 %22, i32 %38)
   %40 = zext i32 %37 to i64
   %41 = getelementptr inbounds nuw i16, ptr %25, i64 %40

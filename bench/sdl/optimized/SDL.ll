@@ -1468,8 +1468,8 @@ define hidden i32 @SDL_WasInit_REAL(i32 noundef %0) local_unnamed_addr #4 {
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw [32 x i8], ptr @SDL_SubsystemRefCount, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
-  %.not25 = icmp eq i8 %8, 0
-  %9 = select i1 %.not25, i32 0, i32 %0
+  %.not24 = icmp eq i8 %8, 0
+  %9 = select i1 %.not24, i32 0, i32 %0
   br label %.loopexit
 
 10:                                               ; preds = %1
@@ -1482,27 +1482,27 @@ define hidden i32 @SDL_WasInit_REAL(i32 noundef %0) local_unnamed_addr #4 {
 
 13:                                               ; preds = %10, %22
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %22 ]
-  %.01930 = phi i32 [ 0, %10 ], [ %.1, %22 ]
-  %.02128 = phi i32 [ %spec.store.select, %10 ], [ %23, %22 ]
-  %14 = and i32 %.02128, 1
-  %.not23 = icmp eq i32 %14, 0
-  br i1 %.not23, label %22, label %15
+  %.01929 = phi i32 [ 0, %10 ], [ %.1, %22 ]
+  %.02127 = phi i32 [ %spec.store.select, %10 ], [ %23, %22 ]
+  %14 = and i32 %.02127, 1
+  %.not22 = icmp eq i32 %14, 0
+  br i1 %.not22, label %22, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw [32 x i8], ptr @SDL_SubsystemRefCount, i64 0, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
-  %.not24 = icmp eq i8 %17, 0
-  br i1 %.not24, label %22, label %18
+  %.not23 = icmp eq i8 %17, 0
+  br i1 %.not23, label %22, label %18
 
 18:                                               ; preds = %15
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = shl nuw i32 1, %19
-  %21 = or i32 %.01930, %20
+  %21 = or i32 %.01929, %20
   br label %22
 
 22:                                               ; preds = %18, %15, %13
-  %.1 = phi i32 [ %21, %18 ], [ %.01930, %15 ], [ %.01930, %13 ]
-  %23 = lshr i32 %.02128, 1
+  %.1 = phi i32 [ %21, %18 ], [ %.01929, %15 ], [ %.01929, %13 ]
+  %23 = lshr i32 %.02127, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !3

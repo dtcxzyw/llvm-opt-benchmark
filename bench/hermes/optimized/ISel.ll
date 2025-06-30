@@ -54993,14 +54993,14 @@ if.end18:                                         ; preds = %if.then.i.i.i.i.i.i
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__value, i64 40
   %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %table3.i.i.i37, i8 0, i64 24, i1 false)
-  %cmp3.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  %cmp3.i = icmp samesign ugt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp3.i, label %land.rhs.i, label %while.end.i
 
 land.rhs.i:                                       ; preds = %if.end18, %_ZN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoEEaSEOS8_.exit.i
   %__holeIndex.addr.04.i = phi i64 [ %__parent.05.i, %_ZN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoEEaSEOS8_.exit.i ], [ %__holeIndex.addr.1, %if.end18 ]
   %__parent.05.in.i = add nsw i64 %__holeIndex.addr.04.i, -1
   %__parent.05.i = sdiv i64 %__parent.05.in.i, 2
-  %add.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__parent.05.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__parent.05.i
   %15 = getelementptr i8, ptr %add.ptr.i, i64 8
   %add.ptr.val.i = load i32, ptr %15, align 8
   %cmp.i.i.i = icmp ult i32 %add.ptr.val.i, %agg.tmp.sroa.2.8.copyload
@@ -55039,7 +55039,7 @@ _ZN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchI
 
 while.end.i:                                      ; preds = %_ZN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoEEaSEOS8_.exit.i, %land.rhs.i, %if.end18
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.04.i, %land.rhs.i ], [ %__parent.05.i, %_ZN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoEEaSEOS8_.exit.i ]
-  %add.ptr6.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr6.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store ptr %11, ptr %add.ptr6.i, align 8
   %second3.i.i11.i = getelementptr inbounds nuw i8, ptr %add.ptr6.i, i64 8
   store i32 %agg.tmp.sroa.2.8.copyload, ptr %second3.i.i11.i, align 8

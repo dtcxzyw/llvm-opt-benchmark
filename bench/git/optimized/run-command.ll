@@ -2701,186 +2701,184 @@ define dso_local range(i32 -1, 256) i32 @pipe_command(ptr noundef %0, ptr nounde
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i64 %6, ptr %61, align 8, !tbaa !11
   %62 = add nuw nsw i32 %.1, 1
-  br label %.lr.ph.preheader.i
+  br label %.lr.ph.i.preheader
 
 63:                                               ; preds = %54
-  %.not51 = icmp eq i32 %.1, 0
-  br i1 %.not51, label %._crit_edge.i._crit_edge.i, label %.lr.ph.preheader.i
+  %.not.i = icmp eq i32 %.1, 0
+  br i1 %.not.i, label %._crit_edge.i._crit_edge.thread.i, label %.lr.ph.i.preheader
 
-.lr.ph.preheader.i:                               ; preds = %.thread, %63
-  %.250 = phi i32 [ %62, %.thread ], [ %.1, %63 ]
-  %wide.trip.count.i = zext nneg i32 %.250 to i64
+.lr.ph.i.preheader:                               ; preds = %.thread, %63
+  %.pre.i54.in = phi i32 [ %62, %.thread ], [ %.1, %63 ]
+  %.pre.i54 = zext i32 %.pre.i54.in to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %64 = getelementptr inbounds nuw %struct.io_pump, ptr %8, i64 %indvars.iv.i, i32 3
-  store i32 0, ptr %64, align 8, !tbaa !96
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i.lr.ph.i, label %.lr.ph.i, !llvm.loop !97
+._crit_edge.i._crit_edge.thread.i:                ; preds = %63
+  %64 = tail call ptr @xmalloc(i64 noundef 0) #21
+  tail call void @free(ptr noundef %64) #21
+  br label %pump_io.exit
 
-.lr.ph.preheader.i.lr.ph.i:                       ; preds = %.lr.ph.i
-  %65 = shl nuw nsw i64 %wide.trip.count.i, 3
-  %66 = tail call ptr @xmalloc(i64 noundef %65) #21
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %65 = getelementptr inbounds nuw %struct.io_pump, ptr %8, i64 %indvars.iv.i, i32 3
+  store i32 0, ptr %65, align 8, !tbaa !96
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.pre.i54
+  br i1 %exitcond.not.i, label %.lr.ph.i.preheader.preheader.i, label %.lr.ph.i, !llvm.loop !97
+
+.lr.ph.i.preheader.preheader.i:                   ; preds = %.lr.ph.i
+  %66 = shl nuw nsw i64 %.pre.i54, 3
+  %67 = tail call ptr @xmalloc(i64 noundef %66) #21
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.preheader.i.lr.ph.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.lr.ph.i ], [ %indvars.iv.i.i.be, %.lr.ph.i.i.backedge ]
-  %.05065.i.i = phi i32 [ 0, %.lr.ph.preheader.i.lr.ph.i ], [ %.05065.i.i.be, %.lr.ph.i.i.backedge ]
-  %67 = getelementptr inbounds nuw %struct.io_pump, ptr %8, i64 %indvars.iv.i.i
-  %68 = load i32, ptr %67, align 8, !tbaa !92
-  %69 = icmp slt i32 %68, 0
-  br i1 %69, label %79, label %70
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.backedge, %.lr.ph.i.preheader.preheader.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.preheader.preheader.i ], [ %indvars.iv.i.i.be, %.lr.ph.i.i.backedge ]
+  %.05065.i.i = phi i32 [ 0, %.lr.ph.i.preheader.preheader.i ], [ %.05065.i.i.be, %.lr.ph.i.i.backedge ]
+  %68 = getelementptr inbounds nuw %struct.io_pump, ptr %8, i64 %indvars.iv.i.i
+  %69 = load i32, ptr %68, align 8, !tbaa !92
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %80, label %71
 
-70:                                               ; preds = %.lr.ph.i.i
-  %71 = sext i32 %.05065.i.i to i64
-  %72 = getelementptr inbounds %struct.pollfd, ptr %66, i64 %71
-  store i32 %68, ptr %72, align 4, !tbaa !98
-  %73 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %74 = load i32, ptr %73, align 4, !tbaa !95
-  %75 = trunc i32 %74 to i16
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i16 %75, ptr %76, align 4, !tbaa !101
-  %77 = add nsw i32 %.05065.i.i, 1
-  %78 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store ptr %72, ptr %78, align 8, !tbaa !102
-  br label %79
+71:                                               ; preds = %.lr.ph.i.i
+  %72 = sext i32 %.05065.i.i to i64
+  %73 = getelementptr inbounds %struct.pollfd, ptr %67, i64 %72
+  store i32 %69, ptr %73, align 4, !tbaa !98
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !95
+  %76 = trunc i32 %75 to i16
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  store i16 %76, ptr %77, align 4, !tbaa !101
+  %78 = add nsw i32 %.05065.i.i, 1
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  store ptr %73, ptr %79, align 8, !tbaa !102
+  br label %80
 
-79:                                               ; preds = %70, %.lr.ph.i.i
-  %.1.i.i = phi i32 [ %77, %70 ], [ %.05065.i.i, %.lr.ph.i.i ]
+80:                                               ; preds = %71, %.lr.ph.i.i
+  %.1.i.i = phi i32 [ %78, %71 ], [ %.05065.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %.pre.i54
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i.backedge
 
-.lr.ph.i.i.backedge:                              ; preds = %thread-pre-split.i.i.thread, %79, %84
-  %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %79 ], [ 0, %84 ], [ 0, %thread-pre-split.i.i.thread ]
-  %.05065.i.i.be = phi i32 [ %.1.i.i, %79 ], [ 0, %84 ], [ 0, %thread-pre-split.i.i.thread ]
+.lr.ph.i.i.backedge:                              ; preds = %thread-pre-split.i.i.thread, %80, %85
+  %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %80 ], [ 0, %85 ], [ 0, %thread-pre-split.i.i.thread ]
+  %.05065.i.i.be = phi i32 [ %.1.i.i, %80 ], [ 0, %85 ], [ 0, %thread-pre-split.i.i.thread ]
   br label %.lr.ph.i.i, !llvm.loop !103
 
-._crit_edge.i.i:                                  ; preds = %79
+._crit_edge.i.i:                                  ; preds = %80
   %.not.i.i = icmp eq i32 %.1.i.i, 0
-  br i1 %.not.i.i, label %.lr.ph27.preheader.i, label %80
+  br i1 %.not.i.i, label %._crit_edge.i._crit_edge.i, label %81
 
-80:                                               ; preds = %._crit_edge.i.i
-  %81 = sext i32 %.1.i.i to i64
-  %82 = tail call i32 @poll(ptr noundef %66, i64 noundef %81, i32 noundef -1) #21
-  %83 = icmp slt i32 %82, 0
-  br i1 %83, label %84, label %.lr.ph67.i.i
+81:                                               ; preds = %._crit_edge.i.i
+  %82 = sext i32 %.1.i.i to i64
+  %83 = tail call i32 @poll(ptr noundef %67, i64 noundef %82, i32 noundef -1) #21
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %85, label %.lr.ph67.i.i
 
-84:                                               ; preds = %80
-  %85 = tail call ptr @__errno_location() #23
-  %86 = load i32, ptr %85, align 4, !tbaa !18
-  %87 = icmp eq i32 %86, 4
-  br i1 %87, label %.lr.ph.i.i.backedge, label %88
+85:                                               ; preds = %81
+  %86 = tail call ptr @__errno_location() #23
+  %87 = load i32, ptr %86, align 4, !tbaa !18
+  %88 = icmp eq i32 %87, 4
+  br i1 %88, label %.lr.ph.i.i.backedge, label %89
 
-88:                                               ; preds = %84
+89:                                               ; preds = %85
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.68) #24
   unreachable
 
-.lr.ph67.i.i:                                     ; preds = %80, %thread-pre-split.i.i.thread
-  %indvars.iv69.i.i = phi i64 [ %indvars.iv.next70.i.i, %thread-pre-split.i.i.thread ], [ 0, %80 ]
-  %89 = getelementptr inbounds nuw %struct.io_pump, ptr %8, i64 %indvars.iv69.i.i
-  %90 = load i32, ptr %89, align 8, !tbaa !92
-  %91 = icmp slt i32 %90, 0
-  br i1 %91, label %thread-pre-split.i.i.thread, label %92
+.lr.ph67.i.i:                                     ; preds = %81, %thread-pre-split.i.i.thread
+  %indvars.iv71.i.i = phi i64 [ %indvars.iv.next72.i.i, %thread-pre-split.i.i.thread ], [ 0, %81 ]
+  %90 = getelementptr inbounds nuw %struct.io_pump, ptr %8, i64 %indvars.iv71.i.i
+  %91 = load i32, ptr %90, align 8, !tbaa !92
+  %92 = icmp slt i32 %91, 0
+  br i1 %92, label %thread-pre-split.i.i.thread, label %93
 
-92:                                               ; preds = %.lr.ph67.i.i
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %94 = load ptr, ptr %93, align 8, !tbaa !102
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 6
-  %96 = load i16, ptr %95, align 2, !tbaa !104
-  %97 = and i16 %96, 61
-  %.not59.i.i = icmp eq i16 %97, 0
-  br i1 %.not59.i.i, label %thread-pre-split.i.i.thread, label %98
+93:                                               ; preds = %.lr.ph67.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  %95 = load ptr, ptr %94, align 8, !tbaa !102
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 6
+  %97 = load i16, ptr %96, align 2, !tbaa !104
+  %98 = and i16 %97, 61
+  %.not59.i.i = icmp eq i16 %98, 0
+  br i1 %.not59.i.i, label %thread-pre-split.i.i.thread, label %99
 
-98:                                               ; preds = %92
-  %99 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  %100 = load i32, ptr %99, align 4, !tbaa !95
-  switch i32 %100, label %thread-pre-split.i.i.thread [
-    i32 4, label %101
-    i32 1, label %114
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  %101 = load i32, ptr %100, align 4, !tbaa !95
+  switch i32 %101, label %thread-pre-split.i.i.thread [
+    i32 4, label %102
+    i32 1, label %115
   ]
 
-101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !11
-  %104 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %105 = load i64, ptr %104, align 8, !tbaa !11
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %105, i64 8388608)
-  %106 = tail call i64 @write(i32 noundef %90, ptr noundef %103, i64 noundef %spec.select.i.i) #21
-  %107 = icmp slt i64 %106, 0
-  br i1 %107, label %108, label %111
+102:                                              ; preds = %99
+  %103 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !11
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %106 = load i64, ptr %105, align 8, !tbaa !11
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %106, i64 8388608)
+  %107 = tail call i64 @write(i32 noundef %91, ptr noundef %104, i64 noundef %spec.select.i.i) #21
+  %108 = icmp slt i64 %107, 0
+  br i1 %108, label %109, label %112
 
-108:                                              ; preds = %101
-  %109 = tail call ptr @__errno_location() #23
-  %110 = load i32, ptr %109, align 4, !tbaa !18
-  switch i32 %110, label %thread-pre-split.i.i.thread.sink.split.sink.split [
+109:                                              ; preds = %102
+  %110 = tail call ptr @__errno_location() #23
+  %111 = load i32, ptr %110, align 4, !tbaa !18
+  switch i32 %111, label %thread-pre-split.i.i.thread.sink.split.sink.split [
     i32 4, label %thread-pre-split.i.i.thread
     i32 11, label %thread-pre-split.i.i.thread
     i32 28, label %thread-pre-split.i.i.thread
   ]
 
-111:                                              ; preds = %101
-  %112 = getelementptr inbounds nuw i8, ptr %103, i64 %106
-  store ptr %112, ptr %102, align 8, !tbaa !11
-  %113 = sub i64 %105, %106
-  store i64 %113, ptr %104, align 8, !tbaa !11
-  %.not60.i.i = icmp eq i64 %105, %106
+112:                                              ; preds = %102
+  %113 = getelementptr inbounds nuw i8, ptr %104, i64 %107
+  store ptr %113, ptr %103, align 8, !tbaa !11
+  %114 = sub i64 %106, %107
+  store i64 %114, ptr %105, align 8, !tbaa !11
+  %.not60.i.i = icmp eq i64 %106, %107
   br i1 %.not60.i.i, label %thread-pre-split.i.i.thread.sink.split, label %thread-pre-split.i.i.thread
 
-114:                                              ; preds = %98
-  %115 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %116 = load ptr, ptr %115, align 8, !tbaa !11
-  %117 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %118 = load i64, ptr %117, align 8, !tbaa !11
-  %119 = tail call i64 @strbuf_read_once(ptr noundef %116, i32 noundef %90, i64 noundef %118) #21
-  %120 = icmp slt i64 %119, 0
-  br i1 %120, label %.thread.i.i, label %123
+115:                                              ; preds = %99
+  %116 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %117 = load ptr, ptr %116, align 8, !tbaa !11
+  %118 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %119 = load i64, ptr %118, align 8, !tbaa !11
+  %120 = tail call i64 @strbuf_read_once(ptr noundef %117, i32 noundef %91, i64 noundef %119) #21
+  %121 = icmp slt i64 %120, 0
+  br i1 %121, label %.thread.i.i, label %124
 
-.thread.i.i:                                      ; preds = %114
-  %121 = tail call ptr @__errno_location() #23
-  %122 = load i32, ptr %121, align 4, !tbaa !18
+.thread.i.i:                                      ; preds = %115
+  %122 = tail call ptr @__errno_location() #23
+  %123 = load i32, ptr %122, align 4, !tbaa !18
   br label %thread-pre-split.i.i.thread.sink.split.sink.split
 
-123:                                              ; preds = %114
-  %124 = icmp eq i64 %119, 0
-  br i1 %124, label %thread-pre-split.i.i.thread.sink.split, label %thread-pre-split.i.i.thread
+124:                                              ; preds = %115
+  %125 = icmp eq i64 %120, 0
+  br i1 %125, label %thread-pre-split.i.i.thread.sink.split, label %thread-pre-split.i.i.thread
 
-thread-pre-split.i.i.thread.sink.split.sink.split: ; preds = %108, %.thread.i.i
-  %.sink = phi i32 [ %122, %.thread.i.i ], [ %110, %108 ]
-  %125 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  store i32 %.sink, ptr %125, align 8, !tbaa !96
+thread-pre-split.i.i.thread.sink.split.sink.split: ; preds = %109, %.thread.i.i
+  %.sink = phi i32 [ %123, %.thread.i.i ], [ %111, %109 ]
+  %126 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  store i32 %.sink, ptr %126, align 8, !tbaa !96
   br label %thread-pre-split.i.i.thread.sink.split
 
-thread-pre-split.i.i.thread.sink.split:           ; preds = %thread-pre-split.i.i.thread.sink.split.sink.split, %123, %111
-  %126 = tail call i32 @close(i32 noundef %90) #21
-  store i32 -1, ptr %89, align 8, !tbaa !92
+thread-pre-split.i.i.thread.sink.split:           ; preds = %thread-pre-split.i.i.thread.sink.split.sink.split, %124, %112
+  %127 = tail call i32 @close(i32 noundef %91) #21
+  store i32 -1, ptr %90, align 8, !tbaa !92
   br label %thread-pre-split.i.i.thread
 
-thread-pre-split.i.i.thread:                      ; preds = %thread-pre-split.i.i.thread.sink.split, %98, %111, %108, %108, %108, %123, %92, %.lr.ph67.i.i
-  %indvars.iv.next70.i.i = add nuw nsw i64 %indvars.iv69.i.i, 1
-  %exitcond73.not.i.i = icmp eq i64 %indvars.iv.next70.i.i, %wide.trip.count.i
-  br i1 %exitcond73.not.i.i, label %.lr.ph.i.i.backedge, label %.lr.ph67.i.i, !llvm.loop !105
+thread-pre-split.i.i.thread:                      ; preds = %thread-pre-split.i.i.thread.sink.split, %99, %112, %109, %109, %109, %124, %93, %.lr.ph67.i.i
+  %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
+  %exitcond75.not.i.i = icmp eq i64 %indvars.iv.next72.i.i, %.pre.i54
+  br i1 %exitcond75.not.i.i, label %.lr.ph.i.i.backedge, label %.lr.ph67.i.i, !llvm.loop !105
 
-._crit_edge.i._crit_edge.i:                       ; preds = %63
-  %127 = tail call ptr @xmalloc(i64 noundef 0) #21
-  tail call void @free(ptr noundef %127) #21
-  br label %pump_io.exit
-
-.lr.ph27.preheader.i:                             ; preds = %._crit_edge.i.i
-  tail call void @free(ptr noundef %66) #21
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %.250, i32 1)
-  %wide.trip.count34.i = zext nneg i32 %smax.i to i64
+._crit_edge.i._crit_edge.i:                       ; preds = %._crit_edge.i.i
+  tail call void @free(ptr noundef %67) #21
   br label %.lr.ph27.i
 
 128:                                              ; preds = %.lr.ph27.i
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
+  %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %.pre.i54
   br i1 %exitcond35.not.i, label %pump_io.exit, label %.lr.ph27.i, !llvm.loop !106
 
-.lr.ph27.i:                                       ; preds = %128, %.lr.ph27.preheader.i
-  %indvars.iv31.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next32.i, %128 ]
+.lr.ph27.i:                                       ; preds = %128, %._crit_edge.i._crit_edge.i
+  %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %128 ], [ 0, %._crit_edge.i._crit_edge.i ]
   %129 = getelementptr inbounds nuw %struct.io_pump, ptr %8, i64 %indvars.iv31.i, i32 3
   %130 = load i32, ptr %129, align 8, !tbaa !96
   %.not20.i = icmp eq i32 %130, 0
@@ -2891,8 +2889,8 @@ thread-pre-split.i.i.thread:                      ; preds = %thread-pre-split.i.
   store i32 %130, ptr %132, align 4, !tbaa !18
   br label %pump_io.exit
 
-pump_io.exit:                                     ; preds = %128, %._crit_edge.i._crit_edge.i, %131
-  %133 = phi i1 [ true, %131 ], [ false, %._crit_edge.i._crit_edge.i ], [ false, %128 ]
+pump_io.exit:                                     ; preds = %128, %._crit_edge.i._crit_edge.thread.i, %131
+  %133 = phi i1 [ true, %131 ], [ false, %._crit_edge.i._crit_edge.thread.i ], [ false, %128 ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %135 = load i32, ptr %134, align 8, !tbaa !62
   %136 = load ptr, ptr %0, align 8, !tbaa !25
@@ -4264,9 +4262,6 @@ declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captur
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

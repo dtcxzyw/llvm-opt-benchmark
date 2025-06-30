@@ -5176,7 +5176,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %12, %_ZNSt6vectorIm
 .critedge.thread46:                               ; preds = %49, %.critedge
   %.0.lcssa51 = phi i64 [ %.029, %.critedge ], [ %52, %49 ]
   %.2.lcssa50 = phi i64 [ %.228, %.critedge ], [ %2, %49 ]
-  %54 = shl i64 %.0.lcssa51, 1
+  %54 = shl nuw i64 %.0.lcssa51, 1
   %55 = or disjoint i64 %54, 1
   %.not.i.i = icmp eq ptr %42, %43
   br i1 %.not.i.i, label %58, label %56

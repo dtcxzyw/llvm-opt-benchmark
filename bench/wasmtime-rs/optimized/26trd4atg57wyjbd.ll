@@ -8566,7 +8566,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hfbaf0c87739797b8E.exit: ; preds
   %.2123.i = phi i64 [ %.0125.i, %40 ], [ %.1122.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h5f6c9782f3de7538E.exit.i.i" ]
   %.val5.i11.i.i = phi i32 [ %.val5.i5.i.i, %40 ], [ %.val7.i7.i.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h5f6c9782f3de7538E.exit.i.i" ]
   %.val.i10.i.i = phi i32 [ %.val.i4.i.i, %40 ], [ %.val6.i6.i.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h5f6c9782f3de7538E.exit.i.i" ]
-  %42 = getelementptr inbounds { i32, i32 }, ptr %.sroa.0.0116, i64 %33
+  %42 = getelementptr inbounds nuw { i32, i32 }, ptr %.sroa.0.0116, i64 %33
   %.val6.i12.i.i = load i32, ptr %42, align 4, !alias.scope !1072, !noalias !1089, !noundef !14
   %43 = getelementptr i8, ptr %42, i64 4
   %.val7.i13.i.i = load i32, ptr %43, align 4, !alias.scope !1072, !noalias !1089

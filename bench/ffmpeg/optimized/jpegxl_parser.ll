@@ -2283,7 +2283,7 @@ entropy_decoder_init.exit.i.i:                    ; preds = %1239
   %1274 = add nuw nsw i32 %1273, %1270
   %spec.select.i441.i.i = call range(i32 0, 8) i32 @llvm.umin.i32(i32 %1274, i32 7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
-  %1275 = call fastcc i32 @decode_hybrid_varlen_uint(ptr noundef nonnull %34, ptr noundef nonnull %33, ptr noundef %283, i32 noundef range(i32 -2147483648, 41) %spec.select.i441.i.i, ptr noundef %8)
+  %1275 = call fastcc i32 @decode_hybrid_varlen_uint(ptr noundef nonnull %34, ptr noundef nonnull %33, ptr noundef %283, i32 noundef range(i32 0, 41) %spec.select.i441.i.i, ptr noundef %8)
   %1276 = icmp slt i32 %1275, 0
   %1277 = sext i32 %1275 to i64
   %1278 = load i32, ptr %8, align 4
@@ -2355,7 +2355,7 @@ entropy_decoder_init.exit.i.i:                    ; preds = %1239
   %1307 = add nuw nsw i32 %1306, %.1.i.i455.i.i
   %spec.select.i456.i.i = call range(i32 0, 8) i32 @llvm.umin.i32(i32 %1307, i32 7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  %1308 = call fastcc i32 @decode_hybrid_varlen_uint(ptr noundef nonnull %34, ptr noundef nonnull %33, ptr noundef %283, i32 noundef range(i32 -2147483648, 41) %spec.select.i456.i.i, ptr noundef %7)
+  %1308 = call fastcc i32 @decode_hybrid_varlen_uint(ptr noundef nonnull %34, ptr noundef nonnull %33, ptr noundef %283, i32 noundef range(i32 0, 41) %spec.select.i456.i.i, ptr noundef %7)
   %1309 = icmp slt i32 %1308, 0
   %1310 = sext i32 %1308 to i64
   %1311 = load i32, ptr %7, align 4
@@ -2958,7 +2958,7 @@ entropy_decoder_init.exit.thread:                 ; preds = %.lr.ph.i.i.i, %13, 
 icc_context.exit:                                 ; preds = %.lr.ph, %64
   %.053.i = phi i32 [ %65, %64 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  %66 = call fastcc i32 @decode_hybrid_varlen_uint(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef %10, i32 noundef range(i32 -2147483648, 41) %.053.i, ptr noundef %3)
+  %66 = call fastcc i32 @decode_hybrid_varlen_uint(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef %10, i32 noundef range(i32 0, 41) %.053.i, ptr noundef %3)
   %67 = icmp slt i32 %66, 0
   %68 = sext i32 %66 to i64
   %69 = load i32, ptr %3, align 4
@@ -5764,7 +5764,7 @@ declare noalias ptr @av_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @av_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 -2147483648, 41) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #6 {
+define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 0, 41) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #6 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5807,7 +5807,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_hybrid_varlen_uint(
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !103
-  %34 = zext i32 %3 to i64
+  %34 = zext nneg i32 %3 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !28
   %37 = zext i8 %36 to i32

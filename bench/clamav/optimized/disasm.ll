@@ -465,7 +465,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %.0534.i = phi i32 [ 0, %4 ], [ %.0534.i.be, %.backedge.i.backedge ]
   %.0519.i = phi i32 [ %1, %4 ], [ %.0519.i.be, %.backedge.i.backedge ]
   %.0518.i = phi ptr [ %0, %4 ], [ %.0518.i.be, %.backedge.i.backedge ]
-  switch i32 %.pr922.i, label %default.unreachable.i [
+  switch i32 %.pr922.i, label %default.unreachable [
     i32 0, label %46
     i32 3, label %71
     i32 1, label %189
@@ -791,7 +791,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   br label %.backedge.i.backedge
 
 189:                                              ; preds = %.backedge.i
-  %190 = zext i32 %.0551.i to i64
+  %190 = zext nneg i32 %.0551.i to i64
   %191 = zext nneg i16 %38 to i64
   %192 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %190, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !16
@@ -1491,7 +1491,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 503:                                              ; preds = %.backedge.i
   %504 = add i8 %44, 1
   store i8 %504, ptr %10, align 4, !tbaa !26
-  %505 = zext i32 %.0551.i to i64
+  %505 = zext nneg i32 %.0551.i to i64
   %506 = zext nneg i16 %43 to i64
   %507 = getelementptr inbounds nuw [2 x [256 x %struct.OPCODES]], ptr @x86ops, i64 0, i64 %505, i64 %506, i32 2
   %508 = load i32, ptr %507, align 4, !tbaa !27
@@ -1736,7 +1736,7 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %or.cond = select i1 %595, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %596
 
-default.unreachable.i:                            ; preds = %.backedge.i
+default.unreachable:                              ; preds = %.backedge.i
   unreachable
 
 596:                                              ; preds = %594

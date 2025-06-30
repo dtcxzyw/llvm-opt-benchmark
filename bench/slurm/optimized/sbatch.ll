@@ -92,7 +92,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.64 = private unnamed_addr constant [26 x i8] c"propagating RLIMIT_%s=%lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -2147483648) i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [5 x i8], align 1
   %5 = alloca [4096 x i8], align 16

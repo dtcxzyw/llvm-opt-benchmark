@@ -9709,8 +9709,8 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 
 7:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
   %.08694 = phi i32 [ %6, %3 ], [ %31, %7 ]
-  %8 = shl i32 %.08694, 1
-  %9 = zext i32 %8 to i64
+  %8 = shl nuw nsw i32 %.08694, 1
+  %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %9
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
@@ -9735,7 +9735,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 
   store float %.088, ptr %26, align 8
   %27 = fneg float %.087
   %28 = or disjoint i32 %8, 1
-  %29 = zext i32 %28 to i64
+  %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw [200 x float], ptr @_ZL13g_tempNormals, i64 0, i64 %29
   store float %27, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

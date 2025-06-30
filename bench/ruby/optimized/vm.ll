@@ -51965,10 +51965,10 @@ rb_class_of.exit:                                 ; preds = %69, %72, %73, %74, 
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @vm_raise_method_missing(ptr noundef initializes((120, 128)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #6 {
+define internal fastcc void @vm_raise_method_missing(ptr noundef initializes((120, 128)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef range(i32 0, 32) %4) unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %6, align 8, !tbaa !385
-  %7 = or i32 %4, 32
+  %7 = or disjoint i32 %4, 32
   tail call fastcc void @raise_method_missing(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %7) #56
   unreachable
 }

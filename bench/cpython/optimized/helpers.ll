@@ -1010,22 +1010,22 @@ define hidden range(i32 0, 2) i32 @_PyTokenizer_ensure_utf8(ptr noundef readonly
 .thread.i:                                        ; preds = %29, %27, %17, %13, %12, %8
   %.020.i = phi i32 [ 1, %8 ], [ 2, %17 ], [ 3, %29 ], [ 3, %27 ], [ 2, %13 ], [ 2, %12 ]
   %31 = add nuw nsw i32 %.020.i, 1
-  %32 = zext nneg i32 %.020.i to i64
-  br label %35
+  br label %34
 
-33:                                               ; preds = %35
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %34 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %34, label %valid_utf8.exit.loopexit, label %35, !llvm.loop !43
+32:                                               ; preds = %34
+  %33 = add nsw i32 %.123.i, -1
+  %.not.i = icmp eq i32 %33, 0
+  br i1 %.not.i, label %valid_utf8.exit.loopexit, label %34, !llvm.loop !43
 
-35:                                               ; preds = %33, %.thread.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ %32, %.thread.i ]
-  %36 = getelementptr i8, ptr %.01025, i64 %indvars.iv
+34:                                               ; preds = %32, %.thread.i
+  %.123.i = phi i32 [ %.020.i, %.thread.i ], [ %33, %32 ]
+  %35 = zext nneg i32 %.123.i to i64
+  %36 = getelementptr i8, ptr %.01025, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !22
   %or.cond.i = icmp sgt i8 %37, -65
-  br i1 %or.cond.i, label %.thread19, label %33
+  br i1 %or.cond.i, label %.thread19, label %32
 
-valid_utf8.exit.loopexit:                         ; preds = %33
+valid_utf8.exit.loopexit:                         ; preds = %32
   %38 = zext nneg i32 %31 to i64
   br label %valid_utf8.exit
 
@@ -1036,7 +1036,7 @@ valid_utf8.exit:                                  ; preds = %valid_utf8.exit.loo
   %.not = icmp eq i8 %40, 0
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !44
 
-.thread19:                                        ; preds = %8, %21, %13, %17, %29, %27, %35
+.thread19:                                        ; preds = %8, %21, %13, %17, %29, %27, %34
   %41 = zext i8 %4 to i32
   %42 = load ptr, ptr @PyExc_SyntaxError, align 8, !tbaa !25
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 2336

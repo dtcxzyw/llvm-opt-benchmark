@@ -1792,387 +1792,387 @@ define internal range(i32 -2147483648, 1) i32 @cbs_vp9_assemble_fragment(ptr nou
   %41 = load i8, ptr %40, align 1, !tbaa !15
   %42 = zext i8 %41 to i32
   %43 = add nuw nsw i32 %.1.i, %42
-  %.zext = lshr i32 %43, 3
-  %44 = add nuw nsw i32 %.zext, 1
-  %45 = icmp samesign ult i32 %43, 32
-  br i1 %45, label %.lr.ph109, label %46
+  %44 = lshr i32 %43, 3
+  %45 = add nuw nsw i32 %44, 1
+  %46 = icmp samesign ult i32 %43, 32
+  br i1 %46, label %.lr.ph109, label %47
 
-46:                                               ; preds = %34
+47:                                               ; preds = %34
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.10, i32 noundef 542) #8
   tail call void @abort() #9
   unreachable
 
 .lr.ph109:                                        ; preds = %._crit_edge, %34
-  %.095.ph = phi i32 [ 1, %._crit_edge ], [ %44, %34 ]
-  %47 = add nsw i32 %.095.ph, 255
-  %48 = zext nneg i32 %.095.ph to i64
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !91
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.095.ph = phi i32 [ 1, %._crit_edge ], [ %45, %34 ]
+  %48 = add nsw i32 %.095.ph, 255
+  %49 = zext nneg i32 %.095.ph to i64
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %51 = load ptr, ptr %50, align 8, !tbaa !91
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %wide.trip.count126 = zext nneg i32 %8 to i64
-  br label %52
+  br label %53
 
-52:                                               ; preds = %.lr.ph109, %52
-  %indvars.iv123 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next124, %52 ]
-  %.078107 = phi i64 [ 2, %.lr.ph109 ], [ %56, %52 ]
-  %53 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %50, i64 %indvars.iv123, i32 2
-  %54 = load i64, ptr %53, align 8, !tbaa !39
-  %55 = add i64 %.078107, %48
-  %56 = add i64 %55, %54
-  %57 = trunc i64 %54 to i32
-  %58 = getelementptr inbounds nuw [8 x i32], ptr %51, i64 0, i64 %indvars.iv123
-  store i32 %57, ptr %58, align 4, !tbaa !22
+53:                                               ; preds = %.lr.ph109, %53
+  %indvars.iv123 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next124, %53 ]
+  %.078107 = phi i64 [ 2, %.lr.ph109 ], [ %57, %53 ]
+  %54 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %51, i64 %indvars.iv123, i32 2
+  %55 = load i64, ptr %54, align 8, !tbaa !39
+  %56 = add i64 %.078107, %49
+  %57 = add i64 %56, %55
+  %58 = trunc i64 %55 to i32
+  %59 = getelementptr inbounds nuw [8 x i32], ptr %52, i64 0, i64 %indvars.iv123
+  store i32 %58, ptr %59, align 4, !tbaa !22
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %._crit_edge110.loopexit, label %52, !llvm.loop !93
+  br i1 %exitcond127.not, label %._crit_edge110.loopexit, label %53, !llvm.loop !93
 
-._crit_edge110.loopexit:                          ; preds = %52
-  %59 = and i32 %47, 255
+._crit_edge110.loopexit:                          ; preds = %53
+  %60 = and i32 %48, 255
   br label %._crit_edge110
 
 ._crit_edge110:                                   ; preds = %.preheader, %._crit_edge110.loopexit
-  %60 = phi i32 [ %59, %._crit_edge110.loopexit ], [ 0, %.preheader ]
-  %.095134 = phi i32 [ %.095.ph, %._crit_edge110.loopexit ], [ 1, %.preheader ]
-  %.078.lcssa = phi i64 [ %56, %._crit_edge110.loopexit ], [ 2, %.preheader ]
+  %61 = phi i32 [ %60, %._crit_edge110.loopexit ], [ 0, %.preheader ]
+  %.095135 = phi i32 [ %.095.ph, %._crit_edge110.loopexit ], [ 1, %.preheader ]
+  %.078.lcssa = phi i64 [ %57, %._crit_edge110.loopexit ], [ 2, %.preheader ]
   %.in = trunc i32 %8 to i8
-  %61 = add i8 %.in, -1
-  %62 = add i64 %.078.lcssa, 64
-  %63 = tail call ptr @av_buffer_alloc(i64 noundef %62) #8
-  store ptr %63, ptr %6, align 8, !tbaa !94
-  %.not = icmp eq ptr %63, null
-  br i1 %.not, label %.thread98, label %64
+  %62 = add i8 %.in, -1
+  %63 = add i64 %.078.lcssa, 64
+  %64 = tail call ptr @av_buffer_alloc(i64 noundef %63) #8
+  store ptr %64, ptr %6, align 8, !tbaa !94
+  %.not = icmp eq ptr %64, null
+  br i1 %.not, label %.thread98, label %65
 
-64:                                               ; preds = %._crit_edge110
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !95
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.078.lcssa
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %67, i8 0, i64 64, i1 false)
-  %68 = load i32, ptr %7, align 8, !tbaa !90
-  %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %.lr.ph115, label %._crit_edge116
+65:                                               ; preds = %._crit_edge110
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !95
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.078.lcssa
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %68, i8 0, i64 64, i1 false)
+  %69 = load i32, ptr %7, align 8, !tbaa !90
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %.lr.ph115, label %._crit_edge116
 
-.lr.ph115:                                        ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.pre = load ptr, ptr %70, align 8, !tbaa !91
-  br label %71
+.lr.ph115:                                        ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.pre = load ptr, ptr %71, align 8, !tbaa !91
+  br label %72
 
-71:                                               ; preds = %.lr.ph115, %79
-  %72 = phi ptr [ %.pre, %.lr.ph115 ], [ %83, %79 ]
-  %indvars.iv128 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next129, %79 ]
-  %.075112 = phi i64 [ 0, %.lr.ph115 ], [ %86, %79 ]
-  %73 = sub i64 %.078.lcssa, %.075112
-  %74 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %72, i64 %indvars.iv128
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load i64, ptr %75, align 8, !tbaa !39
-  %77 = icmp ugt i64 %73, %76
-  br i1 %77, label %79, label %78
+72:                                               ; preds = %.lr.ph115, %80
+  %73 = phi ptr [ %.pre, %.lr.ph115 ], [ %84, %80 ]
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next129, %80 ]
+  %.075112 = phi i64 [ 0, %.lr.ph115 ], [ %87, %80 ]
+  %74 = sub i64 %.078.lcssa, %.075112
+  %75 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %73, i64 %indvars.iv128
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %77 = load i64, ptr %76, align 8, !tbaa !39
+  %78 = icmp ugt i64 %74, %77
+  br i1 %78, label %80, label %79
 
-78:                                               ; preds = %71
+79:                                               ; preds = %72
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.10, i32 noundef 562) #8
   tail call void @abort() #9
   unreachable
 
-79:                                               ; preds = %71
-  %80 = getelementptr inbounds nuw i8, ptr %66, i64 %.075112
-  %81 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %82, i64 %76, i1 false)
-  %83 = load ptr, ptr %70, align 8, !tbaa !91
-  %84 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %83, i64 %indvars.iv128, i32 2
-  %85 = load i64, ptr %84, align 8, !tbaa !39
-  %86 = add i64 %85, %.075112
+80:                                               ; preds = %72
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 %.075112
+  %82 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %83 = load ptr, ptr %82, align 8, !tbaa !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 1 %83, i64 %77, i1 false)
+  %84 = load ptr, ptr %71, align 8, !tbaa !91
+  %85 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %84, i64 %indvars.iv128, i32 2
+  %86 = load i64, ptr %85, align 8, !tbaa !39
+  %87 = add i64 %86, %.075112
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %87 = load i32, ptr %7, align 8, !tbaa !90
-  %88 = sext i32 %87 to i64
-  %89 = icmp slt i64 %indvars.iv.next129, %88
-  br i1 %89, label %71, label %._crit_edge116, !llvm.loop !98
+  %88 = load i32, ptr %7, align 8, !tbaa !90
+  %89 = sext i32 %88 to i64
+  %90 = icmp slt i64 %indvars.iv.next129, %89
+  br i1 %90, label %72, label %._crit_edge116, !llvm.loop !98
 
-._crit_edge116:                                   ; preds = %79, %64
-  %.075.lcssa = phi i64 [ 0, %64 ], [ %86, %79 ]
-  %.lcssa102 = phi i32 [ %68, %64 ], [ %87, %79 ]
-  %90 = sub i64 %.078.lcssa, %.075.lcssa
-  %91 = mul nsw i32 %.lcssa102, %.095134
-  %92 = add nsw i32 %91, 2
-  %93 = sext i32 %92 to i64
-  %94 = icmp eq i64 %90, %93
-  br i1 %94, label %96, label %95
+._crit_edge116:                                   ; preds = %80, %65
+  %.075.lcssa = phi i64 [ 0, %65 ], [ %87, %80 ]
+  %.lcssa102 = phi i32 [ %69, %65 ], [ %88, %80 ]
+  %91 = sub i64 %.078.lcssa, %.075.lcssa
+  %92 = mul nsw i32 %.lcssa102, %.095135
+  %93 = add nsw i32 %92, 2
+  %94 = sext i32 %93 to i64
+  %95 = icmp eq i64 %91, %94
+  br i1 %95, label %97, label %96
 
-95:                                               ; preds = %._crit_edge116
+96:                                               ; preds = %._crit_edge116
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.10, i32 noundef 567) #8
   tail call void @abort() #9
   unreachable
 
-96:                                               ; preds = %._crit_edge116
-  %97 = getelementptr inbounds nuw i8, ptr %66, i64 %.075.lcssa
-  %98 = trunc nsw i64 %90 to i32
-  %99 = icmp slt i64 %90, 0
-  %spec.select.i92 = select i1 %99, ptr null, ptr %97
-  %spec.select11.i = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483646, -2147483648) %98, i32 0)
-  %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %spec.select.i92, ptr %100, align 8, !tbaa !99
-  %101 = zext nneg i32 %spec.select11.i to i64
-  %102 = getelementptr inbounds nuw i8, ptr %spec.select.i92, i64 %101
-  %103 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %102, ptr %103, align 8, !tbaa !87
-  %104 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %spec.select.i92, ptr %104, align 8, !tbaa !86
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 32, ptr %105, align 4, !tbaa !83
+97:                                               ; preds = %._crit_edge116
+  %98 = getelementptr inbounds nuw i8, ptr %67, i64 %.075.lcssa
+  %99 = trunc nsw i64 %91 to i32
+  %100 = icmp slt i64 %91, 0
+  %spec.select.i92 = select i1 %100, ptr null, ptr %98
+  %spec.select11.i = tail call i32 @llvm.smax.i32(i32 range(i32 -2147483646, -2147483648) %99, i32 0)
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %spec.select.i92, ptr %101, align 8, !tbaa !99
+  %102 = zext nneg i32 %spec.select11.i to i64
+  %103 = getelementptr inbounds nuw i8, ptr %spec.select.i92, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %103, ptr %104, align 8, !tbaa !87
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %spec.select.i92, ptr %105, align 8, !tbaa !86
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 32, ptr %106, align 4, !tbaa !83
   store i32 0, ptr %5, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.3) #8
-  %106 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @.str.4, i32 noundef 6) #8
-  %107 = icmp slt i32 %106, 0
-  br i1 %107, label %cbs_vp9_write_superframe_index.exit.thread, label %108
+  %107 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @.str.4, i32 noundef 6) #8
+  %108 = icmp slt i32 %107, 0
+  br i1 %108, label %cbs_vp9_write_superframe_index.exit.thread, label %109
 
-108:                                              ; preds = %96
-  %109 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %60) #8
-  %110 = icmp slt i32 %109, 0
-  br i1 %110, label %cbs_vp9_write_superframe_index.exit.thread, label %111
+109:                                              ; preds = %97
+  %110 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %61) #8
+  %111 = icmp slt i32 %110, 0
+  br i1 %111, label %cbs_vp9_write_superframe_index.exit.thread, label %112
 
-111:                                              ; preds = %108
-  %112 = zext i8 %61 to i32
-  %113 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef %112) #8
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %cbs_vp9_write_superframe_index.exit.thread, label %.preheader.i
+112:                                              ; preds = %109
+  %113 = zext i8 %62 to i32
+  %114 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef %113) #8
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %cbs_vp9_write_superframe_index.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %111
-  %115 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %116 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %120 = shl nuw nsw i32 %60, 3
-  %121 = add nuw nsw i32 %120, 8
-  %122 = zext i8 %61 to i64
-  br label %123
+.preheader.i:                                     ; preds = %112
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %121 = shl nuw nsw i32 %61, 3
+  %122 = add nuw nsw i32 %121, 8
+  %123 = zext i8 %62 to i64
+  br label %124
 
-123:                                              ; preds = %186, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %186 ]
+124:                                              ; preds = %187, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %187 ]
   store i32 1, ptr %3, align 4, !tbaa !22
-  %124 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %124, ptr %115, align 4, !tbaa !22
-  %125 = getelementptr inbounds nuw [8 x i32], ptr %116, i64 0, i64 %indvars.iv.i
-  %126 = load i32, ptr %125, align 4, !tbaa !22
-  %127 = load i32, ptr %117, align 4, !tbaa !23
-  %.not.i.i = icmp eq i32 %127, 0
-  %.pre.i = load ptr, ptr %104, align 8, !tbaa !86
-  %.pre53.i = load i32, ptr %105, align 4, !tbaa !83
-  br i1 %.not.i.i, label %._crit_edge.i, label %128
+  %125 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %125, ptr %116, align 4, !tbaa !22
+  %126 = getelementptr inbounds nuw [8 x i32], ptr %117, i64 0, i64 %indvars.iv.i
+  %127 = load i32, ptr %126, align 4, !tbaa !22
+  %128 = load i32, ptr %118, align 4, !tbaa !23
+  %.not.i.i = icmp eq i32 %128, 0
+  %.pre.i = load ptr, ptr %105, align 8, !tbaa !86
+  %.pre53.i = load i32, ptr %106, align 4, !tbaa !83
+  br i1 %.not.i.i, label %._crit_edge.i, label %129
 
-._crit_edge.i:                                    ; preds = %123
+._crit_edge.i:                                    ; preds = %124
   %.pre54.i = ptrtoint ptr %.pre.i to i64
-  br label %135
+  br label %136
 
-128:                                              ; preds = %123
-  %129 = load ptr, ptr %100, align 8, !tbaa !99
-  %130 = ptrtoint ptr %.pre.i to i64
-  %131 = ptrtoint ptr %129 to i64
-  %132 = sub i64 %130, %131
-  %.tr.i.i.i = trunc i64 %132 to i32
-  %133 = shl i32 %.tr.i.i.i, 3
-  %reass.sub = sub i32 %133, %.pre53.i
-  %134 = add i32 %reass.sub, 32
-  br label %135
+129:                                              ; preds = %124
+  %130 = load ptr, ptr %101, align 8, !tbaa !99
+  %131 = ptrtoint ptr %.pre.i to i64
+  %132 = ptrtoint ptr %130 to i64
+  %133 = sub i64 %131, %132
+  %.tr.i.i.i = trunc i64 %133 to i32
+  %134 = shl i32 %.tr.i.i.i, 3
+  %reass.sub = sub i32 %134, %.pre53.i
+  %135 = add i32 %reass.sub, 32
+  br label %136
 
-135:                                              ; preds = %128, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre54.i, %._crit_edge.i ], [ %130, %128 ]
-  %.023.i.i = phi i32 [ undef, %._crit_edge.i ], [ %134, %128 ]
-  %136 = load ptr, ptr %103, align 8, !tbaa !87
-  %137 = ptrtoint ptr %136 to i64
-  %138 = sub i64 %137, %.pre-phi.i
-  %.tr.i29.i.i = trunc i64 %138 to i32
-  %139 = shl i32 %.tr.i29.i.i, 3
-  %140 = add i32 %.pre53.i, -32
-  %141 = add i32 %140, %139
-  %142 = icmp slt i32 %141, %121
-  br i1 %142, label %cbs_vp9_write_superframe_index.exit.thread, label %.preheader.preheader.i.i
+136:                                              ; preds = %129, %._crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre54.i, %._crit_edge.i ], [ %131, %129 ]
+  %.023.i.i = phi i32 [ undef, %._crit_edge.i ], [ %135, %129 ]
+  %137 = load ptr, ptr %104, align 8, !tbaa !87
+  %138 = ptrtoint ptr %137 to i64
+  %139 = sub i64 %138, %.pre-phi.i
+  %.tr.i29.i.i = trunc i64 %139 to i32
+  %140 = shl i32 %.tr.i29.i.i, 3
+  %141 = add i32 %.pre53.i, -32
+  %142 = add i32 %141, %140
+  %143 = icmp slt i32 %142, %122
+  br i1 %143, label %cbs_vp9_write_superframe_index.exit.thread, label %.preheader.preheader.i.i
 
-.preheader.preheader.i.i:                         ; preds = %135
+.preheader.preheader.i.i:                         ; preds = %136
   %.pre.i.i = load i32, ptr %5, align 8, !tbaa !88
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %put_bits.exit.i.i, %.preheader.preheader.i.i
-  %143 = phi i32 [ %167, %put_bits.exit.i.i ], [ %.pre53.i, %.preheader.preheader.i.i ]
-  %144 = phi i32 [ %.026.i.i.i.i, %put_bits.exit.i.i ], [ %.pre.i.i, %.preheader.preheader.i.i ]
-  %.0241.i.i = phi i32 [ %168, %put_bits.exit.i.i ], [ 0, %.preheader.preheader.i.i ]
-  %145 = lshr i32 %126, %.0241.i.i
-  %146 = and i32 %145, 255
-  %147 = icmp sgt i32 %143, 8
-  br i1 %147, label %148, label %151
+  %144 = phi i32 [ %168, %put_bits.exit.i.i ], [ %.pre53.i, %.preheader.preheader.i.i ]
+  %145 = phi i32 [ %.026.i.i.i.i, %put_bits.exit.i.i ], [ %.pre.i.i, %.preheader.preheader.i.i ]
+  %.0241.i.i = phi i32 [ %169, %put_bits.exit.i.i ], [ 0, %.preheader.preheader.i.i ]
+  %146 = lshr i32 %127, %.0241.i.i
+  %147 = and i32 %146, 255
+  %148 = icmp sgt i32 %144, 8
+  br i1 %148, label %149, label %152
 
-148:                                              ; preds = %.preheader.i.i
-  %149 = shl i32 %144, 8
-  %150 = or disjoint i32 %146, %149
+149:                                              ; preds = %.preheader.i.i
+  %150 = shl i32 %145, 8
+  %151 = or disjoint i32 %147, %150
   br label %put_bits.exit.i.i
 
-151:                                              ; preds = %.preheader.i.i
-  %152 = load ptr, ptr %103, align 8, !tbaa !87
-  %153 = load ptr, ptr %104, align 8, !tbaa !86
-  %154 = ptrtoint ptr %152 to i64
+152:                                              ; preds = %.preheader.i.i
+  %153 = load ptr, ptr %104, align 8, !tbaa !87
+  %154 = load ptr, ptr %105, align 8, !tbaa !86
   %155 = ptrtoint ptr %153 to i64
-  %156 = sub i64 %154, %155
-  %157 = icmp ugt i64 %156, 3
-  br i1 %157, label %158, label %166
+  %156 = ptrtoint ptr %154 to i64
+  %157 = sub i64 %155, %156
+  %158 = icmp ugt i64 %157, 3
+  br i1 %158, label %159, label %167
 
-158:                                              ; preds = %151
-  %159 = shl i32 %144, %143
-  %160 = sub nsw i32 8, %143
-  %161 = lshr i32 %146, %160
-  %162 = or i32 %161, %159
-  %163 = call i32 @llvm.bswap.i32(i32 %162)
-  store i32 %163, ptr %153, align 1, !tbaa !15
-  %164 = load ptr, ptr %104, align 8, !tbaa !86
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  store ptr %165, ptr %104, align 8, !tbaa !86
+159:                                              ; preds = %152
+  %160 = shl i32 %145, %144
+  %161 = sub nsw i32 8, %144
+  %162 = lshr i32 %147, %161
+  %163 = or i32 %162, %160
+  %164 = call i32 @llvm.bswap.i32(i32 %163)
+  store i32 %164, ptr %154, align 1, !tbaa !15
+  %165 = load ptr, ptr %105, align 8, !tbaa !86
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
+  store ptr %166, ptr %105, align 8, !tbaa !86
   br label %put_bits.exit.i.i
 
-166:                                              ; preds = %151
+167:                                              ; preds = %152
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.87) #8
   br label %put_bits.exit.i.i
 
-put_bits.exit.i.i:                                ; preds = %166, %158, %148
-  %.sink.i.i = phi i32 [ -8, %148 ], [ 24, %166 ], [ 24, %158 ]
-  %.026.i.i.i.i = phi i32 [ %150, %148 ], [ %146, %166 ], [ %146, %158 ]
-  %167 = add nsw i32 %.sink.i.i, %143
+put_bits.exit.i.i:                                ; preds = %167, %159, %149
+  %.sink.i.i = phi i32 [ -8, %149 ], [ 24, %167 ], [ 24, %159 ]
+  %.026.i.i.i.i = phi i32 [ %151, %149 ], [ %147, %167 ], [ %147, %159 ]
+  %168 = add nsw i32 %.sink.i.i, %144
   store i32 %.026.i.i.i.i, ptr %5, align 8, !tbaa !88
-  store i32 %167, ptr %105, align 4, !tbaa !83
-  %168 = add nuw nsw i32 %.0241.i.i, 8
-  %169 = icmp samesign ult i32 %.0241.i.i, %120
-  br i1 %169, label %.preheader.i.i, label %170, !llvm.loop !100
+  store i32 %168, ptr %106, align 4, !tbaa !83
+  %169 = add nuw nsw i32 %.0241.i.i, 8
+  %170 = icmp samesign ult i32 %.0241.i.i, %121
+  br i1 %170, label %.preheader.i.i, label %171, !llvm.loop !100
 
-170:                                              ; preds = %put_bits.exit.i.i
-  %171 = load i32, ptr %117, align 4, !tbaa !23
-  %.not27.i.i = icmp eq i32 %171, 0
-  br i1 %.not27.i.i, label %186, label %172
+171:                                              ; preds = %put_bits.exit.i.i
+  %172 = load i32, ptr %118, align 4, !tbaa !23
+  %.not27.i.i = icmp eq i32 %172, 0
+  br i1 %.not27.i.i, label %187, label %173
 
-172:                                              ; preds = %170
-  %173 = load ptr, ptr %104, align 8, !tbaa !86
-  %174 = load ptr, ptr %100, align 8, !tbaa !99
-  %175 = ptrtoint ptr %173 to i64
+173:                                              ; preds = %171
+  %174 = load ptr, ptr %105, align 8, !tbaa !86
+  %175 = load ptr, ptr %101, align 8, !tbaa !99
   %176 = ptrtoint ptr %174 to i64
-  %177 = sub i64 %175, %176
-  %.tr.i31.i.i = trunc i64 %177 to i32
-  %178 = shl i32 %.tr.i31.i.i, 3
-  %reass.sub.i32.i.i = sub i32 %178, %167
-  %179 = add i32 %reass.sub.i32.i.i, 32
-  %.not28.i.i = icmp sgt i32 %.023.i.i, %179
-  br i1 %.not28.i.i, label %180, label %181
+  %177 = ptrtoint ptr %175 to i64
+  %178 = sub i64 %176, %177
+  %.tr.i31.i.i = trunc i64 %178 to i32
+  %179 = shl i32 %.tr.i31.i.i, 3
+  %reass.sub.i32.i.i = sub i32 %179, %168
+  %180 = add i32 %reass.sub.i32.i.i, 32
+  %.not28.i.i = icmp sgt i32 %.023.i.i, %180
+  br i1 %.not28.i.i, label %181, label %182
 
-180:                                              ; preds = %172
+181:                                              ; preds = %173
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.10, i32 noundef 177) #8
   call void @abort() #9
   unreachable
 
-181:                                              ; preds = %172
-  %182 = load ptr, ptr %118, align 8, !tbaa !101
-  %183 = load ptr, ptr %119, align 8, !tbaa !33
-  %184 = sub nsw i32 %179, %.023.i.i
-  %185 = zext i32 %126 to i64
-  call void %182(ptr noundef %183, ptr noundef nonnull %5, i32 noundef %184, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, i64 noundef %185) #8
-  br label %186
+182:                                              ; preds = %173
+  %183 = load ptr, ptr %119, align 8, !tbaa !101
+  %184 = load ptr, ptr %120, align 8, !tbaa !33
+  %185 = sub nsw i32 %180, %.023.i.i
+  %186 = zext i32 %127 to i64
+  call void %183(ptr noundef %184, ptr noundef nonnull %5, i32 noundef %185, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, i64 noundef %186) #8
+  br label %187
 
-186:                                              ; preds = %181, %170
+187:                                              ; preds = %182, %171
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond131.not = icmp eq i64 %indvars.iv.i, %122
-  br i1 %exitcond131.not, label %187, label %123, !llvm.loop !102
+  %exitcond131.not = icmp eq i64 %indvars.iv.i, %123
+  br i1 %exitcond131.not, label %188, label %124, !llvm.loop !102
 
-187:                                              ; preds = %186
-  %188 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @.str.4, i32 noundef 6) #8
-  %189 = icmp slt i32 %188, 0
-  br i1 %189, label %cbs_vp9_write_superframe_index.exit.thread, label %190
+188:                                              ; preds = %187
+  %189 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @.str.4, i32 noundef 6) #8
+  %190 = icmp slt i32 %189, 0
+  br i1 %190, label %cbs_vp9_write_superframe_index.exit.thread, label %191
 
-190:                                              ; preds = %187
-  %191 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %60) #8
-  %192 = icmp slt i32 %191, 0
-  br i1 %192, label %cbs_vp9_write_superframe_index.exit.thread, label %cbs_vp9_write_superframe_index.exit
+191:                                              ; preds = %188
+  %192 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %61) #8
+  %193 = icmp slt i32 %192, 0
+  br i1 %193, label %cbs_vp9_write_superframe_index.exit.thread, label %cbs_vp9_write_superframe_index.exit
 
-cbs_vp9_write_superframe_index.exit.thread:       ; preds = %135, %96, %108, %111, %187, %190
-  %.042.i.ph = phi i32 [ %191, %190 ], [ %188, %187 ], [ %113, %111 ], [ %109, %108 ], [ %106, %96 ], [ -28, %135 ]
+cbs_vp9_write_superframe_index.exit.thread:       ; preds = %136, %97, %109, %112, %188, %191
+  %.042.i.ph = phi i32 [ %192, %191 ], [ %189, %188 ], [ %114, %112 ], [ %110, %109 ], [ %107, %97 ], [ -28, %136 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %195
+  br label %196
 
-cbs_vp9_write_superframe_index.exit:              ; preds = %190
-  %193 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef %112) #8
+cbs_vp9_write_superframe_index.exit:              ; preds = %191
+  %194 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull @.str.6, i32 noundef %113) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %194 = icmp slt i32 %193, 0
-  br i1 %194, label %195, label %197
+  %195 = icmp slt i32 %194, 0
+  br i1 %195, label %196, label %198
 
-195:                                              ; preds = %cbs_vp9_write_superframe_index.exit.thread, %cbs_vp9_write_superframe_index.exit
-  %.042.i97 = phi i32 [ %.042.i.ph, %cbs_vp9_write_superframe_index.exit.thread ], [ %193, %cbs_vp9_write_superframe_index.exit ]
-  %196 = load ptr, ptr %0, align 8, !tbaa !29
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %196, i32 noundef 16, ptr noundef nonnull @.str.98) #8
+196:                                              ; preds = %cbs_vp9_write_superframe_index.exit.thread, %cbs_vp9_write_superframe_index.exit
+  %.042.i97 = phi i32 [ %.042.i.ph, %cbs_vp9_write_superframe_index.exit.thread ], [ %194, %cbs_vp9_write_superframe_index.exit ]
+  %197 = load ptr, ptr %0, align 8, !tbaa !29
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %197, i32 noundef 16, ptr noundef nonnull @.str.98) #8
   call void @av_buffer_unref(ptr noundef nonnull %6) #8
   br label %.thread98
 
-197:                                              ; preds = %cbs_vp9_write_superframe_index.exit
-  %198 = load ptr, ptr %103, align 8, !tbaa !87
-  %199 = load ptr, ptr %104, align 8, !tbaa !86
-  %200 = ptrtoint ptr %198 to i64
+198:                                              ; preds = %cbs_vp9_write_superframe_index.exit
+  %199 = load ptr, ptr %104, align 8, !tbaa !87
+  %200 = load ptr, ptr %105, align 8, !tbaa !86
   %201 = ptrtoint ptr %199 to i64
-  %.neg = sub i64 %201, %200
-  %202 = load i32, ptr %105, align 4, !tbaa !83
+  %202 = ptrtoint ptr %200 to i64
+  %.neg = sub i64 %202, %201
+  %203 = load i32, ptr %106, align 4, !tbaa !83
   %.tr.i.neg = trunc i64 %.neg to i32
   %.neg101 = shl i32 %.tr.i.neg, 3
-  %203 = add i32 %202, -32
-  %204 = icmp eq i32 %203, %.neg101
-  br i1 %204, label %206, label %205
+  %204 = add i32 %203, -32
+  %205 = icmp eq i32 %204, %.neg101
+  br i1 %205, label %207, label %206
 
-205:                                              ; preds = %197
+206:                                              ; preds = %198
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.10, i32 noundef 579) #8
   call void @abort() #9
   unreachable
 
-206:                                              ; preds = %197
-  %207 = icmp slt i32 %202, 32
-  br i1 %207, label %.lr.ph.i, label %.loopexit
+207:                                              ; preds = %198
+  %208 = icmp slt i32 %203, 32
+  br i1 %208, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %206
-  %208 = load i32, ptr %5, align 8, !tbaa !88
-  %209 = shl i32 %208, %202
-  store i32 %209, ptr %5, align 8, !tbaa !88
-  br label %210
+.lr.ph.i:                                         ; preds = %207
+  %209 = load i32, ptr %5, align 8, !tbaa !88
+  %210 = shl i32 %209, %203
+  store i32 %210, ptr %5, align 8, !tbaa !88
+  br label %211
 
-210:                                              ; preds = %216, %.lr.ph.i
-  %211 = phi i32 [ %221, %216 ], [ %209, %.lr.ph.i ]
-  %212 = load ptr, ptr %104, align 8, !tbaa !86
-  %213 = load ptr, ptr %103, align 8, !tbaa !87
-  %214 = icmp ult ptr %212, %213
-  br i1 %214, label %216, label %215
+211:                                              ; preds = %217, %.lr.ph.i
+  %212 = phi i32 [ %222, %217 ], [ %210, %.lr.ph.i ]
+  %213 = load ptr, ptr %105, align 8, !tbaa !86
+  %214 = load ptr, ptr %104, align 8, !tbaa !87
+  %215 = icmp ult ptr %213, %214
+  br i1 %215, label %217, label %216
 
-215:                                              ; preds = %210
+216:                                              ; preds = %211
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.91, ptr noundef nonnull @.str.92, i32 noundef 150) #8
   call void @abort() #9
   unreachable
 
-216:                                              ; preds = %210
-  %217 = lshr i32 %211, 24
-  %218 = trunc nuw i32 %217 to i8
-  %219 = getelementptr inbounds nuw i8, ptr %212, i64 1
-  store ptr %219, ptr %104, align 8, !tbaa !86
-  store i8 %218, ptr %212, align 1, !tbaa !15
-  %220 = load i32, ptr %5, align 8, !tbaa !88
-  %221 = shl i32 %220, 8
-  store i32 %221, ptr %5, align 8, !tbaa !88
-  %222 = load i32, ptr %105, align 4, !tbaa !83
-  %223 = add nsw i32 %222, 8
-  store i32 %223, ptr %105, align 4, !tbaa !83
-  %224 = icmp slt i32 %222, 24
-  br i1 %224, label %210, label %.loopexit, !llvm.loop !89
+217:                                              ; preds = %211
+  %218 = lshr i32 %212, 24
+  %219 = trunc nuw i32 %218 to i8
+  %220 = getelementptr inbounds nuw i8, ptr %213, i64 1
+  store ptr %220, ptr %105, align 8, !tbaa !86
+  store i8 %219, ptr %213, align 1, !tbaa !15
+  %221 = load i32, ptr %5, align 8, !tbaa !88
+  %222 = shl i32 %221, 8
+  store i32 %222, ptr %5, align 8, !tbaa !88
+  %223 = load i32, ptr %106, align 4, !tbaa !83
+  %224 = add nsw i32 %223, 8
+  store i32 %224, ptr %106, align 4, !tbaa !83
+  %225 = icmp slt i32 %223, 24
+  br i1 %225, label %211, label %.loopexit, !llvm.loop !89
 
-.thread98:                                        ; preds = %28, %195, %._crit_edge110
-  %.281.ph = phi i32 [ -12, %._crit_edge110 ], [ %.042.i97, %195 ], [ -22, %28 ]
+.thread98:                                        ; preds = %28, %196, %._crit_edge110
+  %.281.ph = phi i32 [ -12, %._crit_edge110 ], [ %.042.i97, %196 ], [ -22, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #8
   br label %.critedge
 
-.loopexit:                                        ; preds = %216, %206
-  %225 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %63, ptr %225, align 8, !tbaa !35
-  store ptr %66, ptr %1, align 8, !tbaa !14
-  %226 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %.078.lcssa, ptr %226, align 8, !tbaa !4
+.loopexit:                                        ; preds = %217, %207
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %64, ptr %226, align 8, !tbaa !35
+  store ptr %67, ptr %1, align 8, !tbaa !14
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %.078.lcssa, ptr %227, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #8

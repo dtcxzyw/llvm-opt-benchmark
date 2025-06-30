@@ -14915,7 +14915,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %284, %286
 declare noundef ptr @_ZN15MacroLogicVNode4makeER8PhaseGVNP4NodeS3_S3_S3_jPK8TypeVect(ptr noundef nonnull align 8 dereferenceable(2400), ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZN7Compile19eval_macro_logic_opEjjjj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2316) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN7Compile19eval_macro_logic_opEjjjj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2316) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 align 2 {
   br label %6
 
 6:                                                ; preds = %5, %6

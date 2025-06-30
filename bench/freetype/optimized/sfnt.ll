@@ -20004,7 +20004,7 @@ define internal fastcc i32 @tt_sbit_decoder_load_image(ptr noundef %0, i32 nound
   %.085145 = phi i64 [ %.085, %316 ], [ %314, %313 ], [ %168, %155 ]
   %.086144 = phi i64 [ %.086, %316 ], [ %315, %313 ], [ %169, %155 ]
   %318 = sub nuw i64 %.086144, %.085145
-  %319 = add i64 %.085145, %97
+  %319 = add nuw i64 %.085145, %97
   %320 = tail call fastcc i32 @tt_sbit_decoder_load_bitmap(ptr noundef %0, i32 noundef %80, i64 noundef %319, i64 noundef %318, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5)
   br label %321
 
@@ -20106,7 +20106,7 @@ define internal fastcc range(i32 0, 7) i32 @tt_sbit_decoder_load_metrics(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tt_sbit_decoder_load_bitmap(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext range(i8 0, 2) %7) unnamed_addr #0 {
+define internal fastcc i32 @tt_sbit_decoder_load_bitmap(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, i64 noundef range(i64 0, -4294967295) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i8 noundef zeroext range(i8 0, 2) %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24967,7 +24967,7 @@ define internal fastcc i32 @tt_cmap4_char_map_binary(ptr noundef captures(none) 
 
 .lr.ph.preheader:                                 ; preds = %87
   %89 = add nsw i32 %31, -1
-  %90 = shl i32 %89, 1
+  %90 = shl nuw i32 %89, 1
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw i8, ptr %26, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !15
@@ -24985,8 +24985,8 @@ define internal fastcc i32 @tt_cmap4_char_map_binary(ptr noundef captures(none) 
   br label %.lr.ph529
 
 .lr.ph:                                           ; preds = %.lr.ph529
-  %101 = add i32 %115, -1
-  %102 = shl i32 %101, 1
+  %101 = add nsw i32 %115, -1
+  %102 = shl nuw i32 %101, 1
   %103 = zext i32 %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %26, i64 %103
   %105 = load i8, ptr %104, align 1, !tbaa !15

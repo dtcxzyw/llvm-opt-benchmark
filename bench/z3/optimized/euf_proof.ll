@@ -8618,7 +8618,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt5tupleIJP3appS2_mbEElS3_N9_
   %.0133.i = phi i64 [ %.04.i, %59 ], [ %.127, %47 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %56 = getelementptr inbounds %"class.std::tuple", ptr %0, i64 %.04.i
+  %56 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.04.i
   %57 = getelementptr i8, ptr %56, i64 8
   %.val.i = load i64, ptr %57, align 8, !tbaa !470
   %58 = icmp ult i64 %.val.i, %50
@@ -8645,7 +8645,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt5tupleIJP3appS2_mbEElS3_N9_
   %.013.lcssa.i = phi i64 [ %.127, %47 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %59 ]
   %70 = inttoptr i64 %54 to ptr
   %71 = inttoptr i64 %52 to ptr
-  %72 = getelementptr inbounds %"class.std::tuple", ptr %0, i64 %.013.lcssa.i
+  %72 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.013.lcssa.i
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store ptr %70, ptr %73, align 8, !tbaa !471
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 16

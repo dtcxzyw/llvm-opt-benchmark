@@ -7121,8 +7121,8 @@ palette_add_tu.exit:                              ; preds = %162
   %174 = tail call i32 @llvm.smax.i32(i32 %173, i32 1)
   %175 = add i32 %.03549.us.i, -1
   %.2.us.i = add i32 %175, %174
-  %176 = zext nneg i32 %.2.us.i to i64
-  %177 = getelementptr inbounds nuw i8, ptr %4, i64 %176
+  %176 = sext i32 %.2.us.i to i64
+  %177 = getelementptr inbounds i8, ptr %4, i64 %176
   store i8 1, ptr %177, align 1, !tbaa !348
   %178 = load ptr, ptr %13, align 16, !tbaa !63
   %179 = getelementptr i8, ptr %178, i64 18
@@ -7143,7 +7143,7 @@ palette_add_tu.exit:                              ; preds = %162
 
 ._crit_edge.us.i:                                 ; preds = %180
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
-  %182 = add nuw i32 %174, %.03549.us.i
+  %182 = add i32 %174, %.03549.us.i
   %183 = icmp slt i32 %182, %167
   %184 = icmp samesign ult i64 %indvars.iv.next61.i, %172
   %185 = select i1 %183, i1 %184, i1 false
@@ -7160,11 +7160,11 @@ palette_add_tu.exit:                              ; preds = %162
   %188 = tail call i32 @llvm.smax.i32(i32 %186, i32 1)
   %189 = add i32 %.03549.i, -1
   %.2.i = add i32 %189, %188
-  %190 = zext nneg i32 %.2.i to i64
-  %191 = getelementptr inbounds nuw i8, ptr %4, i64 %190
+  %190 = sext i32 %.2.i to i64
+  %191 = getelementptr inbounds i8, ptr %4, i64 %190
   store i8 1, ptr %191, align 1, !tbaa !348
   %192 = add nuw nsw i32 %.03648.i, 1
-  %193 = add nuw i32 %188, %.03549.i
+  %193 = add i32 %188, %.03549.i
   %194 = icmp slt i32 %193, %167
   %195 = icmp samesign ult i32 %192, %17
   %196 = select i1 %194, i1 %195, i1 false

@@ -392,7 +392,7 @@ define internal i32 @cavs_decode_frame(ptr noundef readonly captures(none) %0, p
   br i1 %217, label %.loopexit, label %218
 
 218:                                              ; preds = %216
-  %219 = add nsw i32 %.0124, 1
+  %219 = add nuw nsw i32 %.0124, 1
   %220 = load i32, ptr %2, align 4, !tbaa !30
   %.not67 = icmp eq i32 %220, 0
   br i1 %.not67, label %222, label %221

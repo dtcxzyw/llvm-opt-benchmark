@@ -284,357 +284,356 @@ collectargs.exit:                                 ; preds = %51, %.lr.ph.i, %21,
   br label %71
 
 71:                                               ; preds = %65, %63
-  %72 = and i32 %.041.i, 16
-  %.not32 = icmp eq i32 %72, 0
-  br i1 %.not32, label %.critedge, label %73
+  %.not32 = icmp samesign ult i32 %.041.i, 16
+  br i1 %.not32, label %.critedge, label %72
 
-73:                                               ; preds = %71
+72:                                               ; preds = %71
   tail call void @lua_pushboolean(ptr noundef %0, i32 noundef 1) #10
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -1001000, ptr noundef nonnull @.str.3) #10
   tail call void @luaL_openselectedlibs(ptr noundef %0, i32 noundef -1, i32 noundef 0) #10
-  %74 = add nsw i32 %.062, 1
-  %75 = sub nsw i32 %3, %74
-  tail call void @lua_createtable(ptr noundef %0, i32 noundef %75, i32 noundef %74) #10
-  %76 = icmp sgt i32 %3, 0
-  br i1 %76, label %.lr.ph.preheader.i, label %createargtable.exit
+  %73 = add nsw i32 %.062, 1
+  %74 = sub nsw i32 %3, %73
+  tail call void @lua_createtable(ptr noundef %0, i32 noundef %74, i32 noundef %73) #10
+  %75 = icmp sgt i32 %3, 0
+  br i1 %75, label %.lr.ph.preheader.i, label %createargtable.exit
 
-.lr.ph.preheader.i:                               ; preds = %73
-  %77 = sext i32 %.062 to i64
+.lr.ph.preheader.i:                               ; preds = %72
+  %76 = sext i32 %.062 to i64
   %wide.trip.count.i = and i64 %2, 2147483647
   br label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %.lr.ph.i40, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i40 ]
-  %78 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
-  %79 = load ptr, ptr %78, align 8, !tbaa !4
-  %80 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef %79) #10
-  %81 = sub nsw i64 %indvars.iv.i, %77
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i64 noundef %81) #10
+  %77 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %78 = load ptr, ptr %77, align 8, !tbaa !4
+  %79 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef %78) #10
+  %80 = sub nsw i64 %indvars.iv.i, %76
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i64 noundef %80) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %createargtable.exit, label %.lr.ph.i40
 
-createargtable.exit:                              ; preds = %.lr.ph.i40, %73
+createargtable.exit:                              ; preds = %.lr.ph.i40, %72
   tail call void @lua_setglobal(ptr noundef %0, ptr noundef nonnull @.str.10) #10
-  %82 = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %0, i32 noundef 1) #10
-  %83 = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %0, i32 noundef 7) #10
+  %81 = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %0, i32 noundef 1) #10
+  %82 = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %0, i32 noundef 7) #10
   br label %handle_luainit.exit.thread
 
 .critedge:                                        ; preds = %71
   tail call void @luaL_openselectedlibs(ptr noundef %0, i32 noundef -1, i32 noundef 0) #10
-  %84 = add nsw i32 %.062, 1
-  %85 = sub nsw i32 %3, %84
-  tail call void @lua_createtable(ptr noundef %0, i32 noundef %85, i32 noundef %84) #10
-  %86 = icmp sgt i32 %3, 0
-  br i1 %86, label %.lr.ph.preheader.i42, label %createargtable.exit48
+  %83 = add nsw i32 %.062, 1
+  %84 = sub nsw i32 %3, %83
+  tail call void @lua_createtable(ptr noundef %0, i32 noundef %84, i32 noundef %83) #10
+  %85 = icmp sgt i32 %3, 0
+  br i1 %85, label %.lr.ph.preheader.i42, label %createargtable.exit48
 
 .lr.ph.preheader.i42:                             ; preds = %.critedge
-  %87 = sext i32 %.062 to i64
+  %86 = sext i32 %.062 to i64
   %wide.trip.count.i43 = and i64 %2, 2147483647
   br label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i42
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %indvars.iv.next.i46, %.lr.ph.i44 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i45
-  %89 = load ptr, ptr %88, align 8, !tbaa !4
-  %90 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef %89) #10
-  %91 = sub nsw i64 %indvars.iv.i45, %87
-  tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i64 noundef %91) #10
+  %87 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i45
+  %88 = load ptr, ptr %87, align 8, !tbaa !4
+  %89 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef %88) #10
+  %90 = sub nsw i64 %indvars.iv.i45, %86
+  tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i64 noundef %90) #10
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i43
   br i1 %exitcond.not.i47, label %createargtable.exit48, label %.lr.ph.i44
 
 createargtable.exit48:                            ; preds = %.lr.ph.i44, %.critedge
   tail call void @lua_setglobal(ptr noundef %0, ptr noundef nonnull @.str.10) #10
-  %92 = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %0, i32 noundef 1) #10
-  %93 = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %0, i32 noundef 7) #10
-  %94 = tail call ptr @getenv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.11, i64 1)) #10
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %96, label %.thread.i
+  %91 = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %0, i32 noundef 1) #10
+  %92 = tail call i32 (ptr, i32, ...) @lua_gc(ptr noundef %0, i32 noundef 7) #10
+  %93 = tail call ptr @getenv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.11, i64 1)) #10
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %95, label %.thread.i
 
-96:                                               ; preds = %createargtable.exit48
-  %97 = tail call ptr @getenv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.12, i64 1)) #10
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %handle_luainit.exit.thread, label %.thread.i
+95:                                               ; preds = %createargtable.exit48
+  %96 = tail call ptr @getenv(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.12, i64 1)) #10
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %handle_luainit.exit.thread, label %.thread.i
 
-.thread.i:                                        ; preds = %96, %createargtable.exit48
-  %.016.i = phi ptr [ %97, %96 ], [ %94, %createargtable.exit48 ]
-  %.01015.i = phi ptr [ @.str.12, %96 ], [ @.str.11, %createargtable.exit48 ]
-  %99 = load i8, ptr %.016.i, align 1, !tbaa !11
-  %100 = icmp eq i8 %99, 64
-  br i1 %100, label %101, label %handle_luainit.exit
+.thread.i:                                        ; preds = %95, %createargtable.exit48
+  %.016.i = phi ptr [ %96, %95 ], [ %93, %createargtable.exit48 ]
+  %.01015.i = phi ptr [ @.str.12, %95 ], [ @.str.11, %createargtable.exit48 ]
+  %98 = load i8, ptr %.016.i, align 1, !tbaa !11
+  %99 = icmp eq i8 %98, 64
+  br i1 %99, label %100, label %handle_luainit.exit
 
-101:                                              ; preds = %.thread.i
-  %102 = getelementptr inbounds nuw i8, ptr %.016.i, i64 1
-  %103 = tail call i32 @luaL_loadfilex(ptr noundef %0, ptr noundef nonnull %102, ptr noundef null) #10
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %handle_luainit.exit.thread65
+100:                                              ; preds = %.thread.i
+  %101 = getelementptr inbounds nuw i8, ptr %.016.i, i64 1
+  %102 = tail call i32 @luaL_loadfilex(ptr noundef %0, ptr noundef nonnull %101, ptr noundef null) #10
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %104, label %handle_luainit.exit.thread65
 
-105:                                              ; preds = %101
-  %106 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef 0, i32 noundef 0)
-  %.not.i.i.i.i = icmp eq i32 %106, 0
+104:                                              ; preds = %100
+  %105 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef 0, i32 noundef 0)
+  %.not.i.i.i.i = icmp eq i32 %105, 0
   br i1 %.not.i.i.i.i, label %handle_luainit.exit.thread, label %handle_luainit.exit.thread65
 
-handle_luainit.exit.thread65:                     ; preds = %101, %105
-  %107 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
-  %108 = icmp eq ptr %107, null
-  %spec.store.select.i.i.i.i = select i1 %108, ptr @.str.42, ptr %107
-  %109 = load ptr, ptr @progname, align 8, !tbaa !4
-  tail call fastcc void @l_message(ptr noundef %109, ptr noundef nonnull %spec.store.select.i.i.i.i)
+handle_luainit.exit.thread65:                     ; preds = %100, %104
+  %106 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
+  %107 = icmp eq ptr %106, null
+  %spec.store.select.i.i.i.i = select i1 %107, ptr @.str.42, ptr %106
+  %108 = load ptr, ptr @progname, align 8, !tbaa !4
+  tail call fastcc void @l_message(ptr noundef %108, ptr noundef nonnull %spec.store.select.i.i.i.i)
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #10
   br label %runargs.exit.thread
 
 handle_luainit.exit:                              ; preds = %.thread.i
-  %110 = tail call fastcc i32 @dostring(ptr noundef %0, ptr noundef nonnull %.016.i, ptr noundef nonnull %.01015.i)
-  %.not33 = icmp eq i32 %110, 0
+  %109 = tail call fastcc i32 @dostring(ptr noundef %0, ptr noundef nonnull %.016.i, ptr noundef nonnull %.01015.i)
+  %.not33 = icmp eq i32 %109, 0
   br i1 %.not33, label %handle_luainit.exit.thread, label %runargs.exit.thread
 
-handle_luainit.exit.thread:                       ; preds = %105, %96, %createargtable.exit, %handle_luainit.exit
-  %111 = icmp sgt i32 %57, 1
-  br i1 %111, label %.lr.ph.i49, label %runargs.exit
+handle_luainit.exit.thread:                       ; preds = %104, %95, %createargtable.exit, %handle_luainit.exit
+  %110 = icmp sgt i32 %57, 1
+  br i1 %110, label %.lr.ph.i49, label %runargs.exit
 
 .lr.ph.i49:                                       ; preds = %handle_luainit.exit.thread, %.thread.i50
-  %.02435.i = phi i32 [ %148, %.thread.i50 ], [ 1, %handle_luainit.exit.thread ]
-  %112 = sext i32 %.02435.i to i64
-  %113 = getelementptr inbounds ptr, ptr %4, i64 %112
-  %114 = load ptr, ptr %113, align 8, !tbaa !4
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 1
-  %116 = load i8, ptr %115, align 1, !tbaa !11
-  switch i8 %116, label %.thread.i50 [
-    i8 101, label %117
-    i8 108, label %117
-    i8 87, label %145
+  %.02435.i = phi i32 [ %147, %.thread.i50 ], [ 1, %handle_luainit.exit.thread ]
+  %111 = sext i32 %.02435.i to i64
+  %112 = getelementptr inbounds ptr, ptr %4, i64 %111
+  %113 = load ptr, ptr %112, align 8, !tbaa !4
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1
+  %115 = load i8, ptr %114, align 1, !tbaa !11
+  switch i8 %115, label %.thread.i50 [
+    i8 101, label %116
+    i8 108, label %116
+    i8 87, label %144
   ]
 
-117:                                              ; preds = %.lr.ph.i49, %.lr.ph.i49
-  %118 = getelementptr inbounds nuw i8, ptr %114, i64 2
-  %119 = load i8, ptr %118, align 1, !tbaa !11
-  %120 = icmp eq i8 %119, 0
-  br i1 %120, label %121, label %126
+116:                                              ; preds = %.lr.ph.i49, %.lr.ph.i49
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 2
+  %118 = load i8, ptr %117, align 1, !tbaa !11
+  %119 = icmp eq i8 %118, 0
+  br i1 %119, label %120, label %125
 
-121:                                              ; preds = %117
-  %122 = add nsw i32 %.02435.i, 1
-  %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds ptr, ptr %4, i64 %123
-  %125 = load ptr, ptr %124, align 8, !tbaa !4
-  br label %126
+120:                                              ; preds = %116
+  %121 = add nsw i32 %.02435.i, 1
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds ptr, ptr %4, i64 %122
+  %124 = load ptr, ptr %123, align 8, !tbaa !4
+  br label %125
 
-126:                                              ; preds = %121, %117
-  %.226.i = phi i32 [ %122, %121 ], [ %.02435.i, %117 ]
-  %.021.i = phi ptr [ %125, %121 ], [ %118, %117 ]
-  %127 = icmp eq i8 %116, 101
-  br i1 %127, label %146, label %128
+125:                                              ; preds = %120, %116
+  %.226.i = phi i32 [ %121, %120 ], [ %.02435.i, %116 ]
+  %.021.i = phi ptr [ %124, %120 ], [ %117, %116 ]
+  %126 = icmp eq i8 %115, 101
+  br i1 %126, label %145, label %127
 
-128:                                              ; preds = %126
-  %129 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.021.i, i32 noundef 61) #12
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %131, label %133
+127:                                              ; preds = %125
+  %128 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.021.i, i32 noundef 61) #12
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %130, label %132
 
-131:                                              ; preds = %128
-  %132 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.021.i, i32 noundef 45) #12
-  br label %135
+130:                                              ; preds = %127
+  %131 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.021.i, i32 noundef 45) #12
+  br label %134
 
-133:                                              ; preds = %128
-  store i8 0, ptr %129, align 1, !tbaa !11
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 1
-  br label %135
+132:                                              ; preds = %127
+  store i8 0, ptr %128, align 1, !tbaa !11
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 1
+  br label %134
 
-135:                                              ; preds = %133, %131
-  %.016.i.i = phi ptr [ %132, %131 ], [ null, %133 ]
-  %.0.i.i = phi ptr [ %.021.i, %131 ], [ %134, %133 ]
-  %136 = tail call i32 @lua_getglobal(ptr noundef %0, ptr noundef nonnull @.str.19) #10
-  %137 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %.0.i.i) #10
-  %138 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef 1, i32 noundef 1)
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %143, label %.thread33.i
+134:                                              ; preds = %132, %130
+  %.016.i.i = phi ptr [ %131, %130 ], [ null, %132 ]
+  %.0.i.i = phi ptr [ %.021.i, %130 ], [ %133, %132 ]
+  %135 = tail call i32 @lua_getglobal(ptr noundef %0, ptr noundef nonnull @.str.19) #10
+  %136 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %.0.i.i) #10
+  %137 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef 1, i32 noundef 1)
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %142, label %.thread33.i
 
-.thread33.i:                                      ; preds = %135
-  %140 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
-  %141 = icmp eq ptr %140, null
-  %spec.store.select.i.i.i = select i1 %141, ptr @.str.42, ptr %140
-  %142 = load ptr, ptr @progname, align 8, !tbaa !4
-  tail call fastcc void @l_message(ptr noundef %142, ptr noundef nonnull %spec.store.select.i.i.i)
+.thread33.i:                                      ; preds = %134
+  %139 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
+  %140 = icmp eq ptr %139, null
+  %spec.store.select.i.i.i = select i1 %140, ptr @.str.42, ptr %139
+  %141 = load ptr, ptr @progname, align 8, !tbaa !4
+  tail call fastcc void @l_message(ptr noundef %141, ptr noundef nonnull %spec.store.select.i.i.i)
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #10
   br label %runargs.exit.thread
 
-143:                                              ; preds = %135
+142:                                              ; preds = %134
   %.not.i.i = icmp eq ptr %.016.i.i, null
-  br i1 %.not.i.i, label %.thread31.i, label %144
+  br i1 %.not.i.i, label %.thread31.i, label %143
 
-144:                                              ; preds = %143
+143:                                              ; preds = %142
   store i8 0, ptr %.016.i.i, align 1, !tbaa !11
   br label %.thread31.i
 
-.thread31.i:                                      ; preds = %144, %143
+.thread31.i:                                      ; preds = %143, %142
   tail call void @lua_setglobal(ptr noundef %0, ptr noundef nonnull %.021.i) #10
   br label %.thread.i50
 
-145:                                              ; preds = %.lr.ph.i49
+144:                                              ; preds = %.lr.ph.i49
   tail call void @lua_warning(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef 0) #10
   br label %.thread.i50
 
-146:                                              ; preds = %126
-  %147 = tail call fastcc i32 @dostring(ptr noundef %0, ptr noundef %.021.i, ptr noundef nonnull @.str.16)
-  %.not.i51 = icmp eq i32 %147, 0
+145:                                              ; preds = %125
+  %146 = tail call fastcc i32 @dostring(ptr noundef %0, ptr noundef %.021.i, ptr noundef nonnull @.str.16)
+  %.not.i51 = icmp eq i32 %146, 0
   br i1 %.not.i51, label %.thread.i50, label %runargs.exit.thread
 
-.thread.i50:                                      ; preds = %146, %145, %.thread31.i, %.lr.ph.i49
-  %.32730.i = phi i32 [ %.226.i, %146 ], [ %.226.i, %.thread31.i ], [ %.02435.i, %145 ], [ %.02435.i, %.lr.ph.i49 ]
-  %148 = add nsw i32 %.32730.i, 1
-  %149 = icmp slt i32 %148, %57
-  br i1 %149, label %.lr.ph.i49, label %runargs.exit
+.thread.i50:                                      ; preds = %145, %144, %.thread31.i, %.lr.ph.i49
+  %.32730.i = phi i32 [ %.226.i, %145 ], [ %.226.i, %.thread31.i ], [ %.02435.i, %144 ], [ %.02435.i, %.lr.ph.i49 ]
+  %147 = add nsw i32 %.32730.i, 1
+  %148 = icmp slt i32 %147, %57
+  br i1 %148, label %.lr.ph.i49, label %runargs.exit
 
 runargs.exit:                                     ; preds = %.thread.i50, %handle_luainit.exit.thread
-  br i1 %56, label %150, label %handle_script.exit.thread
+  br i1 %56, label %149, label %handle_script.exit.thread
 
-150:                                              ; preds = %runargs.exit
-  %151 = zext nneg i32 %.062 to i64
-  %152 = getelementptr inbounds nuw ptr, ptr %4, i64 %151
-  %153 = load ptr, ptr %152, align 8, !tbaa !4
-  %154 = load i8, ptr %153, align 1
-  %.not21.i = icmp eq i8 %154, 45
+149:                                              ; preds = %runargs.exit
+  %150 = zext nneg i32 %.062 to i64
+  %151 = getelementptr inbounds nuw ptr, ptr %4, i64 %150
+  %152 = load ptr, ptr %151, align 8, !tbaa !4
+  %153 = load i8, ptr %152, align 1
+  %.not21.i = icmp eq i8 %153, 45
   br i1 %.not21.i, label %.tail.i, label %.tail17.i
 
-.tail.i:                                          ; preds = %150
-  %155 = getelementptr inbounds nuw i8, ptr %153, i64 1
-  %156 = load i8, ptr %155, align 1
-  %157 = icmp eq i8 %156, 0
-  br i1 %157, label %sub_018.i, label %.tail17.i
+.tail.i:                                          ; preds = %149
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 1
+  %155 = load i8, ptr %154, align 1
+  %156 = icmp eq i8 %155, 0
+  br i1 %156, label %sub_018.i, label %.tail17.i
 
 sub_018.i:                                        ; preds = %.tail.i
-  %158 = getelementptr inbounds i8, ptr %152, i64 -8
-  %159 = load ptr, ptr %158, align 8, !tbaa !4
-  %160 = load i8, ptr %159, align 1
-  %.not22.i = icmp eq i8 %160, 45
+  %157 = getelementptr inbounds i8, ptr %151, i64 -8
+  %158 = load ptr, ptr %157, align 8, !tbaa !4
+  %159 = load i8, ptr %158, align 1
+  %.not22.i = icmp eq i8 %159, 45
   br i1 %.not22.i, label %sub_119.i, label %.tail17.i
 
 sub_119.i:                                        ; preds = %sub_018.i
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 1
-  %162 = load i8, ptr %161, align 1
-  %.not23.i = icmp eq i8 %162, 45
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 1
+  %161 = load i8, ptr %160, align 1
+  %.not23.i = icmp eq i8 %161, 45
   br i1 %.not23.i, label %sub_2.i, label %.tail17.i
 
 sub_2.i:                                          ; preds = %sub_119.i
-  %163 = getelementptr inbounds nuw i8, ptr %159, i64 2
-  %164 = load i8, ptr %163, align 1
-  %165 = icmp eq i8 %164, 0
-  %166 = select i1 %165, ptr %153, ptr null
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 2
+  %163 = load i8, ptr %162, align 1
+  %164 = icmp eq i8 %163, 0
+  %165 = select i1 %164, ptr %152, ptr null
   br label %.tail17.i
 
-.tail17.i:                                        ; preds = %sub_2.i, %sub_119.i, %sub_018.i, %.tail.i, %150
-  %.010.i = phi ptr [ %153, %.tail.i ], [ null, %sub_018.i ], [ null, %sub_119.i ], [ %166, %sub_2.i ], [ %153, %150 ]
-  %167 = tail call i32 @luaL_loadfilex(ptr noundef %0, ptr noundef %.010.i, ptr noundef null) #10
-  %168 = icmp eq i32 %167, 0
-  br i1 %168, label %169, label %handle_script.exit
+.tail17.i:                                        ; preds = %sub_2.i, %sub_119.i, %sub_018.i, %.tail.i, %149
+  %.010.i = phi ptr [ %152, %.tail.i ], [ null, %sub_018.i ], [ null, %sub_119.i ], [ %165, %sub_2.i ], [ %152, %149 ]
+  %166 = tail call i32 @luaL_loadfilex(ptr noundef %0, ptr noundef %.010.i, ptr noundef null) #10
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %handle_script.exit
 
-169:                                              ; preds = %.tail17.i
-  %170 = tail call i32 @lua_getglobal(ptr noundef %0, ptr noundef nonnull @.str.10) #10
-  %.not.i.i54 = icmp eq i32 %170, 5
-  br i1 %.not.i.i54, label %173, label %171
+168:                                              ; preds = %.tail17.i
+  %169 = tail call i32 @lua_getglobal(ptr noundef %0, ptr noundef nonnull @.str.10) #10
+  %.not.i.i54 = icmp eq i32 %169, 5
+  br i1 %.not.i.i54, label %172, label %170
 
-171:                                              ; preds = %169
-  %172 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.21) #10
-  br label %173
+170:                                              ; preds = %168
+  %171 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.21) #10
+  br label %172
 
-173:                                              ; preds = %171, %169
-  %174 = tail call i64 @luaL_len(ptr noundef %0, i32 noundef -1) #10
-  %175 = trunc i64 %174 to i32
-  %176 = add nsw i32 %175, 3
-  tail call void @luaL_checkstack(ptr noundef %0, i32 noundef %176, ptr noundef nonnull @.str.22) #10
-  %.not1516.i.i = icmp slt i32 %175, 1
-  br i1 %.not1516.i.i, label %182, label %.lr.ph.preheader.i.i
+172:                                              ; preds = %170, %168
+  %173 = tail call i64 @luaL_len(ptr noundef %0, i32 noundef -1) #10
+  %174 = trunc i64 %173 to i32
+  %175 = add nsw i32 %174, 3
+  tail call void @luaL_checkstack(ptr noundef %0, i32 noundef %175, ptr noundef nonnull @.str.22) #10
+  %.not1516.i.i = icmp slt i32 %174, 1
+  br i1 %.not1516.i.i, label %181, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %173
-  %177 = add nuw nsw i64 %174, 1
-  %wide.trip.count.i.i = and i64 %177, 4294967295
+.lr.ph.preheader.i.i:                             ; preds = %172
+  %176 = add nuw nsw i64 %173, 1
+  %wide.trip.count.i.i = and i64 %176, 4294967295
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %178 = trunc i64 %indvars.iv.i.i to i32
-  %179 = sub i32 0, %178
-  %180 = tail call i32 @lua_rawgeti(ptr noundef %0, i32 noundef %179, i64 noundef %indvars.iv.i.i) #10
+  %177 = trunc i64 %indvars.iv.i.i to i32
+  %178 = sub i32 0, %177
+  %179 = tail call i32 @lua_rawgeti(ptr noundef %0, i32 noundef %178, i64 noundef %indvars.iv.i.i) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %181 = xor i32 %175, -1
-  br label %182
+  %180 = xor i32 %174, -1
+  br label %181
 
-182:                                              ; preds = %._crit_edge.loopexit.i.i, %173
-  %.0.lcssa.neg.i.i = phi i32 [ -1, %173 ], [ %181, %._crit_edge.loopexit.i.i ]
+181:                                              ; preds = %._crit_edge.loopexit.i.i, %172
+  %.0.lcssa.neg.i.i = phi i32 [ -1, %172 ], [ %180, %._crit_edge.loopexit.i.i ]
   tail call void @lua_rotate(ptr noundef %0, i32 noundef %.0.lcssa.neg.i.i, i32 noundef -1) #10
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #10
-  %183 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef %175, i32 noundef -1)
-  %.not.i12.i = icmp eq i32 %183, 0
+  %182 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef %174, i32 noundef -1)
+  %.not.i12.i = icmp eq i32 %182, 0
   br i1 %.not.i12.i, label %handle_script.exit.thread, label %handle_script.exit
 
-handle_script.exit:                               ; preds = %.tail17.i, %182
-  %184 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
-  %185 = icmp eq ptr %184, null
-  %spec.store.select.i.i = select i1 %185, ptr @.str.42, ptr %184
-  %186 = load ptr, ptr @progname, align 8, !tbaa !4
-  tail call fastcc void @l_message(ptr noundef %186, ptr noundef nonnull %spec.store.select.i.i)
+handle_script.exit:                               ; preds = %.tail17.i, %181
+  %183 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
+  %184 = icmp eq ptr %183, null
+  %spec.store.select.i.i = select i1 %184, ptr @.str.42, ptr %183
+  %185 = load ptr, ptr @progname, align 8, !tbaa !4
+  tail call fastcc void @l_message(ptr noundef %185, ptr noundef nonnull %spec.store.select.i.i)
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #10
   br label %runargs.exit.thread
 
-handle_script.exit.thread:                        ; preds = %182, %runargs.exit
-  %187 = and i32 %.041.i, 2
-  %.not36 = icmp eq i32 %187, 0
-  br i1 %.not36, label %189, label %188
+handle_script.exit.thread:                        ; preds = %181, %runargs.exit
+  %186 = and i32 %.041.i, 2
+  %.not36 = icmp eq i32 %186, 0
+  br i1 %.not36, label %188, label %187
+
+187:                                              ; preds = %handle_script.exit.thread
+  tail call fastcc void @doREPL(ptr noundef %0)
+  br label %dofile.exit
 
 188:                                              ; preds = %handle_script.exit.thread
-  tail call fastcc void @doREPL(ptr noundef %0)
-  br label %dofile.exit
+  %189 = icmp slt i32 %.062, 1
+  %190 = and i32 %.041.i, 12
+  %.not37 = icmp eq i32 %190, 0
+  %or.cond = select i1 %189, i1 %.not37, i1 false
+  br i1 %or.cond, label %191, label %dofile.exit
 
-189:                                              ; preds = %handle_script.exit.thread
-  %190 = icmp slt i32 %.062, 1
-  %191 = and i32 %.041.i, 12
-  %.not37 = icmp eq i32 %191, 0
-  %or.cond = select i1 %190, i1 %.not37, i1 false
-  br i1 %or.cond, label %192, label %dofile.exit
+191:                                              ; preds = %188
+  %192 = tail call i32 @isatty(i32 noundef 0) #10
+  %.not38 = icmp eq i32 %192, 0
+  br i1 %.not38, label %199, label %193
 
-192:                                              ; preds = %189
-  %193 = tail call i32 @isatty(i32 noundef 0) #10
-  %.not38 = icmp eq i32 %193, 0
-  br i1 %.not38, label %200, label %194
-
-194:                                              ; preds = %192
-  %195 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %196 = tail call i64 @fwrite(ptr noundef nonnull @.str.8, i64 noundef 1, i64 noundef 51, ptr noundef %195)
+193:                                              ; preds = %191
+  %194 = load ptr, ptr @stdout, align 8, !tbaa !9
+  %195 = tail call i64 @fwrite(ptr noundef nonnull @.str.8, i64 noundef 1, i64 noundef 51, ptr noundef %194)
+  %196 = load ptr, ptr @stdout, align 8, !tbaa !9
+  %fputc.i55 = tail call i32 @fputc(i32 10, ptr %196)
   %197 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %fputc.i55 = tail call i32 @fputc(i32 10, ptr %197)
-  %198 = load ptr, ptr @stdout, align 8, !tbaa !9
-  %199 = tail call i32 @fflush(ptr noundef %198)
+  %198 = tail call i32 @fflush(ptr noundef %197)
   tail call fastcc void @doREPL(ptr noundef %0)
   br label %dofile.exit
 
-200:                                              ; preds = %192
-  %201 = tail call i32 @luaL_loadfilex(ptr noundef %0, ptr noundef null, ptr noundef null) #10
-  %202 = icmp eq i32 %201, 0
-  br i1 %202, label %203, label %.thread.i.i
+199:                                              ; preds = %191
+  %200 = tail call i32 @luaL_loadfilex(ptr noundef %0, ptr noundef null, ptr noundef null) #10
+  %201 = icmp eq i32 %200, 0
+  br i1 %201, label %202, label %.thread.i.i
 
-203:                                              ; preds = %200
-  %204 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef 0, i32 noundef 0)
-  %.not.i.i.i = icmp eq i32 %204, 0
+202:                                              ; preds = %199
+  %203 = tail call fastcc i32 @docall(ptr noundef %0, i32 noundef 0, i32 noundef 0)
+  %.not.i.i.i = icmp eq i32 %203, 0
   br i1 %.not.i.i.i, label %dofile.exit, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %203, %200
-  %205 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
-  %206 = icmp eq ptr %205, null
-  %spec.store.select.i.i.i56 = select i1 %206, ptr @.str.42, ptr %205
-  %207 = load ptr, ptr @progname, align 8, !tbaa !4
-  tail call fastcc void @l_message(ptr noundef %207, ptr noundef nonnull %spec.store.select.i.i.i56)
+.thread.i.i:                                      ; preds = %202, %199
+  %204 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
+  %205 = icmp eq ptr %204, null
+  %spec.store.select.i.i.i56 = select i1 %205, ptr @.str.42, ptr %204
+  %206 = load ptr, ptr @progname, align 8, !tbaa !4
+  tail call fastcc void @l_message(ptr noundef %206, ptr noundef nonnull %spec.store.select.i.i.i56)
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #10
   br label %dofile.exit
 
-dofile.exit:                                      ; preds = %.thread.i.i, %203, %189, %194, %188
+dofile.exit:                                      ; preds = %.thread.i.i, %202, %188, %193, %187
   tail call void @lua_pushboolean(ptr noundef %0, i32 noundef 1) #10
   br label %runargs.exit.thread
 
-runargs.exit.thread:                              ; preds = %146, %.thread33.i, %handle_script.exit, %handle_luainit.exit.thread65, %handle_luainit.exit, %dofile.exit, %59
-  %.0 = phi i32 [ 0, %59 ], [ 1, %dofile.exit ], [ 0, %handle_luainit.exit ], [ 0, %handle_script.exit ], [ 0, %handle_luainit.exit.thread65 ], [ 0, %.thread33.i ], [ 0, %146 ]
+runargs.exit.thread:                              ; preds = %145, %.thread33.i, %handle_script.exit, %handle_luainit.exit.thread65, %handle_luainit.exit, %dofile.exit, %59
+  %.0 = phi i32 [ 0, %59 ], [ 1, %dofile.exit ], [ 0, %handle_luainit.exit ], [ 0, %handle_script.exit ], [ 0, %handle_luainit.exit.thread65 ], [ 0, %.thread33.i ], [ 0, %145 ]
   ret i32 %.0
 }
 

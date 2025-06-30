@@ -1320,7 +1320,7 @@ split:                                            ; preds = %.preheader, %._crit
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sidtab_destroy_tree(ptr %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @sidtab_destroy_tree(ptr %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #4 align 16 {
   %3 = icmp eq i32 %1, 0
   %4 = icmp eq ptr %0, null
   br i1 %3, label %14, label %5
@@ -1329,7 +1329,7 @@ define internal fastcc void @sidtab_destroy_tree(ptr %0, i32 noundef %1) unnamed
   br i1 %4, label %30, label %6
 
 6:                                                ; preds = %5
-  %7 = add i32 %1, -1
+  %7 = add nsw i32 %1, -1
   br label %8
 
 8:                                                ; preds = %8, %6

@@ -16156,7 +16156,7 @@ define internal fastcc range(i32 0, 2) i32 @find_dupname_details(ptr noundef %0,
   %61 = add nuw nsw i32 %.143, 1
   %62 = load i16, ptr %9, align 8, !tbaa !57
   %63 = zext i16 %62 to i32
-  %.not46 = icmp ult i32 %61, %63
+  %.not46 = icmp samesign ult i32 %61, %63
   br i1 %.not46, label %64, label %73
 
 64:                                               ; preds = %60

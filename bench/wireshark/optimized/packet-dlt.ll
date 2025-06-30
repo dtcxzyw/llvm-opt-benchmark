@@ -702,7 +702,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %25, %26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #7
   store i32 0, ptr %17, align 4
   %133 = load i32, ptr @hf_dlt_message_id, align 4
-  %134 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %129, i32 noundef %133, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %35, ptr noundef nonnull %17)
+  %134 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %129, i32 noundef %133, ptr noundef %0, i32 noundef range(i32 4, 43) %.3, i32 noundef 4, i32 noundef range(i32 -2147483648, 1) %35, ptr noundef nonnull %17)
   %135 = add nuw nsw i32 %.3, 4
   switch i8 %.0147, label %301 [
     i8 3, label %136
@@ -1013,7 +1013,7 @@ dissect_dlt_non_verbose_payload_message.exit.i:   ; preds = %283, %281, %262, %.
   br i1 %.not.i52.i, label %expert_dlt_unsupported_non_verbose_msg_type.exit.i, label %302
 
 302:                                              ; preds = %301
-  %303 = call ptr @proto_tree_add_expert(ptr noundef %129, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_non_verbose_msg_type, ptr noundef nonnull %0, i32 noundef %135, i32 noundef 0)
+  %303 = call ptr @proto_tree_add_expert(ptr noundef %129, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_non_verbose_msg_type, ptr noundef nonnull %0, i32 noundef range(i32 8, 47) %135, i32 noundef 0)
   br label %expert_dlt_unsupported_non_verbose_msg_type.exit.i
 
 expert_dlt_unsupported_non_verbose_msg_type.exit.i: ; preds = %302, %301

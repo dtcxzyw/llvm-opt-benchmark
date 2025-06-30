@@ -3095,7 +3095,7 @@ PyUnicode_READ_CHAR.exit86:                       ; preds = %_PyUnicode_DATA.exi
   %149 = getelementptr i8, ptr %.15091, i64 1
   store i8 %148, ptr %.15091, align 1, !tbaa !99
   %150 = urem i32 %.04394, %.14593
-  %151 = sdiv i32 %.14593, 10
+  %151 = udiv i32 %.14593, 10
   %152 = icmp samesign ugt i32 %.14792, 1
   br i1 %152, label %144, label %153, !llvm.loop !118
 

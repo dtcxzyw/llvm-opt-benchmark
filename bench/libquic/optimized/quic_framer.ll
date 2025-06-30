@@ -772,7 +772,7 @@ define void @_ZN3net10QuicFramerD0Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN3net10QuicFramer21GetMinStreamFrameSizeEjmb(i32 noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1, 8589934593) i64 @_ZN3net10QuicFramer21GetMinStreamFrameSizeEjmb(i32 noundef %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.logging::LogMessage", align 8
   %5 = alloca %"class.logging::LogMessage", align 8
   br label %6
@@ -1211,7 +1211,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51: ; preds = %_ZNSo
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   %61 = load i16, ptr %60, align 2, !tbaa !108
   %62 = zext i16 %61 to i64
-  %63 = add i64 %58, %62
+  %63 = add nuw nsw i64 %58, %62
   br label %_ZN3net10QuicFramer18ComputeFrameLengthERKNS_9QuicFrameEbNS_22QuicPacketNumberLengthE.exit
 
 64:                                               ; preds = %48
@@ -1301,7 +1301,7 @@ define noundef i64 @_ZN3net10QuicFramer18ComputeFrameLengthERKNS_9QuicFrameEbNS_
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %15 = load i16, ptr %14, align 2, !tbaa !108
   %16 = zext i16 %15 to i64
-  %17 = add i64 %12, %16
+  %17 = add nuw nsw i64 %12, %16
   br label %44
 
 18:                                               ; preds = %4

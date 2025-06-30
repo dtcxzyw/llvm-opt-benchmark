@@ -7294,7 +7294,7 @@ _ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit160.i: ; pr
 
 if.end20.i:                                       ; preds = %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit160.i, %for.end.i
   %position.addr.1.i = phi i64 [ %sub14.i, %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit160.i ], [ %position.addr.0.lcssa.i, %for.end.i ]
-  %cmp99.i.i.i = icmp sgt i64 %position.addr.1.i, %topPosition
+  %cmp99.i.i.i = icmp samesign ugt i64 %position.addr.1.i, %topPosition
   br i1 %cmp99.i.i.i, label %land.rhs.lr.ph.i.i.i, label %entry.for.end.i_crit_edge.i.i
 
 entry.for.end.i_crit_edge.i.i:                    ; preds = %if.end20.i
@@ -8177,7 +8177,7 @@ _ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit155.
 
 if.end20.i:                                       ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit155.i, %for.end.i
   %position.addr.1.i = phi i64 [ %sub14.i, %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit155.i ], [ %position.addr.0.lcssa.i, %for.end.i ]
-  %cmp96.i.i.i = icmp sgt i64 %position.addr.1.i, %topPosition
+  %cmp96.i.i.i = icmp samesign ugt i64 %position.addr.1.i, %topPosition
   br i1 %cmp96.i.i.i, label %land.rhs.lr.ph.i.i.i, label %entry.for.end.i_crit_edge.i.i
 
 entry.for.end.i_crit_edge.i.i:                    ; preds = %if.end20.i

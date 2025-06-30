@@ -1198,7 +1198,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nsv_read_chunk(ptr noundef
   br label %.loopexit162
 
 .loopexit162:                                     ; preds = %51, %.critedge, %26, %._crit_edge, %.thread, %.preheader161, %116, %.thread157, %74, %2, %11, %177
-  %.0 = phi i32 [ 0, %177 ], [ 0, %11 ], [ 0, %2 ], [ %77, %74 ], [ %141, %.thread157 ], [ -1094995529, %116 ], [ -1, %.preheader161 ], [ -1, %51 ], [ %.1127.lcssa, %.critedge ], [ %27, %26 ], [ -1, %._crit_edge ], [ -1, %.thread ]
+  %.0 = phi i32 [ 0, %177 ], [ 0, %11 ], [ 0, %2 ], [ %77, %74 ], [ %141, %.thread157 ], [ -1094995529, %116 ], [ -1, %.preheader161 ], [ -1, %51 ], [ -1, %.critedge ], [ %27, %26 ], [ -1, %._crit_edge ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   ret i32 %.0
 }

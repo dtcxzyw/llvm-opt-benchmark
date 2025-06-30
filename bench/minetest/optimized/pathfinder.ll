@@ -3733,8 +3733,7 @@ for.inc:                                          ; preds = %cleanup68.thread186
 cleanup71:                                        ; preds = %for.inc, %cleanup68
   %retval3.0202 = phi i8 [ %retval3.0204, %cleanup68 ], [ %retval3.8177, %for.inc ]
   %cmp.not199 = phi i1 [ false, %cleanup68 ], [ true, %for.inc ]
-  %25 = and i8 %retval3.0202, 1
-  %tobool75 = icmp ne i8 %25, 0
+  %tobool75 = icmp ne i8 %retval3.0202, 0
   %retval.9 = select i1 %cmp.not199, i1 %tobool75, i1 false
   br label %cleanup77
 

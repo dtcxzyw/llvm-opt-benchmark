@@ -1262,7 +1262,7 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_ref_pic_list_reordering(ptr
   %80 = sub nsw i32 0, %..i49
   %81 = sub nsw i32 %11, %..i49
   %82 = icmp slt i32 %79, %80
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %79, i32 %81)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %79, i32 %81)
   %.0.i.i.i = select i1 %82, i32 %80, i32 %..i.i.i
   %83 = add nsw i32 %.0.i.i.i, %..i49
   store i32 %83, ptr %8, align 8, !tbaa !147
@@ -2758,7 +2758,7 @@ print_long_term.exit:                             ; preds = %499, %print_short_t
   br label %584
 
 584:                                              ; preds = %528, %540, %553, %558, %566, %580, %573, %5
-  %.0230 = phi i32 [ %.7491, %573 ], [ %.7491, %580 ], [ %.7491, %566 ], [ %.7491, %558 ], [ %.7491, %553 ], [ %.7491, %540 ], [ %.7491, %528 ], [ -1094995529, %5 ]
+  %.0230 = phi i32 [ 0, %573 ], [ 0, %580 ], [ 0, %566 ], [ 0, %558 ], [ 0, %553 ], [ 0, %540 ], [ %.7491, %528 ], [ -1094995529, %5 ]
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %586 = load ptr, ptr %585, align 8, !tbaa !4
   %587 = getelementptr inbounds nuw i8, ptr %586, i64 528
@@ -3028,7 +3028,7 @@ define range(i32 -1, 1) i32 @ff_h264_decode_ref_pic_marking(ptr noundef captures
   %100 = sub nsw i32 0, %.sroa.46.0.copyload.i.i
   %101 = sub nsw i32 %.sroa.77.0.copyload.i.i, %.sroa.46.0.copyload.i.i
   %102 = icmp slt i32 %99, %100
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %99, i32 %101)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %99, i32 %101)
   %.0.i.i.i = select i1 %102, i32 %100, i32 %..i.i.i
   %103 = add nsw i32 %.0.i.i.i, %.sroa.46.0.copyload.i.i
   store i32 %103, ptr %9, align 8, !tbaa !147

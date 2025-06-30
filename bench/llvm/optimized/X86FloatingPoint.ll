@@ -3141,7 +3141,7 @@ _ZNK4llvm9InlineAsm4Flag21hasRegClassConstraintERj.exit.i: ; preds = %864
   br i1 %.not.i147, label %.critedge.i, label %.lr.ph.i137, !llvm.loop !377
 
 880:                                              ; preds = %.critedge.i
-  %881 = add i32 %.0.lcssa.i, 1
+  %881 = add nuw i32 %.0.lcssa.i, 1
   %882 = and i32 %881, %.0.lcssa.i
   %883 = icmp eq i32 %882, 0
   br i1 %883, label %885, label %884
@@ -3162,7 +3162,7 @@ _ZNK4llvm9InlineAsm4Flag21hasRegClassConstraintERj.exit.i: ; preds = %864
   br i1 %.not165.i, label %905, label %888
 
 888:                                              ; preds = %885
-  %889 = add i32 %.0141.lcssa.i, 1
+  %889 = add nuw i32 %.0141.lcssa.i, 1
   %890 = and i32 %889, %.0141.lcssa.i
   %891 = icmp eq i32 %890, 0
   br i1 %891, label %905, label %892
@@ -3174,7 +3174,7 @@ _ZNK4llvm9InlineAsm4Flag21hasRegClassConstraintERj.exit.i: ; preds = %864
   store i8 3, ptr %102, align 8, !tbaa !381
   call void @_ZNK4llvm12MachineInstr16emitGenericErrorERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(70) %storemerge56, ptr noundef nonnull align 8 dereferenceable(34) %14) #17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #17
-  %893 = zext i32 %.0141.lcssa.i to i64
+  %893 = zext nneg i32 %.0141.lcssa.i to i64
   %894 = lshr i64 %893, 1
   %895 = or i64 %894, %893
   %896 = lshr i64 %895, 2
@@ -3185,7 +3185,7 @@ _ZNK4llvm9InlineAsm4Flag21hasRegClassConstraintERj.exit.i: ; preds = %864
   %901 = or i64 %900, %899
   %902 = lshr i64 %901, 16
   %903 = or i64 %902, %901
-  %904 = trunc nuw i64 %903 to i32
+  %904 = trunc nuw nsw i64 %903 to i32
   br label %905
 
 905:                                              ; preds = %892, %888, %885
@@ -3197,7 +3197,7 @@ _ZNK4llvm9InlineAsm4Flag21hasRegClassConstraintERj.exit.i: ; preds = %864
 
 908:                                              ; preds = %905
   %909 = or i32 %.5.i, %.0146.lcssa.i
-  %910 = add i32 %909, 1
+  %910 = add nuw i32 %909, 1
   %911 = and i32 %910, %909
   %912 = icmp eq i32 %911, 0
   br i1 %912, label %._crit_edge297.i, label %913
@@ -3221,7 +3221,7 @@ _ZNK4llvm9InlineAsm4Flag21hasRegClassConstraintERj.exit.i: ; preds = %864
   br i1 %.not167.i, label %922, label %917
 
 917:                                              ; preds = %._crit_edge297.i
-  %918 = add i32 %916, 1
+  %918 = add nuw i32 %916, 1
   %919 = and i32 %918, %916
   %920 = icmp eq i32 %919, 0
   br i1 %920, label %922, label %921

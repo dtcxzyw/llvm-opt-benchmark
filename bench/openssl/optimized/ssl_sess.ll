@@ -1615,7 +1615,6 @@ define internal fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %0, 
 
 SSL_SESSION_list_remove.exit:                     ; preds = %42, %22, %16, %12
   %.020 = phi ptr [ null, %12 ], [ %18, %16 ], [ %18, %22 ], [ %18, %42 ]
-  %.1 = phi i32 [ 0, %12 ], [ 1, %16 ], [ 1, %22 ], [ 1, %42 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 688
   store i32 1, ptr %44, align 8, !tbaa !90
   br i1 %.not27, label %49, label %45
@@ -1644,7 +1643,7 @@ SSL_SESSION_list_remove.exit:                     ; preds = %42, %22, %16, %12
   br label %55
 
 55:                                               ; preds = %3, %4, %54, %53, %8
-  %.021 = phi i32 [ 0, %8 ], [ %.1, %54 ], [ 0, %53 ], [ 0, %4 ], [ 0, %3 ]
+  %.021 = phi i32 [ 0, %8 ], [ 1, %54 ], [ 0, %53 ], [ 0, %4 ], [ 0, %3 ]
   ret i32 %.021
 }
 

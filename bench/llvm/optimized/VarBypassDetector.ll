@@ -349,7 +349,7 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
   br i1 %.not77, label %.preheader, label %77
 
 77:                                               ; preds = %76
-  %78 = add i32 %.653149, -1
+  %78 = add nsw i32 %.653149, -1
   br label %select.unfold129
 
 .preheader:                                       ; preds = %76, %.thread109

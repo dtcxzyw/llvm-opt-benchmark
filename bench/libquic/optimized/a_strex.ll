@@ -1084,7 +1084,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.030.i = phi i32 [ 1, %168 ], [ 2, %172 ], [ 3, %176 ], [ 2, %182 ], [ 1, %184 ]
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #10
-  %187 = add nuw nsw i32 %.030.i, %.154100
+  %187 = add nsw i32 %.030.i, %.154100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %152, !llvm.loop !32

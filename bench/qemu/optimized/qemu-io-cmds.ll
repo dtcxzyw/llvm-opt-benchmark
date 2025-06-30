@@ -2046,7 +2046,7 @@ parse_pattern.exit:                               ; preds = %16
   %59 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #26
   store i32 2147483647, ptr %4, align 4
-  %60 = call ptr @blk_aio_preadv(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %.0.i63, ptr noundef nonnull %9, i32 noundef %.044.ph125, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %4) #26
+  %60 = call ptr @blk_aio_preadv(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %.0.i63, ptr noundef nonnull %9, i32 noundef range(i32 0, 16) %.044.ph125, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %4) #26
   %61 = load i32, ptr %4, align 4
   %62 = icmp eq i32 %61, 2147483647
   br i1 %62, label %.lr.ph.i, label %do_aio_readv.exit
@@ -2608,7 +2608,7 @@ parse_pattern.exit:                               ; preds = %19
   br i1 %138, label %select.unfold, label %139
 
 139:                                              ; preds = %137
-  %140 = call i32 @blk_pwrite(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %66, i64 noundef range(i64 0, -9223372036854775808) %80, ptr noundef %.0100, i32 noundef %.0103) #26
+  %140 = call i32 @blk_pwrite(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %66, i64 noundef range(i64 0, -9223372036854775808) %80, ptr noundef %.0100, i32 noundef range(i32 0, 512) %.0103) #26
   %141 = icmp slt i32 %140, 0
   br i1 %141, label %select.unfold, label %146
 
@@ -2921,7 +2921,7 @@ parse_pattern.exit:                               ; preds = %20
   %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #26
   store i32 2147483647, ptr %4, align 4
-  %61 = call ptr @blk_aio_pwritev(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %.0.i49, ptr noundef nonnull %9, i32 noundef %.037.ph89, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %4) #26
+  %61 = call ptr @blk_aio_pwritev(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %.0.i49, ptr noundef nonnull %9, i32 noundef range(i32 0, 32) %.037.ph89, ptr noundef nonnull @aio_rw_done, ptr noundef nonnull %4) #26
   %62 = load i32, ptr %4, align 4
   %63 = icmp eq i32 %62, 2147483647
   br i1 %63, label %.lr.ph.i, label %do_aio_writev.exit
@@ -5398,7 +5398,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @timer_del(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @sigraise_f(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
+define internal i32 @sigraise_f(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -5422,7 +5422,7 @@ define internal range(i32 -2147483648, 1) i32 @sigraise_f(ptr readnone captures(
   %switch.selectcmp3.i = icmp eq i64 %.0.i, -22
   %switch.select4.i = select i1 %switch.selectcmp3.i, ptr @.str.30, ptr %switch.select.i
   %15 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull %switch.select4.i, ptr noundef %14) #26
-  %16 = trunc nsw i64 %.0.i to i32
+  %16 = trunc i64 %.0.i to i32
   br label %29
 
 17:                                               ; preds = %3

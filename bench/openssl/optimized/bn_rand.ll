@@ -44,7 +44,7 @@ define internal fastcc range(i32 0, 2) i32 @bnrand(i32 noundef range(i32 0, 3) %
   br i1 %or.cond3, label %90, label %20
 
 20:                                               ; preds = %17
-  %21 = add nuw nsw i32 %2, 7
+  %21 = add nuw i32 %2, 7
   %22 = lshr i32 %21, 3
   %23 = and i32 %21, 7
   %24 = shl nuw nsw i32 510, %23

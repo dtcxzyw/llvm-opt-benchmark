@@ -849,7 +849,7 @@ define dso_local { ptr, ptr } @block_bind_library(ptr readnone captures(none) %0
   %spec.select = select i1 %.not40, i32 %8, i32 1028
   store ptr %33, ptr %29, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
-  %44 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %7, ptr nonnull %.03542, ptr %2, i32 noundef range(i32 1024, 5) %spec.select, i32 noundef 0)
+  %44 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %7, ptr nonnull %.03542, ptr %2, i32 noundef range(i32 4, 0) %spec.select, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
   store ptr %30, ptr %29, align 8, !tbaa !30
   tail call void @free(ptr noundef %33) #17
@@ -894,7 +894,7 @@ define dso_local { ptr, ptr } @block_bind_referenced(ptr readnone captures(none)
 
 13:                                               ; preds = %.lr.ph, %11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  %14 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr nonnull %.sroa.2.018, ptr %.sroa.07.019, i32 noundef range(i32 1024, 5) %7, i32 noundef 0)
+  %14 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr nonnull %.sroa.2.018, ptr %.sroa.07.019, i32 noundef range(i32 4, 0) %7, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.lr.ph.i, label %17
@@ -969,7 +969,7 @@ define dso_local { ptr, ptr } @block_bind_self(ptr readnone captures(none) %0, p
 
 11:                                               ; preds = %.lr.ph, %9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
-  %12 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr nonnull %.sroa.2.015, ptr %.sroa.05.016, i32 noundef range(i32 1024, 5) %5, i32 noundef 0)
+  %12 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr nonnull %.sroa.2.015, ptr %.sroa.05.016, i32 noundef range(i32 4, 0) %5, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   %.not.i.i = icmp eq ptr %.sroa.05.016, null
   br i1 %.not.i.i, label %block_join.exit, label %13
@@ -6563,7 +6563,7 @@ block_free.exit:                                  ; preds = %.lr.ph.i285, %._cri
 declare void @bytecode_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @block_bind_subblock_inner(ptr noundef nonnull writeonly captures(none) %0, ptr %1, ptr captures(address_is_null) %2, i32 noundef range(i32 1024, 5) %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @block_bind_subblock_inner(ptr noundef nonnull writeonly captures(none) %0, ptr %1, ptr captures(address_is_null) %2, i32 noundef range(i32 4, 0) %3, i32 noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %1, ptr %6, align 8, !tbaa !33
   %.not1 = icmp eq ptr %2, null

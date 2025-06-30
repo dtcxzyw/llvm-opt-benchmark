@@ -2684,7 +2684,7 @@ define dso_local range(i32 -1, 1) i32 @set_partition_billing_weights(ptr noundef
 declare ptr @slurm_get_tres_weight_array(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @update_part(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2171) i32 @update_part(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca [24 x i8], align 16
   %5 = alloca %struct.assoc_mgr_lock_t, align 4

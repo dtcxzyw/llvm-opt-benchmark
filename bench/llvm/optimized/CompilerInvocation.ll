@@ -55416,7 +55416,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(15248) %3) unnamed_addr #0 {
+define internal fastcc range(i64 0, 8589934592) i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 %0, i32 noundef range(i32 0, 58) %1, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(15248) %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_12OptSpecifierEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %2, i32 %0)
@@ -55424,7 +55424,7 @@ define internal fastcc range(i64 0, 8589934592) i64 @_ZL19normalizeSimpleEnumN4l
   br i1 %.not, label %67, label %8
 
 8:                                                ; preds = %4
-  %9 = zext i32 %1 to i64
+  %9 = zext nneg i32 %1 to i64
   %10 = getelementptr inbounds nuw [58 x %struct.SimpleEnumValueTable], ptr @_ZL21SimpleEnumValueTables, i64 0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !106

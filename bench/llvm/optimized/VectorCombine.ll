@@ -33389,7 +33389,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %.0134.i.i.us.i.i.i = phi i64 [ %.05.i.i.us.i.i.i, %37 ], [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ]
   %.05.in.i.i.us.i.i.i = add nsw i64 %.0134.i.i.us.i.i.i, -1
   %.05.i.i.us.i.i.i = sdiv i64 %.05.in.i.i.us.i.i.i, 2
-  %35 = getelementptr inbounds i32, ptr %0, i64 %.05.i.i.us.i.i.i
+  %35 = getelementptr inbounds nuw i32, ptr %0, i64 %.05.i.i.us.i.i.i
   %.val.i.i.us.i.i.i = load i32, ptr %35, align 4, !tbaa !66
   %36 = icmp ult i32 %.val.i.i.us.i.i.i, %24
   br i1 %36, label %37, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i"
@@ -33402,7 +33402,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 
 "_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i": ; preds = %37, %.lr.ph.i.i.us.i.i.i, %.split.us.i.i.i
   %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.0134.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.05.i.i.us.i.i.i, %37 ]
-  %40 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
+  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
   store i32 %24, ptr %40, align 4, !tbaa !66
   %.not.us.i.i.i = icmp eq i64 %.014.us.i.i.i, 0
   %41 = add nsw i64 %.014.us.i.i.i, -1
@@ -33452,7 +33452,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %.0134.i.i.i.i.i = phi i64 [ %.05.i.i.i.i.i, %61 ], [ %.128.i.i.i.i, %57 ]
   %.05.in.i.i.i.i.i = add nsw i64 %.0134.i.i.i.i.i, -1
   %.05.i.i.i.i.i = sdiv i64 %.05.in.i.i.i.i.i, 2
-  %59 = getelementptr inbounds i32, ptr %0, i64 %.05.i.i.i.i.i
+  %59 = getelementptr inbounds nuw i32, ptr %0, i64 %.05.i.i.i.i.i
   %.val.i.i.i.i.i = load i32, ptr %59, align 4, !tbaa !66
   %60 = icmp ult i32 %.val.i.i.i.i.i, %43
   br i1 %60, label %61, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
@@ -33465,7 +33465,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 
 "_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i": ; preds = %61, %.lr.ph.i.i.i.i.i, %57
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %57 ], [ %.0134.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.05.i.i.i.i.i, %61 ]
-  %64 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %64 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i32 %43, ptr %64, align 4, !tbaa !66
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %65 = add nsw i64 %.014.i.i.i, -1
@@ -33552,7 +33552,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 
 "_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_SB_SB_RT0_.exit.i.i": ; preds = %98, %.lr.ph.i.i.i.i10.i, %95
   %.013.lcssa.i.i.i.i14.i = phi i64 [ 0, %95 ], [ %.0134.i.i.i.i11.i, %.lr.ph.i.i.i.i10.i ], [ 0, %98 ]
-  %100 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i14.i
+  %100 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.i.i14.i
   store i32 %67, ptr %100, align 4, !tbaa !66
   %101 = icmp sgt i64 %70, 4
   br i1 %101, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !754

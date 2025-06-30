@@ -13757,7 +13757,7 @@ define dso_local ptr @skb_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
   br i1 %707, label %713, label %708
 
 708:                                              ; preds = %698
-  %709 = add i32 %582, 1
+  %709 = add nsw i32 %582, 1
   %710 = getelementptr i8, ptr %581, i64 16
   %711 = getelementptr i8, ptr %517, i64 16
   %712 = icmp ult i32 %706, %514

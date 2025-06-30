@@ -149790,7 +149790,7 @@ _ZN4llvm16isShiftedMask_64EmRjS0_.exit:           ; preds = %14, %_ZN4llvm16isSh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111DAGCombiner17isLegalNarrowLdStEPN4llvm12LSBaseSDNodeENS1_3ISD11LoadExtTypeERNS1_3EVTEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(956) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111DAGCombiner17isLegalNarrowLdStEPN4llvm12LSBaseSDNodeENS1_3ISD11LoadExtTypeERNS1_3EVTEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(956) %0, ptr noundef %1, i32 noundef range(i32 0, 4) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"struct.llvm::EVT", align 8
@@ -150092,14 +150092,14 @@ _ZNK4llvm9MemSDNode10getBasePtrEv.exit:           ; preds = %106, %106, %106, %1
 _ZNK4llvm18TargetLoweringBase14isLoadExtLegalEjNS_3EVTES1_.exit: ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !438
-  %134 = shl i32 %2, 2
+  %134 = shl nuw nsw i32 %2, 2
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 121550
   %136 = zext i16 %.sroa.0.0.copyload.i86 to i64
   %137 = zext i16 %.sroa.024.0.copyload to i64
   %138 = getelementptr inbounds nuw [234 x [234 x i16]], ptr %135, i64 0, i64 %136, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !430
   %140 = zext i16 %139 to i32
-  %141 = shl i32 15, %134
+  %141 = shl nuw nsw i32 15, %134
   %142 = and i32 %141, %140
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %.critedge75
@@ -195068,15 +195068,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_111LoadedSliceE
   %.028 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.028, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %9
   %gep = getelementptr %"struct.(anonymous namespace)::LoadedSlice", ptr %invariant.gep, i64 %8
   %11 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %10)
   %12 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %gep)
   %13 = icmp ult i64 %11, %12
   %14 = or disjoint i64 %8, 1
   %spec.select = select i1 %13, i64 %14, i64 %9
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.028
+  %15 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.028
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false), !tbaa.struct !966
   %17 = icmp slt i64 %spec.select, %6
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !1844
@@ -195097,7 +195097,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_111LoadedSliceE
   %25 = shl nuw nsw i64 %.0.lcssa, 1
   %26 = or disjoint i64 %25, 1
   %27 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %26
-  %28 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0.lcssa
+  %28 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false), !tbaa.struct !966
   br label %29
 
@@ -195110,7 +195110,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_111LoadedSliceE
   %.0133.i = phi i64 [ %.04.i, %35 ], [ %.127, %29 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %31 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.04.i
+  %31 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.04.i
   %32 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %31)
   %33 = call fastcc noundef i64 @_ZNK12_GLOBAL__N_111LoadedSlice17getOffsetFromBaseEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %3)
   %34 = icmp ult i64 %32, %33
@@ -195124,7 +195124,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_111LoadedSliceE
 
 "_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %.lr.ph.i, %35, %29
   %.013.lcssa.i = phi i64 [ %.127, %29 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %35 ]
-  %38 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.013.lcssa.i
+  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.013.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
 }
@@ -202558,8 +202558,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111DAGCombin
   %38 = icmp slt i64 %.val.i.i.i.i, %.val30.i.i.i.i
   %39 = or disjoint i64 %35, 1
   %spec.select.i.i.i.i = select i1 %38, i64 %39, i64 %36
-  %40 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %spec.select.i.i.i.i
-  %41 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.031.i.i.i.i
+  %40 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %spec.select.i.i.i.i
+  %41 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.031.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !1055
   %42 = icmp slt i64 %spec.select.i.i.i.i, %26
   br i1 %42, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1943
@@ -202583,7 +202583,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111DAGCombin
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %50 ], [ %.1.i.i.i.i, %45 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %47 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.04.i.i.i.i.i
+  %47 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.04.i.i.i.i.i
   %48 = getelementptr i8, ptr %47, i64 8
   %.val.i.i.i.i.i = load i64, ptr %48, align 8, !tbaa !9
   %49 = icmp slt i64 %.val.i.i.i.i.i, %.sroa.4.0.copyload.i.i.i
@@ -202597,7 +202597,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111DAGCombin
 
 "_ZSt13__adjust_heapIPN12_GLOBAL__N_111DAGCombiner9MemOpLinkElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22mergeConsecutiveStoresEPN4llvm11StoreSDNodeEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i": ; preds = %50, %.lr.ph.i.i.i.i.i, %45
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %45 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %50 ]
-  %53 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %.sroa.02.0.copyload.i.i.i, ptr %53, align 8, !tbaa !1056
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !9
@@ -202631,8 +202631,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111DAGCombin
   %65 = icmp slt i64 %.val.i.i.i21.i, %.val30.i.i.i23.i
   %66 = or disjoint i64 %62, 1
   %spec.select.i.i.i24.i = select i1 %65, i64 %66, i64 %63
-  %67 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %spec.select.i.i.i24.i
-  %68 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.031.i.i.i20.i
+  %67 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %spec.select.i.i.i24.i
+  %68 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.031.i.i.i20.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !1055
   %69 = icmp slt i64 %spec.select.i.i.i24.i, %60
   br i1 %69, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i10.i, !llvm.loop !1943
@@ -202653,7 +202653,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111DAGCombin
   %76 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
   %77 = or disjoint i64 %76, 1
   %78 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %77
-  %79 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.0.lcssa.i.i.i11.i
+  %79 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.0.lcssa.i.i.i11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !1055
   br label %.lr.ph.i.i.i.i13.i.preheader
 
@@ -202683,7 +202683,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111DAGCombin
 
 "_ZSt10__pop_heapIPN12_GLOBAL__N_111DAGCombiner9MemOpLinkEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22mergeConsecutiveStoresEPN4llvm11StoreSDNodeEE3$_0EEEvT_SC_SC_RT0_.exit.i.i": ; preds = %84, %.lr.ph.i.i.i.i13.i, %80
   %.013.lcssa.i.i.i.i17.i = phi i64 [ 0, %80 ], [ %.0133.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ], [ 0, %84 ]
-  %86 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.013.lcssa.i.i.i.i17.i
+  %86 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.013.lcssa.i.i.i.i17.i
   store ptr %.sroa.02.0.copyload.i.i7.i, ptr %86, align 8, !tbaa !1056
   %.sroa.2.0..sroa_idx.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 %.sroa.4.0.copyload.i.i9.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i18.i, align 8, !tbaa !9

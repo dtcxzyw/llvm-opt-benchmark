@@ -68405,7 +68405,7 @@ _ZN5serde2de9MapAccess10next_value17h413e6883c214dba9E.exit.i: ; preds = %141
   %331 = load ptr, ptr %37, align 8, !noalias !17842, !noundef !5
   %332 = icmp ne ptr %331, null
   %333 = trunc nuw i8 %.sroa.0107.3.i to i1
-  %or.cond3.i = and i1 %332, %333
+  %or.cond3.i = select i1 %332, i1 %333, i1 false
   br i1 %or.cond3.i, label %353, label %common.resume
 
 "_ZN4core3ptr159drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$$GT$17h23d28876ab618648E.exit.i": ; preds = %328, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc5ea96ce0908134eE.llvm.10833762189268282141.exit.i.i"

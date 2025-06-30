@@ -1030,7 +1030,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr noundef read
   %172 = load ptr, ptr %10, align 8
   %173 = zext i32 %.084.lcssa to i64
   %174 = getelementptr i8, ptr %1, i64 %173
-  %175 = add i32 %.084.lcssa, 1
+  %175 = add nuw i32 %.084.lcssa, 1
   %176 = zext i32 %175 to i64
   %177 = getelementptr i8, ptr %1, i64 %176
   %178 = load i8, ptr %177, align 1
@@ -1040,7 +1040,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr noundef read
   %182 = load ptr, ptr %10, align 8
   %183 = zext i32 %.088.lcssa to i64
   %184 = getelementptr i8, ptr %1, i64 %183
-  %185 = add i32 %.088.lcssa, 1
+  %185 = add nuw i32 %.088.lcssa, 1
   %186 = zext i32 %185 to i64
   %187 = getelementptr i8, ptr %1, i64 %186
   %188 = load i8, ptr %187, align 1
@@ -1050,7 +1050,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr noundef read
   %192 = load ptr, ptr %10, align 8
   %193 = zext i32 %.082.lcssa to i64
   %194 = getelementptr i8, ptr %1, i64 %193
-  %195 = add i32 %.082.lcssa, 1
+  %195 = add nuw i32 %.082.lcssa, 1
   %196 = zext i32 %195 to i64
   %197 = getelementptr i8, ptr %1, i64 %196
   %198 = load i8, ptr %197, align 1
@@ -1063,7 +1063,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanTdlsForKeys(ptr noundef read
   %205 = call i32 @gcry_mac_write(ptr noundef %202, ptr noundef %204, i64 noundef 4)
   %206 = load ptr, ptr %10, align 8
   %207 = call i32 @gcry_mac_write(ptr noundef %206, ptr noundef nonnull %9, i64 noundef 16)
-  %208 = add i32 %.086.lcssa, 1
+  %208 = add nuw i32 %.086.lcssa, 1
   %209 = zext i32 %208 to i64
   %210 = getelementptr i8, ptr %1, i64 %209
   %211 = load i8, ptr %210, align 1

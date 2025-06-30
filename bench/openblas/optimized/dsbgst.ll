@@ -2759,7 +2759,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1570 = fmul double %1559, %1569
   %1571 = call double @llvm.fmuladd.f64(double %1570, double %1563, double %1568)
   store double %1571, ptr %1553, align 8, !tbaa !7
-  %indvars.iv.next3791 = add nuw nsw i64 %indvars.iv3790, 1
+  %indvars.iv.next3791 = add nsw i64 %indvars.iv3790, 1
   %.not2726.us.not = icmp slt i64 %indvars.iv3790, %2149
   br i1 %.not2726.us.not, label %1549, label %1572, !llvm.loop !58
 
@@ -2768,7 +2768,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not2728.not3421.us, label %.lr.ph3424.us, label %._crit_edge3425.us
 
 ._crit_edge3425.us:                               ; preds = %1574, %1572
-  %indvars.iv.next3789 = add nuw nsw i64 %indvars.iv3788, 1
+  %indvars.iv.next3789 = add nsw i64 %indvars.iv3788, 1
   %.not2705.us.not = icmp slt i64 %indvars.iv3788, %2149
   br i1 %.not2705.us.not, label %1539, label %._crit_edge3432.us, !llvm.loop !59
 
@@ -3320,7 +3320,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1885, label %1886, label %.outer.us.backedge
 
 1886:                                             ; preds = %._crit_edge3550.us
-  %1887 = add nuw nsw i32 %.pre3890, %.32608.us
+  %1887 = add nsw i32 %.pre3890, %.32608.us
   store i32 %1887, ptr %17, align 4, !tbaa !3
   %1888 = call i32 @llvm.smin.i32(i32 %1887, i32 %77)
   %1889 = shl i32 %.pre3870.pre.pre, 1
@@ -3594,7 +3594,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not26982892.us, label %2064, label %2050
 
 2050:                                             ; preds = %._crit_edge3504.us
-  %2051 = add nuw nsw i32 %.2125783511.us, %.32608.us
+  %2051 = add nsw i32 %.2125783511.us, %.32608.us
   %2052 = icmp sle i32 %2051, %2040
   %2053 = load i32, ptr %25, align 4
   %.not2717.us = icmp sgt i32 %.2125783511.us, %2053
@@ -3717,7 +3717,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %2127, label %.lr.ph3484.us, label %._crit_edge3485.us.loopexit, !llvm.loop !78
 
 .lr.ph3217.us:                                    ; preds = %.outer.us
-  %2128 = add nuw nsw i32 %.22607.ph.us, 1
+  %2128 = add nsw i32 %.22607.ph.us, 1
   %2129 = sub nsw i32 %77, %2128
   %2130 = call i32 @llvm.smin.i32(i32 %1501, i32 %2129)
   store i32 %2130, ptr %25, align 4, !tbaa !3
@@ -3735,7 +3735,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph3217.split.us.us:                           ; preds = %.lr.ph3217.us
   store i32 1, ptr %16, align 4, !tbaa !3
-  %2137 = add nuw nsw i32 %.22607.ph.us, 2
+  %2137 = add nsw i32 %.22607.ph.us, 2
   br label %1505
 
 .lr.ph3217.split.split.us:                        ; preds = %.lr.ph3217.split.us3565
@@ -3929,7 +3929,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not26983214, label %2223, label %.lr.ph3217
 
 .lr.ph3217:                                       ; preds = %.outer
-  %2213 = add nuw nsw i32 %.22607.ph, 1
+  %2213 = add nsw i32 %.22607.ph, 1
   %2214 = sub nsw i32 %77, %2213
   %2215 = call i32 @llvm.smin.i32(i32 %2212, i32 %2214)
   store i32 %2215, ptr %25, align 4, !tbaa !3
@@ -3943,7 +3943,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph3217.split.us:                              ; preds = %.lr.ph3217
   store i32 %2216, ptr %17, align 4, !tbaa !3
-  %2221 = add nuw nsw i32 %.22607.ph, 2
+  %2221 = add nsw i32 %.22607.ph, 2
   br label %2226
 
 .lr.ph3217.split:                                 ; preds = %.lr.ph3217
@@ -4163,7 +4163,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not2755.not, label %2321, label %._crit_edge3251, !llvm.loop !82
 
 ._crit_edge3251:                                  ; preds = %2321, %._crit_edge3244
-  %indvars.iv.next3729 = add nuw nsw i64 %indvars.iv3728, 1
+  %indvars.iv.next3729 = add nsw i64 %indvars.iv3728, 1
   %.not2732.not = icmp slt i64 %indvars.iv3728, %2277
   br i1 %.not2732.not, label %2279, label %._crit_edge3260, !llvm.loop !83
 
@@ -4674,7 +4674,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 2630:                                             ; preds = %2626
   %2631 = sub i32 %42, %2628
-  %2632 = add nuw nsw i32 %2628, %.32608
+  %2632 = add nsw i32 %2628, %.32608
   %2633 = mul nsw i32 %2632, %30
   %2634 = add nsw i32 %2631, %2633
   %2635 = sext i32 %2634 to i64
@@ -4880,7 +4880,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not26982892, label %2768, label %2754
 
 2754:                                             ; preds = %._crit_edge3347
-  %2755 = add nuw nsw i32 %.1525723354, %.32608
+  %2755 = add nsw i32 %.1525723354, %.32608
   %2756 = icmp sle i32 %2755, %2702
   %2757 = load i32, ptr %25, align 4
   %.not2744 = icmp sgt i32 %.1525723354, %2757
@@ -5226,7 +5226,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %2958, label %2959, label %.outer.backedge
 
 2959:                                             ; preds = %._crit_edge3393
-  %2960 = add nuw nsw i32 %.pre3869, %.32608
+  %2960 = add nsw i32 %.pre3869, %.32608
   store i32 %2960, ptr %16, align 4, !tbaa !3
   %2961 = call i32 @llvm.smin.i32(i32 %2960, i32 %77)
   %2962 = shl i32 %.pre3846.pre.pre, 1

@@ -396,7 +396,7 @@ define dso_local zeroext i16 @_hash_binsearch_last(ptr noundef readonly captures
   %.019 = phi i16 [ %8, %.lr.ph ], [ %.1, %10 ]
   %.01318 = phi i16 [ 0, %.lr.ph ], [ %.114, %10 ]
   %11 = zext i16 %.01318 to i32
-  %12 = zext nneg i16 %.019 to i32
+  %12 = zext i16 %.019 to i32
   %13 = add nuw nsw i32 %11, 1
   %14 = add nuw nsw i32 %13, %12
   %15 = lshr i32 %14, 1

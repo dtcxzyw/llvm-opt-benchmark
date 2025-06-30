@@ -21476,10 +21476,10 @@ _PyUnicode_DATA.exit:                             ; preds = %16, %18
   %29 = trunc nuw nsw i32 %2 to i16
   br label %30
 
-30:                                               ; preds = %.lr.ph265, %144
-  %.0104264 = phi i64 [ 0, %.lr.ph265 ], [ %.6, %144 ]
-  %.0110263 = phi i32 [ 0, %.lr.ph265 ], [ %.3113, %144 ]
-  %.0114262 = phi ptr [ %24, %.lr.ph265 ], [ %.9, %144 ]
+30:                                               ; preds = %.lr.ph265, %145
+  %.0104264 = phi i64 [ 0, %.lr.ph265 ], [ %.6, %145 ]
+  %.0110263 = phi i32 [ 0, %.lr.ph265 ], [ %.3113, %145 ]
+  %.0114262 = phi ptr [ %24, %.lr.ph265 ], [ %.9, %145 ]
   switch i16 %14, label %39 [
     i16 1, label %31
     i16 2, label %35
@@ -21512,7 +21512,7 @@ PyUnicode_READ.exit:                              ; preds = %31, %35, %39
   %45 = getelementptr i8, ptr %.0114262, i64 1
   store i8 %44, ptr %.0114262, align 1, !tbaa !195
   %46 = add nsw i64 %.0104264, 1
-  br label %144
+  br label %145
 
 47:                                               ; preds = %PyUnicode_READ.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #41
@@ -21576,325 +21576,329 @@ PyUnicode_READ.exit165:                           ; preds = %.split
 63:                                               ; preds = %61, %.critedge
   %.2112 = phi i32 [ %62, %61 ], [ %.0110263, %.critedge ]
   switch i32 %.2112, label %.loopexit [
-    i32 1, label %64
-    i32 3, label %68
+    i32 1, label %65
+    i32 3, label %69
     i32 4, label %.thread
-    i32 5, label %71
-    i32 7, label %76
+    i32 5, label %72
+    i32 7, label %77
     i32 2, label %.preheader
   ]
 
 .preheader:                                       ; preds = %63
   %.not150257 = icmp sgt i64 %.0104264, %.us-phi240
-  br i1 %.not150257, label %.thread, label %.lr.ph
+  br i1 %.not150257, label %.thread, label %.lr.ph.preheader
 
-64:                                               ; preds = %63
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %64 = add i64 %.us-phi240, 1
+  br label %.lr.ph
+
+65:                                               ; preds = %63
   call fastcc void @make_encode_exception(ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef %0, i64 noundef %.0104264, i64 noundef %.us-phi, ptr noundef nonnull %10)
-  %65 = load ptr, ptr %5, align 8, !tbaa !183
-  %.not.i166 = icmp eq ptr %65, null
-  br i1 %.not.i166, label %.loopexit217, label %66
+  %66 = load ptr, ptr %5, align 8, !tbaa !183
+  %.not.i166 = icmp eq ptr %66, null
+  br i1 %.not.i166, label %.loopexit217, label %67
 
-66:                                               ; preds = %64
-  %67 = call ptr @PyCodec_StrictErrors(ptr noundef nonnull %65) #41
+67:                                               ; preds = %65
+  %68 = call ptr @PyCodec_StrictErrors(ptr noundef nonnull %66) #41
   br label %.loopexit217
 
-68:                                               ; preds = %63
-  %69 = sub i64 %.us-phi, %.0104264
-  call void @llvm.memset.p0.i64(ptr align 1 %.0114262, i8 63, i64 %69, i1 false)
-  %70 = getelementptr i8, ptr %.0114262, i64 %69
+69:                                               ; preds = %63
+  %70 = sub i64 %.us-phi, %.0104264
+  call void @llvm.memset.p0.i64(ptr align 1 %.0114262, i8 63, i64 %70, i1 false)
+  %71 = getelementptr i8, ptr %.0114262, i64 %70
   br label %.thread
 
-71:                                               ; preds = %63
+72:                                               ; preds = %63
   %.neg152 = sub i64 %.0104264, %.us-phi
-  %72 = load i64, ptr %28, align 8, !tbaa !344
-  %73 = add i64 %.neg152, %72
-  store i64 %73, ptr %28, align 8, !tbaa !344
-  %74 = call fastcc ptr @backslashreplace(ptr noundef %6, ptr noundef %.0114262, ptr noundef %0, i64 noundef %.0104264, i64 noundef %.us-phi)
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.loopexit217, label %.thread
+  %73 = load i64, ptr %28, align 8, !tbaa !344
+  %74 = add i64 %.neg152, %73
+  store i64 %74, ptr %28, align 8, !tbaa !344
+  %75 = call fastcc ptr @backslashreplace(ptr noundef %6, ptr noundef %.0114262, ptr noundef %0, i64 noundef %.0104264, i64 noundef %.us-phi)
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %.loopexit217, label %.thread
 
-76:                                               ; preds = %63
+77:                                               ; preds = %63
   %.neg = sub i64 %.0104264, %.us-phi
-  %77 = load i64, ptr %28, align 8, !tbaa !344
-  %78 = add i64 %.neg, %77
-  store i64 %78, ptr %28, align 8, !tbaa !344
-  %79 = call fastcc ptr @xmlcharrefreplace(ptr noundef %6, ptr noundef %.0114262, ptr noundef %0, i64 noundef %.0104264, i64 noundef %.us-phi)
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %.loopexit217, label %.thread
+  %78 = load i64, ptr %28, align 8, !tbaa !344
+  %79 = add i64 %.neg, %78
+  store i64 %79, ptr %28, align 8, !tbaa !344
+  %80 = call fastcc ptr @xmlcharrefreplace(ptr noundef %6, ptr noundef %.0114262, ptr noundef %0, i64 noundef %.0104264, i64 noundef %.us-phi)
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %.loopexit217, label %.thread
 
-.lr.ph:                                           ; preds = %.preheader, %93
-  %.5260 = phi i64 [ %96, %93 ], [ %.0104264, %.preheader ]
-  %.6120258 = phi ptr [ %95, %93 ], [ %.0114262, %.preheader ]
-  switch i16 %14, label %89 [
-    i16 1, label %81
-    i16 2, label %85
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %94
+  %.5260 = phi i64 [ %97, %94 ], [ %.0104264, %.lr.ph.preheader ]
+  %.6120258 = phi ptr [ %96, %94 ], [ %.0114262, %.lr.ph.preheader ]
+  switch i16 %14, label %90 [
+    i16 1, label %82
+    i16 2, label %86
   ]
 
-81:                                               ; preds = %.lr.ph
-  %82 = getelementptr i8, ptr %.0.i, i64 %.5260
-  %83 = load i8, ptr %82, align 1, !tbaa !195
-  %84 = zext i8 %83 to i32
+82:                                               ; preds = %.lr.ph
+  %83 = getelementptr i8, ptr %.0.i, i64 %.5260
+  %84 = load i8, ptr %83, align 1, !tbaa !195
+  %85 = zext i8 %84 to i32
   br label %PyUnicode_READ.exit168
 
-85:                                               ; preds = %.lr.ph
-  %86 = getelementptr i16, ptr %.0.i, i64 %.5260
-  %87 = load i16, ptr %86, align 2, !tbaa !199
-  %88 = zext i16 %87 to i32
+86:                                               ; preds = %.lr.ph
+  %87 = getelementptr i16, ptr %.0.i, i64 %.5260
+  %88 = load i16, ptr %87, align 2, !tbaa !199
+  %89 = zext i16 %88 to i32
   br label %PyUnicode_READ.exit168
 
-89:                                               ; preds = %.lr.ph
-  %90 = getelementptr i32, ptr %.0.i, i64 %.5260
-  %91 = load i32, ptr %90, align 4, !tbaa !200
+90:                                               ; preds = %.lr.ph
+  %91 = getelementptr i32, ptr %.0.i, i64 %.5260
+  %92 = load i32, ptr %91, align 4, !tbaa !200
   br label %PyUnicode_READ.exit168
 
-PyUnicode_READ.exit168:                           ; preds = %81, %85, %89
-  %.0.i167 = phi i32 [ %84, %81 ], [ %88, %85 ], [ %91, %89 ]
-  %92 = add i32 %.0.i167, -56576
-  %or.cond = icmp ult i32 %92, -128
-  br i1 %or.cond, label %.loopexit, label %93
+PyUnicode_READ.exit168:                           ; preds = %82, %86, %90
+  %.0.i167 = phi i32 [ %85, %82 ], [ %89, %86 ], [ %92, %90 ]
+  %93 = add i32 %.0.i167, -56576
+  %or.cond = icmp ult i32 %93, -128
+  br i1 %or.cond, label %.loopexit, label %94
 
-93:                                               ; preds = %PyUnicode_READ.exit168
-  %94 = trunc i32 %.0.i167 to i8
-  %95 = getelementptr i8, ptr %.6120258, i64 1
-  store i8 %94, ptr %.6120258, align 1, !tbaa !195
-  %96 = add i64 %.5260, 1
-  %.not150 = icmp sgt i64 %96, %.us-phi240
-  br i1 %.not150, label %.thread, label %.lr.ph, !llvm.loop !345
+94:                                               ; preds = %PyUnicode_READ.exit168
+  %95 = trunc i32 %.0.i167 to i8
+  %96 = getelementptr i8, ptr %.6120258, i64 1
+  store i8 %95, ptr %.6120258, align 1, !tbaa !195
+  %97 = add i64 %.5260, 1
+  %exitcond.not = icmp eq i64 %.5260, %.us-phi240
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !345
 
 .loopexit:                                        ; preds = %PyUnicode_READ.exit168, %63
   %.2116 = phi ptr [ %.0114262, %63 ], [ %.6120258, %PyUnicode_READ.exit168 ]
   %.2 = phi i64 [ %.0104264, %63 ], [ %.5260, %PyUnicode_READ.exit168 ]
-  %97 = call fastcc ptr @unicode_encode_call_errorhandler(ptr noundef %1, ptr noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %0, ptr noundef %5, i64 noundef %.2, i64 noundef %.us-phi, ptr noundef %7)
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %.thread212, label %99
+  %98 = call fastcc ptr @unicode_encode_call_errorhandler(ptr noundef %1, ptr noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %0, ptr noundef %5, i64 noundef %.2, i64 noundef %.us-phi, ptr noundef %7)
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %.thread212, label %100
 
 .thread212:                                       ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #41
   br label %Py_XDECREF.exit186
 
-99:                                               ; preds = %.loopexit
-  %100 = load i64, ptr %7, align 8, !tbaa !182
-  %101 = icmp slt i64 %100, %.2
-  br i1 %101, label %102, label %106
+100:                                              ; preds = %.loopexit
+  %101 = load i64, ptr %7, align 8, !tbaa !182
+  %102 = icmp slt i64 %101, %.2
+  br i1 %102, label %103, label %107
 
-102:                                              ; preds = %99
+103:                                              ; preds = %100
   store i32 1, ptr %27, align 4, !tbaa !343
-  %103 = sub i64 %.2, %100
-  %104 = call ptr @_PyBytesWriter_Prepare(ptr noundef nonnull %6, ptr noundef %.2116, i64 noundef %103) #41
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %.thread208, label %111
+  %104 = sub i64 %.2, %101
+  %105 = call ptr @_PyBytesWriter_Prepare(ptr noundef nonnull %6, ptr noundef %.2116, i64 noundef %104) #41
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %.thread208, label %112
 
-106:                                              ; preds = %99
-  %.neg153 = sub i64 %.2, %100
-  %107 = load i64, ptr %28, align 8, !tbaa !344
-  %108 = add i64 %.neg153, %107
-  store i64 %108, ptr %28, align 8, !tbaa !344
-  %109 = icmp slt i64 %100, %.val160
-  %110 = zext i1 %109 to i32
-  store i32 %110, ptr %27, align 4, !tbaa !343
-  br label %111
+107:                                              ; preds = %100
+  %.neg153 = sub i64 %.2, %101
+  %108 = load i64, ptr %28, align 8, !tbaa !344
+  %109 = add i64 %.neg153, %108
+  store i64 %109, ptr %28, align 8, !tbaa !344
+  %110 = icmp slt i64 %101, %.val160
+  %111 = zext i1 %110 to i32
+  store i32 %111, ptr %27, align 4, !tbaa !343
+  br label %112
 
-111:                                              ; preds = %102, %106
-  %.7 = phi ptr [ %104, %102 ], [ %.2116, %106 ]
-  %112 = getelementptr i8, ptr %97, i64 8
-  %.val = load ptr, ptr %112, align 8, !tbaa !187
-  %113 = getelementptr i8, ptr %.val, i64 168
-  %.val157 = load i64, ptr %113, align 8, !tbaa !188
-  %114 = and i64 %.val157, 134217728
-  %.not154 = icmp eq i64 %114, 0
-  br i1 %.not154, label %117, label %115
+112:                                              ; preds = %103, %107
+  %.7 = phi ptr [ %105, %103 ], [ %.2116, %107 ]
+  %113 = getelementptr i8, ptr %98, i64 8
+  %.val = load ptr, ptr %113, align 8, !tbaa !187
+  %114 = getelementptr i8, ptr %.val, i64 168
+  %.val157 = load i64, ptr %114, align 8, !tbaa !188
+  %115 = and i64 %.val157, 134217728
+  %.not154 = icmp eq i64 %115, 0
+  br i1 %.not154, label %118, label %116
 
-115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw i8, ptr %97, i64 32
+116:                                              ; preds = %112
+  %117 = getelementptr inbounds nuw i8, ptr %98, i64 32
   br label %_PyUnicode_DATA.exit178
 
-117:                                              ; preds = %111
-  %118 = getelementptr i8, ptr %97, i64 34
-  %119 = load i16, ptr %118, align 2
-  br i1 %8, label %120, label %122
+118:                                              ; preds = %112
+  %119 = getelementptr i8, ptr %98, i64 34
+  %120 = load i16, ptr %119, align 2
+  br i1 %8, label %121, label %123
 
-120:                                              ; preds = %117
-  %121 = and i16 %119, 7
-  %.not156 = icmp eq i16 %121, 1
-  br i1 %.not156, label %128, label %124
+121:                                              ; preds = %118
+  %122 = and i16 %120, 7
+  %.not156 = icmp eq i16 %122, 1
+  br i1 %.not156, label %129, label %125
 
-122:                                              ; preds = %117
-  %123 = and i16 %119, 16
-  %.not155 = icmp eq i16 %123, 0
-  br i1 %.not155, label %124, label %128
+123:                                              ; preds = %118
+  %124 = and i16 %120, 16
+  %.not155 = icmp eq i16 %124, 0
+  br i1 %.not155, label %125, label %129
 
-124:                                              ; preds = %122, %120
+125:                                              ; preds = %123, %121
   call fastcc void @make_encode_exception(ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef %0, i64 noundef %.2, i64 noundef %.us-phi, ptr noundef nonnull %10)
-  %125 = load ptr, ptr %5, align 8, !tbaa !183
-  %.not.i169 = icmp eq ptr %125, null
-  br i1 %.not.i169, label %.thread208, label %126
+  %126 = load ptr, ptr %5, align 8, !tbaa !183
+  %.not.i169 = icmp eq ptr %126, null
+  br i1 %.not.i169, label %.thread208, label %127
 
-126:                                              ; preds = %124
-  %127 = call ptr @PyCodec_StrictErrors(ptr noundef nonnull %125) #41
+127:                                              ; preds = %125
+  %128 = call ptr @PyCodec_StrictErrors(ptr noundef nonnull %126) #41
   br label %.thread208
 
-128:                                              ; preds = %122, %120
-  %129 = and i16 %119, 8
-  %.not.i172 = icmp eq i16 %129, 0
-  br i1 %.not.i172, label %132, label %130
+129:                                              ; preds = %123, %121
+  %130 = and i16 %120, 8
+  %.not.i172 = icmp eq i16 %130, 0
+  br i1 %.not.i172, label %133, label %131
 
-130:                                              ; preds = %128
-  %131 = and i16 %119, 16
-  %.not.i.i173 = icmp eq i16 %131, 0
+131:                                              ; preds = %129
+  %132 = and i16 %120, 16
+  %.not.i.i173 = icmp eq i16 %132, 0
   %.0.v.i.i174 = select i1 %.not.i.i173, i64 56, i64 40
-  %.0.i.i175 = getelementptr i8, ptr %97, i64 %.0.v.i.i174
+  %.0.i.i175 = getelementptr i8, ptr %98, i64 %.0.v.i.i174
   br label %_PyUnicode_DATA.exit178
 
-132:                                              ; preds = %128
-  %133 = getelementptr i8, ptr %97, i64 56
-  %.val4.i177 = load ptr, ptr %133, align 8, !tbaa !195
+133:                                              ; preds = %129
+  %134 = getelementptr i8, ptr %98, i64 56
+  %.val4.i177 = load ptr, ptr %134, align 8, !tbaa !195
   br label %_PyUnicode_DATA.exit178
 
-_PyUnicode_DATA.exit178:                          ; preds = %132, %130, %115
-  %.0.i176.sink = phi ptr [ %116, %115 ], [ %.0.i.i175, %130 ], [ %.val4.i177, %132 ]
-  %134 = getelementptr i8, ptr %97, i64 16
-  %.val159 = load i64, ptr %134, align 8, !tbaa !182
-  %135 = call ptr @_PyBytesWriter_WriteBytes(ptr noundef nonnull %6, ptr noundef %.7, ptr noundef %.0.i176.sink, i64 noundef %.val159) #41
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %.thread208, label %137
+_PyUnicode_DATA.exit178:                          ; preds = %133, %131, %116
+  %.0.i176.sink = phi ptr [ %117, %116 ], [ %.0.i.i175, %131 ], [ %.val4.i177, %133 ]
+  %135 = getelementptr i8, ptr %98, i64 16
+  %.val159 = load i64, ptr %135, align 8, !tbaa !182
+  %136 = call ptr @_PyBytesWriter_WriteBytes(ptr noundef nonnull %6, ptr noundef %.7, ptr noundef %.0.i176.sink, i64 noundef %.val159) #41
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %.thread208, label %138
 
-137:                                              ; preds = %_PyUnicode_DATA.exit178
-  %138 = load i64, ptr %7, align 8, !tbaa !182
-  %139 = load i32, ptr %97, align 8, !tbaa !195
-  %.not.i = icmp sgt i32 %139, -1
-  br i1 %.not.i, label %140, label %.thread
+138:                                              ; preds = %_PyUnicode_DATA.exit178
+  %139 = load i64, ptr %7, align 8, !tbaa !182
+  %140 = load i32, ptr %98, align 8, !tbaa !195
+  %.not.i = icmp sgt i32 %140, -1
+  br i1 %.not.i, label %141, label %.thread
 
-140:                                              ; preds = %137
-  %141 = add nsw i32 %139, -1
-  store i32 %141, ptr %97, align 8, !tbaa !195
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %.thread
+141:                                              ; preds = %138
+  %142 = add nsw i32 %140, -1
+  store i32 %142, ptr %98, align 8, !tbaa !195
+  %143 = icmp eq i32 %142, 0
+  br i1 %143, label %144, label %.thread
 
-143:                                              ; preds = %140
-  call void @_Py_Dealloc(ptr noundef nonnull %97) #41
+144:                                              ; preds = %141
+  call void @_Py_Dealloc(ptr noundef nonnull %98) #41
   br label %.thread
 
-.thread:                                          ; preds = %93, %.preheader, %143, %140, %137, %76, %71, %63, %68
-  %.5119 = phi ptr [ %70, %68 ], [ %.0114262, %63 ], [ %74, %71 ], [ %79, %76 ], [ %135, %137 ], [ %135, %140 ], [ %135, %143 ], [ %.0114262, %.preheader ], [ %95, %93 ]
-  %.4 = phi i64 [ %.us-phi, %68 ], [ %.us-phi, %63 ], [ %.us-phi, %71 ], [ %.us-phi, %76 ], [ %138, %137 ], [ %138, %140 ], [ %138, %143 ], [ %.0104264, %.preheader ], [ %96, %93 ]
+.thread:                                          ; preds = %94, %.preheader, %144, %141, %138, %77, %72, %63, %69
+  %.5119 = phi ptr [ %71, %69 ], [ %.0114262, %63 ], [ %75, %72 ], [ %80, %77 ], [ %136, %138 ], [ %136, %141 ], [ %136, %144 ], [ %.0114262, %.preheader ], [ %96, %94 ]
+  %.4 = phi i64 [ %.us-phi, %69 ], [ %.us-phi, %63 ], [ %.us-phi, %72 ], [ %.us-phi, %77 ], [ %139, %138 ], [ %139, %141 ], [ %139, %144 ], [ %.0104264, %.preheader ], [ %64, %94 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #41
-  br label %144
+  br label %145
 
-144:                                              ; preds = %.thread, %43
+145:                                              ; preds = %.thread, %43
   %.9 = phi ptr [ %45, %43 ], [ %.5119, %.thread ]
   %.3113 = phi i32 [ %.0110263, %43 ], [ %.2112, %.thread ]
   %.6 = phi i64 [ %46, %43 ], [ %.4, %.thread ]
-  %145 = icmp slt i64 %.6, %.val160
-  br i1 %145, label %30, label %._crit_edge
+  %146 = icmp slt i64 %.6, %.val160
+  br i1 %146, label %30, label %._crit_edge
 
-._crit_edge:                                      ; preds = %144
+._crit_edge:                                      ; preds = %145
   %.pre = load ptr, ptr %4, align 8, !tbaa !183
   %.not.i179 = icmp eq ptr %.pre, null
-  br i1 %.not.i179, label %Py_XDECREF.exit, label %146
+  br i1 %.not.i179, label %Py_XDECREF.exit, label %147
 
-146:                                              ; preds = %._crit_edge
-  %147 = load i32, ptr %.pre, align 8, !tbaa !195
-  %.not.i.i180 = icmp sgt i32 %147, -1
-  br i1 %.not.i.i180, label %148, label %Py_XDECREF.exit
+147:                                              ; preds = %._crit_edge
+  %148 = load i32, ptr %.pre, align 8, !tbaa !195
+  %.not.i.i180 = icmp sgt i32 %148, -1
+  br i1 %.not.i.i180, label %149, label %Py_XDECREF.exit
 
-148:                                              ; preds = %146
-  %149 = add nsw i32 %147, -1
-  store i32 %149, ptr %.pre, align 8, !tbaa !195
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %151, label %Py_XDECREF.exit
+149:                                              ; preds = %147
+  %150 = add nsw i32 %148, -1
+  store i32 %150, ptr %.pre, align 8, !tbaa !195
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %152, label %Py_XDECREF.exit
 
-151:                                              ; preds = %148
+152:                                              ; preds = %149
   call void @_Py_Dealloc(ptr noundef nonnull %.pre) #41
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %.preheader216, %._crit_edge, %146, %148, %151
-  %.0114.lcssa293 = phi ptr [ %.9, %._crit_edge ], [ %.9, %146 ], [ %.9, %148 ], [ %.9, %151 ], [ %24, %.preheader216 ]
-  %152 = load ptr, ptr %5, align 8, !tbaa !183
-  %.not.i181 = icmp eq ptr %152, null
-  br i1 %.not.i181, label %Py_XDECREF.exit183, label %153
+Py_XDECREF.exit:                                  ; preds = %.preheader216, %._crit_edge, %147, %149, %152
+  %.0114.lcssa293 = phi ptr [ %.9, %._crit_edge ], [ %.9, %147 ], [ %.9, %149 ], [ %.9, %152 ], [ %24, %.preheader216 ]
+  %153 = load ptr, ptr %5, align 8, !tbaa !183
+  %.not.i181 = icmp eq ptr %153, null
+  br i1 %.not.i181, label %Py_XDECREF.exit183, label %154
 
-153:                                              ; preds = %Py_XDECREF.exit
-  %154 = load i32, ptr %152, align 8, !tbaa !195
-  %.not.i.i182 = icmp sgt i32 %154, -1
-  br i1 %.not.i.i182, label %155, label %Py_XDECREF.exit183
+154:                                              ; preds = %Py_XDECREF.exit
+  %155 = load i32, ptr %153, align 8, !tbaa !195
+  %.not.i.i182 = icmp sgt i32 %155, -1
+  br i1 %.not.i.i182, label %156, label %Py_XDECREF.exit183
 
-155:                                              ; preds = %153
-  %156 = add nsw i32 %154, -1
-  store i32 %156, ptr %152, align 8, !tbaa !195
-  %157 = icmp eq i32 %156, 0
-  br i1 %157, label %158, label %Py_XDECREF.exit183
+156:                                              ; preds = %154
+  %157 = add nsw i32 %155, -1
+  store i32 %157, ptr %153, align 8, !tbaa !195
+  %158 = icmp eq i32 %157, 0
+  br i1 %158, label %159, label %Py_XDECREF.exit183
 
-158:                                              ; preds = %155
-  call void @_Py_Dealloc(ptr noundef nonnull %152) #41
+159:                                              ; preds = %156
+  call void @_Py_Dealloc(ptr noundef nonnull %153) #41
   br label %Py_XDECREF.exit183
 
-Py_XDECREF.exit183:                               ; preds = %Py_XDECREF.exit, %153, %155, %158
-  %159 = call ptr @_PyBytesWriter_Finish(ptr noundef nonnull %6, ptr noundef %.0114.lcssa293) #41
+Py_XDECREF.exit183:                               ; preds = %Py_XDECREF.exit, %154, %156, %159
+  %160 = call ptr @_PyBytesWriter_Finish(ptr noundef nonnull %6, ptr noundef %.0114.lcssa293) #41
   br label %Py_XDECREF.exit192
 
-.thread208:                                       ; preds = %_PyUnicode_DATA.exit178, %102, %126, %124
+.thread208:                                       ; preds = %_PyUnicode_DATA.exit178, %103, %127, %125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #41
-  %160 = load i32, ptr %97, align 8, !tbaa !195
-  %.not.i.i185 = icmp sgt i32 %160, -1
-  br i1 %.not.i.i185, label %161, label %Py_XDECREF.exit186
+  %161 = load i32, ptr %98, align 8, !tbaa !195
+  %.not.i.i185 = icmp sgt i32 %161, -1
+  br i1 %.not.i.i185, label %162, label %Py_XDECREF.exit186
 
-.loopexit217:                                     ; preds = %71, %76, %64, %66
+.loopexit217:                                     ; preds = %72, %77, %65, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #41
   br label %Py_XDECREF.exit186
 
-161:                                              ; preds = %.thread208
-  %162 = add nsw i32 %160, -1
-  store i32 %162, ptr %97, align 8, !tbaa !195
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %Py_XDECREF.exit186
+162:                                              ; preds = %.thread208
+  %163 = add nsw i32 %161, -1
+  store i32 %163, ptr %98, align 8, !tbaa !195
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %165, label %Py_XDECREF.exit186
 
-164:                                              ; preds = %161
-  call void @_Py_Dealloc(ptr noundef nonnull %97) #41
+165:                                              ; preds = %162
+  call void @_Py_Dealloc(ptr noundef nonnull %98) #41
   br label %Py_XDECREF.exit186
 
-Py_XDECREF.exit186:                               ; preds = %.loopexit217, %.thread212, %.thread208, %161, %164
+Py_XDECREF.exit186:                               ; preds = %.loopexit217, %.thread212, %.thread208, %162, %165
   call void @_PyBytesWriter_Dealloc(ptr noundef nonnull %6) #41
-  %165 = load ptr, ptr %4, align 8, !tbaa !183
-  %.not.i187 = icmp eq ptr %165, null
-  br i1 %.not.i187, label %Py_XDECREF.exit189, label %166
+  %166 = load ptr, ptr %4, align 8, !tbaa !183
+  %.not.i187 = icmp eq ptr %166, null
+  br i1 %.not.i187, label %Py_XDECREF.exit189, label %167
 
-166:                                              ; preds = %Py_XDECREF.exit186
-  %167 = load i32, ptr %165, align 8, !tbaa !195
-  %.not.i.i188 = icmp sgt i32 %167, -1
-  br i1 %.not.i.i188, label %168, label %Py_XDECREF.exit189
+167:                                              ; preds = %Py_XDECREF.exit186
+  %168 = load i32, ptr %166, align 8, !tbaa !195
+  %.not.i.i188 = icmp sgt i32 %168, -1
+  br i1 %.not.i.i188, label %169, label %Py_XDECREF.exit189
 
-168:                                              ; preds = %166
-  %169 = add nsw i32 %167, -1
-  store i32 %169, ptr %165, align 8, !tbaa !195
-  %170 = icmp eq i32 %169, 0
-  br i1 %170, label %171, label %Py_XDECREF.exit189
+169:                                              ; preds = %167
+  %170 = add nsw i32 %168, -1
+  store i32 %170, ptr %166, align 8, !tbaa !195
+  %171 = icmp eq i32 %170, 0
+  br i1 %171, label %172, label %Py_XDECREF.exit189
 
-171:                                              ; preds = %168
-  call void @_Py_Dealloc(ptr noundef nonnull %165) #41
+172:                                              ; preds = %169
+  call void @_Py_Dealloc(ptr noundef nonnull %166) #41
   br label %Py_XDECREF.exit189
 
-Py_XDECREF.exit189:                               ; preds = %Py_XDECREF.exit186, %166, %168, %171
-  %172 = load ptr, ptr %5, align 8, !tbaa !183
-  %.not.i190 = icmp eq ptr %172, null
-  br i1 %.not.i190, label %Py_XDECREF.exit192, label %173
+Py_XDECREF.exit189:                               ; preds = %Py_XDECREF.exit186, %167, %169, %172
+  %173 = load ptr, ptr %5, align 8, !tbaa !183
+  %.not.i190 = icmp eq ptr %173, null
+  br i1 %.not.i190, label %Py_XDECREF.exit192, label %174
 
-173:                                              ; preds = %Py_XDECREF.exit189
-  %174 = load i32, ptr %172, align 8, !tbaa !195
-  %.not.i.i191 = icmp sgt i32 %174, -1
-  br i1 %.not.i.i191, label %175, label %Py_XDECREF.exit192
+174:                                              ; preds = %Py_XDECREF.exit189
+  %175 = load i32, ptr %173, align 8, !tbaa !195
+  %.not.i.i191 = icmp sgt i32 %175, -1
+  br i1 %.not.i.i191, label %176, label %Py_XDECREF.exit192
 
-175:                                              ; preds = %173
-  %176 = add nsw i32 %174, -1
-  store i32 %176, ptr %172, align 8, !tbaa !195
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %178, label %Py_XDECREF.exit192
+176:                                              ; preds = %174
+  %177 = add nsw i32 %175, -1
+  store i32 %177, ptr %173, align 8, !tbaa !195
+  %178 = icmp eq i32 %177, 0
+  br i1 %178, label %179, label %Py_XDECREF.exit192
 
-178:                                              ; preds = %175
-  call void @_Py_Dealloc(ptr noundef nonnull %172) #41
+179:                                              ; preds = %176
+  call void @_Py_Dealloc(ptr noundef nonnull %173) #41
   br label %Py_XDECREF.exit192
 
-Py_XDECREF.exit192:                               ; preds = %178, %175, %173, %Py_XDECREF.exit189, %23, %Py_XDECREF.exit183, %21
-  %.0 = phi ptr [ %22, %21 ], [ %159, %Py_XDECREF.exit183 ], [ null, %23 ], [ null, %Py_XDECREF.exit189 ], [ null, %173 ], [ null, %175 ], [ null, %178 ]
+Py_XDECREF.exit192:                               ; preds = %179, %176, %174, %Py_XDECREF.exit189, %23, %Py_XDECREF.exit183, %21
+  %.0 = phi ptr [ %22, %21 ], [ %160, %Py_XDECREF.exit183 ], [ null, %23 ], [ null, %Py_XDECREF.exit189 ], [ null, %174 ], [ null, %176 ], [ null, %179 ]
   call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %6) #41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #41
@@ -48821,7 +48825,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_wcstr(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 32) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_wcstr(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp eq i64 %3, -1
   br i1 %6, label %8, label %.preheader
 
@@ -48881,7 +48885,7 @@ Py_DECREF.exit:                                   ; preds = %26, %23, %20, %17, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_utf8(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 32) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_utf8(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #41
   %7 = icmp eq i64 %3, -1
@@ -48951,7 +48955,7 @@ Py_DECREF.exit:                                   ; preds = %30, %27, %24, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_str(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 32) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unicode_fromformat_write_str(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %6, align 8, !tbaa !197
   %7 = icmp ne i64 %3, -1

@@ -349,7 +349,7 @@ define dso_local void @tcp_sigpool_release(i32 noundef %0) #0 align 16 {
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = zext i32 %0 to i64
+  %5 = zext nneg i32 %0 to i64
   %6 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %5, i32 1
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -392,7 +392,7 @@ define dso_local void @tcp_sigpool_get(i32 noundef %0) #0 align 16 {
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = zext i32 %0 to i64
+  %5 = zext nneg i32 %0 to i64
   %6 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %5, i32 1
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -438,7 +438,7 @@ define dso_local i32 @tcp_sigpool_start(i32 noundef %0, ptr noundef writeonly ca
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = zext i32 %0 to i64
+  %7 = zext nneg i32 %0 to i64
   %8 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %7, i32 1
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -527,7 +527,7 @@ define dso_local i64 @tcp_sigpool_algo(i32 noundef %0, ptr noundef %1, i64 nound
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
-  %7 = zext i32 %0 to i64
+  %7 = zext nneg i32 %0 to i64
   %8 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %7, i32 1
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -816,7 +816,7 @@ define internal void @cpool_cleanup_work_cb(ptr readnone captures(none) %0) #0 a
 26:                                               ; preds = %22, %.lr.ph
   %27 = phi i32 [ %.pre, %22 ], [ %18, %.lr.ph ]
   %28 = add nuw nsw i64 %17, 1
-  %29 = zext i32 %27 to i64
+  %29 = zext nneg i32 %27 to i64
   %30 = icmp samesign ult i64 %28, %29
   br i1 %30, label %11, label %34, !llvm.loop !45
 
@@ -825,7 +825,7 @@ define internal void @cpool_cleanup_work_cb(ptr readnone captures(none) %0) #0 a
   %.lcssa19 = phi i32 [ %5, %.outer ], [ %27, %11 ]
   %.lcssa = phi i64 [ %.ph, %.outer ], [ %28, %11 ]
   %31 = add nuw nsw i64 %.lcssa, 1
-  %32 = zext i32 %.lcssa19 to i64
+  %32 = zext nneg i32 %.lcssa19 to i64
   %33 = icmp samesign ult i64 %31, %32
   br i1 %33, label %.outer, label %.thread3, !llvm.loop !45
 

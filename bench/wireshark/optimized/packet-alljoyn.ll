@@ -1601,7 +1601,7 @@ handle_message_header_expected_byte.exit.i.i.i:   ; preds = %173, %172
 
 handle_message_header_expected_byte.exit54.i.i.i: ; preds = %185, %184
   %187 = add i32 %.014.i.i, 4
-  %188 = call fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef %177, i32 noundef range(i32 -2147483648, 195948557) %switch.select4.i.i, i32 noundef %187, ptr noundef %164, i1 noundef zeroext %160, i8 noundef zeroext %178, i8 noundef zeroext %159, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.014.i.i)
+  %188 = call fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef %177, i32 noundef range(i32 0, -2147483647) %switch.select4.i.i, i32 noundef %187, ptr noundef %164, i1 noundef zeroext %160, i8 noundef zeroext %178, i8 noundef zeroext %159, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %.014.i.i)
   %reass.sub = sub i32 %188, %.014.i.i
   %189 = add i32 %reass.sub, 7
   %190 = and i32 %189, -8
@@ -1693,7 +1693,7 @@ handle_message_header_fields.exit.i:              ; preds = %._crit_edge.loopexi
   br i1 %.not.i151.i, label %handle_message_body_parameters.exit.i, label %231
 
 231:                                              ; preds = %.lr.ph.i150.i
-  %232 = call fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef range(i32 -2147483648, 195948557) %switch.select4.i.i, i32 noundef %.030.i.i, ptr noundef %226, i1 noundef zeroext false, i8 noundef zeroext %230, i8 noundef zeroext 0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %210)
+  %232 = call fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef range(i32 0, -2147483647) %switch.select4.i.i, i32 noundef %.030.i.i, ptr noundef %226, i1 noundef zeroext false, i8 noundef zeroext %230, i8 noundef zeroext 0, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %210)
   %233 = icmp slt i32 %232, %spec.select.i.i
   %234 = load i8, ptr %6, align 1
   %235 = icmp ne i8 %234, 0
@@ -1756,7 +1756,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 195948557) %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, ptr noundef %9, ptr noundef captures(none) %10, i32 noundef %11) unnamed_addr #0 {
+define internal fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483647) %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, i8 noundef zeroext %7, i8 noundef zeroext %8, ptr noundef %9, ptr noundef captures(none) %10, i32 noundef %11) unnamed_addr #0 {
   %13 = alloca ptr, align 8
   %14 = alloca i8, align 1
   %15 = alloca ptr, align 8
@@ -2508,7 +2508,7 @@ add_padding_item.exit465:                         ; preds = %402, %408, %411, %4
   %439 = load i8, ptr %.0.i, align 1
   %440 = icmp eq i8 %436, %439
   %441 = zext i1 %440 to i32
-  %spec.select.i = add nuw i32 %.018.i, %441
+  %spec.select.i = add i32 %.018.i, %441
   %442 = icmp eq i8 %.0, %439
   %443 = sext i1 %442 to i32
   %.2.i = add i32 %spec.select.i, %443

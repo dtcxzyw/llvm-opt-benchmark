@@ -2286,7 +2286,7 @@ usage_argh.exit:                                  ; preds = %164, %166, %168, %_
   %171 = phi ptr [ @.str.60, %164 ], [ %163, %166 ], [ @.str.99, %168 ], [ %170, %_.exit25.sink.split.i ]
   %172 = call i32 (ptr, ptr, ...) @utf8_fprintf(ptr noundef %9, ptr noundef %.0.i181, ptr noundef %171) #19
   %173 = sext i32 %172 to i64
-  %174 = add i64 %.4, %173
+  %174 = add nsw i64 %.4, %173
   br label %175
 
 175:                                              ; preds = %135, %usage_argh.exit

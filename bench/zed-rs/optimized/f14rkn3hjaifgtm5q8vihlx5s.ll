@@ -26864,7 +26864,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h5fff2fb1639722c9E.exit.thread
   br i1 %41, label %42, label %14
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i64, ptr %38, i64 %.sroa.039.0
+  %43 = getelementptr inbounds i64, ptr %38, i64 %.sroa.039.0
   %44 = load i64, ptr %43, align 8, !noundef !9
   %45 = icmp ne i64 %44, 0
   %46 = icmp ult i64 %.sroa.041.0, %40

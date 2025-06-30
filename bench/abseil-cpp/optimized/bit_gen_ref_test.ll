@@ -13837,7 +13837,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i:
 
 6:                                                ; preds = %6, %.preheader17.i.i.i
   %7 = phi i64 [ %.lcssa192122.i.i.i, %.preheader17.i.i.i ], [ %9, %6 ]
-  %8 = mul nsw i64 %7, 48271
+  %8 = mul nuw nsw i64 %7, 48271
   %9 = urem i64 %8, 2147483647
   %10 = add nsw i64 %9, -1
   %11 = icmp ugt i64 %10, 2145386495
@@ -15345,7 +15345,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i:
 
 3:                                                ; preds = %3, %.preheader17.i.i.i
   %4 = phi i64 [ %.lcssa192122.i.i.i, %.preheader17.i.i.i ], [ %6, %3 ]
-  %5 = mul nsw i64 %4, 48271
+  %5 = mul nuw nsw i64 %4, 48271
   %6 = urem i64 %5, 2147483647
   %7 = add nsw i64 %6, -1
   %8 = icmp ugt i64 %7, 2145386495

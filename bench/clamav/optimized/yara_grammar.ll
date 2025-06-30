@@ -181,7 +181,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.yara_yyparse.3 = private unnamed_addr constant [4 x ptr] [ptr @.str.2, ptr @.str.1, ptr @.str.3, ptr @.str.4], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @yara_yyparse(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %union.YYSTYPE, align 8
   %4 = alloca [200 x i8], align 16
   %5 = alloca [200 x %union.YYSTYPE], align 16

@@ -3586,7 +3586,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %95, %.loopexit.i
   %218 = add nuw nsw i32 %215, 1
   %minmaxop = select i1 %.not99, i32 %214, i32 %218
   %219 = tail call i32 @llvm.umin.i32(i32 %minmaxop, i32 %79)
-  %220 = add nuw i32 %219, 1
+  %220 = add nuw nsw i32 %219, 1
   %221 = tail call i32 @llvm.umin.i32(i32 %79, i32 %220)
   %222 = add nuw nsw i32 %221, 2
   %223 = tail call i32 @llvm.umin.i32(i32 %79, i32 %222)
@@ -3602,7 +3602,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %95, %.loopexit.i
   %228 = load i8, ptr %227, align 1, !tbaa !54
   %229 = icmp slt i32 %224, %79
   %230 = zext i1 %229 to i32
-  %spec.select.i.i = add nsw i32 %224, %230
+  %spec.select.i.i = add nuw nsw i32 %224, %230
   %231 = zext i8 %228 to i32
   %232 = and i32 %224, 7
   store i32 %spec.select.i.i, ptr %84, align 8, !tbaa !59
@@ -3612,7 +3612,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %95, %.loopexit.i
   br i1 %.not.i113, label %skip_1stop_8data_bits.exit, label %235
 
 235:                                              ; preds = %.preheader.i112
-  %236 = add i32 %spec.select.i.i, 8
+  %236 = add nuw nsw i32 %spec.select.i.i, 8
   %237 = tail call i32 @llvm.umin.i32(i32 %79, i32 %236)
   store i32 %237, ptr %84, align 8, !tbaa !59
   %.not8.i = icmp ult i32 %236, %40

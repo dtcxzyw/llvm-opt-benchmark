@@ -694,7 +694,7 @@ bytestream2_get_byte.exit.i56:                    ; preds = %bytestream2_get_byt
   %338 = sext i32 %337 to i64
   %339 = getelementptr inbounds i8, ptr %276, i64 %338
   store i8 %334, ptr %339, align 1, !tbaa !41
-  %340 = getelementptr inbounds nuw i8, ptr %333, i64 3
+  %340 = getelementptr i8, ptr %333, i64 3
   %341 = load i8, ptr %340, align 1, !tbaa !41
   %342 = or disjoint i64 %indvars.iv265.i, 1
   %343 = load i32, ptr %256, align 8, !tbaa !53
@@ -703,55 +703,55 @@ bytestream2_get_byte.exit.i56:                    ; preds = %bytestream2_get_byt
   %346 = sext i32 %345 to i64
   %347 = getelementptr inbounds i8, ptr %276, i64 %346
   store i8 %341, ptr %347, align 1, !tbaa !41
-  %348 = getelementptr inbounds nuw i8, ptr %333, i64 6
+  %348 = getelementptr i8, ptr %333, i64 6
   %349 = load i8, ptr %348, align 1, !tbaa !41
   %350 = getelementptr inbounds nuw i8, ptr %276, i64 %indvars.iv265.i
   store i8 %349, ptr %350, align 1, !tbaa !41
-  %351 = getelementptr inbounds nuw i8, ptr %333, i64 9
+  %351 = getelementptr i8, ptr %333, i64 9
   %352 = load i8, ptr %351, align 1, !tbaa !41
   %353 = getelementptr inbounds nuw i8, ptr %276, i64 %342
   store i8 %352, ptr %353, align 1, !tbaa !41
-  %354 = getelementptr inbounds nuw i8, ptr %333, i64 1
+  %354 = getelementptr i8, ptr %333, i64 1
   %355 = load i8, ptr %354, align 1, !tbaa !41
   %356 = load i32, ptr %258, align 4, !tbaa !53
   %357 = add nsw i32 %356, %336
   %358 = sext i32 %357 to i64
   %359 = getelementptr inbounds i8, ptr %281, i64 %358
   store i8 %355, ptr %359, align 1, !tbaa !41
-  %360 = getelementptr inbounds nuw i8, ptr %333, i64 4
+  %360 = getelementptr i8, ptr %333, i64 4
   %361 = load i8, ptr %360, align 1, !tbaa !41
   %362 = load i32, ptr %258, align 4, !tbaa !53
   %363 = add nsw i32 %362, %344
   %364 = sext i32 %363 to i64
   %365 = getelementptr inbounds i8, ptr %281, i64 %364
   store i8 %361, ptr %365, align 1, !tbaa !41
-  %366 = getelementptr inbounds nuw i8, ptr %333, i64 7
+  %366 = getelementptr i8, ptr %333, i64 7
   %367 = load i8, ptr %366, align 1, !tbaa !41
   %368 = getelementptr inbounds nuw i8, ptr %281, i64 %indvars.iv265.i
   store i8 %367, ptr %368, align 1, !tbaa !41
-  %369 = getelementptr inbounds nuw i8, ptr %333, i64 10
+  %369 = getelementptr i8, ptr %333, i64 10
   %370 = load i8, ptr %369, align 1, !tbaa !41
   %371 = getelementptr inbounds nuw i8, ptr %281, i64 %342
   store i8 %370, ptr %371, align 1, !tbaa !41
-  %372 = getelementptr inbounds nuw i8, ptr %333, i64 2
+  %372 = getelementptr i8, ptr %333, i64 2
   %373 = load i8, ptr %372, align 1, !tbaa !41
   %374 = load i32, ptr %260, align 8, !tbaa !53
   %375 = add nsw i32 %374, %336
   %376 = sext i32 %375 to i64
   %377 = getelementptr inbounds i8, ptr %286, i64 %376
   store i8 %373, ptr %377, align 1, !tbaa !41
-  %378 = getelementptr inbounds nuw i8, ptr %333, i64 5
+  %378 = getelementptr i8, ptr %333, i64 5
   %379 = load i8, ptr %378, align 1, !tbaa !41
   %380 = load i32, ptr %260, align 8, !tbaa !53
   %381 = add nsw i32 %380, %344
   %382 = sext i32 %381 to i64
   %383 = getelementptr inbounds i8, ptr %286, i64 %382
   store i8 %379, ptr %383, align 1, !tbaa !41
-  %384 = getelementptr inbounds nuw i8, ptr %333, i64 8
+  %384 = getelementptr i8, ptr %333, i64 8
   %385 = load i8, ptr %384, align 1, !tbaa !41
   %386 = getelementptr inbounds nuw i8, ptr %286, i64 %indvars.iv265.i
   store i8 %385, ptr %386, align 1, !tbaa !41
-  %387 = getelementptr inbounds nuw i8, ptr %333, i64 11
+  %387 = getelementptr i8, ptr %333, i64 11
   %388 = load i8, ptr %387, align 1, !tbaa !41
   %389 = getelementptr inbounds nuw i8, ptr %286, i64 %342
   store i8 %388, ptr %389, align 1, !tbaa !41

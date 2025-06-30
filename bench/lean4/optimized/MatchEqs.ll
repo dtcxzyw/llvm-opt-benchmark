@@ -20787,7 +20787,7 @@ lean_dec.exit1267:                                ; preds = %lean_inc.exit1281, 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noalias nonnull ptr @lean_alloc_closure(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 24) %2) unnamed_addr #0 {
+define internal fastcc noalias nonnull ptr @lean_alloc_closure(ptr noundef %0, i32 noundef range(i32 1, 30) %1, i32 noundef range(i32 0, 24) %2) unnamed_addr #0 {
   %4 = shl nuw nsw i32 %2, 3
   %narrow = add nuw nsw i32 %4, 24
   tail call void @lean_inc_heartbeat() #6
@@ -20808,7 +20808,7 @@ lean_alloc_small_object.exit:                     ; preds = %3
   store i32 %11, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %12, align 8, !tbaa !11
-  %13 = trunc i32 %1 to i16
+  %13 = trunc nuw nsw i32 %1 to i16
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i16 %13, ptr %14, align 8, !tbaa !16
   %15 = trunc nuw nsw i32 %2 to i16

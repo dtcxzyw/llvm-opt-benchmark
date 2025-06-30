@@ -4030,7 +4030,7 @@ _ZN4llvm15SmallVectorImplISt5tupleIJPNS_11ConstantIntEPNS_10BasicBlockESt8option
   br i1 %.not87.i.i.i.i.i.i.i, label %560, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_10SwitchInst16CaseIteratorImplINS2_10CaseHandleEEEEEZL21unswitchTrivialSwitchRNS_4LoopERS2_RNS_13DominatorTreeERNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_16MemorySSAUpdaterEE3$_0EEbOT_T0_.exit.i.i"
 
 560:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i.i
-  %561 = add nsw i64 %.sroa.15.1.i.i.i.i.i.i.i, 1
+  %561 = add nuw nsw i64 %.sroa.15.1.i.i.i.i.i.i.i, 1
   br label %._crit_edge._crit_edge101.i.i.i.i.i.i.i
 
 ._crit_edge._crit_edge101.i.i.i.i.i.i.i:          ; preds = %560, %._crit_edge.i.i.i.i.i.i.i
@@ -44643,7 +44643,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__g
   %.0134.i = phi i64 [ %.128, %.lr.ph.i ], [ %.05.i, %88 ]
   %.05.in.i = add nsw i64 %.0134.i, -1
   %.05.i = sdiv i64 %.05.in.i, 2
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %.05.i
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %.05.i
   %.val14.i = load ptr, ptr %40, align 8, !tbaa !85
   %41 = load i32, ptr %4, align 8
   %42 = and i32 %41, 1
@@ -44746,7 +44746,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEPNS_4LoopELj16ENS_12
 
 "_ZSt11__push_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL16buildClonedLoopsRNS0_4LoopENS0_8ArrayRefIS2_EERKNS0_8ValueMapIPKNS0_5ValueENS0_14WeakTrackingVHENS0_14ValueMapConfigISE_NS0_3sys10SmartMutexILb0EEEEEEERNS0_8LoopInfoERNS0_15SmallVectorImplIPS7_EEE3$_0EEEvT_T0_SX_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL16buildClonedLoopsRN4llvm4LoopENS2_8ArrayRefIPNS2_10BasicBlockEEERKNS2_8ValueMapIPKNS2_5ValueENS2_14WeakTrackingVHENS2_14ValueMapConfigISC_NS2_3sys10SmartMutexILb0EEEEEEERNS2_8LoopInfoERNS2_15SmallVectorImplIPS3_EEE3$_0EclIPS7_S7_EEbT_RT0_.exit.i", %88, %30
   %.013.lcssa.i = phi i64 [ %.128, %30 ], [ %.0134.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL16buildClonedLoopsRN4llvm4LoopENS2_8ArrayRefIPNS2_10BasicBlockEEERKNS2_8ValueMapIPKNS2_5ValueENS2_14WeakTrackingVHENS2_14ValueMapConfigISC_NS2_3sys10SmartMutexILb0EEEEEEERNS2_8LoopInfoERNS2_15SmallVectorImplIPS3_EEE3$_0EclIPS7_S7_EEbT_RT0_.exit.i" ], [ %.05.i, %88 ]
-  %91 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %91 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %91, align 8, !tbaa !85
   ret void
 }

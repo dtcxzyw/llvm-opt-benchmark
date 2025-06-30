@@ -3933,7 +3933,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 291:                                              ; preds = %290, %286
   %292 = add nsw i32 %62, 35
-  %293 = add i32 %292, %144
+  %293 = add nsw i32 %292, %144
   %294 = getelementptr inbounds %struct.moveType, ptr %56, i64 %indvars.iv, i32 3
   store i32 %293, ptr %294, align 4
   br label %350
@@ -3952,7 +3952,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 303:                                              ; preds = %297
   %304 = add nsw i32 %62, 48
-  %305 = add i32 %304, %144
+  %305 = add nsw i32 %304, %144
   %306 = getelementptr inbounds %struct.moveType, ptr %56, i64 %indvars.iv, i32 3
   store i32 %305, ptr %306, align 4
   br label %350
@@ -3969,7 +3969,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 312:                                              ; preds = %307
   %313 = add nsw i32 %62, -3
-  %314 = add i32 %313, %144
+  %314 = add nsw i32 %313, %144
   %315 = getelementptr inbounds nuw i8, ptr %308, i64 12
   store i32 %314, ptr %315, align 4
   br label %350
@@ -3989,13 +3989,13 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 325:                                              ; preds = %320
   %326 = add nsw i32 %62, 42
-  %327 = add i32 %326, %144
+  %327 = add nsw i32 %326, %144
   store i32 %327, ptr %324, align 4
   br label %350
 
 328:                                              ; preds = %320
   %329 = add nsw i32 %62, 28
-  %330 = add i32 %329, %144
+  %330 = add nsw i32 %329, %144
   store i32 %330, ptr %324, align 4
   br label %350
 
@@ -4020,14 +4020,14 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 342:                                              ; preds = %335
   %343 = add nsw i32 %62, 22
-  %344 = add i32 %343, %144
+  %344 = add nsw i32 %343, %144
   %345 = getelementptr inbounds nuw i8, ptr %332, i64 12
   store i32 %344, ptr %345, align 4
   br label %350
 
 346:                                              ; preds = %331
   %347 = add nsw i32 %62, 11
-  %348 = add i32 %347, %144
+  %348 = add nsw i32 %347, %144
   %349 = getelementptr inbounds nuw i8, ptr %332, i64 12
   store i32 %348, ptr %349, align 4
   br label %350
@@ -4122,7 +4122,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 401:                                              ; preds = %400, %398
   %402 = add nsw i32 %62, 2
-  %403 = add i32 %402, %.0175
+  %403 = add nsw i32 %402, %.0175
   %404 = getelementptr inbounds %struct.moveType, ptr %56, i64 %indvars.iv, i32 3
   store i32 %403, ptr %404, align 4
   br label %442
@@ -4136,7 +4136,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 408:                                              ; preds = %407
   %409 = add nsw i32 %62, 33
-  %410 = add i32 %409, %.0175
+  %410 = add nsw i32 %409, %.0175
   %411 = getelementptr inbounds %struct.moveType, ptr %56, i64 %indvars.iv, i32 3
   store i32 %410, ptr %411, align 4
   br label %442
@@ -4153,7 +4153,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 417:                                              ; preds = %412
   %418 = add nsw i32 %62, -14
-  %419 = add i32 %418, %.0175
+  %419 = add nsw i32 %418, %.0175
   %420 = getelementptr inbounds nuw i8, ptr %413, i64 12
   store i32 %419, ptr %420, align 4
   br label %442
@@ -4164,7 +4164,7 @@ define void @_ZN5Moves17WeightAllocTrump0ERK3posRK8moveTypeS5_PK12relRanksType(p
 
 423:                                              ; preds = %421
   %424 = add nsw i32 %62, 34
-  %425 = add i32 %424, %.0175
+  %425 = add nsw i32 %424, %.0175
   %426 = getelementptr inbounds %struct.moveType, ptr %56, i64 %indvars.iv, i32 3
   store i32 %425, ptr %426, align 4
   br label %442

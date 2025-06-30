@@ -309,22 +309,22 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   br i1 %78, label %79, label %87
 
 79:                                               ; preds = %77
-  %80 = sext i32 %.2 to i64
-  %81 = getelementptr inbounds i8, ptr %2, i64 %80
+  %80 = zext nneg i32 %.2 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 %80
   %82 = shl nuw nsw i32 %.0, 1
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds nuw i8, ptr @_ZN7xgboost6detailL8kItoaLutE, i64 %83
   %85 = load i16, ptr %84, align 2
   store i16 %85, ptr %81, align 1
-  %86 = add nsw i32 %.2, 2
+  %86 = add nuw nsw i32 %.2, 2
   br label %93
 
 87:                                               ; preds = %77
   %88 = trunc nuw nsw i32 %.0 to i8
   %89 = or disjoint i8 %88, 48
-  %90 = add nsw i32 %.2, 1
-  %91 = sext i32 %.2 to i64
-  %92 = getelementptr inbounds i8, ptr %2, i64 %91
+  %90 = add nuw nsw i32 %.2, 1
+  %91 = zext nneg i32 %.2 to i64
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 %91
   store i8 %89, ptr %92, align 1, !tbaa !3
   br label %93
 

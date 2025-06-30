@@ -255,7 +255,7 @@ find_pack_by_name.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
 95:                                               ; preds = %._crit_edge44.i.i
   %96 = sext i32 %93 to i64
   %97 = load ptr, ptr @info, align 8, !tbaa !8
-  call void @qsort(ptr noundef %97, i64 noundef range(i64 -2147483648, 2147483648) %96, i64 noundef 8, ptr noundef nonnull @compare_info) #14
+  call void @qsort(ptr noundef %97, i64 noundef range(i64 -2147483647, 2147483648) %96, i64 noundef 8, ptr noundef nonnull @compare_info) #14
   %.pre.i.i = load i32, ptr @num_pack, align 4, !tbaa !4
   br label %sane_qsort.exit.i.i
 

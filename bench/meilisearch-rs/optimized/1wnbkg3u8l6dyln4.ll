@@ -2914,7 +2914,7 @@ define internal fastcc void @_ZN19brotli_decompressor6decode15WriteRingBuffer17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @_ZN19brotli_decompressor6decode16DecodeContextMap17h77d02a572bd4a5c7E(i64 noundef range(i64 0, 274877906881) %0, i1 noundef zeroext %1, ptr noalias noundef nonnull align 8 dereferenceable(2592) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef range(i64 0, 9) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i32 -31, 4) i32 @_ZN19brotli_decompressor6decode16DecodeContextMap17h77d02a572bd4a5c7E(i64 noundef range(i64 0, 274877906881) %0, i1 noundef zeroext %1, ptr noalias noundef nonnull align 8 dereferenceable(2592) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef range(i64 0, 9) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [4 x i8], align 4
   %7 = alloca [4 x i8], align 4
   %8 = alloca [4 x i8], align 4

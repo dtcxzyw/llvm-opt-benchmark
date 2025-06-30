@@ -6252,7 +6252,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable(ptr noundef captur
 39:                                               ; preds = %.lr.ph, %43
   %.190 = phi i32 [ %.06492, %.lr.ph ], [ %.2, %43 ]
   %.06689 = phi i32 [ 0, %.lr.ph ], [ %44, %43 ]
-  %40 = zext i32 %.190 to i64
+  %40 = zext nneg i32 %.190 to i64
   %.idx = shl nuw nsw i64 %40, 2
   %gep88 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i8 %38, ptr %gep88, align 2, !tbaa !55
@@ -6260,7 +6260,7 @@ define internal fastcc range(i64 -46, 1) i64 @FSE_buildDTable(ptr noundef captur
 
 41:                                               ; preds = %41, %39
   %.1.pn = phi i32 [ %.190, %39 ], [ %.2, %41 ]
-  %.pn = add i32 %12, %.1.pn
+  %.pn = add nuw i32 %12, %.1.pn
   %.2 = and i32 %.pn, %8
   %42 = icmp ugt i32 %.2, %.173
   br i1 %42, label %41, label %43, !llvm.loop !94

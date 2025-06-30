@@ -184930,7 +184930,7 @@ default.unreachable1913:                          ; preds = %63
   %283 = load i64, ptr %23, align 8, !range !21, !noundef !4
   %284 = icmp ne i64 %283, -9223372036854775808
   %285 = trunc nuw i8 %.sroa.0268.5 to i1
-  %or.cond5 = and i1 %284, %285
+  %or.cond5 = select i1 %284, i1 %285, i1 false
   br i1 %or.cond5, label %293, label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$assistant..context..SavedMessage$GT$$GT$17h65b9b9c7e1cf14a5E.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i470": ; preds = %"_ZN4core3ptr107drop_in_place$LT$alloc..vec..Vec$LT$assistant_slash_command..SlashCommandOutputSection$LT$usize$GT$$GT$$GT$17he569a4396762eff6E.exit"
@@ -184951,7 +184951,7 @@ default.unreachable1913:                          ; preds = %63
   %290 = trunc nuw i8 %.sroa.0270.5 to i1
   %291 = and i64 %.sroa.0518.01127, 9223372036854775807
   %292 = icmp ne i64 %291, 0
-  %or.cond710.not = and i1 %292, %290
+  %or.cond710.not = select i1 %292, i1 %290, i1 false
   br i1 %or.cond710.not, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i474", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit475"
 
 293:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit471"
@@ -185007,7 +185007,7 @@ default.unreachable1913:                          ; preds = %63
   %309 = trunc nuw i8 %.sroa.0272.5 to i1
   %310 = and i64 %.sroa.0507.01007, 9223372036854775807
   %311 = icmp ne i64 %310, 0
-  %or.cond711.not = and i1 %311, %309
+  %or.cond711.not = select i1 %311, i1 %309, i1 false
   br i1 %or.cond711.not, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i476", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit477"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i474": ; preds = %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$assistant..context..SavedMessage$GT$$GT$17h65b9b9c7e1cf14a5E.exit"
@@ -185027,7 +185027,7 @@ default.unreachable1913:                          ; preds = %63
   %316 = trunc nuw i8 %.sroa.0274.5 to i1
   %317 = and i64 %.sroa.0496.0888, 9223372036854775807
   %318 = icmp ne i64 %317, 0
-  %or.cond712.not = and i1 %318, %316
+  %or.cond712.not = select i1 %318, i1 %316, i1 false
   br i1 %or.cond712.not, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i478", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit479"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i476": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc8b4444378140e4fE.exit475"

@@ -2601,9 +2601,9 @@ Vec_IntPush.exit236:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %407, label %414, label %408
 
 408:                                              ; preds = %.lr.ph270
-  %409 = add nsw i32 %.5267, 1
-  %410 = sext i32 %.5267 to i64
-  %411 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %410
+  %409 = add nuw nsw i32 %.5267, 1
+  %410 = zext nneg i32 %.5267 to i64
+  %411 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %410
   %412 = load i32, ptr %411, align 4, !tbaa !23
   %413 = trunc i32 %412 to i8
   br label %414

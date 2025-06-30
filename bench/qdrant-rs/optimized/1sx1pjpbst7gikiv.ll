@@ -529,9 +529,9 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %.not.i36.i.i.i.i.i = icmp ult i64 %95, %2
   br i1 %.not.i36.i.i.i.i.i, label %.lr.ph.i37.i.i.i.i.i, label %.preheader.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i:                           ; preds = %101, %.thread128.i.i.i.i.i.i
-  %.067.lcssa.i.i.i.i.i.i = phi i8 [ 0, %.thread128.i.i.i.i.i.i ], [ %.3.i.i.i.i.i.i, %101 ]
-  %.065.lcssa.i.i.i.i.i.i = phi i64 [ 0, %.thread128.i.i.i.i.i.i ], [ %102, %101 ]
+.preheader.i.i.i.i.i.i:                           ; preds = %110, %.thread128.i.i.i.i.i.i
+  %.067.lcssa.i.i.i.i.i.i = phi i8 [ 0, %.thread128.i.i.i.i.i.i ], [ %.3.i.i.i.i.i.i, %110 ]
+  %.065.lcssa.i.i.i.i.i.i = phi i64 [ 0, %.thread128.i.i.i.i.i.i ], [ %111, %110 ]
   %96 = add nuw nsw i64 %90, 15
   %97 = add i64 %96, %.065.lcssa.i.i.i.i.i.i
   %98 = icmp uge i64 %97, %2
@@ -543,60 +543,60 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %invariant.op.i.i.i.i.i.i = add nuw nsw i64 %90, 31
   br label %136
 
-.lr.ph.i37.i.i.i.i.i:                             ; preds = %.thread128.i.i.i.i.i.i, %101
-  %.065146.i.i.i.i.i.i = phi i64 [ %102, %101 ], [ 0, %.thread128.i.i.i.i.i.i ]
+.lr.ph.i37.i.i.i.i.i:                             ; preds = %.thread128.i.i.i.i.i.i, %110
+  %.065146.i.i.i.i.i.i = phi i64 [ %111, %110 ], [ 0, %.thread128.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !89
   store i64 0, ptr %5, align 8, !noalias !89
   %100 = getelementptr i8, ptr %1, i64 %.065146.i.i.i.i.i.i
-  br label %118
+  br label %101
 
-101:                                              ; preds = %110
-  %102 = add i64 %.065146.i.i.i.i.i.i, 64
+101:                                              ; preds = %101, %.lr.ph.i37.i.i.i.i.i
+  %.sroa.022.0142.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i37.i.i.i.i.i ], [ %102, %101 ]
+  %102 = add nuw nsw i64 %.sroa.022.0142.i.i.i.i.i.i, 1
+  %103 = shl nuw nsw i64 %.sroa.022.0142.i.i.i.i.i.i, 4
+  %104 = getelementptr i8, ptr %100, i64 %103
+  %.0.copyload.i.i.i.i.i.i.i = load <16 x i8>, ptr %104, align 1, !alias.scope !90, !noalias !91
+  %105 = getelementptr inbounds i8, ptr %104, i64 %storemerge127130.i.i.i.i.i.i
+  %.0.copyload2.i.i.i.i.i.i.i = load <16 x i8>, ptr %105, align 1, !alias.scope !90, !noalias !91
+  %106 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i.i.i, %93
+  %107 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i.i.i, %94
+  %108 = and <16 x i1> %106, %107
+  %109 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.022.0142.i.i.i.i.i.i
+  store <16 x i1> %108, ptr %109, align 2, !noalias !89
+  %exitcond.not.i38.i.i.i.i.i = icmp eq i64 %102, 4
+  br i1 %exitcond.not.i38.i.i.i.i.i, label %.preheader138.i.i.i.i.i.i, label %101
+
+110:                                              ; preds = %119
+  %111 = add i64 %.065146.i.i.i.i.i.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !89
-  %103 = add i64 %102, %95
-  %104 = icmp uge i64 %103, %2
-  %105 = trunc nuw i8 %.3.i.i.i.i.i.i to i1
-  %or.cond.i.i.i.i.i.i = select i1 %104, i1 true, i1 %105
+  %112 = add i64 %111, %95
+  %113 = icmp uge i64 %112, %2
+  %114 = trunc nuw i8 %.3.i.i.i.i.i.i to i1
+  %or.cond.i.i.i.i.i.i = select i1 %113, i1 true, i1 %114
   br i1 %or.cond.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %.lr.ph.i37.i.i.i.i.i
 
-.preheader138.i.i.i.i.i.i:                        ; preds = %118, %110
-  %.sroa.028.0144.i.i.i.i.i.i = phi i64 [ %106, %110 ], [ 0, %118 ]
-  %.2143.i.i.i.i.i.i = phi i8 [ %.3.i.i.i.i.i.i, %110 ], [ 0, %118 ]
-  %106 = add nuw nsw i64 %.sroa.028.0144.i.i.i.i.i.i, 1
-  %107 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.028.0144.i.i.i.i.i.i
-  %108 = load i16, ptr %107, align 2, !noalias !89, !noundef !5
-  %109 = icmp eq i16 %108, 0
-  br i1 %109, label %110, label %111
+.preheader138.i.i.i.i.i.i:                        ; preds = %101, %119
+  %.sroa.028.0144.i.i.i.i.i.i = phi i64 [ %115, %119 ], [ 0, %101 ]
+  %.2143.i.i.i.i.i.i = phi i8 [ %.3.i.i.i.i.i.i, %119 ], [ 0, %101 ]
+  %115 = add nuw nsw i64 %.sroa.028.0144.i.i.i.i.i.i, 1
+  %116 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.028.0144.i.i.i.i.i.i
+  %117 = load i16, ptr %116, align 2, !noalias !89, !noundef !5
+  %118 = icmp eq i16 %117, 0
+  br i1 %118, label %119, label %120
 
-110:                                              ; preds = %111, %.preheader138.i.i.i.i.i.i
-  %.3.i.i.i.i.i.i = phi i8 [ %.2143.i.i.i.i.i.i, %.preheader138.i.i.i.i.i.i ], [ %117, %111 ]
-  %exitcond158.not.i.i.i.i.i.i = icmp eq i64 %106, 4
-  br i1 %exitcond158.not.i.i.i.i.i.i, label %101, label %.preheader138.i.i.i.i.i.i
+119:                                              ; preds = %120, %.preheader138.i.i.i.i.i.i
+  %.3.i.i.i.i.i.i = phi i8 [ %.2143.i.i.i.i.i.i, %.preheader138.i.i.i.i.i.i ], [ %126, %120 ]
+  %exitcond158.not.i.i.i.i.i.i = icmp eq i64 %115, 4
+  br i1 %exitcond158.not.i.i.i.i.i.i, label %110, label %.preheader138.i.i.i.i.i.i
 
-111:                                              ; preds = %.preheader138.i.i.i.i.i.i
-  %112 = shl nuw nsw i64 %.sroa.028.0144.i.i.i.i.i.i, 4
-  %113 = add nuw nsw i64 %112, %.065146.i.i.i.i.i.i
-  %114 = trunc nuw i8 %.2143.i.i.i.i.i.i to i1
-  %115 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hc40a364317ba642fE"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %113, i16 noundef %108, i1 noundef zeroext %114), !noalias !50
-  %116 = or i1 %115, %114
-  %117 = zext i1 %116 to i8
-  br label %110
-
-118:                                              ; preds = %118, %.lr.ph.i37.i.i.i.i.i
-  %.sroa.022.0142.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i37.i.i.i.i.i ], [ %119, %118 ]
-  %119 = add nuw nsw i64 %.sroa.022.0142.i.i.i.i.i.i, 1
-  %120 = shl nuw nsw i64 %.sroa.022.0142.i.i.i.i.i.i, 4
-  %121 = getelementptr i8, ptr %100, i64 %120
-  %.0.copyload.i.i.i.i.i.i.i = load <16 x i8>, ptr %121, align 1, !alias.scope !90, !noalias !91
-  %122 = getelementptr inbounds i8, ptr %121, i64 %storemerge127130.i.i.i.i.i.i
-  %.0.copyload2.i.i.i.i.i.i.i = load <16 x i8>, ptr %122, align 1, !alias.scope !90, !noalias !91
-  %123 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i.i.i, %93
-  %124 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i.i.i, %94
-  %125 = and <16 x i1> %123, %124
-  %126 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.022.0142.i.i.i.i.i.i
-  store <16 x i1> %125, ptr %126, align 2, !noalias !89
-  %exitcond.not.i38.i.i.i.i.i = icmp eq i64 %119, 4
-  br i1 %exitcond.not.i38.i.i.i.i.i, label %.preheader138.i.i.i.i.i.i, label %118
+120:                                              ; preds = %.preheader138.i.i.i.i.i.i
+  %121 = shl nuw nsw i64 %.sroa.028.0144.i.i.i.i.i.i, 4
+  %122 = add nuw nsw i64 %121, %.065146.i.i.i.i.i.i
+  %123 = trunc nuw i8 %.2143.i.i.i.i.i.i to i1
+  %124 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17hc40a364317ba642fE"(ptr noalias noundef readonly align 8 dereferenceable(32) %6, i64 noundef %122, i16 noundef %117, i1 noundef zeroext %123), !noalias !50
+  %125 = or i1 %124, %123
+  %126 = zext i1 %125 to i8
+  br label %119
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %144, %.preheader.i.i.i.i.i.i
   %.168.lcssa.i.i.i.i.i.i = phi i8 [ %.067.lcssa.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %.5.i.i.i.i.i.i, %144 ]

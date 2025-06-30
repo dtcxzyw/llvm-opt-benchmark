@@ -1566,69 +1566,69 @@ _ZN6uucore8features5fsext12mount_dev_id17h1937b1607cf93021E.exit: ; preds = %"_Z
   %188 = icmp ult i64 %.sink, 68
   br i1 %188, label %.preheader.i.i, label %.lr.ph.i.i
 
-.preheader.i.i:                                   ; preds = %193, %184
-  %.067.lcssa.i.i = phi i8 [ 0, %184 ], [ %.3.i.i, %193 ]
-  %.065.lcssa.i.i = phi i64 [ 0, %184 ], [ %194, %193 ]
+.preheader.i.i:                                   ; preds = %202, %184
+  %.067.lcssa.i.i = phi i8 [ 0, %184 ], [ %.3.i.i, %202 ]
+  %.065.lcssa.i.i = phi i64 [ 0, %184 ], [ %203, %202 ]
   %189 = add i64 %.065.lcssa.i.i, 19
   %190 = icmp uge i64 %189, %.sink
   %191 = trunc nuw i8 %.067.lcssa.i.i to i1
   %or.cond353.i.i = select i1 %190, i1 true, i1 %191
   br i1 %or.cond353.i.i, label %._crit_edge.i.i, label %.lr.ph55.i.i
 
-.lr.ph.i.i:                                       ; preds = %184, %193
-  %.06551.i.i = phi i64 [ %194, %193 ], [ 0, %184 ]
+.lr.ph.i.i:                                       ; preds = %184, %202
+  %.06551.i.i = phi i64 [ %203, %202 ], [ 0, %184 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !308
   store i64 0, ptr %7, align 8, !noalias !308
   %192 = getelementptr i8, ptr %.sink263, i64 %.06551.i.i
-  br label %210
+  br label %193
 
-193:                                              ; preds = %202
-  %194 = add i64 %.06551.i.i, 64
+193:                                              ; preds = %193, %.lr.ph.i.i
+  %.sroa.022.047.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %194, %193 ]
+  %194 = add nuw nsw i64 %.sroa.022.047.i.i, 1
+  %195 = shl nuw nsw i64 %.sroa.022.047.i.i, 4
+  %196 = getelementptr i8, ptr %192, i64 %195
+  %.0.copyload.i.i.i = load <16 x i8>, ptr %196, align 1, !alias.scope !309, !noalias !310
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 3
+  %.0.copyload2.i.i.i = load <16 x i8>, ptr %197, align 1, !alias.scope !309, !noalias !310
+  %198 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 98)
+  %199 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 100)
+  %200 = and <16 x i1> %198, %199
+  %201 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.022.047.i.i
+  store <16 x i1> %200, ptr %201, align 2, !noalias !308
+  %exitcond.not.i.i = icmp eq i64 %194, 4
+  br i1 %exitcond.not.i.i, label %.preheader44.i.i, label %193
+
+202:                                              ; preds = %211
+  %203 = add i64 %.06551.i.i, 64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !308
-  %195 = add i64 %.06551.i.i, 131
-  %196 = icmp uge i64 %195, %.sink
-  %197 = trunc nuw i8 %.3.i.i to i1
-  %or.cond.i.i = select i1 %196, i1 true, i1 %197
+  %204 = add i64 %.06551.i.i, 131
+  %205 = icmp uge i64 %204, %.sink
+  %206 = trunc nuw i8 %.3.i.i to i1
+  %or.cond.i.i = select i1 %205, i1 true, i1 %206
   br i1 %or.cond.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
-.preheader44.i.i:                                 ; preds = %210, %202
-  %.sroa.028.049.i.i = phi i64 [ %198, %202 ], [ 0, %210 ]
-  %.248.i.i = phi i8 [ %.3.i.i, %202 ], [ 0, %210 ]
-  %198 = add nuw nsw i64 %.sroa.028.049.i.i, 1
-  %199 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.028.049.i.i
-  %200 = load i16, ptr %199, align 2, !noalias !308, !noundef !4
-  %201 = icmp eq i16 %200, 0
-  br i1 %201, label %202, label %203
+.preheader44.i.i:                                 ; preds = %193, %211
+  %.sroa.028.049.i.i = phi i64 [ %207, %211 ], [ 0, %193 ]
+  %.248.i.i = phi i8 [ %.3.i.i, %211 ], [ 0, %193 ]
+  %207 = add nuw nsw i64 %.sroa.028.049.i.i, 1
+  %208 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.028.049.i.i
+  %209 = load i16, ptr %208, align 2, !noalias !308, !noundef !4
+  %210 = icmp eq i16 %209, 0
+  br i1 %210, label %211, label %212
 
-202:                                              ; preds = %203, %.preheader44.i.i
-  %.3.i.i = phi i8 [ %.248.i.i, %.preheader44.i.i ], [ %209, %203 ]
-  %exitcond62.not.i.i = icmp eq i64 %198, 4
-  br i1 %exitcond62.not.i.i, label %193, label %.preheader44.i.i
+211:                                              ; preds = %212, %.preheader44.i.i
+  %.3.i.i = phi i8 [ %.248.i.i, %.preheader44.i.i ], [ %218, %212 ]
+  %exitcond62.not.i.i = icmp eq i64 %207, 4
+  br i1 %exitcond62.not.i.i, label %202, label %.preheader44.i.i
 
-203:                                              ; preds = %.preheader44.i.i
-  %204 = shl nuw nsw i64 %.sroa.028.049.i.i, 4
-  %205 = add nuw nsw i64 %204, %.06551.i.i
-  %206 = trunc nuw i8 %.248.i.i to i1
-  %207 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h171ad6fc75ef21f6E"(ptr noalias noundef readonly align 8 dereferenceable(32) %8, i64 noundef %205, i16 noundef %200, i1 noundef zeroext %206), !noalias !303
-  %208 = or i1 %207, %206
-  %209 = zext i1 %208 to i8
-  br label %202
-
-210:                                              ; preds = %210, %.lr.ph.i.i
-  %.sroa.022.047.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %211, %210 ]
-  %211 = add nuw nsw i64 %.sroa.022.047.i.i, 1
-  %212 = shl nuw nsw i64 %.sroa.022.047.i.i, 4
-  %213 = getelementptr i8, ptr %192, i64 %212
-  %.0.copyload.i.i.i = load <16 x i8>, ptr %213, align 1, !alias.scope !309, !noalias !310
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 3
-  %.0.copyload2.i.i.i = load <16 x i8>, ptr %214, align 1, !alias.scope !309, !noalias !310
-  %215 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 98)
-  %216 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 100)
-  %217 = and <16 x i1> %215, %216
-  %218 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.022.047.i.i
-  store <16 x i1> %217, ptr %218, align 2, !noalias !308
-  %exitcond.not.i.i = icmp eq i64 %211, 4
-  br i1 %exitcond.not.i.i, label %.preheader44.i.i, label %210
+212:                                              ; preds = %.preheader44.i.i
+  %213 = shl nuw nsw i64 %.sroa.028.049.i.i, 4
+  %214 = add nuw nsw i64 %213, %.06551.i.i
+  %215 = trunc nuw i8 %.248.i.i to i1
+  %216 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h171ad6fc75ef21f6E"(ptr noalias noundef readonly align 8 dereferenceable(32) %8, i64 noundef %214, i16 noundef %209, i1 noundef zeroext %215), !noalias !303
+  %217 = or i1 %216, %215
+  %218 = zext i1 %217 to i8
+  br label %211
 
 ._crit_edge.i.i:                                  ; preds = %234, %.preheader.i.i
   %.168.lcssa.i.i = phi i8 [ %.067.lcssa.i.i, %.preheader.i.i ], [ %.5.i.i, %234 ]

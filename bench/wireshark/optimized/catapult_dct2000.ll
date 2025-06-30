@@ -1231,7 +1231,7 @@ switch.early.test451:                             ; preds = %91
   %177 = icmp samesign ult i64 %indvars.iv685, 257
   %178 = add nsw i32 %.5.lcssa634, 1
   %.not406 = icmp slt i32 %178, %1
-  %or.cond442 = and i1 %177, %.not406
+  %or.cond442 = select i1 %177, i1 %.not406, i1 false
   br i1 %or.cond442, label %179, label %.critedge25
 
 179:                                              ; preds = %.critedge15

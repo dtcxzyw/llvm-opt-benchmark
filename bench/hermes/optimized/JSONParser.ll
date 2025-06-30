@@ -2561,7 +2561,7 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__holeIndex.addr.028 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SB_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.028, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %mul
+  %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %mul
   %gep = getelementptr %"struct.std::pair", ptr %invariant.gep, i64 %add
   %add.ptr.val = load ptr, ptr %add.ptr, align 8
   %add.ptr2.val = load ptr, ptr %gep, align 8
@@ -2596,8 +2596,8 @@ if.end.i.i.i.i:                                   ; preds = %_ZN4llvh9StringRef1
   %retval.i.0.i.i.i = phi i1 [ %cmp.i.inv.i.i.i, %if.then.i.i.i.i ], [ %cmp12.i.i.i.i, %if.end.i.i.i.i ]
   %dec = or disjoint i64 %add, 1
   %spec.select = select i1 %retval.i.0.i.i.i, i64 %dec, i64 %mul
-  %add.ptr3 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.028
+  %add.ptr3 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.028
   %4 = load ptr, ptr %add.ptr3, align 8
   store ptr %4, ptr %add.ptr4, align 8
   %second.i = getelementptr inbounds nuw i8, ptr %add.ptr3, i64 8
@@ -2622,8 +2622,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa
   %6 = load ptr, ptr %add.ptr14, align 8
   store ptr %6, ptr %add.ptr15, align 8
   %second.i25 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 8
@@ -2634,7 +2634,7 @@ if.then10:                                        ; preds = %land.lhs.true
 
 if.end18:                                         ; preds = %if.then10, %land.lhs.true, %while.end
   %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
-  %cmp3.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  %cmp3.i = icmp samesign ugt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end18
@@ -2645,7 +2645,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   %__holeIndex.addr.04.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.05.i, %while.body.i ]
   %__parent.05.in.i = add nsw i64 %__holeIndex.addr.04.i, -1
   %__parent.05.i = sdiv i64 %__parent.05.in.i, 2
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__parent.05.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__parent.05.i
   %add.ptr.val.i = load ptr, ptr %add.ptr.i, align 8
   %9 = getelementptr i8, ptr %add.ptr.val.i, i64 16
   %add.ptr.val.val.i = load ptr, ptr %9, align 8
@@ -2685,7 +2685,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZSt11__push_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %if.then.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SA_EEbT_RT0_.exit.i", %while.body.i, %if.end18
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end18 ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SA_EEbT_RT0_.exit.i" ], [ %__parent.05.i, %while.body.i ], [ %__holeIndex.addr.04.i, %if.then.i.i.i.i.i ]
-  %add.ptr6.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr6.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store ptr %__value.coerce0, ptr %add.ptr6.i, align 8
   %second3.i13.i = getelementptr inbounds nuw i8, ptr %add.ptr6.i, i64 8
   store ptr %__value.coerce1, ptr %second3.i13.i, align 8

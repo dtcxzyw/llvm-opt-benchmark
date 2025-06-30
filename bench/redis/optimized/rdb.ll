@@ -7731,13 +7731,13 @@ rdbSaveType.exit117.thread:                       ; preds = %96, %.thread.i.i.i1
   br i1 %127, label %.thread, label %128
 
 128:                                              ; preds = %123
-  %129 = add nuw nsw i64 %.071141, 1
+  %129 = add nsw i64 %.071141, 1
   %130 = zext nneg i32 %116 to i64
-  %131 = add nuw nsw i64 %129, %130
+  %131 = add nsw i64 %129, %130
   %132 = zext nneg i32 %121 to i64
-  %133 = add nuw nsw i64 %131, %132
+  %133 = add nsw i64 %131, %132
   %134 = zext nneg i32 %126 to i64
-  %135 = add nuw nsw i64 %133, %134
+  %135 = add nsw i64 %133, %134
   br label %136
 
 136:                                              ; preds = %128, %91
@@ -7763,7 +7763,7 @@ rdbSaveType.exit117.thread:                       ; preds = %96, %.thread.i.i.i1
 
 145:                                              ; preds = %136
   %146 = zext nneg i32 %143 to i64
-  %147 = add nuw nsw i64 %.1, %146
+  %147 = add nsw i64 %.1, %146
   %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 56), align 8, !tbaa !163
   %.not94 = icmp eq i32 %148, 0
   br i1 %.not94, label %152, label %149

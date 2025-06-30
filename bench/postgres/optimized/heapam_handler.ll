@@ -1343,7 +1343,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
   ]
 
 46:                                               ; preds = %38
-  %47 = trunc nuw nsw i32 %39 to i16
+  %47 = trunc nuw i32 %39 to i16
   %48 = load i32, ptr %33, align 8
   %49 = lshr i32 %48, 16
   %50 = trunc nuw i32 %49 to i16

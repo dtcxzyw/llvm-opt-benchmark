@@ -4656,7 +4656,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !114
   store ptr null, ptr %36, align 8, !tbaa !114
-  %38 = icmp sgt i64 %.1, %1
+  %38 = icmp samesign ugt i64 %.1, %1
   br i1 %38, label %.lr.ph.i.preheader, label %"_ZSt11__push_heapIP10ref_vectorI4expr11ast_managerElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZN3opt3lns11relax_coresEvE3$_0EEEvT_T0_SD_T1_RT2_.exit"
 
 .lr.ph.i.preheader:                               ; preds = %35
@@ -4668,7 +4668,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
   %.0133.i = phi i64 [ %.1, %.lr.ph.i.preheader ], [ %.04.i, %50 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %41 = getelementptr inbounds %class.ref_vector, ptr %0, i64 %.04.i
+  %41 = getelementptr inbounds nuw %class.ref_vector, ptr %0, i64 %.04.i
   %42 = getelementptr i8, ptr %41, i64 8
   %.val.i = load ptr, ptr %42, align 8, !tbaa !17
   %43 = icmp eq ptr %.val.i, null
@@ -4700,7 +4700,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
 
 "_ZSt11__push_heapIP10ref_vectorI4expr11ast_managerElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZN3opt3lns11relax_coresEvE3$_0EEEvT_T0_SD_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt3lns11relax_coresEvE3$_0EclIP10ref_vectorI4expr11ast_managerESA_EEbT_RT0_.exit.i", %50, %35
   %.013.lcssa.i = phi i64 [ %.1, %35 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt3lns11relax_coresEvE3$_0EclIP10ref_vectorI4expr11ast_managerESA_EEbT_RT0_.exit.i" ], [ %.04.i, %50 ]
-  %53 = getelementptr inbounds %class.ref_vector, ptr %0, i64 %.013.lcssa.i
+  %53 = getelementptr inbounds nuw %class.ref_vector, ptr %0, i64 %.013.lcssa.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !17
   %56 = icmp eq ptr %55, null

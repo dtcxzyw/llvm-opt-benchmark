@@ -2347,7 +2347,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h6e52d8c2fbf534f2E.exit: ; pre
   br label %.backedge
 
 256:                                              ; preds = %208
-  tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h25124927e0db5d0eE"(ptr noalias noundef nonnull align 8 %.sroa.0.077, i64 noundef range(i64 33, 0) %.sroa.11.076, i64 noundef 0, i64 noundef range(i64 0, -1) %.sroa.0.0.i)
+  tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h25124927e0db5d0eE"(ptr noalias noundef nonnull align 8 %.sroa.0.077, i64 noundef range(i64 33, 0) %.sroa.11.076, i64 noundef 0, i64 noundef range(i64 0, 1152921504606846976) %.sroa.0.0.i)
   %257 = getelementptr inbounds nuw i8, ptr %.sroa.0.077, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !430)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !433)

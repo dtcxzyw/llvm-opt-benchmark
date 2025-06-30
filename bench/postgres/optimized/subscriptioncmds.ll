@@ -780,8 +780,7 @@ parse_subscription_options.specialized.6.exit.thread332: ; preds = %210, %parse_
   %289 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %288, ptr %289, align 16
   %290 = trunc nuw i8 %.sroa.49.sroa.8.2264308 to i1
-  %.mask = and i8 %.sroa.49.sroa.8.2264308, 1
-  %291 = zext nneg i8 %.mask to i64
+  %291 = zext nneg i8 %.sroa.49.sroa.8.2264308 to i64
   %292 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %291, ptr %292, align 8
   %293 = and i8 %.sroa.71141.1218258314, 1

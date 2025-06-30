@@ -116,7 +116,7 @@ define range(i64 -46, 1) i64 @FSEv05_buildDTable(ptr noundef captures(none) %0, 
 37:                                               ; preds = %.lr.ph, %41
   %.190 = phi i32 [ %.06492, %.lr.ph ], [ %.2, %41 ]
   %.06689 = phi i32 [ 0, %.lr.ph ], [ %42, %41 ]
-  %38 = zext i32 %.190 to i64
+  %38 = zext nneg i32 %.190 to i64
   %.idx = shl nuw nsw i64 %38, 2
   %gep88 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i8 %36, ptr %gep88, align 2, !tbaa !7
@@ -124,7 +124,7 @@ define range(i64 -46, 1) i64 @FSEv05_buildDTable(ptr noundef captures(none) %0, 
 
 39:                                               ; preds = %39, %37
   %.1.pn = phi i32 [ %.190, %37 ], [ %.2, %39 ]
-  %.pn = add i32 %12, %.1.pn
+  %.pn = add nuw i32 %12, %.1.pn
   %.2 = and i32 %.pn, %8
   %40 = icmp ugt i32 %.2, %.173
   br i1 %40, label %39, label %41, !llvm.loop !11

@@ -2316,7 +2316,7 @@ define dso_local range(i32 -2147483648, 256) i32 @i2c_smbus_read_i2c_block_data_
 
 82:                                               ; preds = %92, %78
   %83 = phi i64 [ %80, %78 ], [ %94, %92 ]
-  %84 = trunc i64 %83 to i8
+  %84 = trunc nuw nsw i64 %83 to i8
   %85 = add i8 %1, %84
   call void @llvm.lifetime.start.p0(i64 34, ptr nonnull %5) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(34) %5, i8 0, i64 34, i1 false), !annotation !14

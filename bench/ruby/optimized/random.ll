@@ -3821,7 +3821,7 @@ define internal fastcc void @domain_error() unnamed_addr #20 {
 declare i64 @rb_check_to_int(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1, i64 noundef range(i64 -4611686018427387904, -9223372036854775808) %2) unnamed_addr #0 {
+define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1, i64 noundef range(i64 -4611686018427387904, 4611686020574871552) %2) unnamed_addr #0 {
   %4 = alloca %union.anon.20, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %limited_rand.exit, label %5
@@ -3831,7 +3831,7 @@ define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1,
   br i1 %.not33, label %6, label %37
 
 6:                                                ; preds = %5
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -4611686018427387904, -9223372036854775808) %2, i1 true)
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 -4611686018427387904, 4611686020574871552) %2, i1 true)
   %narrow = sub nuw nsw i64 64, %7
   %8 = icmp ult i64 %2, 4294967296
   %9 = select i1 %8, i32 4, i32 8

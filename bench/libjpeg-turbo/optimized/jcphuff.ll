@@ -1064,7 +1064,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef readonly captures(
   %59 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0166184, i1 true)
   %60 = trunc nuw nsw i64 %59 to i32
   %61 = lshr exact i64 %.0166184, %59
-  %62 = add nsw i32 %.080187, %60
+  %62 = add nuw nsw i32 %.080187, %60
   %63 = getelementptr inbounds nuw i16, ptr %.079188, i64 %59
   %64 = lshr i64 %.0189, %59
   %65 = icmp ule ptr %63, %40

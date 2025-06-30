@@ -5694,7 +5694,7 @@ bytestream2_get_le16.exit.i.us:                   ; preds = %380
 
 391:                                              ; preds = %389
   %392 = and i32 %387, 255
-  %393 = add nsw i32 %392, %.01219.i.us
+  %393 = add nuw nsw i32 %392, %.01219.i.us
   br label %415
 
 .thread.i.us:                                     ; preds = %380, %389
@@ -5714,13 +5714,13 @@ bytestream2_get_le16.exit.i.us:                   ; preds = %380
   %406 = getelementptr inbounds nuw [64 x i32], ptr %174, i64 0, i64 %397
   %407 = load i32, ptr %406, align 4, !tbaa !43
   %408 = add i32 %407, %405
-  %409 = sext i32 %.01219.i.us to i64
-  %410 = getelementptr inbounds [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %409
+  %409 = zext nneg i32 %.01219.i.us to i64
+  %410 = getelementptr inbounds nuw [64 x i8], ptr @ff_zigzag_direct, i64 0, i64 %409
   %411 = load i8, ptr %410, align 1, !tbaa !44
   %412 = zext i8 %411 to i64
   %413 = getelementptr inbounds nuw float, ptr %362, i64 %412
   store i32 %408, ptr %413, align 4, !tbaa !189
-  %414 = add nsw i32 %.01219.i.us, 1
+  %414 = add nuw nsw i32 %.01219.i.us, 1
   br label %415
 
 415:                                              ; preds = %.thread.i.us, %391

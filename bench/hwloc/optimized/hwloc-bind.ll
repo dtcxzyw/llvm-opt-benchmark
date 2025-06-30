@@ -2940,7 +2940,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @hwloc_utils_cpuset_format_asprintf(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #14 {
+define internal fastcc void @hwloc_utils_cpuset_format_asprintf(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #14 {
   switch i32 %2, label %38 [
     i32 1, label %4
     i32 2, label %6

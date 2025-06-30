@@ -1068,7 +1068,7 @@ _ZNSt6bitsetILm8EE9referenceaSEb.exit.i:          ; preds = %159, %_ZNSt6bitsetI
   br i1 %148, label %149, label %152
 
 149:                                              ; preds = %_ZNSt6bitsetILm8EE9referenceaSEb.exit.i
-  %150 = trunc i64 %.sroa.0.1.i to i8
+  %150 = trunc nuw i64 %.sroa.0.1.i to i8
   store i8 %150, ptr %.024.i, align 1, !tbaa !28
   %151 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   br label %159
@@ -1080,7 +1080,7 @@ _ZNSt6bitsetILm8EE9referenceaSEb.exit.i:          ; preds = %159, %_ZNSt6bitsetI
 
 155:                                              ; preds = %152
   %156 = lshr i64 %.sroa.0.1.i, %140
-  %157 = trunc i64 %156 to i8
+  %157 = trunc nuw i64 %156 to i8
   %158 = and i8 %157, 1
   store i8 %158, ptr %.024.i, align 1, !tbaa !28
   br label %159

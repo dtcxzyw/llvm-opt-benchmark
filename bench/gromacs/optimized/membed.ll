@@ -2740,7 +2740,7 @@ _ZL13est_prot_areaP9pos_ins_tPA3_fP7t_blockP5mem_t.exit: ; preds = %._crit_edge.
   br i1 %988, label %989, label %_ZL13est_prot_areaP9pos_ins_tPA3_fP7t_blockP5mem_t.exit.thread
 
 989:                                              ; preds = %977
-  %990 = add nsw i32 %.4, 1
+  %990 = add nuw nsw i32 %.4, 1
   %991 = load ptr, ptr @stderr, align 8, !tbaa !156
   %992 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %991, ptr noundef nonnull @.str.31, i32 noundef %990) #31
   br label %_ZL13est_prot_areaP9pos_ins_tPA3_fP7t_blockP5mem_t.exit.thread
@@ -3920,7 +3920,7 @@ _ZN3gmx17RangePartitioningD2Ev.exit252.i:         ; preds = %1468, %.body.i
   br i1 %1515, label %.preheader, label %._crit_edge584, !llvm.loop !294
 
 1516:                                             ; preds = %._crit_edge584
-  %1517 = add nsw i32 %.5, 1
+  %1517 = add nuw nsw i32 %.5, 1
   %1518 = load ptr, ptr @stderr, align 8, !tbaa !156
   %1519 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1518, ptr noundef nonnull @.str.42, i32 noundef %1517) #31
   br label %1520

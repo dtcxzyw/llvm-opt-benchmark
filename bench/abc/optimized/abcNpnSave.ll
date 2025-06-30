@@ -1104,7 +1104,7 @@ Npn_ManStart.exit:                                ; preds = %.preheader.i.i, %18
   br i1 %exitcond.not.i.i, label %Npn_TruthIsMinBase.exit, label %30, !llvm.loop !48
 
 Npn_TruthIsMinBase.exit:                          ; preds = %30
-  %41 = add nsw i32 %.1.i.i, 1
+  %41 = add nuw nsw i32 %.1.i.i, 1
   %42 = and i32 %41, %.1.i.i
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %43, label %89

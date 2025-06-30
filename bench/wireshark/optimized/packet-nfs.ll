@@ -4446,7 +4446,7 @@ define hidden noundef i32 @dissect_nfs3_post_op_attr(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483646, 3) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 2, -2147483645) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22

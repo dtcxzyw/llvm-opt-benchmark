@@ -95384,11 +95384,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit356: ; preds = %_Z
 
 538:                                              ; preds = %405
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %540 = sub nsw i32 3, %.us-phi
+  %540 = sub nuw nsw i32 3, %.us-phi
   %541 = load ptr, ptr %118, align 8, !tbaa !27
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 8
-  %543 = sext i32 %540 to i64
-  %544 = getelementptr inbounds [268435454 x ptr], ptr %542, i64 0, i64 %543
+  %543 = zext nneg i32 %540 to i64
+  %544 = getelementptr inbounds nuw [268435454 x ptr], ptr %542, i64 0, i64 %543
   %545 = load ptr, ptr %544, align 8, !tbaa !28
   %546 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEESt4lessIS5_ESaISt4pairIKS5_S8_EEEixERSC_(ptr noundef nonnull align 8 dereferenceable(48) %539, ptr noundef nonnull align 8 dereferenceable(32) %545)
           to label %547 unwind label %574

@@ -3835,8 +3835,8 @@ Abc_Clock.exit183:                                ; preds = %Abc_Clock.exit181, 
   %190 = trunc i64 %.424.i.i to i32
   %191 = and i32 %190, 1
   %192 = xor i32 %191, 1
-  %.5.i.i = add i32 %.4.i.i, %170
-  %193 = add i32 %.5.i.i, %192
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %170
+  %193 = add nuw nsw i32 %.5.i.i, %192
   br label %Abc_TtFindFirstDiffBit.exit
 
 194:                                              ; preds = %.lr.ph.i187

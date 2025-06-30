@@ -16494,14 +16494,14 @@ _ZN4lean4expraSEOS0_.exit33:                      ; preds = %38, %49, %51, %52
   %55 = load ptr, ptr %3, align 8, !tbaa !3
   store ptr %55, ptr %8, align 8, !tbaa !3
   store ptr inttoptr (i64 1 to ptr), ptr %3, align 8, !tbaa !3
-  %56 = icmp sgt i64 %.1, %1
+  %56 = icmp samesign ugt i64 %.1, %1
   br i1 %56, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %54, %_ZN4lean4expraSEOS0_.exit.i
   %.01319.i = phi i64 [ %.020.i, %_ZN4lean4expraSEOS0_.exit.i ], [ %.1, %54 ]
   %.020.in.i = add nsw i64 %.01319.i, -1
   %.020.i = sdiv i64 %.020.in.i, 2
-  %57 = getelementptr inbounds %"class.lean::expr", ptr %0, i64 %.020.i
+  %57 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.020.i
   %.val.i = load ptr, ptr %57, align 8, !tbaa !3, !noalias !362
   %58 = invoke fastcc noundef zeroext i1 @"_ZZN4lean10sort_fvarsERKNS_9local_ctxERNS_6bufferINS_4exprELm16EEEENK3$_0clERKS4_S9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %7, ptr %.val.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %8)
           to label %.noexc unwind label %.loopexit
@@ -16544,7 +16544,7 @@ _ZN4lean4expraSEOS0_.exit.i:                      ; preds = %70, %69, %67, %59
 
 .critedge.i:                                      ; preds = %_ZN4lean4expraSEOS0_.exit.i, %.noexc, %54
   %.013.lcssa.i = phi i64 [ %.1, %54 ], [ %.01319.i, %.noexc ], [ %.020.i, %_ZN4lean4expraSEOS0_.exit.i ]
-  %73 = getelementptr inbounds %"class.lean::expr", ptr %0, i64 %.013.lcssa.i
+  %73 = getelementptr inbounds nuw %"class.lean::expr", ptr %0, i64 %.013.lcssa.i
   %74 = load ptr, ptr %73, align 8, !tbaa !3
   %75 = ptrtoint ptr %74 to i64
   %76 = and i64 %75, 1

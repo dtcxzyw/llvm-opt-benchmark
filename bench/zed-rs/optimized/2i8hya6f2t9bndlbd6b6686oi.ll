@@ -5371,7 +5371,7 @@ define hidden void @_ZN12tracing_core5field8FieldSet9value_set17hf915da300841ca8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN134_$LT$wasmtime_wasi..bindings..async_io..wasi..io..streams..StreamError$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1b5e466ca4b0eb35E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef range(i32 24, 23) %2, i32 %3, ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @"_ZN134_$LT$wasmtime_wasi..bindings..async_io..wasi..io..streams..StreamError$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h1b5e466ca4b0eb35E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef range(i32 0, 23) %2, i32 %3, ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [16 x i8], align 8
   %7 = alloca [48 x i8], align 8
   %8 = alloca [48 x i8], align 8
@@ -28902,7 +28902,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   tail call void @llvm.assume(i1 %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3784)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3787
-  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17hc911e9a174cbedd5E.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 24, 23) %4, i32 %8), !noalias !3789
+  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17hc911e9a174cbedd5E.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 0, 23) %4, i32 %8), !noalias !3789
   %11 = load i32, ptr %3, align 8, !range !194, !noalias !3787, !noundef !5
   %trunc.i.i = trunc nuw i32 %11 to i1
   br i1 %trunc.i.i, label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h33ab6b11fb2a9db9E.exit", label %12
@@ -29634,7 +29634,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   tail call void @llvm.assume(i1 %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3965)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !3968
-  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17h52bec18bef6909c1E.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 24, 23) %4, i32 %8), !noalias !3970
+  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17h52bec18bef6909c1E.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 0, 23) %4, i32 %8), !noalias !3970
   %11 = load i32, ptr %3, align 8, !range !194, !noalias !3968, !noundef !5
   %trunc.i.i = trunc nuw i32 %11 to i1
   br i1 %trunc.i.i, label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h3e9f344b438b3cc6E.exit", label %12
@@ -31632,7 +31632,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   tail call void @llvm.assume(i1 %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4491)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !4494
-  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17ha94ce09cd9711e7eE.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 24, 23) %4, i32 %8), !noalias !4496
+  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17ha94ce09cd9711e7eE.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 0, 23) %4, i32 %8), !noalias !4496
   %11 = load i32, ptr %3, align 8, !range !194, !noalias !4494, !noundef !5
   %trunc.i.i = trunc nuw i32 %11 to i1
   br i1 %trunc.i.i, label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17hcaac6518ef236a97E.exit", label %12
@@ -32103,7 +32103,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   tail call void @llvm.assume(i1 %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4614)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !4617
-  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17h8003432208c194f2E.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 24, 23) %4, i32 %8), !noalias !4619
+  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17h8003432208c194f2E.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 0, 23) %4, i32 %8), !noalias !4619
   %11 = load i32, ptr %3, align 8, !range !194, !noalias !4617, !noundef !5
   %trunc.i.i = trunc nuw i32 %11 to i1
   br i1 %trunc.i.i, label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17heec3fd7ba278e509E.exit", label %12
@@ -32181,7 +32181,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   tail call void @llvm.assume(i1 %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4633)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !4636
-  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17hd0c7b3d44b727b1eE.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 24, 23) %4, i32 %8), !noalias !4638
+  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17hd0c7b3d44b727b1eE.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 0, 23) %4, i32 %8), !noalias !4638
   %11 = load i32, ptr %3, align 8, !range !194, !noalias !4636, !noundef !5
   %trunc.i.i = trunc nuw i32 %11 to i1
   br i1 %trunc.i.i, label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17hbc1da8a8aceef900E.exit", label %12
@@ -32319,7 +32319,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   tail call void @llvm.assume(i1 %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4663)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !4666
-  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17hf1c7d87aa1877154E.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 24, 23) %4, i32 %8), !noalias !4668
+  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17hf1c7d87aa1877154E.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 0, 23) %4, i32 %8), !noalias !4668
   %11 = load i32, ptr %3, align 8, !range !194, !noalias !4666, !noundef !5
   %trunc.i.i = trunc nuw i32 %11 to i1
   br i1 %trunc.i.i, label %"_ZN102_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower28_$u7b$$u7b$closure$u7d$$u7d$17h2748463c9f658ac8E.exit", label %12
@@ -32968,7 +32968,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func5typed13lower_payl
   %35 = load i32, ptr %34, align 4, !noalias !4823
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4824)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !4827
-  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17ha94ce09cd9711e7eE.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 24, 23) %33, i32 %35), !noalias !4829
+  call void @"_ZN8wasmtime7runtime9component9resources17Resource$LT$T$GT$14lower_to_index17ha94ce09cd9711e7eE.llvm.15006262148341195119"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %7, ptr noundef nonnull align 8 %.sroa.4.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.5.0.copyload, i32 noundef range(i32 0, 23) %33, i32 %35), !noalias !4829
   %36 = load i32, ptr %7, align 8, !range !194, !noalias !4827, !noundef !5
   %trunc.i.i.i = trunc nuw i32 %36 to i1
   br i1 %trunc.i.i.i, label %"_ZN127_$LT$wasmtime..runtime..component..resources..Resource$LT$T$GT$$u20$as$u20$wasmtime..runtime..component..func..typed..Lower$GT$5lower17h7263b91b5002ee98E.exit.i.i", label %46

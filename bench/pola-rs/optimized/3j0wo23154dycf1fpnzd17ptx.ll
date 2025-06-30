@@ -60964,13 +60964,13 @@ define void @_ZN11polars_time10date_range10date_range17h5cfd126262816ab7E(ptr de
   %9 = ashr i32 %.sroa.0.0.copyload, 13
   %10 = add nsw i32 %9, -1
   %11 = icmp slt i32 %9, 1
-  switch i8 %6, label %default.unreachable58 [
+  switch i8 %6, label %default.unreachable62 [
     i8 0, label %12
-    i8 1, label %36
-    i8 2, label %43
+    i8 1, label %35
+    i8 2, label %42
   ]
 
-default.unreachable58:                            ; preds = %8
+default.unreachable62:                            ; preds = %8
   unreachable
 
 12:                                               ; preds = %8
@@ -60994,266 +60994,266 @@ _ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i: ; 
   %22 = ashr i32 %19, 2
   %23 = lshr i32 %.sroa.0.0.copyload, 4
   %24 = and i32 %23, 511
-  %25 = add nsw i32 %.sroa.05.0.i.i, %24
-  %26 = sub nsw i32 %25, %19
-  %27 = add nsw i32 %26, %21
-  %28 = add nsw i32 %27, %22
-  %29 = sext i32 %28 to i64
-  %30 = zext i32 %.sroa.4.0.copyload to i64
-  %31 = mul nsw i64 %29, 86400
-  %32 = add nuw nsw i64 %30, -62135683200
-  %33 = add nsw i64 %32, %31
-  %.lobit.i = lshr i64 %33, 63
-  %.sroa.03.0.i = add nsw i64 %.lobit.i, %33
-  %34 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.03.0.i, i64 1000000000)
-  %35 = extractvalue { i64, i1 } %34, 1
-  br i1 %35, label %.thread50.invoke, label %50, !prof !45
+  %25 = zext i32 %.sroa.4.0.copyload to i64
+  %26 = add nuw nsw i32 %24, -719163
+  %27 = add nsw i32 %26, %.sroa.05.0.i.i
+  %28 = sub nsw i32 %27, %19
+  %29 = add nsw i32 %28, %21
+  %narrow.i = add nsw i32 %29, %22
+  %30 = sext i32 %narrow.i to i64
+  %31 = mul nsw i64 %30, 86400
+  %32 = add nsw i64 %31, %25
+  %.lobit.i = lshr i64 %32, 63
+  %.sroa.03.0.i = add nsw i64 %.lobit.i, %32
+  %33 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.03.0.i, i64 1000000000)
+  %34 = extractvalue { i64, i1 } %33, 1
+  br i1 %34, label %.thread54.invoke, label %49, !prof !45
 
-36:                                               ; preds = %8
-  br i1 %11, label %37, label %95
+35:                                               ; preds = %8
+  br i1 %11, label %36, label %93
 
-37:                                               ; preds = %36
-  %38 = sub nsw i32 1, %9
-  %39 = udiv i32 %38, 400
-  %40 = add nuw nsw i32 %39, 1
-  %41 = mul nuw nsw i32 %40, 400
-  %42 = add nsw i32 %41, %10
-  %.neg.i = mul nsw i32 %40, -146097
-  br label %95
+36:                                               ; preds = %35
+  %37 = sub nsw i32 1, %9
+  %38 = udiv i32 %37, 400
+  %39 = add nuw nsw i32 %38, 1
+  %40 = mul nuw nsw i32 %39, 400
+  %41 = add nsw i32 %40, %10
+  %.neg.i = mul nsw i32 %39, -146097
+  br label %93
 
-43:                                               ; preds = %8
-  br i1 %11, label %44, label %149
+42:                                               ; preds = %8
+  br i1 %11, label %43, label %145
 
-44:                                               ; preds = %43
-  %45 = sub nsw i32 1, %9
-  %46 = udiv i32 %45, 400
-  %47 = add nuw nsw i32 %46, 1
-  %48 = mul nuw nsw i32 %47, 400
-  %49 = add nsw i32 %48, %10
-  %.neg.i14 = mul nsw i32 %47, -146097
-  br label %149
+43:                                               ; preds = %42
+  %44 = sub nsw i32 1, %9
+  %45 = udiv i32 %44, 400
+  %46 = add nuw nsw i32 %45, 1
+  %47 = mul nuw nsw i32 %46, 400
+  %48 = add nsw i32 %47, %10
+  %.neg.i17 = mul nsw i32 %46, -146097
+  br label %145
 
-50:                                               ; preds = %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i
-  %51 = icmp slt i64 %33, 0
-  %52 = zext i32 %.sroa.5.0.copyload to i64
-  %53 = add nsw i64 %52, -1000000000
-  %.sroa.06.0.i = select i1 %51, i64 %53, i64 %52
-  %54 = extractvalue { i64, i1 } %34, 0
-  %55 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %54, i64 %.sroa.06.0.i)
-  %56 = extractvalue { i64, i1 } %55, 1
-  %57 = extractvalue { i64, i1 } %55, 0
-  br i1 %56, label %.thread50.invoke, label %58, !prof !4397
+49:                                               ; preds = %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i
+  %50 = icmp slt i64 %32, 0
+  %51 = zext i32 %.sroa.5.0.copyload to i64
+  %52 = add nsw i64 %51, -1000000000
+  %.sroa.06.0.i = select i1 %50, i64 %52, i64 %51
+  %53 = extractvalue { i64, i1 } %33, 0
+  %54 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %53, i64 %.sroa.06.0.i)
+  %55 = extractvalue { i64, i1 } %54, 1
+  %56 = extractvalue { i64, i1 } %54, 0
+  br i1 %55, label %.thread54.invoke, label %57, !prof !4397
 
-58:                                               ; preds = %50
-  %.sroa.036.0.copyload = load i32, ptr %3, align 4
-  %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.sroa.437.0.copyload = load i32, ptr %.sroa.437.0..sroa_idx, align 4
-  %.sroa.538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.538.0.copyload = load i32, ptr %.sroa.538.0..sroa_idx, align 4
-  %59 = ashr i32 %.sroa.036.0.copyload, 13
-  %60 = add nsw i32 %59, -1
-  %61 = icmp slt i32 %59, 1
-  br i1 %61, label %62, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i16
+57:                                               ; preds = %49
+  %.sroa.040.0.copyload = load i32, ptr %3, align 4
+  %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.sroa.441.0.copyload = load i32, ptr %.sroa.441.0..sroa_idx, align 4
+  %.sroa.542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.542.0.copyload = load i32, ptr %.sroa.542.0..sroa_idx, align 4
+  %58 = ashr i32 %.sroa.040.0.copyload, 13
+  %59 = add nsw i32 %58, -1
+  %60 = icmp slt i32 %58, 1
+  br i1 %60, label %61, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i19
 
-62:                                               ; preds = %58
-  %63 = sub nsw i32 1, %59
-  %64 = udiv i32 %63, 400
-  %65 = add nuw nsw i32 %64, 1
-  %66 = mul nuw nsw i32 %65, 400
-  %67 = add nsw i32 %66, %60
-  %.neg.i.i26 = mul nsw i32 %65, -146097
-  br label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i16
+61:                                               ; preds = %57
+  %62 = sub nsw i32 1, %58
+  %63 = udiv i32 %62, 400
+  %64 = add nuw nsw i32 %63, 1
+  %65 = mul nuw nsw i32 %64, 400
+  %66 = add nsw i32 %65, %59
+  %.neg.i.i30 = mul nsw i32 %64, -146097
+  br label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i19
 
-_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i16: ; preds = %62, %58
-  %.sroa.05.0.i.i17 = phi i32 [ %.neg.i.i26, %62 ], [ 0, %58 ]
-  %.sroa.0.0.i.i18 = phi i32 [ %67, %62 ], [ %60, %58 ]
-  %68 = sdiv i32 %.sroa.0.0.i.i18, 100
-  %69 = mul nsw i32 %.sroa.0.0.i.i18, 1461
-  %70 = ashr i32 %69, 2
-  %71 = ashr i32 %68, 2
-  %72 = lshr i32 %.sroa.036.0.copyload, 4
-  %73 = and i32 %72, 511
-  %74 = add nsw i32 %.sroa.05.0.i.i17, %73
-  %75 = sub nsw i32 %74, %68
-  %76 = add nsw i32 %75, %70
-  %77 = add nsw i32 %76, %71
-  %78 = sext i32 %77 to i64
-  %79 = zext i32 %.sroa.437.0.copyload to i64
-  %80 = mul nsw i64 %78, 86400
-  %81 = add nuw nsw i64 %79, -62135683200
-  %82 = add nsw i64 %81, %80
-  %.lobit.i19 = lshr i64 %82, 63
-  %.sroa.03.0.i20 = add nsw i64 %.lobit.i19, %82
-  %83 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.03.0.i20, i64 1000000000)
-  %84 = extractvalue { i64, i1 } %83, 1
-  br i1 %84, label %.thread50.invoke, label %85, !prof !45
+_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i19: ; preds = %61, %57
+  %.sroa.05.0.i.i20 = phi i32 [ %.neg.i.i30, %61 ], [ 0, %57 ]
+  %.sroa.0.0.i.i21 = phi i32 [ %66, %61 ], [ %59, %57 ]
+  %67 = sdiv i32 %.sroa.0.0.i.i21, 100
+  %68 = mul nsw i32 %.sroa.0.0.i.i21, 1461
+  %69 = ashr i32 %68, 2
+  %70 = ashr i32 %67, 2
+  %71 = lshr i32 %.sroa.040.0.copyload, 4
+  %72 = and i32 %71, 511
+  %73 = zext i32 %.sroa.441.0.copyload to i64
+  %74 = add nuw nsw i32 %72, -719163
+  %75 = add nsw i32 %74, %.sroa.05.0.i.i20
+  %76 = sub nsw i32 %75, %67
+  %77 = add nsw i32 %76, %69
+  %narrow.i22 = add nsw i32 %77, %70
+  %78 = sext i32 %narrow.i22 to i64
+  %79 = mul nsw i64 %78, 86400
+  %80 = add nsw i64 %79, %73
+  %.lobit.i23 = lshr i64 %80, 63
+  %.sroa.03.0.i24 = add nsw i64 %.lobit.i23, %80
+  %81 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.03.0.i24, i64 1000000000)
+  %82 = extractvalue { i64, i1 } %81, 1
+  br i1 %82, label %.thread54.invoke, label %83, !prof !45
 
-85:                                               ; preds = %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i16
-  %86 = icmp slt i64 %82, 0
-  %87 = zext i32 %.sroa.538.0.copyload to i64
-  %88 = add nsw i64 %87, -1000000000
-  %.sroa.06.0.i21 = select i1 %86, i64 %88, i64 %87
-  %89 = extractvalue { i64, i1 } %83, 0
-  %90 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %89, i64 %.sroa.06.0.i21)
-  %91 = extractvalue { i64, i1 } %90, 1
-  %92 = extractvalue { i64, i1 } %90, 0
-  br i1 %91, label %.thread50.invoke, label %94, !prof !4397
+83:                                               ; preds = %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i19
+  %84 = icmp slt i64 %80, 0
+  %85 = zext i32 %.sroa.542.0.copyload to i64
+  %86 = add nsw i64 %85, -1000000000
+  %.sroa.06.0.i25 = select i1 %84, i64 %86, i64 %85
+  %87 = extractvalue { i64, i1 } %81, 0
+  %88 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %87, i64 %.sroa.06.0.i25)
+  %89 = extractvalue { i64, i1 } %88, 1
+  %90 = extractvalue { i64, i1 } %88, 0
+  br i1 %89, label %.thread54.invoke, label %92, !prof !4397
 
-.thread50.invoke:                                 ; preds = %85, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i16, %50, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i
-  %93 = phi ptr [ @anon.c990b9405e73c76f9e8c2513807e3b3d.190, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i ], [ @anon.c990b9405e73c76f9e8c2513807e3b3d.190, %50 ], [ @anon.c990b9405e73c76f9e8c2513807e3b3d.191, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i16 ], [ @anon.c990b9405e73c76f9e8c2513807e3b3d.191, %85 ]
-  invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %93) #17
-          to label %.thread50.cont unwind label %204
+.thread54.invoke:                                 ; preds = %83, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i19, %49, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i
+  %91 = phi ptr [ @anon.c990b9405e73c76f9e8c2513807e3b3d.190, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i ], [ @anon.c990b9405e73c76f9e8c2513807e3b3d.190, %49 ], [ @anon.c990b9405e73c76f9e8c2513807e3b3d.191, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i19 ], [ @anon.c990b9405e73c76f9e8c2513807e3b3d.191, %83 ]
+  invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) %91) #17
+          to label %.thread54.cont unwind label %198
 
-.thread50.cont:                                   ; preds = %.thread50.invoke
+.thread54.cont:                                   ; preds = %.thread54.invoke
   unreachable
 
-94:                                               ; preds = %85, %174, %120
-  %.sroa.04.0 = phi i64 [ %139, %120 ], [ %193, %174 ], [ %57, %85 ]
-  %.sroa.05.0 = phi i64 [ %148, %120 ], [ %202, %174 ], [ %92, %85 ]
+92:                                               ; preds = %83, %166, %114
+  %.sroa.04.0 = phi i64 [ %132, %114 ], [ %184, %166 ], [ %56, %83 ]
+  %.sroa.05.0 = phi i64 [ %144, %114 ], [ %196, %166 ], [ %90, %83 ]
   tail call void @_ZN11polars_time10date_range19datetime_range_impl17h2d2d482367895605E(ptr noalias noundef nonnull sret([128 x i8]) align 16 captures(none) dereferenceable(128) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %1, i64 noundef %.sroa.04.0, i64 noundef %.sroa.05.0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4, i8 noundef %5, i8 noundef %6, ptr noalias noundef readonly align 2 dereferenceable_or_null(2) %7)
   ret void
 
-95:                                               ; preds = %37, %36
-  %.sroa.05.0.i = phi i32 [ %.neg.i, %37 ], [ 0, %36 ]
-  %.sroa.0.0.i11 = phi i32 [ %42, %37 ], [ %10, %36 ]
-  %96 = sdiv i32 %.sroa.0.0.i11, 100
-  %97 = mul nsw i32 %.sroa.0.0.i11, 1461
-  %98 = ashr i32 %97, 2
-  %99 = ashr i32 %96, 2
-  %100 = lshr i32 %.sroa.0.0.copyload, 4
-  %101 = and i32 %100, 511
-  %102 = add nsw i32 %.sroa.05.0.i, %101
-  %103 = sub nsw i32 %102, %96
-  %104 = add nsw i32 %103, %98
-  %105 = add nsw i32 %104, %99
-  %106 = load i32, ptr %3, align 4, !range !4396, !noundef !4
-  %107 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %108 = load i32, ptr %107, align 4, !noundef !4
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %110 = load i32, ptr %109, align 4, !noundef !4
-  %111 = ashr i32 %106, 13
-  %112 = add nsw i32 %111, -1
-  %113 = icmp slt i32 %111, 1
-  br i1 %113, label %114, label %120
+93:                                               ; preds = %36, %35
+  %.sroa.05.0.i = phi i32 [ %.neg.i, %36 ], [ 0, %35 ]
+  %.sroa.0.0.i14 = phi i32 [ %41, %36 ], [ %10, %35 ]
+  %94 = sdiv i32 %.sroa.0.0.i14, 100
+  %95 = mul nsw i32 %.sroa.0.0.i14, 1461
+  %96 = ashr i32 %95, 2
+  %97 = ashr i32 %94, 2
+  %98 = lshr i32 %.sroa.0.0.copyload, 4
+  %99 = and i32 %98, 511
+  %100 = load i32, ptr %3, align 4, !range !4396, !noundef !4
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %102 = load i32, ptr %101, align 4, !noundef !4
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %104 = load i32, ptr %103, align 4, !noundef !4
+  %105 = ashr i32 %100, 13
+  %106 = add nsw i32 %105, -1
+  %107 = icmp slt i32 %105, 1
+  br i1 %107, label %108, label %114
 
-114:                                              ; preds = %95
-  %115 = sub nsw i32 1, %111
-  %116 = udiv i32 %115, 400
-  %117 = add nuw nsw i32 %116, 1
-  %118 = mul nuw nsw i32 %117, 400
-  %119 = add nsw i32 %118, %112
-  %.neg.i30 = mul nsw i32 %117, -146097
-  br label %120
+108:                                              ; preds = %93
+  %109 = sub nsw i32 1, %105
+  %110 = udiv i32 %109, 400
+  %111 = add nuw nsw i32 %110, 1
+  %112 = mul nuw nsw i32 %111, 400
+  %113 = add nsw i32 %112, %106
+  %.neg.i34 = mul nsw i32 %111, -146097
+  br label %114
 
-120:                                              ; preds = %114, %95
-  %.sroa.05.0.i28 = phi i32 [ %.neg.i30, %114 ], [ 0, %95 ]
-  %.sroa.0.0.i29 = phi i32 [ %119, %114 ], [ %112, %95 ]
-  %121 = sdiv i32 %.sroa.0.0.i29, 100
-  %122 = mul nsw i32 %.sroa.0.0.i29, 1461
-  %123 = ashr i32 %122, 2
-  %124 = ashr i32 %121, 2
-  %125 = lshr i32 %106, 4
-  %126 = and i32 %125, 511
-  %127 = add nsw i32 %.sroa.05.0.i28, %126
-  %128 = sub nsw i32 %127, %121
-  %129 = add nsw i32 %128, %123
-  %130 = add nsw i32 %129, %124
-  %131 = sext i32 %105 to i64
-  %132 = mul nsw i64 %131, 86400
-  %133 = zext i32 %.sroa.4.0.copyload to i64
-  %134 = add nuw nsw i64 %133, -62135683200
-  %135 = add nsw i64 %134, %132
-  %136 = mul i64 %135, 1000000
-  %137 = udiv i32 %.sroa.5.0.copyload, 1000
-  %138 = zext nneg i32 %137 to i64
-  %139 = add i64 %136, %138
-  %140 = sext i32 %130 to i64
-  %141 = zext i32 %108 to i64
-  %142 = mul nsw i64 %140, 86400
-  %143 = add nuw nsw i64 %141, -62135683200
-  %144 = add nsw i64 %143, %142
-  %145 = mul i64 %144, 1000000
-  %146 = udiv i32 %110, 1000
-  %147 = zext nneg i32 %146 to i64
-  %148 = add i64 %145, %147
-  br label %94
+114:                                              ; preds = %108, %93
+  %.sroa.05.0.i32 = phi i32 [ %.neg.i34, %108 ], [ 0, %93 ]
+  %.sroa.0.0.i33 = phi i32 [ %113, %108 ], [ %106, %93 ]
+  %115 = sdiv i32 %.sroa.0.0.i33, 100
+  %116 = mul nsw i32 %.sroa.0.0.i33, 1461
+  %117 = ashr i32 %116, 2
+  %118 = ashr i32 %115, 2
+  %119 = lshr i32 %100, 4
+  %120 = and i32 %119, 511
+  %121 = add nuw nsw i32 %99, -719163
+  %122 = add nsw i32 %121, %.sroa.05.0.i
+  %123 = sub nsw i32 %122, %94
+  %124 = add nsw i32 %123, %96
+  %narrow9 = add nsw i32 %124, %97
+  %125 = sext i32 %narrow9 to i64
+  %126 = mul nsw i64 %125, 86400
+  %127 = zext i32 %.sroa.4.0.copyload to i64
+  %128 = add nsw i64 %126, %127
+  %129 = mul i64 %128, 1000000
+  %130 = udiv i32 %.sroa.5.0.copyload, 1000
+  %131 = zext nneg i32 %130 to i64
+  %132 = add i64 %129, %131
+  %133 = zext i32 %102 to i64
+  %134 = add nuw nsw i32 %120, -719163
+  %135 = add nsw i32 %134, %.sroa.05.0.i32
+  %136 = sub nsw i32 %135, %115
+  %137 = add nsw i32 %136, %117
+  %narrow10 = add nsw i32 %137, %118
+  %138 = sext i32 %narrow10 to i64
+  %139 = mul nsw i64 %138, 86400
+  %140 = add nsw i64 %139, %133
+  %141 = mul i64 %140, 1000000
+  %142 = udiv i32 %104, 1000
+  %143 = zext nneg i32 %142 to i64
+  %144 = add i64 %141, %143
+  br label %92
 
-149:                                              ; preds = %44, %43
-  %.sroa.05.0.i12 = phi i32 [ %.neg.i14, %44 ], [ 0, %43 ]
-  %.sroa.0.0.i13 = phi i32 [ %49, %44 ], [ %10, %43 ]
-  %150 = sdiv i32 %.sroa.0.0.i13, 100
-  %151 = mul nsw i32 %.sroa.0.0.i13, 1461
-  %152 = ashr i32 %151, 2
-  %153 = ashr i32 %150, 2
-  %154 = lshr i32 %.sroa.0.0.copyload, 4
-  %155 = and i32 %154, 511
-  %156 = add nsw i32 %.sroa.05.0.i12, %155
-  %157 = sub nsw i32 %156, %150
-  %158 = add nsw i32 %157, %152
-  %159 = add nsw i32 %158, %153
-  %160 = load i32, ptr %3, align 4, !range !4396, !noundef !4
-  %161 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %162 = load i32, ptr %161, align 4, !noundef !4
-  %163 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %164 = load i32, ptr %163, align 4, !noundef !4
-  %165 = ashr i32 %160, 13
-  %166 = add nsw i32 %165, -1
-  %167 = icmp slt i32 %165, 1
-  br i1 %167, label %168, label %174
+145:                                              ; preds = %43, %42
+  %.sroa.05.0.i15 = phi i32 [ %.neg.i17, %43 ], [ 0, %42 ]
+  %.sroa.0.0.i16 = phi i32 [ %48, %43 ], [ %10, %42 ]
+  %146 = sdiv i32 %.sroa.0.0.i16, 100
+  %147 = mul nsw i32 %.sroa.0.0.i16, 1461
+  %148 = ashr i32 %147, 2
+  %149 = ashr i32 %146, 2
+  %150 = lshr i32 %.sroa.0.0.copyload, 4
+  %151 = and i32 %150, 511
+  %152 = load i32, ptr %3, align 4, !range !4396, !noundef !4
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %154 = load i32, ptr %153, align 4, !noundef !4
+  %155 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %156 = load i32, ptr %155, align 4, !noundef !4
+  %157 = ashr i32 %152, 13
+  %158 = add nsw i32 %157, -1
+  %159 = icmp slt i32 %157, 1
+  br i1 %159, label %160, label %166
 
-168:                                              ; preds = %149
-  %169 = sub nsw i32 1, %165
-  %170 = udiv i32 %169, 400
-  %171 = add nuw nsw i32 %170, 1
-  %172 = mul nuw nsw i32 %171, 400
-  %173 = add nsw i32 %172, %166
-  %.neg.i34 = mul nsw i32 %171, -146097
-  br label %174
+160:                                              ; preds = %145
+  %161 = sub nsw i32 1, %157
+  %162 = udiv i32 %161, 400
+  %163 = add nuw nsw i32 %162, 1
+  %164 = mul nuw nsw i32 %163, 400
+  %165 = add nsw i32 %164, %158
+  %.neg.i38 = mul nsw i32 %163, -146097
+  br label %166
 
-174:                                              ; preds = %168, %149
-  %.sroa.05.0.i32 = phi i32 [ %.neg.i34, %168 ], [ 0, %149 ]
-  %.sroa.0.0.i33 = phi i32 [ %173, %168 ], [ %166, %149 ]
-  %175 = sdiv i32 %.sroa.0.0.i33, 100
-  %176 = mul nsw i32 %.sroa.0.0.i33, 1461
-  %177 = ashr i32 %176, 2
-  %178 = ashr i32 %175, 2
-  %179 = lshr i32 %160, 4
-  %180 = and i32 %179, 511
-  %181 = add nsw i32 %.sroa.05.0.i32, %180
-  %182 = sub nsw i32 %181, %175
-  %183 = add nsw i32 %182, %177
-  %184 = add nsw i32 %183, %178
-  %185 = sext i32 %159 to i64
-  %186 = mul nsw i64 %185, 86400
-  %187 = zext i32 %.sroa.4.0.copyload to i64
-  %188 = add nuw nsw i64 %187, -62135683200
-  %189 = add nsw i64 %188, %186
-  %190 = mul nsw i64 %189, 1000
-  %191 = udiv i32 %.sroa.5.0.copyload, 1000000
-  %192 = zext nneg i32 %191 to i64
-  %193 = add nsw i64 %190, %192
-  %194 = sext i32 %184 to i64
-  %195 = zext i32 %162 to i64
-  %196 = mul nsw i64 %194, 86400
-  %197 = add nuw nsw i64 %195, -62135683200
-  %198 = add nsw i64 %197, %196
-  %199 = mul nsw i64 %198, 1000
-  %200 = udiv i32 %164, 1000000
-  %201 = zext nneg i32 %200 to i64
-  %202 = add nsw i64 %199, %201
-  br label %94
+166:                                              ; preds = %160, %145
+  %.sroa.05.0.i36 = phi i32 [ %.neg.i38, %160 ], [ 0, %145 ]
+  %.sroa.0.0.i37 = phi i32 [ %165, %160 ], [ %158, %145 ]
+  %167 = sdiv i32 %.sroa.0.0.i37, 100
+  %168 = mul nsw i32 %.sroa.0.0.i37, 1461
+  %169 = ashr i32 %168, 2
+  %170 = ashr i32 %167, 2
+  %171 = lshr i32 %152, 4
+  %172 = and i32 %171, 511
+  %173 = add nuw nsw i32 %151, -719163
+  %174 = add nsw i32 %173, %.sroa.05.0.i15
+  %175 = sub nsw i32 %174, %146
+  %176 = add nsw i32 %175, %148
+  %narrow = add nsw i32 %176, %149
+  %177 = sext i32 %narrow to i64
+  %178 = mul nsw i64 %177, 86400
+  %179 = zext i32 %.sroa.4.0.copyload to i64
+  %180 = add nsw i64 %178, %179
+  %181 = mul nsw i64 %180, 1000
+  %182 = udiv i32 %.sroa.5.0.copyload, 1000000
+  %183 = zext nneg i32 %182 to i64
+  %184 = add nsw i64 %181, %183
+  %185 = zext i32 %154 to i64
+  %186 = add nuw nsw i32 %172, -719163
+  %187 = add nsw i32 %186, %.sroa.05.0.i36
+  %188 = sub nsw i32 %187, %167
+  %189 = add nsw i32 %188, %169
+  %narrow8 = add nsw i32 %189, %170
+  %190 = sext i32 %narrow8 to i64
+  %191 = mul nsw i64 %190, 86400
+  %192 = add nsw i64 %191, %185
+  %193 = mul nsw i64 %192, 1000
+  %194 = udiv i32 %156, 1000000
+  %195 = zext nneg i32 %194 to i64
+  %196 = add nsw i64 %193, %195
+  br label %92
 
-203:                                              ; preds = %204
+197:                                              ; preds = %198
   resume { ptr, i32 } %lpad.thr_comm
 
-204:                                              ; preds = %.thread50.invoke
+198:                                              ; preds = %.thread54.invoke
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$polars_utils..pl_str..PlSmallStr$GT$17hda6f114f592458fbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #18
-          to label %203 unwind label %205
+          to label %197 unwind label %199
 
-205:                                              ; preds = %204
-  %206 = landingpad { ptr, i32 }
+199:                                              ; preds = %198
+  %200 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #19
   unreachable

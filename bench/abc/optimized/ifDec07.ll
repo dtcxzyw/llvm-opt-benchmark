@@ -457,7 +457,7 @@ If_Dec7ComposeLut4.exit34:                        ; preds = %97
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i64 @If_Dec6Perform(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i64 504403158265495552, 2) i64 @If_Dec6Perform(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = alloca [6 x i32], align 16
   %4 = alloca [6 x i32], align 16
   %5 = alloca [6 x i32], align 16
@@ -651,7 +651,7 @@ If_Dec6CofCount2.exit:                            ; preds = %83
   br i1 %exitcond.not.i.i, label %If_Dec6DeriveCount2.exit.i, label %97, !llvm.loop !25
 
 If_Dec6DeriveCount2.exit.i:                       ; preds = %97
-  %105 = sext i32 %.1.i.i to i64
+  %105 = zext nneg i32 %.1.i.i to i64
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %106
 
@@ -1319,7 +1319,7 @@ If_Dec7MoveTo.exit46:                             ; preds = %If_Dec7MoveTo.exit3
   br i1 %exitcond.not.i.i, label %If_Dec7DeriveCount3.exit.i, label %204, !llvm.loop !39
 
 If_Dec7DeriveCount3.exit.i:                       ; preds = %204
-  %211 = sext i32 %.1.i.i to i64
+  %211 = zext nneg i32 %.1.i.i to i64
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %212
 
@@ -2734,7 +2734,7 @@ define void @If_Dec5PerformTest() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @If_CutPerformDerive07(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
+define range(i64 31525197391593472, 2) i64 @If_CutPerformDerive07(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8

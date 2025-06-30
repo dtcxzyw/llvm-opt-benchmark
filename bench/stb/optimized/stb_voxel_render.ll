@@ -1212,7 +1212,7 @@ define void @stbvox_make_mesh_for_block(ptr noundef captures(none) %0, i24 %1, i
 48:                                               ; preds = %33
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 604
   store i32 1, ptr %49, align 4, !tbaa !67
-  br label %109
+  br label %114
 
 50:                                               ; preds = %33
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -1240,6 +1240,7 @@ define void @stbvox_make_mesh_for_block(ptr noundef captures(none) %0, i24 %1, i
   br label %64
 
 64:                                               ; preds = %61, %57
+  %.sroa.0.0 = phi i8 [ %62, %61 ], [ 0, %57 ]
   %65 = getelementptr inbounds i8, ptr %12, i64 -1
   %66 = load i8, ptr %65, align 1, !tbaa !3
   %67 = icmp eq i8 %66, 0
@@ -1253,72 +1254,79 @@ define void @stbvox_make_mesh_for_block(ptr noundef captures(none) %0, i24 %1, i
   br label %71
 
 71:                                               ; preds = %68, %64
+  %.sroa.0.1 = phi i8 [ %69, %68 ], [ %.sroa.0.0, %64 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %73 = load ptr, ptr %72, align 8, !tbaa !69
   %.not159 = icmp eq ptr %73, null
+  %.sroa.0.1.masked = and i8 %.sroa.0.1, -16
   br i1 %.not159, label %78, label %74
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %73, i64 %11
   %76 = load i8, ptr %75, align 1, !tbaa !3
-  %77 = and i8 %76, -49
-  br label %80
+  %77 = or i8 %76, %.sroa.0.1.masked
+  br label %84
 
 78:                                               ; preds = %71
-  %79 = mul nuw i8 %.0, 69
-  br label %80
+  %79 = shl nuw i8 %.0, 6
+  %80 = shl nuw nsw i8 %.0, 2
+  %81 = or disjoint i8 %79, %80
+  %82 = or i8 %81, %.sroa.0.1.masked
+  %83 = or disjoint i8 %82, %.0
+  br label %84
 
-80:                                               ; preds = %78, %74
-  %.sroa.0.2 = phi i8 [ %77, %74 ], [ %79, %78 ]
-  %81 = sext i32 %6 to i64
-  %82 = getelementptr inbounds i8, ptr %12, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !3
-  %84 = icmp eq i8 %83, 0
-  br i1 %84, label %85, label %87
+84:                                               ; preds = %78, %74
+  %.sroa.0.2 = phi i8 [ %77, %74 ], [ %83, %78 ]
+  %85 = and i8 %.sroa.0.2, -49
+  %86 = sext i32 %6 to i64
+  %87 = getelementptr inbounds i8, ptr %12, i64 %86
+  %88 = load i8, ptr %87, align 1, !tbaa !3
+  %89 = icmp eq i8 %88, 0
+  br i1 %89, label %90, label %92
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %.sroa.0.2, i32 noundef 1, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef nonnull %86, i8 noundef zeroext %.0151, i32 noundef 1)
-  br label %87
+90:                                               ; preds = %84
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %85, i32 noundef 1, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef nonnull %91, i8 noundef zeroext %.0151, i32 noundef 1)
+  br label %92
 
-87:                                               ; preds = %85, %80
-  %88 = sub nsw i32 0, %6
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i8, ptr %12, i64 %89
-  %91 = load i8, ptr %90, align 1, !tbaa !3
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %93, label %95
+92:                                               ; preds = %90, %84
+  %93 = sub nsw i32 0, %6
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds i8, ptr %12, i64 %94
+  %96 = load i8, ptr %95, align 1, !tbaa !3
+  %97 = icmp eq i8 %96, 0
+  br i1 %97, label %98, label %100
 
-93:                                               ; preds = %87
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %.sroa.0.2, i32 noundef 3, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef nonnull %94, i8 noundef zeroext %.0151, i32 noundef 3)
-  br label %95
+98:                                               ; preds = %92
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %85, i32 noundef 3, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef nonnull %99, i8 noundef zeroext %.0151, i32 noundef 3)
+  br label %100
 
-95:                                               ; preds = %93, %87
-  %96 = sext i32 %8 to i64
-  %97 = getelementptr inbounds i8, ptr %12, i64 %96
-  %98 = load i8, ptr %97, align 1, !tbaa !3
-  %99 = icmp eq i8 %98, 0
-  br i1 %99, label %100, label %101
+100:                                              ; preds = %98, %92
+  %101 = sext i32 %8 to i64
+  %102 = getelementptr inbounds i8, ptr %12, i64 %101
+  %103 = load i8, ptr %102, align 1, !tbaa !3
+  %104 = icmp eq i8 %103, 0
+  br i1 %104, label %105, label %106
 
-100:                                              ; preds = %95
-  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %.sroa.0.2, i32 noundef 0, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef %3, i8 noundef zeroext %.0151, i32 noundef 0)
-  br label %101
+105:                                              ; preds = %100
+  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %85, i32 noundef 0, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef %3, i8 noundef zeroext %.0151, i32 noundef 0)
+  br label %106
 
-101:                                              ; preds = %100, %95
-  %102 = sub nsw i32 0, %8
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i8, ptr %12, i64 %103
-  %105 = load i8, ptr %104, align 1, !tbaa !3
-  %106 = icmp eq i8 %105, 0
-  br i1 %106, label %107, label %109
+106:                                              ; preds = %105, %100
+  %107 = sub nsw i32 0, %8
+  %108 = sext i32 %107 to i64
+  %109 = getelementptr inbounds i8, ptr %12, i64 %108
+  %110 = load i8, ptr %109, align 1, !tbaa !3
+  %111 = icmp eq i8 %110, 0
+  br i1 %111, label %112, label %114
 
-107:                                              ; preds = %101
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %.sroa.0.2, i32 noundef 2, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef nonnull %108, i8 noundef zeroext %.0151, i32 noundef 2)
-  br label %109
+112:                                              ; preds = %106
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  tail call void @stbvox_make_mesh_for_face(ptr noundef nonnull %0, i8 %85, i32 noundef 2, i32 noundef %2, i24 poison, i32 noundef %16, ptr noundef nonnull %113, i8 noundef zeroext %.0151, i32 noundef 2)
+  br label %114
 
-109:                                              ; preds = %101, %107, %48
+114:                                              ; preds = %106, %112, %48
   ret void
 }
 

@@ -16809,7 +16809,7 @@ _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIxEvEEEEvRNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN10ClipperLib10PointCountEPNS_5OutPtE(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
+define hidden noundef range(i32 -2147483647, -2147483648) i32 @_ZN10ClipperLib10PointCountEPNS_5OutPtE(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 

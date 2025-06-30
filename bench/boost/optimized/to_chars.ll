@@ -905,7 +905,7 @@ define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL16generic_to_c
 
 .preheader132:                                    ; preds = %72, %.preheader132
   %.0106 = phi i64 [ %80, %.preheader132 ], [ %.3113, %72 ]
-  %80 = add i64 %.0106, -1
+  %80 = add nsw i64 %.0106, -1
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !23
   %83 = icmp eq i8 %82, 57

@@ -1794,7 +1794,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 declare void @Ptngc_writebits(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @trajcoder_base_compress(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -2147483646, -2147483648) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #3 {
+define internal fastcc void @trajcoder_base_compress(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #3 {
   %5 = alloca [19 x i32], align 16
   %6 = alloca [19 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 76, ptr nonnull %5) #11

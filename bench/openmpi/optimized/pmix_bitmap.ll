@@ -687,7 +687,7 @@ pmix_bitmap_num_set_bits.exit:                    ; preds = %.loopexit.i, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @pmix_bitmap_num_set_bits(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
+define range(i32 -2147483647, -2147483648) i32 @pmix_bitmap_num_set_bits(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 

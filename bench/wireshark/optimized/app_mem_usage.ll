@@ -42,7 +42,7 @@ define ptr @memory_usage_get(i32 noundef %0, ptr noundef writeonly captures(addr
 
 4:                                                ; preds = %2
   %.not7 = icmp eq ptr %1, null
-  %.pre = zext i32 %0 to i64
+  %.pre = zext nneg i32 %0 to i64
   br i1 %.not7, label %._crit_edge, label %5
 
 5:                                                ; preds = %4

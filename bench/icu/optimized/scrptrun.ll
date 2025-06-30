@@ -15,34 +15,34 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef signext range(i8 -32, 32) i8 @_ZN6icu_779ScriptRun7highBitEi(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = icmp slt i32 %0, 1
-  br i1 %2, label %15, label %3
+  br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
   %4 = icmp samesign ugt i32 %0, 65535
   %5 = lshr i32 %0, 16
   %spec.select = select i1 %4, i32 %5, i32 %0
-  %spec.select25 = select i1 %4, i8 16, i8 0
+  %spec.select24 = select i1 %4, i8 16, i8 0
   %6 = icmp samesign ugt i32 %spec.select, 255
   %7 = lshr i32 %spec.select, 8
-  %8 = or disjoint i8 %spec.select25, 8
+  %8 = or disjoint i8 %spec.select24, 8
   %.119 = select i1 %6, i32 %7, i32 %spec.select
-  %.1 = select i1 %6, i8 %8, i8 %spec.select25
+  %.1 = select i1 %6, i8 %8, i8 %spec.select24
   %9 = icmp samesign ugt i32 %.119, 15
   %10 = lshr i32 %.119, 4
-  %narrow = or disjoint i8 %.1, 4
+  %11 = or disjoint i8 %.1, 4
   %.220 = select i1 %9, i32 %10, i32 %.119
-  %.2 = select i1 %9, i8 %narrow, i8 %.1
-  %11 = icmp samesign ugt i32 %.220, 3
-  %12 = lshr i32 %.220, 2
-  %narrow24 = or disjoint i8 %.2, 2
-  %.321 = select i1 %11, i32 %12, i32 %.220
-  %.3 = select i1 %11, i8 %narrow24, i8 %.2
-  %13 = icmp samesign ugt i32 %.321, 1
-  %14 = zext i1 %13 to i8
-  %.4 = add nuw nsw i8 %.3, %14
-  br label %15
+  %.2 = select i1 %9, i8 %11, i8 %.1
+  %12 = icmp samesign ugt i32 %.220, 3
+  %13 = lshr i32 %.220, 2
+  %14 = or disjoint i8 %.2, 2
+  %.321 = select i1 %12, i32 %13, i32 %.220
+  %.3 = select i1 %12, i8 %14, i8 %.2
+  %15 = icmp samesign ugt i32 %.321, 1
+  %16 = zext i1 %15 to i8
+  %.4 = add nuw nsw i8 %.3, %16
+  br label %17
 
-15:                                               ; preds = %1, %3
+17:                                               ; preds = %1, %3
   %.022 = phi i8 [ %.4, %3 ], [ -32, %1 ]
   ret i8 %.022
 }

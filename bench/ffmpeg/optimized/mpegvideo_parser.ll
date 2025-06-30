@@ -610,8 +610,8 @@ switch.early.test.i:                              ; preds = %.loopexit.thread.i
   ]
 
 297:                                              ; preds = %switch.early.test.i
-  %298 = sext i32 %.0145203255.i to i64
-  %299 = mul nsw i64 %298, 400
+  %298 = zext nneg i32 %.0145203255.i to i64
+  %299 = mul nuw nsw i64 %298, 400
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 464
   store i64 %299, ptr %300, align 8, !tbaa !56
   br label %301
@@ -627,8 +627,8 @@ switch.early.test.i:                              ; preds = %.loopexit.thread.i
   br i1 %or.cond11.i16, label %305, label %309
 
 305:                                              ; preds = %302
-  %306 = sext i32 %.0145203255.i to i64
-  %307 = mul nsw i64 %306, 400
+  %306 = zext nneg i32 %.0145203255.i to i64
+  %307 = mul nuw nsw i64 %306, 400
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %307, ptr %308, align 8, !tbaa !57
   br label %309

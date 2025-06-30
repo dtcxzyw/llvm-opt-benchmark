@@ -542,10 +542,10 @@ thread-pre-split:                                 ; preds = %84, %72
 
 111:                                              ; preds = %110
   %112 = load i32, ptr @hf_iwarp_rdma_atomic_reserved, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %112, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0)
+  %113 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %112, ptr noundef %0, i32 noundef range(i32 14, 71) %.2, i32 noundef 4, i32 noundef 0)
   %114 = load i32, ptr @hf_iwarp_rdma_atomic_opcode, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %114, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0)
-  %116 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2)
+  %115 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %114, ptr noundef %0, i32 noundef range(i32 14, 71) %.2, i32 noundef 4, i32 noundef 0)
+  %116 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 14, 71) %.2)
   %117 = add nuw nsw i32 %.2, 4
   %118 = load i32, ptr @hf_iwarp_rdma_atomic_request_identifier, align 4
   %119 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef 4, i32 noundef 0)
@@ -584,7 +584,7 @@ thread-pre-split:                                 ; preds = %84, %72
 
 138:                                              ; preds = %110
   %139 = load i32, ptr @hf_iwarp_rdma_atomic_original_request_identifier, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %139, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0)
+  %140 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %139, ptr noundef %0, i32 noundef range(i32 14, 71) %.2, i32 noundef 4, i32 noundef 0)
   %141 = add nuw nsw i32 %.2, 4
   br label %dissect_iwarp_atomic.exit.sink.split
 

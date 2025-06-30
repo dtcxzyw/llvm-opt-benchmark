@@ -752,31 +752,31 @@ define internal fastcc ptr @block_locate_free(ptr noundef captures(address) %0, 
   %5 = trunc nuw nsw i64 %1 to i32
   br i1 %4, label %mapping_search.exit, label %mapping_search.exit.thread
 
-mapping_search.exit:                              ; preds = %3
-  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
-  %7 = sub nuw nsw i32 26, %6
-  %notmask.i = shl nsw i32 -1, %7
-  %8 = xor i32 %notmask.i, -1
-  %9 = zext nneg i32 %8 to i64
-  %10 = add nuw nsw i64 %1, %9
-  %11 = trunc nuw nsw i64 %10 to i32
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
-  %13 = sub nuw nsw i32 26, %12
-  %14 = zext nneg i32 %13 to i64
-  %15 = lshr i64 %10, %14
-  %16 = trunc nuw nsw i64 %15 to i32
-  %17 = xor i32 %16, 32
-  %18 = sub nuw nsw i32 24, %12
-  %19 = icmp samesign ult i64 %10, 65536
-  br i1 %19, label %21, label %remove_free_block.exit
-
 mapping_search.exit.thread:                       ; preds = %3
-  %20 = lshr i32 %5, 3
+  %6 = lshr i32 %5, 3
   br label %21
 
+mapping_search.exit:                              ; preds = %3
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
+  %8 = sub nuw nsw i32 26, %7
+  %notmask.i = shl nsw i32 -1, %8
+  %9 = xor i32 %notmask.i, -1
+  %10 = zext nneg i32 %9 to i64
+  %11 = add nuw nsw i64 %1, %10
+  %12 = trunc nuw nsw i64 %11 to i32
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %12, i1 true)
+  %14 = sub nuw nsw i32 26, %13
+  %15 = zext nneg i32 %14 to i64
+  %16 = lshr i64 %11, %15
+  %17 = trunc nuw nsw i64 %16 to i32
+  %18 = xor i32 %17, 32
+  %19 = sub nuw nsw i32 24, %13
+  %20 = icmp samesign ult i64 %11, 65536
+  br i1 %20, label %21, label %remove_free_block.exit
+
 21:                                               ; preds = %mapping_search.exit.thread, %mapping_search.exit
-  %.0.i.i24 = phi i32 [ %20, %mapping_search.exit.thread ], [ %17, %mapping_search.exit ]
-  %.09.i.i23 = phi i32 [ 0, %mapping_search.exit.thread ], [ %18, %mapping_search.exit ]
+  %.0.i.i24 = phi i32 [ %6, %mapping_search.exit.thread ], [ %18, %mapping_search.exit ]
+  %.09.i.i23 = phi i32 [ 0, %mapping_search.exit.thread ], [ %19, %mapping_search.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %23 = zext nneg i32 %.09.i.i23 to i64
   %24 = getelementptr inbounds nuw [9 x i32], ptr %22, i64 0, i64 %23
@@ -806,72 +806,72 @@ mapping_search.exit.thread:                       ; preds = %3
   br label %.preheader.i
 
 search_suitable_block.exit:                       ; preds = %21, %33
+  %38 = phi i32 [ %25, %21 ], [ %37, %33 ]
   %.120 = phi i32 [ %.09.i.i23, %21 ], [ %34, %33 ]
   %.pre-phi.i = phi i64 [ %23, %21 ], [ %35, %33 ]
   %.12439.i = phi i32 [ %27, %21 ], [ %37, %33 ]
-  %38 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %.12439.i, i1 true)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %39, i64 0, i64 %.pre-phi.i, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !13
-  %.not9 = icmp eq ptr %42, null
-  br i1 %.not9, label %remove_free_block.exit, label %43
+  %39 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %.12439.i, i1 true)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %41 = zext nneg i32 %39 to i64
+  %42 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %40, i64 0, i64 %.pre-phi.i, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !13
+  %.not9 = icmp eq ptr %43, null
+  br i1 %.not9, label %remove_free_block.exit, label %44
 
-43:                                               ; preds = %search_suitable_block.exit
-  %44 = getelementptr i8, ptr %42, i64 8
-  %.0.val = load i64, ptr %44, align 8, !tbaa !16
-  %45 = and i64 %.0.val, -4
-  %.not10 = icmp ult i64 %45, %1
-  br i1 %.not10, label %.preheader, label %46
+44:                                               ; preds = %search_suitable_block.exit
+  %45 = getelementptr i8, ptr %43, i64 8
+  %.0.val = load i64, ptr %45, align 8, !tbaa !16
+  %46 = and i64 %.0.val, -4
+  %.not10 = icmp ult i64 %46, %1
+  br i1 %.not10, label %.preheader, label %47
 
-.preheader:                                       ; preds = %43, %.preheader
+.preheader:                                       ; preds = %44, %.preheader
   br label %.preheader
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !21
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !17
-  %.not.i12 = icmp eq ptr %48, null
-  br i1 %.not.i12, label %.preheader.i13, label %51
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !21
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !17
+  %.not.i12 = icmp eq ptr %49, null
+  br i1 %.not.i12, label %.preheader.i13, label %52
 
-.preheader.i13:                                   ; preds = %46, %.preheader.i13
+.preheader.i13:                                   ; preds = %47, %.preheader.i13
   br label %.preheader.i13
 
-51:                                               ; preds = %46
-  %.not26.i = icmp eq ptr %50, null
-  br i1 %.not26.i, label %.preheader28.i, label %52
+52:                                               ; preds = %47
+  %.not26.i = icmp eq ptr %51, null
+  br i1 %.not26.i, label %.preheader28.i, label %53
 
-.preheader28.i:                                   ; preds = %51, %.preheader28.i
+.preheader28.i:                                   ; preds = %52, %.preheader28.i
   br label %.preheader28.i
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr %48, ptr %53, align 8, !tbaa !21
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %50, ptr %54, align 8, !tbaa !17
-  %55 = zext nneg i32 %.120 to i64
-  %56 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %39, i64 0, i64 %55, i64 %40
-  %57 = load ptr, ptr %56, align 8, !tbaa !13
-  %58 = icmp eq ptr %57, %42
-  br i1 %58, label %59, label %remove_free_block.exit
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  store ptr %49, ptr %54, align 8, !tbaa !21
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  store ptr %51, ptr %55, align 8, !tbaa !17
+  %56 = zext nneg i32 %.120 to i64
+  %57 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %40, i64 0, i64 %56, i64 %41
+  %58 = load ptr, ptr %57, align 8, !tbaa !13
+  %59 = icmp eq ptr %58, %43
+  br i1 %59, label %60, label %remove_free_block.exit
 
-59:                                               ; preds = %52
-  store ptr %50, ptr %56, align 8, !tbaa !13
-  %60 = icmp eq ptr %50, %0
-  br i1 %60, label %61, label %remove_free_block.exit
+60:                                               ; preds = %53
+  store ptr %51, ptr %57, align 8, !tbaa !13
+  %61 = icmp eq ptr %51, %0
+  br i1 %61, label %62, label %remove_free_block.exit
 
-61:                                               ; preds = %59
-  %62 = shl nuw i32 1, %38
-  %63 = xor i32 %62, -1
-  %64 = getelementptr inbounds nuw [9 x i32], ptr %22, i64 0, i64 %55
-  %65 = load i32, ptr %64, align 4, !tbaa !12
-  %66 = and i32 %65, %63
-  store i32 %66, ptr %64, align 4, !tbaa !12
+62:                                               ; preds = %60
+  %63 = shl nuw i32 1, %39
+  %64 = xor i32 %63, -1
+  %65 = getelementptr inbounds nuw [9 x i32], ptr %22, i64 0, i64 %56
+  %66 = and i32 %38, %64
+  store i32 %66, ptr %65, align 4, !tbaa !12
   %.not27.i = icmp eq i32 %66, 0
   br i1 %.not27.i, label %67, label %remove_free_block.exit
 
-67:                                               ; preds = %61
+67:                                               ; preds = %62
   %68 = shl nuw i32 1, %.120
   %69 = xor i32 %68, -1
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -880,8 +880,8 @@ search_suitable_block.exit:                       ; preds = %21, %33
   store i32 %72, ptr %70, align 8, !tbaa !3
   br label %remove_free_block.exit
 
-remove_free_block.exit:                           ; preds = %28, %2, %mapping_search.exit, %67, %61, %59, %52, %search_suitable_block.exit
-  %.029 = phi ptr [ null, %search_suitable_block.exit ], [ %42, %52 ], [ %42, %59 ], [ %42, %61 ], [ %42, %67 ], [ null, %mapping_search.exit ], [ null, %2 ], [ null, %28 ]
+remove_free_block.exit:                           ; preds = %28, %2, %mapping_search.exit, %67, %62, %60, %53, %search_suitable_block.exit
+  %.029 = phi ptr [ null, %search_suitable_block.exit ], [ %43, %53 ], [ %43, %60 ], [ %43, %62 ], [ %43, %67 ], [ null, %mapping_search.exit ], [ null, %2 ], [ null, %28 ]
   ret ptr %.029
 }
 

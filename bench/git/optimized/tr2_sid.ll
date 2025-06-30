@@ -206,7 +206,7 @@ tr2_sid_append_my_sid_component.exit:             ; preds = %45, %strbuf_addch.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @tr2_sid_depth() local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @tr2_sid_depth() local_unnamed_addr #0 {
   %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tr2sid_buf, i64 8), align 8, !tbaa !4
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %2, label %3

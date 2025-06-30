@@ -1451,8 +1451,8 @@ Ssc_SimFindBit.exit:                              ; preds = %.lr.ph.split.i, %Ss
   %59 = trunc i64 %.424.i.i to i32
   %60 = and i32 %59, 1
   %61 = xor i32 %60, 1
-  %.5.i.i = add i32 %.4.i.i, %39
-  %62 = add i32 %.5.i.i, %61
+  %.5.i.i = add nuw nsw i32 %61, %.4.i.i
+  %62 = add nuw nsw i32 %.5.i.i, %39
   tail call void @free(ptr noundef nonnull %12) #13
   %63 = icmp eq i32 %62, -1
   br i1 %63, label %.critedge, label %64
@@ -1473,7 +1473,7 @@ Ssc_SimFindBit.exit:                              ; preds = %.lr.ph.split.i, %Ss
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %72 = ashr i32 %62, 5
   %73 = sext i32 %72 to i64
-  %74 = and i32 %62, 31
+  %74 = and i32 %.5.i.i, 31
   br label %75
 
 75:                                               ; preds = %.lr.ph, %Vec_IntPush.exit

@@ -8366,7 +8366,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @sip_find_invite(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc i32 @sip_find_invite(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.sip_hash_key, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -8503,7 +8503,7 @@ define internal fastcc i32 @sip_find_invite(ptr noundef %0, ptr noundef %1, i8 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @sip_is_packet_resend(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
+define internal fastcc i32 @sip_is_packet_resend(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 2) %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
   %7 = alloca %struct.sip_hash_key, align 8
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 276

@@ -36174,7 +36174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
   br label %122
 
 122:                                              ; preds = %.lr.ph373, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
-  %.066372 = phi i8 [ 0, %.lr.ph373 ], [ %.167.lcssa408410, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138 ]
+  %.066372 = phi i8 [ 0, %.lr.ph373 ], [ %.167.lcssa409411, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #41
   invoke void @_ZN4V3Os7getlineB5cxx11ERSic(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %50, i8 noundef signext 10)
           to label %123 unwind label %128
@@ -36360,7 +36360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = %._crit_edge.i.i.i.thread, %181, %179, %._crit_edge.i.i.i
-  %.167.lcssa408410 = phi i8 [ %.066372, %._crit_edge.i.i.i.thread ], [ %.167.lcssa.ph, %181 ], [ %.167.lcssa.ph, %179 ], [ %.167.lcssa.ph, %._crit_edge.i.i.i ]
+  %.167.lcssa409411 = phi i8 [ %.066372, %._crit_edge.i.i.i.thread ], [ %.167.lcssa.ph, %181 ], [ %.167.lcssa.ph, %179 ], [ %.167.lcssa.ph, %._crit_edge.i.i.i ]
   %182 = load i64, ptr %7, align 8, !tbaa !43, !noalias !417
   store i64 %182, ptr %120, align 8, !tbaa !24, !alias.scope !417
   %183 = load ptr, ptr %14, align 8, !tbaa !20, !alias.scope !417
@@ -36575,7 +36575,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit138
   %.pre405 = load i64, ptr %112, align 8, !tbaa !24
   %248 = icmp eq i64 %.pre405, 4611686018427387903
-  %249 = trunc nuw i8 %.167.lcssa408410 to i1
+  %249 = trunc nuw i8 %.167.lcssa409411 to i1
   br i1 %248, label %250, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 250:                                              ; preds = %._crit_edge
@@ -36586,12 +36586,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %110, %._crit_edge
-  %.066.lcssa412 = phi i1 [ %249, %._crit_edge ], [ false, %110 ]
+  %.066.lcssa413 = phi i1 [ %249, %._crit_edge ], [ false, %110 ]
   %251 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.413, i64 noundef 1)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %126
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  br i1 %.066.lcssa412, label %252, label %275
+  br i1 %.066.lcssa413, label %252, label %275
 
 252:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
   %253 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCode(i8 5)
@@ -36704,7 +36704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %_Z
   %289 = load ptr, ptr %11, align 8, !tbaa !20
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 %.055377
   %291 = load i8, ptr %290, align 1, !tbaa !25
-  switch i8 %.059375, label %default.unreachable [
+  switch i8 %.059375, label %default.unreachable407 [
     i8 0, label %294
     i8 2, label %375
     i8 3, label %391
@@ -37041,7 +37041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit188: ; preds = %_Z
   store i8 0, ptr %422, align 1, !tbaa !25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
-default.unreachable:                              ; preds = %287
+default.unreachable407:                           ; preds = %287
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit188, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit184, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit180, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit176, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit172, %391, %375, %322, %407, %359

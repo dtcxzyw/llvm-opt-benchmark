@@ -317,13 +317,13 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 
 45:                                               ; preds = %44
   %46 = load i32, ptr @hf_aol_init, align 4
-  %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %37)
+  %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 5, 9) %37)
   %48 = add i32 %47, -1
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %46, ptr noundef %0, i32 noundef %37, i32 noundef %48, i32 noundef 0)
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %46, ptr noundef %0, i32 noundef range(i32 5, 9) %37, i32 noundef %48, i32 noundef 0)
   %50 = load i32, ptr @ett_aol_data, align 4
   %51 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50)
   %52 = load i32, ptr @hf_aol_platform, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0)
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef range(i32 5, 9) %37, i32 noundef 1, i32 noundef 0)
   %54 = add nuw nsw i32 %.0, 2
   %55 = load i32, ptr @hf_aol_version, align 4
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0)
@@ -354,7 +354,7 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %81 = add nuw nsw i32 %.0, 13
   %82 = load i32, ptr @hf_aol_udo_timestamp, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 4, i32 noundef -2147483648)
-  %84 = add nuw nsw i32 %.0, 17
+  %84 = or disjoint i32 %37, 16
   %85 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %84)
   %86 = load i32, ptr @hf_aol_dos_ver, align 4
   %87 = zext i16 %85 to i32

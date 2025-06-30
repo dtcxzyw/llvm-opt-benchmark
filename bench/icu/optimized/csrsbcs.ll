@@ -244,7 +244,7 @@ define void @_ZN6icu_7711NGramParserD0Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN6icu_777UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 67) i32 @_ZN6icu_7711NGramParser6searchEPKii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define noundef range(i32 -1, 64) i32 @_ZN6icu_7711NGramParser6searchEPKii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load i32, ptr %4, align 4, !tbaa !18
   %.not = icmp sgt i32 %5, %2

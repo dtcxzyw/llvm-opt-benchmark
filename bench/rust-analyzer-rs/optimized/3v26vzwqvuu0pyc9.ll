@@ -3906,12 +3906,12 @@ _ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i: ; pre
   br i1 %or.cond.i.i.i.i.i, label %145, label %143
 
 143:                                              ; preds = %137
-  %144 = getelementptr inbounds i8, ptr %.118.i.i.i.i, i64 %.0144.i.i.i.i
+  %144 = getelementptr inbounds nuw i8, ptr %.118.i.i.i.i, i64 %.0144.i.i.i.i
   br label %160
 
 145:                                              ; preds = %137
   store i8 0, ptr %.118.i.i.i.i, align 1, !noalias !698
-  %146 = getelementptr inbounds i8, ptr %.118.i.i.i.i, i64 %.0144.i.i.i.i
+  %146 = getelementptr inbounds nuw i8, ptr %.118.i.i.i.i, i64 %.0144.i.i.i.i
   %147 = getelementptr inbounds nuw i8, ptr %.118.i.i.i.i, i64 1
   br label %.lr.ph.i.i.i.i.i.i
 

@@ -10524,7 +10524,7 @@ _ZN18ConstraintCastNodeC2EP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple.exit:
 declare noundef ptr @_ZN18ConstraintCastNode18make_cast_for_typeEP4NodeS1_PK4TypeNS_14DependencyTypeEPK9TypeTuple(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
@@ -10537,7 +10537,7 @@ define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noun
   br i1 %10, label %11, label %142
 
 11:                                               ; preds = %9, %3
-  %12 = sub nuw nsw i32 2, %2
+  %12 = sub nsw i32 2, %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
@@ -10608,7 +10608,7 @@ define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noun
   br i1 %72, label %73, label %142
 
 73:                                               ; preds = %63
-  %74 = add nsw i32 %2, -1
+  %74 = add i32 %2, -1
   br label %75
 
 75:                                               ; preds = %73, %11
@@ -10628,7 +10628,7 @@ define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noun
   br i1 %or.cond44, label %83, label %142
 
 83:                                               ; preds = %80
-  %84 = sub nuw nsw i32 1, %.035
+  %84 = sub nsw i32 1, %.035
   br label %85
 
 85:                                               ; preds = %78, %83
@@ -10641,7 +10641,7 @@ define internal fastcc noundef ptr @_ZL10is_x2logicP8PhaseGVNP7PhiNodei(ptr noun
   ]
 
 88:                                               ; preds = %85
-  %89 = sub nuw nsw i32 1, %.1
+  %89 = sub nsw i32 1, %.1
   br label %90
 
 90:                                               ; preds = %85, %88
@@ -10739,8 +10739,8 @@ _ZN4NodenwEm.exit47:                              ; preds = %131, %133
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11is_absoluteP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #2 {
-  %4 = xor i32 %2, 3
+define internal fastcc noundef ptr @_ZL11is_absoluteP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
+  %4 = sub nsw i32 3, %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -10870,15 +10870,15 @@ switch.lookup:                                    ; preds = %52
 83:                                               ; preds = %switch.lookup, %76
   %.070 = phi ptr [ %62, %76 ], [ %75, %switch.lookup ]
   %84 = load ptr, ptr %5, align 8
-  %85 = zext nneg i32 %.072 to i64
+  %85 = zext i32 %.072 to i64
   %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
   %87 = load ptr, ptr %86, align 8
   %.not = icmp eq ptr %87, %.070
   br i1 %.not, label %88, label %207
 
 88:                                               ; preds = %83
-  %89 = xor i32 %.072, 3
-  %90 = zext nneg i32 %89 to i64
+  %89 = sub nsw i32 3, %.072
+  %90 = zext i32 %89 to i64
   %91 = getelementptr inbounds nuw ptr, ptr %84, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %92, align 8
@@ -11088,7 +11088,7 @@ switch.lookup:                                    ; preds = %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL11is_cond_addP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr noundef nonnull readonly captures(address) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL11is_cond_addP8PhaseGVNP7PhiNodei(ptr noundef %0, ptr noundef nonnull readonly captures(address) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -11175,11 +11175,11 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %35
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %4, align 8
-  %61 = zext nneg i32 %2 to i64
+  %61 = zext i32 %2 to i64
   %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8
-  %64 = xor i32 %2, 3
-  %65 = zext nneg i32 %64 to i64
+  %64 = sub nsw i32 3, %2
+  %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw ptr, ptr %60, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %63, align 8

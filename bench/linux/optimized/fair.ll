@@ -10275,7 +10275,7 @@ declare dso_local i32 @update_rt_rq_load_avg(i64 noundef, ptr noundef, i32 nound
 declare dso_local i32 @update_dl_rq_load_avg(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @load_balance(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #1 align 16 {
+define internal fastcc i32 @load_balance(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 3) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.sg_lb_stats, align 8

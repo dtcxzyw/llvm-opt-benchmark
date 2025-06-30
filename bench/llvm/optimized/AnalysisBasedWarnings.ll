@@ -37265,7 +37265,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122UninitValsDiagReporter16f
   br label %_ZN5clang9UninitUseC2EOS0_.exit
 
 _ZN5clang9UninitUseC2EOS0_.exit:                  ; preds = %101, %108
-  %111 = icmp sgt i64 %.127, %1
+  %111 = icmp samesign ugt i64 %.127, %1
   br i1 %111, label %.lr.ph.i, label %_ZSt11__push_heapIPN5clang9UninitUseElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_T0_SD_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %_ZN5clang9UninitUseC2EOS0_.exit
@@ -37278,7 +37278,7 @@ _ZN5clang9UninitUseC2EOS0_.exit:                  ; preds = %101, %108
   %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %175 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %116 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %.04.i
+  %116 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %.04.i
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 10
   %118 = load i8, ptr %117, align 2, !tbaa !1399, !range !865, !noundef !866
   %119 = trunc nuw i8 %118 to i1
@@ -37396,7 +37396,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122UninitValsDiagReporter16fl
 
 _ZSt11__push_heapIPN5clang9UninitUseElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_T0_SD_T1_RT2_.exit: ; preds = %_ZNK5clang9UninitUse7getKindEv.exit12.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKN5clang9UninitUseES7_E_EclIPS5_S5_EEbT_RT0_.exit.i, %175, %_ZN5clang9UninitUseC2EOS0_.exit
   %.013.lcssa.i = phi i64 [ %.127, %_ZN5clang9UninitUseC2EOS0_.exit ], [ %.0133.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKN5clang9UninitUseES7_E_EclIPS5_S5_EEbT_RT0_.exit.i ], [ %.04.i, %175 ], [ %.0133.i, %_ZNK5clang9UninitUse7getKindEv.exit12.i.i.i ]
-  %181 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %.013.lcssa.i
+  %181 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %.013.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %181, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 11, i1 false)
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = icmp eq ptr %181, %5
@@ -41606,7 +41606,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN5clang4StmtEN4llvm
   %.0133.i = phi i64 [ %.04.i, %42 ], [ %.127, %36 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %38 = getelementptr inbounds %"struct.std::pair.2183", ptr %0, i64 %.04.i
+  %38 = getelementptr inbounds nuw %"struct.std::pair.2183", ptr %0, i64 %.04.i
   %.val14.i = load ptr, ptr %38, align 8, !tbaa !1291
   %39 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val14.i) #26
   %40 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.034.0.copyload) #26
@@ -41626,7 +41626,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN5clang4StmtEN4llvm
 "_ZSt11__push_heapIPSt4pairIPKN5clang4StmtEN4llvm16DenseMapIteratorINS1_4sema17FunctionScopeInfo19WeakObjectProfileTyENS5_11SmallVectorINS8_9WeakUseTyELj4EEENS9_12DenseMapInfoENS5_6detail12DenseMapPairIS9_SC_EELb1EEEElSI_N9__gnu_cxx5__ops14_Iter_comp_valIZL25diagnoseRepeatedUseOfWeakRNS1_4SemaEPKS8_PKNS1_4DeclERKNS1_9ParentMapEE3$_0EEEvT_T0_S10_T1_RT2_.exit": ; preds = %.lr.ph.i, %42, %36
   %.013.lcssa.i = phi i64 [ %.127, %36 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %42 ]
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = getelementptr inbounds %"struct.std::pair.2183", ptr %0, i64 %.013.lcssa.i
+  %48 = getelementptr inbounds nuw %"struct.std::pair.2183", ptr %0, i64 %.013.lcssa.i
   store ptr %.sroa.034.0.copyload, ptr %48, align 8, !tbaa !1291
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i64 16, i1 false)

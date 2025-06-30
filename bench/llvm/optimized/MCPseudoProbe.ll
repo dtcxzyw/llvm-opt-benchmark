@@ -6841,7 +6841,7 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i.i:        ; preds = %13, %.lr.ph
 
 62:                                               ; preds = %53, %49, %._crit_edge
   %.1 = phi i64 [ %55, %53 ], [ %.0.lcssa, %49 ], [ %.0.lcssa, %._crit_edge ]
-  %63 = icmp sgt i64 %.1, %1
+  %63 = icmp samesign ugt i64 %.1, %1
   br i1 %63, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %62
@@ -6853,7 +6853,7 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i.i:        ; preds = %13, %.lr.ph
   %.0133.i = phi i64 [ %.1, %.lr.ph.i ], [ %.04.i, %93 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %67 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %.04.i
+  %67 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %67, align 8
   %68 = load ptr, ptr %.val.i, align 8, !tbaa !203
   %.not.i.i.i.i.i = icmp eq ptr %68, null
@@ -6917,7 +6917,7 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i:      ; preds = %69, %66
 
 "_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i", %93, %62
   %.013.lcssa.i = phi i64 [ %.1, %62 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i" ], [ %.04.i, %93 ]
-  %100 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %.013.lcssa.i
+  %100 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %100, align 8, !tbaa !200
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %4, ptr %101, align 8, !tbaa !202

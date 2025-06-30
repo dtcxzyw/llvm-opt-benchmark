@@ -431,7 +431,7 @@ define void @assert_fail(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ctest_main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @ctest_main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.timeval, align 8
   %5 = alloca [80 x i8], align 16
@@ -831,7 +831,7 @@ declare i32 @_setjmp(ptr noundef) local_unnamed_addr #12
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define range(i32 -2147483647, -2147483648) i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = tail call i32 @ctest_main(i32 noundef %0, ptr noundef %1)
   ret i32 %3
 }

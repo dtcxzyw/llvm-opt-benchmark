@@ -3920,7 +3920,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @xhci_configure_endpoint(p
   br i1 %198, label %246, label %199
 
 199:                                              ; preds = %192
-  %200 = shl i32 %196, 1
+  %200 = shl nuw nsw i32 %196, 1
   %201 = getelementptr [16 x %struct.xhci_interval_bw], ptr %178, i64 0, i64 %193
   %202 = load i32, ptr %201, align 8
   %203 = add i32 %202, %200

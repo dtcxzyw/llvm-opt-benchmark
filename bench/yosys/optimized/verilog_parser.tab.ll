@@ -1340,7 +1340,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z24frontend_verilog_yyparsev() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %1 = alloca %union.FRONTEND_VERILOG_YYSTYPE, align 8
   %2 = alloca %struct.FRONTEND_VERILOG_YYLTYPE, align 4
   %3 = alloca [200 x i16], align 16

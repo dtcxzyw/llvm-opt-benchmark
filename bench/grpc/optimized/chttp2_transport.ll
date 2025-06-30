@@ -20588,7 +20588,7 @@ _ZN4absl12lts_202407226Status3RefEm.exit.i.i55:   ; preds = %89, %88
           to label %_ZN4absl12lts_202407226StatusaSERKS1_.exit.i57 unwind label %.loopexit.split-lp
 
 _ZN4absl12lts_202407226StatusaSERKS1_.exit.i57:   ; preds = %93, %_ZN4absl12lts_202407226Status3RefEm.exit.i.i55, %._crit_edge.i52
-  %95 = add nsw i64 %.195, 1
+  %95 = add nuw nsw i64 %.195, 1
   br label %_ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit64
 
 _ZL9add_errorN4absl12lts_202407226StatusEPS1_Pm.exit64: ; preds = %.noexc62, %.lr.ph.i46, %_ZN4absl12lts_202407226StatusaSERKS1_.exit.i57

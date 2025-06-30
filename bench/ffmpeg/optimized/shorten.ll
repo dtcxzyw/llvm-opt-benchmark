@@ -415,14 +415,14 @@ define internal i32 @shorten_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %202 = load i8, ptr %201, align 1, !tbaa !48
   %203 = zext i8 %202 to i32
   %204 = add nuw nsw i32 %.1.i.i.i, %203
-  %205 = icmp samesign ult i32 %204, 9
-  br i1 %205, label %.preheader127.i.i, label %208
+  %205 = icmp samesign ugt i32 %204, 8
+  br i1 %205, label %208, label %.preheader126.i.i
 
-.preheader127.i.i:                                ; preds = %186
+.preheader126.i.i:                                ; preds = %186
   %206 = icmp ult i32 %196, 128
-  br i1 %206, label %.lr.ph.i124.i, label %.preheader.i122.i
+  br i1 %206, label %.lr.ph.i123.i, label %.preheader.i121.i
 
-.lr.ph.i124.i:                                    ; preds = %.preheader127.i.i
+.lr.ph.i123.i:                                    ; preds = %.preheader126.i.i
   %207 = load i32, ptr %69, align 4, !tbaa !42
   br label %218
 
@@ -434,26 +434,26 @@ define internal i32 @shorten_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %212 = add nsw i32 %reass.sub768, 120
   %213 = add i32 %187, 34
   %214 = sub i32 %213, %204
-  %..i121.i = tail call i32 @llvm.umin.i32(i32 %188, i32 %214)
+  %..i124.i = tail call i32 @llvm.umin.i32(i32 %188, i32 %214)
   br label %get_ur_golomb_jpegls.exit.i
 
-.preheader.i122.i:                                ; preds = %220, %.preheader127.i.i
-  %.0110.lcssa.i.i = phi i32 [ %187, %.preheader127.i.i ], [ %222, %220 ]
-  %.0108.lcssa.i.i = phi i32 [ %196, %.preheader127.i.i ], [ %229, %220 ]
-  %.0.lcssa.i.i = phi i32 [ 0, %.preheader127.i.i ], [ %219, %220 ]
+.preheader.i121.i:                                ; preds = %220, %.preheader126.i.i
+  %.0110.lcssa.i.i = phi i32 [ %187, %.preheader126.i.i ], [ %222, %220 ]
+  %.0108.lcssa.i.i = phi i32 [ %196, %.preheader126.i.i ], [ %229, %220 ]
+  %.0.lcssa.i.i = phi i32 [ 0, %.preheader126.i.i ], [ %219, %220 ]
   %215 = icmp ne i32 %.0.lcssa.i.i, 2147483647
   %216 = icmp sgt i32 %.0108.lcssa.i.i, -1
   %217 = and i1 %216, %215
-  br i1 %217, label %.lr.ph137.i.i, label %._crit_edge.i123.i
+  br i1 %217, label %.lr.ph136.i.i, label %._crit_edge.i122.i
 
-218:                                              ; preds = %220, %.lr.ph.i124.i
-  %219 = phi i32 [ 25, %.lr.ph.i124.i ], [ %230, %220 ]
-  %.0110131.i.i = phi i32 [ %187, %.lr.ph.i124.i ], [ %222, %220 ]
-  %.not123.i.i = icmp ugt i32 %207, %.0110131.i.i
-  br i1 %.not123.i.i, label %220, label %get_ur_golomb_jpegls.exit.thread.i
+218:                                              ; preds = %220, %.lr.ph.i123.i
+  %219 = phi i32 [ 25, %.lr.ph.i123.i ], [ %230, %220 ]
+  %.0110130.i.i = phi i32 [ %187, %.lr.ph.i123.i ], [ %222, %220 ]
+  %.not122.i.i = icmp ugt i32 %207, %.0110130.i.i
+  br i1 %.not122.i.i, label %220, label %get_ur_golomb_jpegls.exit.thread.i
 
 220:                                              ; preds = %218
-  %221 = add i32 %.0110131.i.i, 25
+  %221 = add i32 %.0110130.i.i, 25
   %222 = tail call i32 @llvm.umin.i32(i32 %188, i32 %221)
   %223 = lshr i32 %222, 3
   %224 = zext nneg i32 %223 to i64
@@ -464,30 +464,30 @@ define internal i32 @shorten_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %229 = shl i32 %227, %228
   %230 = add nuw nsw i32 %219, 25
   %231 = icmp ult i32 %229, 128
-  br i1 %231, label %218, label %.preheader.i122.i, !llvm.loop !61
+  br i1 %231, label %218, label %.preheader.i121.i, !llvm.loop !61
 
-.lr.ph137.i.i:                                    ; preds = %.preheader.i122.i, %.lr.ph137.i.i
-  %.1136.i.i = phi i32 [ %235, %.lr.ph137.i.i ], [ %.0.lcssa.i.i, %.preheader.i122.i ]
-  %.1109135.i.i = phi i32 [ %232, %.lr.ph137.i.i ], [ %.0108.lcssa.i.i, %.preheader.i122.i ]
-  %.1111134.i.i = phi i32 [ %234, %.lr.ph137.i.i ], [ %.0110.lcssa.i.i, %.preheader.i122.i ]
-  %232 = shl nuw i32 %.1109135.i.i, 1
-  %233 = add i32 %.1111134.i.i, 1
+.lr.ph136.i.i:                                    ; preds = %.preheader.i121.i, %.lr.ph136.i.i
+  %.1135.i.i = phi i32 [ %235, %.lr.ph136.i.i ], [ %.0.lcssa.i.i, %.preheader.i121.i ]
+  %.1109134.i.i = phi i32 [ %232, %.lr.ph136.i.i ], [ %.0108.lcssa.i.i, %.preheader.i121.i ]
+  %.1111133.i.i = phi i32 [ %234, %.lr.ph136.i.i ], [ %.0110.lcssa.i.i, %.preheader.i121.i ]
+  %232 = shl nuw i32 %.1109134.i.i, 1
+  %233 = add i32 %.1111133.i.i, 1
   %234 = tail call i32 @llvm.umin.i32(i32 %188, i32 %233)
-  %235 = add nuw nsw i32 %.1136.i.i, 1
+  %235 = add nuw nsw i32 %.1135.i.i, 1
   %236 = icmp ne i32 %235, 2147483647
   %237 = icmp sgt i32 %232, -1
   %238 = select i1 %236, i1 %237, i1 false
-  br i1 %238, label %.lr.ph137.i.i, label %._crit_edge.i123.i, !llvm.loop !62
+  br i1 %238, label %.lr.ph136.i.i, label %._crit_edge.i122.i, !llvm.loop !62
 
-._crit_edge.i123.i:                               ; preds = %.lr.ph137.i.i, %.preheader.i122.i
-  %.1111.lcssa.i.i = phi i32 [ %.0110.lcssa.i.i, %.preheader.i122.i ], [ %234, %.lr.ph137.i.i ]
-  %.1.lcssa.i.i = phi i32 [ %.0.lcssa.i.i, %.preheader.i122.i ], [ %235, %.lr.ph137.i.i ]
+._crit_edge.i122.i:                               ; preds = %.lr.ph136.i.i, %.preheader.i121.i
+  %.1111.lcssa.i.i = phi i32 [ %.0110.lcssa.i.i, %.preheader.i121.i ], [ %234, %.lr.ph136.i.i ]
+  %.1.lcssa.i.i = phi i32 [ %.0.lcssa.i.i, %.preheader.i121.i ], [ %235, %.lr.ph136.i.i ]
   %239 = add i32 %.1111.lcssa.i.i, 1
   %240 = tail call i32 @llvm.umin.i32(i32 %188, i32 %239)
   %241 = icmp samesign ult i32 %.1.lcssa.i.i, 2147483646
   br i1 %241, label %242, label %get_ur_golomb_jpegls.exit.thread.i
 
-242:                                              ; preds = %._crit_edge.i123.i
+242:                                              ; preds = %._crit_edge.i122.i
   %243 = lshr i32 %240, 3
   %244 = zext nneg i32 %243 to i64
   %245 = getelementptr inbounds nuw i8, ptr %189, i64 %244
@@ -500,15 +500,15 @@ define internal i32 @shorten_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %252 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i.i, i32 %249, i32 2)
   br label %get_ur_golomb_jpegls.exit.i
 
-get_ur_golomb_jpegls.exit.thread.i:               ; preds = %218, %._crit_edge.i123.i
-  %storemerge124.i.ph.i = phi i32 [ %240, %._crit_edge.i123.i ], [ %.0110131.i.i, %218 ]
-  store i32 %storemerge124.i.ph.i, ptr %75, align 8, !tbaa !45
+get_ur_golomb_jpegls.exit.thread.i:               ; preds = %218, %._crit_edge.i122.i
+  %storemerge123.i.ph.i = phi i32 [ %240, %._crit_edge.i122.i ], [ %.0110130.i.i, %218 ]
+  store i32 %storemerge123.i.ph.i, ptr %75, align 8, !tbaa !45
   br label %253
 
 get_ur_golomb_jpegls.exit.i:                      ; preds = %242, %208
-  %storemerge124.i.i = phi i32 [ %..i121.i, %208 ], [ %251, %242 ]
+  %storemerge123.i.i = phi i32 [ %..i124.i, %208 ], [ %251, %242 ]
   %.0106.i.i = phi i32 [ %212, %208 ], [ %252, %242 ]
-  store i32 %storemerge124.i.i, ptr %75, align 8, !tbaa !45
+  store i32 %storemerge123.i.i, ptr %75, align 8, !tbaa !45
   %.not112.i = icmp eq i32 %.0106.i.i, 9
   br i1 %.not112.i, label %254, label %253
 
@@ -517,12 +517,12 @@ get_ur_golomb_jpegls.exit.i:                      ; preds = %242, %208
   br label %read_header.exit.thread
 
 254:                                              ; preds = %get_ur_golomb_jpegls.exit.i
-  %255 = lshr i32 %storemerge124.i.i, 3
+  %255 = lshr i32 %storemerge123.i.i, 3
   %256 = zext nneg i32 %255 to i64
   %257 = getelementptr inbounds nuw i8, ptr %189, i64 %256
   %258 = load i32, ptr %257, align 1, !tbaa !48
   %259 = tail call i32 @llvm.bswap.i32(i32 %258)
-  %260 = and i32 %storemerge124.i.i, 7
+  %260 = and i32 %storemerge123.i.i, 7
   %261 = shl i32 %259, %260
   %.not.i.i125.i = icmp ult i32 %261, 65536
   %262 = lshr i32 %261, 16
@@ -538,14 +538,14 @@ get_ur_golomb_jpegls.exit.i:                      ; preds = %242, %208
   %267 = load i8, ptr %266, align 1, !tbaa !48
   %268 = zext i8 %267 to i32
   %269 = add nuw nsw i32 %.1.i.i130.i, %268
-  %270 = icmp samesign ult i32 %269, 12
-  br i1 %270, label %.preheader127.i134.i, label %273
+  %270 = icmp samesign ugt i32 %269, 11
+  br i1 %270, label %273, label %.preheader126.i131.i
 
-.preheader127.i134.i:                             ; preds = %254
+.preheader126.i131.i:                             ; preds = %254
   %271 = icmp ult i32 %261, 128
-  br i1 %271, label %.lr.ph.i147.i, label %.preheader.i135.i
+  br i1 %271, label %.lr.ph.i146.i, label %.preheader.i132.i
 
-.lr.ph.i147.i:                                    ; preds = %.preheader127.i134.i
+.lr.ph.i146.i:                                    ; preds = %.preheader126.i131.i
   %272 = load i32, ptr %69, align 4, !tbaa !42
   br label %283
 
@@ -555,28 +555,28 @@ get_ur_golomb_jpegls.exit.i:                      ; preds = %242, %208
   %276 = shl nuw nsw i32 %269, 5
   %reass.sub769 = sub nsw i32 %275, %276
   %277 = add nsw i32 %reass.sub769, 960
-  %278 = add i32 %storemerge124.i.i, 37
+  %278 = add i32 %storemerge123.i.i, 37
   %279 = sub i32 %278, %269
-  %..i131.i = tail call i32 @llvm.umin.i32(i32 %188, i32 %279)
+  %..i149.i = tail call i32 @llvm.umin.i32(i32 %188, i32 %279)
   br label %get_ur_golomb_jpegls.exit150.i
 
-.preheader.i135.i:                                ; preds = %285, %.preheader127.i134.i
-  %.0110.lcssa.i136.i = phi i32 [ %storemerge124.i.i, %.preheader127.i134.i ], [ %287, %285 ]
-  %.0108.lcssa.i137.i = phi i32 [ %261, %.preheader127.i134.i ], [ %294, %285 ]
-  %.0.lcssa.i138.i = phi i32 [ 0, %.preheader127.i134.i ], [ %284, %285 ]
-  %280 = icmp ne i32 %.0.lcssa.i138.i, 2147483647
-  %281 = icmp sgt i32 %.0108.lcssa.i137.i, -1
+.preheader.i132.i:                                ; preds = %285, %.preheader126.i131.i
+  %.0110.lcssa.i133.i = phi i32 [ %storemerge123.i.i, %.preheader126.i131.i ], [ %287, %285 ]
+  %.0108.lcssa.i134.i = phi i32 [ %261, %.preheader126.i131.i ], [ %294, %285 ]
+  %.0.lcssa.i135.i = phi i32 [ 0, %.preheader126.i131.i ], [ %284, %285 ]
+  %280 = icmp ne i32 %.0.lcssa.i135.i, 2147483647
+  %281 = icmp sgt i32 %.0108.lcssa.i134.i, -1
   %282 = and i1 %281, %280
-  br i1 %282, label %.lr.ph137.i143.i, label %._crit_edge.i139.i
+  br i1 %282, label %.lr.ph136.i142.i, label %._crit_edge.i136.i
 
-283:                                              ; preds = %285, %.lr.ph.i147.i
-  %284 = phi i32 [ 25, %.lr.ph.i147.i ], [ %295, %285 ]
-  %.0110131.i148.i = phi i32 [ %storemerge124.i.i, %.lr.ph.i147.i ], [ %287, %285 ]
-  %.not123.i149.i = icmp ugt i32 %272, %.0110131.i148.i
-  br i1 %.not123.i149.i, label %285, label %get_ur_golomb_jpegls.exit150.thread.i
+283:                                              ; preds = %285, %.lr.ph.i146.i
+  %284 = phi i32 [ 25, %.lr.ph.i146.i ], [ %295, %285 ]
+  %.0110130.i147.i = phi i32 [ %storemerge123.i.i, %.lr.ph.i146.i ], [ %287, %285 ]
+  %.not122.i148.i = icmp ugt i32 %272, %.0110130.i147.i
+  br i1 %.not122.i148.i, label %285, label %get_ur_golomb_jpegls.exit150.thread.i
 
 285:                                              ; preds = %283
-  %286 = add i32 %.0110131.i148.i, 25
+  %286 = add i32 %.0110130.i147.i, 25
   %287 = tail call i32 @llvm.umin.i32(i32 %188, i32 %286)
   %288 = lshr i32 %287, 3
   %289 = zext nneg i32 %288 to i64
@@ -587,30 +587,30 @@ get_ur_golomb_jpegls.exit.i:                      ; preds = %242, %208
   %294 = shl i32 %292, %293
   %295 = add nuw nsw i32 %284, 25
   %296 = icmp ult i32 %294, 128
-  br i1 %296, label %283, label %.preheader.i135.i, !llvm.loop !61
+  br i1 %296, label %283, label %.preheader.i132.i, !llvm.loop !61
 
-.lr.ph137.i143.i:                                 ; preds = %.preheader.i135.i, %.lr.ph137.i143.i
-  %.1136.i144.i = phi i32 [ %300, %.lr.ph137.i143.i ], [ %.0.lcssa.i138.i, %.preheader.i135.i ]
-  %.1109135.i145.i = phi i32 [ %297, %.lr.ph137.i143.i ], [ %.0108.lcssa.i137.i, %.preheader.i135.i ]
-  %.1111134.i146.i = phi i32 [ %299, %.lr.ph137.i143.i ], [ %.0110.lcssa.i136.i, %.preheader.i135.i ]
-  %297 = shl nuw i32 %.1109135.i145.i, 1
-  %298 = add i32 %.1111134.i146.i, 1
+.lr.ph136.i142.i:                                 ; preds = %.preheader.i132.i, %.lr.ph136.i142.i
+  %.1135.i143.i = phi i32 [ %300, %.lr.ph136.i142.i ], [ %.0.lcssa.i135.i, %.preheader.i132.i ]
+  %.1109134.i144.i = phi i32 [ %297, %.lr.ph136.i142.i ], [ %.0108.lcssa.i134.i, %.preheader.i132.i ]
+  %.1111133.i145.i = phi i32 [ %299, %.lr.ph136.i142.i ], [ %.0110.lcssa.i133.i, %.preheader.i132.i ]
+  %297 = shl nuw i32 %.1109134.i144.i, 1
+  %298 = add i32 %.1111133.i145.i, 1
   %299 = tail call i32 @llvm.umin.i32(i32 %188, i32 %298)
-  %300 = add nuw nsw i32 %.1136.i144.i, 1
+  %300 = add nuw nsw i32 %.1135.i143.i, 1
   %301 = icmp ne i32 %300, 2147483647
   %302 = icmp sgt i32 %297, -1
   %303 = select i1 %301, i1 %302, i1 false
-  br i1 %303, label %.lr.ph137.i143.i, label %._crit_edge.i139.i, !llvm.loop !62
+  br i1 %303, label %.lr.ph136.i142.i, label %._crit_edge.i136.i, !llvm.loop !62
 
-._crit_edge.i139.i:                               ; preds = %.lr.ph137.i143.i, %.preheader.i135.i
-  %.1111.lcssa.i140.i = phi i32 [ %.0110.lcssa.i136.i, %.preheader.i135.i ], [ %299, %.lr.ph137.i143.i ]
-  %.1.lcssa.i141.i = phi i32 [ %.0.lcssa.i138.i, %.preheader.i135.i ], [ %300, %.lr.ph137.i143.i ]
-  %304 = add i32 %.1111.lcssa.i140.i, 1
+._crit_edge.i136.i:                               ; preds = %.lr.ph136.i142.i, %.preheader.i132.i
+  %.1111.lcssa.i137.i = phi i32 [ %.0110.lcssa.i133.i, %.preheader.i132.i ], [ %299, %.lr.ph136.i142.i ]
+  %.1.lcssa.i138.i = phi i32 [ %.0.lcssa.i135.i, %.preheader.i132.i ], [ %300, %.lr.ph136.i142.i ]
+  %304 = add i32 %.1111.lcssa.i137.i, 1
   %305 = tail call i32 @llvm.umin.i32(i32 %188, i32 %304)
-  %306 = icmp samesign ult i32 %.1.lcssa.i141.i, 2147483646
+  %306 = icmp samesign ult i32 %.1.lcssa.i138.i, 2147483646
   br i1 %306, label %307, label %318
 
-307:                                              ; preds = %._crit_edge.i139.i
+307:                                              ; preds = %._crit_edge.i136.i
   %308 = lshr i32 %305, 3
   %309 = zext nneg i32 %308 to i64
   %310 = getelementptr inbounds nuw i8, ptr %189, i64 %309
@@ -620,51 +620,51 @@ get_ur_golomb_jpegls.exit.i:                      ; preds = %242, %208
   %314 = shl i32 %312, %313
   %315 = add i32 %305, 5
   %316 = tail call i32 @llvm.umin.i32(i32 %188, i32 %315)
-  %317 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i141.i, i32 %314, i32 5)
+  %317 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i138.i, i32 %314, i32 5)
   br label %get_ur_golomb_jpegls.exit150.i
 
-318:                                              ; preds = %._crit_edge.i139.i
-  %319 = icmp eq i32 %.1.lcssa.i141.i, 2147483646
-  %.126.i142.i = select i1 %319, i32 1, i32 -1
+318:                                              ; preds = %._crit_edge.i136.i
+  %319 = icmp eq i32 %.1.lcssa.i138.i, 2147483646
+  %.125.i139.i = select i1 %319, i32 1, i32 -1
   br label %get_ur_golomb_jpegls.exit150.thread.i
 
 get_ur_golomb_jpegls.exit150.thread.i:            ; preds = %283, %318
-  %storemerge124.i132.ph.i = phi i32 [ %305, %318 ], [ %.0110131.i148.i, %283 ]
-  %.0106.i133.ph.i = phi i32 [ %.126.i142.i, %318 ], [ -1, %283 ]
-  store i32 %storemerge124.i132.ph.i, ptr %75, align 8, !tbaa !45
+  %storemerge123.i140.ph.i = phi i32 [ %305, %318 ], [ %.0110130.i147.i, %283 ]
+  %.0106.i141.ph.i = phi i32 [ %.125.i139.i, %318 ], [ -1, %283 ]
+  store i32 %storemerge123.i140.ph.i, ptr %75, align 8, !tbaa !45
   %320 = getelementptr inbounds nuw i8, ptr %10, i64 276
-  store i32 %.0106.i133.ph.i, ptr %320, align 4, !tbaa !63
+  store i32 %.0106.i141.ph.i, ptr %320, align 4, !tbaa !63
   br label %324
 
 get_ur_golomb_jpegls.exit150.i:                   ; preds = %307, %273
-  %.promoted225.i = phi i32 [ %..i131.i, %273 ], [ %316, %307 ]
-  %.0106.i133.i = phi i32 [ %277, %273 ], [ %317, %307 ]
+  %.promoted225.i = phi i32 [ %..i149.i, %273 ], [ %316, %307 ]
+  %.0106.i141.i = phi i32 [ %277, %273 ], [ %317, %307 ]
   store i32 %.promoted225.i, ptr %75, align 8, !tbaa !45
   %321 = getelementptr inbounds nuw i8, ptr %10, i64 276
-  store i32 %.0106.i133.i, ptr %321, align 4, !tbaa !63
-  %322 = add i32 %.0106.i133.i, -16384
+  store i32 %.0106.i141.i, ptr %321, align 4, !tbaa !63
+  %322 = add i32 %.0106.i141.i, -16384
   %or.cond113.i = icmp ult i32 %322, -16340
   br i1 %or.cond113.i, label %324, label %.lr.ph223.i
 
 .lr.ph223.i:                                      ; preds = %get_ur_golomb_jpegls.exit150.i
   %323 = getelementptr inbounds nuw i8, ptr %10, i64 280
-  %wide.trip.count.i = zext nneg i32 %.0106.i133.i to i64
+  %wide.trip.count.i = zext nneg i32 %.0106.i141.i to i64
   br label %325
 
 324:                                              ; preds = %get_ur_golomb_jpegls.exit150.i, %get_ur_golomb_jpegls.exit150.thread.i
-  %.0106.i133188.i = phi i32 [ %.0106.i133.ph.i, %get_ur_golomb_jpegls.exit150.thread.i ], [ %.0106.i133.i, %get_ur_golomb_jpegls.exit150.i ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %182, i32 noundef 16, ptr noundef nonnull @.str.18, i32 noundef %.0106.i133188.i) #8
+  %.0106.i141188.i = phi i32 [ %.0106.i141.ph.i, %get_ur_golomb_jpegls.exit150.thread.i ], [ %.0106.i141.i, %get_ur_golomb_jpegls.exit150.i ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %182, i32 noundef 16, ptr noundef nonnull @.str.18, i32 noundef %.0106.i141188.i) #8
   br label %read_header.exit.thread
 
 325:                                              ; preds = %get_ur_golomb_jpegls.exit176.i, %.lr.ph223.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph223.i ], [ %indvars.iv.next.i, %get_ur_golomb_jpegls.exit176.i ]
-  %storemerge124.i158226.i = phi i32 [ %.promoted225.i, %.lr.ph223.i ], [ %storemerge124.i158.i, %get_ur_golomb_jpegls.exit176.i ]
-  %326 = lshr i32 %storemerge124.i158226.i, 3
+  %storemerge123.i166226.i = phi i32 [ %.promoted225.i, %.lr.ph223.i ], [ %storemerge123.i166.i, %get_ur_golomb_jpegls.exit176.i ]
+  %326 = lshr i32 %storemerge123.i166226.i, 3
   %327 = zext nneg i32 %326 to i64
   %328 = getelementptr inbounds nuw i8, ptr %189, i64 %327
   %329 = load i32, ptr %328, align 1, !tbaa !48
   %330 = tail call i32 @llvm.bswap.i32(i32 %329)
-  %331 = and i32 %storemerge124.i158226.i, 7
+  %331 = and i32 %storemerge123.i166226.i, 7
   %332 = shl i32 %330, %331
   %.not.i.i151.i = icmp ult i32 %332, 65536
   %333 = lshr i32 %332, 16
@@ -680,14 +680,14 @@ get_ur_golomb_jpegls.exit150.i:                   ; preds = %307, %273
   %338 = load i8, ptr %337, align 1, !tbaa !48
   %339 = zext i8 %338 to i32
   %340 = add nuw nsw i32 %.1.i.i156.i, %339
-  %341 = icmp samesign ult i32 %340, 15
-  br i1 %341, label %.preheader127.i160.i, label %344
+  %341 = icmp samesign ugt i32 %340, 14
+  br i1 %341, label %344, label %.preheader126.i157.i
 
-.preheader127.i160.i:                             ; preds = %325
+.preheader126.i157.i:                             ; preds = %325
   %342 = icmp ult i32 %332, 128
-  br i1 %342, label %.lr.ph.i173.i, label %.preheader.i161.i
+  br i1 %342, label %.lr.ph.i172.i, label %.preheader.i158.i
 
-.lr.ph.i173.i:                                    ; preds = %.preheader127.i160.i
+.lr.ph.i172.i:                                    ; preds = %.preheader126.i157.i
   %343 = load i32, ptr %69, align 4, !tbaa !42
   br label %354
 
@@ -697,28 +697,28 @@ get_ur_golomb_jpegls.exit150.i:                   ; preds = %307, %273
   %347 = shl nuw nsw i32 %340, 8
   %reass.sub770 = sub nsw i32 %346, %347
   %348 = add nsw i32 %reass.sub770, 7680
-  %349 = add i32 %storemerge124.i158226.i, 40
+  %349 = add i32 %storemerge123.i166226.i, 40
   %350 = sub i32 %349, %340
-  %..i157.i = tail call i32 @llvm.umin.i32(i32 %188, i32 %350)
+  %..i175.i = tail call i32 @llvm.umin.i32(i32 %188, i32 %350)
   br label %get_ur_golomb_jpegls.exit176.i
 
-.preheader.i161.i:                                ; preds = %356, %.preheader127.i160.i
-  %.0110.lcssa.i162.i = phi i32 [ %storemerge124.i158226.i, %.preheader127.i160.i ], [ %358, %356 ]
-  %.0108.lcssa.i163.i = phi i32 [ %332, %.preheader127.i160.i ], [ %365, %356 ]
-  %.0.lcssa.i164.i = phi i32 [ 0, %.preheader127.i160.i ], [ %355, %356 ]
-  %351 = icmp ne i32 %.0.lcssa.i164.i, 2147483647
-  %352 = icmp sgt i32 %.0108.lcssa.i163.i, -1
+.preheader.i158.i:                                ; preds = %356, %.preheader126.i157.i
+  %.0110.lcssa.i159.i = phi i32 [ %storemerge123.i166226.i, %.preheader126.i157.i ], [ %358, %356 ]
+  %.0108.lcssa.i160.i = phi i32 [ %332, %.preheader126.i157.i ], [ %365, %356 ]
+  %.0.lcssa.i161.i = phi i32 [ 0, %.preheader126.i157.i ], [ %355, %356 ]
+  %351 = icmp ne i32 %.0.lcssa.i161.i, 2147483647
+  %352 = icmp sgt i32 %.0108.lcssa.i160.i, -1
   %353 = and i1 %352, %351
-  br i1 %353, label %.lr.ph137.i169.i, label %._crit_edge.i165.i
+  br i1 %353, label %.lr.ph136.i168.i, label %._crit_edge.i162.i
 
-354:                                              ; preds = %356, %.lr.ph.i173.i
-  %355 = phi i32 [ 25, %.lr.ph.i173.i ], [ %366, %356 ]
-  %.0110131.i174.i = phi i32 [ %storemerge124.i158226.i, %.lr.ph.i173.i ], [ %358, %356 ]
-  %.not123.i175.i = icmp ugt i32 %343, %.0110131.i174.i
-  br i1 %.not123.i175.i, label %356, label %get_ur_golomb_jpegls.exit176.i
+354:                                              ; preds = %356, %.lr.ph.i172.i
+  %355 = phi i32 [ 25, %.lr.ph.i172.i ], [ %366, %356 ]
+  %.0110130.i173.i = phi i32 [ %storemerge123.i166226.i, %.lr.ph.i172.i ], [ %358, %356 ]
+  %.not122.i174.i = icmp ugt i32 %343, %.0110130.i173.i
+  br i1 %.not122.i174.i, label %356, label %get_ur_golomb_jpegls.exit176.i
 
 356:                                              ; preds = %354
-  %357 = add i32 %.0110131.i174.i, 25
+  %357 = add i32 %.0110130.i173.i, 25
   %358 = tail call i32 @llvm.umin.i32(i32 %188, i32 %357)
   %359 = lshr i32 %358, 3
   %360 = zext nneg i32 %359 to i64
@@ -729,30 +729,30 @@ get_ur_golomb_jpegls.exit150.i:                   ; preds = %307, %273
   %365 = shl i32 %363, %364
   %366 = add nuw nsw i32 %355, 25
   %367 = icmp ult i32 %365, 128
-  br i1 %367, label %354, label %.preheader.i161.i, !llvm.loop !61
+  br i1 %367, label %354, label %.preheader.i158.i, !llvm.loop !61
 
-.lr.ph137.i169.i:                                 ; preds = %.preheader.i161.i, %.lr.ph137.i169.i
-  %.1136.i170.i = phi i32 [ %371, %.lr.ph137.i169.i ], [ %.0.lcssa.i164.i, %.preheader.i161.i ]
-  %.1109135.i171.i = phi i32 [ %368, %.lr.ph137.i169.i ], [ %.0108.lcssa.i163.i, %.preheader.i161.i ]
-  %.1111134.i172.i = phi i32 [ %370, %.lr.ph137.i169.i ], [ %.0110.lcssa.i162.i, %.preheader.i161.i ]
-  %368 = shl nuw i32 %.1109135.i171.i, 1
-  %369 = add i32 %.1111134.i172.i, 1
+.lr.ph136.i168.i:                                 ; preds = %.preheader.i158.i, %.lr.ph136.i168.i
+  %.1135.i169.i = phi i32 [ %371, %.lr.ph136.i168.i ], [ %.0.lcssa.i161.i, %.preheader.i158.i ]
+  %.1109134.i170.i = phi i32 [ %368, %.lr.ph136.i168.i ], [ %.0108.lcssa.i160.i, %.preheader.i158.i ]
+  %.1111133.i171.i = phi i32 [ %370, %.lr.ph136.i168.i ], [ %.0110.lcssa.i159.i, %.preheader.i158.i ]
+  %368 = shl nuw i32 %.1109134.i170.i, 1
+  %369 = add i32 %.1111133.i171.i, 1
   %370 = tail call i32 @llvm.umin.i32(i32 %188, i32 %369)
-  %371 = add nuw nsw i32 %.1136.i170.i, 1
+  %371 = add nuw nsw i32 %.1135.i169.i, 1
   %372 = icmp ne i32 %371, 2147483647
   %373 = icmp sgt i32 %368, -1
   %374 = select i1 %372, i1 %373, i1 false
-  br i1 %374, label %.lr.ph137.i169.i, label %._crit_edge.i165.i, !llvm.loop !62
+  br i1 %374, label %.lr.ph136.i168.i, label %._crit_edge.i162.i, !llvm.loop !62
 
-._crit_edge.i165.i:                               ; preds = %.lr.ph137.i169.i, %.preheader.i161.i
-  %.1111.lcssa.i166.i = phi i32 [ %.0110.lcssa.i162.i, %.preheader.i161.i ], [ %370, %.lr.ph137.i169.i ]
-  %.1.lcssa.i167.i = phi i32 [ %.0.lcssa.i164.i, %.preheader.i161.i ], [ %371, %.lr.ph137.i169.i ]
-  %375 = add i32 %.1111.lcssa.i166.i, 1
+._crit_edge.i162.i:                               ; preds = %.lr.ph136.i168.i, %.preheader.i158.i
+  %.1111.lcssa.i163.i = phi i32 [ %.0110.lcssa.i159.i, %.preheader.i158.i ], [ %370, %.lr.ph136.i168.i ]
+  %.1.lcssa.i164.i = phi i32 [ %.0.lcssa.i161.i, %.preheader.i158.i ], [ %371, %.lr.ph136.i168.i ]
+  %375 = add i32 %.1111.lcssa.i163.i, 1
   %376 = tail call i32 @llvm.umin.i32(i32 %188, i32 %375)
-  %377 = icmp samesign ult i32 %.1.lcssa.i167.i, 2147483646
+  %377 = icmp samesign ult i32 %.1.lcssa.i164.i, 2147483646
   br i1 %377, label %378, label %389
 
-378:                                              ; preds = %._crit_edge.i165.i
+378:                                              ; preds = %._crit_edge.i162.i
   %379 = lshr i32 %376, 3
   %380 = zext nneg i32 %379 to i64
   %381 = getelementptr inbounds nuw i8, ptr %189, i64 %380
@@ -765,16 +765,16 @@ get_ur_golomb_jpegls.exit150.i:                   ; preds = %307, %273
   %388 = lshr i32 %385, 24
   br label %get_ur_golomb_jpegls.exit176.i
 
-389:                                              ; preds = %._crit_edge.i165.i
-  %390 = icmp eq i32 %.1.lcssa.i167.i, 2147483646
-  %.126.i168.i = select i1 %390, i32 1, i32 -1
+389:                                              ; preds = %._crit_edge.i162.i
+  %390 = icmp eq i32 %.1.lcssa.i164.i, 2147483646
+  %.125.i165.i = select i1 %390, i32 1, i32 -1
   br label %get_ur_golomb_jpegls.exit176.i
 
 get_ur_golomb_jpegls.exit176.i:                   ; preds = %354, %389, %378, %344
-  %storemerge124.i158.i = phi i32 [ %..i157.i, %344 ], [ %387, %378 ], [ %376, %389 ], [ %.0110131.i174.i, %354 ]
-  %.0106.i159.i = phi i32 [ %348, %344 ], [ %388, %378 ], [ %.126.i168.i, %389 ], [ -1, %354 ]
-  store i32 %storemerge124.i158.i, ptr %75, align 8, !tbaa !45
-  %391 = trunc i32 %.0106.i159.i to i8
+  %storemerge123.i166.i = phi i32 [ %..i175.i, %344 ], [ %387, %378 ], [ %376, %389 ], [ %.0110130.i173.i, %354 ]
+  %.0106.i167.i = phi i32 [ %348, %344 ], [ %388, %378 ], [ %.125.i165.i, %389 ], [ -1, %354 ]
+  store i32 %storemerge123.i166.i, ptr %75, align 8, !tbaa !45
+  %391 = trunc i32 %.0106.i167.i to i8
   %392 = getelementptr inbounds nuw [16384 x i8], ptr %323, i64 0, i64 %indvars.iv.i
   store i8 %391, ptr %392, align 1, !tbaa !48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -789,12 +789,12 @@ get_ur_golomb_jpegls.exit176.i:                   ; preds = %354, %389, %378, %3
   ]
 
 394:                                              ; preds = %._crit_edge224.i
-  %395 = tail call fastcc i32 @decode_wave_header(ptr noundef %182, ptr noundef nonnull %323, i32 noundef %.0106.i133.i)
+  %395 = tail call fastcc i32 @decode_wave_header(ptr noundef %182, ptr noundef nonnull %323, i32 noundef %.0106.i141.i)
   %396 = icmp slt i32 %395, 0
   br i1 %396, label %read_header.exit.thread, label %401
 
 397:                                              ; preds = %._crit_edge224.i
-  %398 = tail call fastcc i32 @decode_aiff_header(ptr noundef %182, ptr noundef nonnull %323, i32 noundef %.0106.i133.i)
+  %398 = tail call fastcc i32 @decode_aiff_header(ptr noundef %182, ptr noundef nonnull %323, i32 noundef %.0106.i141.i)
   %399 = icmp slt i32 %398, 0
   br i1 %399, label %read_header.exit.thread, label %401
 
@@ -1072,12 +1072,12 @@ init_offset.exit.i:                               ; preds = %445
   %527 = load i8, ptr %526, align 1, !tbaa !48
   %528 = zext i8 %527 to i32
   %529 = add nuw nsw i32 %.1.i.i, %528
-  %530 = icmp samesign ult i32 %529, 9
-  br i1 %530, label %.preheader127.i, label %532
+  %530 = icmp samesign ugt i32 %529, 8
+  br i1 %530, label %532, label %.preheader126.i
 
-.preheader127.i:                                  ; preds = %512
+.preheader126.i:                                  ; preds = %512
   %531 = icmp ult i32 %521, 128
-  br i1 %531, label %.lr.ph.i400, label %.preheader.i398
+  br i1 %531, label %.lr.ph.i400, label %.preheader.i397
 
 532:                                              ; preds = %512
   %533 = add nsw i32 %529, -2
@@ -1090,23 +1090,23 @@ init_offset.exit.i:                               ; preds = %445
   %..i = tail call i32 @llvm.umin.i32(i32 %513, i32 %538)
   br label %get_ur_golomb_jpegls.exit
 
-.preheader.i398:                                  ; preds = %543, %.preheader127.i
-  %.0110.lcssa.i = phi i32 [ %.val348, %.preheader127.i ], [ %545, %543 ]
-  %.0108.lcssa.i = phi i32 [ %521, %.preheader127.i ], [ %552, %543 ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader127.i ], [ %542, %543 ]
+.preheader.i397:                                  ; preds = %543, %.preheader126.i
+  %.0110.lcssa.i = phi i32 [ %.val348, %.preheader126.i ], [ %545, %543 ]
+  %.0108.lcssa.i = phi i32 [ %521, %.preheader126.i ], [ %552, %543 ]
+  %.0.lcssa.i = phi i32 [ 0, %.preheader126.i ], [ %542, %543 ]
   %539 = icmp ne i32 %.0.lcssa.i, 2147483647
   %540 = icmp sgt i32 %.0108.lcssa.i, -1
   %541 = and i1 %540, %539
-  br i1 %541, label %.lr.ph137.i, label %._crit_edge.i399
+  br i1 %541, label %.lr.ph136.i, label %._crit_edge.i398
 
-.lr.ph.i400:                                      ; preds = %.preheader127.i, %543
-  %542 = phi i32 [ %553, %543 ], [ 25, %.preheader127.i ]
-  %.0110131.i = phi i32 [ %545, %543 ], [ %.val348, %.preheader127.i ]
-  %.not123.i = icmp ugt i32 %.val349, %.0110131.i
-  br i1 %.not123.i, label %543, label %get_ur_golomb_jpegls.exit.thread
+.lr.ph.i400:                                      ; preds = %.preheader126.i, %543
+  %542 = phi i32 [ %553, %543 ], [ 25, %.preheader126.i ]
+  %.0110130.i = phi i32 [ %545, %543 ], [ %.val348, %.preheader126.i ]
+  %.not122.i = icmp ugt i32 %.val349, %.0110130.i
+  br i1 %.not122.i, label %543, label %get_ur_golomb_jpegls.exit.thread
 
 543:                                              ; preds = %.lr.ph.i400
-  %544 = add i32 %.0110131.i, 25
+  %544 = add i32 %.0110130.i, 25
   %545 = tail call i32 @llvm.umin.i32(i32 %513, i32 %544)
   %546 = lshr i32 %545, 3
   %547 = zext nneg i32 %546 to i64
@@ -1117,30 +1117,30 @@ init_offset.exit.i:                               ; preds = %445
   %552 = shl i32 %550, %551
   %553 = add nuw nsw i32 %542, 25
   %554 = icmp ult i32 %552, 128
-  br i1 %554, label %.lr.ph.i400, label %.preheader.i398, !llvm.loop !61
+  br i1 %554, label %.lr.ph.i400, label %.preheader.i397, !llvm.loop !61
 
-.lr.ph137.i:                                      ; preds = %.preheader.i398, %.lr.ph137.i
-  %.1136.i = phi i32 [ %558, %.lr.ph137.i ], [ %.0.lcssa.i, %.preheader.i398 ]
-  %.1109135.i = phi i32 [ %555, %.lr.ph137.i ], [ %.0108.lcssa.i, %.preheader.i398 ]
-  %.1111134.i = phi i32 [ %557, %.lr.ph137.i ], [ %.0110.lcssa.i, %.preheader.i398 ]
-  %555 = shl nuw i32 %.1109135.i, 1
-  %556 = add i32 %.1111134.i, 1
+.lr.ph136.i:                                      ; preds = %.preheader.i397, %.lr.ph136.i
+  %.1135.i = phi i32 [ %558, %.lr.ph136.i ], [ %.0.lcssa.i, %.preheader.i397 ]
+  %.1109134.i = phi i32 [ %555, %.lr.ph136.i ], [ %.0108.lcssa.i, %.preheader.i397 ]
+  %.1111133.i = phi i32 [ %557, %.lr.ph136.i ], [ %.0110.lcssa.i, %.preheader.i397 ]
+  %555 = shl nuw i32 %.1109134.i, 1
+  %556 = add i32 %.1111133.i, 1
   %557 = tail call i32 @llvm.umin.i32(i32 %513, i32 %556)
-  %558 = add nuw nsw i32 %.1136.i, 1
+  %558 = add nuw nsw i32 %.1135.i, 1
   %559 = icmp ne i32 %558, 2147483647
   %560 = icmp sgt i32 %555, -1
   %561 = select i1 %559, i1 %560, i1 false
-  br i1 %561, label %.lr.ph137.i, label %._crit_edge.i399, !llvm.loop !62
+  br i1 %561, label %.lr.ph136.i, label %._crit_edge.i398, !llvm.loop !62
 
-._crit_edge.i399:                                 ; preds = %.lr.ph137.i, %.preheader.i398
-  %.1111.lcssa.i = phi i32 [ %.0110.lcssa.i, %.preheader.i398 ], [ %557, %.lr.ph137.i ]
-  %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i398 ], [ %558, %.lr.ph137.i ]
+._crit_edge.i398:                                 ; preds = %.lr.ph136.i, %.preheader.i397
+  %.1111.lcssa.i = phi i32 [ %.0110.lcssa.i, %.preheader.i397 ], [ %557, %.lr.ph136.i ]
+  %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i397 ], [ %558, %.lr.ph136.i ]
   %562 = add i32 %.1111.lcssa.i, 1
   %563 = tail call i32 @llvm.umin.i32(i32 %513, i32 %562)
   %564 = icmp samesign ult i32 %.1.lcssa.i, 2147483646
   br i1 %564, label %565, label %576
 
-565:                                              ; preds = %._crit_edge.i399
+565:                                              ; preds = %._crit_edge.i398
   %566 = lshr i32 %563, 3
   %567 = zext nneg i32 %566 to i64
   %568 = getelementptr inbounds nuw i8, ptr %514, i64 %567
@@ -1153,19 +1153,19 @@ init_offset.exit.i:                               ; preds = %445
   %575 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i, i32 %572, i32 2)
   br label %get_ur_golomb_jpegls.exit
 
-576:                                              ; preds = %._crit_edge.i399
+576:                                              ; preds = %._crit_edge.i398
   %577 = icmp eq i32 %.1.lcssa.i, 2147483646
   br i1 %577, label %.thread555, label %get_ur_golomb_jpegls.exit.thread
 
 get_ur_golomb_jpegls.exit.thread:                 ; preds = %576, %.lr.ph.i400
-  %storemerge124.i.ph = phi i32 [ %.0110131.i, %.lr.ph.i400 ], [ %563, %576 ]
-  store i32 %storemerge124.i.ph, ptr %75, align 8, !tbaa !45
+  %storemerge123.i.ph = phi i32 [ %.0110130.i, %.lr.ph.i400 ], [ %563, %576 ]
+  store i32 %storemerge123.i.ph, ptr %75, align 8, !tbaa !45
   br label %.loopexit616
 
 get_ur_golomb_jpegls.exit:                        ; preds = %532, %565
-  %storemerge124.i = phi i32 [ %..i, %532 ], [ %574, %565 ]
+  %storemerge123.i = phi i32 [ %..i, %532 ], [ %574, %565 ]
   %.0106.i = phi i32 [ %536, %532 ], [ %575, %565 ]
-  store i32 %storemerge124.i, ptr %75, align 8, !tbaa !45
+  store i32 %storemerge123.i, ptr %75, align 8, !tbaa !45
   %578 = icmp ugt i32 %.0106.i, 9
   br i1 %578, label %.loopexit616, label %579
 
@@ -1195,12 +1195,12 @@ get_ur_golomb_jpegls.exit:                        ; preds = %532, %565
   ]
 
 584:                                              ; preds = %583
-  %585 = lshr i32 %storemerge124.i, 3
+  %585 = lshr i32 %storemerge123.i, 3
   %586 = zext nneg i32 %585 to i64
   %587 = getelementptr inbounds nuw i8, ptr %514, i64 %586
   %588 = load i32, ptr %587, align 1, !tbaa !48
   %589 = tail call i32 @llvm.bswap.i32(i32 %588)
-  %590 = and i32 %storemerge124.i, 7
+  %590 = and i32 %storemerge123.i, 7
   %591 = shl i32 %589, %590
   %.not.i.i401 = icmp ult i32 %591, 65536
   %592 = lshr i32 %591, 16
@@ -1216,12 +1216,12 @@ get_ur_golomb_jpegls.exit:                        ; preds = %532, %565
   %597 = load i8, ptr %596, align 1, !tbaa !48
   %598 = zext i8 %597 to i32
   %599 = add nuw nsw i32 %.1.i.i406, %598
-  %600 = icmp samesign ult i32 %599, 12
-  br i1 %600, label %.preheader127.i411, label %602
+  %600 = icmp samesign ugt i32 %599, 11
+  br i1 %600, label %602, label %.preheader126.i407
 
-.preheader127.i411:                               ; preds = %584
+.preheader126.i407:                               ; preds = %584
   %601 = icmp ult i32 %591, 128
-  br i1 %601, label %.lr.ph.i424, label %.preheader.i412
+  br i1 %601, label %.lr.ph.i423, label %.preheader.i408
 
 602:                                              ; preds = %584
   %603 = add nsw i32 %599, -5
@@ -1229,28 +1229,28 @@ get_ur_golomb_jpegls.exit:                        ; preds = %532, %565
   %605 = shl nuw nsw i32 %599, 5
   %reass.sub773 = sub nsw i32 %604, %605
   %606 = add nsw i32 %reass.sub773, 960
-  %607 = add i32 %storemerge124.i, 37
+  %607 = add i32 %storemerge123.i, 37
   %608 = sub i32 %607, %599
-  %..i407 = tail call i32 @llvm.umin.i32(i32 %513, i32 %608)
+  %..i426 = tail call i32 @llvm.umin.i32(i32 %513, i32 %608)
   br label %get_ur_golomb_jpegls.exit427
 
-.preheader.i412:                                  ; preds = %613, %.preheader127.i411
-  %.0110.lcssa.i413 = phi i32 [ %storemerge124.i, %.preheader127.i411 ], [ %615, %613 ]
-  %.0108.lcssa.i414 = phi i32 [ %591, %.preheader127.i411 ], [ %622, %613 ]
-  %.0.lcssa.i415 = phi i32 [ 0, %.preheader127.i411 ], [ %612, %613 ]
-  %609 = icmp ne i32 %.0.lcssa.i415, 2147483647
-  %610 = icmp sgt i32 %.0108.lcssa.i414, -1
+.preheader.i408:                                  ; preds = %613, %.preheader126.i407
+  %.0110.lcssa.i409 = phi i32 [ %storemerge123.i, %.preheader126.i407 ], [ %615, %613 ]
+  %.0108.lcssa.i410 = phi i32 [ %591, %.preheader126.i407 ], [ %622, %613 ]
+  %.0.lcssa.i411 = phi i32 [ 0, %.preheader126.i407 ], [ %612, %613 ]
+  %609 = icmp ne i32 %.0.lcssa.i411, 2147483647
+  %610 = icmp sgt i32 %.0108.lcssa.i410, -1
   %611 = and i1 %610, %609
-  br i1 %611, label %.lr.ph137.i420, label %._crit_edge.i416
+  br i1 %611, label %.lr.ph136.i419, label %._crit_edge.i412
 
-.lr.ph.i424:                                      ; preds = %.preheader127.i411, %613
-  %612 = phi i32 [ %623, %613 ], [ 25, %.preheader127.i411 ]
-  %.0110131.i425 = phi i32 [ %615, %613 ], [ %storemerge124.i, %.preheader127.i411 ]
-  %.not123.i426 = icmp ugt i32 %.val349, %.0110131.i425
-  br i1 %.not123.i426, label %613, label %get_ur_golomb_jpegls.exit427.thread
+.lr.ph.i423:                                      ; preds = %.preheader126.i407, %613
+  %612 = phi i32 [ %623, %613 ], [ 25, %.preheader126.i407 ]
+  %.0110130.i424 = phi i32 [ %615, %613 ], [ %storemerge123.i, %.preheader126.i407 ]
+  %.not122.i425 = icmp ugt i32 %.val349, %.0110130.i424
+  br i1 %.not122.i425, label %613, label %get_ur_golomb_jpegls.exit427.thread
 
-613:                                              ; preds = %.lr.ph.i424
-  %614 = add i32 %.0110131.i425, 25
+613:                                              ; preds = %.lr.ph.i423
+  %614 = add i32 %.0110130.i424, 25
   %615 = tail call i32 @llvm.umin.i32(i32 %513, i32 %614)
   %616 = lshr i32 %615, 3
   %617 = zext nneg i32 %616 to i64
@@ -1261,30 +1261,30 @@ get_ur_golomb_jpegls.exit:                        ; preds = %532, %565
   %622 = shl i32 %620, %621
   %623 = add nuw nsw i32 %612, 25
   %624 = icmp ult i32 %622, 128
-  br i1 %624, label %.lr.ph.i424, label %.preheader.i412, !llvm.loop !61
+  br i1 %624, label %.lr.ph.i423, label %.preheader.i408, !llvm.loop !61
 
-.lr.ph137.i420:                                   ; preds = %.preheader.i412, %.lr.ph137.i420
-  %.1136.i421 = phi i32 [ %628, %.lr.ph137.i420 ], [ %.0.lcssa.i415, %.preheader.i412 ]
-  %.1109135.i422 = phi i32 [ %625, %.lr.ph137.i420 ], [ %.0108.lcssa.i414, %.preheader.i412 ]
-  %.1111134.i423 = phi i32 [ %627, %.lr.ph137.i420 ], [ %.0110.lcssa.i413, %.preheader.i412 ]
-  %625 = shl nuw i32 %.1109135.i422, 1
-  %626 = add i32 %.1111134.i423, 1
+.lr.ph136.i419:                                   ; preds = %.preheader.i408, %.lr.ph136.i419
+  %.1135.i420 = phi i32 [ %628, %.lr.ph136.i419 ], [ %.0.lcssa.i411, %.preheader.i408 ]
+  %.1109134.i421 = phi i32 [ %625, %.lr.ph136.i419 ], [ %.0108.lcssa.i410, %.preheader.i408 ]
+  %.1111133.i422 = phi i32 [ %627, %.lr.ph136.i419 ], [ %.0110.lcssa.i409, %.preheader.i408 ]
+  %625 = shl nuw i32 %.1109134.i421, 1
+  %626 = add i32 %.1111133.i422, 1
   %627 = tail call i32 @llvm.umin.i32(i32 %513, i32 %626)
-  %628 = add nuw nsw i32 %.1136.i421, 1
+  %628 = add nuw nsw i32 %.1135.i420, 1
   %629 = icmp ne i32 %628, 2147483647
   %630 = icmp sgt i32 %625, -1
   %631 = select i1 %629, i1 %630, i1 false
-  br i1 %631, label %.lr.ph137.i420, label %._crit_edge.i416, !llvm.loop !62
+  br i1 %631, label %.lr.ph136.i419, label %._crit_edge.i412, !llvm.loop !62
 
-._crit_edge.i416:                                 ; preds = %.lr.ph137.i420, %.preheader.i412
-  %.1111.lcssa.i417 = phi i32 [ %.0110.lcssa.i413, %.preheader.i412 ], [ %627, %.lr.ph137.i420 ]
-  %.1.lcssa.i418 = phi i32 [ %.0.lcssa.i415, %.preheader.i412 ], [ %628, %.lr.ph137.i420 ]
-  %632 = add i32 %.1111.lcssa.i417, 1
+._crit_edge.i412:                                 ; preds = %.lr.ph136.i419, %.preheader.i408
+  %.1111.lcssa.i413 = phi i32 [ %.0110.lcssa.i409, %.preheader.i408 ], [ %627, %.lr.ph136.i419 ]
+  %.1.lcssa.i414 = phi i32 [ %.0.lcssa.i411, %.preheader.i408 ], [ %628, %.lr.ph136.i419 ]
+  %632 = add i32 %.1111.lcssa.i413, 1
   %633 = tail call i32 @llvm.umin.i32(i32 %513, i32 %632)
-  %634 = icmp samesign ult i32 %.1.lcssa.i418, 2147483646
+  %634 = icmp samesign ult i32 %.1.lcssa.i414, 2147483646
   br i1 %634, label %635, label %646
 
-635:                                              ; preds = %._crit_edge.i416
+635:                                              ; preds = %._crit_edge.i412
   %636 = lshr i32 %633, 3
   %637 = zext nneg i32 %636 to i64
   %638 = getelementptr inbounds nuw i8, ptr %514, i64 %637
@@ -1294,25 +1294,25 @@ get_ur_golomb_jpegls.exit:                        ; preds = %532, %565
   %642 = shl i32 %640, %641
   %643 = add i32 %633, 5
   %644 = tail call i32 @llvm.umin.i32(i32 %513, i32 %643)
-  %645 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i418, i32 %642, i32 5)
+  %645 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i414, i32 %642, i32 5)
   br label %get_ur_golomb_jpegls.exit427
 
-646:                                              ; preds = %._crit_edge.i416
-  %647 = icmp eq i32 %.1.lcssa.i418, 2147483646
+646:                                              ; preds = %._crit_edge.i412
+  %647 = icmp eq i32 %.1.lcssa.i414, 2147483646
   br i1 %647, label %.thread910, label %get_ur_golomb_jpegls.exit427.thread
 
-get_ur_golomb_jpegls.exit427.thread:              ; preds = %646, %.lr.ph.i424
-  %storemerge124.i409.ph = phi i32 [ %.0110131.i425, %.lr.ph.i424 ], [ %633, %646 ]
-  store i32 %storemerge124.i409.ph, ptr %75, align 8, !tbaa !45
+get_ur_golomb_jpegls.exit427.thread:              ; preds = %646, %.lr.ph.i423
+  %storemerge123.i417.ph = phi i32 [ %.0110130.i424, %.lr.ph.i423 ], [ %633, %646 ]
+  store i32 %storemerge123.i417.ph, ptr %75, align 8, !tbaa !45
   br label %.loopexit620
 
 get_ur_golomb_jpegls.exit427:                     ; preds = %602, %635
-  %storemerge124.i409 = phi i32 [ %..i407, %602 ], [ %644, %635 ]
-  %.0106.i410 = phi i32 [ %606, %602 ], [ %645, %635 ]
-  store i32 %storemerge124.i409, ptr %75, align 8, !tbaa !45
-  %648 = icmp slt i32 %.0106.i410, 0
-  %649 = sub nsw i32 %.val349, %storemerge124.i409
-  %650 = icmp sgt i32 %.0106.i410, %649
+  %storemerge123.i417 = phi i32 [ %..i426, %602 ], [ %644, %635 ]
+  %.0106.i418 = phi i32 [ %606, %602 ], [ %645, %635 ]
+  store i32 %storemerge123.i417, ptr %75, align 8, !tbaa !45
+  %648 = icmp slt i32 %.0106.i418, 0
+  %649 = sub nsw i32 %.val349, %storemerge123.i417
+  %650 = icmp sgt i32 %.0106.i418, %649
   %or.cond1022 = select i1 %648, i1 true, i1 %650
   br i1 %or.cond1022, label %.loopexit620, label %.preheader614
 
@@ -1322,29 +1322,29 @@ get_ur_golomb_jpegls.exit427:                     ; preds = %602, %635
   br i1 %.not1030, label %.lr.ph.preheader, label %.loopexit620
 
 .preheader614:                                    ; preds = %get_ur_golomb_jpegls.exit427
-  %.not335731 = icmp eq i32 %.0106.i410, 0
+  %.not335731 = icmp eq i32 %.0106.i418, 0
   br i1 %.not335731, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread910, %.preheader614
-  %storemerge124.i436733.ph = phi i32 [ %633, %.thread910 ], [ %storemerge124.i409, %.preheader614 ]
-  %.0287732.ph = phi i32 [ 1, %.thread910 ], [ %.0106.i410, %.preheader614 ]
+  %storemerge123.i444733.ph = phi i32 [ %633, %.thread910 ], [ %storemerge123.i417, %.preheader614 ]
+  %.0287732.ph = phi i32 [ 1, %.thread910 ], [ %.0106.i418, %.preheader614 ]
   br label %.lr.ph
 
 .loopexit620:                                     ; preds = %get_ur_golomb_jpegls.exit427, %.thread910, %get_ur_golomb_jpegls.exit427.thread
-  %.0106.i410522 = phi i32 [ -1, %get_ur_golomb_jpegls.exit427.thread ], [ 1, %.thread910 ], [ %.0106.i410, %get_ur_golomb_jpegls.exit427 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %.0106.i410522) #8
+  %.0106.i418522 = phi i32 [ -1, %get_ur_golomb_jpegls.exit427.thread ], [ 1, %.thread910 ], [ %.0106.i418, %get_ur_golomb_jpegls.exit427 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %.0106.i418522) #8
   br label %read_header.exit.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %get_ur_golomb_jpegls.exit454
-  %storemerge124.i436733 = phi i32 [ %storemerge124.i436, %get_ur_golomb_jpegls.exit454 ], [ %storemerge124.i436733.ph, %.lr.ph.preheader ]
+  %storemerge123.i444733 = phi i32 [ %storemerge123.i444, %get_ur_golomb_jpegls.exit454 ], [ %storemerge123.i444733.ph, %.lr.ph.preheader ]
   %.0287732 = phi i32 [ %651, %get_ur_golomb_jpegls.exit454 ], [ %.0287732.ph, %.lr.ph.preheader ]
   %651 = add nsw i32 %.0287732, -1
-  %652 = lshr i32 %storemerge124.i436733, 3
+  %652 = lshr i32 %storemerge123.i444733, 3
   %653 = zext nneg i32 %652 to i64
   %654 = getelementptr inbounds nuw i8, ptr %514, i64 %653
   %655 = load i32, ptr %654, align 1, !tbaa !48
   %656 = tail call i32 @llvm.bswap.i32(i32 %655)
-  %657 = and i32 %storemerge124.i436733, 7
+  %657 = and i32 %storemerge123.i444733, 7
   %658 = shl i32 %656, %657
   %.not.i.i428 = icmp ult i32 %658, 65536
   %659 = lshr i32 %658, 16
@@ -1360,36 +1360,36 @@ get_ur_golomb_jpegls.exit427:                     ; preds = %602, %635
   %664 = load i8, ptr %663, align 1, !tbaa !48
   %665 = zext i8 %664 to i32
   %666 = add nuw nsw i32 %.1.i.i433, %665
-  %667 = icmp samesign ult i32 %666, 15
-  br i1 %667, label %.preheader127.i438, label %669
+  %667 = icmp samesign ugt i32 %666, 14
+  br i1 %667, label %669, label %.preheader126.i434
 
-.preheader127.i438:                               ; preds = %.lr.ph
+.preheader126.i434:                               ; preds = %.lr.ph
   %668 = icmp ult i32 %658, 128
-  br i1 %668, label %.lr.ph.i451, label %.preheader.i439
+  br i1 %668, label %.lr.ph.i450, label %.preheader.i435
 
 669:                                              ; preds = %.lr.ph
-  %670 = add i32 %storemerge124.i436733, 40
+  %670 = add i32 %storemerge123.i444733, 40
   %671 = sub i32 %670, %666
-  %..i434 = tail call i32 @llvm.umin.i32(i32 %513, i32 %671)
+  %..i453 = tail call i32 @llvm.umin.i32(i32 %513, i32 %671)
   br label %get_ur_golomb_jpegls.exit454
 
-.preheader.i439:                                  ; preds = %676, %.preheader127.i438
-  %.0110.lcssa.i440 = phi i32 [ %storemerge124.i436733, %.preheader127.i438 ], [ %678, %676 ]
-  %.0108.lcssa.i441 = phi i32 [ %658, %.preheader127.i438 ], [ %685, %676 ]
-  %.0.lcssa.i442 = phi i32 [ 0, %.preheader127.i438 ], [ %675, %676 ]
-  %672 = icmp ne i32 %.0.lcssa.i442, 2147483647
-  %673 = icmp sgt i32 %.0108.lcssa.i441, -1
+.preheader.i435:                                  ; preds = %676, %.preheader126.i434
+  %.0110.lcssa.i436 = phi i32 [ %storemerge123.i444733, %.preheader126.i434 ], [ %678, %676 ]
+  %.0108.lcssa.i437 = phi i32 [ %658, %.preheader126.i434 ], [ %685, %676 ]
+  %.0.lcssa.i438 = phi i32 [ 0, %.preheader126.i434 ], [ %675, %676 ]
+  %672 = icmp ne i32 %.0.lcssa.i438, 2147483647
+  %673 = icmp sgt i32 %.0108.lcssa.i437, -1
   %674 = and i1 %673, %672
-  br i1 %674, label %.lr.ph137.i447, label %._crit_edge.i443
+  br i1 %674, label %.lr.ph136.i446, label %._crit_edge.i439
 
-.lr.ph.i451:                                      ; preds = %.preheader127.i438, %676
-  %675 = phi i32 [ %686, %676 ], [ 25, %.preheader127.i438 ]
-  %.0110131.i452 = phi i32 [ %678, %676 ], [ %storemerge124.i436733, %.preheader127.i438 ]
-  %.not123.i453 = icmp ugt i32 %.val349, %.0110131.i452
-  br i1 %.not123.i453, label %676, label %get_ur_golomb_jpegls.exit454
+.lr.ph.i450:                                      ; preds = %.preheader126.i434, %676
+  %675 = phi i32 [ %686, %676 ], [ 25, %.preheader126.i434 ]
+  %.0110130.i451 = phi i32 [ %678, %676 ], [ %storemerge123.i444733, %.preheader126.i434 ]
+  %.not122.i452 = icmp ugt i32 %.val349, %.0110130.i451
+  br i1 %.not122.i452, label %676, label %get_ur_golomb_jpegls.exit454
 
-676:                                              ; preds = %.lr.ph.i451
-  %677 = add i32 %.0110131.i452, 25
+676:                                              ; preds = %.lr.ph.i450
+  %677 = add i32 %.0110130.i451, 25
   %678 = tail call i32 @llvm.umin.i32(i32 %513, i32 %677)
   %679 = lshr i32 %678, 3
   %680 = zext nneg i32 %679 to i64
@@ -1400,47 +1400,47 @@ get_ur_golomb_jpegls.exit427:                     ; preds = %602, %635
   %685 = shl i32 %683, %684
   %686 = add nuw nsw i32 %675, 25
   %687 = icmp ult i32 %685, 128
-  br i1 %687, label %.lr.ph.i451, label %.preheader.i439, !llvm.loop !61
+  br i1 %687, label %.lr.ph.i450, label %.preheader.i435, !llvm.loop !61
 
-.lr.ph137.i447:                                   ; preds = %.preheader.i439, %.lr.ph137.i447
-  %.1136.i448 = phi i32 [ %691, %.lr.ph137.i447 ], [ %.0.lcssa.i442, %.preheader.i439 ]
-  %.1109135.i449 = phi i32 [ %688, %.lr.ph137.i447 ], [ %.0108.lcssa.i441, %.preheader.i439 ]
-  %.1111134.i450 = phi i32 [ %690, %.lr.ph137.i447 ], [ %.0110.lcssa.i440, %.preheader.i439 ]
-  %688 = shl nuw i32 %.1109135.i449, 1
-  %689 = add i32 %.1111134.i450, 1
+.lr.ph136.i446:                                   ; preds = %.preheader.i435, %.lr.ph136.i446
+  %.1135.i447 = phi i32 [ %691, %.lr.ph136.i446 ], [ %.0.lcssa.i438, %.preheader.i435 ]
+  %.1109134.i448 = phi i32 [ %688, %.lr.ph136.i446 ], [ %.0108.lcssa.i437, %.preheader.i435 ]
+  %.1111133.i449 = phi i32 [ %690, %.lr.ph136.i446 ], [ %.0110.lcssa.i436, %.preheader.i435 ]
+  %688 = shl nuw i32 %.1109134.i448, 1
+  %689 = add i32 %.1111133.i449, 1
   %690 = tail call i32 @llvm.umin.i32(i32 %513, i32 %689)
-  %691 = add nuw nsw i32 %.1136.i448, 1
+  %691 = add nuw nsw i32 %.1135.i447, 1
   %692 = icmp ne i32 %691, 2147483647
   %693 = icmp sgt i32 %688, -1
   %694 = select i1 %692, i1 %693, i1 false
-  br i1 %694, label %.lr.ph137.i447, label %._crit_edge.i443, !llvm.loop !62
+  br i1 %694, label %.lr.ph136.i446, label %._crit_edge.i439, !llvm.loop !62
 
-._crit_edge.i443:                                 ; preds = %.lr.ph137.i447, %.preheader.i439
-  %.1111.lcssa.i444 = phi i32 [ %.0110.lcssa.i440, %.preheader.i439 ], [ %690, %.lr.ph137.i447 ]
-  %.1.lcssa.i445 = phi i32 [ %.0.lcssa.i442, %.preheader.i439 ], [ %691, %.lr.ph137.i447 ]
-  %695 = add i32 %.1111.lcssa.i444, 1
+._crit_edge.i439:                                 ; preds = %.lr.ph136.i446, %.preheader.i435
+  %.1111.lcssa.i440 = phi i32 [ %.0110.lcssa.i436, %.preheader.i435 ], [ %690, %.lr.ph136.i446 ]
+  %.1.lcssa.i441 = phi i32 [ %.0.lcssa.i438, %.preheader.i435 ], [ %691, %.lr.ph136.i446 ]
+  %695 = add i32 %.1111.lcssa.i440, 1
   %696 = tail call i32 @llvm.umin.i32(i32 %513, i32 %695)
-  %697 = icmp samesign ult i32 %.1.lcssa.i445, 2147483646
+  %697 = icmp samesign ult i32 %.1.lcssa.i441, 2147483646
   br i1 %697, label %698, label %get_ur_golomb_jpegls.exit454
 
-698:                                              ; preds = %._crit_edge.i443
+698:                                              ; preds = %._crit_edge.i439
   %699 = add i32 %696, 8
   %700 = tail call i32 @llvm.umin.i32(i32 %513, i32 %699)
   br label %get_ur_golomb_jpegls.exit454
 
-get_ur_golomb_jpegls.exit454:                     ; preds = %.lr.ph.i451, %._crit_edge.i443, %669, %698
-  %storemerge124.i436 = phi i32 [ %..i434, %669 ], [ %700, %698 ], [ %696, %._crit_edge.i443 ], [ %.0110131.i452, %.lr.ph.i451 ]
-  store i32 %storemerge124.i436, ptr %75, align 8, !tbaa !45
+get_ur_golomb_jpegls.exit454:                     ; preds = %.lr.ph.i450, %._crit_edge.i439, %669, %698
+  %storemerge123.i444 = phi i32 [ %..i453, %669 ], [ %700, %698 ], [ %696, %._crit_edge.i439 ], [ %.0110130.i451, %.lr.ph.i450 ]
+  store i32 %storemerge123.i444, ptr %75, align 8, !tbaa !45
   %.not335 = icmp eq i32 %651, 0
   br i1 %.not335, label %.loopexit, label %.lr.ph, !llvm.loop !74
 
 701:                                              ; preds = %583
-  %702 = lshr i32 %storemerge124.i, 3
+  %702 = lshr i32 %storemerge123.i, 3
   %703 = zext nneg i32 %702 to i64
   %704 = getelementptr inbounds nuw i8, ptr %514, i64 %703
   %705 = load i32, ptr %704, align 1, !tbaa !48
   %706 = tail call i32 @llvm.bswap.i32(i32 %705)
-  %707 = and i32 %storemerge124.i, 7
+  %707 = and i32 %storemerge123.i, 7
   %708 = shl i32 %706, %707
   %.not.i.i455 = icmp ult i32 %708, 65536
   %709 = lshr i32 %708, 16
@@ -1456,12 +1456,12 @@ get_ur_golomb_jpegls.exit454:                     ; preds = %.lr.ph.i451, %._cri
   %714 = load i8, ptr %713, align 1, !tbaa !48
   %715 = zext i8 %714 to i32
   %716 = add nuw nsw i32 %.1.i.i460, %715
-  %717 = icmp samesign ult i32 %716, 9
-  br i1 %717, label %.preheader127.i465, label %719
+  %717 = icmp samesign ugt i32 %716, 8
+  br i1 %717, label %719, label %.preheader126.i461
 
-.preheader127.i465:                               ; preds = %701
+.preheader126.i461:                               ; preds = %701
   %718 = icmp ult i32 %708, 128
-  br i1 %718, label %.lr.ph.i478, label %.preheader.i466
+  br i1 %718, label %.lr.ph.i477, label %.preheader.i462
 
 719:                                              ; preds = %701
   %720 = add nsw i32 %716, -2
@@ -1469,28 +1469,28 @@ get_ur_golomb_jpegls.exit454:                     ; preds = %.lr.ph.i451, %._cri
   %722 = shl nuw nsw i32 %716, 2
   %reass.sub = sub nsw i32 %721, %722
   %723 = add nsw i32 %reass.sub, 120
-  %724 = add i32 %storemerge124.i, 34
+  %724 = add i32 %storemerge123.i, 34
   %725 = sub i32 %724, %716
-  %..i461 = tail call i32 @llvm.umin.i32(i32 %513, i32 %725)
+  %..i480 = tail call i32 @llvm.umin.i32(i32 %513, i32 %725)
   br label %get_ur_golomb_jpegls.exit481
 
-.preheader.i466:                                  ; preds = %730, %.preheader127.i465
-  %.0110.lcssa.i467 = phi i32 [ %storemerge124.i, %.preheader127.i465 ], [ %732, %730 ]
-  %.0108.lcssa.i468 = phi i32 [ %708, %.preheader127.i465 ], [ %739, %730 ]
-  %.0.lcssa.i469 = phi i32 [ 0, %.preheader127.i465 ], [ %729, %730 ]
-  %726 = icmp ne i32 %.0.lcssa.i469, 2147483647
-  %727 = icmp sgt i32 %.0108.lcssa.i468, -1
+.preheader.i462:                                  ; preds = %730, %.preheader126.i461
+  %.0110.lcssa.i463 = phi i32 [ %storemerge123.i, %.preheader126.i461 ], [ %732, %730 ]
+  %.0108.lcssa.i464 = phi i32 [ %708, %.preheader126.i461 ], [ %739, %730 ]
+  %.0.lcssa.i465 = phi i32 [ 0, %.preheader126.i461 ], [ %729, %730 ]
+  %726 = icmp ne i32 %.0.lcssa.i465, 2147483647
+  %727 = icmp sgt i32 %.0108.lcssa.i464, -1
   %728 = and i1 %727, %726
-  br i1 %728, label %.lr.ph137.i474, label %._crit_edge.i470
+  br i1 %728, label %.lr.ph136.i473, label %._crit_edge.i466
 
-.lr.ph.i478:                                      ; preds = %.preheader127.i465, %730
-  %729 = phi i32 [ %740, %730 ], [ 25, %.preheader127.i465 ]
-  %.0110131.i479 = phi i32 [ %732, %730 ], [ %storemerge124.i, %.preheader127.i465 ]
-  %.not123.i480 = icmp ugt i32 %.val349, %.0110131.i479
-  br i1 %.not123.i480, label %730, label %get_ur_golomb_jpegls.exit481.thread
+.lr.ph.i477:                                      ; preds = %.preheader126.i461, %730
+  %729 = phi i32 [ %740, %730 ], [ 25, %.preheader126.i461 ]
+  %.0110130.i478 = phi i32 [ %732, %730 ], [ %storemerge123.i, %.preheader126.i461 ]
+  %.not122.i479 = icmp ugt i32 %.val349, %.0110130.i478
+  br i1 %.not122.i479, label %730, label %get_ur_golomb_jpegls.exit481.thread
 
-730:                                              ; preds = %.lr.ph.i478
-  %731 = add i32 %.0110131.i479, 25
+730:                                              ; preds = %.lr.ph.i477
+  %731 = add i32 %.0110130.i478, 25
   %732 = tail call i32 @llvm.umin.i32(i32 %513, i32 %731)
   %733 = lshr i32 %732, 3
   %734 = zext nneg i32 %733 to i64
@@ -1501,30 +1501,30 @@ get_ur_golomb_jpegls.exit454:                     ; preds = %.lr.ph.i451, %._cri
   %739 = shl i32 %737, %738
   %740 = add nuw nsw i32 %729, 25
   %741 = icmp ult i32 %739, 128
-  br i1 %741, label %.lr.ph.i478, label %.preheader.i466, !llvm.loop !61
+  br i1 %741, label %.lr.ph.i477, label %.preheader.i462, !llvm.loop !61
 
-.lr.ph137.i474:                                   ; preds = %.preheader.i466, %.lr.ph137.i474
-  %.1136.i475 = phi i32 [ %745, %.lr.ph137.i474 ], [ %.0.lcssa.i469, %.preheader.i466 ]
-  %.1109135.i476 = phi i32 [ %742, %.lr.ph137.i474 ], [ %.0108.lcssa.i468, %.preheader.i466 ]
-  %.1111134.i477 = phi i32 [ %744, %.lr.ph137.i474 ], [ %.0110.lcssa.i467, %.preheader.i466 ]
-  %742 = shl nuw i32 %.1109135.i476, 1
-  %743 = add i32 %.1111134.i477, 1
+.lr.ph136.i473:                                   ; preds = %.preheader.i462, %.lr.ph136.i473
+  %.1135.i474 = phi i32 [ %745, %.lr.ph136.i473 ], [ %.0.lcssa.i465, %.preheader.i462 ]
+  %.1109134.i475 = phi i32 [ %742, %.lr.ph136.i473 ], [ %.0108.lcssa.i464, %.preheader.i462 ]
+  %.1111133.i476 = phi i32 [ %744, %.lr.ph136.i473 ], [ %.0110.lcssa.i463, %.preheader.i462 ]
+  %742 = shl nuw i32 %.1109134.i475, 1
+  %743 = add i32 %.1111133.i476, 1
   %744 = tail call i32 @llvm.umin.i32(i32 %513, i32 %743)
-  %745 = add nuw nsw i32 %.1136.i475, 1
+  %745 = add nuw nsw i32 %.1135.i474, 1
   %746 = icmp ne i32 %745, 2147483647
   %747 = icmp sgt i32 %742, -1
   %748 = select i1 %746, i1 %747, i1 false
-  br i1 %748, label %.lr.ph137.i474, label %._crit_edge.i470, !llvm.loop !62
+  br i1 %748, label %.lr.ph136.i473, label %._crit_edge.i466, !llvm.loop !62
 
-._crit_edge.i470:                                 ; preds = %.lr.ph137.i474, %.preheader.i466
-  %.1111.lcssa.i471 = phi i32 [ %.0110.lcssa.i467, %.preheader.i466 ], [ %744, %.lr.ph137.i474 ]
-  %.1.lcssa.i472 = phi i32 [ %.0.lcssa.i469, %.preheader.i466 ], [ %745, %.lr.ph137.i474 ]
-  %749 = add i32 %.1111.lcssa.i471, 1
+._crit_edge.i466:                                 ; preds = %.lr.ph136.i473, %.preheader.i462
+  %.1111.lcssa.i467 = phi i32 [ %.0110.lcssa.i463, %.preheader.i462 ], [ %744, %.lr.ph136.i473 ]
+  %.1.lcssa.i468 = phi i32 [ %.0.lcssa.i465, %.preheader.i462 ], [ %745, %.lr.ph136.i473 ]
+  %749 = add i32 %.1111.lcssa.i467, 1
   %750 = tail call i32 @llvm.umin.i32(i32 %513, i32 %749)
-  %751 = icmp samesign ult i32 %.1.lcssa.i472, 2147483646
+  %751 = icmp samesign ult i32 %.1.lcssa.i468, 2147483646
   br i1 %751, label %752, label %763
 
-752:                                              ; preds = %._crit_edge.i470
+752:                                              ; preds = %._crit_edge.i466
   %753 = lshr i32 %750, 3
   %754 = zext nneg i32 %753 to i64
   %755 = getelementptr inbounds nuw i8, ptr %514, i64 %754
@@ -1534,37 +1534,37 @@ get_ur_golomb_jpegls.exit454:                     ; preds = %.lr.ph.i451, %._cri
   %759 = shl i32 %757, %758
   %760 = add i32 %750, 2
   %761 = tail call i32 @llvm.umin.i32(i32 %513, i32 %760)
-  %762 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i472, i32 %759, i32 2)
+  %762 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i468, i32 %759, i32 2)
   br label %get_ur_golomb_jpegls.exit481
 
-763:                                              ; preds = %._crit_edge.i470
-  %764 = icmp eq i32 %.1.lcssa.i472, 2147483646
+763:                                              ; preds = %._crit_edge.i466
+  %764 = icmp eq i32 %.1.lcssa.i468, 2147483646
   br i1 %764, label %get_ur_golomb_jpegls.exit481.thread532, label %get_ur_golomb_jpegls.exit481.thread
 
 get_ur_golomb_jpegls.exit481.thread532:           ; preds = %763
   store i32 %750, ptr %75, align 8, !tbaa !45
   br label %.thread536
 
-get_ur_golomb_jpegls.exit481.thread:              ; preds = %763, %.lr.ph.i478
-  %storemerge124.i463.ph = phi i32 [ %.0110131.i479, %.lr.ph.i478 ], [ %750, %763 ]
-  store i32 %storemerge124.i463.ph, ptr %75, align 8, !tbaa !45
+get_ur_golomb_jpegls.exit481.thread:              ; preds = %763, %.lr.ph.i477
+  %storemerge123.i471.ph = phi i32 [ %.0110130.i478, %.lr.ph.i477 ], [ %750, %763 ]
+  store i32 %storemerge123.i471.ph, ptr %75, align 8, !tbaa !45
   br label %.loopexit618
 
 get_ur_golomb_jpegls.exit481:                     ; preds = %719, %752
-  %storemerge124.i463 = phi i32 [ %..i461, %719 ], [ %761, %752 ]
-  %.0106.i464 = phi i32 [ %723, %719 ], [ %762, %752 ]
-  store i32 %storemerge124.i463, ptr %75, align 8, !tbaa !45
-  %765 = icmp ult i32 %.0106.i464, 33
+  %storemerge123.i471 = phi i32 [ %..i480, %719 ], [ %761, %752 ]
+  %.0106.i472 = phi i32 [ %723, %719 ], [ %762, %752 ]
+  store i32 %storemerge123.i471, ptr %75, align 8, !tbaa !45
+  %765 = icmp ult i32 %.0106.i472, 33
   br i1 %765, label %.thread536, label %.loopexit618
 
 .thread536:                                       ; preds = %get_ur_golomb_jpegls.exit481, %get_ur_golomb_jpegls.exit481.thread532
-  %.0106.i464535 = phi i32 [ 1, %get_ur_golomb_jpegls.exit481.thread532 ], [ %.0106.i464, %get_ur_golomb_jpegls.exit481 ]
-  store i32 %.0106.i464535, ptr %495, align 8, !tbaa !72
+  %.0106.i472535 = phi i32 [ 1, %get_ur_golomb_jpegls.exit481.thread532 ], [ %.0106.i472, %get_ur_golomb_jpegls.exit481 ]
+  store i32 %.0106.i472535, ptr %495, align 8, !tbaa !72
   br label %.loopexit
 
 .loopexit618:                                     ; preds = %get_ur_golomb_jpegls.exit481, %get_ur_golomb_jpegls.exit481.thread
-  %.0106.i464531 = phi i32 [ -1, %get_ur_golomb_jpegls.exit481.thread ], [ %.0106.i464, %get_ur_golomb_jpegls.exit481 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %.0106.i464531) #8
+  %.0106.i472531 = phi i32 [ -1, %get_ur_golomb_jpegls.exit481.thread ], [ %.0106.i472, %get_ur_golomb_jpegls.exit481 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %.0106.i472531) #8
   br label %read_header.exit.thread
 
 766:                                              ; preds = %583
@@ -1619,14 +1619,14 @@ get_ur_golomb_jpegls.exit481:                     ; preds = %719, %752
 
 785:                                              ; preds = %.thread555, %784
   %.0106.i518551560 = phi i32 [ 1, %.thread555 ], [ %.0106.i, %784 ]
-  %storemerge124.i517553559 = phi i32 [ %563, %.thread555 ], [ %storemerge124.i, %784 ]
+  %storemerge123.i517553559 = phi i32 [ %563, %.thread555 ], [ %storemerge123.i, %784 ]
   %786 = phi i64 [ 1, %.thread555 ], [ %580, %784 ]
-  %787 = lshr i32 %storemerge124.i517553559, 3
+  %787 = lshr i32 %storemerge123.i517553559, 3
   %788 = zext nneg i32 %787 to i64
   %789 = getelementptr inbounds nuw i8, ptr %514, i64 %788
   %790 = load i32, ptr %789, align 1, !tbaa !48
   %791 = tail call i32 @llvm.bswap.i32(i32 %790)
-  %792 = and i32 %storemerge124.i517553559, 7
+  %792 = and i32 %storemerge123.i517553559, 7
   %793 = shl i32 %791, %792
   %.not.i.i482 = icmp ult i32 %793, 65536
   %794 = lshr i32 %793, 16
@@ -1642,12 +1642,12 @@ get_ur_golomb_jpegls.exit481:                     ; preds = %719, %752
   %799 = load i8, ptr %798, align 1, !tbaa !48
   %800 = zext i8 %799 to i32
   %801 = add nuw nsw i32 %.1.i.i487, %800
-  %802 = icmp samesign ult i32 %801, 10
-  br i1 %802, label %.preheader127.i492, label %804
+  %802 = icmp samesign ugt i32 %801, 9
+  br i1 %802, label %804, label %.preheader126.i488
 
-.preheader127.i492:                               ; preds = %785
+.preheader126.i488:                               ; preds = %785
   %803 = icmp ult i32 %793, 128
-  br i1 %803, label %.lr.ph.i505, label %.preheader.i493
+  br i1 %803, label %.lr.ph.i504, label %.preheader.i489
 
 804:                                              ; preds = %785
   %805 = add nsw i32 %801, -3
@@ -1655,28 +1655,28 @@ get_ur_golomb_jpegls.exit481:                     ; preds = %719, %752
   %807 = shl nuw nsw i32 %801, 3
   %reass.sub774 = sub nsw i32 %806, %807
   %808 = add nsw i32 %reass.sub774, 240
-  %809 = add i32 %storemerge124.i517553559, 35
+  %809 = add i32 %storemerge123.i517553559, 35
   %810 = sub i32 %809, %801
-  %..i488 = tail call i32 @llvm.umin.i32(i32 %513, i32 %810)
+  %..i507 = tail call i32 @llvm.umin.i32(i32 %513, i32 %810)
   br label %get_ur_golomb_jpegls.exit508
 
-.preheader.i493:                                  ; preds = %815, %.preheader127.i492
-  %.0110.lcssa.i494 = phi i32 [ %storemerge124.i517553559, %.preheader127.i492 ], [ %817, %815 ]
-  %.0108.lcssa.i495 = phi i32 [ %793, %.preheader127.i492 ], [ %824, %815 ]
-  %.0.lcssa.i496 = phi i32 [ 0, %.preheader127.i492 ], [ %814, %815 ]
-  %811 = icmp ne i32 %.0.lcssa.i496, 2147483647
-  %812 = icmp sgt i32 %.0108.lcssa.i495, -1
+.preheader.i489:                                  ; preds = %815, %.preheader126.i488
+  %.0110.lcssa.i490 = phi i32 [ %storemerge123.i517553559, %.preheader126.i488 ], [ %817, %815 ]
+  %.0108.lcssa.i491 = phi i32 [ %793, %.preheader126.i488 ], [ %824, %815 ]
+  %.0.lcssa.i492 = phi i32 [ 0, %.preheader126.i488 ], [ %814, %815 ]
+  %811 = icmp ne i32 %.0.lcssa.i492, 2147483647
+  %812 = icmp sgt i32 %.0108.lcssa.i491, -1
   %813 = and i1 %812, %811
-  br i1 %813, label %.lr.ph137.i501, label %._crit_edge.i497
+  br i1 %813, label %.lr.ph136.i500, label %._crit_edge.i493
 
-.lr.ph.i505:                                      ; preds = %.preheader127.i492, %815
-  %814 = phi i32 [ %825, %815 ], [ 25, %.preheader127.i492 ]
-  %.0110131.i506 = phi i32 [ %817, %815 ], [ %storemerge124.i517553559, %.preheader127.i492 ]
-  %.not123.i507 = icmp ugt i32 %.val349, %.0110131.i506
-  br i1 %.not123.i507, label %815, label %get_ur_golomb_jpegls.exit508
+.lr.ph.i504:                                      ; preds = %.preheader126.i488, %815
+  %814 = phi i32 [ %825, %815 ], [ 25, %.preheader126.i488 ]
+  %.0110130.i505 = phi i32 [ %817, %815 ], [ %storemerge123.i517553559, %.preheader126.i488 ]
+  %.not122.i506 = icmp ugt i32 %.val349, %.0110130.i505
+  br i1 %.not122.i506, label %815, label %get_ur_golomb_jpegls.exit508
 
-815:                                              ; preds = %.lr.ph.i505
-  %816 = add i32 %.0110131.i506, 25
+815:                                              ; preds = %.lr.ph.i504
+  %816 = add i32 %.0110130.i505, 25
   %817 = tail call i32 @llvm.umin.i32(i32 %513, i32 %816)
   %818 = lshr i32 %817, 3
   %819 = zext nneg i32 %818 to i64
@@ -1687,30 +1687,30 @@ get_ur_golomb_jpegls.exit481:                     ; preds = %719, %752
   %824 = shl i32 %822, %823
   %825 = add nuw nsw i32 %814, 25
   %826 = icmp ult i32 %824, 128
-  br i1 %826, label %.lr.ph.i505, label %.preheader.i493, !llvm.loop !61
+  br i1 %826, label %.lr.ph.i504, label %.preheader.i489, !llvm.loop !61
 
-.lr.ph137.i501:                                   ; preds = %.preheader.i493, %.lr.ph137.i501
-  %.1136.i502 = phi i32 [ %830, %.lr.ph137.i501 ], [ %.0.lcssa.i496, %.preheader.i493 ]
-  %.1109135.i503 = phi i32 [ %827, %.lr.ph137.i501 ], [ %.0108.lcssa.i495, %.preheader.i493 ]
-  %.1111134.i504 = phi i32 [ %829, %.lr.ph137.i501 ], [ %.0110.lcssa.i494, %.preheader.i493 ]
-  %827 = shl nuw i32 %.1109135.i503, 1
-  %828 = add i32 %.1111134.i504, 1
+.lr.ph136.i500:                                   ; preds = %.preheader.i489, %.lr.ph136.i500
+  %.1135.i501 = phi i32 [ %830, %.lr.ph136.i500 ], [ %.0.lcssa.i492, %.preheader.i489 ]
+  %.1109134.i502 = phi i32 [ %827, %.lr.ph136.i500 ], [ %.0108.lcssa.i491, %.preheader.i489 ]
+  %.1111133.i503 = phi i32 [ %829, %.lr.ph136.i500 ], [ %.0110.lcssa.i490, %.preheader.i489 ]
+  %827 = shl nuw i32 %.1109134.i502, 1
+  %828 = add i32 %.1111133.i503, 1
   %829 = tail call i32 @llvm.umin.i32(i32 %513, i32 %828)
-  %830 = add nuw nsw i32 %.1136.i502, 1
+  %830 = add nuw nsw i32 %.1135.i501, 1
   %831 = icmp ne i32 %830, 2147483647
   %832 = icmp sgt i32 %827, -1
   %833 = select i1 %831, i1 %832, i1 false
-  br i1 %833, label %.lr.ph137.i501, label %._crit_edge.i497, !llvm.loop !62
+  br i1 %833, label %.lr.ph136.i500, label %._crit_edge.i493, !llvm.loop !62
 
-._crit_edge.i497:                                 ; preds = %.lr.ph137.i501, %.preheader.i493
-  %.1111.lcssa.i498 = phi i32 [ %.0110.lcssa.i494, %.preheader.i493 ], [ %829, %.lr.ph137.i501 ]
-  %.1.lcssa.i499 = phi i32 [ %.0.lcssa.i496, %.preheader.i493 ], [ %830, %.lr.ph137.i501 ]
-  %834 = add i32 %.1111.lcssa.i498, 1
+._crit_edge.i493:                                 ; preds = %.lr.ph136.i500, %.preheader.i489
+  %.1111.lcssa.i494 = phi i32 [ %.0110.lcssa.i490, %.preheader.i489 ], [ %829, %.lr.ph136.i500 ]
+  %.1.lcssa.i495 = phi i32 [ %.0.lcssa.i492, %.preheader.i489 ], [ %830, %.lr.ph136.i500 ]
+  %834 = add i32 %.1111.lcssa.i494, 1
   %835 = tail call i32 @llvm.umin.i32(i32 %513, i32 %834)
-  %836 = icmp samesign ult i32 %.1.lcssa.i499, 2147483646
+  %836 = icmp samesign ult i32 %.1.lcssa.i495, 2147483646
   br i1 %836, label %837, label %848
 
-837:                                              ; preds = %._crit_edge.i497
+837:                                              ; preds = %._crit_edge.i493
   %838 = lshr i32 %835, 3
   %839 = zext nneg i32 %838 to i64
   %840 = getelementptr inbounds nuw i8, ptr %514, i64 %839
@@ -1720,22 +1720,22 @@ get_ur_golomb_jpegls.exit481:                     ; preds = %719, %752
   %844 = shl i32 %842, %843
   %845 = add i32 %835, 3
   %846 = tail call i32 @llvm.umin.i32(i32 %513, i32 %845)
-  %847 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i499, i32 %844, i32 3)
+  %847 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i495, i32 %844, i32 3)
   br label %get_ur_golomb_jpegls.exit508
 
-848:                                              ; preds = %._crit_edge.i497
-  %849 = icmp eq i32 %.1.lcssa.i499, 2147483646
-  %.126.i500 = select i1 %849, i32 1, i32 -1
+848:                                              ; preds = %._crit_edge.i493
+  %849 = icmp eq i32 %.1.lcssa.i495, 2147483646
+  %.125.i496 = select i1 %849, i32 1, i32 -1
   br label %get_ur_golomb_jpegls.exit508
 
-get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i505, %804, %837, %848
-  %storemerge124.i490 = phi i32 [ %..i488, %804 ], [ %846, %837 ], [ %835, %848 ], [ %.0110131.i506, %.lr.ph.i505 ]
-  %.0106.i491 = phi i32 [ %808, %804 ], [ %847, %837 ], [ %.126.i500, %848 ], [ -1, %.lr.ph.i505 ]
-  store i32 %storemerge124.i490, ptr %75, align 8, !tbaa !45
+get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i504, %804, %837, %848
+  %storemerge123.i498 = phi i32 [ %..i507, %804 ], [ %846, %837 ], [ %835, %848 ], [ %.0110130.i505, %.lr.ph.i504 ]
+  %.0106.i499 = phi i32 [ %808, %804 ], [ %847, %837 ], [ %.125.i496, %848 ], [ -1, %.lr.ph.i504 ]
+  store i32 %storemerge123.i498, ptr %75, align 8, !tbaa !45
   %850 = load i32, ptr %496, align 8, !tbaa !52
   %851 = icmp eq i32 %850, 0
   %852 = sext i1 %851 to i32
-  %spec.select = add nsw i32 %.0106.i491, %852
+  %spec.select = add nsw i32 %.0106.i499, %852
   %853 = icmp ugt i32 %spec.select, 30
   br i1 %853, label %854, label %855
 
@@ -1744,7 +1744,7 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i505, %804, 
   br label %read_header.exit.thread
 
 855:                                              ; preds = %get_ur_golomb_jpegls.exit508, %784
-  %856 = phi i32 [ %storemerge124.i490, %get_ur_golomb_jpegls.exit508 ], [ %storemerge124.i, %784 ]
+  %856 = phi i32 [ %storemerge123.i498, %get_ur_golomb_jpegls.exit508 ], [ %storemerge123.i, %784 ]
   %.not336563 = phi i1 [ false, %get_ur_golomb_jpegls.exit508 ], [ true, %784 ]
   %.0106.i518551561 = phi i32 [ %.0106.i518551560, %get_ur_golomb_jpegls.exit508 ], [ 8, %784 ]
   %857 = phi i64 [ %786, %get_ur_golomb_jpegls.exit508 ], [ 8, %784 ]
@@ -1851,12 +1851,12 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i505, %804, 
   %913 = load i8, ptr %912, align 1, !tbaa !48
   %914 = zext i8 %913 to i32
   %915 = add nuw nsw i32 %.1.i.i.i363, %914
-  %916 = icmp samesign ult i32 %915, 9
-  br i1 %916, label %.preheader127.i.i375, label %918
+  %916 = icmp samesign ugt i32 %915, 8
+  br i1 %916, label %918, label %.preheader126.i.i364
 
-.preheader127.i.i375:                             ; preds = %900
+.preheader126.i.i364:                             ; preds = %900
   %917 = icmp ult i32 %907, 128
-  br i1 %917, label %.lr.ph.i.i387, label %.preheader.i.i376
+  br i1 %917, label %.lr.ph.i.i387, label %.preheader.i.i365
 
 918:                                              ; preds = %900
   %919 = add nsw i32 %915, -2
@@ -1867,25 +1867,25 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i505, %804, 
   %923 = add i32 %856, 34
   %924 = sub i32 %923, %915
   %..i.i = tail call i32 @llvm.umin.i32(i32 %513, i32 %924)
-  br label %get_ur_golomb_jpegls.exit.i364
+  br label %get_ur_golomb_jpegls.exit.i372
 
-.preheader.i.i376:                                ; preds = %929, %.preheader127.i.i375
-  %.0110.lcssa.i.i377 = phi i32 [ %856, %.preheader127.i.i375 ], [ %931, %929 ]
-  %.0108.lcssa.i.i378 = phi i32 [ %907, %.preheader127.i.i375 ], [ %938, %929 ]
-  %.0.lcssa.i.i379 = phi i32 [ 0, %.preheader127.i.i375 ], [ %928, %929 ]
-  %925 = icmp ne i32 %.0.lcssa.i.i379, 2147483647
-  %926 = icmp sgt i32 %.0108.lcssa.i.i378, -1
+.preheader.i.i365:                                ; preds = %929, %.preheader126.i.i364
+  %.0110.lcssa.i.i366 = phi i32 [ %856, %.preheader126.i.i364 ], [ %931, %929 ]
+  %.0108.lcssa.i.i367 = phi i32 [ %907, %.preheader126.i.i364 ], [ %938, %929 ]
+  %.0.lcssa.i.i368 = phi i32 [ 0, %.preheader126.i.i364 ], [ %928, %929 ]
+  %925 = icmp ne i32 %.0.lcssa.i.i368, 2147483647
+  %926 = icmp sgt i32 %.0108.lcssa.i.i367, -1
   %927 = and i1 %926, %925
-  br i1 %927, label %.lr.ph137.i.i383, label %._crit_edge.i.i380
+  br i1 %927, label %.lr.ph136.i.i383, label %._crit_edge.i.i369
 
-.lr.ph.i.i387:                                    ; preds = %.preheader127.i.i375, %929
-  %928 = phi i32 [ %939, %929 ], [ 25, %.preheader127.i.i375 ]
-  %.0110131.i.i388 = phi i32 [ %931, %929 ], [ %856, %.preheader127.i.i375 ]
-  %.not123.i.i389 = icmp ugt i32 %.val349, %.0110131.i.i388
-  br i1 %.not123.i.i389, label %929, label %get_ur_golomb_jpegls.exit.thread.i390
+.lr.ph.i.i387:                                    ; preds = %.preheader126.i.i364, %929
+  %928 = phi i32 [ %939, %929 ], [ 25, %.preheader126.i.i364 ]
+  %.0110130.i.i388 = phi i32 [ %931, %929 ], [ %856, %.preheader126.i.i364 ]
+  %.not122.i.i389 = icmp ugt i32 %.val349, %.0110130.i.i388
+  br i1 %.not122.i.i389, label %929, label %get_ur_golomb_jpegls.exit.thread.i390
 
 929:                                              ; preds = %.lr.ph.i.i387
-  %930 = add i32 %.0110131.i.i388, 25
+  %930 = add i32 %.0110130.i.i388, 25
   %931 = tail call i32 @llvm.umin.i32(i32 %513, i32 %930)
   %932 = lshr i32 %931, 3
   %933 = zext nneg i32 %932 to i64
@@ -1896,30 +1896,30 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i505, %804, 
   %938 = shl i32 %936, %937
   %939 = add nuw nsw i32 %928, 25
   %940 = icmp ult i32 %938, 128
-  br i1 %940, label %.lr.ph.i.i387, label %.preheader.i.i376, !llvm.loop !61
+  br i1 %940, label %.lr.ph.i.i387, label %.preheader.i.i365, !llvm.loop !61
 
-.lr.ph137.i.i383:                                 ; preds = %.preheader.i.i376, %.lr.ph137.i.i383
-  %.1136.i.i384 = phi i32 [ %944, %.lr.ph137.i.i383 ], [ %.0.lcssa.i.i379, %.preheader.i.i376 ]
-  %.1109135.i.i385 = phi i32 [ %941, %.lr.ph137.i.i383 ], [ %.0108.lcssa.i.i378, %.preheader.i.i376 ]
-  %.1111134.i.i386 = phi i32 [ %943, %.lr.ph137.i.i383 ], [ %.0110.lcssa.i.i377, %.preheader.i.i376 ]
-  %941 = shl nuw i32 %.1109135.i.i385, 1
-  %942 = add i32 %.1111134.i.i386, 1
+.lr.ph136.i.i383:                                 ; preds = %.preheader.i.i365, %.lr.ph136.i.i383
+  %.1135.i.i384 = phi i32 [ %944, %.lr.ph136.i.i383 ], [ %.0.lcssa.i.i368, %.preheader.i.i365 ]
+  %.1109134.i.i385 = phi i32 [ %941, %.lr.ph136.i.i383 ], [ %.0108.lcssa.i.i367, %.preheader.i.i365 ]
+  %.1111133.i.i386 = phi i32 [ %943, %.lr.ph136.i.i383 ], [ %.0110.lcssa.i.i366, %.preheader.i.i365 ]
+  %941 = shl nuw i32 %.1109134.i.i385, 1
+  %942 = add i32 %.1111133.i.i386, 1
   %943 = tail call i32 @llvm.umin.i32(i32 %513, i32 %942)
-  %944 = add nuw nsw i32 %.1136.i.i384, 1
+  %944 = add nuw nsw i32 %.1135.i.i384, 1
   %945 = icmp ne i32 %944, 2147483647
   %946 = icmp sgt i32 %941, -1
   %947 = select i1 %945, i1 %946, i1 false
-  br i1 %947, label %.lr.ph137.i.i383, label %._crit_edge.i.i380, !llvm.loop !62
+  br i1 %947, label %.lr.ph136.i.i383, label %._crit_edge.i.i369, !llvm.loop !62
 
-._crit_edge.i.i380:                               ; preds = %.lr.ph137.i.i383, %.preheader.i.i376
-  %.1111.lcssa.i.i381 = phi i32 [ %.0110.lcssa.i.i377, %.preheader.i.i376 ], [ %943, %.lr.ph137.i.i383 ]
-  %.1.lcssa.i.i382 = phi i32 [ %.0.lcssa.i.i379, %.preheader.i.i376 ], [ %944, %.lr.ph137.i.i383 ]
-  %948 = add i32 %.1111.lcssa.i.i381, 1
+._crit_edge.i.i369:                               ; preds = %.lr.ph136.i.i383, %.preheader.i.i365
+  %.1111.lcssa.i.i370 = phi i32 [ %.0110.lcssa.i.i366, %.preheader.i.i365 ], [ %943, %.lr.ph136.i.i383 ]
+  %.1.lcssa.i.i371 = phi i32 [ %.0.lcssa.i.i368, %.preheader.i.i365 ], [ %944, %.lr.ph136.i.i383 ]
+  %948 = add i32 %.1111.lcssa.i.i370, 1
   %949 = tail call i32 @llvm.umin.i32(i32 %513, i32 %948)
-  %950 = icmp samesign ult i32 %.1.lcssa.i.i382, 2147483646
+  %950 = icmp samesign ult i32 %.1.lcssa.i.i371, 2147483646
   br i1 %950, label %951, label %962
 
-951:                                              ; preds = %._crit_edge.i.i380
+951:                                              ; preds = %._crit_edge.i.i369
   %952 = lshr i32 %949, 3
   %953 = zext nneg i32 %952 to i64
   %954 = getelementptr inbounds nuw i8, ptr %514, i64 %953
@@ -1929,49 +1929,49 @@ get_ur_golomb_jpegls.exit508:                     ; preds = %.lr.ph.i505, %804, 
   %958 = shl i32 %956, %957
   %959 = add i32 %949, 2
   %960 = tail call i32 @llvm.umin.i32(i32 %513, i32 %959)
-  %961 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i.i382, i32 %958, i32 2)
-  br label %get_ur_golomb_jpegls.exit.i364
+  %961 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i.i371, i32 %958, i32 2)
+  br label %get_ur_golomb_jpegls.exit.i372
 
-962:                                              ; preds = %._crit_edge.i.i380
-  %963 = icmp eq i32 %.1.lcssa.i.i382, 2147483646
-  %.126.i.i = select i1 %963, i32 1, i32 -1
-  br label %get_ur_golomb_jpegls.exit.i364
+962:                                              ; preds = %._crit_edge.i.i369
+  %963 = icmp eq i32 %.1.lcssa.i.i371, 2147483646
+  %.125.i.i = select i1 %963, i32 1, i32 -1
+  br label %get_ur_golomb_jpegls.exit.i372
 
-get_ur_golomb_jpegls.exit.i364:                   ; preds = %962, %951, %918
-  %storemerge124.i.i365 = phi i32 [ %..i.i, %918 ], [ %960, %951 ], [ %949, %962 ]
-  %.0106.i.i366 = phi i32 [ %922, %918 ], [ %961, %951 ], [ %.126.i.i, %962 ]
-  store i32 %storemerge124.i.i365, ptr %75, align 8, !tbaa !45
+get_ur_golomb_jpegls.exit.i372:                   ; preds = %962, %951, %918
+  %storemerge123.i.i373 = phi i32 [ %..i.i, %918 ], [ %960, %951 ], [ %949, %962 ]
+  %.0106.i.i374 = phi i32 [ %922, %918 ], [ %961, %951 ], [ %.125.i.i, %962 ]
+  store i32 %storemerge123.i.i373, ptr %75, align 8, !tbaa !45
   %964 = load i32, ptr %499, align 4, !tbaa !57
-  %965 = icmp ugt i32 %.0106.i.i366, %964
+  %965 = icmp ugt i32 %.0106.i.i374, %964
   br i1 %965, label %decode_subframe_lpc.exit, label %.preheader131.i
 
 get_ur_golomb_jpegls.exit.thread.i390:            ; preds = %.lr.ph.i.i387
-  store i32 %.0110131.i.i388, ptr %75, align 8, !tbaa !45
+  store i32 %.0110130.i.i388, ptr %75, align 8, !tbaa !45
   %966 = load i32, ptr %499, align 4, !tbaa !57
   %.not226.i = icmp eq i32 %966, -1
-  br i1 %.not226.i, label %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i367.thread_crit_edge, label %decode_subframe_lpc.exit
+  br i1 %.not226.i, label %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge, label %decode_subframe_lpc.exit
 
-get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i367.thread_crit_edge: ; preds = %get_ur_golomb_jpegls.exit.thread.i390
+get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge: ; preds = %get_ur_golomb_jpegls.exit.thread.i390
   %.pre.i.pre = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !77
-  br label %._crit_edge.i367.thread
+  br label %._crit_edge.i375.thread
 
-.preheader131.i:                                  ; preds = %get_ur_golomb_jpegls.exit.i364
-  %967 = icmp sgt i32 %.0106.i.i366, 0
+.preheader131.i:                                  ; preds = %get_ur_golomb_jpegls.exit.i372
+  %967 = icmp sgt i32 %.0106.i.i374, 0
   %.pre.i.pre902 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !77
-  br i1 %967, label %.lr.ph.i369, label %._crit_edge.i367.thread
+  br i1 %967, label %.lr.ph.i377, label %._crit_edge.i375.thread
 
-._crit_edge.i367.thread:                          ; preds = %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i367.thread_crit_edge, %.preheader131.i
-  %.pre.i = phi ptr [ %.pre.i.pre902, %.preheader131.i ], [ %.pre.i.pre, %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i367.thread_crit_edge ]
-  %.0106.i193196.i = phi i32 [ %.0106.i.i366, %.preheader131.i ], [ -1, %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i367.thread_crit_edge ]
+._crit_edge.i375.thread:                          ; preds = %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge, %.preheader131.i
+  %.pre.i = phi ptr [ %.pre.i.pre902, %.preheader131.i ], [ %.pre.i.pre, %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge ]
+  %.0106.i193196.i = phi i32 [ %.0106.i.i374, %.preheader131.i ], [ -1, %get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i375.thread_crit_edge ]
   %.not124.i566 = icmp ne i32 %.0281, 0
   br label %.loopexit130.i
 
-.lr.ph.i369:                                      ; preds = %.preheader131.i
-  %wide.trip.count.i370 = zext nneg i32 %.0106.i.i366 to i64
+.lr.ph.i377:                                      ; preds = %.preheader131.i
+  %wide.trip.count.i378 = zext nneg i32 %.0106.i.i374 to i64
   br label %968
 
-968:                                              ; preds = %get_ur_golomb_jpegls.exit102.i, %.lr.ph.i369
-  %indvars.iv.i371 = phi i64 [ 0, %.lr.ph.i369 ], [ %indvars.iv.next.i373, %get_ur_golomb_jpegls.exit102.i ]
+968:                                              ; preds = %get_ur_golomb_jpegls.exit102.i, %.lr.ph.i377
+  %indvars.iv.i379 = phi i64 [ 0, %.lr.ph.i377 ], [ %indvars.iv.next.i380, %get_ur_golomb_jpegls.exit102.i ]
   %969 = load i32, ptr %75, align 8, !tbaa !45
   %970 = load i32, ptr %71, align 8, !tbaa !43
   %971 = lshr i32 %969, 3
@@ -1995,14 +1995,14 @@ get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i367.thread_crit_edge: ; preds
   %983 = load i8, ptr %982, align 1, !tbaa !48
   %984 = zext i8 %983 to i32
   %985 = add nuw nsw i32 %.1.i.i82.i, %984
-  %986 = icmp samesign ult i32 %985, 13
-  br i1 %986, label %.preheader127.i86.i, label %989
+  %986 = icmp samesign ugt i32 %985, 12
+  br i1 %986, label %989, label %.preheader126.i83.i
 
-.preheader127.i86.i:                              ; preds = %968
+.preheader126.i83.i:                              ; preds = %968
   %987 = icmp ult i32 %977, 128
-  br i1 %987, label %.lr.ph.i99.i, label %.preheader.i87.i
+  br i1 %987, label %.lr.ph.i98.i, label %.preheader.i84.i
 
-.lr.ph.i99.i:                                     ; preds = %.preheader127.i86.i
+.lr.ph.i98.i:                                     ; preds = %.preheader126.i83.i
   %988 = load i32, ptr %69, align 4, !tbaa !42
   br label %999
 
@@ -2014,26 +2014,26 @@ get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i367.thread_crit_edge: ; preds
   %993 = add nsw i32 %reass.sub776, 1920
   %994 = add i32 %969, 38
   %995 = sub i32 %994, %985
-  %..i83.i = tail call i32 @llvm.umin.i32(i32 %970, i32 %995)
+  %..i101.i = tail call i32 @llvm.umin.i32(i32 %970, i32 %995)
   br label %get_ur_golomb_jpegls.exit102.i
 
-.preheader.i87.i:                                 ; preds = %1001, %.preheader127.i86.i
-  %.0110.lcssa.i88.i = phi i32 [ %969, %.preheader127.i86.i ], [ %1003, %1001 ]
-  %.0108.lcssa.i89.i = phi i32 [ %977, %.preheader127.i86.i ], [ %1010, %1001 ]
-  %.0.lcssa.i90.i = phi i32 [ 0, %.preheader127.i86.i ], [ %1000, %1001 ]
-  %996 = icmp ne i32 %.0.lcssa.i90.i, 2147483647
-  %997 = icmp sgt i32 %.0108.lcssa.i89.i, -1
+.preheader.i84.i:                                 ; preds = %1001, %.preheader126.i83.i
+  %.0110.lcssa.i85.i = phi i32 [ %969, %.preheader126.i83.i ], [ %1003, %1001 ]
+  %.0108.lcssa.i86.i = phi i32 [ %977, %.preheader126.i83.i ], [ %1010, %1001 ]
+  %.0.lcssa.i87.i = phi i32 [ 0, %.preheader126.i83.i ], [ %1000, %1001 ]
+  %996 = icmp ne i32 %.0.lcssa.i87.i, 2147483647
+  %997 = icmp sgt i32 %.0108.lcssa.i86.i, -1
   %998 = and i1 %997, %996
-  br i1 %998, label %.lr.ph137.i95.i, label %._crit_edge.i91.i
+  br i1 %998, label %.lr.ph136.i94.i, label %._crit_edge.i88.i
 
-999:                                              ; preds = %1001, %.lr.ph.i99.i
-  %1000 = phi i32 [ 25, %.lr.ph.i99.i ], [ %1011, %1001 ]
-  %.0110131.i100.i = phi i32 [ %969, %.lr.ph.i99.i ], [ %1003, %1001 ]
-  %.not123.i101.i = icmp ugt i32 %988, %.0110131.i100.i
-  br i1 %.not123.i101.i, label %1001, label %get_ur_golomb_jpegls.exit102.i
+999:                                              ; preds = %1001, %.lr.ph.i98.i
+  %1000 = phi i32 [ 25, %.lr.ph.i98.i ], [ %1011, %1001 ]
+  %.0110130.i99.i = phi i32 [ %969, %.lr.ph.i98.i ], [ %1003, %1001 ]
+  %.not122.i100.i = icmp ugt i32 %988, %.0110130.i99.i
+  br i1 %.not122.i100.i, label %1001, label %get_ur_golomb_jpegls.exit102.i
 
 1001:                                             ; preds = %999
-  %1002 = add i32 %.0110131.i100.i, 25
+  %1002 = add i32 %.0110130.i99.i, 25
   %1003 = tail call i32 @llvm.umin.i32(i32 %970, i32 %1002)
   %1004 = lshr i32 %1003, 3
   %1005 = zext nneg i32 %1004 to i64
@@ -2044,30 +2044,30 @@ get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i367.thread_crit_edge: ; preds
   %1010 = shl i32 %1008, %1009
   %1011 = add nuw nsw i32 %1000, 25
   %1012 = icmp ult i32 %1010, 128
-  br i1 %1012, label %999, label %.preheader.i87.i, !llvm.loop !61
+  br i1 %1012, label %999, label %.preheader.i84.i, !llvm.loop !61
 
-.lr.ph137.i95.i:                                  ; preds = %.preheader.i87.i, %.lr.ph137.i95.i
-  %.1136.i96.i = phi i32 [ %1016, %.lr.ph137.i95.i ], [ %.0.lcssa.i90.i, %.preheader.i87.i ]
-  %.1109135.i97.i = phi i32 [ %1013, %.lr.ph137.i95.i ], [ %.0108.lcssa.i89.i, %.preheader.i87.i ]
-  %.1111134.i98.i = phi i32 [ %1015, %.lr.ph137.i95.i ], [ %.0110.lcssa.i88.i, %.preheader.i87.i ]
-  %1013 = shl nuw i32 %.1109135.i97.i, 1
-  %1014 = add i32 %.1111134.i98.i, 1
+.lr.ph136.i94.i:                                  ; preds = %.preheader.i84.i, %.lr.ph136.i94.i
+  %.1135.i95.i = phi i32 [ %1016, %.lr.ph136.i94.i ], [ %.0.lcssa.i87.i, %.preheader.i84.i ]
+  %.1109134.i96.i = phi i32 [ %1013, %.lr.ph136.i94.i ], [ %.0108.lcssa.i86.i, %.preheader.i84.i ]
+  %.1111133.i97.i = phi i32 [ %1015, %.lr.ph136.i94.i ], [ %.0110.lcssa.i85.i, %.preheader.i84.i ]
+  %1013 = shl nuw i32 %.1109134.i96.i, 1
+  %1014 = add i32 %.1111133.i97.i, 1
   %1015 = tail call i32 @llvm.umin.i32(i32 %970, i32 %1014)
-  %1016 = add nuw nsw i32 %.1136.i96.i, 1
+  %1016 = add nuw nsw i32 %.1135.i95.i, 1
   %1017 = icmp ne i32 %1016, 2147483647
   %1018 = icmp sgt i32 %1013, -1
   %1019 = select i1 %1017, i1 %1018, i1 false
-  br i1 %1019, label %.lr.ph137.i95.i, label %._crit_edge.i91.i, !llvm.loop !62
+  br i1 %1019, label %.lr.ph136.i94.i, label %._crit_edge.i88.i, !llvm.loop !62
 
-._crit_edge.i91.i:                                ; preds = %.lr.ph137.i95.i, %.preheader.i87.i
-  %.1111.lcssa.i92.i = phi i32 [ %.0110.lcssa.i88.i, %.preheader.i87.i ], [ %1015, %.lr.ph137.i95.i ]
-  %.1.lcssa.i93.i = phi i32 [ %.0.lcssa.i90.i, %.preheader.i87.i ], [ %1016, %.lr.ph137.i95.i ]
-  %1020 = add i32 %.1111.lcssa.i92.i, 1
+._crit_edge.i88.i:                                ; preds = %.lr.ph136.i94.i, %.preheader.i84.i
+  %.1111.lcssa.i89.i = phi i32 [ %.0110.lcssa.i85.i, %.preheader.i84.i ], [ %1015, %.lr.ph136.i94.i ]
+  %.1.lcssa.i90.i = phi i32 [ %.0.lcssa.i87.i, %.preheader.i84.i ], [ %1016, %.lr.ph136.i94.i ]
+  %1020 = add i32 %.1111.lcssa.i89.i, 1
   %1021 = tail call i32 @llvm.umin.i32(i32 %970, i32 %1020)
-  %1022 = icmp samesign ult i32 %.1.lcssa.i93.i, 2147483646
+  %1022 = icmp samesign ult i32 %.1.lcssa.i90.i, 2147483646
   br i1 %1022, label %1023, label %1034
 
-1023:                                             ; preds = %._crit_edge.i91.i
+1023:                                             ; preds = %._crit_edge.i88.i
   %1024 = lshr i32 %1021, 3
   %1025 = zext nneg i32 %1024 to i64
   %1026 = getelementptr inbounds nuw i8, ptr %514, i64 %1025
@@ -2077,38 +2077,38 @@ get_ur_golomb_jpegls.exit.thread.i390.._crit_edge.i367.thread_crit_edge: ; preds
   %1030 = shl i32 %1028, %1029
   %1031 = add i32 %1021, 6
   %1032 = tail call i32 @llvm.umin.i32(i32 %970, i32 %1031)
-  %1033 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i93.i, i32 %1030, i32 6)
+  %1033 = tail call i32 @llvm.fshl.i32(i32 %.1.lcssa.i90.i, i32 %1030, i32 6)
   br label %get_ur_golomb_jpegls.exit102.i
 
-1034:                                             ; preds = %._crit_edge.i91.i
-  %1035 = icmp eq i32 %.1.lcssa.i93.i, 2147483646
-  %.126.i94.i = select i1 %1035, i32 1, i32 -1
+1034:                                             ; preds = %._crit_edge.i88.i
+  %1035 = icmp eq i32 %.1.lcssa.i90.i, 2147483646
+  %.125.i91.i = select i1 %1035, i32 1, i32 -1
   br label %get_ur_golomb_jpegls.exit102.i
 
 get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, %989
-  %storemerge124.i84.i = phi i32 [ %..i83.i, %989 ], [ %1032, %1023 ], [ %1021, %1034 ], [ %.0110131.i100.i, %999 ]
-  %.0106.i85.i = phi i32 [ %993, %989 ], [ %1033, %1023 ], [ %.126.i94.i, %1034 ], [ -1, %999 ]
-  store i32 %storemerge124.i84.i, ptr %75, align 8, !tbaa !45
-  %1036 = ashr i32 %.0106.i85.i, 1
-  %1037 = and i32 %.0106.i85.i, 1
+  %storemerge123.i92.i = phi i32 [ %..i101.i, %989 ], [ %1032, %1023 ], [ %1021, %1034 ], [ %.0110130.i99.i, %999 ]
+  %.0106.i93.i = phi i32 [ %993, %989 ], [ %1033, %1023 ], [ %.125.i91.i, %1034 ], [ -1, %999 ]
+  store i32 %storemerge123.i92.i, ptr %75, align 8, !tbaa !45
+  %1036 = ashr i32 %.0106.i93.i, 1
+  %1037 = and i32 %.0106.i93.i, 1
   %1038 = sub nsw i32 0, %1037
   %1039 = xor i32 %1036, %1038
-  %1040 = getelementptr inbounds nuw i32, ptr %.pre.i.pre902, i64 %indvars.iv.i371
+  %1040 = getelementptr inbounds nuw i32, ptr %.pre.i.pre902, i64 %indvars.iv.i379
   store i32 %1039, ptr %1040, align 4, !tbaa !40
-  %indvars.iv.next.i373 = add nuw nsw i64 %indvars.iv.i371, 1
-  %exitcond.not.i374 = icmp eq i64 %indvars.iv.next.i373, %wide.trip.count.i370
-  br i1 %exitcond.not.i374, label %._crit_edge.i367, label %968, !llvm.loop !78
+  %indvars.iv.next.i380 = add nuw nsw i64 %indvars.iv.i379, 1
+  %exitcond.not.i381 = icmp eq i64 %indvars.iv.next.i380, %wide.trip.count.i378
+  br i1 %exitcond.not.i381, label %._crit_edge.i375, label %968, !llvm.loop !78
 
 1041:                                             ; preds = %898
   %1042 = icmp samesign ugt i32 %.0106.i518551561, 3
   br i1 %1042, label %decode_subframe_lpc.exit, label %.thread.i
 
-._crit_edge.i367:                                 ; preds = %get_ur_golomb_jpegls.exit102.i
+._crit_edge.i375:                                 ; preds = %get_ur_golomb_jpegls.exit102.i
   %.not124.i.not = icmp eq i32 %.0281, 0
   br i1 %.not124.i.not, label %.loopexit130.i, label %.lr.ph149.i
 
-.lr.ph149.i:                                      ; preds = %._crit_edge.i367
-  %1043 = sub nsw i32 0, %.0106.i.i366
+.lr.ph149.i:                                      ; preds = %._crit_edge.i375
+  %1043 = sub nsw i32 0, %.0106.i.i374
   %1044 = sext i32 %508 to i64
   %1045 = getelementptr inbounds [8 x ptr], ptr %500, i64 0, i64 %1044
   %1046 = load ptr, ptr %1045, align 8, !tbaa !65
@@ -2126,12 +2126,12 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
   %exitcond178.not.i = icmp eq i64 %1052, 0
   br i1 %exitcond178.not.i, label %.loopexit130.i, label %1048, !llvm.loop !79
 
-.loopexit130.i:                                   ; preds = %1048, %._crit_edge.i367.thread, %._crit_edge.i367
-  %.not124.i569 = phi i1 [ %.not124.i566, %._crit_edge.i367.thread ], [ false, %._crit_edge.i367 ], [ true, %1048 ]
-  %1053 = phi ptr [ %.pre.i, %._crit_edge.i367.thread ], [ %.pre.i.pre902, %._crit_edge.i367 ], [ %.pre.i.pre902, %1048 ]
-  %.0106.i193195.i568 = phi i32 [ %.0106.i193196.i, %._crit_edge.i367.thread ], [ %.0106.i.i366, %._crit_edge.i367 ], [ %.0106.i.i366, %1048 ]
-  %.not.i368 = icmp eq i32 %.0106.i193195.i568, 0
-  br i1 %.not.i368, label %1056, label %1054
+.loopexit130.i:                                   ; preds = %1048, %._crit_edge.i375.thread, %._crit_edge.i375
+  %.not124.i569 = phi i1 [ %.not124.i566, %._crit_edge.i375.thread ], [ false, %._crit_edge.i375 ], [ true, %1048 ]
+  %1053 = phi ptr [ %.pre.i, %._crit_edge.i375.thread ], [ %.pre.i.pre902, %._crit_edge.i375 ], [ %.pre.i.pre902, %1048 ]
+  %.0106.i193195.i568 = phi i32 [ %.0106.i193196.i, %._crit_edge.i375.thread ], [ %.0106.i.i374, %._crit_edge.i375 ], [ %.0106.i.i374, %1048 ]
+  %.not.i376 = icmp eq i32 %.0106.i193195.i568, 0
+  br i1 %.not.i376, label %1056, label %1054
 
 1054:                                             ; preds = %.loopexit130.i
   %1055 = load i32, ptr %501, align 8, !tbaa !49
@@ -2222,9 +2222,9 @@ get_ur_golomb_jpegls.exit102.i:                   ; preds = %999, %1034, %1023, 
   %1096 = icmp slt i64 %indvars.iv.next188.i, %1095
   br i1 %1096, label %.lr.ph157.i, label %decode_subframe_lpc.exit.thread, !llvm.loop !82
 
-decode_subframe_lpc.exit:                         ; preds = %get_ur_golomb_jpegls.exit.i364, %get_ur_golomb_jpegls.exit.thread.i390, %1041
-  %.sink225.i = phi i32 [ -1, %get_ur_golomb_jpegls.exit.thread.i390 ], [ %.0106.i.i366, %get_ur_golomb_jpegls.exit.i364 ], [ %.0106.i518551561, %1041 ]
-  %.066.ph.i = phi i32 [ -22, %get_ur_golomb_jpegls.exit.thread.i390 ], [ -22, %get_ur_golomb_jpegls.exit.i364 ], [ -1094995529, %1041 ]
+decode_subframe_lpc.exit:                         ; preds = %get_ur_golomb_jpegls.exit.i372, %get_ur_golomb_jpegls.exit.thread.i390, %1041
+  %.sink225.i = phi i32 [ -1, %get_ur_golomb_jpegls.exit.thread.i390 ], [ %.0106.i.i374, %get_ur_golomb_jpegls.exit.i372 ], [ %.0106.i518551561, %1041 ]
+  %.066.ph.i = phi i32 [ -22, %get_ur_golomb_jpegls.exit.thread.i390 ], [ -22, %get_ur_golomb_jpegls.exit.i372 ], [ -1094995529, %1041 ]
   %1097 = load ptr, ptr %10, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1097, i32 noundef 16, ptr noundef nonnull @.str.38, i32 noundef %.sink225.i) #8
   br label %read_header.exit.thread
@@ -2619,7 +2619,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_uint(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc i32 @get_uint(ptr noundef captures(none) %0, i32 noundef range(i32 0, 280) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16664
   %4 = load i32, ptr %3, align 8, !tbaa !52
   %.not = icmp eq i32 %4, 0
@@ -2653,14 +2653,14 @@ define internal fastcc i32 @get_uint(ptr noundef captures(none) %0, i32 noundef 
   %24 = load i8, ptr %23, align 1, !tbaa !48
   %25 = zext i8 %24 to i32
   %26 = add nuw nsw i32 %.1.i.i, %25
-  %27 = icmp samesign ult i32 %26, 9
-  br i1 %27, label %.preheader127.i, label %31
+  %27 = icmp samesign ugt i32 %26, 8
+  br i1 %27, label %31, label %.preheader126.i
 
-.preheader127.i:                                  ; preds = %5
+.preheader126.i:                                  ; preds = %5
   %28 = icmp ult i32 %18, 128
   br i1 %28, label %.lr.ph.i, label %.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader127.i
+.lr.ph.i:                                         ; preds = %.preheader126.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4, !tbaa !42
   br label %41
@@ -2676,23 +2676,23 @@ define internal fastcc i32 @get_uint(ptr noundef captures(none) %0, i32 noundef 
   %..i = tail call i32 @llvm.umin.i32(i32 %10, i32 %37)
   br label %get_ur_golomb_jpegls.exit
 
-.preheader.i:                                     ; preds = %43, %.preheader127.i
-  %.0110.lcssa.i = phi i32 [ %8, %.preheader127.i ], [ %45, %43 ]
-  %.0108.lcssa.i = phi i32 [ %18, %.preheader127.i ], [ %52, %43 ]
-  %.0.lcssa.i = phi i32 [ 0, %.preheader127.i ], [ %42, %43 ]
+.preheader.i:                                     ; preds = %43, %.preheader126.i
+  %.0110.lcssa.i = phi i32 [ %8, %.preheader126.i ], [ %45, %43 ]
+  %.0108.lcssa.i = phi i32 [ %18, %.preheader126.i ], [ %52, %43 ]
+  %.0.lcssa.i = phi i32 [ 0, %.preheader126.i ], [ %42, %43 ]
   %38 = icmp ne i32 %.0.lcssa.i, 2147483647
   %39 = icmp sgt i32 %.0108.lcssa.i, -1
   %40 = and i1 %39, %38
-  br i1 %40, label %.lr.ph137.i, label %._crit_edge.i
+  br i1 %40, label %.lr.ph136.i, label %._crit_edge.i
 
 41:                                               ; preds = %43, %.lr.ph.i
   %42 = phi i32 [ 25, %.lr.ph.i ], [ %53, %43 ]
-  %.0110131.i = phi i32 [ %8, %.lr.ph.i ], [ %45, %43 ]
-  %.not123.i = icmp ugt i32 %30, %.0110131.i
-  br i1 %.not123.i, label %43, label %get_ur_golomb_jpegls.exit.thread
+  %.0110130.i = phi i32 [ %8, %.lr.ph.i ], [ %45, %43 ]
+  %.not122.i = icmp ugt i32 %30, %.0110130.i
+  br i1 %.not122.i, label %43, label %get_ur_golomb_jpegls.exit.thread
 
 43:                                               ; preds = %41
-  %44 = add i32 %.0110131.i, 25
+  %44 = add i32 %.0110130.i, 25
   %45 = tail call i32 @llvm.umin.i32(i32 %10, i32 %44)
   %46 = lshr i32 %45, 3
   %47 = zext nneg i32 %46 to i64
@@ -2705,22 +2705,22 @@ define internal fastcc i32 @get_uint(ptr noundef captures(none) %0, i32 noundef 
   %54 = icmp ult i32 %52, 128
   br i1 %54, label %41, label %.preheader.i, !llvm.loop !61
 
-.lr.ph137.i:                                      ; preds = %.preheader.i, %.lr.ph137.i
-  %.1136.i = phi i32 [ %58, %.lr.ph137.i ], [ %.0.lcssa.i, %.preheader.i ]
-  %.1109135.i = phi i32 [ %55, %.lr.ph137.i ], [ %.0108.lcssa.i, %.preheader.i ]
-  %.1111134.i = phi i32 [ %57, %.lr.ph137.i ], [ %.0110.lcssa.i, %.preheader.i ]
-  %55 = shl nuw i32 %.1109135.i, 1
-  %56 = add i32 %.1111134.i, 1
+.lr.ph136.i:                                      ; preds = %.preheader.i, %.lr.ph136.i
+  %.1135.i = phi i32 [ %58, %.lr.ph136.i ], [ %.0.lcssa.i, %.preheader.i ]
+  %.1109134.i = phi i32 [ %55, %.lr.ph136.i ], [ %.0108.lcssa.i, %.preheader.i ]
+  %.1111133.i = phi i32 [ %57, %.lr.ph136.i ], [ %.0110.lcssa.i, %.preheader.i ]
+  %55 = shl nuw i32 %.1109134.i, 1
+  %56 = add i32 %.1111133.i, 1
   %57 = tail call i32 @llvm.umin.i32(i32 %10, i32 %56)
-  %58 = add nuw nsw i32 %.1136.i, 1
+  %58 = add nuw nsw i32 %.1135.i, 1
   %59 = icmp ne i32 %58, 2147483647
   %60 = icmp sgt i32 %55, -1
   %61 = select i1 %59, i1 %60, i1 false
-  br i1 %61, label %.lr.ph137.i, label %._crit_edge.i, !llvm.loop !62
+  br i1 %61, label %.lr.ph136.i, label %._crit_edge.i, !llvm.loop !62
 
-._crit_edge.i:                                    ; preds = %.lr.ph137.i, %.preheader.i
-  %.1111.lcssa.i = phi i32 [ %.0110.lcssa.i, %.preheader.i ], [ %57, %.lr.ph137.i ]
-  %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %58, %.lr.ph137.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph136.i, %.preheader.i
+  %.1111.lcssa.i = phi i32 [ %.0110.lcssa.i, %.preheader.i ], [ %57, %.lr.ph136.i ]
+  %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %58, %.lr.ph136.i ]
   %62 = add i32 %.1111.lcssa.i, 1
   %63 = tail call i32 @llvm.umin.i32(i32 %10, i32 %62)
   %64 = icmp samesign ult i32 %.1.lcssa.i, 2147483646
@@ -2748,21 +2748,21 @@ get_ur_golomb_jpegls.exit.thread9:                ; preds = %76
   br label %79
 
 get_ur_golomb_jpegls.exit.thread:                 ; preds = %41, %76
-  %storemerge124.i.ph = phi i32 [ %63, %76 ], [ %.0110131.i, %41 ]
-  store i32 %storemerge124.i.ph, ptr %7, align 8, !tbaa !45
+  %storemerge123.i.ph = phi i32 [ %63, %76 ], [ %.0110130.i, %41 ]
+  store i32 %storemerge123.i.ph, ptr %7, align 8, !tbaa !45
   br label %82
 
 get_ur_golomb_jpegls.exit:                        ; preds = %31, %65
-  %storemerge124.i = phi i32 [ %..i, %31 ], [ %74, %65 ]
+  %storemerge123.i = phi i32 [ %..i, %31 ], [ %74, %65 ]
   %.0106.i = phi i32 [ %35, %31 ], [ %75, %65 ]
-  store i32 %storemerge124.i, ptr %7, align 8, !tbaa !45
+  store i32 %storemerge123.i, ptr %7, align 8, !tbaa !45
   %78 = icmp ugt i32 %.0106.i, 31
   br i1 %78, label %82, label %79
 
 79:                                               ; preds = %get_ur_golomb_jpegls.exit.thread9, %get_ur_golomb_jpegls.exit, %2
   %.0 = phi i32 [ %.0106.i, %get_ur_golomb_jpegls.exit ], [ %1, %2 ], [ 1, %get_ur_golomb_jpegls.exit.thread9 ]
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = tail call fastcc i32 @get_ur_golomb_jpegls(ptr noundef nonnull %80, i32 noundef %.0)
+  %81 = tail call fastcc i32 @get_ur_golomb_jpegls(ptr noundef nonnull %80, i32 noundef range(i32 0, 280) %.0)
   br label %82
 
 82:                                               ; preds = %get_ur_golomb_jpegls.exit.thread, %get_ur_golomb_jpegls.exit, %79
@@ -3214,7 +3214,7 @@ declare void @abort() local_unnamed_addr #6
 declare i32 @av_reallocp_array(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, i32 noundef range(i32 0, 280) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !45
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3242,14 +3242,14 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %.1.i, %21
   %23 = sub nsw i32 %22, %1
-  %24 = icmp slt i32 %23, 7
-  br i1 %24, label %.preheader127, label %28
+  %24 = icmp sgt i32 %23, 6
+  br i1 %24, label %28, label %.preheader126
 
-.preheader127:                                    ; preds = %2
+.preheader126:                                    ; preds = %2
   %25 = icmp ult i32 %14, 128
   br i1 %25, label %.lr.ph, label %.preheader
 
-.lr.ph:                                           ; preds = %.preheader127
+.lr.ph:                                           ; preds = %.preheader126
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !42
   br label %39
@@ -3259,29 +3259,29 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   %30 = sub nsw i32 30, %22
   %31 = shl i32 %30, %1
   %32 = add i32 %29, %31
-  %33 = add nsw i32 %1, 32
+  %33 = add nuw nsw i32 %1, 32
   %34 = add i32 %33, %4
   %35 = sub i32 %34, %22
   %. = tail call i32 @llvm.umin.i32(i32 %6, i32 %35)
   br label %.loopexit
 
-.preheader:                                       ; preds = %41, %.preheader127
-  %.0110.lcssa = phi i32 [ %4, %.preheader127 ], [ %43, %41 ]
-  %.0108.lcssa = phi i32 [ %14, %.preheader127 ], [ %50, %41 ]
-  %.0.lcssa = phi i32 [ 0, %.preheader127 ], [ %40, %41 ]
+.preheader:                                       ; preds = %41, %.preheader126
+  %.0110.lcssa = phi i32 [ %4, %.preheader126 ], [ %43, %41 ]
+  %.0108.lcssa = phi i32 [ %14, %.preheader126 ], [ %50, %41 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader126 ], [ %40, %41 ]
   %36 = icmp ne i32 %.0.lcssa, 2147483647
   %37 = icmp sgt i32 %.0108.lcssa, -1
   %38 = and i1 %36, %37
-  br i1 %38, label %.lr.ph137, label %._crit_edge
+  br i1 %38, label %.lr.ph136, label %._crit_edge
 
 39:                                               ; preds = %.lr.ph, %41
   %40 = phi i32 [ 25, %.lr.ph ], [ %51, %41 ]
-  %.0110131 = phi i32 [ %4, %.lr.ph ], [ %43, %41 ]
-  %.not123 = icmp ugt i32 %27, %.0110131
-  br i1 %.not123, label %41, label %.loopexit
+  %.0110130 = phi i32 [ %4, %.lr.ph ], [ %43, %41 ]
+  %.not122 = icmp ugt i32 %27, %.0110130
+  br i1 %.not122, label %41, label %.loopexit
 
 41:                                               ; preds = %39
-  %42 = add i32 %.0110131, 25
+  %42 = add i32 %.0110130, 25
   %43 = tail call i32 @llvm.umin.i32(i32 %6, i32 %42)
   %44 = lshr i32 %43, 3
   %45 = zext nneg i32 %44 to i64
@@ -3294,22 +3294,22 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   %52 = icmp ult i32 %50, 128
   br i1 %52, label %39, label %.preheader, !llvm.loop !61
 
-.lr.ph137:                                        ; preds = %.preheader, %.lr.ph137
-  %.1136 = phi i32 [ %56, %.lr.ph137 ], [ %.0.lcssa, %.preheader ]
-  %.1109135 = phi i32 [ %53, %.lr.ph137 ], [ %.0108.lcssa, %.preheader ]
-  %.1111134 = phi i32 [ %55, %.lr.ph137 ], [ %.0110.lcssa, %.preheader ]
-  %53 = shl nuw i32 %.1109135, 1
-  %54 = add i32 %.1111134, 1
+.lr.ph136:                                        ; preds = %.preheader, %.lr.ph136
+  %.1135 = phi i32 [ %56, %.lr.ph136 ], [ %.0.lcssa, %.preheader ]
+  %.1109134 = phi i32 [ %53, %.lr.ph136 ], [ %.0108.lcssa, %.preheader ]
+  %.1111133 = phi i32 [ %55, %.lr.ph136 ], [ %.0110.lcssa, %.preheader ]
+  %53 = shl nuw i32 %.1109134, 1
+  %54 = add i32 %.1111133, 1
   %55 = tail call i32 @llvm.umin.i32(i32 %6, i32 %54)
-  %56 = add nuw nsw i32 %.1136, 1
+  %56 = add nuw nsw i32 %.1135, 1
   %57 = icmp ne i32 %56, 2147483647
   %58 = icmp sgt i32 %53, -1
   %59 = select i1 %57, i1 %58, i1 false
-  br i1 %59, label %.lr.ph137, label %._crit_edge, !llvm.loop !62
+  br i1 %59, label %.lr.ph136, label %._crit_edge, !llvm.loop !62
 
-._crit_edge:                                      ; preds = %.lr.ph137, %.preheader
-  %.1111.lcssa = phi i32 [ %.0110.lcssa, %.preheader ], [ %55, %.lr.ph137 ]
-  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %56, %.lr.ph137 ]
+._crit_edge:                                      ; preds = %.lr.ph136, %.preheader
+  %.1111.lcssa = phi i32 [ %.0110.lcssa, %.preheader ], [ %55, %.lr.ph136 ]
+  %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %56, %.lr.ph136 ]
   %60 = add i32 %.1111.lcssa, 1
   %61 = tail call i32 @llvm.umin.i32(i32 %6, i32 %60)
   %62 = lshr i32 %61, 3
@@ -3323,11 +3323,11 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %._crit_edge
-  %.not122 = icmp eq i32 %1, 0
-  br i1 %.not122, label %95, label %71
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %95, label %71
 
 71:                                               ; preds = %70
-  %72 = icmp sgt i32 %1, 24
+  %72 = icmp samesign ugt i32 %1, 24
   br i1 %72, label %73, label %90
 
 73:                                               ; preds = %71
@@ -3347,11 +3347,11 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
   %87 = lshr i32 %85, %86
   %88 = or i32 %87, %76
   %89 = add i32 %78, %75
-  %.125 = tail call i32 @llvm.umin.i32(i32 %6, i32 %89)
+  %.124 = tail call i32 @llvm.umin.i32(i32 %6, i32 %89)
   br label %95
 
 90:                                               ; preds = %71
-  %91 = sub nsw i32 32, %1
+  %91 = sub nuw nsw i32 32, %1
   %92 = lshr i32 %68, %91
   %93 = add i32 %61, %1
   %94 = tail call i32 @llvm.umin.i32(i32 %6, i32 %93)
@@ -3359,20 +3359,20 @@ define internal fastcc i32 @get_ur_golomb_jpegls(ptr noundef captures(none) %0, 
 
 95:                                               ; preds = %70, %73, %90
   %.0112 = phi i32 [ %88, %73 ], [ %92, %90 ], [ 0, %70 ]
-  %.2 = phi i32 [ %.125, %73 ], [ %94, %90 ], [ %61, %70 ]
+  %.2 = phi i32 [ %.124, %73 ], [ %94, %90 ], [ %61, %70 ]
   %96 = shl i32 %.1.lcssa, %1
   %97 = add i32 %.0112, %96
   br label %.loopexit
 
 98:                                               ; preds = %._crit_edge
   %99 = icmp eq i32 %.1.lcssa, 2147483646
-  %.126 = select i1 %99, i32 1, i32 -1
+  %.125 = select i1 %99, i32 1, i32 -1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %98, %95, %28
-  %storemerge124 = phi i32 [ %., %28 ], [ %.2, %95 ], [ %61, %98 ], [ %.0110131, %39 ]
-  %.0106 = phi i32 [ %32, %28 ], [ %97, %95 ], [ %.126, %98 ], [ -1, %39 ]
-  store i32 %storemerge124, ptr %3, align 8, !tbaa !45
+  %storemerge123 = phi i32 [ %., %28 ], [ %.2, %95 ], [ %61, %98 ], [ %.0110130, %39 ]
+  %.0106 = phi i32 [ %32, %28 ], [ %97, %95 ], [ %.125, %98 ], [ -1, %39 ]
+  store i32 %storemerge123, ptr %3, align 8, !tbaa !45
   ret i32 %.0106
 }
 

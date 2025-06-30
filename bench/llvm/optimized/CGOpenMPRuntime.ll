@@ -77556,7 +77556,7 @@ _ZN4llvm11SmallVectorIPKN5clang9ValueDeclELj4EEC2EOS5_.exit.i.i: ; preds = %806,
   call fastcc void @_ZN12_GLOBAL__N_120MappableExprsHandler17MapCombinedInfoTyD2Ev(ptr noundef nonnull align 8 dereferenceable(1128) %36) #29
   call void @llvm.lifetime.end.p0(i64 1128, ptr nonnull %36) #29
   %820 = call fastcc noundef i64 @_ZNK12_GLOBAL__N_120MappableExprsHandler14getMapTypeBitsEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEEbbbb(i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, i1 noundef zeroext %10, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %302)
-  %821 = or i64 %820, -281474976710656
+  %821 = or disjoint i64 %820, -281474976710656
   %822 = getelementptr inbounds nuw %"class.llvm::ArrayRef.2476", ptr %.0.val1, i64 %.8.val3
   %823 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %824 = getelementptr inbounds nuw i8, ptr %61, i64 32
@@ -79230,9 +79230,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang9ValueDeclELb1EE9push_backES4_.exit81
   %1665 = icmp ne ptr %470, %.0.val
   %or.cond348 = select i1 %606, i1 %1665, i1 false
   %or.cond351 = select i1 %588, i1 true, i1 %or.cond348
-  %1666 = and i64 %1663, -1040
+  %1666 = and i64 %1663, 35184372087792
   %.0270 = select i1 %or.cond351, i64 %1666, i64 %1663
-  %1667 = or i64 %.0270, -281474976710656
+  %1667 = or disjoint i64 %.0270, -281474976710656
   %spec.select349 = select i1 %.1391, i64 %1667, i64 %.0270
   br label %1668
 
@@ -82832,7 +82832,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
 declare void @_ZN5clang7CodeGen15CodeGenFunction32EmitLValueForFieldInitializationENS0_6LValueEPKNS_9FieldDeclE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::LValue") align 8, ptr noundef nonnull align 8 dereferenceable(6496), ptr noundef byval(%"class.clang::CodeGen::LValue") align 8, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_120MappableExprsHandler14getMapTypeBitsEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEEbbbb(i32 noundef %0, ptr readonly %1, i64 %2, ptr readonly captures(address) %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #6 align 2 {
+define internal fastcc noundef range(i64 0, 17592186060800) i64 @_ZNK12_GLOBAL__N_120MappableExprsHandler14getMapTypeBitsEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEEbbbb(i32 noundef %0, ptr readonly %1, i64 %2, ptr readonly captures(address) %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #6 align 2 {
   %10 = select i1 %5, i64 512, i64 0
   switch i32 %0, label %19 [
     i32 4, label %17

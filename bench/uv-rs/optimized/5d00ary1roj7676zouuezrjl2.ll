@@ -5503,7 +5503,7 @@ define void @_ZN9uv_pep5086marker4tree16StringMarkerTree8children17hd6245ee3b06a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 -1, 2) i8 @"_ZN83_$LT$uv_pep508..marker..tree..StringMarkerTree$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he8af4ec94aa650deE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef range(i8 -1, 3) i8 @"_ZN83_$LT$uv_pep508..marker..tree..StringMarkerTree$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17he8af4ec94aa650deE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !891)
@@ -5638,7 +5638,7 @@ define noundef i64 @_ZN9uv_pep5086marker4tree12InMarkerTree4edge17h07a24168cd0ed
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 -1, 2) i8 @"_ZN79_$LT$uv_pep508..marker..tree..InMarkerTree$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2ec9d7bc1bea0755E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef range(i8 -1, 3) i8 @"_ZN79_$LT$uv_pep508..marker..tree..InMarkerTree$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2ec9d7bc1bea0755E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !960)
@@ -5847,7 +5847,7 @@ define noundef i64 @_ZN9uv_pep5086marker4tree18ContainsMarkerTree4edge17h73f838d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 -1, 2) i8 @"_ZN85_$LT$uv_pep508..marker..tree..ContainsMarkerTree$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha6e84b1707517caeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef range(i8 -1, 3) i8 @"_ZN85_$LT$uv_pep508..marker..tree..ContainsMarkerTree$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17ha6e84b1707517caeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1039)

@@ -2991,7 +2991,7 @@ define hidden noundef i64 @_ZN9uv_pep5086marker7algebra13InternerGuard3and17h485
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %34
 
-default.unreachable27:                            ; preds = %41
+default.unreachable:                              ; preds = %41
   unreachable
 
 27:                                               ; preds = %21
@@ -3026,7 +3026,7 @@ default.unreachable27:                            ; preds = %41
   %.sroa.05.0 = phi i1 [ %spec.select.i21, %37 ], [ false, %27 ]
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 336
   %43 = tail call fastcc noundef i8 @"_ZN71_$LT$uv_pep508..marker..algebra..Variable$u20$as$u20$core..cmp..Ord$GT$3cmp17hd77b172c404af38cE"(ptr noalias noundef readonly align 8 dereferenceable(16) %31, ptr noalias noundef readonly align 8 dereferenceable(16) %42)
-  switch i8 %43, label %default.unreachable27 [
+  switch i8 %43, label %default.unreachable [
     i8 -1, label %44
     i8 0, label %48
     i8 1, label %52
@@ -3146,7 +3146,7 @@ define hidden noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard11i
 30:                                               ; preds = %26, %19
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 336
   %32 = tail call fastcc noundef i8 @"_ZN71_$LT$uv_pep508..marker..algebra..Variable$u20$as$u20$core..cmp..Ord$GT$3cmp17hd77b172c404af38cE"(ptr noalias noundef readonly align 8 dereferenceable(16) %23, ptr noalias noundef readonly align 8 dereferenceable(16) %31)
-  switch i8 %32, label %default.unreachable16 [
+  switch i8 %32, label %default.unreachable [
     i8 -1, label %36
     i8 0, label %40
     i8 1, label %42
@@ -3157,7 +3157,7 @@ define hidden noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard11i
   %35 = icmp eq i64 %34, 1
   br label %46
 
-default.unreachable16:                            ; preds = %30
+default.unreachable:                              ; preds = %30
   unreachable
 
 36:                                               ; preds = %30
@@ -3232,13 +3232,13 @@ define hidden noundef zeroext i1 @_ZN9uv_pep5086marker7algebra13InternerGuard12d
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 336
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 336
   %25 = tail call fastcc noundef i8 @"_ZN71_$LT$uv_pep508..marker..algebra..Variable$u20$as$u20$core..cmp..Ord$GT$3cmp17hd77b172c404af38cE"(ptr noalias noundef readonly align 8 dereferenceable(16) %23, ptr noalias noundef readonly align 8 dereferenceable(16) %24)
-  switch i8 %25, label %default.unreachable10 [
+  switch i8 %25, label %default.unreachable [
     i8 -1, label %26
     i8 0, label %30
     i8 1, label %32
   ]
 
-default.unreachable10:                            ; preds = %19
+default.unreachable:                              ; preds = %19
   unreachable
 
 26:                                               ; preds = %19
@@ -6359,7 +6359,7 @@ define hidden noundef i64 @_ZN9uv_pep5086marker7algebra13InternerGuard10exclusio
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %34
 
-default.unreachable19:                            ; preds = %27
+default.unreachable:                              ; preds = %27
   unreachable
 
 27:                                               ; preds = %21
@@ -6369,7 +6369,7 @@ default.unreachable19:                            ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 336
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 336
   %33 = tail call fastcc noundef i8 @"_ZN71_$LT$uv_pep508..marker..algebra..Variable$u20$as$u20$core..cmp..Ord$GT$3cmp17hd77b172c404af38cE"(ptr noalias noundef readonly align 8 dereferenceable(16) %31, ptr noalias noundef readonly align 8 dereferenceable(16) %32)
-  switch i8 %33, label %default.unreachable19 [
+  switch i8 %33, label %default.unreachable [
     i8 -1, label %37
     i8 0, label %41
     i8 1, label %45

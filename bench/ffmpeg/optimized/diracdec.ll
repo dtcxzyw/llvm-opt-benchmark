@@ -8278,8 +8278,8 @@ get_bits_long.exit:                               ; preds = %39, %45
   %63 = getelementptr i8, ptr %1, i64 20
   %.val87 = load i32, ptr %63, align 4, !tbaa !64
   %64 = sub nsw i32 %.val87, %.sink
-  %spec.select89 = tail call i32 @llvm.smin.i32(i32 %.0.i, i32 %64)
-  %65 = add nsw i32 %spec.select89, %.sink
+  %spec.select88 = tail call i32 @llvm.smin.i32(i32 %.0.i, i32 %64)
+  %65 = add nsw i32 %spec.select88, %.sink
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 4660
   %67 = load i32, ptr %66, align 4, !tbaa !192
   %.not = icmp eq i32 %67, 0
@@ -8293,45 +8293,45 @@ get_bits_long.exit:                               ; preds = %39, %45
   br label %72
 
 72:                                               ; preds = %.lr.ph, %83
-  %indvars.iv101 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next102, %83 ]
-  %73 = icmp ne i64 %indvars.iv101, 0
+  %indvars.iv100 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next101, %83 ]
+  %73 = icmp ne i64 %indvars.iv100, 0
   %74 = zext i1 %73 to i64
   br label %75
 
 75:                                               ; preds = %72, %75
   %indvars.iv = phi i64 [ %74, %72 ], [ %indvars.iv.next, %75 ]
-  %76 = getelementptr inbounds nuw [5 x [4 x i8]], ptr %68, i64 0, i64 %indvars.iv101, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [5 x [4 x i8]], ptr %68, i64 0, i64 %indvars.iv100, i64 %indvars.iv
   %77 = load i8, ptr %76, align 1, !tbaa !61
   %78 = zext i8 %77 to i32
   %79 = sub nsw i32 %17, %78
   %spec.select = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %80 = load i32, ptr %69, align 8, !tbaa !243
   %81 = load i32, ptr %70, align 4, !tbaa !244
-  %82 = getelementptr inbounds nuw [5 x [4 x %struct.SubBand]], ptr %71, i64 0, i64 %indvars.iv101, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [5 x [4 x %struct.SubBand]], ptr %71, i64 0, i64 %indvars.iv100, i64 %indvars.iv
   tail call fastcc void @decode_subband(ptr noundef nonnull %4, ptr noundef nonnull %1, i32 noundef %spec.select, i32 noundef %80, i32 noundef %81, i32 noundef %65, ptr noundef nonnull %82, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %83, label %75, !llvm.loop !285
 
 83:                                               ; preds = %75
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %84 = load i32, ptr %66, align 4, !tbaa !192
   %85 = zext i32 %84 to i64
-  %86 = icmp samesign ult i64 %indvars.iv.next102, %85
+  %86 = icmp samesign ult i64 %indvars.iv.next101, %85
   br i1 %86, label %72, label %._crit_edge.loopexit, !llvm.loop !286
 
 ._crit_edge.loopexit:                             ; preds = %83
   %.val78.pre = load i32, ptr %5, align 8, !tbaa !67
   %.pre = load i32, ptr %7, align 8, !tbaa !65
-  %.pre112 = load i32, ptr %20, align 8, !tbaa !241
+  %.pre111 = load i32, ptr %20, align 8, !tbaa !241
   %.val83.pre = load i32, ptr %63, align 4, !tbaa !64
-  %.pre114 = shl nsw i32 %.pre112, 3
+  %.pre113 = shl nsw i32 %.pre111, 3
   %87 = icmp eq i32 %84, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %get_bits_long.exit
-  %.pre-phi = phi i32 [ %.pre114, %._crit_edge.loopexit ], [ %22, %get_bits_long.exit ]
-  %.not99 = phi i1 [ %87, %._crit_edge.loopexit ], [ true, %get_bits_long.exit ]
+  %.pre-phi = phi i32 [ %.pre113, %._crit_edge.loopexit ], [ %22, %get_bits_long.exit ]
+  %.not98 = phi i1 [ %87, %._crit_edge.loopexit ], [ true, %get_bits_long.exit ]
   %.val83 = phi i32 [ %.val83.pre, %._crit_edge.loopexit ], [ %.val87, %get_bits_long.exit ]
   %88 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %8, %get_bits_long.exit ]
   %.val78 = phi i32 [ %.val78.pre, %._crit_edge.loopexit ], [ %.sink, %get_bits_long.exit ]
@@ -8347,11 +8347,11 @@ get_bits_long.exit:                               ; preds = %39, %45
   %reass.sub = sub i32 %.pre-phi, %94
   %95 = add i32 %reass.sub, -8
   %96 = sub nsw i32 %.val83, %93
-  %spec.select90 = tail call i32 @llvm.smin.i32(i32 %95, i32 %96)
-  %97 = add nsw i32 %spec.select90, %93
-  br i1 %.not99, label %._crit_edge98, label %.lr.ph97
+  %spec.select89 = tail call i32 @llvm.smin.i32(i32 %95, i32 %96)
+  %97 = add nsw i32 %spec.select89, %93
+  br i1 %.not98, label %._crit_edge97, label %.lr.ph96
 
-.lr.ph97:                                         ; preds = %._crit_edge
+.lr.ph96:                                         ; preds = %._crit_edge
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 4772
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -8359,36 +8359,36 @@ get_bits_long.exit:                               ; preds = %39, %45
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 3328
   br label %103
 
-103:                                              ; preds = %.lr.ph97, %115
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next109, %115 ]
-  %104 = icmp ne i64 %indvars.iv108, 0
+103:                                              ; preds = %.lr.ph96, %115
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next108, %115 ]
+  %104 = icmp ne i64 %indvars.iv107, 0
   %105 = zext i1 %104 to i64
   br label %106
 
 106:                                              ; preds = %103, %106
-  %indvars.iv104 = phi i64 [ %105, %103 ], [ %indvars.iv.next105, %106 ]
-  %107 = getelementptr inbounds nuw [5 x [4 x i8]], ptr %98, i64 0, i64 %indvars.iv108, i64 %indvars.iv104
+  %indvars.iv103 = phi i64 [ %105, %103 ], [ %indvars.iv.next104, %106 ]
+  %107 = getelementptr inbounds nuw [5 x [4 x i8]], ptr %98, i64 0, i64 %indvars.iv107, i64 %indvars.iv103
   %108 = load i8, ptr %107, align 1, !tbaa !61
   %109 = zext i8 %108 to i32
   %110 = sub nsw i32 %17, %109
   %spec.select77 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
   %111 = load i32, ptr %99, align 8, !tbaa !243
   %112 = load i32, ptr %100, align 4, !tbaa !244
-  %113 = getelementptr inbounds nuw [5 x [4 x %struct.SubBand]], ptr %101, i64 0, i64 %indvars.iv108, i64 %indvars.iv104
-  %114 = getelementptr inbounds nuw [5 x [4 x %struct.SubBand]], ptr %102, i64 0, i64 %indvars.iv108, i64 %indvars.iv104
+  %113 = getelementptr inbounds nuw [5 x [4 x %struct.SubBand]], ptr %101, i64 0, i64 %indvars.iv107, i64 %indvars.iv103
+  %114 = getelementptr inbounds nuw [5 x [4 x %struct.SubBand]], ptr %102, i64 0, i64 %indvars.iv107, i64 %indvars.iv103
   tail call fastcc void @decode_subband(ptr noundef nonnull %4, ptr noundef nonnull %1, i32 noundef %spec.select77, i32 noundef %111, i32 noundef %112, i32 noundef %97, ptr noundef nonnull %113, ptr noundef nonnull %114)
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond107.not = icmp eq i64 %indvars.iv.next105, 4
-  br i1 %exitcond107.not, label %115, label %106, !llvm.loop !287
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond106.not = icmp eq i64 %indvars.iv.next104, 4
+  br i1 %exitcond106.not, label %115, label %106, !llvm.loop !287
 
 115:                                              ; preds = %106
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %116 = load i32, ptr %66, align 4, !tbaa !192
   %117 = zext i32 %116 to i64
-  %118 = icmp samesign ult i64 %indvars.iv.next109, %117
-  br i1 %118, label %103, label %._crit_edge98, !llvm.loop !288
+  %118 = icmp samesign ult i64 %indvars.iv.next108, %117
+  br i1 %118, label %103, label %._crit_edge97, !llvm.loop !288
 
-._crit_edge98:                                    ; preds = %115, %._crit_edge
+._crit_edge97:                                    ; preds = %115, %._crit_edge
   ret i32 0
 }
 
@@ -10717,7 +10717,7 @@ weight.exit:                                      ; preds = %28, %30, %37, %43, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @init_obmc_weight_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4) unnamed_addr #11 {
+define internal fastcc void @init_obmc_weight_row(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 -2147483647, -2147483648) %4) unnamed_addr #11 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not = icmp eq i32 %2, 0
   %.pre = load i8, ptr %6, align 8, !tbaa !142

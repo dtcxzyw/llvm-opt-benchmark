@@ -8566,16 +8566,16 @@ attr_update_sgr.exit.i:                           ; preds = %87, %84
 .critedge84.preheader:                            ; preds = %210, %.critedge84
   %.064123 = phi i64 [ %.266, %.critedge84 ], [ 171, %210 ]
   %.067122 = phi i64 [ %.269, %.critedge84 ], [ 0, %210 ]
-  %213 = add nsw i64 %.064123, %.067122
-  %214 = sdiv i64 %213, 2
-  %215 = getelementptr inbounds [173 x %struct.style_color_s], ptr @html_colors, i64 0, i64 %214
+  %213 = add nuw nsw i64 %.064123, %.067122
+  %214 = lshr i64 %213, 1
+  %215 = getelementptr inbounds nuw [173 x %struct.style_color_s], ptr @html_colors, i64 0, i64 %214
   %216 = load ptr, ptr %215, align 16, !tbaa !210
   %217 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %216, ptr noundef nonnull dereferenceable(1) %.0) #33
   %218 = icmp slt i32 %217, 0
   br i1 %218, label %219, label %221
 
 219:                                              ; preds = %.critedge84.preheader
-  %220 = add nsw i64 %214, 1
+  %220 = add nuw nsw i64 %214, 1
   br label %.critedge84
 
 221:                                              ; preds = %.critedge84.preheader
@@ -17777,12 +17777,12 @@ ic_strlen.exit72.us.i:                            ; preds = %124, %ic_strlen.exi
 
 153:                                              ; preds = %151, %.thread.i
   %.pre-phi130.i = phi i64 [ %145, %.thread.i ], [ %139, %151 ]
-  %154 = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi130.i
+  %154 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi130.i
   %155 = icmp eq i64 %.068.us.i, %123
   br i1 %155, label %._crit_edge119.i, label %156
 
 ._crit_edge119.i:                                 ; preds = %153
-  %.phi.trans.insert120.i = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi130.i, i32 2
+  %.phi.trans.insert120.i = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %8, i64 0, i64 %.pre-phi130.i, i32 2
   %.pre121.i = load i64, ptr %.phi.trans.insert120.i, align 8, !tbaa !301
   br label %164
 
@@ -21023,7 +21023,7 @@ ic_memmove.exit.i.i238.i:                         ; preds = %1001, %998
 sbuf_clear.exit242.i:                             ; preds = %ic_memmove.exit.i.i238.i, %sbuf_len.exit.i232.i
   %1006 = add i32 %.0.i230.i, -49
   %or.cond3.i = icmp ult i32 %1006, 9
-  %1007 = zext i32 %1006 to i64
+  %1007 = zext nneg i32 %1006 to i64
   %1008 = icmp sgt i64 %.val197.i, %1007
   %1009 = select i1 %or.cond3.i, i1 %1008, i1 false
   %.1175.i = select i1 %1009, i64 %1007, i64 %.0174.i

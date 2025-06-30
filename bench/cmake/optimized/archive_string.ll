@@ -3764,16 +3764,16 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
 .preheader.i:                                     ; preds = %.lr.ph1311, %295
   %.03448.i = phi i32 [ %.236.i, %295 ], [ 930, %.lr.ph1311 ]
   %.03747.i = phi i32 [ %.239.i, %295 ], [ 0, %.lr.ph1311 ]
-  %283 = add nsw i32 %.03747.i, %.03448.i
-  %284 = sdiv i32 %283, 2
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr inbounds [931 x %struct.unicode_decomposition_table], ptr @u_decomposition_table, i64 0, i64 %285
+  %283 = add nuw nsw i32 %.03747.i, %.03448.i
+  %284 = lshr i32 %283, 1
+  %285 = zext nneg i32 %284 to i64
+  %286 = getelementptr inbounds nuw [931 x %struct.unicode_decomposition_table], ptr @u_decomposition_table, i64 0, i64 %285
   %287 = load i32, ptr %286, align 4, !tbaa !76
   %288 = icmp ult i32 %287, %282
   br i1 %288, label %289, label %291
 
 289:                                              ; preds = %.preheader.i
-  %290 = add nsw i32 %284, 1
+  %290 = add nuw nsw i32 %284, 1
   br label %295
 
 291:                                              ; preds = %.preheader.i
@@ -4925,16 +4925,16 @@ archive_string_ensure.exit:                       ; preds = %176, %154
 .preheader886:                                    ; preds = %271, %372
   %.02035.i = phi i32 [ %.222.i, %372 ], [ 930, %271 ]
   %.02334.i = phi i32 [ %.225.i, %372 ], [ 0, %271 ]
-  %350 = add nsw i32 %.02334.i, %.02035.i
-  %351 = sdiv i32 %350, 2
-  %352 = sext i32 %351 to i64
-  %353 = getelementptr inbounds [931 x %struct.unicode_composition_table], ptr @u_composition_table, i64 0, i64 %352
+  %350 = add nuw nsw i32 %.02334.i, %.02035.i
+  %351 = lshr i32 %350, 1
+  %352 = zext nneg i32 %351 to i64
+  %353 = getelementptr inbounds nuw [931 x %struct.unicode_composition_table], ptr @u_composition_table, i64 0, i64 %352
   %354 = load i32, ptr %353, align 4, !tbaa !98
   %355 = icmp ult i32 %354, %192
   br i1 %355, label %356, label %358
 
 356:                                              ; preds = %.preheader886
-  %357 = add nsw i32 %351, 1
+  %357 = add nuw nsw i32 %351, 1
   br label %372
 
 358:                                              ; preds = %.preheader886
@@ -4952,7 +4952,7 @@ archive_string_ensure.exit:                       ; preds = %176, %154
   br i1 %365, label %366, label %368
 
 366:                                              ; preds = %362
-  %367 = add nsw i32 %351, 1
+  %367 = add nuw nsw i32 %351, 1
   br label %372
 
 368:                                              ; preds = %362
@@ -5234,16 +5234,16 @@ get_nfc.exit.thread:                              ; preds = %372, %get_nfc.exit
 506:                                              ; preds = %529, %.lr.ph1157
   %.02035.i821 = phi i32 [ 930, %.lr.ph1157 ], [ %.222.i826, %529 ]
   %.02334.i822 = phi i32 [ 0, %.lr.ph1157 ], [ %.225.i825, %529 ]
-  %507 = add nsw i32 %.02334.i822, %.02035.i821
-  %508 = sdiv i32 %507, 2
-  %509 = sext i32 %508 to i64
-  %510 = getelementptr inbounds [931 x %struct.unicode_composition_table], ptr @u_composition_table, i64 0, i64 %509
+  %507 = add nuw nsw i32 %.02334.i822, %.02035.i821
+  %508 = lshr i32 %507, 1
+  %509 = zext nneg i32 %508 to i64
+  %510 = getelementptr inbounds nuw [931 x %struct.unicode_composition_table], ptr @u_composition_table, i64 0, i64 %509
   %511 = load i32, ptr %510, align 4, !tbaa !98
   %512 = icmp ult i32 %511, %502
   br i1 %512, label %513, label %515
 
 513:                                              ; preds = %506
-  %514 = add nsw i32 %508, 1
+  %514 = add nuw nsw i32 %508, 1
   br label %529
 
 515:                                              ; preds = %506
@@ -5261,7 +5261,7 @@ get_nfc.exit.thread:                              ; preds = %372, %get_nfc.exit
   br i1 %522, label %523, label %525
 
 523:                                              ; preds = %519
-  %524 = add nsw i32 %508, 1
+  %524 = add nuw nsw i32 %508, 1
   br label %529
 
 525:                                              ; preds = %519

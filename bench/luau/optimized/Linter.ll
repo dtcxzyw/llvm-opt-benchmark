@@ -7037,7 +7037,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau10AstVisitor5visitEPNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef range(i32 1, 30) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef %3, ...) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4CodeERKNS_8LocationEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2, ptr noundef %3, ...) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca [1 x %struct.__va_list_tag], align 16
@@ -7046,7 +7046,7 @@ define internal void @_ZN4LuauL11emitWarningERNS_11LintContextENS_11LintWarning4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8, !tbaa !83
   %12 = zext nneg i32 %1 to i64
-  %13 = shl nuw nsw i64 1, %12
+  %13 = shl nuw i64 1, %12
   %14 = and i64 %11, %13
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %70, label %15

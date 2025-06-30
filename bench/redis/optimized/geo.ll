@@ -1703,17 +1703,13 @@ longLatFromMember.exit:                           ; preds = %45
   %260 = icmp eq i64 %259, 0
   %261 = call i64 @llvm.smin.i64(i64 %253, i64 %259)
   %262 = select i1 %260, i64 %253, i64 %261
-  switch i32 %spec.store.select32, label %default.unreachable [
+  switch i32 %spec.store.select32, label %263 [
     i32 0, label %270
     i32 1, label %264
-    i32 2, label %263
   ]
 
 263:                                              ; preds = %257
   br label %264
-
-default.unreachable:                              ; preds = %257
-  unreachable
 
 264:                                              ; preds = %257, %263
   %.0304 = phi ptr [ @sort_gp_desc, %263 ], [ @sort_gp_asc, %257 ]

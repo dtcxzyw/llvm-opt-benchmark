@@ -5494,7 +5494,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i122, %Abc_T
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @Lf_ManFindCofVar(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #15 {
+define internal fastcc range(i32 -2147483648, 255) i32 @Lf_ManFindCofVar(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #15 {
   %4 = alloca [128 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #34
   %.not = icmp eq i32 %2, 0

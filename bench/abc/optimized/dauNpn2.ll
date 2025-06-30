@@ -3512,7 +3512,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define i32 @Dtt_ComposeNP(i32 noundef %0, i32 noundef %1) local_unnamed_addr #17 {
+define range(i32 0, -2147483648) i32 @Dtt_ComposeNP(i32 noundef %0, i32 noundef %1) local_unnamed_addr #17 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -3708,7 +3708,7 @@ Dtt_ComposeNP.exit:                               ; preds = %52, %74
   br label %Dtt_MakePI.exit
 
 74:                                               ; preds = %Dtt_ComposeNP.exit
-  %75 = ashr i32 %.0811.i, 4
+  %75 = lshr i32 %.0811.i, 4
   %76 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i33 = icmp eq i32 %76, 5
   br i1 %exitcond.not.i33, label %Dtt_MakePI.exit, label %Dtt_ComposeNP.exit, !llvm.loop !107
@@ -3871,7 +3871,7 @@ Dtt_ComposeNP.exit:                               ; preds = %22, %44
   br label %Dtt_MakePI.exit
 
 44:                                               ; preds = %Dtt_ComposeNP.exit
-  %45 = ashr i32 %.0811.i, 4
+  %45 = lshr i32 %.0811.i, 4
   %46 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i35 = icmp eq i32 %46, 5
   br i1 %exitcond.not.i35, label %Dtt_MakePI.exit, label %Dtt_ComposeNP.exit, !llvm.loop !107

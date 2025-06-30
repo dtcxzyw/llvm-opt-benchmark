@@ -2111,27 +2111,27 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %20)
   %22 = load i32, ptr @hf_assignment_info_router_num, align 4
   %23 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %22, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef %21)
-  %.169106 = add i32 %1, 12
-  %.173107 = add nsw i32 %2, -12
-  %.not122 = icmp eq i32 %21, 0
-  br i1 %.not122, label %._crit_edge.thread, label %.lr.ph
+  %.169105 = add i32 %1, 12
+  %.173106 = add nsw i32 %2, -12
+  %.not121 = icmp eq i32 %21, 0
+  br i1 %.not121, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  br label %39
+  br label %40
 
 .lr.ph:                                           ; preds = %19, %29
-  %.173111 = phi i32 [ %.173, %29 ], [ %.173107, %19 ]
-  %.169110 = phi i32 [ %.169, %29 ], [ %.169106, %19 ]
-  %.173.in109 = phi i32 [ %.173111, %29 ], [ %2, %19 ]
-  %.075108 = phi i32 [ %36, %29 ], [ 0, %19 ]
-  %24 = icmp slt i32 %.173.in109, 24
+  %.173110 = phi i32 [ %.173, %29 ], [ %.173106, %19 ]
+  %.169109 = phi i32 [ %.169, %29 ], [ %.169105, %19 ]
+  %.173.in108 = phi i32 [ %.173110, %29 ], [ %2, %19 ]
+  %.075107 = phi i32 [ %36, %29 ], [ 0, %19 ]
+  %24 = icmp slt i32 %.173.in108, 24
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %.lr.ph
-  %26 = sub i32 %21, %.075108
+  %26 = sub i32 %21, %.075107
   %.neg = mul i32 %26, -12
-  %27 = add i32 %.173111, -260
+  %27 = add i32 %.173110, -260
   %28 = add i32 %27, %.neg
   br label %.thread
 
@@ -2139,139 +2139,140 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %30 = load i32, ptr @hf_assignment_info_router_ip_index, align 4
   %31 = load i32, ptr @hf_assignment_info_router_ipv4, align 4
   %32 = load i32, ptr @hf_assignment_info_router_ipv6, align 4
-  %33 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.169110, ptr noundef %5)
+  %33 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %.169109, ptr noundef %5)
   %34 = load i32, ptr @ett_router_assignment_element, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
-  tail call fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %.169110, ptr noundef %3, ptr noundef %35, ptr noundef %5)
-  %36 = add nuw nsw i32 %.075108, 1
-  %.169 = add i32 %.169110, 12
-  %.173 = add nsw i32 %.173111, -12
+  tail call fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %.169109, ptr noundef %3, ptr noundef %35, ptr noundef %5)
+  %36 = add nuw nsw i32 %.075107, 1
+  %.169 = add i32 %.169109, 12
+  %.173 = add nsw i32 %.173110, -12
   %exitcond.not = icmp eq i32 %36, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %37 = icmp samesign ult i32 %.173, 4
-  br i1 %37, label %dissect_wccp2_hash_buckets_assignment_element.exit.thread, label %39
+  br i1 %37, label %38, label %40
 
-dissect_wccp2_hash_buckets_assignment_element.exit.thread: ; preds = %._crit_edge
-  %38 = or disjoint i32 %.173111, -16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  br label %.thread
+38:                                               ; preds = %._crit_edge
+  %39 = or disjoint i32 %.173110, -16
+  br label %dissect_wccp2_hash_buckets_assignment_element.exit.thread
 
-39:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.173.lcssa142 = phi i32 [ %.173107, %._crit_edge.thread ], [ %.173, %._crit_edge ]
-  %.169.lcssa141 = phi i32 [ %.169106, %._crit_edge.thread ], [ %.169, %._crit_edge ]
-  %.169.in.lcssa140 = phi i32 [ %1, %._crit_edge.thread ], [ %.169110, %._crit_edge ]
-  %.173.in.lcssa139 = phi i32 [ %2, %._crit_edge.thread ], [ %.173111, %._crit_edge ]
-  %40 = load i32, ptr @hf_hash_buckets_assignment_wc_num, align 4
-  %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %4, i32 noundef %40, ptr noundef %0, i32 noundef %.169.lcssa141, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
-  %42 = load i32, ptr @ett_hash_buckets_assignment_wc_element, align 4
-  %43 = call ptr @proto_item_add_subtree(ptr noundef %41, i32 noundef %42)
-  %.04213.i = add i32 %.169.in.lcssa140, 16
-  %.04514.i = add nsw i32 %.173.in.lcssa139, -16
-  %44 = load i32, ptr %7, align 4
-  %.not.i = icmp eq i32 %44, 0
+40:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %.173.lcssa140 = phi i32 [ %.173106, %._crit_edge.thread ], [ %.173, %._crit_edge ]
+  %.169.lcssa139 = phi i32 [ %.169105, %._crit_edge.thread ], [ %.169, %._crit_edge ]
+  %.169.in.lcssa138 = phi i32 [ %1, %._crit_edge.thread ], [ %.169109, %._crit_edge ]
+  %.173.in.lcssa137 = phi i32 [ %2, %._crit_edge.thread ], [ %.173110, %._crit_edge ]
+  %41 = load i32, ptr @hf_hash_buckets_assignment_wc_num, align 4
+  %42 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %4, i32 noundef %41, ptr noundef %0, i32 noundef %.169.lcssa139, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
+  %43 = load i32, ptr @ett_hash_buckets_assignment_wc_element, align 4
+  %44 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43)
+  %.04213.i = add i32 %.169.in.lcssa138, 16
+  %.04514.i = add nsw i32 %.173.in.lcssa137, -16
+  %45 = load i32, ptr %7, align 4
+  %.not.i = icmp eq i32 %45, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %39
-  %45 = icmp sgt i32 %.173.lcssa142, 7
-  br i1 %45, label %.lr.ph118, label %.lr.ph.i._crit_edge
+.lr.ph.i.preheader:                               ; preds = %40
+  %46 = icmp sgt i32 %.173.lcssa140, 7
+  br i1 %46, label %.lr.ph117, label %.lr.ph.i._crit_edge
 
-.lr.ph.i:                                         ; preds = %.lr.ph118
-  %46 = icmp sgt i32 %.04518.i115, 7
-  br i1 %46, label %.lr.ph118, label %.lr.ph.i._crit_edge, !llvm.loop !20
+.lr.ph.i:                                         ; preds = %.lr.ph117
+  %47 = icmp sgt i32 %.04518.i114, 7
+  br i1 %47, label %.lr.ph117, label %.lr.ph.i._crit_edge, !llvm.loop !20
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa98 = phi i32 [ %44, %.lr.ph.i.preheader ], [ %54, %.lr.ph.i ]
+  %.lcssa97 = phi i32 [ %45, %.lr.ph.i.preheader ], [ %55, %.lr.ph.i ]
   %.04518.i.lcssa = phi i32 [ %.04514.i, %.lr.ph.i.preheader ], [ %.045.i, %.lr.ph.i ]
-  %.04815.i.lcssa = phi i32 [ 0, %.lr.ph.i.preheader ], [ %53, %.lr.ph.i ]
-  %.neg53.i = sub i32 %.04815.i.lcssa, %.lcssa98
+  %.04815.i.lcssa = phi i32 [ 0, %.lr.ph.i.preheader ], [ %54, %.lr.ph.i ]
+  %.neg53.i = sub i32 %.04815.i.lcssa, %.lcssa97
   %.neg54.i = shl i32 %.neg53.i, 2
-  %47 = add i32 %.04518.i.lcssa, -256
-  %48 = add i32 %47, %.neg54.i
+  %48 = add i32 %.04518.i.lcssa, -256
+  %49 = add i32 %48, %.neg54.i
   br label %dissect_wccp2_hash_buckets_assignment_element.exit
 
-.lr.ph118:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.04815.i117 = phi i32 [ %53, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.04217.i116 = phi i32 [ %.042.i, %.lr.ph.i ], [ %.04213.i, %.lr.ph.i.preheader ]
-  %.04518.i115 = phi i32 [ %.045.i, %.lr.ph.i ], [ %.04514.i, %.lr.ph.i.preheader ]
-  %49 = load i32, ptr @hf_hash_buckets_assignment_wc_ip_index, align 4
-  %50 = load i32, ptr @hf_hash_buckets_assignment_wc_ipv4, align 4
-  %51 = load i32, ptr @hf_hash_buckets_assignment_wc_ipv6, align 4
-  %52 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %43, i32 noundef %49, i32 noundef %50, i32 noundef %51, ptr noundef %0, i32 noundef %.04217.i116, ptr noundef readonly %5)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.441, i32 noundef %.04815.i117)
-  %53 = add nuw nsw i32 %.04815.i117, 1
-  %.042.i = add i32 %.04217.i116, 4
-  %.045.i = add nsw i32 %.04518.i115, -4
-  %54 = load i32, ptr %7, align 4
-  %55 = icmp ult i32 %53, %54
-  br i1 %55, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
+.lr.ph117:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.04815.i116 = phi i32 [ %54, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.04217.i115 = phi i32 [ %.042.i, %.lr.ph.i ], [ %.04213.i, %.lr.ph.i.preheader ]
+  %.04518.i114 = phi i32 [ %.045.i, %.lr.ph.i ], [ %.04514.i, %.lr.ph.i.preheader ]
+  %50 = load i32, ptr @hf_hash_buckets_assignment_wc_ip_index, align 4
+  %51 = load i32, ptr @hf_hash_buckets_assignment_wc_ipv4, align 4
+  %52 = load i32, ptr @hf_hash_buckets_assignment_wc_ipv6, align 4
+  %53 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %44, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.04217.i115, ptr noundef readonly %5)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.441, i32 noundef %.04815.i116)
+  %54 = add nuw nsw i32 %.04815.i116, 1
+  %.042.i = add i32 %.04217.i115, 4
+  %.045.i = add nsw i32 %.04518.i114, -4
+  %55 = load i32, ptr %7, align 4
+  %56 = icmp ult i32 %54, %55
+  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
-._crit_edge.i:                                    ; preds = %.lr.ph118, %39
-  %.042.lcssa.i = phi i32 [ %.04213.i, %39 ], [ %.042.i, %.lr.ph118 ]
-  %.045.lcssa.i = phi i32 [ %.04514.i, %39 ], [ %.045.i, %.lr.ph118 ]
-  %56 = load i32, ptr @ett_hash_buckets_assignment_buckets, align 4
-  %57 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %.042.lcssa.i, i32 noundef 256, i32 noundef %56, ptr noundef null, ptr noundef nonnull @.str.442)
+._crit_edge.i:                                    ; preds = %.lr.ph117, %40
+  %.042.lcssa.i = phi i32 [ %.04213.i, %40 ], [ %.042.i, %.lr.ph117 ]
+  %.045.lcssa.i = phi i32 [ %.04514.i, %40 ], [ %.045.i, %.lr.ph117 ]
+  %57 = load i32, ptr @ett_hash_buckets_assignment_buckets, align 4
+  %58 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %.042.lcssa.i, i32 noundef 256, i32 noundef %57, ptr noundef null, ptr noundef nonnull @.str.442)
   %smin.i = call i32 @llvm.smin.i32(i32 %.045.lcssa.i, i32 0)
-  %58 = sub i32 %.045.lcssa.i, %smin.i
-  %umin = call i32 @llvm.umin.i32(i32 %58, i32 255)
-  %59 = sub i32 %.045.lcssa.i, %umin
+  %59 = sub i32 %.045.lcssa.i, %smin.i
   br label %60
 
 60:                                               ; preds = %assignment_bucket_name.exit.i, %._crit_edge.i
-  %.24422.i = phi i32 [ %.042.lcssa.i, %._crit_edge.i ], [ %76, %assignment_bucket_name.exit.i ]
-  %.24721.i = phi i32 [ %.045.lcssa.i, %._crit_edge.i ], [ %77, %assignment_bucket_name.exit.i ]
-  %.14920.i = phi i32 [ 0, %._crit_edge.i ], [ %75, %assignment_bucket_name.exit.i ]
-  %exitcond.i = icmp eq i32 %.14920.i, %58
-  br i1 %exitcond.i, label %61, label %63
+  %.24422.i = phi i32 [ %.042.lcssa.i, %._crit_edge.i ], [ %75, %assignment_bucket_name.exit.i ]
+  %.24721.i = phi i32 [ %.045.lcssa.i, %._crit_edge.i ], [ %76, %assignment_bucket_name.exit.i ]
+  %.14920.i = phi i32 [ 0, %._crit_edge.i ], [ %74, %assignment_bucket_name.exit.i ]
+  %exitcond.i = icmp eq i32 %.14920.i, %59
+  br i1 %exitcond.i, label %61, label %62
 
 61:                                               ; preds = %60
-  %.neg.i = add nuw nsw i32 %58, -256
-  %62 = add i32 %.neg.i, %59
-  br label %dissect_wccp2_hash_buckets_assignment_element.exit
+  %.neg.i = or disjoint i32 %59, -256
+  br label %dissect_wccp2_hash_buckets_assignment_element.exit.thread
 
-63:                                               ; preds = %60
-  %64 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.24422.i)
-  %65 = load i32, ptr @hf_bucket, align 4
-  %66 = zext i8 %64 to i32
-  %67 = icmp eq i8 %64, -1
-  br i1 %67, label %assignment_bucket_name.exit.i, label %68
+62:                                               ; preds = %60
+  %63 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.24422.i)
+  %64 = load i32, ptr @hf_bucket, align 4
+  %65 = zext i8 %63 to i32
+  %66 = icmp eq i8 %63, -1
+  br i1 %66, label %assignment_bucket_name.exit.i, label %67
 
-68:                                               ; preds = %63
-  %69 = call ptr @wmem_packet_scope()
-  %70 = and i8 %64, 127
-  %71 = zext nneg i8 %70 to i32
-  %.not.i.i = icmp sgt i8 %64, -1
-  %72 = select i1 %.not.i.i, ptr @.str.447, ptr @.str.446
-  %73 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %69, ptr noundef nonnull @.str.445, i32 noundef %71, ptr noundef nonnull %72)
+67:                                               ; preds = %62
+  %68 = call ptr @wmem_packet_scope()
+  %69 = and i8 %63, 127
+  %70 = zext nneg i8 %69 to i32
+  %.not.i.i = icmp sgt i8 %63, -1
+  %71 = select i1 %.not.i.i, ptr @.str.447, ptr @.str.446
+  %72 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %68, ptr noundef nonnull @.str.445, i32 noundef %70, ptr noundef nonnull %71)
   br label %assignment_bucket_name.exit.i
 
-assignment_bucket_name.exit.i:                    ; preds = %68, %63
-  %.0.i.i = phi ptr [ %73, %68 ], [ @.str.444, %63 ]
-  %74 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %57, i32 noundef %65, ptr noundef %0, i32 noundef %.24422.i, i32 noundef 1, i32 noundef %66, ptr noundef nonnull @.str.443, i32 noundef %.14920.i, ptr noundef %.0.i.i)
-  %75 = add nuw nsw i32 %.14920.i, 1
-  %76 = add i32 %.24422.i, 1
-  %77 = add nsw i32 %.24721.i, -1
-  %exitcond31.not.i = icmp eq i32 %75, 256
-  br i1 %exitcond31.not.i, label %dissect_wccp2_hash_buckets_assignment_element.exit, label %60, !llvm.loop !21
+assignment_bucket_name.exit.i:                    ; preds = %67, %62
+  %.0.i.i = phi ptr [ %72, %67 ], [ @.str.444, %62 ]
+  %73 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %58, i32 noundef %64, ptr noundef %0, i32 noundef %.24422.i, i32 noundef 1, i32 noundef %65, ptr noundef nonnull @.str.443, i32 noundef %.14920.i, ptr noundef %.0.i.i)
+  %74 = add nuw nsw i32 %.14920.i, 1
+  %75 = add i32 %.24422.i, 1
+  %76 = add nsw i32 %.24721.i, -1
+  %exitcond30.not.i = icmp eq i32 %74, 256
+  br i1 %exitcond30.not.i, label %dissect_wccp2_hash_buckets_assignment_element.exit, label %60, !llvm.loop !21
 
-dissect_wccp2_hash_buckets_assignment_element.exit: ; preds = %assignment_bucket_name.exit.i, %.lr.ph.i._crit_edge, %61
-  %.0.i89 = phi i32 [ %48, %.lr.ph.i._crit_edge ], [ %62, %61 ], [ %77, %assignment_bucket_name.exit.i ]
+dissect_wccp2_hash_buckets_assignment_element.exit.thread: ; preds = %38, %61
+  %.0.i89.ph = phi i32 [ %.neg.i, %61 ], [ %39, %38 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  %78 = icmp slt i32 %.0.i89, 0
-  br i1 %78, label %.thread, label %79
-
-79:                                               ; preds = %dissect_wccp2_hash_buckets_assignment_element.exit
-  %80 = sub i32 %.173.lcssa142, %.0.i89
-  %.fr153 = freeze i32 %80
-  %81 = add i32 %.fr153, %.169.lcssa141
-  %.not85 = icmp slt i32 %.169.lcssa141, %81
-  %spec.select = select i1 %.not85, i32 %.0.i89, i32 %.fr153
   br label %.thread
 
-.thread:                                          ; preds = %79, %dissect_wccp2_hash_buckets_assignment_element.exit.thread, %dissect_wccp2_hash_buckets_assignment_element.exit, %11, %25, %9
-  %.0 = phi i32 [ %10, %9 ], [ %28, %25 ], [ 8, %11 ], [ %38, %dissect_wccp2_hash_buckets_assignment_element.exit.thread ], [ %.0.i89, %dissect_wccp2_hash_buckets_assignment_element.exit ], [ %spec.select, %79 ]
+dissect_wccp2_hash_buckets_assignment_element.exit: ; preds = %assignment_bucket_name.exit.i, %.lr.ph.i._crit_edge
+  %.0.i89 = phi i32 [ %49, %.lr.ph.i._crit_edge ], [ %76, %assignment_bucket_name.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  %77 = icmp slt i32 %.0.i89, 0
+  br i1 %77, label %.thread, label %78
+
+78:                                               ; preds = %dissect_wccp2_hash_buckets_assignment_element.exit
+  %79 = sub i32 %.173.lcssa140, %.0.i89
+  %.fr151 = freeze i32 %79
+  %80 = add i32 %.fr151, %.169.lcssa139
+  %.not85 = icmp slt i32 %.169.lcssa139, %80
+  %spec.select = select i1 %.not85, i32 %.0.i89, i32 %.fr151
+  br label %.thread
+
+.thread:                                          ; preds = %78, %dissect_wccp2_hash_buckets_assignment_element.exit.thread, %dissect_wccp2_hash_buckets_assignment_element.exit, %11, %25, %9
+  %.0 = phi i32 [ %10, %9 ], [ %28, %25 ], [ 8, %11 ], [ %.0.i89.ph, %dissect_wccp2_hash_buckets_assignment_element.exit.thread ], [ %.0.i89, %dissect_wccp2_hash_buckets_assignment_element.exit ], [ %spec.select, %78 ]
   ret i32 %.0
 }
 
@@ -3744,12 +3745,12 @@ dissect_wccp2_mask_value_set_element.exit:        ; preds = %25, %._crit_edge.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = icmp slt i32 %2, 2
+define internal fastcc range(i32 -12, 2147483636) i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3) unnamed_addr #0 {
+  %5 = icmp samesign ult i32 %2, 2
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = add i32 %2, -12
+  %7 = or disjoint i32 %2, -12
   br label %33
 
 8:                                                ; preds = %4
@@ -3981,7 +3982,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %20 = load i32, ptr @ett_alternate_mask_value_set_element, align 4
   %21 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %0, i32 noundef %.03927, i32 noundef 0, i32 noundef %20, ptr noundef nonnull %6, ptr noundef nonnull @.str.439, i32 noundef %.04226)
-  %22 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03927, i32 noundef %.04325, ptr noundef %21)
+  %22 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03927, i32 noundef range(i32 0, -2147483648) %.04325, ptr noundef %21)
   %23 = sub i32 %.04325, %22
   %24 = icmp slt i32 %22, 0
   br i1 %24, label %dissect_wccp2_alternate_mask_value_set_element.exit.thread, label %25
@@ -4115,7 +4116,7 @@ dissect_wccp2_alternate_mask_value_set_element.exit: ; preds = %74, %25
 
 79:                                               ; preds = %dissect_wccp2_alternate_mask_value_set_element.exit, %dissect_wccp2_alternate_mask_value_set_element.exit.thread2
   %.1.i4 = phi i32 [ %.171.lcssa.i, %dissect_wccp2_alternate_mask_value_set_element.exit.thread2 ], [ %.1.i, %dissect_wccp2_alternate_mask_value_set_element.exit ]
-  %80 = sub i32 %.04325, %.1.i4
+  %80 = sub nsw i32 %.04325, %.1.i4
   %81 = add i32 %80, %.03927
   %.not = icmp slt i32 %.03927, %81
   br i1 %.not, label %18, label %.thread

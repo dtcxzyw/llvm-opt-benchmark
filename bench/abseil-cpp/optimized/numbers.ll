@@ -3276,7 +3276,7 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc { i64, i64 } @_ZN4abslL7PowFiveEmi(i64 noundef range(i64 0, -1) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, i64 } @_ZN4abslL7PowFiveEmi(i64 noundef range(i64 0, -1) %0, i32 noundef range(i32 0, 512) %1) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %3 = icmp samesign ugt i32 %1, 12
   br i1 %3, label %.lr.ph, label %._crit_edge
 

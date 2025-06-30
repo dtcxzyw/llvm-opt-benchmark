@@ -55,8 +55,8 @@ switch.early.test:                                ; preds = %1, %18
 13:                                               ; preds = %switch.early.test, %10
   %14 = getelementptr inbounds nuw i8, ptr %.04561, i64 1
   %15 = add i32 %.04660, 1
-  %16 = sext i32 %.04660 to i64
-  %17 = getelementptr inbounds [2 x ptr], ptr %2, i64 0, i64 %16
+  %16 = zext nneg i32 %.04660 to i64
+  %17 = getelementptr inbounds nuw [2 x ptr], ptr %2, i64 0, i64 %16
   store ptr %14, ptr %17, align 8
   br label %18
 

@@ -2877,13 +2877,13 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @is_gquic_unencrypt(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext range(i16 1, 7) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @is_gquic_unencrypt(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 2, 52) %2, i16 noundef zeroext range(i16 1, 7) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2)
   %7 = icmp slt i32 %6, 14
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = add i32 %2, 12
+  %9 = add nuw nsw i32 %2, 12
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %11 = load i8, ptr %10, align 1, !range !15, !noundef !16
   %12 = trunc nuw i8 %11 to i1
@@ -2892,7 +2892,7 @@ define internal fastcc noundef zeroext i1 @is_gquic_unencrypt(ptr noundef %0, pt
 13:                                               ; preds = %8
   %14 = load i8, ptr %4, align 2
   %15 = icmp ult i8 %14, 34
-  %16 = add i32 %2, 13
+  %16 = add nuw nsw i32 %2, 13
   %spec.select = select i1 %15, i32 %16, i32 %9
   br label %17
 
@@ -3170,10 +3170,10 @@ switch.lookup203:                                 ; preds = %90
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_gquic_unencrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 1, 7) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_gquic_unencrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 2, 52) %3, i8 noundef zeroext range(i8 1, 7) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_gquic_message_authentication_hash, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 12, i32 noundef 0)
-  %9 = add i32 %3, 12
+  %9 = add nuw nsw i32 %3, 12
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %11 = load i8, ptr %10, align 1, !range !15, !noundef !16
   %12 = trunc nuw i8 %11 to i1
@@ -3197,7 +3197,7 @@ define internal fastcc noundef i32 @dissect_gquic_unencrypt(ptr noundef %0, ptr 
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef 0)
   %27 = load i32, ptr @hf_gquic_prflags_rsv, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %27, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef 0)
-  %29 = add i32 %3, 13
+  %29 = add nuw nsw i32 %3, 13
   br label %30
 
 30:                                               ; preds = %16, %13, %6

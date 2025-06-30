@@ -49636,7 +49636,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata4meta5regex5Regex13captures_iter17h16a5a5e7806c54a0E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(144) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata4meta5regex5Regex13captures_iter17h16a5a5e7806c54a0E(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(144) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   %6 = alloca [48 x i8], align 8
   %7 = alloca [40 x i8], align 8
@@ -131315,7 +131315,7 @@ define internal fastcc void @_ZN5regex5regex6string5Regex8replacen17h2fee77c0c8f
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %.sroa.013.sroa.0)
-  call fastcc void @_ZN14regex_automata4meta5regex5Regex13captures_iter17h16a5a5e7806c54a0E(ptr noalias noundef align 8 captures(none) dereferenceable(144) %.sroa.013.sroa.0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call fastcc void @_ZN14regex_automata4meta5regex5Regex13captures_iter17h16a5a5e7806c54a0E(ptr noalias noundef align 8 captures(none) dereferenceable(144) %.sroa.013.sroa.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.013.sroa.0, i64 144, i1 false)
   %.sroa.013.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 144
   store ptr %2, ptr %.sroa.013.sroa.4.0..sroa_idx, align 8

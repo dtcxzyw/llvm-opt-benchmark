@@ -14084,7 +14084,7 @@ _ZN7QStringD2Ev.exit350.preheader:                ; preds = %369, %_ZN9QtPrivate
 
 _ZN7QStringD2Ev.exit350:                          ; preds = %_ZN7QStringD2Ev.exit350.preheader, %516
   %.0168 = phi i32 [ %517, %516 ], [ 0, %_ZN7QStringD2Ev.exit350.preheader ]
-  %.5150 = phi i8 [ %.6151, %516 ], [ %.0145, %_ZN7QStringD2Ev.exit350.preheader ]
+  %.5150 = phi i8 [ %.6151, %516 ], [ 0, %_ZN7QStringD2Ev.exit350.preheader ]
   %374 = invoke noundef i32 @_ZNK12QDomNodeList6lengthEv(ptr noundef nonnull align 8 dereferenceable(8) %41)
           to label %_ZNK12QDomNodeList4sizeEv.exit352 unwind label %483
 
@@ -14646,7 +14646,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
 
 _ZNSt6vectorI7QStringSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt16allocator_traitsISaI7QStringEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i, %354, %.loopexit809, %336
   %cond7 = phi i1 [ true, %336 ], [ %.not208, %.loopexit809 ], [ false, %354 ], [ false, %_ZNSt16allocator_traitsISaI7QStringEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i ]
-  %.4149 = phi i8 [ %.0145, %336 ], [ %.8153, %.loopexit809 ], [ %.0145, %354 ], [ %.0145, %_ZNSt16allocator_traitsISaI7QStringEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i ]
+  %.4149 = phi i8 [ 0, %336 ], [ %.8153, %.loopexit809 ], [ 0, %354 ], [ 0, %_ZNSt16allocator_traitsISaI7QStringEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i ]
   %.5 = phi i32 [ %.1, %336 ], [ %.8, %.loopexit809 ], [ 2, %354 ], [ 2, %_ZNSt16allocator_traitsISaI7QStringEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit.i ]
   call void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #27
   call void @_ZN12QDomDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #27
@@ -14842,7 +14842,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i457: ; preds = %_ZN9QtPrivate8RefCo
 
 .critedge240.thread:                              ; preds = %._crit_edge, %.critedge240, %_ZNSt6vectorI7QStringSaIS0_EE9push_backERKS0_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i457, %561
   %cond6 = phi i1 [ true, %.critedge240 ], [ %cond7, %_ZNSt6vectorI7QStringSaIS0_EE9push_backERKS0_.exit ], [ true, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i457 ], [ true, %561 ], [ true, %._crit_edge ]
-  %.9154 = phi i8 [ %.0145, %.critedge240 ], [ %.4149, %_ZNSt6vectorI7QStringSaIS0_EE9push_backERKS0_.exit ], [ %.0145, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i457 ], [ %.0145, %561 ], [ %.0145, %._crit_edge ]
+  %.9154 = phi i8 [ 0, %.critedge240 ], [ %.4149, %_ZNSt6vectorI7QStringSaIS0_EE9push_backERKS0_.exit ], [ 0, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i457 ], [ 0, %561 ], [ 0, %._crit_edge ]
   %.9 = phi i32 [ %.1, %.critedge240 ], [ %.5, %_ZNSt6vectorI7QStringSaIS0_EE9push_backERKS0_.exit ], [ %.1, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i457 ], [ %.1, %561 ], [ %.1, %._crit_edge ]
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #27
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #27

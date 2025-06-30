@@ -3972,14 +3972,14 @@ compute_code_flags.exit:                          ; preds = %._crit_edge.i, %13
   br i1 %58, label %66, label %59
 
 59:                                               ; preds = %45
-  %60 = call i32 @_PyCfg_OptimizedCfgToInstructionSequence(ptr noundef nonnull %43, ptr noundef nonnull %35, i32 noundef range(i32 0, 268435456) %31, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3) #11
+  %60 = call i32 @_PyCfg_OptimizedCfgToInstructionSequence(ptr noundef nonnull %43, ptr noundef nonnull %35, i32 noundef range(i32 0, -2147483648) %31, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3) #11
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %59
   %63 = load i32, ptr %4, align 4, !tbaa !46
   %64 = load i32, ptr %5, align 4, !tbaa !46
-  %65 = call ptr @_PyAssemble_MakeCodeObject(ptr noundef nonnull %35, ptr noundef %9, ptr noundef nonnull %38, i32 noundef %63, ptr noundef nonnull %3, i32 noundef %64, i32 noundef range(i32 0, 268435456) %31, ptr noundef %10) #11
+  %65 = call ptr @_PyAssemble_MakeCodeObject(ptr noundef nonnull %35, ptr noundef %9, ptr noundef nonnull %38, i32 noundef %63, ptr noundef nonnull %3, i32 noundef %64, i32 noundef range(i32 0, -2147483648) %31, ptr noundef %10) #11
   br label %66
 
 66:                                               ; preds = %62, %59, %45, %40

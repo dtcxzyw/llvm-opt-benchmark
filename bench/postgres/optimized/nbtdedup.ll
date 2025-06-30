@@ -744,153 +744,153 @@ define dso_local i64 @_bt_dedup_finish_pending(ptr noundef %0, ptr noundef captu
   %6 = add nuw nsw i32 %5, 262120
   %7 = lshr i32 %6, 2
   %8 = trunc i32 %7 to i16
-  %9 = add nuw nsw i16 %8, 1
-  %narrow = select i1 %4, i16 1, i16 %9
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %11 = load i32, ptr %10, align 4
-  %12 = icmp eq i32 %11, 1
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8
-  br i1 %12, label %15, label %24
+  %9 = add nsw i16 %8, 1
+  %10 = select i1 %4, i16 1, i16 %9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %12 = load i32, ptr %11, align 4
+  %13 = icmp eq i32 %12, 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8
+  br i1 %13, label %16, label %25
 
-15:                                               ; preds = %2
-  %16 = getelementptr i8, ptr %14, i64 6
-  %.val25 = load i16, ptr %16, align 2
-  %17 = and i16 %.val25, 8191
-  %18 = zext nneg i16 %17 to i64
-  %19 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %0, ptr noundef %14, i64 noundef %18, i16 noundef zeroext %narrow, i32 noundef 0) #10
-  %20 = icmp eq i16 %19, 0
-  br i1 %20, label %21, label %95
+16:                                               ; preds = %2
+  %17 = getelementptr i8, ptr %15, i64 6
+  %.val25 = load i16, ptr %17, align 2
+  %18 = and i16 %.val25, 8191
+  %19 = zext nneg i16 %18 to i64
+  %20 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %0, ptr noundef %15, i64 noundef %19, i16 noundef zeroext %10, i32 noundef 0) #10
+  %21 = icmp eq i16 %20, 0
+  br i1 %21, label %22, label %96
 
-21:                                               ; preds = %15
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
+22:                                               ; preds = %16
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %23)
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 574, ptr noundef nonnull @__func__._bt_dedup_finish_pending) #10
   unreachable
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %14, i64 6
-  %30 = load i16, ptr %29, align 2
-  %31 = and i16 %30, 8192
-  %32 = icmp eq i16 %31, 0
-  br i1 %32, label %BTreeTupleIsPosting.exit.thread.i, label %BTreeTupleIsPosting.exit.i
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 6
+  %31 = load i16, ptr %30, align 2
+  %32 = and i16 %31, 8192
+  %33 = icmp eq i16 %32, 0
+  br i1 %33, label %BTreeTupleIsPosting.exit.thread.i, label %BTreeTupleIsPosting.exit.i
 
-BTreeTupleIsPosting.exit.i:                       ; preds = %24
-  %33 = getelementptr i8, ptr %14, i64 4
-  %.val.i.i = load i16, ptr %33, align 2
-  %34 = and i16 %.val.i.i, 8192
-  %.not.i = icmp eq i16 %34, 0
-  br i1 %.not.i, label %BTreeTupleIsPosting.exit.thread.i, label %35
+BTreeTupleIsPosting.exit.i:                       ; preds = %25
+  %34 = getelementptr i8, ptr %15, i64 4
+  %.val.i.i = load i16, ptr %34, align 2
+  %35 = and i16 %.val.i.i, 8192
+  %.not.i = icmp eq i16 %35, 0
+  br i1 %.not.i, label %BTreeTupleIsPosting.exit.thread.i, label %36
 
-35:                                               ; preds = %BTreeTupleIsPosting.exit.i
-  %.val26.i = load i16, ptr %14, align 2
-  %36 = getelementptr i8, ptr %14, i64 2
-  %.val27.i = load i16, ptr %36, align 2
-  %37 = zext i16 %.val26.i to i32
-  %38 = shl nuw i32 %37, 16
-  %39 = zext i16 %.val27.i to i32
-  %40 = or disjoint i32 %38, %39
-  br label %43
+36:                                               ; preds = %BTreeTupleIsPosting.exit.i
+  %.val26.i = load i16, ptr %15, align 2
+  %37 = getelementptr i8, ptr %15, i64 2
+  %.val27.i = load i16, ptr %37, align 2
+  %38 = zext i16 %.val26.i to i32
+  %39 = shl nuw i32 %38, 16
+  %40 = zext i16 %.val27.i to i32
+  %41 = or disjoint i32 %39, %40
+  br label %44
 
-BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting.exit.i, %24
-  %41 = and i16 %30, 8191
-  %42 = zext nneg i16 %41 to i32
-  br label %43
+BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting.exit.i, %25
+  %42 = and i16 %31, 8191
+  %43 = zext nneg i16 %42 to i32
+  br label %44
 
-43:                                               ; preds = %BTreeTupleIsPosting.exit.thread.i, %35
-  %.0.i27 = phi i32 [ %40, %35 ], [ %42, %BTreeTupleIsPosting.exit.thread.i ]
-  %44 = icmp sgt i32 %28, 1
-  %45 = mul i32 %28, 6
-  %46 = add i32 %45, 7
-  %47 = add i32 %46, %.0.i27
-  %48 = and i32 %47, -8
-  %.024.i = select i1 %44, i32 %48, i32 %.0.i27
-  %49 = zext i32 %.024.i to i64
-  %50 = tail call ptr @palloc0(i64 noundef %49) #10
-  %51 = zext i32 %.0.i27 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %50, ptr nonnull readonly align 2 %14, i64 %51, i1 false)
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 6
-  %53 = load i16, ptr %52, align 2
-  %54 = and i16 %53, -8192
-  %55 = trunc i32 %.024.i to i16
-  %56 = or i16 %54, %55
-  br i1 %44, label %57, label %73
+44:                                               ; preds = %BTreeTupleIsPosting.exit.thread.i, %36
+  %.0.i27 = phi i32 [ %41, %36 ], [ %43, %BTreeTupleIsPosting.exit.thread.i ]
+  %45 = icmp sgt i32 %29, 1
+  %46 = mul i32 %29, 6
+  %47 = add i32 %46, 7
+  %48 = add i32 %47, %.0.i27
+  %49 = and i32 %48, -8
+  %.024.i = select i1 %45, i32 %49, i32 %.0.i27
+  %50 = zext i32 %.024.i to i64
+  %51 = tail call ptr @palloc0(i64 noundef %50) #10
+  %52 = zext i32 %.0.i27 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %51, ptr nonnull readonly align 2 %15, i64 %52, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 6
+  %54 = load i16, ptr %53, align 2
+  %55 = and i16 %54, -8192
+  %56 = trunc i32 %.024.i to i16
+  %57 = or i16 %55, %56
+  br i1 %45, label %58, label %74
 
-57:                                               ; preds = %43
-  %58 = trunc i32 %28 to i16
-  %59 = or i16 %56, 8192
-  store i16 %59, ptr %52, align 2
-  %60 = or i16 %58, 8192
-  %61 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i16 %60, ptr %61, align 2
-  %62 = lshr i32 %.0.i27, 16
-  %63 = trunc nuw i32 %62 to i16
-  store i16 %63, ptr %50, align 2
-  %64 = trunc i32 %.0.i27 to i16
-  %65 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  store i16 %64, ptr %65, align 2
-  %66 = and i32 %.0.i27, -65536
-  %67 = zext i32 %66 to i64
+58:                                               ; preds = %44
+  %59 = trunc i32 %29 to i16
+  %60 = or i16 %57, 8192
+  store i16 %60, ptr %53, align 2
+  %61 = or i16 %59, 8192
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i16 %61, ptr %62, align 2
+  %63 = lshr i32 %.0.i27, 16
+  %64 = trunc nuw i32 %63 to i16
+  store i16 %64, ptr %51, align 2
+  %65 = trunc i32 %.0.i27 to i16
+  %66 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  store i16 %65, ptr %66, align 2
+  %67 = and i32 %.0.i27, -65536
+  %68 = zext i32 %67 to i64
   %.mask.i = and i32 %.0.i27, 65535
-  %68 = zext nneg i32 %.mask.i to i64
-  %69 = getelementptr inbounds nuw i8, ptr %50, i64 %67
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 %68
-  %71 = zext nneg i32 %28 to i64
-  %72 = mul nuw nsw i64 %71, 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %70, ptr readonly align 2 %26, i64 %72, i1 false)
-  %.val26.pre = load i16, ptr %52, align 2
+  %69 = zext nneg i32 %.mask.i to i64
+  %70 = getelementptr inbounds nuw i8, ptr %51, i64 %68
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %69
+  %72 = zext nneg i32 %29 to i64
+  %73 = mul nuw nsw i64 %72, 6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %71, ptr readonly align 2 %27, i64 %73, i1 false)
+  %.val26.pre = load i16, ptr %53, align 2
   br label %_bt_form_posting.exit
 
-73:                                               ; preds = %43
-  %74 = and i16 %56, -8193
-  store i16 %74, ptr %52, align 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %50, ptr noundef nonnull readonly align 2 dereferenceable(6) %26, i64 6, i1 false)
+74:                                               ; preds = %44
+  %75 = and i16 %57, -8193
+  store i16 %75, ptr %53, align 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %51, ptr noundef nonnull readonly align 2 dereferenceable(6) %27, i64 6, i1 false)
   br label %_bt_form_posting.exit
 
-_bt_form_posting.exit:                            ; preds = %57, %73
-  %.val26 = phi i16 [ %.val26.pre, %57 ], [ %74, %73 ]
-  %75 = and i16 %.val26, 8191
-  %76 = zext nneg i16 %75 to i64
-  %77 = load i32, ptr %10, align 4
-  %78 = trunc i32 %77 to i16
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %80 = load i32, ptr %79, align 8
-  %81 = sext i32 %80 to i64
-  %.idx = shl nsw i64 %81, 2
-  %82 = getelementptr i8, ptr %1, i64 70
-  %83 = getelementptr i8, ptr %82, i64 %.idx
-  store i16 %78, ptr %83, align 2
-  %84 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %0, ptr noundef nonnull %50, i64 noundef %76, i16 noundef zeroext %narrow, i32 noundef 0) #10
-  %85 = icmp eq i16 %84, 0
-  br i1 %85, label %86, label %89
+_bt_form_posting.exit:                            ; preds = %58, %74
+  %.val26 = phi i16 [ %.val26.pre, %58 ], [ %75, %74 ]
+  %76 = and i16 %.val26, 8191
+  %77 = zext nneg i16 %76 to i64
+  %78 = load i32, ptr %11, align 4
+  %79 = trunc i32 %78 to i16
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %81 = load i32, ptr %80, align 8
+  %82 = sext i32 %81 to i64
+  %.idx = shl nsw i64 %82, 2
+  %83 = getelementptr i8, ptr %1, i64 70
+  %84 = getelementptr i8, ptr %83, i64 %.idx
+  store i16 %79, ptr %84, align 2
+  %85 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef %77, i16 noundef zeroext %10, i32 noundef 0) #10
+  %86 = icmp eq i16 %85, 0
+  br i1 %86, label %87, label %90
 
-86:                                               ; preds = %_bt_form_posting.exit
-  %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %87)
-  %88 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
+87:                                               ; preds = %_bt_form_posting.exit
+  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %88)
+  %89 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 594, ptr noundef nonnull @__func__._bt_dedup_finish_pending) #10
   unreachable
 
-89:                                               ; preds = %_bt_form_posting.exit
-  tail call void @pfree(ptr noundef nonnull %50) #10
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %91 = load i64, ptr %90, align 8
-  %reass.sub = sub i64 %91, %76
-  %92 = add i64 %reass.sub, -4
-  %93 = load i32, ptr %79, align 8
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %79, align 8
-  br label %95
+90:                                               ; preds = %_bt_form_posting.exit
+  tail call void @pfree(ptr noundef nonnull %51) #10
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %92 = load i64, ptr %91, align 8
+  %reass.sub = sub i64 %92, %77
+  %93 = add i64 %reass.sub, -4
+  %94 = load i32, ptr %80, align 8
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %80, align 8
+  br label %96
 
-95:                                               ; preds = %15, %89
-  %.0 = phi i64 [ %92, %89 ], [ 0, %15 ]
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
+96:                                               ; preds = %16, %90
+  %.0 = phi i64 [ %93, %90 ], [ 0, %16 ]
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
   ret i64 %.0
 }
 

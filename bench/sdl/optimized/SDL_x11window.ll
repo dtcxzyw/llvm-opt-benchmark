@@ -255,7 +255,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X11_GetNetWMState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 1024) i32 @X11_GetNetWMState(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
@@ -383,7 +383,7 @@ define hidden i32 @X11_GetNetWMState(ptr noundef readonly captures(none) %0, ptr
   %70 = load ptr, ptr @X11_XFree, align 8
   %71 = load ptr, ptr %8, align 8
   %72 = call i32 %70(ptr noundef %71) #12
-  %73 = trunc i64 %spec.select54 to i32
+  %73 = trunc nuw nsw i64 %spec.select54 to i32
   br label %74
 
 74:                                               ; preds = %._crit_edge.thread, %3
@@ -1339,7 +1339,7 @@ define internal fastcc noundef zeroext i1 @SetupWindowData(ptr noundef readonly 
   store i64 %78, ptr %79, align 8
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #12
   %80 = call i32 @X11_GetNetWMState(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
-  %81 = zext i32 %80 to i64
+  %81 = zext nneg i32 %80 to i64
   %82 = load i64, ptr %44, align 8
   %83 = or i64 %82, %81
   store i64 %83, ptr %44, align 8

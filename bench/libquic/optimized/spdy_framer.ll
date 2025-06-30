@@ -11546,7 +11546,7 @@ _ZNK3net10SpdyFramer26GetContinuationMinimumSizeEv.exit: ; preds = %109
   %115 = add nuw i64 %114, 1
   %116 = mul i64 %115, %111
   %117 = add i64 %116, %104
-  %118 = and i8 %.1, -5
+  %118 = and i8 %.1, 123
   br label %119
 
 119:                                              ; preds = %102, %_ZNK3net10SpdyFramer26GetContinuationMinimumSizeEv.exit, %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit

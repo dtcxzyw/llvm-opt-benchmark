@@ -737,7 +737,7 @@ define dso_local void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr nou
 104:                                              ; preds = %113, %102
   %105 = phi i32 [ %114, %113 ], [ 0, %102 ]
   %106 = phi i32 [ %111, %113 ], [ %97, %102 ]
-  %107 = zext i32 %106 to i64
+  %107 = zext nneg i32 %106 to i64
   %.idx12 = shl nuw nsw i64 %107, 3
   %gep24 = getelementptr i8, ptr %invariant.gep, i64 %.idx12
   store i32 %103, ptr %gep24, align 4
@@ -745,7 +745,7 @@ define dso_local void @ZSTD_buildFSETable(ptr noundef captures(none) %0, ptr nou
 
 108:                                              ; preds = %108, %104
   %109 = phi i32 [ %106, %104 ], [ %111, %108 ]
-  %110 = add i32 %94, %109
+  %110 = add nuw i32 %94, %109
   %111 = and i32 %110, %17
   %112 = icmp ugt i32 %111, %42
   br i1 %112, label %108, label %113, !llvm.loop !12
@@ -961,7 +961,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
 99:                                               ; preds = %108, %97
   %100 = phi i32 [ %109, %108 ], [ 0, %97 ]
   %101 = phi i32 [ %106, %108 ], [ %92, %97 ]
-  %102 = zext i32 %101 to i64
+  %102 = zext nneg i32 %101 to i64
   %.idx12 = shl nuw nsw i64 %102, 3
   %gep23 = getelementptr i8, ptr %invariant.gep, i64 %.idx12
   store i32 %98, ptr %gep23, align 4
@@ -969,7 +969,7 @@ define internal fastcc void @ZSTD_buildFSETable_body_bmi2(ptr noundef captures(n
 
 103:                                              ; preds = %103, %99
   %104 = phi i32 [ %101, %99 ], [ %106, %103 ]
-  %105 = add i32 %89, %104
+  %105 = add nuw i32 %89, %104
   %106 = and i32 %105, %12
   %107 = icmp ugt i32 %106, %37
   br i1 %107, label %103, label %108, !llvm.loop !12
@@ -1443,7 +1443,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %129 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %128, ptr %129, align 8
   %130 = icmp ult i64 %26, -119
-  %or.cond = select i1 %124, i1 %130, i1 false
+  %or.cond = and i1 %130, %124
   br i1 %or.cond, label %191, label %.critedge.thread
 
 131:                                              ; preds = %112

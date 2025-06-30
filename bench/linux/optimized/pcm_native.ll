@@ -7812,7 +7812,7 @@ define internal fastcc i32 @snd_pcm_hw_refine_user(ptr noundef nonnull %0, ptr n
 14:                                               ; preds = %11
   %15 = tail call i64 @_copy_to_user(ptr noundef %1, ptr noundef %3, i64 noundef 608) #18
   %16 = icmp eq i64 %15, 0
-  %17 = select i1 %16, i32 %12, i32 -14
+  %17 = select i1 %16, i32 0, i32 -14
   br label %18
 
 18:                                               ; preds = %14, %11, %8
@@ -7844,7 +7844,7 @@ define internal fastcc i32 @snd_pcm_hw_params_user(ptr noundef nonnull %0, ptr n
 11:                                               ; preds = %8
   %12 = tail call i64 @_copy_to_user(ptr noundef %1, ptr noundef %3, i64 noundef 608) #18
   %13 = icmp eq i64 %12, 0
-  %14 = select i1 %13, i32 %9, i32 -14
+  %14 = select i1 %13, i32 0, i32 -14
   br label %15
 
 15:                                               ; preds = %11, %8
@@ -9526,7 +9526,7 @@ define internal fastcc i32 @snd_pcm_hw_params_old_user(ptr noundef nonnull %0, p
   store i64 %81, ptr %52, align 8
   %82 = tail call i64 @_copy_to_user(ptr noundef %1, ptr noundef %7, i64 noundef 256) #18
   %83 = icmp eq i64 %82, 0
-  %84 = select i1 %83, i32 %55, i32 -14
+  %84 = select i1 %83, i32 0, i32 -14
   br label %85
 
 85:                                               ; preds = %66, %23

@@ -43216,7 +43216,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %56 ], [ %.1.i.i.i.i, %50 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %52 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.04.i.i.i.i.i
+  %52 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load i64, ptr %52, align 8
   %53 = getelementptr i8, ptr %52, i64 8
   %.val14.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !1506
@@ -43234,7 +43234,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
 
 "_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %56, %.lr.ph.i.i.i.i.i, %50
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %50 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %56 ]
-  %59 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %59 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i64 %.sroa.02.0.copyload.i.i.i, ptr %59, align 8, !tbaa !47
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !47
@@ -43332,7 +43332,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
 
 "_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i": ; preds = %96, %.lr.ph.i.i.i.i14.i, %91
   %.013.lcssa.i.i.i.i23.i = phi i64 [ 0, %91 ], [ %.0133.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %96 ]
-  %98 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.013.lcssa.i.i.i.i23.i
+  %98 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.013.lcssa.i.i.i.i23.i
   store i64 %.sroa.02.0.copyload.i.i6.i, ptr %98, align 8, !tbaa !47
   %.sroa.3.0..sroa_idx.i.i.i.i24.i = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 %.sroa.4.0.copyload.i.i8.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i24.i, align 8, !tbaa !47

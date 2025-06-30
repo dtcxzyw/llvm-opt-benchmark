@@ -15502,7 +15502,7 @@ define internal noundef i32 @dissect_pfcp_nokia_default_qos_id(ptr noundef %0, p
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 1, 40) i32 @dissect_pfcp_nokia_serving_node_id(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+define internal range(i32 1, 38) i32 @dissect_pfcp_nokia_serving_node_id(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._e_guid_t, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15

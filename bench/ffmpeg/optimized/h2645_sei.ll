@@ -749,7 +749,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %485 = sub nsw i32 0, %.sroa.46.0.copyload.i.i.i.i
   %486 = sub nsw i32 %.sroa.77.0.copyload.i.i.i.i, %.sroa.46.0.copyload.i.i.i.i
   %487 = icmp slt i32 %484, %485
-  %..i.i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %484, i32 %486)
+  %..i.i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %484, i32 %486)
   %.0.i.i.i.i.i = select i1 %487, i32 %485, i32 %..i.i.i.i.i
   %488 = add nsw i32 %.0.i.i.i.i.i, %.sroa.46.0.copyload.i.i.i.i
   store i32 %488, ptr %230, align 8, !tbaa !29
@@ -883,7 +883,7 @@ get_se_golomb_long.exit.i:                        ; preds = %502, %498, %456
   %577 = sub nsw i32 0, %.sroa.46.0.copyload.i.i.i
   %578 = sub nsw i32 %.sroa.77.0.copyload.i.i.i, %.sroa.46.0.copyload.i.i.i
   %579 = icmp slt i32 %576, %577
-  %..i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %576, i32 %578)
+  %..i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %576, i32 %578)
   %.0.i.i.i81.i = select i1 %579, i32 %577, i32 %..i.i.i.i
   %580 = add nsw i32 %.0.i.i.i81.i, %.sroa.46.0.copyload.i.i.i
   store i32 %580, ptr %230, align 8, !tbaa !29
@@ -988,7 +988,7 @@ get_ue_golomb_long.exit.i:                        ; preds = %594, %590, %548
   %645 = sub nsw i32 0, %.sroa.46.0.copyload.i.i.i33
   %646 = sub nsw i32 %.sroa.77.0.copyload.i.i.i34, %.sroa.46.0.copyload.i.i.i33
   %647 = icmp slt i32 %644, %645
-  %..i.i.i.i41 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %644, i32 %646)
+  %..i.i.i.i41 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %644, i32 %646)
   %.0.i.i.i.i42 = select i1 %647, i32 %645, i32 %..i.i.i.i41
   %648 = add nsw i32 %.0.i.i.i.i42, %.sroa.46.0.copyload.i.i.i33
   store i32 %648, ptr %.sroa.46.0..sroa_idx.i.i.i, align 8, !tbaa !29
@@ -1173,7 +1173,7 @@ get_ue_golomb_long.exit.i44:                      ; preds = %662, %658, %615
   %780 = sub nsw i32 0, %749
   %781 = sub nsw i32 %.sroa.77.0.copyload.i.i33.i, %749
   %782 = icmp slt i32 %779, %780
-  %..i.i.i40.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %779, i32 %781)
+  %..i.i.i40.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %779, i32 %781)
   %.0.i.i.i41.i = select i1 %782, i32 %780, i32 %..i.i.i40.i
   %783 = add nsw i32 %.0.i.i.i41.i, %749
   store i32 %783, ptr %.sroa.46.0..sroa_idx.i.i.i, align 8, !tbaa !29

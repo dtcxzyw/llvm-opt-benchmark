@@ -2287,7 +2287,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.8 = private unnamed_addr constant [60 x i8] c"Overriding cert date error as example for bad clock testing\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1001, 4) i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1001, 2) i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [80 x i8], align 16
   %6 = alloca [80 x i8], align 16
@@ -2677,13 +2677,13 @@ select.unfold.i:                                  ; preds = %30, %26
 
 213:                                              ; preds = %.thread818.i
   %switch712.i = icmp ult i32 %.28823.i.off, 4
-  br i1 %switch712.i, label %214, label %._crit_edge287.thread323
+  br i1 %switch712.i, label %214, label %._crit_edge288.thread316
 
 214:                                              ; preds = %213
   %215 = load ptr, ptr %206, align 8, !tbaa !32
   %216 = call i32 %212(ptr noundef %215) #27
   %217 = icmp eq i32 %216, 1
-  br i1 %217, label %test_ssl_memio_setup.exit.thread270.preheader, label %218
+  br i1 %217, label %test_ssl_memio_setup.exit.thread268.preheader, label %218
 
 218:                                              ; preds = %214
   %219 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7458)
@@ -2697,25 +2697,25 @@ select.unfold.i:                                  ; preds = %30, %26
   %227 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %226)
   %228 = load ptr, ptr @stdout, align 8, !tbaa !22
   %229 = call i32 @fflush(ptr noundef %228)
-  br label %._crit_edge287.thread323
+  br label %._crit_edge288.thread316
 
 230:                                              ; preds = %.thread818.i
-  %switch285 = icmp ult i32 %.28823.i.off, 2
-  br i1 %switch285, label %test_ssl_memio_setup.exit.thread270.preheader, label %._crit_edge287.thread323
+  %switch286 = icmp ult i32 %.28823.i.off, 2
+  br i1 %switch286, label %test_ssl_memio_setup.exit.thread268.preheader, label %._crit_edge288.thread316
 
-test_ssl_memio_setup.exit.thread270.preheader:    ; preds = %230, %214
-  br label %test_ssl_memio_setup.exit.thread270
+test_ssl_memio_setup.exit.thread268.preheader:    ; preds = %230, %214
+  br label %test_ssl_memio_setup.exit.thread268
 
-test_ssl_memio_setup.exit.thread270:              ; preds = %test_ssl_memio_setup.exit.thread270.preheader, %259
-  %.0476.i = phi i32 [ %.2.i, %259 ], [ 0, %test_ssl_memio_setup.exit.thread270.preheader ]
-  %.0495.i = phi i32 [ %.251.i, %259 ], [ 0, %test_ssl_memio_setup.exit.thread270.preheader ]
-  %.0524.i = phi i32 [ %.153.i, %259 ], [ 0, %test_ssl_memio_setup.exit.thread270.preheader ]
-  %.0543.i = phi i32 [ %.155.i, %259 ], [ 0, %test_ssl_memio_setup.exit.thread270.preheader ]
-  %.0581.i = phi i32 [ %261, %259 ], [ 10, %test_ssl_memio_setup.exit.thread270.preheader ]
+test_ssl_memio_setup.exit.thread268:              ; preds = %test_ssl_memio_setup.exit.thread268.preheader, %259
+  %.0476.i = phi i32 [ %.2.i, %259 ], [ 0, %test_ssl_memio_setup.exit.thread268.preheader ]
+  %.0495.i = phi i32 [ %.251.i, %259 ], [ 0, %test_ssl_memio_setup.exit.thread268.preheader ]
+  %.0524.i = phi i32 [ %.153.i, %259 ], [ 0, %test_ssl_memio_setup.exit.thread268.preheader ]
+  %.0543.i = phi i32 [ %.155.i, %259 ], [ 0, %test_ssl_memio_setup.exit.thread268.preheader ]
+  %.0581.i = phi i32 [ %261, %259 ], [ 10, %test_ssl_memio_setup.exit.thread268.preheader ]
   %.not.i235 = icmp eq i32 %.0543.i, 0
   br i1 %.not.i235, label %231, label %244
 
-231:                                              ; preds = %test_ssl_memio_setup.exit.thread270
+231:                                              ; preds = %test_ssl_memio_setup.exit.thread268
   call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.1015) #27
   %232 = load ptr, ptr %176, align 8, !tbaa !30
   %233 = call i32 @wolfSSL_connect(ptr noundef %232) #27
@@ -2740,10 +2740,10 @@ test_ssl_memio_setup.exit.thread270:              ; preds = %test_ssl_memio_setu
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #27
   br i1 %.not67.i, label %244, label %test_ssl_memio_setup.exit.thread
 
-244:                                              ; preds = %239, %235, %231, %test_ssl_memio_setup.exit.thread270
-  %245 = phi i1 [ false, %test_ssl_memio_setup.exit.thread270 ], [ false, %239 ], [ true, %235 ], [ false, %231 ]
-  %.155.i = phi i32 [ 1, %test_ssl_memio_setup.exit.thread270 ], [ 1, %239 ], [ 0, %235 ], [ 1, %231 ]
-  %.2.i = phi i32 [ %.0476.i, %test_ssl_memio_setup.exit.thread270 ], [ 1, %239 ], [ %.0476.i, %235 ], [ %.0476.i, %231 ]
+244:                                              ; preds = %239, %235, %231, %test_ssl_memio_setup.exit.thread268
+  %245 = phi i1 [ false, %test_ssl_memio_setup.exit.thread268 ], [ false, %239 ], [ true, %235 ], [ false, %231 ]
+  %.155.i = phi i32 [ 1, %test_ssl_memio_setup.exit.thread268 ], [ 1, %239 ], [ 0, %235 ], [ 1, %231 ]
+  %.2.i = phi i32 [ %.0476.i, %test_ssl_memio_setup.exit.thread268 ], [ 1, %239 ], [ %.0476.i, %235 ], [ %.0476.i, %231 ]
   %.not68.i = icmp eq i32 %.0524.i, 0
   br i1 %.not68.i, label %246, label %259
 
@@ -2780,7 +2780,7 @@ test_ssl_memio_setup.exit.thread270:              ; preds = %test_ssl_memio_setu
   %.not66.i = or i1 %245, %260
   %262 = icmp samesign ugt i32 %.0581.i, 1
   %263 = select i1 %.not66.i, i1 %262, i1 false
-  br i1 %263, label %test_ssl_memio_setup.exit.thread270, label %test_ssl_memio_setup.exit.thread, !llvm.loop !34
+  br i1 %263, label %test_ssl_memio_setup.exit.thread268, label %test_ssl_memio_setup.exit.thread, !llvm.loop !34
 
 test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   %.056.lcssa.i = phi i1 [ true, %254 ], [ true, %239 ], [ %.not66.i, %259 ]
@@ -2814,7 +2814,7 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   %280 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %279)
   %281 = load ptr, ptr @stdout, align 8, !tbaa !22
   %282 = call i32 @fflush(ptr noundef %281)
-  br label %._crit_edge287.thread323
+  br label %._crit_edge288.thread316
 
 283:                                              ; preds = %266, %test_ssl_memio_setup.exit.thread
   %.4 = phi i32 [ %.2, %test_ssl_memio_setup.exit.thread ], [ 1, %266 ]
@@ -2822,15 +2822,15 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   %285 = load ptr, ptr %284, align 8, !tbaa !36
   %.not229 = icmp ne ptr %285, null
   %or.cond45 = icmp eq i32 %.4, 1
-  %or.cond283 = select i1 %.not229, i1 %or.cond45, i1 false
-  br i1 %or.cond283, label %286, label %.thread
+  %or.cond284 = select i1 %.not229, i1 %or.cond45, i1 false
+  br i1 %or.cond284, label %286, label %.thread
 
 286:                                              ; preds = %283
   %287 = call i32 %285(ptr noundef nonnull %11, ptr noundef nonnull %176) #27
   %288 = icmp eq i32 %287, 1
-  br i1 %288, label %.thread, label %._crit_edge287.thread313
+  br i1 %288, label %.thread, label %._crit_edge288.thread308
 
-._crit_edge287.thread313:                         ; preds = %286
+._crit_edge288.thread308:                         ; preds = %286
   %289 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7659)
   %290 = load ptr, ptr @stdout, align 8, !tbaa !22
   %291 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %290)
@@ -2842,7 +2842,7 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   %297 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %296)
   %298 = load ptr, ptr @stdout, align 8, !tbaa !22
   %299 = call i32 @fflush(ptr noundef %298)
-  br label %._crit_edge287.thread323
+  br label %._crit_edge288.thread316
 
 .thread:                                          ; preds = %286, %283
   %.6 = phi i32 [ %.4, %283 ], [ 1, %286 ]
@@ -2851,15 +2851,15 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   %.not230 = icmp ne ptr %301, null
   %302 = add nsw i32 %.6, -1
   %or.cond59 = icmp ult i32 %302, 2
-  %or.cond284 = select i1 %.not230, i1 %or.cond59, i1 false
-  br i1 %or.cond284, label %303, label %._crit_edge287
+  %or.cond285 = select i1 %.not230, i1 %or.cond59, i1 false
+  br i1 %or.cond285, label %303, label %._crit_edge288
 
 303:                                              ; preds = %.thread
   %304 = call i32 %301(ptr noundef nonnull %7, ptr noundef nonnull %206) #27
   %305 = icmp eq i32 %304, 1
-  br i1 %305, label %._crit_edge287.thread, label %.thread274
+  br i1 %305, label %._crit_edge288.thread, label %.thread272
 
-.thread274:                                       ; preds = %303
+.thread272:                                       ; preds = %303
   %306 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7663)
   %307 = load ptr, ptr @stdout, align 8, !tbaa !22
   %308 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %307)
@@ -2871,13 +2871,13 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   %314 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %313)
   %315 = load ptr, ptr @stdout, align 8, !tbaa !22
   %316 = call i32 @fflush(ptr noundef %315)
-  br label %._crit_edge287.thread323
+  br label %._crit_edge288.thread316
 
-._crit_edge287:                                   ; preds = %.thread
+._crit_edge288:                                   ; preds = %.thread
   %switch = icmp ult i32 %302, 4
-  br i1 %switch, label %._crit_edge287.thread, label %._crit_edge287.thread323
+  br i1 %switch, label %._crit_edge288.thread, label %._crit_edge288.thread316
 
-._crit_edge287.thread:                            ; preds = %303, %._crit_edge287
+._crit_edge288.thread:                            ; preds = %303, %._crit_edge288
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #27
   %317 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %318 = load ptr, ptr %317, align 8, !tbaa !37
@@ -2900,25 +2900,25 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.1017) #27
   br i1 %327, label %328, label %.thread.i238
 
-328:                                              ; preds = %._crit_edge287.thread
+328:                                              ; preds = %._crit_edge288.thread
   %329 = load ptr, ptr %206, align 8, !tbaa !32
   %330 = call i32 @wolfSSL_read(ptr noundef %329, ptr noundef nonnull %4, i32 noundef 1023) #27
   %.inv.i = icmp slt i32 %330, 1
-  %.2.i242 = select i1 %.inv.i, i32 -3001, i32 1
+  %.2.i240 = select i1 %.inv.i, i32 -3001, i32 1
   %331 = icmp sgt i32 %330, -1
   br i1 %331, label %.thread.i238, label %334
 
-.thread.i238:                                     ; preds = %328, %._crit_edge287.thread
-  %.3343.i = phi i32 [ %.2.i242, %328 ], [ -3000, %._crit_edge287.thread ]
-  %.0307341.i = phi i32 [ %330, %328 ], [ 0, %._crit_edge287.thread ]
-  %332 = zext nneg i32 %.0307341.i to i64
+.thread.i238:                                     ; preds = %328, %._crit_edge288.thread
+  %.3343.i = phi i32 [ %.2.i240, %328 ], [ -3000, %._crit_edge288.thread ]
+  %.0307340.i = phi i32 [ %330, %328 ], [ 0, %._crit_edge288.thread ]
+  %332 = zext nneg i32 %.0307340.i to i64
   %333 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %332
   store i8 0, ptr %333, align 1, !tbaa !39
   br label %334
 
 334:                                              ; preds = %.thread.i238, %328
-  %.3342.i = phi i32 [ %.2.i242, %328 ], [ %.3343.i, %.thread.i238 ]
-  %.0307340.i = phi i32 [ %330, %328 ], [ %.0307341.i, %.thread.i238 ]
+  %.3342.i = phi i32 [ %.2.i240, %328 ], [ %.3343.i, %.thread.i238 ]
+  %.0307341.i = phi i32 [ %330, %328 ], [ %.0307340.i, %.thread.i238 ]
   %335 = add nsw i32 %.3342.i, -1
   %or.cond31.i = icmp ult i32 %335, 2
   br i1 %or.cond31.i, label %336, label %._crit_edge.i
@@ -2966,171 +2966,155 @@ test_ssl_memio_setup.exit.thread:                 ; preds = %259, %254, %239
   %.7.i = phi i32 [ 1, %347 ], [ %.3342.i, %334 ], [ 0, %._crit_edge.sink.split.i ]
   store i32 %.7.i, ptr %15, align 4, !tbaa !16
   call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.1015) #27
-  %.7.off.i = add nsw i32 %.7.i, -1
-  %switch.i239 = icmp ult i32 %.7.off.i, 4
-  br i1 %switch.i239, label %363, label %379
+  %363 = add nsw i32 %.7.i, -1
+  %or.cond59.i = icmp ult i32 %363, 2
+  br i1 %or.cond59.i, label %364, label %380
 
-363:                                              ; preds = %._crit_edge.i
-  %364 = load ptr, ptr %176, align 8, !tbaa !30
-  %365 = call i32 @wolfSSL_read(ptr noundef %364, ptr noundef nonnull %4, i32 noundef 1023) #27
-  %366 = icmp sgt i32 %365, 0
-  br i1 %366, label %.thread380.i, label %367
+364:                                              ; preds = %._crit_edge.i
+  %365 = load ptr, ptr %176, align 8, !tbaa !30
+  %366 = call i32 @wolfSSL_read(ptr noundef %365, ptr noundef nonnull %4, i32 noundef 1023) #27
+  %367 = icmp sgt i32 %366, 0
+  br i1 %367, label %.thread349.i, label %368
 
-.thread380.i:                                     ; preds = %363
+.thread349.i:                                     ; preds = %364
   call void @wolfSSL_SetLoggingPrefix(ptr noundef null) #27
-  br label %381
+  br label %382
 
-367:                                              ; preds = %363
-  %368 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7567)
-  %369 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %370 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %369)
-  %371 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1022, ptr noundef nonnull @.str.1030, ptr noundef nonnull @.str.1024)
-  %372 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %373 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %372)
-  %374 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1025, i32 noundef %365, i32 noundef 0)
-  %375 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %376 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %375)
-  %377 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %378 = call i32 @fflush(ptr noundef %377)
-  br label %379
+368:                                              ; preds = %364
+  %369 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7567)
+  %370 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %371 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %370)
+  %372 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1022, ptr noundef nonnull @.str.1030, ptr noundef nonnull @.str.1024)
+  %373 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %374 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %373)
+  %375 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1025, i32 noundef %366, i32 noundef 0)
+  %376 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %377 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %376)
+  %378 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %379 = call i32 @fflush(ptr noundef %378)
+  br label %380
 
-379:                                              ; preds = %367, %._crit_edge.i
-  %.1308.i = phi i32 [ %.0307340.i, %._crit_edge.i ], [ %365, %367 ]
-  %.9.i = phi i32 [ %.7.i, %._crit_edge.i ], [ 0, %367 ]
+380:                                              ; preds = %368, %._crit_edge.i
+  %.1308.i = phi i32 [ %.0307341.i, %._crit_edge.i ], [ %366, %368 ]
+  %.9.i = phi i32 [ %.7.i, %._crit_edge.i ], [ 0, %368 ]
   call void @wolfSSL_SetLoggingPrefix(ptr noundef null) #27
-  %380 = icmp sgt i32 %.1308.i, -1
-  br i1 %380, label %381, label %384
+  %381 = icmp sgt i32 %.1308.i, -1
+  br i1 %381, label %382, label %385
 
-381:                                              ; preds = %379, %.thread380.i
-  %.9385.i = phi i32 [ 1, %.thread380.i ], [ %.9.i, %379 ]
-  %.1308383.i = phi i32 [ %365, %.thread380.i ], [ %.1308.i, %379 ]
-  %382 = zext nneg i32 %.1308383.i to i64
-  %383 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %382
-  store i8 0, ptr %383, align 1, !tbaa !39
-  br label %384
+382:                                              ; preds = %380, %.thread349.i
+  %.9354.i = phi i32 [ 1, %.thread349.i ], [ %.9.i, %380 ]
+  %.1308352.i = phi i32 [ %366, %.thread349.i ], [ %.1308.i, %380 ]
+  %383 = zext nneg i32 %.1308352.i to i64
+  %384 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %383
+  store i8 0, ptr %384, align 1, !tbaa !39
+  br label %385
 
-384:                                              ; preds = %381, %379
-  %.9384.i = phi i32 [ %.9.i, %379 ], [ %.9385.i, %381 ]
-  %385 = freeze i32 %.9384.i
-  %.9.off.i = add nsw i32 %385, -1
-  %switch335.i = icmp ult i32 %.9.off.i, 4
-  br i1 %switch335.i, label %386, label %.thread386.i
+385:                                              ; preds = %382, %380
+  %.9353.i = phi i32 [ %.9.i, %380 ], [ %.9354.i, %382 ]
+  %386 = add nsw i32 %.9353.i, -1
+  %or.cond73.i = icmp ult i32 %386, 2
+  br i1 %or.cond73.i, label %387, label %.thread279
 
-.thread386.i:                                     ; preds = %384
-  store i32 %385, ptr %14, align 4, !tbaa !15
-  br label %.thread360.i
-
-386:                                              ; preds = %384
-  %387 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %388 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %387, ptr noundef nonnull @.str.1031, ptr noundef nonnull %4) #28
-  %389 = icmp sgt i32 %388, 0
-  br i1 %389, label %401, label %.thread373.i
-
-.thread373.i:                                     ; preds = %386
-  %390 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7572)
-  %391 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %392 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %391)
-  %393 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1022, ptr noundef nonnull @.str.1032, ptr noundef nonnull @.str.1024)
-  %394 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %395 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %394)
-  %396 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1025, i32 noundef %388, i32 noundef 0)
-  %397 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %398 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %397)
-  %399 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %400 = call i32 @fflush(ptr noundef %399)
-  store i32 0, ptr %14, align 4, !tbaa !15
-  br label %.thread360.i
-
-401:                                              ; preds = %386
-  store i32 %385, ptr %14, align 4, !tbaa !15
-  %402 = getelementptr inbounds nuw i8, ptr %7, i64 216
-  %403 = load ptr, ptr %402, align 8, !tbaa !40
-  %.not326.not.i = icmp eq ptr %403, null
-  br i1 %.not326.not.i, label %.thread360.i, label %404
-
-404:                                              ; preds = %401
-  %405 = load ptr, ptr %176, align 8, !tbaa !30
-  %406 = call i32 %403(ptr noundef %405) #27
-  %407 = icmp eq i32 %406, 1
-  br i1 %407, label %.thread360.i, label %408
-
-408:                                              ; preds = %404
-  %409 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7575)
-  %410 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %411 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %410)
-  %412 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1033, ptr noundef nonnull @.str.5)
-  %413 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %414 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %413)
-  %415 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %406, i32 noundef 1)
-  %416 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %417 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %416)
-  %418 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %419 = call i32 @fflush(ptr noundef %418)
-  br label %.thread360.i
-
-.thread360.i:                                     ; preds = %408, %404, %401, %.thread373.i, %.thread386.i
-  %.12.i240 = phi i32 [ 1, %401 ], [ 0, %408 ], [ 1, %404 ], [ 0, %.thread373.i ], [ %385, %.thread386.i ]
-  %420 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %421 = load ptr, ptr %420, align 8, !tbaa !41
-  %.not327.i = icmp eq ptr %421, null
-  br i1 %.not327.i, label %test_ssl_memio_read_write.exit, label %422
-
-422:                                              ; preds = %.thread360.i
-  %.12.off.i = add nsw i32 %.12.i240, -1
-  %switch337.i = icmp ult i32 %.12.off.i, 4
-  br i1 %switch337.i, label %423, label %test_ssl_memio_read_write.exit.thread281
-
-423:                                              ; preds = %422
-  %424 = load ptr, ptr %206, align 8, !tbaa !32
-  %425 = call i32 %421(ptr noundef %424) #27
-  %426 = icmp eq i32 %425, 1
-  br i1 %426, label %test_ssl_memio_read_write.exit.thread, label %427
-
-427:                                              ; preds = %423
-  %428 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7578)
-  %429 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %430 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %429)
-  %431 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1034, ptr noundef nonnull @.str.5)
-  %432 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %433 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %432)
-  %434 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %425, i32 noundef 1)
-  %435 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %436 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %435)
-  %437 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %438 = call i32 @fflush(ptr noundef %437)
-  br label %test_ssl_memio_read_write.exit.thread281
-
-test_ssl_memio_read_write.exit.thread:            ; preds = %423
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #27
-  br label %._crit_edge287.thread323
-
-test_ssl_memio_read_write.exit.thread281:         ; preds = %427, %422
-  %.ph280 = phi i32 [ %.12.i240, %422 ], [ 0, %427 ]
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #27
+.thread279:                                       ; preds = %385
+  store i32 %.9353.i, ptr %14, align 4, !tbaa !15
   br label %440
 
-test_ssl_memio_read_write.exit:                   ; preds = %.thread360.i
+387:                                              ; preds = %385
+  %388 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %389 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef nonnull @.str.1031, ptr noundef nonnull %4) #28
+  %390 = icmp sgt i32 %389, 0
+  br i1 %390, label %402, label %.thread355.i
+
+.thread355.i:                                     ; preds = %387
+  %391 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7572)
+  %392 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %393 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %392)
+  %394 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1022, ptr noundef nonnull @.str.1032, ptr noundef nonnull @.str.1024)
+  %395 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %396 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %395)
+  %397 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1025, i32 noundef %389, i32 noundef 0)
+  %398 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %399 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %398)
+  %400 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %401 = call i32 @fflush(ptr noundef %400)
+  store i32 0, ptr %14, align 4, !tbaa !15
+  br label %440
+
+402:                                              ; preds = %387
+  store i32 %.9353.i, ptr %14, align 4, !tbaa !15
+  %403 = getelementptr inbounds nuw i8, ptr %7, i64 216
+  %404 = load ptr, ptr %403, align 8, !tbaa !40
+  %.not326.i.not = icmp eq ptr %404, null
+  br i1 %.not326.i.not, label %421, label %405
+
+405:                                              ; preds = %402
+  %406 = load ptr, ptr %176, align 8, !tbaa !30
+  %407 = call i32 %404(ptr noundef %406) #27
+  %408 = icmp eq i32 %407, 1
+  br i1 %408, label %421, label %409
+
+409:                                              ; preds = %405
+  %410 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7575)
+  %411 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %412 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %411)
+  %413 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1033, ptr noundef nonnull @.str.5)
+  %414 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %415 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %414)
+  %416 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %407, i32 noundef 1)
+  %417 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %418 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %417)
+  %419 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %420 = call i32 @fflush(ptr noundef %419)
+  br label %440
+
+421:                                              ; preds = %405, %402
+  %422 = getelementptr inbounds nuw i8, ptr %7, i64 104
+  %423 = load ptr, ptr %422, align 8, !tbaa !41
+  %.not327.i.not = icmp eq ptr %423, null
+  br i1 %.not327.i.not, label %452, label %424
+
+424:                                              ; preds = %421
+  %425 = load ptr, ptr %206, align 8, !tbaa !32
+  %426 = call i32 %423(ptr noundef %425) #27
+  %427 = icmp eq i32 %426, 1
+  br i1 %427, label %452, label %428
+
+428:                                              ; preds = %424
+  %429 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7578)
+  %430 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %431 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %430)
+  %432 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1034, ptr noundef nonnull @.str.5)
+  %433 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %434 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %433)
+  %435 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %426, i32 noundef 1)
+  %436 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %437 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %436)
+  %438 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %439 = call i32 @fflush(ptr noundef %438)
+  br label %440
+
+440:                                              ; preds = %.thread279, %.thread355.i, %409, %428
+  %.ph282 = phi i32 [ %.9353.i, %.thread279 ], [ 0, %.thread355.i ], [ 0, %409 ], [ 0, %428 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #27
-  %439 = icmp eq i32 %.12.i240, 1
-  br i1 %439, label %._crit_edge287.thread323, label %440
+  %441 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7677)
+  %442 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %443 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %442)
+  %444 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5)
+  %445 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %446 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %445)
+  %447 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.ph282, i32 noundef 1)
+  %448 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %449 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %448)
+  %450 = load ptr, ptr @stdout, align 8, !tbaa !22
+  %451 = call i32 @fflush(ptr noundef %450)
+  br label %._crit_edge288.thread316
 
-440:                                              ; preds = %test_ssl_memio_read_write.exit, %test_ssl_memio_read_write.exit.thread281
-  %441 = phi i32 [ %.ph280, %test_ssl_memio_read_write.exit.thread281 ], [ %.12.i240, %test_ssl_memio_read_write.exit ]
-  %442 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull @.str.1, i32 noundef 7677)
-  %443 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %444 = call i64 @fwrite(ptr nonnull @.str.2, i64 15, i64 1, ptr %443)
-  %445 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5)
-  %446 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %447 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %446)
-  %448 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %441, i32 noundef 1)
-  %449 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %450 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %449)
-  %451 = load ptr, ptr @stdout, align 8, !tbaa !22
-  %452 = call i32 @fflush(ptr noundef %451)
-  br label %._crit_edge287.thread323
+452:                                              ; preds = %424, %421
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #27
+  br label %._crit_edge288.thread316
 
-._crit_edge287.thread323:                         ; preds = %test_ssl_memio_read_write.exit, %test_ssl_memio_read_write.exit.thread, %271, %218, %213, %230, %._crit_edge287.thread313, %440, %.thread274, %._crit_edge287
-  %.11 = phi i32 [ %.6, %._crit_edge287 ], [ 0, %.thread274 ], [ 0, %440 ], [ 0, %._crit_edge287.thread313 ], [ -1000, %230 ], [ -1000, %213 ], [ -1000, %218 ], [ 0, %271 ], [ 1, %test_ssl_memio_read_write.exit.thread ], [ 1, %test_ssl_memio_read_write.exit ]
+._crit_edge288.thread316:                         ; preds = %271, %218, %213, %230, %._crit_edge288.thread308, %440, %452, %.thread272, %._crit_edge288
+  %.11 = phi i32 [ %.6, %._crit_edge288 ], [ 0, %.thread272 ], [ 0, %440 ], [ 1, %452 ], [ 0, %._crit_edge288.thread308 ], [ -1000, %230 ], [ -1000, %213 ], [ -1000, %218 ], [ 0, %271 ]
   %453 = load ptr, ptr %176, align 8, !tbaa !30
   %454 = call i32 @wolfSSL_get_error(ptr noundef %453, i32 noundef 0) #27
   %455 = getelementptr inbounds nuw i8, ptr %7, i64 296
@@ -3141,15 +3125,15 @@ test_ssl_memio_read_write.exit:                   ; preds = %.thread360.i
   store i32 %457, ptr %458, align 8, !tbaa !43
   %459 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %460 = load ptr, ptr %459, align 8, !tbaa !44
-  %.not.i243 = icmp eq ptr %460, null
-  br i1 %.not.i243, label %464, label %461
+  %.not.i241 = icmp eq ptr %460, null
+  br i1 %.not.i241, label %464, label %461
 
-461:                                              ; preds = %._crit_edge287.thread323
+461:                                              ; preds = %._crit_edge288.thread316
   %462 = load ptr, ptr %176, align 8, !tbaa !30
   %463 = call i32 %460(ptr noundef %462) #27
   br label %464
 
-464:                                              ; preds = %461, %._crit_edge287.thread323
+464:                                              ; preds = %461, %._crit_edge288.thread316
   %465 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %466 = load ptr, ptr %465, align 8, !tbaa !45
   %.not30.i = icmp eq ptr %466, null

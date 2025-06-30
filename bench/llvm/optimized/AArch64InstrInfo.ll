@@ -29839,7 +29839,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit95:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL16genFusedMultiplyRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EEjjPKNS_19TargetRegisterClassE11FMAInstKindPKNS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(1065) %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef range(i32 1, 3) %5, i32 noundef range(i32 3144, 5259) %6, ptr noundef %7, i32 noundef range(i32 0, 3) %8, ptr noundef readonly captures(address_is_null) %9) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL16genFusedMultiplyRN4llvm15MachineFunctionERNS_19MachineRegisterInfoEPKNS_15TargetInstrInfoERNS_12MachineInstrERNS_15SmallVectorImplIPS7_EEjjPKNS_19TargetRegisterClassE11FMAInstKindPKNS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(1065) %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef range(i32 1, 3) %5, i32 noundef %6, ptr noundef %7, i32 noundef range(i32 0, 3) %8, ptr noundef readonly captures(address_is_null) %9) unnamed_addr #2 {
   %11 = alloca %"class.llvm::MachineOperand", align 8
   %12 = alloca %"class.llvm::MachineOperand", align 8
   %13 = alloca %"class.llvm::MachineOperand", align 8
@@ -30007,7 +30007,7 @@ _ZN4llvm10MIMetadataC2ERKNS_12MachineInstrE.exit: ; preds = %_ZN4llvm8DebugLocC2
   store ptr null, ptr %118, align 8, !tbaa !319
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !26
-  %121 = zext nneg i32 %6 to i64
+  %121 = zext i32 %6 to i64
   %122 = sub nsw i64 0, %121
   %123 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %120, i64 %122
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
@@ -30161,7 +30161,7 @@ _ZN4llvm10MIMetadataC2ERKNS_12MachineInstrE.exit87: ; preds = %_ZN4llvm8DebugLoc
   store ptr null, ptr %182, align 8, !tbaa !319
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %184 = load ptr, ptr %183, align 8, !tbaa !26
-  %185 = zext nneg i32 %6 to i64
+  %185 = zext i32 %6 to i64
   %186 = sub nsw i64 0, %185
   %187 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %184, i64 %186
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
@@ -30326,7 +30326,7 @@ _ZN4llvm10MIMetadataC2ERKNS_12MachineInstrE.exit117: ; preds = %_ZN4llvm8DebugLo
   store ptr null, ptr %251, align 8, !tbaa !319
   %252 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %253 = load ptr, ptr %252, align 8, !tbaa !26
-  %254 = zext nneg i32 %6 to i64
+  %254 = zext i32 %6 to i64
   %255 = sub nsw i64 0, %254
   %256 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %253, i64 %255
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)

@@ -3188,8 +3188,8 @@ _ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_E
   %.01880 = phi i32 [ %.220.ph, %.critedge.thread ], [ %.018106, %.critedge ]
   %.01472 = phi i32 [ %.216.ph, %.critedge.thread ], [ %.014107, %.critedge ]
   %97 = mul nsw i32 %.01472, 3
-  %98 = add nsw i32 %.01880, 1
-  %99 = add nsw i32 %98, %97
+  %98 = add i32 %.01880, 1
+  %99 = add i32 %98, %97
   store i32 %99, ptr %11, align 4, !tbaa !142
   br label %100
 

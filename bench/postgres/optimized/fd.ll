@@ -1410,7 +1410,7 @@ define dso_local i32 @PathNameOpenFilePerm(ptr noundef readonly captures(none) %
 
 25:                                               ; preds = %15
   store ptr %19, ptr @VfdCache, align 8
-  %26 = trunc i64 %16 to i32
+  %26 = trunc nuw i64 %16 to i32
   %27 = and i64 %16, 4294967295
   %28 = icmp ugt i64 %spec.store.select.i, %27
   br i1 %28, label %.lr.ph.i, label %._crit_edge.i

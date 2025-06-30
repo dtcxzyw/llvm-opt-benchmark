@@ -5157,7 +5157,7 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
 _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.thread.i.i: ; preds = %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i, %._ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.thread.i_crit_edge.i
   %1293 = phi ptr [ %.pre459.i, %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i ], [ %.pre458.i, %._ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.thread.i_crit_edge.i ]
   %1294 = phi ptr [ %1277, %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i ], [ %.pre457.i, %._ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.thread.i_crit_edge.i ]
-  %.sroa.01.0.insert.ext2.i.i = zext i32 %.1.i to i64
+  %.sroa.01.0.insert.ext2.i.i = zext nneg i32 %.1.i to i64
   %.not.i.i.i217.i = icmp eq ptr %1294, %1293
   br i1 %.not.i.i.i217.i, label %1299, label %1295
 
@@ -5470,7 +5470,7 @@ _ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_
   br label %.loopexit.i
 
 1413:                                             ; preds = %_ZNK5Yosys7hashlib4dictIiN12_GLOBAL__N_115ExtractFaWorker16func3_maj_info_tENS0_8hash_opsIiEEE7do_hashERKi.exit.thread.i.i
-  %.sroa.01.0.insert.ext.i.i = zext i32 %.1.i to i64
+  %.sroa.01.0.insert.ext.i.i = zext nneg i32 %.1.i to i64
   %.not.i17.i.i.i = icmp eq ptr %1277, %.pre459.i
   br i1 %.not.i17.i.i.i, label %1418, label %1414
 
@@ -80541,7 +80541,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_Z
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i, %161
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #26
-  %166 = add nsw i32 %.066.lcssa, %.068184
+  %166 = add nuw nsw i32 %.066.lcssa, %.068184
   br i1 %.not228, label %._crit_edge181, label %.lr.ph180.preheader
 
 .lr.ph180.preheader:                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
@@ -80715,7 +80715,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i118: ; preds = 
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit120:              ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i118, %225
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15) #26
-  %230 = add nsw i32 %.063.lcssa, %166
+  %230 = add nuw nsw i32 %.063.lcssa, %166
   %231 = or i32 %.066.lcssa, %.063.lcssa
   %or.cond.not = icmp eq i32 %231, 0
   br i1 %or.cond.not, label %_ZNSt6vectorIN5Yosys4Macc6port_tESaIS2_EE9push_backERKS2_.exit, label %232

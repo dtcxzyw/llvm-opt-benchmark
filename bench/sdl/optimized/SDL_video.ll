@@ -304,7 +304,7 @@ define hidden zeroext i1 @SDL_UninitializedVideo() local_unnamed_addr #0 {
 declare zeroext i1 @SDL_SetError_REAL(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @SDL_GetNumVideoDrivers_REAL() local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @SDL_GetNumVideoDrivers_REAL() local_unnamed_addr #0 {
   %1 = load i32, ptr @SDL_GetNumVideoDrivers_REAL.num_drivers, align 4
   %2 = icmp sgt i32 %1, -1
   br i1 %2, label %22, label %3

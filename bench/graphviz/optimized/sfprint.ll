@@ -230,14 +230,14 @@ define i32 @sfprint(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed
   br label %.backedge.backedge
 
 82:                                               ; preds = %.backedge
-  %83 = shl i32 %.01069, 3
+  %83 = shl nuw nsw i32 %.01069, 3
   %84 = and i32 %83, 512
   %85 = xor i32 %84, 512
   %spec.select = or i32 %85, %.01069
   br label %.backedge.backedge
 
 86:                                               ; preds = %.backedge
-  %87 = shl i32 %.01069, 1
+  %87 = shl nuw nsw i32 %.01069, 1
   %88 = and i32 %87, 256
   %89 = xor i32 %88, 256
   %spec.select1278 = or i32 %89, %.01069

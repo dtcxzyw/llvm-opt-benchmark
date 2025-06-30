@@ -7469,7 +7469,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9
   %.0133.i = phi i64 [ %.127, %.lr.ph.i ], [ %.04.i, %64 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %52 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.04.i
+  %52 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.04.i
   %.sroa.01.0.copyload.i.i = load i64, ptr %52, align 8, !tbaa !42
   %53 = and i64 %.sroa.01.0.copyload.i.i, -8
   %54 = inttoptr i64 %53 to ptr
@@ -7493,7 +7493,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9
 "_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit": ; preds = %51, %64, %43
   %.013.lcssa.i = phi i64 [ %.127, %43 ], [ %.0133.i, %51 ], [ %.04.i, %64 ]
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %67 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.013.lcssa.i
+  %67 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.013.lcssa.i
   store i64 %.sroa.031.0.copyload, ptr %67, align 8, !tbaa !42
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i64 16, i1 false)

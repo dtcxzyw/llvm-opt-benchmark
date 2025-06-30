@@ -430,8 +430,8 @@ _ZN2cvL24createSourceHuffmanTableEPKhPiii.exit:   ; preds = %._crit_edge.i
   %.156.lcssa.i = phi i32 [ %.05569.i, %.lr.ph72.i ], [ %.257.i, %.loopexit.loopexit.i ]
   %.153.lcssa.i = phi i32 [ %.05270.i, %.lr.ph72.i ], [ %spec.select.i, %.loopexit.loopexit.i ]
   %.149.lcssa.i = phi i32 [ %126, %.lr.ph72.i ], [ %120, %.loopexit.loopexit.i ]
-  %121 = sext i32 %.149.lcssa.i to i64
-  %122 = getelementptr inbounds i32, ptr %13, i64 %121
+  %121 = zext nneg i32 %.149.lcssa.i to i64
+  %122 = getelementptr inbounds nuw i32, ptr %13, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !49
   %124 = icmp sgt i32 %123, -1
   br i1 %124, label %.lr.ph72.i, label %._crit_edge.i133, !llvm.loop !56
@@ -446,7 +446,7 @@ _ZN2cvL24createSourceHuffmanTableEPKhPiii.exit:   ; preds = %._crit_edge.i
   br i1 %.not.i136, label %.loopexit.i, label %.lr.ph.preheader.i137
 
 .lr.ph.preheader.i137:                            ; preds = %.lr.ph72.i
-  %127 = add nsw i32 %126, %125
+  %127 = add nuw nsw i32 %126, %125
   %128 = sext i32 %126 to i64
   %129 = sext i32 %127 to i64
   %130 = add nsw i64 %128, 1
@@ -537,7 +537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br i1 %.not90.i, label %._crit_edge78.i, label %.lr.ph77.preheader.i
 
 .lr.ph77.preheader.i:                             ; preds = %151
-  %154 = add nsw i32 %153, %152
+  %154 = add nuw nsw i32 %153, %152
   %155 = sext i32 %153 to i64
   %156 = sext i32 %154 to i64
   br label %.lr.ph77.i
@@ -565,8 +565,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 ._crit_edge78.i:                                  ; preds = %._crit_edge78.loopexit.i, %151
   %.3.lcssa.i = phi i32 [ %153, %151 ], [ %166, %._crit_edge78.loopexit.i ]
   %167 = add nuw nsw i32 %.181.i, 1
-  %168 = sext i32 %.3.lcssa.i to i64
-  %169 = getelementptr inbounds i32, ptr %13, i64 %168
+  %168 = zext nneg i32 %.3.lcssa.i to i64
+  %169 = getelementptr inbounds nuw i32, ptr %13, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !49
   %171 = icmp sgt i32 %170, -1
   br i1 %171, label %151, label %_ZN2cvL24createEncodeHuffmanTableEPKiPji.exit, !llvm.loop !59

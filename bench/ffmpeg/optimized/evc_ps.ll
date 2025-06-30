@@ -182,7 +182,7 @@ get_ue_golomb.exit:                               ; preds = %26, %16
   %127 = sub nsw i32 0, %..i228
   %128 = sub nsw i32 %47, %..i228
   %129 = icmp slt i32 %126, %127
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %126, i32 %128)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %126, i32 %128)
   %.0.i.i.i = select i1 %129, i32 %127, i32 %..i.i.i
   %130 = add nsw i32 %.0.i.i.i, %..i228
   store i32 %130, ptr %3, align 8, !tbaa !4
@@ -273,7 +273,7 @@ get_ue_golomb_long.exit:                          ; preds = %98, %140, %144
   %192 = sub nsw i32 0, %.sroa.46.0.copyload.i.i238
   %193 = sub nsw i32 %47, %.sroa.46.0.copyload.i.i238
   %194 = icmp slt i32 %191, %192
-  %..i.i.i247 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %191, i32 %193)
+  %..i.i.i247 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %191, i32 %193)
   %.0.i.i.i248 = select i1 %194, i32 %192, i32 %..i.i.i247
   %195 = add nsw i32 %.0.i.i.i248, %.sroa.46.0.copyload.i.i238
   store i32 %195, ptr %3, align 8, !tbaa !4
@@ -422,7 +422,7 @@ get_ue_golomb_long.exit252:                       ; preds = %get_ue_golomb_long.
   %304 = sub nsw i32 0, %spec.select.i
   %305 = sub nsw i32 %47, %spec.select.i
   %306 = icmp slt i32 %303, %304
-  %..i.i.i266 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %303, i32 %305)
+  %..i.i.i266 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %303, i32 %305)
   %.0.i.i.i267 = select i1 %306, i32 %304, i32 %..i.i.i266
   %307 = add nsw i32 %.0.i.i.i267, %spec.select.i
   store i32 %307, ptr %3, align 8, !tbaa !4
@@ -513,7 +513,7 @@ get_ue_golomb_long.exit271:                       ; preds = %275, %317, %321
   %369 = sub nsw i32 0, %.sroa.46.0.copyload.i.i274
   %370 = sub nsw i32 %47, %.sroa.46.0.copyload.i.i274
   %371 = icmp slt i32 %368, %369
-  %..i.i.i283 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %368, i32 %370)
+  %..i.i.i283 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %368, i32 %370)
   %.0.i.i.i284 = select i1 %371, i32 %369, i32 %..i.i.i283
   %372 = add nsw i32 %.0.i.i.i284, %.sroa.46.0.copyload.i.i274
   store i32 %372, ptr %3, align 8, !tbaa !4
@@ -604,7 +604,7 @@ get_ue_golomb_long.exit288:                       ; preds = %get_ue_golomb_long.
   %434 = sub nsw i32 0, %.sroa.46.0.copyload.i.i291
   %435 = sub nsw i32 %47, %.sroa.46.0.copyload.i.i291
   %436 = icmp slt i32 %433, %434
-  %..i.i.i300 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %433, i32 %435)
+  %..i.i.i300 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %433, i32 %435)
   %.0.i.i.i301 = select i1 %436, i32 %434, i32 %..i.i.i300
   %437 = add nsw i32 %.0.i.i.i301, %.sroa.46.0.copyload.i.i291
   store i32 %437, ptr %3, align 8, !tbaa !4
@@ -695,7 +695,7 @@ get_ue_golomb_long.exit305:                       ; preds = %get_ue_golomb_long.
   %499 = sub nsw i32 0, %.sroa.46.0.copyload.i.i308
   %500 = sub nsw i32 %47, %.sroa.46.0.copyload.i.i308
   %501 = icmp slt i32 %498, %499
-  %..i.i.i317 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %498, i32 %500)
+  %..i.i.i317 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %498, i32 %500)
   %.0.i.i.i318 = select i1 %501, i32 %499, i32 %..i.i.i317
   %502 = add nsw i32 %.0.i.i.i318, %.sroa.46.0.copyload.i.i308
   store i32 %502, ptr %3, align 8, !tbaa !4
@@ -786,7 +786,7 @@ get_ue_golomb_long.exit322:                       ; preds = %get_ue_golomb_long.
   %564 = sub nsw i32 0, %.sroa.46.0.copyload.i.i325
   %565 = sub nsw i32 %47, %.sroa.46.0.copyload.i.i325
   %566 = icmp slt i32 %563, %564
-  %..i.i.i334 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %563, i32 %565)
+  %..i.i.i334 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %563, i32 %565)
   %.0.i.i.i335 = select i1 %566, i32 %564, i32 %..i.i.i334
   %567 = add nsw i32 %.0.i.i.i335, %.sroa.46.0.copyload.i.i325
   store i32 %567, ptr %3, align 8, !tbaa !4
@@ -901,7 +901,7 @@ get_ue_golomb_long.exit339:                       ; preds = %get_ue_golomb_long.
   %646 = sub nsw i32 0, %spec.select.i340
   %647 = sub nsw i32 %47, %spec.select.i340
   %648 = icmp slt i32 %645, %646
-  %..i.i.i352 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %645, i32 %647)
+  %..i.i.i352 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %645, i32 %647)
   %.0.i.i.i353 = select i1 %648, i32 %646, i32 %..i.i.i352
   %649 = add nsw i32 %.0.i.i.i353, %spec.select.i340
   store i32 %649, ptr %3, align 8, !tbaa !4
@@ -992,7 +992,7 @@ get_ue_golomb_long.exit357:                       ; preds = %617, %659, %663
   %711 = sub nsw i32 0, %.sroa.46.0.copyload.i.i360
   %712 = sub nsw i32 %47, %.sroa.46.0.copyload.i.i360
   %713 = icmp slt i32 %710, %711
-  %..i.i.i369 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %710, i32 %712)
+  %..i.i.i369 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %710, i32 %712)
   %.0.i.i.i370 = select i1 %713, i32 %711, i32 %..i.i.i369
   %714 = add nsw i32 %.0.i.i.i370, %.sroa.46.0.copyload.i.i360
   store i32 %714, ptr %3, align 8, !tbaa !4
@@ -1648,7 +1648,7 @@ get_ue_golomb.exit429:                            ; preds = %1091, %1081
   %1159 = sub nsw i32 0, %.sroa.46.0.copyload.i.i433
   %1160 = sub nsw i32 %.sroa.77.0.copyload.i.i435, %.sroa.46.0.copyload.i.i433
   %1161 = icmp slt i32 %1158, %1159
-  %..i.i.i442 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %1158, i32 %1160)
+  %..i.i.i442 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %1158, i32 %1160)
   %.0.i.i.i443 = select i1 %1161, i32 %1159, i32 %..i.i.i442
   %1162 = add nsw i32 %.0.i.i.i443, %.sroa.46.0.copyload.i.i433
   store i32 %1162, ptr %3, align 8, !tbaa !4
@@ -2091,7 +2091,7 @@ get_ue_golomb.exit477:                            ; preds = %1362, %1372
   %1436 = sub nsw i32 0, %1405
   %1437 = sub nsw i32 %.pre576, %1405
   %1438 = icmp slt i32 %1435, %1436
-  %..i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %1435, i32 %1437)
+  %..i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %1435, i32 %1437)
   %.0.i.i.i.i = select i1 %1438, i32 %1436, i32 %..i.i.i.i
   %1439 = add nsw i32 %.0.i.i.i.i, %1405
   store i32 %1439, ptr %3, align 8, !tbaa !4
@@ -2314,7 +2314,7 @@ define internal fastcc i32 @get_ue_golomb_long(ptr noundef captures(none) %0) un
   %30 = sub nsw i32 0, %.sroa.46.0.copyload.i
   %31 = sub nsw i32 %.sroa.77.0.copyload.i, %.sroa.46.0.copyload.i
   %32 = icmp slt i32 %29, %30
-  %..i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %29, i32 %31)
+  %..i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %29, i32 %31)
   %.0.i.i = select i1 %32, i32 %30, i32 %..i.i
   %33 = add nsw i32 %.0.i.i, %.sroa.46.0.copyload.i
   store i32 %33, ptr %.sroa.46.0..sroa_idx.i, align 8, !tbaa !4
@@ -2412,7 +2412,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ref_pic_list_struct(ptr no
   %32 = sub nsw i32 0, %.sroa.46.0.copyload.i.i
   %33 = sub nsw i32 %.sroa.77.0.copyload.i.i, %.sroa.46.0.copyload.i.i
   %34 = icmp slt i32 %31, %32
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %31, i32 %33)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %31, i32 %33)
   %.0.i.i.i = select i1 %34, i32 %32, i32 %..i.i.i
   %35 = add nsw i32 %.0.i.i.i, %.sroa.46.0.copyload.i.i
   store i32 %35, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !4
@@ -2513,7 +2513,7 @@ get_ue_golomb_long.exit:                          ; preds = %3, %45, %49
   %101 = sub nsw i32 0, %.sroa.46.0.copyload.i.i31
   %102 = sub nsw i32 %.sroa.77.0.copyload.i.i33, %.sroa.46.0.copyload.i.i31
   %103 = icmp slt i32 %100, %101
-  %..i.i.i40 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %100, i32 %102)
+  %..i.i.i40 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %100, i32 %102)
   %.0.i.i.i41 = select i1 %103, i32 %101, i32 %..i.i.i40
   %104 = add nsw i32 %.0.i.i.i41, %.sroa.46.0.copyload.i.i31
   store i32 %104, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !4
@@ -2648,7 +2648,7 @@ get_ue_golomb_long.exit45:                        ; preds = %115, %119
   %188 = sub nsw i32 0, %.sroa.46.0.copyload.i.i48
   %189 = sub nsw i32 %.sroa.77.0.copyload.i.i50, %.sroa.46.0.copyload.i.i48
   %190 = icmp slt i32 %187, %188
-  %..i.i.i57 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %187, i32 %189)
+  %..i.i.i57 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %187, i32 %189)
   %.0.i.i.i58 = select i1 %190, i32 %188, i32 %..i.i.i57
   %191 = add nsw i32 %.0.i.i.i58, %.sroa.46.0.copyload.i.i48
   store i32 %191, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !4
@@ -3391,7 +3391,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vui_parameters(ptr noundef
   %505 = sub nsw i32 0, %..i104
   %506 = sub nsw i32 %374, %..i104
   %507 = icmp slt i32 %504, %505
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %504, i32 %506)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %504, i32 %506)
   %.0.i.i.i = select i1 %507, i32 %505, i32 %..i.i.i
   %508 = add nsw i32 %.0.i.i.i, %..i104
   store i32 %508, ptr %3, align 8, !tbaa !4
@@ -3483,7 +3483,7 @@ get_ue_golomb_long.exit:                          ; preds = %400, %518, %522
   %570 = sub nsw i32 0, %.sroa.46.0.copyload.i.i107
   %571 = sub nsw i32 %.sroa.77.0.copyload.i.i109, %.sroa.46.0.copyload.i.i107
   %572 = icmp slt i32 %569, %570
-  %..i.i.i116 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %569, i32 %571)
+  %..i.i.i116 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %569, i32 %571)
   %.0.i.i.i117 = select i1 %572, i32 %570, i32 %..i.i.i116
   %573 = add nsw i32 %.0.i.i.i117, %.sroa.46.0.copyload.i.i107
   store i32 %573, ptr %3, align 8, !tbaa !4
@@ -4728,7 +4728,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @hrd_parameters(ptr noundef
   %132 = sub nsw i32 0, %.sroa.46.0.copyload.i.i
   %133 = sub nsw i32 %.sroa.77.0.copyload.i.i, %.sroa.46.0.copyload.i.i
   %134 = icmp slt i32 %131, %132
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %131, i32 %133)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %131, i32 %133)
   %.0.i.i.i = select i1 %134, i32 %132, i32 %..i.i.i
   %135 = add nsw i32 %.0.i.i.i, %.sroa.46.0.copyload.i.i
   store i32 %135, ptr %3, align 8, !tbaa !4
@@ -4820,7 +4820,7 @@ get_ue_golomb_long.exit:                          ; preds = %103, %145, %149
   %197 = sub nsw i32 0, %.sroa.46.0.copyload.i.i30
   %198 = sub nsw i32 %.sroa.77.0.copyload.i.i32, %.sroa.46.0.copyload.i.i30
   %199 = icmp slt i32 %196, %197
-  %..i.i.i39 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %196, i32 %198)
+  %..i.i.i39 = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 33) %196, i32 %198)
   %.0.i.i.i40 = select i1 %199, i32 %197, i32 %..i.i.i39
   %200 = add nsw i32 %.0.i.i.i40, %.sroa.46.0.copyload.i.i30
   store i32 %200, ptr %3, align 8, !tbaa !4

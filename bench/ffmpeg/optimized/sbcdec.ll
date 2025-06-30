@@ -58,7 +58,7 @@ define internal noundef i32 @sbc_decode_init(ptr noundef captures(none) initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 536870912) i32 @sbc_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal i32 @sbc_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca [11 x i8], align 1
   %6 = alloca [2 x [8 x i32]], align 16
   %7 = alloca [2 x [8 x i32]], align 16

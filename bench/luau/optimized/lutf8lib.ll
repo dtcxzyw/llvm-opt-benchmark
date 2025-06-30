@@ -355,7 +355,7 @@ define internal noundef i32 @_ZL7utfcharP9lua_State(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
   %4 = tail call noundef i32 @_Z10lua_gettopP9lua_State(ptr noundef %0)
   %5 = icmp eq i32 %4, 1
-  br i1 %5, label %6, label %33
+  br i1 %5, label %6, label %34
 
 6:                                                ; preds = %1
   %7 = tail call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef 1)
@@ -389,104 +389,106 @@ define internal noundef i32 @_ZL7utfcharP9lua_State(ptr noundef %0) #0 {
   br i1 %20, label %.preheader.i.i, label %21, !llvm.loop !19
 
 21:                                               ; preds = %.preheader.i.i
-  %22 = xor i32 %18, -1
-  %23 = shl nsw i32 %22, 1
-  %24 = zext i32 %23 to i64
-  %25 = or i64 %17, %24
-  %26 = shl i64 %indvars.iv.i.i, 32
-  %sext.i.i = sub i64 30064771072, %26
-  %27 = ashr exact i64 %sext.i.i, 32
-  %sext25 = shl i64 %indvars.iv.next.i.i, 32
-  %28 = ashr exact i64 %sext25, 32
+  %22 = trunc nsw i64 %indvars.iv.next.i.i to i32
+  %23 = xor i32 %18, -1
+  %24 = shl nsw i32 %23, 1
+  %25 = zext i32 %24 to i64
+  %26 = or i64 %17, %25
+  %27 = shl i64 %indvars.iv.i.i, 32
+  %sext.i.i = sub i64 30064771072, %27
+  %28 = ashr exact i64 %sext.i.i, 32
   br label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit
 
 _ZL11buffutfcharP9lua_StateiPcPPKc.exit:          ; preds = %9, %21
-  %.sink26.i.i = phi i64 [ %27, %21 ], [ 7, %9 ]
-  %.sink.in.i.i = phi i64 [ %25, %21 ], [ %10, %9 ]
-  %.014.i.i = phi i64 [ %28, %21 ], [ 1, %9 ]
+  %.sink26.i.i = phi i64 [ %28, %21 ], [ 7, %9 ]
+  %.sink.in.i.i = phi i64 [ %26, %21 ], [ %10, %9 ]
+  %.014.i.i = phi i32 [ %22, %21 ], [ 1, %9 ]
   %.sink.i.i = trunc i64 %.sink.in.i.i to i8
   %29 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i
   store i8 %.sink.i.i, ptr %29, align 1, !tbaa !8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = sub nsw i64 0, %.014.i.i
+  %narrow.i = sub nsw i32 0, %.014.i.i
+  %31 = sext i32 %narrow.i to i64
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
-  call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %32, i64 noundef %.014.i.i)
-  br label %62
+  %33 = sext i32 %.014.i.i to i64
+  call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %32, i64 noundef %33)
+  br label %64
 
-33:                                               ; preds = %1
+34:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 544, ptr nonnull %3) #4
   call void @_Z13luaL_buffinitP9lua_StateP11luaL_Strbuf(ptr noundef %0, ptr noundef nonnull %3)
   %.not30 = icmp slt i32 %4, 1
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %33
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %35
+.lr.ph:                                           ; preds = %34
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %36
 
-._crit_edge:                                      ; preds = %_ZL11buffutfcharP9lua_StateiPcPPKc.exit23, %33
+._crit_edge:                                      ; preds = %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24, %34
   call void @_Z15luaL_pushresultP11luaL_Strbuf(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 544, ptr nonnull %3) #4
-  br label %62
+  br label %64
 
-35:                                               ; preds = %.lr.ph, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit23
-  %.031 = phi i32 [ 1, %.lr.ph ], [ %61, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit23 ]
-  %36 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef %.031)
-  %or.cond.i12 = icmp ult i32 %36, 1114112
-  br i1 %or.cond.i12, label %38, label %37
+36:                                               ; preds = %.lr.ph, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24
+  %.031 = phi i32 [ 1, %.lr.ph ], [ %63, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24 ]
+  %37 = call noundef i32 @_Z17luaL_checkintegerP9lua_Statei(ptr noundef %0, i32 noundef %.031)
+  %or.cond.i12 = icmp ult i32 %37, 1114112
+  br i1 %or.cond.i12, label %39, label %38
 
-37:                                               ; preds = %35
+38:                                               ; preds = %36
   call void @_Z14luaL_argerrorLP9lua_StateiPKc(ptr noundef %0, i32 noundef %.031, ptr noundef nonnull @.str.13) #5
   unreachable
 
-38:                                               ; preds = %35
-  %39 = zext nneg i32 %36 to i64
-  %40 = icmp samesign ult i32 %36, 128
-  br i1 %40, label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit23, label %.preheader.i.i13
+39:                                               ; preds = %36
+  %40 = zext nneg i32 %37 to i64
+  %41 = icmp samesign ult i32 %37, 128
+  br i1 %41, label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24, label %.preheader.i.i13
 
-.preheader.i.i13:                                 ; preds = %38, %.preheader.i.i13
-  %indvars.iv.i.i14 = phi i64 [ %indvars.iv.next.i.i17, %.preheader.i.i13 ], [ 1, %38 ]
-  %.015.i.i15 = phi i64 [ %46, %.preheader.i.i13 ], [ %39, %38 ]
-  %.0.i.i16 = phi i32 [ %47, %.preheader.i.i13 ], [ 63, %38 ]
-  %41 = trunc i64 %.015.i.i15 to i8
-  %42 = and i8 %41, 63
-  %43 = or disjoint i8 %42, -128
+.preheader.i.i13:                                 ; preds = %39, %.preheader.i.i13
+  %indvars.iv.i.i14 = phi i64 [ %indvars.iv.next.i.i17, %.preheader.i.i13 ], [ 1, %39 ]
+  %.015.i.i15 = phi i64 [ %47, %.preheader.i.i13 ], [ %40, %39 ]
+  %.0.i.i16 = phi i32 [ %48, %.preheader.i.i13 ], [ 63, %39 ]
+  %42 = trunc i64 %.015.i.i15 to i8
+  %43 = and i8 %42, 63
+  %44 = or disjoint i8 %43, -128
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i14, 1
-  %44 = sub nsw i64 8, %indvars.iv.i.i14
-  %45 = getelementptr inbounds i8, ptr %2, i64 %44
-  store i8 %43, ptr %45, align 1, !tbaa !8
-  %46 = lshr i64 %.015.i.i15, 6
-  %47 = lshr i32 %.0.i.i16, 1
-  %48 = zext nneg i32 %47 to i64
-  %49 = icmp samesign ugt i64 %46, %48
-  br i1 %49, label %.preheader.i.i13, label %50, !llvm.loop !19
+  %45 = sub nsw i64 8, %indvars.iv.i.i14
+  %46 = getelementptr inbounds i8, ptr %2, i64 %45
+  store i8 %44, ptr %46, align 1, !tbaa !8
+  %47 = lshr i64 %.015.i.i15, 6
+  %48 = lshr i32 %.0.i.i16, 1
+  %49 = zext nneg i32 %48 to i64
+  %50 = icmp samesign ugt i64 %47, %49
+  br i1 %50, label %.preheader.i.i13, label %51, !llvm.loop !19
 
-50:                                               ; preds = %.preheader.i.i13
-  %51 = xor i32 %47, -1
-  %52 = shl nsw i32 %51, 1
-  %53 = zext i32 %52 to i64
-  %54 = or i64 %46, %53
-  %55 = shl i64 %indvars.iv.i.i14, 32
-  %sext.i.i18 = sub i64 30064771072, %55
-  %56 = ashr exact i64 %sext.i.i18, 32
-  %sext = shl i64 %indvars.iv.next.i.i17, 32
-  %57 = ashr exact i64 %sext, 32
-  br label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit23
+51:                                               ; preds = %.preheader.i.i13
+  %52 = trunc nsw i64 %indvars.iv.next.i.i17 to i32
+  %53 = xor i32 %48, -1
+  %54 = shl nsw i32 %53, 1
+  %55 = zext i32 %54 to i64
+  %56 = or i64 %47, %55
+  %57 = shl i64 %indvars.iv.i.i14, 32
+  %sext.i.i18 = sub i64 30064771072, %57
+  %58 = ashr exact i64 %sext.i.i18, 32
+  br label %_ZL11buffutfcharP9lua_StateiPcPPKc.exit24
 
-_ZL11buffutfcharP9lua_StateiPcPPKc.exit23:        ; preds = %38, %50
-  %.sink26.i.i19 = phi i64 [ %56, %50 ], [ 7, %38 ]
-  %.sink.in.i.i20 = phi i64 [ %54, %50 ], [ %39, %38 ]
-  %.014.i.i21 = phi i64 [ %57, %50 ], [ 1, %38 ]
+_ZL11buffutfcharP9lua_StateiPcPPKc.exit24:        ; preds = %39, %51
+  %.sink26.i.i19 = phi i64 [ %58, %51 ], [ 7, %39 ]
+  %.sink.in.i.i20 = phi i64 [ %56, %51 ], [ %40, %39 ]
+  %.014.i.i21 = phi i32 [ %52, %51 ], [ 1, %39 ]
   %.sink.i.i22 = trunc i64 %.sink.in.i.i20 to i8
-  %58 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i19
-  store i8 %.sink.i.i22, ptr %58, align 1, !tbaa !8
-  %59 = sub nsw i64 0, %.014.i.i21
-  %60 = getelementptr inbounds i8, ptr %34, i64 %59
-  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %3, ptr noundef nonnull %60, i64 noundef %.014.i.i21)
-  %61 = add nuw i32 %.031, 1
+  %59 = getelementptr inbounds i8, ptr %2, i64 %.sink26.i.i19
+  store i8 %.sink.i.i22, ptr %59, align 1, !tbaa !8
+  %narrow.i23 = sub nsw i32 0, %.014.i.i21
+  %60 = sext i32 %narrow.i23 to i64
+  %61 = getelementptr inbounds i8, ptr %35, i64 %60
+  %62 = sext i32 %.014.i.i21 to i64
+  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %3, ptr noundef nonnull %61, i64 noundef %62)
+  %63 = add nuw i32 %.031, 1
   %exitcond.not = icmp eq i32 %.031, %4
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !20
 
-62:                                               ; preds = %._crit_edge, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit
+64:                                               ; preds = %._crit_edge, %_ZL11buffutfcharP9lua_StateiPcPPKc.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #4
   ret i32 1
 }

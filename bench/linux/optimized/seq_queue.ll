@@ -368,7 +368,7 @@ define dso_local void @snd_seq_check_queue(ptr noundef %0, i32 noundef %1, i32 n
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %55, label %7
+  br i1 %6, label %54, label %7
 
 7:                                                ; preds = %3
   store i32 0, ptr %4, align 4, !annotation !13
@@ -383,7 +383,7 @@ define dso_local void @snd_seq_check_queue(ptr noundef %0, i32 noundef %1, i32 n
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 102
   store i8 1, ptr %14, align 2
-  br label %53
+  br label %52
 
 15:                                               ; preds = %7
   store i8 1, ptr %10, align 1
@@ -394,8 +394,8 @@ define dso_local void @snd_seq_check_queue(ptr noundef %0, i32 noundef %1, i32 n
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 102
   br label %20
 
-20:                                               ; preds = %51, %15
-  %21 = phi i32 [ 0, %15 ], [ %45, %51 ]
+20:                                               ; preds = %50, %15
+  %21 = phi i32 [ 0, %15 ], [ %44, %50 ]
   %22 = load ptr, ptr %16, align 8
   %23 = call i32 @snd_seq_timer_get_cur_tick(ptr noundef %22) #9
   store i32 %23, ptr %4, align 4
@@ -408,60 +408,60 @@ define dso_local void @snd_seq_check_queue(ptr noundef %0, i32 noundef %1, i32 n
   %26 = load ptr, ptr %17, align 8
   %27 = call ptr @snd_seq_prioq_cell_out(ptr noundef %26, ptr noundef nonnull %4) #9
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %33, label %29
+  br i1 %28, label %32, label %29
 
 29:                                               ; preds = %24
   %30 = call i32 @snd_seq_dispatch_event(ptr noundef nonnull %27, i32 noundef %1, i32 noundef %2) #9
   %31 = add i32 %25, 1
-  %32 = icmp sgt i32 %31, 999
-  br i1 %32, label %.loopexit, label %24, !llvm.loop !16
+  %exitcond = icmp eq i32 %31, 1000
+  br i1 %exitcond, label %.loopexit, label %24, !llvm.loop !16
 
-33:                                               ; preds = %24
-  %34 = load ptr, ptr %16, align 8
-  %35 = call i64 @snd_seq_timer_get_cur_time(ptr noundef %34, i1 noundef zeroext false) #9
-  store i64 %35, ptr %5, align 8
-  %smax = call i32 @llvm.smax.i32(i32 %indvars.iv, i32 1000)
-  br label %36
+32:                                               ; preds = %24
+  %33 = load ptr, ptr %16, align 8
+  %34 = call i64 @snd_seq_timer_get_cur_time(ptr noundef %33, i1 noundef zeroext false) #9
+  store i64 %34, ptr %5, align 8
+  %smax13 = call i32 @llvm.smax.i32(i32 %indvars.iv, i32 1000)
+  br label %35
 
-36:                                               ; preds = %41, %33
-  %37 = phi i32 [ %25, %33 ], [ %43, %41 ]
-  %38 = load ptr, ptr %18, align 8
-  %39 = call ptr @snd_seq_prioq_cell_out(ptr noundef %38, ptr noundef nonnull %5) #9
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %.loopexit, label %41
+35:                                               ; preds = %40, %32
+  %36 = phi i32 [ %25, %32 ], [ %42, %40 ]
+  %37 = load ptr, ptr %18, align 8
+  %38 = call ptr @snd_seq_prioq_cell_out(ptr noundef %37, ptr noundef nonnull %5) #9
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.loopexit, label %40
 
-41:                                               ; preds = %36
-  %42 = call i32 @snd_seq_dispatch_event(ptr noundef nonnull %39, i32 noundef %1, i32 noundef %2) #9
-  %43 = add i32 %37, 1
-  %44 = icmp sgt i32 %43, 999
-  br i1 %44, label %.loopexit, label %36, !llvm.loop !17
+40:                                               ; preds = %35
+  %41 = call i32 @snd_seq_dispatch_event(ptr noundef nonnull %38, i32 noundef %1, i32 noundef %2) #9
+  %42 = add i32 %36, 1
+  %43 = icmp sgt i32 %42, 999
+  br i1 %43, label %.loopexit, label %35, !llvm.loop !17
 
-.loopexit:                                        ; preds = %29, %41, %36
-  %45 = phi i32 [ %37, %36 ], [ %smax, %41 ], [ 1000, %29 ]
-  %46 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #9
-  %47 = load i8, ptr %19, align 2, !range !14, !noundef !15
-  %48 = icmp eq i8 %47, 0
-  br i1 %48, label %52, label %49
+.loopexit:                                        ; preds = %29, %40, %35
+  %44 = phi i32 [ %36, %35 ], [ %smax13, %40 ], [ 1000, %29 ]
+  %45 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %8) #9
+  %46 = load i8, ptr %19, align 2, !range !14, !noundef !15
+  %47 = icmp eq i8 %46, 0
+  br i1 %47, label %51, label %48
 
-49:                                               ; preds = %.loopexit
+48:                                               ; preds = %.loopexit
   store i8 0, ptr %19, align 2
-  %50 = icmp slt i32 %45, 1000
-  br i1 %50, label %51, label %52
+  %49 = icmp slt i32 %44, 1000
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %49
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %46) #9
+50:                                               ; preds = %48
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %45) #9
   br label %20
 
-52:                                               ; preds = %49, %.loopexit
+51:                                               ; preds = %48, %.loopexit
   store i8 0, ptr %10, align 1
-  br label %53
+  br label %52
 
-53:                                               ; preds = %52, %13
-  %54 = phi i64 [ %46, %52 ], [ %9, %13 ]
-  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %54) #9
-  br label %55
+52:                                               ; preds = %51, %13
+  %53 = phi i64 [ %45, %51 ], [ %9, %13 ]
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %8, i64 noundef %53) #9
+  br label %54
 
-55:                                               ; preds = %53, %3
+54:                                               ; preds = %52, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   ret void

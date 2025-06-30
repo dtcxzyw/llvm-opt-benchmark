@@ -3184,7 +3184,7 @@ _count_entries_operation.exit:                    ; preds = %.lr.ph.i90
   br i1 %.not.i96, label %.sink.split, label %.lr.ph.split.i
 
 88:                                               ; preds = %60
-  %89 = add nuw nsw i32 %.069136, 1
+  %89 = add nsw i32 %.069136, 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %86, %71, %.split.us.i, %62, %88
@@ -3214,7 +3214,7 @@ _count_entries_operation.exit:                    ; preds = %.lr.ph.i90
   %96 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #19
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = tail call i64 @g_strlcpy(ptr noundef nonnull %97, ptr noundef nonnull %23, i64 noundef 20) #15
-  %99 = add nuw nsw i32 %.2140, 1
+  %99 = add nsw i32 %.2140, 1
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 28
   store i32 %.2140, ptr %100, align 4, !tbaa !57
   store i32 0, ptr %96, align 8, !tbaa !59

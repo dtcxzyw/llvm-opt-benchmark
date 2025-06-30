@@ -875,7 +875,7 @@ mxf_parse_prores_frame.exit:                      ; preds = %230
   %375 = add nuw nsw i32 %.1.i.i.i, %374
   %376 = sub nsw i32 31, %375
   %377 = icmp samesign ugt i32 %375, 31
-  %..i.i.i.i = call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %376, i32 %356)
+  %..i.i.i.i = call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %376, i32 %356)
   %.0.i.i.i.i = select i1 %377, i32 0, i32 %..i.i.i.i
   %.not.i5.i.i = icmp eq i32 %375, 32
   br i1 %.not.i5.i.i, label %get_ue_golomb_long.exit.i, label %378

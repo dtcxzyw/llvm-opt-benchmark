@@ -1221,7 +1221,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   %353 = phi ptr [ %285, %_ZNSt6vectorIfSaIfEE7reserveEm.exit ], [ %66, %289 ], [ %348, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %354 = phi ptr [ %287, %_ZNSt6vectorIfSaIfEE7reserveEm.exit ], [ %67, %289 ], [ %349, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %.1245 = phi i32 [ %263, %_ZNSt6vectorIfSaIfEE7reserveEm.exit ], [ %.0244.ph, %289 ], [ %.0244.ph, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
-  %.1 = phi i8 [ 1, %_ZNSt6vectorIfSaIfEE7reserveEm.exit ], [ 0, %289 ], [ %.018.ph, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
+  %.1 = phi i8 [ 1, %_ZNSt6vectorIfSaIfEE7reserveEm.exit ], [ 0, %289 ], [ 1, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   br label %.outer, !llvm.loop !36
 
 355:                                              ; preds = %69

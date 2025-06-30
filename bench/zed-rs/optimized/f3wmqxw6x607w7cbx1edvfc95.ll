@@ -26024,7 +26024,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$async_tls..rusttls..stream..Stream$LT$IO$
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %8, label %9, label %10
 
-default.unreachable:                              ; preds = %.lr.ph
+default.unreachable22:                            ; preds = %.lr.ph
   unreachable
 
 9:                                                ; preds = %2
@@ -26054,7 +26054,7 @@ default.unreachable:                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN9async_tls7rusttls6stream16Stream$LT$IO$GT$17complete_inner_io17h41048d0f9fa1d044E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i8 noundef 2)
   %20 = load i64, ptr %3, align 8, !range !958, !noundef !4
-  switch i64 %20, label %default.unreachable [
+  switch i64 %20, label %default.unreachable22 [
     i64 2, label %.loopexit
     i64 0, label %22
     i64 1, label %23

@@ -31072,7 +31072,7 @@ define internal fastcc void @nk_font_bake(ptr noundef captures(none) %0, ptr nou
   br i1 %19, label %.lr.ph.preheader.i.i, label %20
 
 .lr.ph.preheader.i.i:                             ; preds = %15
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %18, i1 false), !tbaa !9
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 range(i64 -4611686016279904256, 4611686018427387905) %18, i1 false), !tbaa !9
   br label %nk_zero.exit
 
 20:                                               ; preds = %15

@@ -20146,7 +20146,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrR
   br i1 %34, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_117_SetTimeCodeRangeERKNS0_9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEddRKNS0_7TfTokenEE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i.thread"
 
 "_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_117_SetTimeCodeRangeERKNS0_9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEddRKNS0_7TfTokenEE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i.thread": ; preds = %33
-  %35 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.1.i.i.i.i
+  %35 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.1.i.i.i.i
   store double %.sroa.02.0.copyload15.i.i.i, ptr %35, align 8
   %.sroa.3.0..sroa_idx.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store double %.sroa.23.0.copyload17.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i19, align 8
@@ -20156,7 +20156,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrR
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %38 ], [ %.1.i.i.i.i, %33 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %36 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.04.i.i.i.i.i
+  %36 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load double, ptr %36, align 8
   %37 = fcmp olt double %.val.i.i.i.i.i, %.sroa.02.0.copyload15.i.i.i
   br i1 %37, label %38, label %"_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_117_SetTimeCodeRangeERKNS0_9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEddRKNS0_7TfTokenEE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i"
@@ -20169,7 +20169,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrR
 
 "_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_117_SetTimeCodeRangeERKNS0_9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEddRKNS0_7TfTokenEE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i": ; preds = %38, %.lr.ph.i.i.i.i.i
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %38 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  %41 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %41 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store double %.sroa.02.0.copyload15.i.i.i, ptr %41, align 8
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   store double %.sroa.23.0.copyload17.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8
@@ -20229,7 +20229,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrR
   %.0133.i.i31.i.i.i = phi i64 [ %.04.i.i33.i.i.i, %63 ], [ %.1.i27.i.i.i, %59 ]
   %.04.in.i.i32.i.i.i = add nsw i64 %.0133.i.i31.i.i.i, -1
   %.04.i.i33.i.i.i = sdiv i64 %.04.in.i.i32.i.i.i, 2
-  %61 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.04.i.i33.i.i.i
+  %61 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.04.i.i33.i.i.i
   %.val.i.i34.i.i.i = load double, ptr %61, align 8
   %62 = fcmp olt double %.val.i.i34.i.i.i, %.sroa.02.0.copyload20.i.i.i
   br i1 %62, label %63, label %"_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_117_SetTimeCodeRangeERKNS0_9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEddRKNS0_7TfTokenEE3$_0EEEvT_T0_SL_T1_T2_.exit41.i.i.i"
@@ -20242,7 +20242,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrR
 
 "_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_117_SetTimeCodeRangeERKNS0_9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEddRKNS0_7TfTokenEE3$_0EEEvT_T0_SL_T1_T2_.exit41.i.i.i": ; preds = %63, %.lr.ph.i.i30.i.i.i, %59
   %.013.lcssa.i.i28.i.i.i = phi i64 [ %.1.i27.i.i.i, %59 ], [ %.0133.i.i31.i.i.i, %.lr.ph.i.i30.i.i.i ], [ %.04.i.i33.i.i.i, %63 ]
-  %65 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.013.lcssa.i.i28.i.i.i
+  %65 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.013.lcssa.i.i28.i.i.i
   store double %.sroa.02.0.copyload20.i.i.i, ptr %65, align 8
   %.sroa.3.0..sroa_idx.i.i29.i.i.i = getelementptr inbounds nuw i8, ptr %65, i64 8
   store double %.sroa.23.0.copyload22.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i29.i.i.i, align 8
@@ -20329,7 +20329,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrR
 
 "_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12_GLOBAL__N_117_SetTimeCodeRangeERKNS0_9TfWeakPtrINS0_8SdfLayerEEERKNS0_7SdfPathEddRKNS0_7TfTokenEE3$_0EEEvT_SK_SK_RT0_.exit.i19.i": ; preds = %95, %.lr.ph.i.i.i.i14.i, %92
   %.013.lcssa.i.i.i.i20.i = phi i64 [ 0, %92 ], [ %.0133.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %95 ]
-  %97 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.013.lcssa.i.i.i.i20.i
+  %97 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %0, i64 %.013.lcssa.i.i.i.i20.i
   store double %.sroa.02.0.copyload.i.i.i, ptr %97, align 8
   %.sroa.3.0..sroa_idx.i.i.i.i21.i = getelementptr inbounds nuw i8, ptr %97, i64 8
   store double %.sroa.23.0.copyload.i.i8.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i21.i, align 8

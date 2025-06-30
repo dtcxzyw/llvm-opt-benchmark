@@ -5633,7 +5633,7 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
   %.sroa.4.027.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIPP4exprS1_EC2ES2_l.exit.i.i ], [ 0, %.loopexit.i.i ]
   %49 = landingpad { ptr, i32 }
           cleanup
-  %50 = shl i64 %.sroa.4.027.i.i, 3
+  %50 = shl nuw nsw i64 %.sroa.4.027.i.i, 3
   call void @_ZdlPvm(ptr noundef %47, i64 noundef %50) #20
   br label %.body
 
@@ -5643,7 +5643,7 @@ _ZNSt17_Temporary_bufferIPP4exprS1_EC2ES2_l.exit.i.i: ; preds = %.lr.ph.i.i.i.i
 
 .loopexit._crit_edge.i.i:                         ; preds = %.loopexit.i.i, %_ZNSt17_Temporary_bufferIPP4exprS1_EC2ES2_l.exit.i.i
   %.sroa.4.025.i.i = phi i64 [ %.010.i.i.i.i, %_ZNSt17_Temporary_bufferIPP4exprS1_EC2ES2_l.exit.i.i ], [ 0, %.loopexit.i.i ]
-  %51 = shl i64 %.sroa.4.025.i.i, 3
+  %51 = shl nuw nsw i64 %.sroa.4.025.i.i, 3
   call void @_ZdlPvm(ptr noundef %47, i64 noundef %51) #20
   %.pre95 = load ptr, ptr %7, align 8, !tbaa !211
   br label %_ZSt11stable_sortIPP4exprN6spacer19arith_add_less_procEEvT_S5_T0_.exit
@@ -5861,7 +5861,7 @@ select.unfold.i.i.i.i61:                          ; preds = %.lr.ph.i.i.i.i55
   %.sroa.4.028.i.i = phi i64 [ %.010.i.i.i.i58, %_ZNSt17_Temporary_bufferIPP4exprS1_EC2ES2_l.exit.i.i60 ], [ 0, %.loopexit.i.i53 ]
   %122 = landingpad { ptr, i32 }
           cleanup
-  %123 = shl i64 %.sroa.4.028.i.i, 3
+  %123 = shl nuw nsw i64 %.sroa.4.028.i.i, 3
   call void @_ZdlPvm(ptr noundef %120, i64 noundef %123) #20
   br label %.body63
 
@@ -5871,7 +5871,7 @@ _ZNSt17_Temporary_bufferIPP4exprS1_EC2ES2_l.exit.i.i60: ; preds = %.lr.ph.i.i.i.
 
 .loopexit._crit_edge.i.i54:                       ; preds = %.loopexit.i.i53, %_ZNSt17_Temporary_bufferIPP4exprS1_EC2ES2_l.exit.i.i60
   %.sroa.4.026.i.i = phi i64 [ %.010.i.i.i.i58, %_ZNSt17_Temporary_bufferIPP4exprS1_EC2ES2_l.exit.i.i60 ], [ 0, %.loopexit.i.i53 ]
-  %124 = shl i64 %.sroa.4.026.i.i, 3
+  %124 = shl nuw nsw i64 %.sroa.4.026.i.i, 3
   call void @_ZdlPvm(ptr noundef %120, i64 noundef %124) #20
   %.pre = load ptr, ptr %8, align 8, !tbaa !211
   br label %_ZSt11stable_sortIPP4exprN6spacer18bool_and_less_procEEvT_S5_T0_.exit

@@ -297,7 +297,7 @@ pm_integer_parse_decimal.exit.i:                  ; preds = %96, %80
   br i1 %.not44.i.i, label %134, label %thread-pre-split.i.i.i
 
 134:                                              ; preds = %.lr.ph39.i.i
-  %135 = add i64 %.03338.i.i, -1
+  %135 = add nsw i64 %.03338.i.i, -1
   %136 = icmp ugt i64 %135, 1
   br i1 %136, label %.lr.ph39.i.i, label %thread-pre-split.i.i.thread37.i, !llvm.loop !25
 

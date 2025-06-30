@@ -444,14 +444,14 @@ get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %70
   %.099 = phi ptr [ %98, %96 ], [ %111, %104 ], [ %116, %112 ]
   %118 = load i32, ptr @ett_fcip, align 4
   %119 = call ptr @proto_item_add_subtree(ptr noundef %.099, i32 noundef %118)
-  %120 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 -1, -2) %.0100117.i)
+  %120 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 0, -2) %.0100117.i)
   %.not.i123 = icmp eq ptr %119, null
   br i1 %.not.i123, label %dissect_fcencap_header.exit, label %121
 
 121:                                              ; preds = %117
   %122 = load i32, ptr @hf_fcip_protocol, align 4
   %123 = zext i8 %120 to i32
-  %124 = call ptr @proto_tree_add_uint(ptr noundef nonnull %119, i32 noundef %122, ptr noundef %0, i32 noundef range(i32 -1, -2) %.0100117.i, i32 noundef 1, i32 noundef %123)
+  %124 = call ptr @proto_tree_add_uint(ptr noundef nonnull %119, i32 noundef %122, ptr noundef %0, i32 noundef range(i32 0, -2) %.0100117.i, i32 noundef 1, i32 noundef %123)
   %125 = load i32, ptr @hf_fcip_version, align 4
   %126 = add nuw i32 %.0100117.i, 1
   %127 = call ptr @proto_tree_add_item(ptr noundef nonnull %119, i32 noundef %125, ptr noundef %0, i32 noundef %126, i32 noundef 1, i32 noundef 0)

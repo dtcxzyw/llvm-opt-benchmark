@@ -2438,7 +2438,7 @@ _ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit: ; preds = %297, %
   %395 = trunc i64 %394 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr %.3336, ptr %4, align 8, !tbaa !76
-  call void @ucnv_fromUWriteBytes_77(ptr noundef %10, ptr noundef nonnull %6, i32 noundef %349, ptr noundef nonnull %4, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %395, ptr noundef %1)
+  call void @ucnv_fromUWriteBytes_77(ptr noundef %10, ptr noundef nonnull %6, i32 noundef range(i32 -127, 133) %349, ptr noundef nonnull %4, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %395, ptr noundef %1)
   %396 = load ptr, ptr %4, align 8, !tbaa !76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   %397 = load i32, ptr %1, align 4, !tbaa !24
@@ -2543,7 +2543,7 @@ _ZL24MBCS_SINGLE_FROM_UCHAR32P20UConverterSharedDataiPja.exit: ; preds = %297, %
   %.0233 = phi i32 [ %446, %445 ], [ %430, %438 ], [ %430, %429 ], [ -1, %421 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr %.2335.ph, ptr %3, align 8, !tbaa !76
-  call void @ucnv_fromUWriteBytes_77(ptr noundef nonnull %10, ptr noundef nonnull %6, i32 noundef %.5, ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %.0233, ptr noundef nonnull %1)
+  call void @ucnv_fromUWriteBytes_77(ptr noundef nonnull %10, ptr noundef nonnull %6, i32 noundef range(i32 -127, 133) %.5, ptr noundef nonnull %3, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %.0233, ptr noundef nonnull %1)
   %448 = load ptr, ptr %3, align 8, !tbaa !76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   br label %.thread436
@@ -5003,7 +5003,7 @@ _ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai.exit.thread.thread: ;
   %302 = trunc i64 %301 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr %.3241, ptr %4, align 8, !tbaa !76
-  call void @ucnv_fromUWriteBytes_77(ptr noundef %10, ptr noundef nonnull %6, i32 noundef %.1166, ptr noundef nonnull %4, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %302, ptr noundef %1)
+  call void @ucnv_fromUWriteBytes_77(ptr noundef %10, ptr noundef nonnull %6, i32 noundef range(i32 -127, 133) %.1166, ptr noundef nonnull %4, ptr noundef %14, ptr noundef nonnull %5, i32 noundef %302, ptr noundef %1)
   %303 = load ptr, ptr %4, align 8, !tbaa !76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   %304 = load i32, ptr %1, align 4, !tbaa !24

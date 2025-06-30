@@ -2867,15 +2867,15 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
 
 .preheader368.lr.ph.i.i.i:                        ; preds = %._crit_edge.i.i94.i.i
   %600 = load i32, ptr %565, align 4, !tbaa !14
-  %601 = or disjoint i32 %596, 32
-  %602 = zext nneg i32 %596 to i64
-  %603 = zext nneg i32 %598 to i64
-  %604 = load ptr, ptr %0, align 8, !tbaa !7
+  %601 = load ptr, ptr %0, align 8, !tbaa !7
+  %602 = or disjoint i32 %596, 32
+  %603 = zext nneg i32 %596 to i64
+  %604 = zext nneg i32 %598 to i64
   br label %.preheader368.i.i.i
 
 .preheader368.i.i.i:                              ; preds = %643, %.preheader368.lr.ph.i.i.i
-  %indvars.iv241.i.i = phi i64 [ %indvars.iv.next242.i.i, %643 ], [ %602, %.preheader368.lr.ph.i.i.i ]
-  %indvars.iv437.i.i.i = phi i32 [ %indvars.iv.next438.i.i.i, %643 ], [ %601, %.preheader368.lr.ph.i.i.i ]
+  %indvars.iv241.i.i = phi i64 [ %indvars.iv.next242.i.i, %643 ], [ %603, %.preheader368.lr.ph.i.i.i ]
+  %indvars.iv437.i.i.i = phi i32 [ %indvars.iv.next438.i.i.i, %643 ], [ %602, %.preheader368.lr.ph.i.i.i ]
   %.2241385.i.i.i = phi i32 [ %.3242.i.i.i, %643 ], [ %600, %.preheader368.lr.ph.i.i.i ]
   %.0252384.i.i.i = phi i32 [ %.2254.i.i.i, %643 ], [ 0, %.preheader368.lr.ph.i.i.i ]
   %.0269383.i.i.i = phi i1 [ %.2271.i.i.i, %643 ], [ false, %.preheader368.lr.ph.i.i.i ]
@@ -2908,7 +2908,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
   %indvars.iv435.i.i.i = phi i64 [ %indvars.iv241.i.i, %.preheader368.i.i.i ], [ %indvars.iv.next436.i.i.i, %619 ]
   %.0288.i.i.i = phi i1 [ true, %.preheader368.i.i.i ], [ %spec.select.i111.i.i, %619 ]
   %.0287.i.i.i = phi i32 [ 0, %.preheader368.i.i.i ], [ %622, %619 ]
-  %620 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv435.i.i.i
+  %620 = getelementptr inbounds nuw i32, ptr %601, i64 %indvars.iv435.i.i.i
   %621 = load i32, ptr %620, align 4, !tbaa !25
   %622 = or i32 %621, %.0287.i.i.i
   %.not313.i.i.i = icmp eq i32 %621, %605
@@ -2941,14 +2941,14 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
 
 631:                                              ; preds = %629
   %632 = trunc nuw nsw i64 %indvars.iv241.i.i to i32
-  %633 = call fastcc noundef i32 @_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockItjEEiPKT_PKT0_i(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %5, ptr noundef nonnull %604, i32 noundef %632)
+  %633 = call fastcc noundef i32 @_ZNK6icu_7712_GLOBAL__N_111MixedBlocks9findBlockItjEEiPKT_PKT0_i(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull %5, ptr noundef nonnull %601, i32 noundef %632)
   %634 = icmp sgt i32 %633, -1
   %635 = getelementptr inbounds nuw [69632 x i8], ptr %159, i64 0, i64 %indvars.iv241.i.i
   br i1 %634, label %636, label %638
 
 636:                                              ; preds = %631
   store i8 1, ptr %635, align 1, !tbaa !31
-  %637 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv241.i.i
+  %637 = getelementptr inbounds nuw i32, ptr %601, i64 %indvars.iv241.i.i
   store i32 %633, ptr %637, align 4, !tbaa !25
   br label %643
 
@@ -2967,7 +2967,7 @@ _ZN6icu_7712_GLOBAL__N_120MutableCodePointTrie11compactDataEiPjiiRNS0_11MixedBlo
   %.2271.i.i.i = phi i1 [ %.1270.i.i.i, %627 ], [ %.0269383.i.i.i, %624 ], [ true, %640 ], [ %.0269383.i.i.i, %638 ], [ %.0269383.i.i.i, %636 ]
   %.2254.i.i.i = phi i32 [ %.1253.i.i.i, %627 ], [ %.0252384.i.i.i, %624 ], [ %642, %640 ], [ %639, %638 ], [ %.0252384.i.i.i, %636 ]
   %.3242.i.i.i = phi i32 [ 0, %627 ], [ %.2241385.i.i.i, %624 ], [ %.2241385.i.i.i, %640 ], [ %.2241385.i.i.i, %638 ], [ %.2241385.i.i.i, %636 ]
-  %644 = icmp samesign ult i64 %indvars.iv.next242.i.i, %603
+  %644 = icmp samesign ult i64 %indvars.iv.next242.i.i, %604
   %indvars.iv.next438.i.i.i = add nuw nsw i32 %indvars.iv437.i.i.i, 32
   br i1 %644, label %.preheader368.i.i.i, label %._crit_edge.i95.i.i, !llvm.loop !80
 

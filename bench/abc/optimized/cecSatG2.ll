@@ -4071,8 +4071,8 @@ Cec4_ObjSimCo.exit:                               ; preds = %.lr.ph.i, %.lr.ph31
   %75 = trunc i64 %.424.i.i to i32
   %76 = and i32 %75, 1
   %77 = xor i32 %76, 1
-  %.5.i.i = add i32 %.4.i.i, %55
-  %78 = add i32 %.5.i.i, %77
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %55
+  %78 = add nuw nsw i32 %.5.i.i, %77
   br label %Abc_TtFindFirstBit2.exit
 
 79:                                               ; preds = %.lr.ph.i36
@@ -10034,8 +10034,8 @@ Abc_TtIsConst0.exit:                              ; preds = %.lr.ph.i, %Abc_TtIs
   %120 = trunc i64 %.424.i.i.us to i32
   %121 = and i32 %120, 1
   %122 = xor i32 %121, 1
-  %.5.i.i.us = add i32 %.4.i.i.us, %100
-  %123 = add i32 %.5.i.i.us, %122
+  %.5.i.i.us = add nuw nsw i32 %.4.i.i.us, %100
+  %123 = add nuw nsw i32 %.5.i.i.us, %122
   br label %Abc_TtFindFirstBit2.exit.us
 
 124:                                              ; preds = %.lr.ph.i99.us
@@ -19267,25 +19267,25 @@ define range(i32 0, 2) i32 @computeLutsToImply(ptr noundef readonly captures(non
 .preheader:                                       ; preds = %11
   %13 = getelementptr i8, ptr %0, i64 280
   %14 = sext i32 %3 to i64
-  %.val108134 = load ptr, ptr %13, align 8, !tbaa !318
-  %15 = getelementptr i8, ptr %.val108134, i64 8
-  %.val108.val135 = load ptr, ptr %15, align 8, !tbaa !315
-  %16 = getelementptr %struct.Vec_Int_t_, ptr %.val108.val135, i64 %14, i32 1
-  %.val.i136 = load i32, ptr %16, align 4, !tbaa !16
-  %17 = icmp sgt i32 %.val.i136, 0
-  br i1 %17, label %.lr.ph139, label %.critedge
+  %.val108133 = load ptr, ptr %13, align 8, !tbaa !318
+  %15 = getelementptr i8, ptr %.val108133, i64 8
+  %.val108.val134 = load ptr, ptr %15, align 8, !tbaa !315
+  %16 = getelementptr %struct.Vec_Int_t_, ptr %.val108.val134, i64 %14, i32 1
+  %.val.i135 = load i32, ptr %16, align 4, !tbaa !16
+  %17 = icmp sgt i32 %.val.i135, 0
+  br i1 %17, label %.lr.ph138, label %.critedge
 
-.lr.ph139:                                        ; preds = %.preheader
+.lr.ph138:                                        ; preds = %.preheader
   %18 = getelementptr i8, ptr %6, i64 8
   br label %19
 
-19:                                               ; preds = %.lr.ph139, %29
-  %.val108159 = phi ptr [ %.val108134, %.lr.ph139 ], [ %.val108, %29 ]
-  %indvars.iv152 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next153, %29 ]
-  %.val108.val138 = phi ptr [ %.val108.val135, %.lr.ph139 ], [ %.val108.val, %29 ]
-  %20 = getelementptr %struct.Vec_Int_t_, ptr %.val108.val138, i64 %14, i32 2
+19:                                               ; preds = %.lr.ph138, %29
+  %.val108158 = phi ptr [ %.val108133, %.lr.ph138 ], [ %.val108, %29 ]
+  %indvars.iv151 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next152, %29 ]
+  %.val108.val137 = phi ptr [ %.val108.val134, %.lr.ph138 ], [ %.val108.val, %29 ]
+  %20 = getelementptr %struct.Vec_Int_t_, ptr %.val108.val137, i64 %14, i32 2
   %.val.i110 = load ptr, ptr %20, align 8, !tbaa !19
-  %21 = getelementptr inbounds nuw i32, ptr %.val.i110, i64 %indvars.iv152
+  %21 = getelementptr inbounds nuw i32, ptr %.val.i110, i64 %indvars.iv151
   %22 = load i32, ptr %21, align 4, !tbaa !20
   %.val102 = load ptr, ptr %18, align 8, !tbaa !19
   %23 = sext i32 %22 to i64
@@ -19297,21 +19297,21 @@ define range(i32 0, 2) i32 @computeLutsToImply(ptr noundef readonly captures(non
 27:                                               ; preds = %19
   %28 = tail call i32 @checkCompatibilityImplication(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %22, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %8, i32 noundef %10)
   %.not97.not.not = icmp eq i32 %28, 0
-  br i1 %.not97.not.not, label %.critedge, label %._crit_edge158
+  br i1 %.not97.not.not, label %.critedge, label %._crit_edge157
 
-._crit_edge158:                                   ; preds = %27
+._crit_edge157:                                   ; preds = %27
   %.val108.pre = load ptr, ptr %13, align 8, !tbaa !318
   br label %29
 
-29:                                               ; preds = %._crit_edge158, %19
-  %.val108 = phi ptr [ %.val108.pre, %._crit_edge158 ], [ %.val108159, %19 ]
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
+29:                                               ; preds = %._crit_edge157, %19
+  %.val108 = phi ptr [ %.val108.pre, %._crit_edge157 ], [ %.val108158, %19 ]
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %30 = getelementptr i8, ptr %.val108, i64 8
   %.val108.val = load ptr, ptr %30, align 8, !tbaa !315
   %31 = getelementptr %struct.Vec_Int_t_, ptr %.val108.val, i64 %14, i32 1
   %.val.i = load i32, ptr %31, align 4, !tbaa !16
   %32 = sext i32 %.val.i to i64
-  %33 = icmp slt i64 %indvars.iv.next153, %32
+  %33 = icmp slt i64 %indvars.iv.next152, %32
   br i1 %33, label %19, label %.critedge, !llvm.loop !363
 
 34:                                               ; preds = %11
@@ -19325,8 +19325,8 @@ define range(i32 0, 2) i32 @computeLutsToImply(ptr noundef readonly captures(non
 
 .preheader122:                                    ; preds = %34
   %40 = getelementptr i8, ptr %38, i64 4
-  %.val98127 = load i32, ptr %40, align 4, !tbaa !16
-  %41 = icmp sgt i32 %.val98127, 0
+  %.val98126 = load i32, ptr %40, align 4, !tbaa !16
+  %41 = icmp sgt i32 %.val98126, 0
   br i1 %41, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader122
@@ -19336,16 +19336,16 @@ define range(i32 0, 2) i32 @computeLutsToImply(ptr noundef readonly captures(non
 
 .critedge4.preheader:                             ; preds = %57
   %44 = icmp sgt i32 %.val98, 0
-  br i1 %44, label %.lr.ph133, label %.critedge
+  br i1 %44, label %.lr.ph132, label %.critedge
 
-.lr.ph133:                                        ; preds = %.critedge4.preheader
+.lr.ph132:                                        ; preds = %.critedge4.preheader
   %45 = getelementptr i8, ptr %38, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %47 = getelementptr i8, ptr %0, i64 264
   br label %60
 
 48:                                               ; preds = %.lr.ph, %57
-  %.val98155 = phi i32 [ %.val98127, %.lr.ph ], [ %.val98, %57 ]
+  %.val98154 = phi i32 [ %.val98126, %.lr.ph ], [ %.val98, %57 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.val101 = load ptr, ptr %42, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw i32, ptr %.val101, i64 %indvars.iv
@@ -19367,16 +19367,16 @@ define range(i32 0, 2) i32 @computeLutsToImply(ptr noundef readonly captures(non
   br label %57
 
 57:                                               ; preds = %._crit_edge, %48
-  %.val98 = phi i32 [ %.val98.pre, %._crit_edge ], [ %.val98155, %48 ]
+  %.val98 = phi i32 [ %.val98.pre, %._crit_edge ], [ %.val98154, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = sext i32 %.val98 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
   br i1 %59, label %48, label %.critedge4.preheader, !llvm.loop !364
 
-60:                                               ; preds = %.lr.ph133, %Vec_IntFind.exit
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next150, %Vec_IntFind.exit ]
+60:                                               ; preds = %.lr.ph132, %Vec_IntFind.exit
+  %indvars.iv148 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next149, %Vec_IntFind.exit ]
   %.val99 = load ptr, ptr %45, align 8, !tbaa !19
-  %61 = getelementptr inbounds nuw i32, ptr %.val99, i64 %indvars.iv149
+  %61 = getelementptr inbounds nuw i32, ptr %.val99, i64 %indvars.iv148
   %62 = load i32, ptr %61, align 4, !tbaa !20
   %63 = load ptr, ptr %46, align 8, !tbaa !304
   %64 = getelementptr i8, ptr %63, i64 8
@@ -19393,28 +19393,28 @@ define range(i32 0, 2) i32 @computeLutsToImply(ptr noundef readonly captures(non
   %72 = getelementptr inbounds i32, ptr %.val107.val, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !20
   %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph130.preheader, label %.loopexit
+  br i1 %74, label %.lr.ph129.preheader, label %.loopexit
 
-.lr.ph130.preheader:                              ; preds = %60
+.lr.ph129.preheader:                              ; preds = %60
   %wide.trip.count = zext nneg i32 %73 to i64
-  br label %.lr.ph130
+  br label %.lr.ph129
 
-.lr.ph130:                                        ; preds = %.lr.ph130.preheader, %81
-  %indvars.iv146 = phi i64 [ 0, %.lr.ph130.preheader ], [ %indvars.iv.next147, %81 ]
-  %75 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv146
+.lr.ph129:                                        ; preds = %.lr.ph129.preheader, %81
+  %indvars.iv145 = phi i64 [ 0, %.lr.ph129.preheader ], [ %indvars.iv.next146, %81 ]
+  %75 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv145
   %76 = load i32, ptr %75, align 4, !tbaa !20
   %77 = icmp eq i32 %76, %3
   br i1 %77, label %78, label %81
 
-78:                                               ; preds = %.lr.ph130
-  %79 = trunc nuw nsw i64 %indvars.iv146 to i32
+78:                                               ; preds = %.lr.ph129
+  %79 = trunc nuw nsw i64 %indvars.iv145 to i32
   %80 = add nuw nsw i32 %79, 1
   br label %.loopexit
 
-81:                                               ; preds = %.lr.ph130
-  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph130, !llvm.loop !365
+81:                                               ; preds = %.lr.ph129
+  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph129, !llvm.loop !365
 
 .loopexit:                                        ; preds = %81, %60, %78
   %.083 = phi i32 [ %80, %78 ], [ -1, %60 ], [ -1, %81 ]
@@ -19537,10 +19537,10 @@ Vec_IntPush.exit117:                              ; preds = %.Vec_IntGrow.exit10
   br label %Vec_IntFind.exit
 
 Vec_IntFind.exit:                                 ; preds = %100, %Vec_IntPush.exit, %Vec_IntPush.exit117, %.loopexit
-  %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
+  %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %.val = load i32, ptr %40, align 4, !tbaa !16
   %134 = sext i32 %.val to i64
-  %135 = icmp slt i64 %indvars.iv.next150, %134
+  %135 = icmp slt i64 %indvars.iv.next149, %134
   br i1 %135, label %60, label %.critedge, !llvm.loop !366
 
 .critedge:                                        ; preds = %55, %Vec_IntFind.exit, %27, %29, %.preheader122, %.critedge4.preheader, %.preheader, %34

@@ -1821,7 +1821,7 @@ _ZN5faiss12_GLOBAL__N_113decode_comb_1EPmii.exit.i: ; preds = %30, %31, %13
   %.027.i = phi i64 [ %49, %44 ], [ %.027.i.ph, %.outer ]
   %45 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.027.i, i1 true)
   %46 = xor i64 %45, 63
-  %47 = shl nuw i64 1, %46
+  %47 = shl nuw nsw i64 1, %46
   %48 = xor i64 %47, -1
   %49 = and i64 %.027.i, %48
   %50 = add nsw i32 %.029.i, -1
@@ -3456,7 +3456,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %.0134.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ], [ %.05.i.i.us.i.i.i, %51 ]
   %.05.in.i.i.us.i.i.i = add nsw i64 %.0134.i.i.us.i.i.i, -1
   %.05.i.i.us.i.i.i = sdiv i64 %.05.in.i.i.us.i.i.i, 2
-  %46 = getelementptr inbounds i32, ptr %0, i64 %.05.i.i.us.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %0, i64 %.05.i.i.us.i.i.i
   %.val14.i.i.us.i.i.i = load i32, ptr %46, align 4, !tbaa !45
   %47 = sext i32 %.val14.i.i.us.i.i.i to i64
   %48 = getelementptr inbounds float, ptr %3, i64 %47
@@ -3472,7 +3472,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 
 "_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5faiss14ZnSphereSearch6searchEPKfPfS8_S0_S0_E3$_0EEEvT_T0_SC_T1_T2_.exit.us.i.i.i": ; preds = %51, %45, %.split.us.i.i.i
   %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.0134.i.i.us.i.i.i, %45 ], [ %.05.i.i.us.i.i.i, %51 ]
-  %54 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
+  %54 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
   store i32 %25, ptr %54, align 4, !tbaa !45
   %.not.us.i.i.i = icmp eq i64 %.014.us.i.i.i, 0
   %55 = add nsw i64 %.014.us.i.i.i, -1
@@ -3534,7 +3534,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %.0134.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.05.i.i.i.i.i, %88 ]
   %.05.in.i.i.i.i.i = add nsw i64 %.0134.i.i.i.i.i, -1
   %.05.i.i.i.i.i = sdiv i64 %.05.in.i.i.i.i.i, 2
-  %83 = getelementptr inbounds i32, ptr %0, i64 %.05.i.i.i.i.i
+  %83 = getelementptr inbounds nuw i32, ptr %0, i64 %.05.i.i.i.i.i
   %.val14.i.i.i.i.i = load i32, ptr %83, align 4, !tbaa !45
   %84 = sext i32 %.val14.i.i.i.i.i to i64
   %85 = getelementptr inbounds float, ptr %3, i64 %84
@@ -3550,7 +3550,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 
 "_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5faiss14ZnSphereSearch6searchEPKfPfS8_S0_S0_E3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i": ; preds = %88, %82, %77
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %77 ], [ %.0134.i.i.i.i.i, %82 ], [ %.05.i.i.i.i.i, %88 ]
-  %91 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i32 %57, ptr %91, align 4, !tbaa !45
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %92 = add nsw i64 %.014.i.i.i, -1
@@ -3649,7 +3649,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 
 "_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5faiss14ZnSphereSearch6searchEPKfPfS8_S0_S0_E3$_0EEEvT_SB_SB_RT0_.exit.i.i": ; preds = %138, %132, %128
   %.013.lcssa.i.i.i.i14.i = phi i64 [ 0, %128 ], [ %.0134.i.i.i.i11.i, %132 ], [ 0, %138 ]
-  %140 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i14.i
+  %140 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.i.i14.i
   store i32 %94, ptr %140, align 4, !tbaa !45
   %141 = icmp sgt i64 %97, 4
   br i1 %141, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZNK5faiss14ZnSphereSearch6searchEPKfPfS8_S0_S0_E3$_0EEEvT_SB_SB_T0_.exit", !llvm.loop !122

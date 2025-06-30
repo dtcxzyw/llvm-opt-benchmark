@@ -1841,7 +1841,7 @@ define internal range(i32 -12, 1) i32 @showwavespic_filter_frame(ptr noundef rea
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load i32, ptr %8, align 8, !tbaa !23
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %alloc_out_frame.exit.thread32, label %10
+  br i1 %.not, label %alloc_out_frame.exit.thread33, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -1860,7 +1860,7 @@ define internal range(i32 -12, 1) i32 @showwavespic_filter_frame(ptr noundef rea
   %21 = tail call ptr @ff_get_video_buffer(ptr noundef %16, i32 noundef %18, i32 noundef %20) #17
   store ptr %21, ptr %11, align 8, !tbaa !72
   %.not22.i = icmp eq ptr %21, null
-  br i1 %.not22.i, label %alloc_out_frame.exit.thread32, label %22
+  br i1 %.not22.i, label %alloc_out_frame.exit.thread33, label %22
 
 22:                                               ; preds = %13
   %23 = load i32, ptr %17, align 8, !tbaa !45
@@ -1897,7 +1897,7 @@ define internal range(i32 -12, 1) i32 @showwavespic_filter_frame(ptr noundef rea
 .loopexit:                                        ; preds = %30, %10, %22
   %43 = tail call noalias ptr @av_malloc(i64 noundef 16) #17
   %.not28 = icmp eq ptr %43, null
-  br i1 %.not28, label %alloc_out_frame.exit.thread32, label %44
+  br i1 %.not28, label %alloc_out_frame.exit.thread33, label %44
 
 44:                                               ; preds = %.loopexit
   store ptr %1, ptr %43, align 8, !tbaa !108
@@ -1929,13 +1929,13 @@ alloc_out_frame.exit:                             ; preds = %48, %50
   store i64 %57, ptr %55, align 8, !tbaa !109
   br label %58
 
-alloc_out_frame.exit.thread32:                    ; preds = %13, %.loopexit, %2
+alloc_out_frame.exit.thread33:                    ; preds = %13, %.loopexit, %2
   %.123 = phi i32 [ 0, %2 ], [ -12, %.loopexit ], [ -12, %13 ]
   call void @av_frame_free(ptr noundef nonnull %3) #17
   br label %58
 
-58:                                               ; preds = %alloc_out_frame.exit, %alloc_out_frame.exit.thread32
-  %.1 = phi i32 [ %.123, %alloc_out_frame.exit.thread32 ], [ 0, %alloc_out_frame.exit ]
+58:                                               ; preds = %alloc_out_frame.exit, %alloc_out_frame.exit.thread33
+  %.1 = phi i32 [ %.123, %alloc_out_frame.exit.thread33 ], [ 0, %alloc_out_frame.exit ]
   ret i32 %.1
 }
 

@@ -54500,9 +54500,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm17MachineBasicBlockEl
   %.036.us = phi i64 [ %16, %.loopexit.i.i.i.us ], [ %1, %.lr.ph ]
   %15 = shl i64 %.036.us, 1
   %16 = add i64 %15, 2
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !1091
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %.036.us
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %.036.us
   store ptr %18, ptr %19, align 8, !tbaa !1091
   %20 = icmp slt i64 %16, %7
   br i1 %20, label %.loopexit.i.i.i.us, label %._crit_edge, !llvm.loop !2003
@@ -54511,7 +54511,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm17MachineBasicBlockEl
   %.036 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERN4llvm17MachineBasicBlockERNS4_11SmallPtrSetIPKS5_Lj16EEERNS2_14FuncValueTableERNS4_11SmallVectorINS2_10ValueIDNumELj0EEEE3$_0EclIPS9_SL_EEbT_T0_.exit" ], [ %1, %.lr.ph ]
   %21 = shl i64 %.036, 1
   %22 = add i64 %21, 2
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %22
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %21
   %.val29 = load ptr, ptr %23, align 8, !tbaa !1091
   %.val30 = load ptr, ptr %gep, align 8, !tbaa !1091
@@ -54592,9 +54592,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoI
   %67 = icmp ult i32 %46, %66
   %68 = or disjoint i64 %21, 1
   %spec.select = select i1 %67, i64 %68, i64 %22
-  %69 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
   %70 = load ptr, ptr %69, align 8, !tbaa !1091
-  %71 = getelementptr inbounds ptr, ptr %0, i64 %.036
+  %71 = getelementptr inbounds nuw ptr, ptr %0, i64 %.036
   store ptr %70, ptr %71, align 8, !tbaa !1091
   %72 = icmp slt i64 %spec.select, %7
   br i1 %72, label %.lr.ph.split, label %._crit_edge, !llvm.loop !2003
@@ -54614,15 +54614,15 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoI
 79:                                               ; preds = %75
   %80 = shl nsw i64 %.0.lcssa, 1
   %81 = or disjoint i64 %80, 1
-  %82 = getelementptr inbounds ptr, ptr %0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !1091
-  %84 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %84 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %83, ptr %84, align 8, !tbaa !1091
   br label %85
 
 85:                                               ; preds = %79, %75, %._crit_edge
   %.128 = phi i64 [ %81, %79 ], [ %.0.lcssa, %75 ], [ %.0.lcssa, %._crit_edge ]
-  %86 = icmp sgt i64 %.128, %1
+  %86 = icmp samesign ugt i64 %.128, %1
   br i1 %86, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKN4llvm17MachineBasicBlockElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERS1_RNS0_11SmallPtrSetIS3_Lj16EEERNS8_14FuncValueTableERNS0_11SmallVectorINS8_10ValueIDNumELj0EEEE3$_0EEEvT_T0_SN_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %85
@@ -54651,7 +54651,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoI
   %.0134.i = phi i64 [ %.05.i, %138 ], [ %.128, %.lr.ph.split.preheader.i ]
   %.05.in.i = add nsw i64 %.0134.i, -1
   %.05.i = sdiv i64 %.05.in.i, 2
-  %100 = getelementptr inbounds ptr, ptr %0, i64 %.05.i
+  %100 = getelementptr inbounds nuw ptr, ptr %0, i64 %.05.i
   %.val14.i = load ptr, ptr %100, align 8, !tbaa !1091
   %101 = ptrtoint ptr %.val14.i to i64
   %102 = trunc i64 %101 to i32
@@ -54730,7 +54730,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoI
 
 "_ZSt11__push_heapIPPKN4llvm17MachineBasicBlockElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERS1_RNS0_11SmallPtrSetIS3_Lj16EEERNS8_14FuncValueTableERNS0_11SmallVectorINS8_10ValueIDNumELj0EEEE3$_0EEEvT_T0_SN_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERN4llvm17MachineBasicBlockERNS4_11SmallPtrSetIPKS5_Lj16EEERNS2_14FuncValueTableERNS4_11SmallVectorINS2_10ValueIDNumELj0EEEE3$_0EclIPS9_S9_EEbT_RT0_.exit.i", %138, %85, %.lr.ph.i
   %.013.lcssa.i = phi i64 [ %.128, %85 ], [ %.128, %.lr.ph.i ], [ %.0134.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERN4llvm17MachineBasicBlockERNS4_11SmallPtrSetIPKS5_Lj16EEERNS2_14FuncValueTableERNS4_11SmallVectorINS2_10ValueIDNumELj0EEEE3$_0EclIPS9_S9_EEbT_RT0_.exit.i" ], [ %.05.i, %138 ]
-  %141 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %141 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %141, align 8, !tbaa !1091
   ret void
 }
@@ -57859,7 +57859,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS
   %.034 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %14 ]
   %15 = shl i64 %.034, 1
   %16 = add i64 %15, 2
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %15
   %.val29 = load ptr, ptr %17, align 8, !tbaa !1091
   %.val30 = load ptr, ptr %gep, align 8, !tbaa !1091
@@ -57876,9 +57876,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %23 = or disjoint i64 %15, 1
   %spec.select = select i1 %22, i64 %23, i64 %16
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
   %25 = load ptr, ptr %24, align 8, !tbaa !1091
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %.034
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034
   store ptr %25, ptr %26, align 8, !tbaa !1091
   %27 = icmp slt i64 %spec.select, %11
   br i1 %27, label %14, label %._crit_edge, !llvm.loop !2045
@@ -57900,7 +57900,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS
   %36 = or disjoint i64 %35, 1
   %37 = getelementptr inbounds nuw ptr, ptr %0, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !1091
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %38, ptr %39, align 8, !tbaa !1091
   br label %40
 
@@ -57917,7 +57917,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS
   %.0133.i = phi i64 [ %.128, %.lr.ph.i ], [ %.04.i, %50 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val14.i = load ptr, ptr %44, align 8, !tbaa !1091
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -57941,7 +57941,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS
 
 "_ZSt11__push_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN15LiveDebugValues16InstrRefBasedLDV8vlocJoinERS1_RNS0_13SmallDenseMapIPKS1_PNS7_8DbgValueELj16ENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SE_EEEERNS0_11SmallPtrSetISC_Lj8EEERSD_E3$_0EEEvT_T0_ST_T1_RT2_.exit": ; preds = %43, %50, %40
   %.013.lcssa.i = phi i64 [ %.128, %40 ], [ %.0133.i, %43 ], [ %.04.i, %50 ]
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %54, align 8, !tbaa !1091
   ret void
 }
@@ -66642,7 +66642,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS
   %.034 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %14 ]
   %15 = shl i64 %.034, 1
   %16 = add i64 %15, 2
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %15
   %.val29 = load ptr, ptr %17, align 8, !tbaa !1618
   %.val30 = load ptr, ptr %gep, align 8, !tbaa !1618
@@ -66665,9 +66665,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
   %26 = or disjoint i64 %15, 1
   %spec.select = select i1 %25, i64 %26, i64 %16
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
   %28 = load ptr, ptr %27, align 8, !tbaa !1618
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %.034
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034
   store ptr %28, ptr %29, align 8, !tbaa !1618
   %30 = icmp slt i64 %spec.select, %11
   br i1 %30, label %14, label %._crit_edge, !llvm.loop !2161
@@ -66689,7 +66689,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS
   %39 = or disjoint i64 %38, 1
   %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !1618
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %41, ptr %42, align 8, !tbaa !1618
   br label %43
 
@@ -66707,7 +66707,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS
   %.0133.i = phi i64 [ %.128, %.lr.ph.i ], [ %.04.i, %56 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val14.i = load ptr, ptr %48, align 8, !tbaa !1618
   %49 = getelementptr i8, ptr %.val14.i, i64 80
   %.val14.val.i = load ptr, ptr %49, align 8, !tbaa !1610
@@ -66736,7 +66736,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS
 
 "_ZSt11__push_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN15LiveDebugValues16InstrRefBasedLDV18resolveDbgPHIsImplERN4llvm15MachineFunctionERKNS7_14FuncValueTableESE_RNS9_12MachineInstrEmE3$_0EEEvT_T0_SK_T1_RT2_.exit": ; preds = %47, %56, %43
   %.013.lcssa.i = phi i64 [ %.128, %43 ], [ %.0133.i, %47 ], [ %.04.i, %56 ]
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %60, align 8, !tbaa !1618
   ret void
 }

@@ -16203,7 +16203,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPPN4llvm14StringMapEntryIN12_GL
   %.036 = phi i64 [ %spec.select35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4llvm14StringMapEntryINS2_9GCOVLinesEEES8_E_EclIPS8_SC_EEbT_T0_.exit.thread ], [ %1, %4 ]
   %8 = shl i64 %.036, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %8
   %.val = load ptr, ptr %10, align 8, !tbaa !557
   %.val29 = load ptr, ptr %gep, align 8, !tbaa !557
@@ -16233,9 +16233,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4
   %.sink = phi i1 [ %17, %.thread.i.i.i.i ], [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4llvm14StringMapEntryINS2_9GCOVLinesEEES8_E_EclIPS8_SC_EEbT_T0_.exit ]
   %19 = or disjoint i64 %8, 1
   %spec.select35 = select i1 %.sink, i64 %19, i64 %9
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %spec.select35
+  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select35
   %21 = load ptr, ptr %20, align 8, !tbaa !557
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %.036
+  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %.036
   store ptr %21, ptr %22, align 8, !tbaa !557
   %23 = icmp slt i64 %spec.select35, %6
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !699
@@ -16255,15 +16255,15 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4
 30:                                               ; preds = %26
   %31 = shl nsw i64 %.0.lcssa, 1
   %32 = or disjoint i64 %31, 1
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !557
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %34, ptr %35, align 8, !tbaa !557
   br label %36
 
 36:                                               ; preds = %30, %26, %._crit_edge
   %.128 = phi i64 [ %32, %30 ], [ %.0.lcssa, %26 ], [ %.0.lcssa, %._crit_edge ]
-  %37 = icmp sgt i64 %.128, %1
+  %37 = icmp samesign ugt i64 %.128, %1
   br i1 %37, label %.lr.ph.i, label %_ZSt11__push_heapIPPN4llvm14StringMapEntryIN12_GLOBAL__N_19GCOVLinesEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_9GCOVBlock8writeOutEvEUlS5_S5_E_EEEvT_T0_SE_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %36
@@ -16275,7 +16275,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4
   %.0136.i = phi i64 [ %.128, %.lr.ph.i ], [ %.07.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4llvm14StringMapEntryINS2_9GCOVLinesEEES8_E_EclIPS8_S8_EEbT_RT0_.exit.thread2.i ]
   %.07.in.i = add nsw i64 %.0136.i, -1
   %.07.i = sdiv i64 %.07.in.i, 2
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.07.i
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.07.i
   %.val.i = load ptr, ptr %41, align 8, !tbaa !557
   %42 = load i64, ptr %.val.i, align 8, !tbaa !308
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %38, i64 %42)
@@ -16305,7 +16305,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4l
 
 _ZSt11__push_heapIPPN4llvm14StringMapEntryIN12_GLOBAL__N_19GCOVLinesEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_9GCOVBlock8writeOutEvEUlS5_S5_E_EEEvT_T0_SE_T1_RT2_.exit: ; preds = %.thread.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4llvm14StringMapEntryINS2_9GCOVLinesEEES8_E_EclIPS8_S8_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4llvm14StringMapEntryINS2_9GCOVLinesEEES8_E_EclIPS8_S8_EEbT_RT0_.exit.thread2.i, %36
   %.013.lcssa.i = phi i64 [ %.128, %36 ], [ %.0136.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4llvm14StringMapEntryINS2_9GCOVLinesEEES8_E_EclIPS8_S8_EEbT_RT0_.exit.i ], [ %.07.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_19GCOVBlock8writeOutEvEUlPN4llvm14StringMapEntryINS2_9GCOVLinesEEES8_E_EclIPS8_S8_EEbT_RT0_.exit.thread2.i ], [ %.0136.i, %.thread.i.i.i.i.i ]
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %50, align 8, !tbaa !557
   ret void
 }

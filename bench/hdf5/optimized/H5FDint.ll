@@ -2377,7 +2377,7 @@ define internal fastcc i32 @H5FD__read_selection_translate(i32 noundef range(i32
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %212
-  %216 = add i64 %.1188, 1
+  %216 = add nuw nsw i64 %.1188, 1
   br label %222
 
 217:                                              ; preds = %212
@@ -2396,7 +2396,7 @@ define internal fastcc i32 @H5FD__read_selection_translate(i32 noundef range(i32
   br i1 %224, label %225, label %227
 
 225:                                              ; preds = %222
-  %226 = add i64 %.1185, 1
+  %226 = add nuw nsw i64 %.1185, 1
   br label %232
 
 227:                                              ; preds = %222
@@ -3762,7 +3762,7 @@ define internal fastcc i32 @H5FD__write_selection_translate(i32 noundef range(i3
   br i1 %214, label %215, label %217
 
 215:                                              ; preds = %212
-  %216 = add i64 %.1188, 1
+  %216 = add nuw nsw i64 %.1188, 1
   br label %222
 
 217:                                              ; preds = %212
@@ -3781,7 +3781,7 @@ define internal fastcc i32 @H5FD__write_selection_translate(i32 noundef range(i3
   br i1 %224, label %225, label %227
 
 225:                                              ; preds = %222
-  %226 = add i64 %.1185, 1
+  %226 = add nuw nsw i64 %.1185, 1
   br label %232
 
 227:                                              ; preds = %222

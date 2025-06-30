@@ -460,7 +460,7 @@ define internal fastcc void @_ZN4jiff5civil7weekday7Weekday23from_sunday_zero_of
 
 16:                                               ; preds = %"_ZN4core3num20_$LT$impl$u20$i8$GT$10rem_euclid17h07f15f1bd493e66bE.exit.i", %"_ZN4jiff4util8rangeint16ri8$LT$_$C$_$GT$7try_new17he8e58d9c70214b98E.exit"
   %.sroa.0.0.i = phi i8 [ %.sroa.0.0.i.i, %"_ZN4core3num20_$LT$impl$u20$i8$GT$10rem_euclid17h07f15f1bd493e66bE.exit.i" ], [ 0, %"_ZN4jiff4util8rangeint16ri8$LT$_$C$_$GT$7try_new17he8e58d9c70214b98E.exit" ]
-  %17 = tail call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h2c40c96c12fc49fcE"(i8 noundef %.sroa.0.0.i)
+  %17 = tail call noundef i8 @"_ZN58_$LT$T$u20$as$u20$jiff..util..rangeint..RInto$LT$U$GT$$GT$5rinto17h2c40c96c12fc49fcE"(i8 noundef range(i8 -126, -128) %.sroa.0.0.i)
   %18 = icmp ult i8 %17, 7
   br i1 %18, label %switch.lookup, label %19
 

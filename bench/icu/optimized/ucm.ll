@@ -1154,7 +1154,7 @@ define signext range(i8 0, 2) i8 @ucm_checkBaseExt(ptr noundef readonly captures
 9:                                                ; preds = %5
   %10 = load ptr, ptr @stderr, align 8, !tbaa !32
   %11 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 68, i64 1, ptr %10) #18
-  br label %457
+  br label %454
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 57
@@ -1166,7 +1166,7 @@ define signext range(i8 0, 2) i8 @ucm_checkBaseExt(ptr noundef readonly captures
 16:                                               ; preds = %12
   %17 = load ptr, ptr @stderr, align 8, !tbaa !32
   %18 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 69, i64 1, ptr %17) #18
-  br label %457
+  br label %454
 
 19:                                               ; preds = %12
   tail call void @ucm_sortTable(ptr noundef nonnull %1)
@@ -1834,206 +1834,203 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.i: ; preds = %.lr.ph.i.i36, 
 _ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %.split.us.i, %365, %218, %209, %231, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit
   %.08111.i = phi i8 [ 0, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit ], [ %.08125.i, %231 ], [ %.08125.i, %209 ], [ %.08125.i, %218 ], [ %.2.i32, %365 ], [ %.08125.i, %.split.us.i ]
   %367 = or i8 %.08111.i, %.015.i
-  %368 = zext i8 %367 to i32
-  %369 = and i32 %368, 2
-  %.not25 = icmp eq i32 %369, 0
-  br i1 %.not25, label %370, label %457
+  %.not25 = icmp samesign ult i8 %367, 2
+  br i1 %.not25, label %368, label %454
 
-370:                                              ; preds = %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit
-  %371 = and i32 %368, 1
-  %.not26 = icmp eq i32 %371, 0
-  br i1 %.not26, label %457, label %372
+368:                                              ; preds = %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit
+  %.not26 = icmp eq i8 %367, 0
+  br i1 %.not26, label %454, label %369
 
-372:                                              ; preds = %370
-  %373 = load i32, ptr %26, align 4, !tbaa !24
-  %374 = icmp sgt i32 %373, 0
-  br i1 %374, label %.lr.ph.i40, label %ucm_moveMappings.exit
+369:                                              ; preds = %368
+  %370 = load i32, ptr %26, align 4, !tbaa !24
+  %371 = icmp sgt i32 %370, 0
+  br i1 %371, label %.lr.ph.i40, label %ucm_moveMappings.exit
 
-.lr.ph.i40:                                       ; preds = %372
-  %375 = zext nneg i32 %373 to i64
-  %376 = load ptr, ptr %2, align 8, !tbaa !23
-  %377 = getelementptr inbounds nuw %struct.UCMapping, ptr %376, i64 %375
-  %378 = getelementptr inbounds nuw i8, ptr %2, i64 58
+.lr.ph.i40:                                       ; preds = %369
+  %372 = zext nneg i32 %370 to i64
+  %373 = load ptr, ptr %2, align 8, !tbaa !23
+  %374 = getelementptr inbounds nuw %struct.UCMapping, ptr %373, i64 %372
+  %375 = getelementptr inbounds nuw i8, ptr %2, i64 58
   br label %.lr.ph.split.us.i41
 
-.lr.ph.split.us.i41:                              ; preds = %391, %.lr.ph.i40
-  %379 = phi i32 [ %392, %391 ], [ %373, %.lr.ph.i40 ]
-  %.035.us.i = phi ptr [ %.1.us.i, %391 ], [ %376, %.lr.ph.i40 ]
-  %.02734.us.i = phi ptr [ %.128.us.i, %391 ], [ %377, %.lr.ph.i40 ]
-  %380 = getelementptr inbounds nuw i8, ptr %.035.us.i, i64 11
-  %381 = load i8, ptr %380, align 1, !tbaa !37
-  %.not.us.i = icmp eq i8 %381, 0
-  br i1 %.not.us.i, label %389, label %382
+.lr.ph.split.us.i41:                              ; preds = %388, %.lr.ph.i40
+  %376 = phi i32 [ %389, %388 ], [ %370, %.lr.ph.i40 ]
+  %.035.us.i = phi ptr [ %.1.us.i, %388 ], [ %373, %.lr.ph.i40 ]
+  %.02734.us.i = phi ptr [ %.128.us.i, %388 ], [ %374, %.lr.ph.i40 ]
+  %377 = getelementptr inbounds nuw i8, ptr %.035.us.i, i64 11
+  %378 = load i8, ptr %377, align 1, !tbaa !37
+  %.not.us.i = icmp eq i8 %378, 0
+  br i1 %.not.us.i, label %386, label %379
 
-382:                                              ; preds = %.lr.ph.split.us.i41
-  store i8 0, ptr %380, align 1, !tbaa !37
-  %383 = getelementptr inbounds i8, ptr %.02734.us.i, i64 -12
-  %384 = icmp ult ptr %.035.us.i, %383
-  br i1 %384, label %385, label %386
+379:                                              ; preds = %.lr.ph.split.us.i41
+  store i8 0, ptr %377, align 1, !tbaa !37
+  %380 = getelementptr inbounds i8, ptr %.02734.us.i, i64 -12
+  %381 = icmp ult ptr %.035.us.i, %380
+  br i1 %381, label %382, label %383
 
-385:                                              ; preds = %382
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.us.i, ptr noundef nonnull align 4 dereferenceable(12) %383, i64 12, i1 false)
+382:                                              ; preds = %379
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.us.i, ptr noundef nonnull align 4 dereferenceable(12) %380, i64 12, i1 false)
   %.pre.i42 = load i32, ptr %26, align 4, !tbaa !24
-  br label %386
+  br label %383
 
-386:                                              ; preds = %385, %382
-  %387 = phi i32 [ %.pre.i42, %385 ], [ %379, %382 ]
-  %388 = add nsw i32 %387, -1
-  store i32 %388, ptr %26, align 4, !tbaa !24
-  store i8 0, ptr %378, align 2, !tbaa !28
-  br label %391
+383:                                              ; preds = %382, %379
+  %384 = phi i32 [ %.pre.i42, %382 ], [ %376, %379 ]
+  %385 = add nsw i32 %384, -1
+  store i32 %385, ptr %26, align 4, !tbaa !24
+  store i8 0, ptr %375, align 2, !tbaa !28
+  br label %388
 
-389:                                              ; preds = %.lr.ph.split.us.i41
-  %390 = getelementptr inbounds nuw i8, ptr %.035.us.i, i64 12
-  br label %391
+386:                                              ; preds = %.lr.ph.split.us.i41
+  %387 = getelementptr inbounds nuw i8, ptr %.035.us.i, i64 12
+  br label %388
 
-391:                                              ; preds = %389, %386
-  %392 = phi i32 [ %388, %386 ], [ %379, %389 ]
-  %.128.us.i = phi ptr [ %383, %386 ], [ %.02734.us.i, %389 ]
-  %.1.us.i = phi ptr [ %.035.us.i, %386 ], [ %390, %389 ]
-  %393 = icmp ult ptr %.1.us.i, %.128.us.i
-  br i1 %393, label %.lr.ph.split.us.i41, label %ucm_moveMappings.exit, !llvm.loop !38
+388:                                              ; preds = %386, %383
+  %389 = phi i32 [ %385, %383 ], [ %376, %386 ]
+  %.128.us.i = phi ptr [ %380, %383 ], [ %.02734.us.i, %386 ]
+  %.1.us.i = phi ptr [ %.035.us.i, %383 ], [ %387, %386 ]
+  %390 = icmp ult ptr %.1.us.i, %.128.us.i
+  br i1 %390, label %.lr.ph.split.us.i41, label %ucm_moveMappings.exit, !llvm.loop !38
 
-ucm_moveMappings.exit:                            ; preds = %391, %372
-  %394 = load i32, ptr %21, align 4, !tbaa !24
-  %395 = icmp sgt i32 %394, 0
-  br i1 %395, label %.lr.ph.i43, label %ucm_moveMappings.exit54
+ucm_moveMappings.exit:                            ; preds = %388, %369
+  %391 = load i32, ptr %21, align 4, !tbaa !24
+  %392 = icmp sgt i32 %391, 0
+  br i1 %392, label %.lr.ph.i43, label %ucm_moveMappings.exit54
 
 .lr.ph.i43:                                       ; preds = %ucm_moveMappings.exit
-  %396 = zext nneg i32 %394 to i64
-  %397 = load ptr, ptr %1, align 8, !tbaa !23
-  %398 = getelementptr inbounds nuw %struct.UCMapping, ptr %397, i64 %396
-  %399 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %400 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %401 = getelementptr inbounds nuw i8, ptr %1, i64 58
+  %393 = zext nneg i32 %391 to i64
+  %394 = load ptr, ptr %1, align 8, !tbaa !23
+  %395 = getelementptr inbounds nuw %struct.UCMapping, ptr %394, i64 %393
+  %396 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %397 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %398 = getelementptr inbounds nuw i8, ptr %1, i64 58
   br i1 %.not55, label %.lr.ph.split.us.i47, label %.lr.ph.split.i44
 
-.lr.ph.split.us.i47:                              ; preds = %.lr.ph.i43, %414
-  %402 = phi i32 [ %415, %414 ], [ %394, %.lr.ph.i43 ]
-  %.035.us.i48 = phi ptr [ %.1.us.i52, %414 ], [ %397, %.lr.ph.i43 ]
-  %.02734.us.i49 = phi ptr [ %.128.us.i51, %414 ], [ %398, %.lr.ph.i43 ]
-  %403 = getelementptr inbounds nuw i8, ptr %.035.us.i48, i64 11
-  %404 = load i8, ptr %403, align 1, !tbaa !37
-  %.not.us.i50 = icmp eq i8 %404, 0
-  br i1 %.not.us.i50, label %412, label %405
+.lr.ph.split.us.i47:                              ; preds = %.lr.ph.i43, %411
+  %399 = phi i32 [ %412, %411 ], [ %391, %.lr.ph.i43 ]
+  %.035.us.i48 = phi ptr [ %.1.us.i52, %411 ], [ %394, %.lr.ph.i43 ]
+  %.02734.us.i49 = phi ptr [ %.128.us.i51, %411 ], [ %395, %.lr.ph.i43 ]
+  %400 = getelementptr inbounds nuw i8, ptr %.035.us.i48, i64 11
+  %401 = load i8, ptr %400, align 1, !tbaa !37
+  %.not.us.i50 = icmp eq i8 %401, 0
+  br i1 %.not.us.i50, label %409, label %402
 
-405:                                              ; preds = %.lr.ph.split.us.i47
-  store i8 0, ptr %403, align 1, !tbaa !37
-  %406 = getelementptr inbounds i8, ptr %.02734.us.i49, i64 -12
-  %407 = icmp ult ptr %.035.us.i48, %406
-  br i1 %407, label %408, label %409
+402:                                              ; preds = %.lr.ph.split.us.i47
+  store i8 0, ptr %400, align 1, !tbaa !37
+  %403 = getelementptr inbounds i8, ptr %.02734.us.i49, i64 -12
+  %404 = icmp ult ptr %.035.us.i48, %403
+  br i1 %404, label %405, label %406
 
-408:                                              ; preds = %405
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.us.i48, ptr noundef nonnull align 4 dereferenceable(12) %406, i64 12, i1 false)
+405:                                              ; preds = %402
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.us.i48, ptr noundef nonnull align 4 dereferenceable(12) %403, i64 12, i1 false)
   %.pre.i53 = load i32, ptr %21, align 4, !tbaa !24
-  br label %409
+  br label %406
 
-409:                                              ; preds = %408, %405
-  %410 = phi i32 [ %.pre.i53, %408 ], [ %402, %405 ]
-  %411 = add nsw i32 %410, -1
-  store i32 %411, ptr %21, align 4, !tbaa !24
-  store i8 0, ptr %401, align 2, !tbaa !28
-  br label %414
+406:                                              ; preds = %405, %402
+  %407 = phi i32 [ %.pre.i53, %405 ], [ %399, %402 ]
+  %408 = add nsw i32 %407, -1
+  store i32 %408, ptr %21, align 4, !tbaa !24
+  store i8 0, ptr %398, align 2, !tbaa !28
+  br label %411
 
-412:                                              ; preds = %.lr.ph.split.us.i47
-  %413 = getelementptr inbounds nuw i8, ptr %.035.us.i48, i64 12
-  br label %414
+409:                                              ; preds = %.lr.ph.split.us.i47
+  %410 = getelementptr inbounds nuw i8, ptr %.035.us.i48, i64 12
+  br label %411
 
-414:                                              ; preds = %412, %409
-  %415 = phi i32 [ %411, %409 ], [ %402, %412 ]
-  %.128.us.i51 = phi ptr [ %406, %409 ], [ %.02734.us.i49, %412 ]
-  %.1.us.i52 = phi ptr [ %.035.us.i48, %409 ], [ %413, %412 ]
-  %416 = icmp ult ptr %.1.us.i52, %.128.us.i51
-  br i1 %416, label %.lr.ph.split.us.i47, label %ucm_moveMappings.exit54, !llvm.loop !38
+411:                                              ; preds = %409, %406
+  %412 = phi i32 [ %408, %406 ], [ %399, %409 ]
+  %.128.us.i51 = phi ptr [ %403, %406 ], [ %.02734.us.i49, %409 ]
+  %.1.us.i52 = phi ptr [ %.035.us.i48, %406 ], [ %410, %409 ]
+  %413 = icmp ult ptr %.1.us.i52, %.128.us.i51
+  br i1 %413, label %.lr.ph.split.us.i47, label %ucm_moveMappings.exit54, !llvm.loop !38
 
-.lr.ph.split.i44:                                 ; preds = %.lr.ph.i43, %454
-  %.035.i = phi ptr [ %.1.i46, %454 ], [ %397, %.lr.ph.i43 ]
-  %.02734.i = phi ptr [ %.128.i, %454 ], [ %398, %.lr.ph.i43 ]
-  %417 = getelementptr inbounds nuw i8, ptr %.035.i, i64 11
-  %418 = load i8, ptr %417, align 1, !tbaa !37
-  %.not.i45 = icmp eq i8 %418, 0
-  br i1 %.not.i45, label %452, label %419
+.lr.ph.split.i44:                                 ; preds = %.lr.ph.i43, %451
+  %.035.i = phi ptr [ %.1.i46, %451 ], [ %394, %.lr.ph.i43 ]
+  %.02734.i = phi ptr [ %.128.i, %451 ], [ %395, %.lr.ph.i43 ]
+  %414 = getelementptr inbounds nuw i8, ptr %.035.i, i64 11
+  %415 = load i8, ptr %414, align 1, !tbaa !37
+  %.not.i45 = icmp eq i8 %415, 0
+  br i1 %.not.i45, label %449, label %416
 
-419:                                              ; preds = %.lr.ph.split.i44
-  store i8 0, ptr %417, align 1, !tbaa !37
-  %420 = and i8 %418, 1
-  %.not33.i = icmp eq i8 %420, 0
-  br i1 %.not33.i, label %445, label %421
+416:                                              ; preds = %.lr.ph.split.i44
+  store i8 0, ptr %414, align 1, !tbaa !37
+  %417 = and i8 %415, 1
+  %.not33.i = icmp eq i8 %417, 0
+  br i1 %.not33.i, label %442, label %418
 
-421:                                              ; preds = %419
-  %422 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
-  %423 = load i8, ptr %422, align 4, !tbaa !3
-  %424 = icmp eq i8 %423, 1
-  br i1 %424, label %430, label %425
+418:                                              ; preds = %416
+  %419 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
+  %420 = load i8, ptr %419, align 4, !tbaa !3
+  %421 = icmp eq i8 %420, 1
+  br i1 %421, label %427, label %422
 
-425:                                              ; preds = %421
-  %426 = load ptr, ptr %399, align 8, !tbaa !8
-  %427 = load i32, ptr %.035.i, align 4, !tbaa !14
-  %428 = sext i32 %427 to i64
-  %429 = getelementptr inbounds i32, ptr %426, i64 %428
-  br label %430
+422:                                              ; preds = %418
+  %423 = load ptr, ptr %396, align 8, !tbaa !8
+  %424 = load i32, ptr %.035.i, align 4, !tbaa !14
+  %425 = sext i32 %424 to i64
+  %426 = getelementptr inbounds i32, ptr %423, i64 %425
+  br label %427
 
-430:                                              ; preds = %425, %421
-  %431 = phi ptr [ %429, %425 ], [ %.035.i, %421 ]
-  %432 = getelementptr inbounds nuw i8, ptr %.035.i, i64 9
-  %433 = load i8, ptr %432, align 1, !tbaa !15
-  %434 = icmp slt i8 %433, 5
-  br i1 %434, label %435, label %437
+427:                                              ; preds = %422, %418
+  %428 = phi ptr [ %426, %422 ], [ %.035.i, %418 ]
+  %429 = getelementptr inbounds nuw i8, ptr %.035.i, i64 9
+  %430 = load i8, ptr %429, align 1, !tbaa !15
+  %431 = icmp slt i8 %430, 5
+  br i1 %431, label %432, label %434
 
-435:                                              ; preds = %430
+432:                                              ; preds = %427
+  %433 = getelementptr inbounds nuw i8, ptr %.035.i, i64 4
+  br label %440
+
+434:                                              ; preds = %427
+  %435 = load ptr, ptr %397, align 8, !tbaa !16
   %436 = getelementptr inbounds nuw i8, ptr %.035.i, i64 4
-  br label %443
+  %437 = load i32, ptr %436, align 4, !tbaa !17
+  %438 = zext i32 %437 to i64
+  %439 = getelementptr inbounds nuw i8, ptr %435, i64 %438
+  br label %440
 
-437:                                              ; preds = %430
-  %438 = load ptr, ptr %400, align 8, !tbaa !16
-  %439 = getelementptr inbounds nuw i8, ptr %.035.i, i64 4
-  %440 = load i32, ptr %439, align 4, !tbaa !17
-  %441 = zext i32 %440 to i64
-  %442 = getelementptr inbounds nuw i8, ptr %438, i64 %441
-  br label %443
+440:                                              ; preds = %434, %432
+  %441 = phi ptr [ %433, %432 ], [ %439, %434 ]
+  tail call void @ucm_addMapping(ptr noundef nonnull %3, ptr noundef nonnull %.035.i, ptr noundef %428, ptr noundef %441)
+  br label %442
 
-443:                                              ; preds = %437, %435
-  %444 = phi ptr [ %436, %435 ], [ %442, %437 ]
-  tail call void @ucm_addMapping(ptr noundef nonnull %3, ptr noundef nonnull %.035.i, ptr noundef %431, ptr noundef %444)
-  br label %445
+442:                                              ; preds = %440, %416
+  %443 = getelementptr inbounds i8, ptr %.02734.i, i64 -12
+  %444 = icmp ult ptr %.035.i, %443
+  br i1 %444, label %445, label %446
 
-445:                                              ; preds = %443, %419
-  %446 = getelementptr inbounds i8, ptr %.02734.i, i64 -12
-  %447 = icmp ult ptr %.035.i, %446
-  br i1 %447, label %448, label %449
+445:                                              ; preds = %442
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.i, ptr noundef nonnull align 4 dereferenceable(12) %443, i64 12, i1 false)
+  br label %446
 
-448:                                              ; preds = %445
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.035.i, ptr noundef nonnull align 4 dereferenceable(12) %446, i64 12, i1 false)
-  br label %449
+446:                                              ; preds = %445, %442
+  %447 = load i32, ptr %21, align 4, !tbaa !24
+  %448 = add nsw i32 %447, -1
+  store i32 %448, ptr %21, align 4, !tbaa !24
+  store i8 0, ptr %398, align 2, !tbaa !28
+  br label %451
 
-449:                                              ; preds = %448, %445
-  %450 = load i32, ptr %21, align 4, !tbaa !24
-  %451 = add nsw i32 %450, -1
-  store i32 %451, ptr %21, align 4, !tbaa !24
-  store i8 0, ptr %401, align 2, !tbaa !28
-  br label %454
+449:                                              ; preds = %.lr.ph.split.i44
+  %450 = getelementptr inbounds nuw i8, ptr %.035.i, i64 12
+  br label %451
 
-452:                                              ; preds = %.lr.ph.split.i44
-  %453 = getelementptr inbounds nuw i8, ptr %.035.i, i64 12
-  br label %454
+451:                                              ; preds = %449, %446
+  %.128.i = phi ptr [ %443, %446 ], [ %.02734.i, %449 ]
+  %.1.i46 = phi ptr [ %.035.i, %446 ], [ %450, %449 ]
+  %452 = icmp ult ptr %.1.i46, %.128.i
+  br i1 %452, label %.lr.ph.split.i44, label %ucm_moveMappings.exit54, !llvm.loop !38
 
-454:                                              ; preds = %452, %449
-  %.128.i = phi ptr [ %446, %449 ], [ %.02734.i, %452 ]
-  %.1.i46 = phi ptr [ %.035.i, %449 ], [ %453, %452 ]
-  %455 = icmp ult ptr %.1.i46, %.128.i
-  br i1 %455, label %.lr.ph.split.i44, label %ucm_moveMappings.exit54, !llvm.loop !38
-
-ucm_moveMappings.exit54:                          ; preds = %454, %414, %ucm_moveMappings.exit
+ucm_moveMappings.exit54:                          ; preds = %451, %411, %ucm_moveMappings.exit
   tail call void @ucm_sortTable(ptr noundef nonnull %1)
   tail call void @ucm_sortTable(ptr noundef nonnull %2)
-  br i1 %.not55, label %457, label %456
+  br i1 %.not55, label %454, label %453
 
-456:                                              ; preds = %ucm_moveMappings.exit54
+453:                                              ; preds = %ucm_moveMappings.exit54
   tail call void @ucm_sortTable(ptr noundef nonnull %3)
-  br label %457
+  br label %454
 
-457:                                              ; preds = %370, %456, %ucm_moveMappings.exit54, %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, %16, %9
-  %.0 = phi i8 [ 0, %9 ], [ 0, %16 ], [ 0, %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit ], [ 1, %ucm_moveMappings.exit54 ], [ 1, %456 ], [ 1, %370 ]
+454:                                              ; preds = %368, %453, %ucm_moveMappings.exit54, %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, %16, %9
+  %.0 = phi i8 [ 0, %9 ], [ 0, %16 ], [ 0, %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit ], [ 1, %ucm_moveMappings.exit54 ], [ 1, %453 ], [ 1, %368 ]
   ret i8 %.0
 }
 

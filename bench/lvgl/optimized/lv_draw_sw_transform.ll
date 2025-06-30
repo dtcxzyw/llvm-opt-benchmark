@@ -1305,7 +1305,7 @@ define internal fastcc void @transform_rgb565a8(ptr noundef readonly captures(no
   %98 = mul nuw nsw i32 %.0155, %97
   %99 = sub nuw nsw i32 256, %.0155
   %100 = mul nuw nsw i32 %99, %96
-  %101 = add nuw nsw i32 %98, %100
+  %101 = add nsw i32 %98, %100
   %102 = lshr i32 %101, 8
   %103 = trunc i32 %102 to i8
   br label %104

@@ -2641,8 +2641,8 @@ findsetreg.exit.thread:                           ; preds = %9
   br i1 %.not51.i, label %47, label %43
 
 43:                                               ; preds = %42, %35, %29, %24
-  %44 = sext i32 %.0386.i to i64
-  %45 = icmp slt i64 %indvars.iv.i, %44
+  %44 = zext nneg i32 %.0386.i to i64
+  %45 = icmp samesign ult i64 %indvars.iv.i, %44
   %46 = trunc nuw nsw i64 %indvars.iv.i to i32
   %..i.i = select i1 %45, i32 -1, i32 %46
   br label %47

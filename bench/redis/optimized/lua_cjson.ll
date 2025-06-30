@@ -1105,7 +1105,7 @@ json_encode_exception.exit74:                     ; preds = %138, %139
   br label %143
 
 143:                                              ; preds = %json_encode_exception.exit74, %strbuf_append_char.exit81, %strbuf_append_mem.exit85
-  tail call fastcc void @json_append_data(ptr noundef %0, ptr noundef %1, i32 noundef %32, ptr noundef nonnull %3)
+  tail call fastcc void @json_append_data(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147483647, -2147483648) %32, ptr noundef nonnull %3)
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #12
   %144 = tail call i32 @lua_next(ptr noundef %0, i32 noundef -2) #12
   %.not.i38 = icmp eq i32 %144, 0

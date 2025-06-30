@@ -14332,7 +14332,7 @@ st_mult.exit152:                                  ; preds = %st_mult.exit149
   br i1 %.not.i, label %clear_commit_todo_item.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %45
-  %46 = zext i32 %.sroa.16.0292 to i64
+  %46 = zext nneg i32 %.sroa.16.0292 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -14954,7 +14954,7 @@ st_mult.exit206:                                  ; preds = %253
   br i1 %.not.i207, label %clear_commit_todo_item.exit211, label %.lr.ph.i208.preheader
 
 .lr.ph.i208.preheader:                            ; preds = %._crit_edge317
-  %290 = zext i32 %.sroa.16.0.lcssa368 to i64
+  %290 = zext nneg i32 %.sroa.16.0.lcssa368 to i64
   br label %.lr.ph.i208
 
 .lr.ph.i208:                                      ; preds = %.lr.ph.i208.preheader, %.lr.ph.i208

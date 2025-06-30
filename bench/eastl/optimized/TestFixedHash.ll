@@ -32782,11 +32782,11 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm1
 .noexc63:                                         ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i1724, %entry.if.end_crit_edge.i1680
   %68 = phi ptr [ %52, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i1724 ], [ %.pre.i1682, %entry.if.end_crit_edge.i1680 ]
   %n.addr.0.i1683 = phi i64 [ %rem.i.i.i1694, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i1724 ], [ %rem.i.i.i.i.i.i37, %entry.if.end_crit_edge.i1680 ]
-  %arrayidx.i1685 = getelementptr inbounds ptr, ptr %68, i64 %n.addr.0.i1683
+  %arrayidx.i1685 = getelementptr inbounds nuw ptr, ptr %68, i64 %n.addr.0.i1683
   %69 = load ptr, ptr %arrayidx.i1685, align 8, !noalias !510
   store ptr %69, ptr %mpNext.i15.i.i.i.i53, align 8, !noalias !510
   %70 = load ptr, ptr %mpBucketArray.i.i.i.i, align 8, !noalias !510
-  %arrayidx8.i1687 = getelementptr inbounds ptr, ptr %70, i64 %n.addr.0.i1683
+  %arrayidx8.i1687 = getelementptr inbounds nuw ptr, ptr %70, i64 %n.addr.0.i1683
   store ptr %result.0.i.i.i.i.i.i52, ptr %arrayidx8.i1687, align 8, !noalias !510
   %71 = load i64, ptr %mnElementCount.i, align 8, !noalias !510
   %inc.i1688 = add i64 %71, 1
@@ -37032,7 +37032,7 @@ _ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_all
 .noexc875:                                        ; preds = %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i, %entry.if.end_crit_edge.i2518
   %618 = phi ptr [ %603, %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %.pre.i2520, %entry.if.end_crit_edge.i2518 ]
   %n.addr.0.i2521 = phi i64 [ %rem.i.i.i2532, %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %rem.i.i.i.i.zext.i.i, %entry.if.end_crit_edge.i2518 ]
-  %arrayidx.i2523 = getelementptr inbounds nuw ptr, ptr %618, i64 %n.addr.0.i2521
+  %arrayidx.i2523 = getelementptr inbounds ptr, ptr %618, i64 %n.addr.0.i2521
   %619 = load ptr, ptr %arrayidx.i2523, align 8, !noalias !660
   store ptr %619, ptr %mpNext.i15.i.i.i.i865, align 8, !noalias !660
   store ptr %result.0.i.i.i.i.i.i864, ptr %arrayidx.i2523, align 8, !noalias !660
@@ -38623,11 +38623,11 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10
 .noexc1419:                                       ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i, %entry.if.end_crit_edge.i2727
   %878 = phi ptr [ %862, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %.pre.i2729, %entry.if.end_crit_edge.i2727 ]
   %n.addr.0.i2730 = phi i64 [ %rem.i.i.i2741, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %rem.i.i.i.i.i.i1394, %entry.if.end_crit_edge.i2727 ]
-  %arrayidx.i2732 = getelementptr inbounds ptr, ptr %878, i64 %n.addr.0.i2730
+  %arrayidx.i2732 = getelementptr inbounds nuw ptr, ptr %878, i64 %n.addr.0.i2730
   %879 = load ptr, ptr %arrayidx.i2732, align 8, !noalias !750
   store ptr %879, ptr %mpNext.i15.i.i.i.i1409, align 8, !noalias !750
   %880 = load ptr, ptr %mpBucketArray.i.i.i.i1395, align 8, !noalias !750
-  %arrayidx8.i2734 = getelementptr inbounds ptr, ptr %880, i64 %n.addr.0.i2730
+  %arrayidx8.i2734 = getelementptr inbounds nuw ptr, ptr %880, i64 %n.addr.0.i2730
   store ptr %result.0.i.i.i.i.i.i1408, ptr %arrayidx8.i2734, align 8, !noalias !750
   %881 = load i64, ptr %mnElementCount.i1389, align 8, !noalias !750
   %inc.i2735 = add i64 %881, 1
@@ -40100,11 +40100,11 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm1
 .noexc:                                           ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i, %entry.if.end_crit_edge.i
   %30 = phi ptr [ %14, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %.pre.i, %entry.if.end_crit_edge.i ]
   %n.addr.0.i = phi i64 [ %rem.i.i.i84, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %rem.i.i.i.i, %entry.if.end_crit_edge.i ]
-  %arrayidx.i81 = getelementptr inbounds ptr, ptr %30, i64 %n.addr.0.i
+  %arrayidx.i81 = getelementptr inbounds nuw ptr, ptr %30, i64 %n.addr.0.i
   %31 = load ptr, ptr %arrayidx.i81, align 8, !noalias !818
   store ptr %31, ptr %mpNext.i.i.i, align 8, !noalias !818
   %32 = load ptr, ptr %mpBucketArray.i.i, align 8, !noalias !818
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %32, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %32, i64 %n.addr.0.i
   store ptr %result.0.i.i.i.i, ptr %arrayidx8.i, align 8, !noalias !818
   %33 = load i64, ptr %mnElementCount.i79, align 8, !noalias !818
   %inc.i82 = add i64 %33, 1

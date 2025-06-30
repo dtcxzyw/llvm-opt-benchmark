@@ -61,15 +61,15 @@ define void @clamav_stats_add_sample(ptr noundef readonly captures(address_is_nu
   %20 = tail call i64 %17(ptr noundef nonnull %4) #14
   %21 = load i32, ptr %18, align 8, !tbaa !37
   %22 = zext i32 %21 to i64
-  %.not157 = icmp ult i64 %20, %22
-  br i1 %.not157, label %27, label %.thread
+  %.not156 = icmp ult i64 %20, %22
+  br i1 %.not156, label %27, label %.critedge
 
 23:                                               ; preds = %15
   %24 = tail call i64 @clamav_stats_get_size(ptr noundef nonnull %4)
   %25 = load i32, ptr %18, align 8, !tbaa !37
   %26 = zext i32 %25 to i64
-  %.not158 = icmp ult i64 %24, %26
-  br i1 %.not158, label %27, label %.thread
+  %.not157 = icmp ult i64 %24, %26
+  br i1 %.not157, label %27, label %.critedge
 
 27:                                               ; preds = %19, %23
   %28 = load ptr, ptr %7, align 8, !tbaa !3
@@ -83,29 +83,29 @@ define void @clamav_stats_add_sample(ptr noundef readonly captures(address_is_nu
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %34 = load i32, ptr %33, align 4, !tbaa !39
   %35 = zext i32 %34 to i64
-  %.not159 = icmp ult i64 %32, %35
-  br i1 %.not159, label %49, label %.thread
+  %.not158 = icmp ult i64 %32, %35
+  br i1 %.not158, label %49, label %.critedge
 
 36:                                               ; preds = %27
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %38 = load i32, ptr %37, align 8, !tbaa !40
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %40 = load i32, ptr %39, align 4, !tbaa !39
-  %.not160 = icmp ult i32 %38, %40
-  br i1 %.not160, label %49, label %.thread
+  %.not159 = icmp ult i32 %38, %40
+  br i1 %.not159, label %49, label %.critedge
 
-.thread:                                          ; preds = %19, %23, %31, %36
+.critedge:                                        ; preds = %31, %19, %23, %36
   %41 = load ptr, ptr %7, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1112
   %43 = load ptr, ptr %42, align 8, !tbaa !41
   %.not136 = icmp eq ptr %43, null
   br i1 %.not136, label %45, label %44
 
-44:                                               ; preds = %.thread
+44:                                               ; preds = %.critedge
   tail call void %43(ptr noundef nonnull %41, ptr noundef nonnull %4) #14
   br label %49
 
-45:                                               ; preds = %.thread
+45:                                               ; preds = %.critedge
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 1120
   %47 = load ptr, ptr %46, align 8, !tbaa !42
   %.not137 = icmp eq ptr %47, null

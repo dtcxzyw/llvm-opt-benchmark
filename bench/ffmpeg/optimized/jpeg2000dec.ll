@@ -1777,7 +1777,7 @@ get_rgn.exit.i:                                   ; preds = %794, %bytestream2_g
 836:                                              ; preds = %832, %830, %828
   call void @llvm.lifetime.start.p0(i64 300, ptr nonnull %7) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(300) %7, i8 0, i64 300, i1 false)
-  %837 = call fastcc i32 @get_qcx(ptr noundef nonnull %11, i32 noundef range(i32 2, 65536) %563, ptr noundef nonnull %7)
+  %837 = call fastcc i32 @get_qcx(ptr noundef nonnull %11, i32 noundef range(i32 2, -2147483648) %563, ptr noundef nonnull %7)
   %838 = icmp slt i32 %837, 0
   br i1 %838, label %get_qcd.exit.i, label %.preheader.i.i
 
@@ -1857,10 +1857,10 @@ get_qcd.exit.i:                                   ; preds = %847, %.preheader.i.
   br label %get_poc.exit.i
 
 870:                                              ; preds = %867
-  %.lhs.trunc.i.i = add i16 %562, -2
-  %871 = udiv i16 %.lhs.trunc.i.i, 7
-  %.zext.i.i = zext nneg i16 %871 to i32
-  store i32 %.zext.i.i, ptr %440, align 4, !tbaa !92
+  %.lhs.trunc.i = trunc nuw i32 %570 to i16
+  %871 = udiv i16 %.lhs.trunc.i, 7
+  %.zext.i = zext nneg i16 %871 to i32
+  store i32 %.zext.i, ptr %440, align 4, !tbaa !92
   %872 = icmp ugt i16 %562, 232
   br i1 %872, label %873, label %.lr.ph.i244.i
 
@@ -1870,7 +1870,7 @@ get_qcd.exit.i:                                   ; preds = %847, %.preheader.i.
 
 873:                                              ; preds = %870
   %874 = load ptr, ptr %12, align 8, !tbaa !35
-  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %874, ptr noundef nonnull @.str.66, i32 noundef %.zext.i.i) #11
+  tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %874, ptr noundef nonnull @.str.66, i32 noundef %.zext.i) #11
   br label %get_poc.exit.i
 
 875:                                              ; preds = %910, %.lr.ph.i244.i
@@ -1965,7 +1965,7 @@ get_qcd.exit.i:                                   ; preds = %847, %.preheader.i.
   br label %928
 
 917:                                              ; preds = %913
-  %918 = add nsw i32 %912, %.zext.i.i
+  %918 = add nsw i32 %912, %.zext.i
   %919 = icmp sgt i32 %918, 32
   br i1 %919, label %920, label %922
 
@@ -1980,7 +1980,7 @@ get_qcd.exit.i:                                   ; preds = %847, %.preheader.i.
   %925 = mul nuw nsw i64 %wide.trip.count.i.i, 10
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %924, ptr nonnull align 4 %6, i64 %925, i1 false)
   %926 = load i32, ptr %911, align 4, !tbaa !92
-  %927 = add nsw i32 %926, %.zext.i.i
+  %927 = add nsw i32 %926, %.zext.i
   store i32 %927, ptr %911, align 4, !tbaa !92
   br label %928
 
@@ -5644,7 +5644,7 @@ switch.lookup:                                    ; preds = %272
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1094995529, 1) i32 @get_ppm(ptr noundef captures(none) %0, i32 noundef range(i32 2, 65536) %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1094995529, 1) i32 @get_ppm(ptr noundef captures(none) %0, i32 noundef range(i32 2, -2147483648) %1) unnamed_addr #1 {
   %3 = icmp samesign ult i32 %1, 3
   br i1 %3, label %4, label %bytestream2_get_byte.exit
 
@@ -5703,7 +5703,7 @@ bytestream2_get_byte.exit:                        ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1094995529, 1) i32 @get_ppt(ptr noundef captures(none) %0, i32 noundef range(i32 2, 65536) %1) unnamed_addr #1 {
+define internal fastcc range(i32 -1094995529, 1) i32 @get_ppt(ptr noundef captures(none) %0, i32 noundef range(i32 2, -2147483648) %1) unnamed_addr #1 {
   %3 = icmp samesign ult i32 %1, 3
   br i1 %3, label %4, label %7
 
@@ -6124,7 +6124,7 @@ bytestream2_get_byte.exit:                        ; preds = %97, %98
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1094995529, 1) i32 @get_qcx(ptr noundef captures(none) %0, i32 noundef range(i32 1, 65536) %1, ptr noundef captures(none) %2) unnamed_addr #8 {
+define internal fastcc range(i32 -1094995529, 1) i32 @get_qcx(ptr noundef captures(none) %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef captures(none) %2) unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !41
@@ -8540,10 +8540,10 @@ bytestream2_peek_byte.exit.i672:                  ; preds = %539, %533
   %.0.i11.i673 = phi i32 [ %541, %539 ], [ 0, %533 ]
   %542 = lshr i32 %.0.i11.i673, %535
   %543 = and i32 %542, 1
-  %544 = shl nsw i32 %.2456979, 1
+  %544 = shl nuw nsw i32 %.2456979, 1
   %545 = shl i32 %.0471978, 1
   %546 = or disjoint i32 %543, %545
-  %.not551 = icmp sgt i32 %544, %.0.i623872
+  %.not551 = icmp samesign ugt i32 %544, %.0.i623872
   br i1 %.not551, label %get_bits.exit728, label %.lr.ph981, !llvm.loop !288
 
 get_bits.exit666.thread:                          ; preds = %._crit_edge, %get_bits.exit666
@@ -8603,10 +8603,10 @@ bytestream2_peek_byte.exit.i687:                  ; preds = %563, %557
   %.0.i11.i688 = phi i32 [ %565, %563 ], [ 0, %557 ]
   %566 = lshr i32 %.0.i11.i688, %559
   %567 = and i32 %566, 1
-  %568 = shl nsw i32 %.3457, 1
+  %568 = shl nuw nsw i32 %.3457, 1
   %569 = shl i32 %.1472, 1
   %570 = or disjoint i32 %567, %569
-  %571 = icmp sgt i32 %568, %.0.i623872
+  %571 = icmp samesign ugt i32 %568, %.0.i623872
   br i1 %571, label %572, label %549
 
 572:                                              ; preds = %bytestream2_peek_byte.exit.i687
@@ -9111,7 +9111,7 @@ get_bits.exit776:                                 ; preds = %bytestream2_peek_by
 
 812:                                              ; preds = %.lr.ph1011
   %.not557 = icmp eq i32 %.14591009, 1
-  %813 = zext i8 %.44641008 to i32
+  %813 = zext nneg i8 %.44641008 to i32
   %814 = select i1 %.not557, i32 1, i32 %813
   %815 = sub i8 3, %.44641008
   %816 = load i8, ptr %383, align 1, !tbaa !278
@@ -9211,7 +9211,7 @@ get_bits.exit792:                                 ; preds = %get_bits.exit792.lo
   %.0.lcssa.i786 = phi i16 [ 0, %829 ], [ %859, %get_bits.exit792.loopexit ]
   %860 = sub nsw i32 %.14591009, %.4470
   %861 = load i8, ptr %176, align 8, !tbaa !166
-  %862 = trunc nuw i32 %.4470 to i8
+  %862 = trunc nuw nsw i32 %.4470 to i8
   %863 = add i8 %861, %862
   store i8 %863, ptr %176, align 8, !tbaa !166
   %864 = load ptr, ptr %399, align 8, !tbaa !283

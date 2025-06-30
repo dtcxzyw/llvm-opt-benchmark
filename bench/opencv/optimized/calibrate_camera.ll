@@ -3769,7 +3769,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i106.i: ; preds =
 
 1197:                                             ; preds = %1183
   %1198 = getelementptr inbounds nuw i8, ptr %1166, i64 16
-  invoke void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) %1166, ptr noundef nonnull align 8 dereferenceable(32) %1198, i32 noundef %spec.select204)
+  invoke void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) %1166, ptr noundef nonnull align 8 dereferenceable(32) %1198, i32 noundef range(i32 0, 16) %spec.select204)
           to label %.noexc112.i431 unwind label %1156
 
 .noexc112.i431:                                   ; preds = %1197

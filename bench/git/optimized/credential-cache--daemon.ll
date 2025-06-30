@@ -800,7 +800,7 @@ define internal fastcc void @cache_credential(ptr noundef nonnull captures(none)
   br i1 %12, label %13, label %st_mult.exit
 
 13:                                               ; preds = %6
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.38, i64 noundef 208, i64 noundef range(i64 -2147483648, 2147483648) %11) #17
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.38, i64 noundef 208, i64 noundef range(i64 -1073741824, 2147483648) %11) #17
   unreachable
 
 st_mult.exit:                                     ; preds = %6

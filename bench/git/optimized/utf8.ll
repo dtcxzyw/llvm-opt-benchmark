@@ -122,16 +122,16 @@ define dso_local range(i32 -1, 3) i32 @utf8_width(ptr noundef captures(none) %0,
   %.01922.i.i = phi i32 [ %.120.i.i, %26 ], [ 367, %9 ]
   %11 = sub nsw i32 %.01922.i.i, %.01823.i.i
   %12 = lshr i32 %11, 1
-  %13 = add nsw i32 %12, %.01823.i.i
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %14
+  %13 = add nuw nsw i32 %12, %.01823.i.i
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds nuw %struct.interval, ptr @git_wcwidth.zero_width, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !12
   %18 = icmp ugt i32 %3, %17
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.preheader.i.i
-  %20 = add nsw i32 %13, 1
+  %20 = add nuw nsw i32 %13, 1
   br label %26
 
 21:                                               ; preds = %.preheader.i.i
@@ -159,16 +159,16 @@ define dso_local range(i32 -1, 3) i32 @utf8_width(ptr noundef captures(none) %0,
   %.01922.i13.i = phi i32 [ %.120.i15.i, %44 ], [ 121, %27 ]
   %29 = sub nsw i32 %.01922.i13.i, %.01823.i12.i
   %30 = lshr i32 %29, 1
-  %31 = add nsw i32 %30, %.01823.i12.i
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %32
+  %31 = add nuw nsw i32 %30, %.01823.i12.i
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw %struct.interval, ptr @git_wcwidth.double_width, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !12
   %36 = icmp ugt i32 %3, %35
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %.preheader.i11.i
-  %38 = add nsw i32 %31, 1
+  %38 = add nuw nsw i32 %31, 1
   br label %44
 
 39:                                               ; preds = %.preheader.i11.i
@@ -469,16 +469,16 @@ display_mode_esc_sequence_len.exit:               ; preds = %21
   %.01922.i.i.i = phi i32 [ %.120.i.i.i, %50 ], [ 367, %33 ]
   %35 = sub nsw i32 %.01922.i.i.i, %.01823.i.i.i
   %36 = lshr i32 %35, 1
-  %37 = add nsw i32 %36, %.01823.i.i.i
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %38
+  %37 = add nuw nsw i32 %36, %.01823.i.i.i
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds nuw %struct.interval, ptr @git_wcwidth.zero_width, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !12
   %42 = icmp ugt i32 %27, %41
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %.preheader.i.i.i
-  %44 = add nsw i32 %37, 1
+  %44 = add nuw nsw i32 %37, 1
   br label %50
 
 45:                                               ; preds = %.preheader.i.i.i
@@ -506,16 +506,16 @@ display_mode_esc_sequence_len.exit:               ; preds = %21
   %.01922.i13.i.i = phi i32 [ %.120.i15.i.i, %68 ], [ 121, %51 ]
   %53 = sub nsw i32 %.01922.i13.i.i, %.01823.i12.i.i
   %54 = lshr i32 %53, 1
-  %55 = add nsw i32 %54, %.01823.i12.i.i
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %56
+  %55 = add nuw nsw i32 %54, %.01823.i12.i.i
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds nuw %struct.interval, ptr @git_wcwidth.double_width, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !12
   %60 = icmp ugt i32 %27, %59
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %.preheader.i11.i.i
-  %62 = add nsw i32 %55, 1
+  %62 = add nuw nsw i32 %55, 1
   br label %68
 
 63:                                               ; preds = %.preheader.i11.i.i
@@ -903,16 +903,16 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   %.01922.i.i.i = phi i32 [ %.120.i.i.i, %128 ], [ 367, %111 ]
   %113 = sub nsw i32 %.01922.i.i.i, %.01823.i.i.i
   %114 = lshr i32 %113, 1
-  %115 = add nsw i32 %114, %.01823.i.i.i
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %116
+  %115 = add nuw nsw i32 %114, %.01823.i.i.i
+  %116 = zext nneg i32 %115 to i64
+  %117 = getelementptr inbounds nuw %struct.interval, ptr @git_wcwidth.zero_width, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !12
   %120 = icmp ugt i32 %105, %119
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %.preheader.i.i.i
-  %122 = add nsw i32 %115, 1
+  %122 = add nuw nsw i32 %115, 1
   br label %128
 
 123:                                              ; preds = %.preheader.i.i.i
@@ -940,16 +940,16 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   %.01922.i13.i.i = phi i32 [ %.120.i15.i.i, %146 ], [ 121, %129 ]
   %131 = sub nsw i32 %.01922.i13.i.i, %.01823.i12.i.i
   %132 = lshr i32 %131, 1
-  %133 = add nsw i32 %132, %.01823.i12.i.i
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %134
+  %133 = add nuw nsw i32 %132, %.01823.i12.i.i
+  %134 = zext nneg i32 %133 to i64
+  %135 = getelementptr inbounds nuw %struct.interval, ptr @git_wcwidth.double_width, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %137 = load i32, ptr %136, align 4, !tbaa !12
   %138 = icmp ugt i32 %105, %137
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %.preheader.i11.i.i
-  %140 = add nsw i32 %133, 1
+  %140 = add nuw nsw i32 %133, 1
   br label %146
 
 141:                                              ; preds = %.preheader.i11.i.i
@@ -1147,16 +1147,16 @@ display_mode_esc_sequence_len.exit.thread:        ; preds = %display_mode_esc_se
   %.01922.i.i.i = phi i32 [ %.120.i.i.i, %56 ], [ 367, %39 ]
   %41 = sub nsw i32 %.01922.i.i.i, %.01823.i.i.i
   %42 = lshr i32 %41, 1
-  %43 = add nsw i32 %42, %.01823.i.i.i
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.interval, ptr @git_wcwidth.zero_width, i64 %44
+  %43 = add nuw nsw i32 %42, %.01823.i.i.i
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw %struct.interval, ptr @git_wcwidth.zero_width, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %48 = icmp ugt i32 %33, %47
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %.preheader.i.i.i
-  %50 = add nsw i32 %43, 1
+  %50 = add nuw nsw i32 %43, 1
   br label %56
 
 51:                                               ; preds = %.preheader.i.i.i
@@ -1184,16 +1184,16 @@ display_mode_esc_sequence_len.exit.thread:        ; preds = %display_mode_esc_se
   %.01922.i13.i.i = phi i32 [ %.120.i15.i.i, %74 ], [ 121, %57 ]
   %59 = sub nsw i32 %.01922.i13.i.i, %.01823.i12.i.i
   %60 = lshr i32 %59, 1
-  %61 = add nsw i32 %60, %.01823.i12.i.i
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.interval, ptr @git_wcwidth.double_width, i64 %62
+  %61 = add nuw nsw i32 %60, %.01823.i12.i.i
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw %struct.interval, ptr @git_wcwidth.double_width, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !12
   %66 = icmp ugt i32 %33, %65
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %.preheader.i11.i.i
-  %68 = add nsw i32 %61, 1
+  %68 = add nuw nsw i32 %61, 1
   br label %74
 
 69:                                               ; preds = %.preheader.i11.i.i

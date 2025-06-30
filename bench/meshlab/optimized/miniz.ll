@@ -14770,7 +14770,7 @@ define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef no
 
 33:                                               ; preds = %9, %4
   %.094 = phi ptr [ %32, %9 ], [ %8, %4 ]
-  %.0 = phi i32 [ 8, %9 ], [ 0, %4 ]
+  %.0 = phi i8 [ 8, %9 ], [ 0, %4 ]
   %.not100 = icmp eq ptr %2, null
   br i1 %.not100, label %58, label %34
 
@@ -14807,12 +14807,12 @@ define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef no
   %56 = getelementptr inbounds nuw i8, ptr %.094, i64 7
   store i8 %55, ptr %56, align 1
   %57 = getelementptr inbounds nuw i8, ptr %.094, i64 8
-  %narrow = add nuw nsw i32 %.0, 8
+  %narrow = add nuw nsw i8 %.0, 8
   br label %58
 
 58:                                               ; preds = %34, %33
   %.195 = phi ptr [ %57, %34 ], [ %.094, %33 ]
-  %.1 = phi i32 [ %narrow, %34 ], [ %.0, %33 ]
+  %.1 = phi i8 [ %narrow, %34 ], [ %.0, %33 ]
   %.not102 = icmp eq ptr %3, null
   br i1 %.not102, label %84, label %59
 
@@ -14849,20 +14849,19 @@ define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef no
   %81 = getelementptr inbounds nuw i8, ptr %.195, i64 7
   store i8 %80, ptr %81, align 1
   %82 = getelementptr inbounds nuw i8, ptr %.195, i64 8
-  %83 = add nuw nsw i32 %.1, 8
+  %83 = add nuw nsw i8 %.1, 8
   br label %84
 
 84:                                               ; preds = %59, %58
   %.296 = phi ptr [ %82, %59 ], [ %.195, %58 ]
-  %.2 = phi i32 [ %83, %59 ], [ %.1, %58 ]
-  %85 = trunc nuw nsw i32 %.2 to i8
-  store i8 %85, ptr %6, align 1
+  %.2 = phi i8 [ %83, %59 ], [ %.1, %58 ]
+  store i8 %.2, ptr %6, align 1
   store i8 0, ptr %7, align 1
-  %86 = ptrtoint ptr %.296 to i64
-  %87 = ptrtoint ptr %0 to i64
-  %88 = sub i64 %86, %87
-  %89 = trunc i64 %88 to i32
-  ret i32 %89
+  %85 = ptrtoint ptr %.296 to i64
+  %86 = ptrtoint ptr %0 to i64
+  %87 = sub i64 %85, %86
+  %88 = trunc i64 %87 to i32
+  ret i32 %88
 }
 
 ; Function Attrs: nounwind uwtable

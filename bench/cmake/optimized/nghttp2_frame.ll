@@ -1142,7 +1142,7 @@ define dso_local void @nghttp2_frame_unpack_ping_payload(ptr noundef writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -501, -502) i32 @nghttp2_frame_pack_goaway(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @nghttp2_frame_pack_goaway(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !69

@@ -1561,9 +1561,9 @@ Abc_TtMinBase.exit.i.us:                          ; preds = %Abc_TtMinBase.exit.
 731:                                              ; preds = %729
   %732 = getelementptr inbounds nuw [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %725, i64 %indvars.iv.next.i.i.i.us
   %733 = trunc nuw nsw i64 %indvars.iv.next.i.i.i.us to i32
-  %734 = shl nuw nsw i32 1, %733
+  %734 = shl nuw i32 1, %733
   %.neg.i.i.i.i.us = shl nsw i32 -1, %.020.i.i.i.us
-  %735 = add nsw i32 %734, %.neg.i.i.i.i.us
+  %735 = add i32 %734, %.neg.i.i.i.i.us
   %736 = load i64, ptr %732, align 8, !tbaa !68
   %737 = and i64 %736, %.01619.i.i.i.us
   %738 = getelementptr inbounds nuw i8, ptr %732, i64 8
@@ -1625,9 +1625,9 @@ Abc_Tt6Expand.exit.i.i.us:                        ; preds = %751, %679
 769:                                              ; preds = %767
   %770 = getelementptr inbounds nuw [5 x [6 x [3 x i64]]], ptr @s_PPMasks, i64 0, i64 %763, i64 %indvars.iv.next.i49.i.i.us
   %771 = trunc nuw nsw i64 %indvars.iv.next.i49.i.i.us to i32
-  %772 = shl nuw nsw i32 1, %771
+  %772 = shl nuw i32 1, %771
   %.neg.i.i53.i.i.us = shl nsw i32 -1, %.020.i47.i.i.us
-  %773 = add nsw i32 %772, %.neg.i.i53.i.i.us
+  %773 = add i32 %772, %.neg.i.i53.i.i.us
   %774 = load i64, ptr %770, align 8, !tbaa !68
   %775 = and i64 %774, %.01619.i48.i.i.us
   %776 = getelementptr inbounds nuw i8, ptr %770, i64 8
@@ -1971,8 +1971,8 @@ Sdb_CutSetCutIsContainedOrder.exit.thread.thread.i.i.us: ; preds = %930, %920
   br i1 %exitcond.not67.i.i.us, label %.preheader.i.i183.us, label %.outer.i.i.us, !llvm.loop !82
 
 .preheader.i.i183.us:                             ; preds = %Sdb_CutSetCutIsContainedOrder.exit.thread.thread.i.i.us, %._crit_edge.i.i.us
-  %938 = add nuw i32 %.1330.us, 1
-  %wide.trip.count62.i.i.us = zext i32 %938 to i64
+  %938 = add nuw nsw i32 %.1330.us, 1
+  %wide.trip.count62.i.i.us = zext nneg i32 %938 to i64
   br label %.lr.ph55.i.i.us
 
 .lr.ph55.i.i.us:                                  ; preds = %952, %.preheader.i.i183.us

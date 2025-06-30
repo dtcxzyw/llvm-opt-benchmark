@@ -1989,7 +1989,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
 .loopexit61:                                      ; preds = %.thread45, %.thread52
   %219 = phi i32 [ %218, %.thread52 ], [ 4, %.thread45 ]
   store i8 5, ptr %6, align 1
-  %220 = trunc i32 %219 to i8
+  %220 = trunc nuw nsw i32 %219 to i8
   store i8 %220, ptr %7, align 1
   %221 = trunc i32 %158 to i8
   store i8 %221, ptr %15, align 1
@@ -2023,15 +2023,15 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
 .thread55:                                        ; preds = %226, %.loopexit61, %.loopexit62, %.loopexit63
   %234 = phi i32 [ 6, %226 ], [ %219, %.loopexit61 ], [ %136, %.loopexit62 ], [ %92, %.loopexit63 ]
   store i8 -122, ptr %0, align 1
-  %235 = trunc i32 %234 to i8
-  %236 = add i8 %235, 6
+  %235 = trunc nuw nsw i32 %234 to i8
+  %236 = add nuw nsw i8 %235, 6
   %237 = getelementptr i8, ptr %0, i64 1
   store i8 %236, ptr %237, align 1
   %238 = load i32, ptr %1, align 8
   %239 = getelementptr i8, ptr %0, i64 2
   %240 = tail call i32 @llvm.bswap.i32(i32 %238)
   store i32 %240, ptr %239, align 1
-  %241 = add nuw i32 %234, 6
+  %241 = add nuw nsw i32 %234, 6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %229, %16, %.thread55

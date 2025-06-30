@@ -488,17 +488,17 @@ define void @"_ZN87_$LT$grep_printer..hyperlink..HyperlinkFormat$u20$as$u20$core
   %.sroa.048.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %38
 
-default.unreachable:                              ; preds = %.thread99
+default.unreachable127:                           ; preds = %.thread99
   unreachable
 
-.loopexit109:                                     ; preds = %.thread96
+default.unreachable:                              ; preds = %.thread96
   unreachable
 
 38:                                               ; preds = %.lr.ph, %175
-  %.071122 = phi i8 [ 0, %.lr.ph ], [ %.1, %175 ]
-  %.sroa.0.0121 = phi ptr [ %spec.select75, %.lr.ph ], [ %.sroa.0.1.ph102, %175 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121, i64 1
-  %40 = load i8, ptr %.sroa.0.0121, align 1, !noalias !63, !noundef !5
+  %.071121 = phi i8 [ 0, %.lr.ph ], [ %.1, %175 ]
+  %.sroa.0.0120 = phi ptr [ %spec.select75, %.lr.ph ], [ %.sroa.0.1.ph102, %175 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0120, i64 1
+  %40 = load i8, ptr %.sroa.0.0120, align 1, !noalias !63, !noundef !5
   %41 = icmp sgt i8 %40, -1
   br i1 %41, label %52, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit13.i"
 
@@ -507,7 +507,7 @@ default.unreachable:                              ; preds = %.thread99
   %43 = zext nneg i8 %42 to i32
   %44 = icmp ne ptr %39, %34
   call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0120, i64 2
   %46 = load i8, ptr %39, align 1, !noalias !63, !noundef !5
   %47 = shl nuw nsw i32 %43, 6
   %48 = and i8 %46, 63
@@ -523,7 +523,7 @@ default.unreachable:                              ; preds = %.thread99
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit15.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit13.i"
   %54 = icmp ne ptr %45, %34
   call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121, i64 3
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0120, i64 3
   %56 = load i8, ptr %45, align 1, !noalias !63, !noundef !5
   %57 = shl nuw nsw i32 %49, 6
   %58 = and i8 %56, 63
@@ -550,24 +550,24 @@ default.unreachable:                              ; preds = %.thread99
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %.invoke132, %.invoke, %196, %190
-  %lpad.loopexit110 = landingpad { ptr, i32 }
+  %lpad.loopexit109 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %_ZN12grep_printer9hyperlink13FormatBuilder8validate17hdf0e7f9427f6a424E.exit.thread27.i, %99, %92, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hd72621183333f680E.exit.i.i"
-  %lpad.loopexit.split-lp111 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp110 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %119, %149
-  %eh.lpad-body = phi { ptr, i32 } [ %120, %119 ], [ %lpad.phi.i, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit104, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit107, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit110, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp111, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %120, %119 ], [ %lpad.phi.i, %149 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit104, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit107, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit109, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp110, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5de721b7ffb12e7aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #19
           to label %29 unwind label %204
 
 64:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit15.i"
   %65 = icmp ne ptr %55, %34
   call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0121, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0120, i64 4
   %67 = load i8, ptr %55, align 1, !noalias !63, !noundef !5
   %68 = shl nuw nsw i32 %43, 18
   %69 = and i32 %68, 1835008
@@ -580,8 +580,8 @@ default.unreachable:                              ; preds = %.thread99
   br i1 %75, label %.thread96, label %.thread99
 
 .thread96:                                        ; preds = %64, %175
-  %.071.lcssa = phi i8 [ %.071122, %64 ], [ %.1, %175 ]
-  switch i8 %.071.lcssa, label %.loopexit109 [
+  %.071.lcssa = phi i8 [ %.071121, %64 ], [ %.1, %175 ]
+  switch i8 %.071.lcssa, label %default.unreachable [
     i8 0, label %.thread96.thread
     i8 1, label %152
     i8 2, label %154
@@ -591,7 +591,7 @@ default.unreachable:                              ; preds = %.thread99
 .thread99:                                        ; preds = %52, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit13.i", %64
   %.sroa.4.0.i.ph103 = phi i32 [ %74, %64 ], [ %53, %52 ], [ %62, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit15.i" ], [ %50, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit13.i" ]
   %.sroa.0.1.ph102 = phi ptr [ %66, %64 ], [ %39, %52 ], [ %55, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit15.i" ], [ %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5408d9e8e339252E.exit13.i" ]
-  switch i8 %.071122, label %default.unreachable [
+  switch i8 %.071121, label %default.unreachable127 [
     i8 0, label %167
     i8 1, label %168
     i8 2, label %170

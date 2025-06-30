@@ -37903,7 +37903,7 @@ define internal void @yuv2monowhite_X_c(ptr noundef readonly captures(none) %0, 
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %59 = load i32, ptr %58, align 4, !tbaa !49
   %60 = mul nsw i32 %59, 3
-  %61 = add i32 %51, -248
+  %61 = add nsw i32 %51, -248
   %62 = add i32 %61, %54
   %63 = add i32 %62, %57
   %64 = add i32 %63, %60
@@ -38591,7 +38591,7 @@ define internal void @yuv2monoblack_X_c(ptr noundef readonly captures(none) %0, 
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %59 = load i32, ptr %58, align 4, !tbaa !49
   %60 = mul nsw i32 %59, 3
-  %61 = add i32 %51, -248
+  %61 = add nsw i32 %51, -248
   %62 = add i32 %61, %54
   %63 = add i32 %62, %57
   %64 = add i32 %63, %60

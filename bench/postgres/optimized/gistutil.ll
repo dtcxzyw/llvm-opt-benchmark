@@ -1906,7 +1906,7 @@ gistpenalty.exit:                                 ; preds = %166, %173, %174
 206:                                              ; preds = %203, %201
   %.664 = phi i32 [ %205, %203 ], [ %.159.lcssa, %201 ]
   %207 = icmp eq i32 %.664, 0
-  %spec.select = select i1 %207, i32 -1, i32 %.664
+  %spec.select = select i1 %207, i32 -1, i32 1
   %spec.select70 = select i1 %207, i16 %.052108, i16 %.2.lcssa
   br label %208
 
@@ -1930,7 +1930,7 @@ gistpenalty.exit:                                 ; preds = %166, %173, %174
   br i1 %215, label %._crit_edge, label %216
 
 216:                                              ; preds = %208, %214
-  %.9.ph = phi i32 [ %.8, %214 ], [ %.563, %208 ]
+  %.9.ph = phi i32 [ 0, %214 ], [ %.563, %208 ]
   %217 = add i16 %.052108, 1
   %.not = icmp ugt i16 %217, %61
   br i1 %.not, label %._crit_edge, label %73, !llvm.loop !20

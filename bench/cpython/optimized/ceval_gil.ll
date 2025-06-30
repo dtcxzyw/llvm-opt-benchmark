@@ -2121,12 +2121,10 @@ handle_signals.exit:                              ; preds = %16
 
 handle_signals.exit.thread:                       ; preds = %16, %8, %4, %1
   %20 = tail call fastcc i32 @make_pending_calls(ptr noundef %0)
-  %.not11 = icmp ne i32 %20, 0
-  %. = sext i1 %.not11 to i32
   br label %21
 
 21:                                               ; preds = %handle_signals.exit, %handle_signals.exit.thread
-  %.0 = phi i32 [ -1, %handle_signals.exit ], [ %., %handle_signals.exit.thread ]
+  %.0 = phi i32 [ -1, %handle_signals.exit ], [ %20, %handle_signals.exit.thread ]
   ret i32 %.0
 }
 
@@ -2181,12 +2179,10 @@ handle_signals.exit.i:                            ; preds = %23
 
 handle_signals.exit.thread.i:                     ; preds = %23, %15, %12, %9
   %27 = tail call fastcc i32 @make_pending_calls(ptr noundef nonnull %2)
-  %.not11.i = icmp ne i32 %27, 0
-  %..i = sext i1 %.not11.i to i32
   br label %_PyEval_MakePendingCalls.exit
 
 _PyEval_MakePendingCalls.exit:                    ; preds = %handle_signals.exit.thread.i, %handle_signals.exit.i, %0, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %0 ], [ -1, %handle_signals.exit.i ], [ %..i, %handle_signals.exit.thread.i ]
+  %.0 = phi i32 [ 0, %5 ], [ 0, %0 ], [ -1, %handle_signals.exit.i ], [ %27, %handle_signals.exit.thread.i ]
   ret i32 %.0
 }
 

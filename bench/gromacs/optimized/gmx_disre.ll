@@ -6441,7 +6441,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   %.0134.i.i.us.i.i.i = phi i64 [ %.05.i.i.us.i.i.i, %40 ], [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ]
   %.05.in.i.i.us.i.i.i = add nsw i64 %.0134.i.i.us.i.i.i, -1
   %.05.i.i.us.i.i.i = sdiv i64 %.05.in.i.i.us.i.i.i, 2
-  %37 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.05.i.i.us.i.i.i
+  %37 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.05.i.i.us.i.i.i
   %38 = getelementptr i8, ptr %37, i64 4
   %.val.i.i.us.i.i.i = load float, ptr %38, align 4, !tbaa !337
   %39 = fcmp ogt float %.val.i.i.us.i.i.i, %36
@@ -6458,7 +6458,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   %.sroa.2.0.extract.trunc.i.i.us6.i.i.i = phi i32 [ %.sroa.2.0.extract.trunc.i.i.us5.i.i.i, %._crit_edge.i.us.thread.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i.us.i.i.i, %40 ]
   %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.015.us.i.i.i, %._crit_edge.i.us.thread.i.i.i ], [ %.05.i.i.us.i.i.i, %40 ], [ %.0134.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ]
   %.sroa.0.0.extract.trunc.i.i.us.i.i.i = trunc i64 %.sroa.02.0.copyload.us.i.i.i to i32
-  %44 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
+  %44 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
   store i32 %.sroa.0.0.extract.trunc.i.i.us.i.i.i, ptr %44, align 4
   %.sroa_idx1.i.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %.sroa.2.0.extract.trunc.i.i.us6.i.i.i, ptr %.sroa_idx1.i.i.us.i.i.i, align 4
@@ -6513,7 +6513,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   %.0134.i.i.i.i.i = phi i64 [ %.05.i.i.i.i.i, %66 ], [ %.1.i.i.i.i, %60 ]
   %.05.in.i.i.i.i.i = add nsw i64 %.0134.i.i.i.i.i, -1
   %.05.i.i.i.i.i = sdiv i64 %.05.in.i.i.i.i.i, 2
-  %63 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.05.i.i.i.i.i
+  %63 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.05.i.i.i.i.i
   %64 = getelementptr i8, ptr %63, i64 4
   %.val.i.i.i.i.i = load float, ptr %64, align 4, !tbaa !337
   %65 = fcmp ogt float %.val.i.i.i.i.i, %61
@@ -6529,7 +6529,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
 "_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i": ; preds = %66, %.lr.ph.i.i.i.i.i, %60
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %60 ], [ %.0134.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.05.i.i.i.i.i, %66 ]
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
-  %70 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %70 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i32 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %70, align 4
   %.sroa_idx1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 %.sroa.2.0.extract.trunc.i.i.i.i.i, ptr %.sroa_idx1.i.i.i.i.i, align 4
@@ -6628,7 +6628,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   %.sroa.2.0.extract.trunc.i.i10.i.i.i = phi i32 [ %.sroa.2.0.extract.trunc.i.i.i.i11.i, %100 ], [ %.sroa.2.0.extract.trunc.i.i9.i.i.i, %.lr.ph.i.i.i.i13.i ], [ %.sroa.2.0.extract.trunc.i.i9.i.i.i, %105 ]
   %.013.lcssa.i.i.i.i17.i = phi i64 [ 0, %100 ], [ 0, %105 ], [ %.0134.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ]
   %.sroa.0.0.extract.trunc.i.i.i.i18.i = trunc i64 %.sroa.02.0.copyload.i.i7.i to i32
-  %108 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.013.lcssa.i.i.i.i17.i
+  %108 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.013.lcssa.i.i.i.i17.i
   store i32 %.sroa.0.0.extract.trunc.i.i.i.i18.i, ptr %108, align 4
   %.sroa_idx1.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %108, i64 4
   store i32 %.sroa.2.0.extract.trunc.i.i10.i.i.i, ptr %.sroa_idx1.i.i.i.i19.i, align 4
@@ -7100,7 +7100,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP10t_dr_statslN9__gnu_cxx5_
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %50 ], [ %.127.i.i.i.i, %45 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %47 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %.04.i.i.i.i.i
+  %47 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %.04.i.i.i.i.i
   %48 = getelementptr i8, ptr %47, i64 24
   %.val.i.i.i.i.i = load float, ptr %48, align 4, !tbaa !292
   %49 = fcmp ogt float %.val.i.i.i.i.i, %.sroa.43.0.copyload.i.i.i
@@ -7114,7 +7114,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP10t_dr_statslN9__gnu_cxx5_
 
 "_ZSt13__adjust_heapIP10t_dr_statslS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL10dump_statsP8_IO_FILEiRK12t_disresdataRK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEP11t_dr_resultiPiP7t_atomsE3$_0EEEvT_T0_SQ_T1_T2_.exit.i.i.i": ; preds = %50, %.lr.ph.i.i.i.i.i, %45
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %45 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %50 ]
-  %53 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, i64 24, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 24
   store float %.sroa.43.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 4, !tbaa !95
@@ -7206,7 +7206,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP10t_dr_statslN9__gnu_cxx5_
 
 "_ZSt10__pop_heapIP10t_dr_statsN9__gnu_cxx5__ops15_Iter_comp_iterIZL10dump_statsP8_IO_FILEiRK12t_disresdataRK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEP11t_dr_resultiPiP7t_atomsE3$_0EEEvT_SP_SP_RT0_.exit.i22.i": ; preds = %84, %.lr.ph.i.i.i.i17.i, %80
   %.013.lcssa.i.i.i.i23.i = phi i64 [ 0, %80 ], [ %.0133.i.i.i.i18.i, %.lr.ph.i.i.i.i17.i ], [ 0, %84 ]
-  %86 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %.013.lcssa.i.i.i.i23.i
+  %86 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %.013.lcssa.i.i.i.i23.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %86, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i5.i, i64 24, i1 false)
   %.sroa.4.0..sroa_idx.i.i.i24.i = getelementptr inbounds nuw i8, ptr %86, i64 24
   store float %.sroa.43.0.copyload.i.i9.i, ptr %.sroa.4.0..sroa_idx.i.i.i24.i, align 4, !tbaa !95

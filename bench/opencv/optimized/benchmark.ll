@@ -4256,12 +4256,12 @@ define linkonce_odr hidden void @_ZN8AlgoWrapC2ERKNSt7__cxx1112basic_stringIcSt1
 32:                                               ; preds = %29
   %33 = add nuw nsw i32 %30, 1
   store i32 %33, ptr @_ZZL12getNextColorvE2id, align 4, !tbaa !16, !noalias !150
-  %34 = sext i32 %30 to i64
+  %34 = zext nneg i32 %30 to i64
   br label %35
 
 35:                                               ; preds = %32, %29
   %36 = phi i64 [ %34, %32 ], [ 5, %29 ]
-  %37 = getelementptr inbounds [6 x %"class.cv::Scalar_"], ptr @_ZZL12getNextColorvE6colors, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [6 x %"class.cv::Scalar_"], ptr @_ZZL12getNextColorvE6colors, i64 0, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 16 dereferenceable(32) %37, i64 32, i1 false), !tbaa !82
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 128

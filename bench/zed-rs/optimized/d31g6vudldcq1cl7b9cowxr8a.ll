@@ -35317,7 +35317,7 @@ define hidden { i64, i1 } @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$
           to label %19 unwind label %12
 
 "_ZN4core3ptr164drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfd0a4e3b7cf16238E.exit": ; preds = %8
-  %15 = trunc i8 %10 to i1
+  %15 = trunc nuw i8 %10 to i1
   %16 = extractvalue { i64, i8 } %9, 0
   %17 = insertvalue { i64, i1 } poison, i64 %16, 0
   %18 = insertvalue { i64, i1 } %17, i1 %15, 1

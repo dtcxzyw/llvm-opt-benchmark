@@ -1347,7 +1347,7 @@ mid_pred.exit416.i:                               ; preds = %106, %104, %103, %1
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 72
   %249 = load i32, ptr %248, align 8, !tbaa !125
   %.not381.i = icmp eq i32 %249, 0
-  %250 = add i32 %235, 56
+  %250 = add nuw nsw i32 %235, 56
   %spec.select.i = select i1 %.not381.i, i32 %250, i32 %235
   %251 = or i32 %174, 64
   br label %252

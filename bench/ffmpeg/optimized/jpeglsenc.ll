@@ -1169,8 +1169,8 @@ ls_encode_run.exit.thread:                        ; preds = %put_bits.exit37.i, 
   %265 = select i1 %221, i64 366, i64 365
   %266 = getelementptr inbounds nuw [367 x i32], ptr %31, i64 0, i64 %265
   %267 = load i32, ptr %266, align 4, !tbaa !34
-  %.phi.trans.insert46.i = getelementptr inbounds nuw [367 x i32], ptr %.phi.trans.insert.i287, i64 0, i64 %265
-  %.pre.i288 = load i32, ptr %.phi.trans.insert46.i, align 4, !tbaa !34
+  %.phi.trans.insert47.i = getelementptr inbounds nuw [367 x i32], ptr %.phi.trans.insert.i287, i64 0, i64 %265
+  %.pre.i288 = load i32, ptr %.phi.trans.insert47.i, align 4, !tbaa !34
   %268 = ashr i32 %.pre.i288, 1
   %269 = select i1 %221, i32 %268, i32 0
   %.0.i289 = add nsw i32 %269, %267
@@ -1244,7 +1244,7 @@ ls_encode_run.exit.thread:                        ; preds = %put_bits.exit37.i, 
   %309 = load i32, ptr %266, align 4, !tbaa !34
   %310 = add nsw i32 %309, %308
   store i32 %310, ptr %266, align 4, !tbaa !34
-  %311 = load i32, ptr %.phi.trans.insert46.i, align 4, !tbaa !34
+  %311 = load i32, ptr %.phi.trans.insert47.i, align 4, !tbaa !34
   %312 = load i32, ptr %35, align 4, !tbaa !65
   %313 = icmp eq i32 %311, %312
   br i1 %313, label %314, label %ls_encode_runterm.exit
@@ -1262,7 +1262,7 @@ ls_encode_run.exit.thread:                        ; preds = %put_bits.exit37.i, 
 ls_encode_runterm.exit:                           ; preds = %304, %314
   %320 = phi i32 [ %319, %314 ], [ %311, %304 ]
   %321 = add nsw i32 %320, 1
-  store i32 %321, ptr %.phi.trans.insert46.i, align 4, !tbaa !34
+  store i32 %321, ptr %.phi.trans.insert47.i, align 4, !tbaa !34
   %322 = load i32, ptr %24, align 4, !tbaa !34
   %323 = icmp sgt i32 %322, 0
   br i1 %323, label %324, label %.thread336

@@ -1116,7 +1116,7 @@ declare void @_ZN7SRBRootD1Ev(ptr noundef nonnull align 8 dereferenceable(176)) 
 declare void @_ZN7SRBRoot9setLocaleEPDsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -2147483647, -2147483648) i32 @_ZL17parseResourceTypeP10ParseStateP10UErrorCode(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL17parseResourceTypeP10ParseStateP10UErrorCode(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.UString, align 8
   %5 = alloca i32, align 4

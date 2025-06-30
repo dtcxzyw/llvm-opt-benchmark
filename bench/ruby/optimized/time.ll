@@ -7723,12 +7723,12 @@ RSTRING_PTR.exit.i:                               ; preds = %59, %50
   br i1 %78, label %79, label %145
 
 79:                                               ; preds = %76
-  %80 = add i64 %68, 4611686018427387904
+  %80 = add nuw i64 %68, 4611686018427387904
   %or.cond.i.i125.i = icmp sgt i64 %80, -1
   br i1 %or.cond.i.i125.i, label %81, label %84
 
 81:                                               ; preds = %79
-  %82 = shl nsw i64 %68, 1
+  %82 = shl nuw nsw i64 %68, 1
   %83 = or disjoint i64 %82, 1
   br label %rb_long2num_inline.exit.i.i
 
@@ -9454,7 +9454,7 @@ rb_num2ull_inline.exit:                           ; preds = %29, %27, %RSTRING_E
   %289 = select i1 %286, i32 8192, i32 %288
   %290 = or disjoint i32 %289, %spec.select184
   %291 = call i32 @llvm.smax.i32(i32 %.097165, i32 0)
-  %292 = shl nuw nsw i32 %291, 18
+  %292 = shl i32 %291, 18
   %293 = and i32 %292, 8126464
   %294 = or disjoint i32 %290, %293
   %295 = call i32 @llvm.smax.i32(i32 %.0103161, i32 0)

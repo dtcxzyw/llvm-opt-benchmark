@@ -1159,19 +1159,19 @@ list_length.exit:                                 ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load i32, ptr %20, align 4
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph233, label %._crit_edge
+  br i1 %23, label %.lr.ph234, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %125, %.lr.ph168
   %.0104167.lcssa = phi i32 [ 0, %.lr.ph168 ], [ %.1105, %125 ]
   %24 = icmp eq i32 %.0104167.lcssa, 1
   br i1 %24, label %129, label %132
 
-.lr.ph233:                                        ; preds = %.lr.ph168, %125
-  %.0145165232 = phi ptr [ %.6152, %125 ], [ null, %.lr.ph168 ]
-  %.0104167231 = phi i32 [ %.1105, %125 ], [ 0, %.lr.ph168 ]
-  %indvars.iv198230 = phi i64 [ %indvars.iv.next199, %125 ], [ 0, %.lr.ph168 ]
+.lr.ph234:                                        ; preds = %.lr.ph168, %125
+  %.0145165233 = phi ptr [ %.6152, %125 ], [ null, %.lr.ph168 ]
+  %.0104167232 = phi i32 [ %.1105, %125 ], [ 0, %.lr.ph168 ]
+  %indvars.iv198231 = phi i64 [ %indvars.iv.next199, %125 ], [ 0, %.lr.ph168 ]
   %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv198230
+  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv198231
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @palloc(i64 noundef 40) #8
   store ptr %27, ptr %28, align 8
@@ -1183,13 +1183,13 @@ list_length.exit:                                 ; preds = %3
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %list_length.exit.i, label %32
 
-32:                                               ; preds = %.lr.ph233
+32:                                               ; preds = %.lr.ph234
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %34 = load i32, ptr %33, align 4
   br label %list_length.exit.i
 
-list_length.exit.i:                               ; preds = %32, %.lr.ph233
-  %35 = phi i32 [ %34, %32 ], [ 0, %.lr.ph233 ]
+list_length.exit.i:                               ; preds = %32, %.lr.ph234
+  %35 = phi i32 [ %34, %32 ], [ 0, %.lr.ph234 ]
   %36 = load ptr, ptr %30, align 8
   %.not.i45.i = icmp eq ptr %36, null
   br i1 %.not.i45.i, label %list_length.exit46.i, label %37
@@ -1220,7 +1220,7 @@ list_length.exit46.i:                             ; preds = %37, %list_length.ex
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph.i, %.preheader.i
-  %.1146 = phi ptr [ %.0145165232, %.preheader.i ], [ %.5, %._crit_edge.loopexit.i ], [ %.0145165232, %.lr.ph.i ]
+  %.1146 = phi ptr [ %.0145165233, %.preheader.i ], [ %.5, %._crit_edge.loopexit.i ], [ %.0145165233, %.lr.ph.i ]
   %47 = phi ptr [ %36, %.preheader.i ], [ %.pre.i, %._crit_edge.loopexit.i ], [ %36, %.lr.ph.i ]
   %.038.lcssa.i = phi ptr [ null, %.preheader.i ], [ %68, %._crit_edge.loopexit.i ], [ null, %.lr.ph.i ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -1234,7 +1234,7 @@ list_length.exit46.i:                             ; preds = %37, %list_length.ex
   br i1 %51, label %.lr.ph91.i, label %classify_index_clause_usage.exit
 
 .lr.ph77.i:                                       ; preds = %.lr.ph.i, %find_list_position.exit.i
-  %.4 = phi ptr [ %.5, %find_list_position.exit.i ], [ %.0145165232, %.lr.ph.i ]
+  %.4 = phi ptr [ %.5, %find_list_position.exit.i ], [ %.0145165233, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %find_list_position.exit.i ], [ 0, %.lr.ph.i ]
   %.0387175.i = phi ptr [ %68, %find_list_position.exit.i ], [ null, %.lr.ph.i ]
   %52 = load ptr, ptr %44, align 8
@@ -1350,11 +1350,11 @@ classify_index_clause_usage.exit:                 ; preds = %find_list_position.
   store ptr %.1.lcssa.sink.i, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i8 0, ptr %93, align 8
-  %94 = icmp sgt i32 %.0104167231, 0
+  %94 = icmp sgt i32 %.0104167232, 0
   br i1 %94, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %classify_index_clause_usage.exit
-  %wide.trip.count = zext nneg i32 %.0104167231 to i64
+  %wide.trip.count = zext nneg i32 %.0104167232 to i64
   br label %.lr.ph
 
 95:                                               ; preds = %list_length.exit46.i
@@ -1362,8 +1362,8 @@ classify_index_clause_usage.exit:                 ; preds = %find_list_position.
   store ptr null, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i8 1, ptr %97, align 8
-  %98 = add i32 %.0104167231, 1
-  %99 = sext i32 %.0104167231 to i64
+  %98 = add i32 %.0104167232, 1
+  %99 = sext i32 %.0104167232 to i64
   %100 = getelementptr inbounds ptr, ptr %19, i64 %99
   store ptr %28, ptr %100, align 8
   br label %125
@@ -1417,20 +1417,20 @@ classify_index_clause_usage.exit:                 ; preds = %find_list_position.
   br label %125
 
 .critedge:                                        ; preds = %111, %classify_index_clause_usage.exit
-  %122 = add i32 %.0104167231, 1
-  %123 = sext i32 %.0104167231 to i64
+  %122 = add i32 %.0104167232, 1
+  %123 = sext i32 %.0104167232 to i64
   %124 = getelementptr inbounds ptr, ptr %19, i64 %123
   store ptr %28, ptr %124, align 8
   br label %125
 
 125:                                              ; preds = %121, %.critedge, %95
-  %.6152 = phi ptr [ %.0145165232, %95 ], [ %.6, %121 ], [ %.6, %.critedge ]
-  %.1105 = phi i32 [ %98, %95 ], [ %.0104167231, %121 ], [ %122, %.critedge ]
-  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198230, 1
+  %.6152 = phi ptr [ %.0145165233, %95 ], [ %.6, %121 ], [ %.6, %.critedge ]
+  %.1105 = phi i32 [ %98, %95 ], [ %.0104167232, %121 ], [ %122, %.critedge ]
+  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198231, 1
   %126 = load i32, ptr %20, align 4
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next199, %127
-  br i1 %128, label %.lr.ph233, label %._crit_edge
+  br i1 %128, label %.lr.ph234, label %._crit_edge
 
 129:                                              ; preds = %._crit_edge
   %130 = load ptr, ptr %19, align 8
@@ -1462,15 +1462,15 @@ classify_index_clause_usage.exit:                 ; preds = %find_list_position.
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %wide.trip.count213 = zext nneg i32 %.0104167.lcssa to i64
+  %wide.trip.count214 = zext nneg i32 %.0104167.lcssa to i64
   br label %153
 
 153:                                              ; preds = %.lr.ph189, %._crit_edge181
-  %indvars.iv210 = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next211, %._crit_edge181 ]
+  %indvars.iv211 = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next212, %._crit_edge181 ]
   %indvars.iv204 = phi i64 [ 1, %.lr.ph189 ], [ %indvars.iv.next205, %._crit_edge181 ]
   %.0110187 = phi ptr [ null, %.lr.ph189 ], [ %.1111, %._crit_edge181 ]
   %.0112186 = phi double [ 0.000000e+00, %.lr.ph189 ], [ %.1113, %._crit_edge181 ]
-  %154 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv210
+  %154 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv211
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %155, align 8
   %157 = call ptr @list_make1_impl(i32 noundef 1, ptr %156) #8
@@ -1510,8 +1510,8 @@ bitmap_scan_cost_est.exit:                        ; preds = %153, %163
   %174 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %175 = load ptr, ptr %174, align 8
   %176 = call ptr @bms_copy(ptr noundef %175) #8
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %177 = icmp slt i64 %indvars.iv.next211, %133
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %177 = icmp slt i64 %indvars.iv.next212, %133
   br i1 %177, label %.lr.ph180, label %._crit_edge181
 
 .lr.ph180:                                        ; preds = %bitmap_scan_cost_est.exit, %.loopexit
@@ -1624,23 +1624,22 @@ list_length.exit141:                              ; preds = %220, %221
   %.1115 = phi ptr [ %.0114177, %.lr.ph180 ], [ %219, %212 ], [ %.0114177, %list_length.exit141 ], [ %.0114177, %192 ]
   %.1 = phi ptr [ %.0103178, %.lr.ph180 ], [ %199, %212 ], [ %226, %list_length.exit141 ], [ %.0103178, %192 ]
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next207 to i32
-  %exitcond209.not = icmp eq i32 %.0104167.lcssa, %lftr.wideiv
-  br i1 %exitcond209.not, label %._crit_edge181, label %.lr.ph180, !llvm.loop !16
+  %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count214
+  br i1 %exitcond210.not, label %._crit_edge181, label %.lr.ph180, !llvm.loop !16
 
 ._crit_edge181:                                   ; preds = %.loopexit, %bitmap_scan_cost_est.exit
   %.0120.lcssa = phi double [ %168, %bitmap_scan_cost_est.exit ], [ %.1121, %.loopexit ]
   %.0117.lcssa = phi ptr [ %173, %bitmap_scan_cost_est.exit ], [ %.1118, %.loopexit ]
   %.0103.lcssa = phi ptr [ %157, %bitmap_scan_cost_est.exit ], [ %.1, %.loopexit ]
-  %227 = icmp eq i64 %indvars.iv210, 0
+  %227 = icmp eq i64 %indvars.iv211, 0
   %228 = fcmp olt double %.0120.lcssa, %.0112186
   %or.cond = select i1 %227, i1 true, i1 %228
   %.1113 = select i1 %or.cond, double %.0120.lcssa, double %.0112186
   %.1111 = select i1 %or.cond, ptr %.0103.lcssa, ptr %.0110187
   call void @list_free(ptr noundef %.0117.lcssa) #8
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
-  br i1 %exitcond214.not, label %._crit_edge190, label %153, !llvm.loop !17
+  %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
+  br i1 %exitcond215.not, label %._crit_edge190, label %153, !llvm.loop !17
 
 ._crit_edge190:                                   ; preds = %._crit_edge181
   %.not.i142 = icmp eq ptr %.1111, null
@@ -1659,8 +1658,8 @@ list_length.exit143:                              ; preds = %._crit_edge190
   br label %236
 
 list_length.exit143.thread:                       ; preds = %.thread, %132, %._crit_edge190, %list_length.exit143
-  %.0110.lcssa220 = phi ptr [ null, %._crit_edge190 ], [ %.1111, %list_length.exit143 ], [ null, %132 ], [ null, %.thread ]
-  %235 = call ptr @create_bitmap_and_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0110.lcssa220) #8
+  %.0110.lcssa221 = phi ptr [ null, %._crit_edge190 ], [ %.1111, %list_length.exit143 ], [ null, %132 ], [ null, %.thread ]
+  %235 = call ptr @create_bitmap_and_path(ptr noundef %0, ptr noundef %1, ptr noundef %.0110.lcssa221) #8
   br label %236
 
 236:                                              ; preds = %list_length.exit143.thread, %232, %129, %14

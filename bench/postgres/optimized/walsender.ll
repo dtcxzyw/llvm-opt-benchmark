@@ -4650,7 +4650,7 @@ define internal fastcc void @WalSndShutdown() unnamed_addr #9 {
 declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WalSndWait(i32 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @WalSndWait(i32 noundef range(i32 0, 8) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.WaitEvent, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #17
   %5 = load ptr, ptr @FeBeWaitSet, align 8

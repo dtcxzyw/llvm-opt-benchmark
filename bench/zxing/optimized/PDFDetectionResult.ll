@@ -513,7 +513,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i.i: ; preds = %120
   %126 = mul nsw i32 %125, 3
   %127 = icmp ne i32 %124, %126
   %128 = zext i1 %127 to i32
-  %spec.select40.i.i.i = add nsw i32 %.02117.us.i.i.i, %128
+  %spec.select40.i.i.i = add nuw nsw i32 %.02117.us.i.i.i, %128
   %129 = icmp eq i32 %124, %126
   %cond.fr.us.i.i.i = freeze i1 %129
   %not.cond.fr.us.i.i.i = xor i1 %cond.fr.us.i.i.i, true
@@ -522,7 +522,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i.i: ; preds = %120
   br label %133
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i.i.i: ; preds = %120
-  %131 = add nsw i32 %.02117.us.i.i.i, 1
+  %131 = add nuw nsw i32 %.02117.us.i.i.i, 1
   %132 = add nsw i32 %.22416.us.i.i.i, 1
   br label %133
 
@@ -575,7 +575,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.thread.i.i.i: ; pr
   br i1 %151, label %_ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i.i.i, label %_ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread38.i.i.i
 
 _ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread38.i.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.thread.i.i.i
-  %152 = add nsw i32 %.02117.i.i.i, 1
+  %152 = add nuw nsw i32 %.02117.i.i.i, 1
   br label %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i11.i.i
 
 _ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.thread.i.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.i.i.i
@@ -583,7 +583,7 @@ _ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i.i.i: ;
   br label %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i11.i.i
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i12.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.i.i.i
-  %153 = add nsw i32 %.02117.i.i.i, 1
+  %153 = add nuw nsw i32 %.02117.i.i.i, 1
   %154 = add nsw i32 %.22416.i.i.i, 1
   br label %158
 
@@ -691,7 +691,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i61.i.i: ; preds = %19
   %197 = mul nsw i32 %196, 3
   %198 = icmp ne i32 %195, %197
   %199 = zext i1 %198 to i32
-  %spec.select39.i.i.i = add nsw i32 %.02117.us.i53.i.i, %199
+  %spec.select39.i.i.i = add nuw nsw i32 %.02117.us.i53.i.i, %199
   %200 = icmp eq i32 %195, %197
   %cond.fr.us.i62.i.i = freeze i1 %200
   %not.cond.fr.us.i63.i.i = xor i1 %cond.fr.us.i62.i.i, true
@@ -700,7 +700,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i61.i.i: ; preds = %19
   br label %204
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i65.i.i: ; preds = %191
-  %202 = add nsw i32 %.02117.us.i53.i.i, 1
+  %202 = add nuw nsw i32 %.02117.us.i53.i.i, 1
   %203 = add nsw i32 %.22416.us.i54.i.i, 1
   br label %204
 
@@ -753,7 +753,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.thread.i40.i.i: ; 
   br i1 %222, label %_ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i48.i.i, label %_ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread37.i.i.i
 
 _ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread37.i.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.thread.i40.i.i
-  %223 = add nsw i32 %.02117.i29.i.i, 1
+  %223 = add nuw nsw i32 %.02117.i29.i.i, 1
   br label %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i
 
 _ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i48.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.thread.i40.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.i49.i.i
@@ -761,7 +761,7 @@ _ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i48.i.i:
   br label %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i50.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.i49.i.i
-  %224 = add nsw i32 %.02117.i29.i.i, 1
+  %224 = add nuw nsw i32 %.02117.i29.i.i, 1
   %225 = add nsw i32 %.22416.i30.i.i, 1
   br label %229
 

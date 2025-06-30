@@ -8818,7 +8818,7 @@ define hidden i64 @rb_int_rshift(i64 noundef %0, i64 noundef %1) #2 {
   br label %rb_ulong2num_inline.exit.i.i
 
 32:                                               ; preds = %25
-  %33 = tail call i64 @rb_uint2big(i64 noundef range(i64 0, 4611686018427387905) %19) #26
+  %33 = tail call i64 @rb_uint2big(i64 noundef range(i64 0, -9223372036854775808) %19) #26
   br label %rb_ulong2num_inline.exit.i.i
 
 rb_ulong2num_inline.exit.i.i:                     ; preds = %32, %28
@@ -16709,7 +16709,7 @@ RARRAY_AREF.exit93._crit_edge:                    ; preds = %RARRAY_AREF.exit93,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_fix_digits(i64 noundef %0, i64 noundef range(i64 -4611686018427387904, 4611686018427387904) %1) unnamed_addr #2 {
+define internal fastcc i64 @rb_fix_digits(i64 noundef %0, i64 noundef range(i64 -4611686018427387904, -9223372036854775808) %1) unnamed_addr #2 {
   %3 = ashr i64 %0, 1
   %4 = icmp slt i64 %1, 2
   br i1 %4, label %5, label %7

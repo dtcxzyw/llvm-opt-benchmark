@@ -1272,7 +1272,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %.050.i = phi i32 [ %89, %70 ], [ %106, %102 ]
   %.049.i = phi i32 [ %99, %70 ], [ %spec.select.i, %102 ]
   store i32 %spec.select.i61.sink.i, ptr %11, align 8, !tbaa !42
-  %119 = add nuw nsw i32 %.050.i, %.0526.i
+  %119 = add nsw i32 %.050.i, %.0526.i
   %120 = icmp sgt i32 %119, 63
   br i1 %120, label %.thread.i, label %121
 
@@ -1282,14 +1282,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_blocks(ptr noundef 
   %123 = mul nsw i32 %.049.i, %44
   %124 = add nsw i32 %122, %123
   %125 = trunc i32 %124 to i16
-  %126 = zext nneg i32 %119 to i64
-  %127 = getelementptr inbounds nuw i8, ptr %45, i64 %126
+  %126 = sext i32 %119 to i64
+  %127 = getelementptr inbounds i8, ptr %45, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !47
   %129 = zext i8 %128 to i64
   %130 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %48, i64 0, i64 %indvars.iv, i64 %129
   store i16 %125, ptr %130, align 2, !tbaa !71
   %.not60.i = icmp ne i32 %.051.i, 0
-  %131 = add nuw nsw i32 %119, 1
+  %131 = add nsw i32 %119, 1
   %.not11.i = icmp eq i32 %119, 63
   %or.cond12.i = or i1 %.not60.i, %.not11.i
   br i1 %or.cond12.i, label %.thread.i, label %49, !llvm.loop !73

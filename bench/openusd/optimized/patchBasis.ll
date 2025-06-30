@@ -629,7 +629,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsI
   br i1 %.not.i74, label %254, label %253
 
 253:                                              ; preds = %252
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %4)
   br label %254
 
 254:                                              ; preds = %253, %252
@@ -639,8 +639,8 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsI
   br i1 %or.cond.i75, label %257, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 257:                                              ; preds = %254
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %5)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %6)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %5)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %6)
   %258 = icmp ne ptr %7, null
   %259 = icmp ne ptr %8, null
   %or.cond3.i76 = and i1 %258, %259
@@ -649,9 +649,9 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsI
   br i1 %or.cond5.i77, label %261, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 261:                                              ; preds = %257
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %7)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %8)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %9)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %7)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %8)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIfEEviPT_S6_S6_S6_S6_S6_.exit
 
 262:                                              ; preds = %10
@@ -3129,7 +3129,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIfEEviPT_(i32 noundef range(i32 1, 65536) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = lshr i32 %0, 3
   %4 = and i32 %3, 3
   %5 = and i32 %0, 7
@@ -3139,7 +3139,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133
   ]
 
 6:                                                ; preds = %2
-  %7 = shl i32 %0, 2
+  %7 = shl nuw nsw i32 %0, 2
   %8 = and i32 %7, 4
   %9 = lshr i32 %5, 1
   %10 = or disjoint i32 %8, %9
@@ -4203,7 +4203,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsI
   br i1 %.not.i74, label %254, label %253
 
 253:                                              ; preds = %252
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %4)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %4)
   br label %254
 
 254:                                              ; preds = %253, %252
@@ -4213,8 +4213,8 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsI
   br i1 %or.cond.i75, label %257, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 257:                                              ; preds = %254
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %5)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %6)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %5)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %6)
   %258 = icmp ne ptr %7, null
   %259 = icmp ne ptr %8, null
   %or.cond3.i76 = and i1 %258, %259
@@ -4223,9 +4223,9 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128adjustBSplineBoundaryWeightsI
   br i1 %or.cond5.i77, label %261, label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 261:                                              ; preds = %257
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %7)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %8)
-  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %14, ptr noundef %9)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %7)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %8)
+  tail call fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 65536) %14, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_117boundBasisBSplineIdEEviPT_S6_S6_S6_S6_S6_.exit
 
 262:                                              ; preds = %10
@@ -6685,7 +6685,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 0) %0, ptr noundef nonnull %1) unnamed_addr #2 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133adjustBoxSplineTriBoundaryWeightsIdEEviPT_(i32 noundef range(i32 1, 65536) %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = lshr i32 %0, 3
   %4 = and i32 %3, 3
   %5 = and i32 %0, 7
@@ -6695,7 +6695,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_133
   ]
 
 6:                                                ; preds = %2
-  %7 = shl i32 %0, 2
+  %7 = shl nuw nsw i32 %0, 2
   %8 = and i32 %7, 4
   %9 = lshr i32 %5, 1
   %10 = or disjoint i32 %8, %9

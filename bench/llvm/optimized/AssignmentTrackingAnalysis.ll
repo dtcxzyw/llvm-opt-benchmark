@@ -38505,7 +38505,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm13DebugVariableElS1_N9_
 "_ZSt11__push_heapIPN4llvm13DebugVariableElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL32buildOverlapMapAndRecordDeclaresRNS0_8FunctionEP22FunctionVarLocsBuilderRKNS0_8DenseSetISt4pairIPKNS0_15DILocalVariableEPKNS0_10DILocationEENS0_12DenseMapInfoISI_vEEEERNS0_8DenseMapIPKNS0_11InstructionENS0_11SmallVectorISB_INS0_10VariableIDENS0_2at14AssignmentInfoEELj1EEENSJ_ISR_vEENS0_6detail12DenseMapPairISR_SX_EEEERjE3$_2EEEvT_T0_S18_T1_RT2_.exit": ; preds = %.lr.ph.split.i, %51, %.lr.ph.split.us.i, %42, %34
   %.013.lcssa.i = phi i64 [ %.127, %34 ], [ %.0133.us.i, %.lr.ph.split.us.i ], [ %.04.us.i, %42 ], [ %.0133.i, %.lr.ph.split.i ], [ %.04.i, %51 ]
   %.sroa.543.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 25
-  %54 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %.013.lcssa.i
+  %54 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %.013.lcssa.i
   store ptr %.sroa.041.0.copyload, ptr %54, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8

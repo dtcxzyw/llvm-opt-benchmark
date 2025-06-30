@@ -83,7 +83,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %13, %15
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr %3, ptr %.0.val, ptr %.0.val1, ptr %.0.val3, ptr %.0.val5, ptr %.0.val7, ptr noundef readonly captures(none) %4, ptr %.0.val9, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %14, ptr noundef %15) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_commrecjN3gmx8ArrayRefIKfEES7_S7_S7_S7_S7_PA3_S6_NS5_IKNS4_11BasicVectorIfEEEEffiilbbbbbP20GpuEventSynchronizer(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 1025) %2, ptr %3, ptr %.0.val, ptr %.0.val1, ptr %.0.val3, ptr %.0.val5, ptr %.0.val7, ptr noundef readonly captures(none) %4, ptr %.0.val9, float noundef %5, float noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %14, ptr noundef %15) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %17 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -117,8 +117,8 @@ define internal fastcc void @_ZL26gmx_pme_send_coeffs_coordsP10t_forcerecPK9t_co
 36:                                               ; preds = %22, %16
   %spec.select.v = select i1 %13, i32 24576, i32 8192
   %spec.select = select i1 %10, i32 %spec.select.v, i32 0
-  %.0 = or i32 %spec.select, %2
-  %37 = or i32 %.0, 32768
+  %.0 = or disjoint i32 %spec.select, %2
+  %37 = or disjoint i32 %.0, 32768
   %spec.select106 = select i1 %14, i32 %37, i32 %.0
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 52
   %39 = load i8, ptr %38, align 4, !tbaa !131, !range !132, !noundef !133

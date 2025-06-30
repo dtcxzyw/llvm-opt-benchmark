@@ -5866,7 +5866,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %50 ], [ %.1.i.i.i.i, %45 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %47 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.04.i.i.i.i.i
+  %47 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.04.i.i.i.i.i
   %48 = getelementptr i8, ptr %47, i64 2
   %.val.i.i.i.i.i = load i16, ptr %48, align 2, !tbaa !387
   %49 = icmp ult i16 %.val.i.i.i.i.i, %.sroa.2.0.extract.trunc.i.i.i.i.i
@@ -5883,7 +5883,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %.sroa.3.0.extract.shift.i.i.i.i.i = lshr i48 %.sroa.03.0.copyload.i.i.i, 32
   %.sroa.3.0.extract.trunc.i.i.i.i.i = trunc nuw i48 %.sroa.3.0.extract.shift.i.i.i.i.i to i16
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i48 %.sroa.03.0.copyload.i.i.i to i16
-  %53 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i16 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %53, align 2, !tbaa !342
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 2
   store i16 %.sroa.2.0.extract.trunc.i.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 2, !tbaa !342
@@ -5978,7 +5978,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %.sroa.3.0.extract.shift.i.i.i.i24.i = lshr i48 %.sroa.02.0.copyload.i.i7.i, 32
   %.sroa.3.0.extract.trunc.i.i.i.i25.i = trunc nuw i48 %.sroa.3.0.extract.shift.i.i.i.i24.i to i16
   %.sroa.0.0.extract.trunc.i.i.i.i26.i = trunc i48 %.sroa.02.0.copyload.i.i7.i to i16
-  %86 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.013.lcssa.i.i.i.i23.i
+  %86 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.013.lcssa.i.i.i.i23.i
   store i16 %.sroa.0.0.extract.trunc.i.i.i.i26.i, ptr %86, align 2, !tbaa !342
   %.sroa.2.0..sroa_idx.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %86, i64 2
   store i16 %.sroa.2.0.extract.trunc.i.i10.i.i22.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i27.i, align 2, !tbaa !342

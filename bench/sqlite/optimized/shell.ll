@@ -21387,7 +21387,7 @@ sub_13684:                                        ; preds = %sub_03683
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %19) #43
   %1204 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store i8 0, ptr %1204, align 1, !tbaa !25
-  %1205 = trunc i32 %1184 to i8
+  %1205 = trunc nuw i32 %1184 to i8
   store i8 %1205, ptr %19, align 1, !tbaa !25
   %1206 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %1207 = load ptr, ptr %1206, align 8, !tbaa !462
@@ -21924,7 +21924,7 @@ import_cleanup.exit2943:                          ; preds = %1403, %1405, %1407
 .thread3317:                                      ; preds = %1433, %1438, %1437
   %.02423 = phi ptr [ %1426, %1437 ], [ %spec.select2798, %1438 ], [ %1426, %1433 ]
   %1441 = load ptr, ptr %17, align 8, !tbaa !31
-  %1442 = add nsw i32 %.423604000, 1
+  %1442 = add nuw nsw i32 %.423604000, 1
   %1443 = call i32 @sqlite3_bind_text(ptr noundef %1441, i32 noundef %1442, ptr noundef %.02423, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #43
   %1444 = icmp slt i32 %.423604000, %1418
   br i1 %1444, label %1445, label %.loopexit3767
@@ -21939,7 +21939,7 @@ import_cleanup.exit2943:                          ; preds = %1403, %1405, %1407
   %1449 = load ptr, ptr @stderr, align 8, !tbaa !14
   %1450 = load ptr, ptr %18, align 8, !tbaa !523
   %1451 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1449, ptr noundef nonnull @.str.875, ptr noundef %1450, i32 noundef %1425, i32 noundef %.02355, i32 noundef %1442) #46
-  %1452 = add nsw i32 %.423604000, 2
+  %1452 = add nuw nsw i32 %.423604000, 2
   %.not27183995 = icmp sgt i32 %1452, %.02355
   br i1 %.not27183995, label %.loopexit3767, label %.lr.ph3998
 
@@ -21953,7 +21953,7 @@ import_cleanup.exit2943:                          ; preds = %1403, %1405, %1407
 
 .loopexit3767:                                    ; preds = %.lr.ph3998, %1448, %1445, %.thread3317
   %.62362.ph = phi i32 [ %.423604000, %.thread3317 ], [ %.423604000, %1445 ], [ %1452, %1448 ], [ %1423, %.lr.ph3998 ]
-  %1456 = add nsw i32 %.62362.ph, 1
+  %1456 = add nuw nsw i32 %.62362.ph, 1
   %1457 = icmp slt i32 %1456, %.02355
   br i1 %1457, label %.lr.ph4002, label %._crit_edge4003, !llvm.loop !535
 
@@ -21967,7 +21967,7 @@ import_cleanup.exit2943:                          ; preds = %1403, %1405, %1407
 .preheader3768:                                   ; preds = %._crit_edge4003, %.preheader3768
   %.102366 = phi i32 [ %1462, %.preheader3768 ], [ %.52361, %._crit_edge4003 ]
   %1461 = call ptr %.22397.ph(ptr noundef nonnull %18) #43, !callees !528
-  %1462 = add nsw i32 %.102366, 1
+  %1462 = add nuw nsw i32 %.102366, 1
   %1463 = load i32, ptr %1419, align 8, !tbaa !531
   %1464 = load i32, ptr %1420, align 4, !tbaa !519
   %1465 = icmp eq i32 %1463, %1464
@@ -43479,7 +43479,7 @@ zipfileReadData.exit:                             ; preds = %24, %.thread89, %._
 define internal fastcc range(i32 0, 8) i32 @zipfileGetEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -43488,345 +43488,345 @@ define internal fastcc range(i32 0, 8) i32 @zipfileGetEntry(ptr noundef captures
   %12 = tail call i64 @fread(ptr noundef %10, i64 noundef 1, i64 noundef 46, ptr noundef %2)
   %13 = and i64 %12, 4294967295
   %.not.i = icmp eq i64 %13, 46
-  br i1 %.not.i, label %17, label %zipfileReadData.exit
+  br i1 %.not.i, label %.thread125, label %15
 
-14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %1, i64 %3
-  br label %17
+.thread:                                          ; preds = %5
+  %14 = getelementptr inbounds i8, ptr %1, i64 %3
+  br label %.thread125
 
-zipfileReadData.exit:                             ; preds = %8
+15:                                               ; preds = %8
   %16 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.235) #43
   store ptr %16, ptr %6, align 8, !tbaa !29
   br label %zipfileEntryFree.exit
 
-17:                                               ; preds = %14, %8
-  %.0.ph = phi ptr [ %10, %8 ], [ %15, %14 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 28
-  %.val = load i8, ptr %18, align 1, !tbaa !25
-  %19 = getelementptr i8, ptr %.0.ph, i64 29
-  %.val97 = load i8, ptr %19, align 1, !tbaa !25
-  %20 = zext i8 %.val97 to i16
-  %21 = shl nuw i16 %20, 8
-  %22 = zext i8 %.val to i16
-  %23 = or disjoint i16 %21, %22
-  %24 = zext i16 %23 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 30
-  %.val98 = load i16, ptr %25, align 1
-  %26 = zext i16 %.val98 to i32
-  %27 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 32
-  %.val100 = load i16, ptr %27, align 1
-  %28 = zext i16 %.val100 to i32
-  %29 = add nuw nsw i32 %28, %26
-  %30 = zext nneg i32 %29 to i64
-  %31 = add nuw nsw i64 %30, 96
-  br i1 %7, label %37, label %32
+.thread125:                                       ; preds = %8, %.thread
+  %.0124 = phi ptr [ %14, %.thread ], [ %10, %8 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.0124, i64 28
+  %.val = load i8, ptr %17, align 1, !tbaa !25
+  %18 = getelementptr i8, ptr %.0124, i64 29
+  %.val97 = load i8, ptr %18, align 1, !tbaa !25
+  %19 = zext i8 %.val97 to i16
+  %20 = shl nuw i16 %19, 8
+  %21 = zext i8 %.val to i16
+  %22 = or disjoint i16 %20, %21
+  %23 = zext i16 %22 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %.0124, i64 30
+  %.val98 = load i16, ptr %24, align 1
+  %25 = zext i16 %.val98 to i32
+  %26 = getelementptr inbounds nuw i8, ptr %.0124, i64 32
+  %.val100 = load i16, ptr %26, align 1
+  %27 = zext i16 %.val100 to i32
+  %28 = add nuw nsw i32 %27, %25
+  %29 = zext nneg i32 %28 to i64
+  %30 = add nuw nsw i64 %29, 96
+  br i1 %7, label %36, label %31
 
-32:                                               ; preds = %17
-  %33 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 20
-  %34 = load i32, ptr %33, align 1
-  %35 = zext i32 %34 to i64
-  %36 = add nuw nsw i64 %31, %35
-  br label %37
+31:                                               ; preds = %.thread125
+  %32 = getelementptr inbounds nuw i8, ptr %.0124, i64 20
+  %33 = load i32, ptr %32, align 1
+  %34 = zext i32 %33 to i64
+  %35 = add nuw nsw i64 %30, %34
+  br label %36
 
-37:                                               ; preds = %32, %17
-  %.085 = phi i64 [ %36, %32 ], [ %31, %17 ]
-  %38 = tail call ptr @sqlite3_malloc64(i64 noundef %.085) #43
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %zipfileEntryFree.exit, label %zipfileGetU32.exit.i
+36:                                               ; preds = %31, %.thread125
+  %.085 = phi i64 [ %35, %31 ], [ %30, %.thread125 ]
+  %37 = tail call ptr @sqlite3_malloc64(i64 noundef %.085) #43
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %zipfileEntryFree.exit, label %zipfileGetU32.exit.i
 
-zipfileGetU32.exit.i:                             ; preds = %37
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %38, i8 0, i64 96, i1 false)
-  %40 = load i32, ptr %.0.ph, align 1
-  %.not.i105 = icmp eq i32 %40, 33639248
-  br i1 %.not.i105, label %42, label %zipfileReadCDS.exit
+zipfileGetU32.exit.i:                             ; preds = %36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %37, i8 0, i64 96, i1 false)
+  %39 = load i32, ptr %.0124, align 1
+  %.not.i105 = icmp eq i32 %39, 33639248
+  br i1 %.not.i105, label %41, label %zipfileReadCDS.exit
 
 zipfileReadCDS.exit:                              ; preds = %zipfileGetU32.exit.i
-  %41 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.233, i64 noundef %3) #43
-  br label %.thread151.sink.split
+  %40 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.233, i64 noundef %3) #43
+  br label %.thread154.sink.split
 
-42:                                               ; preds = %zipfileGetU32.exit.i
-  %43 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 4
-  %.val71.i = load i16, ptr %43, align 1
-  store i16 %.val71.i, ptr %38, align 8, !tbaa !912
-  %44 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 6
-  %.val69.i = load i16, ptr %44, align 1
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  store i16 %.val69.i, ptr %45, align 2, !tbaa !887
-  %46 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 8
-  %.val67.i = load i16, ptr %46, align 1
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i16 %.val67.i, ptr %47, align 4, !tbaa !888
-  %48 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 10
-  %.val65.i = load i16, ptr %48, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %38, i64 6
-  store i16 %.val65.i, ptr %49, align 2, !tbaa !868
-  %50 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 12
-  %.val63.i = load i16, ptr %50, align 1
-  %51 = getelementptr i8, ptr %38, i64 8
-  store i16 %.val63.i, ptr %51, align 8, !tbaa !879
-  %52 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 14
-  %.val61.i = load i16, ptr %52, align 1
-  %53 = getelementptr i8, ptr %38, i64 10
-  store i16 %.val61.i, ptr %53, align 2, !tbaa !878
-  %54 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 16
-  %55 = load i32, ptr %54, align 1
-  %56 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  store i32 %55, ptr %56, align 4, !tbaa !889
-  %57 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 20
-  %58 = load i32, ptr %57, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 %58, ptr %59, align 8, !tbaa !869
-  %60 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 24
-  %61 = load i32, ptr %60, align 1
-  %62 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  store i32 %61, ptr %62, align 4, !tbaa !867
-  %.val59.i = load i16, ptr %18, align 1
-  %63 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i16 %.val59.i, ptr %63, align 8, !tbaa !872
-  %.val57.i = load i16, ptr %25, align 1
-  %64 = getelementptr inbounds nuw i8, ptr %38, i64 26
-  store i16 %.val57.i, ptr %64, align 2, !tbaa !886
-  %.val55.i = load i16, ptr %27, align 1
-  %65 = getelementptr inbounds nuw i8, ptr %38, i64 28
-  store i16 %.val55.i, ptr %65, align 4, !tbaa !913
-  %66 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 34
-  %.val53.i = load i16, ptr %66, align 1
-  %67 = getelementptr inbounds nuw i8, ptr %38, i64 30
-  store i16 %.val53.i, ptr %67, align 2, !tbaa !914
-  %68 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 36
-  %.val.i = load i16, ptr %68, align 1
-  %69 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  store i16 %.val.i, ptr %69, align 8, !tbaa !915
-  %70 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 38
-  %71 = load i32, ptr %70, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %38, i64 36
-  store i32 %71, ptr %72, align 4, !tbaa !865
-  %73 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 42
-  %74 = load i32, ptr %73, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  store i32 %74, ptr %75, align 8, !tbaa !916
-  br i1 %7, label %76, label %85
+41:                                               ; preds = %zipfileGetU32.exit.i
+  %42 = getelementptr inbounds nuw i8, ptr %.0124, i64 4
+  %.val71.i = load i16, ptr %42, align 1
+  store i16 %.val71.i, ptr %37, align 8, !tbaa !912
+  %43 = getelementptr inbounds nuw i8, ptr %.0124, i64 6
+  %.val69.i = load i16, ptr %43, align 1
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 2
+  store i16 %.val69.i, ptr %44, align 2, !tbaa !887
+  %45 = getelementptr inbounds nuw i8, ptr %.0124, i64 8
+  %.val67.i = load i16, ptr %45, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store i16 %.val67.i, ptr %46, align 4, !tbaa !888
+  %47 = getelementptr inbounds nuw i8, ptr %.0124, i64 10
+  %.val65.i = load i16, ptr %47, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 6
+  store i16 %.val65.i, ptr %48, align 2, !tbaa !868
+  %49 = getelementptr inbounds nuw i8, ptr %.0124, i64 12
+  %.val63.i = load i16, ptr %49, align 1
+  %50 = getelementptr i8, ptr %37, i64 8
+  store i16 %.val63.i, ptr %50, align 8, !tbaa !879
+  %51 = getelementptr inbounds nuw i8, ptr %.0124, i64 14
+  %.val61.i = load i16, ptr %51, align 1
+  %52 = getelementptr i8, ptr %37, i64 10
+  store i16 %.val61.i, ptr %52, align 2, !tbaa !878
+  %53 = getelementptr inbounds nuw i8, ptr %.0124, i64 16
+  %54 = load i32, ptr %53, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  store i32 %54, ptr %55, align 4, !tbaa !889
+  %56 = getelementptr inbounds nuw i8, ptr %.0124, i64 20
+  %57 = load i32, ptr %56, align 1
+  %58 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i32 %57, ptr %58, align 8, !tbaa !869
+  %59 = getelementptr inbounds nuw i8, ptr %.0124, i64 24
+  %60 = load i32, ptr %59, align 1
+  %61 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  store i32 %60, ptr %61, align 4, !tbaa !867
+  %.val59.i = load i16, ptr %17, align 1
+  %62 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store i16 %.val59.i, ptr %62, align 8, !tbaa !872
+  %.val57.i = load i16, ptr %24, align 1
+  %63 = getelementptr inbounds nuw i8, ptr %37, i64 26
+  store i16 %.val57.i, ptr %63, align 2, !tbaa !886
+  %.val55.i = load i16, ptr %26, align 1
+  %64 = getelementptr inbounds nuw i8, ptr %37, i64 28
+  store i16 %.val55.i, ptr %64, align 4, !tbaa !913
+  %65 = getelementptr inbounds nuw i8, ptr %.0124, i64 34
+  %.val53.i = load i16, ptr %65, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %37, i64 30
+  store i16 %.val53.i, ptr %66, align 2, !tbaa !914
+  %67 = getelementptr inbounds nuw i8, ptr %.0124, i64 36
+  %.val.i = load i16, ptr %67, align 1
+  %68 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  store i16 %.val.i, ptr %68, align 8, !tbaa !915
+  %69 = getelementptr inbounds nuw i8, ptr %.0124, i64 38
+  %70 = load i32, ptr %69, align 1
+  %71 = getelementptr inbounds nuw i8, ptr %37, i64 36
+  store i32 %70, ptr %71, align 4, !tbaa !865
+  %72 = getelementptr inbounds nuw i8, ptr %.0124, i64 42
+  %73 = load i32, ptr %72, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  store i32 %73, ptr %74, align 8, !tbaa !916
+  br i1 %7, label %75, label %84
 
-76:                                               ; preds = %42
-  %77 = add nuw nsw i32 %29, %24
-  %78 = add nsw i64 %3, 46
-  %79 = tail call i32 @fseek(ptr noundef %2, i64 noundef %78, i32 noundef 0)
-  %80 = zext nneg i32 %77 to i64
-  %81 = tail call i64 @fread(ptr noundef nonnull %.0.ph, i64 noundef 1, i64 noundef %80, ptr noundef %2)
-  %82 = trunc i64 %81 to i32
-  %.not.i107 = icmp eq i32 %77, %82
-  br i1 %.not.i107, label %zipfileReadData.exit109, label %83
+75:                                               ; preds = %41
+  %76 = add nuw nsw i32 %28, %23
+  %77 = add nsw i64 %3, 46
+  %78 = tail call i32 @fseek(ptr noundef %2, i64 noundef %77, i32 noundef 0)
+  %79 = zext nneg i32 %76 to i64
+  %80 = tail call i64 @fread(ptr noundef nonnull %.0124, i64 noundef 1, i64 noundef %79, ptr noundef %2)
+  %81 = trunc i64 %80 to i32
+  %.not.i107 = icmp eq i32 %76, %81
+  br i1 %.not.i107, label %zipfileReadData.exit109, label %82
 
-83:                                               ; preds = %76
-  %84 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.235) #43
-  br label %.thread151.sink.split
+82:                                               ; preds = %75
+  %83 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.235) #43
+  br label %.thread154.sink.split
 
-85:                                               ; preds = %42
-  %86 = getelementptr i8, ptr %1, i64 %3
-  %87 = getelementptr i8, ptr %86, i64 46
+84:                                               ; preds = %41
+  %85 = getelementptr i8, ptr %1, i64 %3
+  %86 = getelementptr i8, ptr %85, i64 46
   br label %zipfileReadData.exit109
 
-zipfileReadData.exit109:                          ; preds = %85, %76
-  %.1 = phi ptr [ %87, %85 ], [ %.0.ph, %76 ]
-  %88 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %89 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.219, i32 noundef %24, ptr noundef %.1) #43
-  %90 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  store ptr %89, ptr %90, align 8, !tbaa !834
-  %91 = getelementptr inbounds nuw i8, ptr %38, i64 96
-  %92 = getelementptr inbounds nuw i8, ptr %38, i64 64
-  store ptr %91, ptr %92, align 8, !tbaa !917
-  %93 = zext i16 %23 to i64
-  %94 = getelementptr inbounds nuw i8, ptr %.1, i64 %93
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %91, ptr align 1 %94, i64 %30, i1 false)
-  %95 = icmp eq ptr %89, null
-  br i1 %95, label %.thread151, label %96
+zipfileReadData.exit109:                          ; preds = %84, %75
+  %.1 = phi ptr [ %86, %84 ], [ %.0124, %75 ]
+  %87 = getelementptr inbounds nuw i8, ptr %37, i64 56
+  %88 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.219, i32 noundef %23, ptr noundef %.1) #43
+  %89 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  store ptr %88, ptr %89, align 8, !tbaa !834
+  %90 = getelementptr inbounds nuw i8, ptr %37, i64 96
+  %91 = getelementptr inbounds nuw i8, ptr %37, i64 64
+  store ptr %90, ptr %91, align 8, !tbaa !917
+  %92 = zext i16 %22 to i64
+  %93 = getelementptr inbounds nuw i8, ptr %.1, i64 %92
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %90, ptr align 1 %93, i64 %29, i1 false)
+  %94 = icmp eq ptr %88, null
+  br i1 %94, label %.thread154, label %95
 
-96:                                               ; preds = %zipfileReadData.exit109
-  %97 = load i16, ptr %64, align 2, !tbaa !855
-  %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw i8, ptr %94, i64 %98
-  %.not21.i = icmp eq i16 %97, 0
+95:                                               ; preds = %zipfileReadData.exit109
+  %96 = load i16, ptr %63, align 2, !tbaa !855
+  %97 = zext i16 %96 to i64
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 %97
+  %.not21.i = icmp eq i16 %96, 0
   br i1 %.not21.i, label %zipfileScanExtra.exit.thread, label %.lr.ph.i.outer
 
-.lr.ph.i.outer:                                   ; preds = %96, %.thread
-  %100 = phi i1 [ false, %.thread ], [ true, %96 ]
-  %.01619.i.ph = phi ptr [ %117, %.thread ], [ %94, %96 ]
+.lr.ph.i.outer:                                   ; preds = %95, %.thread161
+  %99 = phi i1 [ false, %.thread161 ], [ true, %95 ]
+  %.01619.i.ph = phi ptr [ %116, %.thread161 ], [ %93, %95 ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %110
-  %.01619.i = phi ptr [ %112, %110 ], [ %.01619.i.ph, %.lr.ph.i.outer ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %109
+  %.01619.i = phi ptr [ %111, %109 ], [ %.01619.i.ph, %.lr.ph.i.outer ]
   %.016.val.i = load i16, ptr %.01619.i, align 1
-  %101 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 4
-  %102 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 2
-  %.val.i110 = load i8, ptr %102, align 1, !tbaa !25
-  %103 = getelementptr i8, ptr %.01619.i, i64 3
-  %.val17.i = load i8, ptr %103, align 1, !tbaa !25
-  %104 = zext i8 %.val17.i to i64
-  %105 = shl nuw nsw i64 %104, 8
-  %106 = zext i8 %.val.i110 to i64
+  %100 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 2
+  %.val.i110 = load i8, ptr %101, align 1, !tbaa !25
+  %102 = getelementptr i8, ptr %.01619.i, i64 3
+  %.val17.i = load i8, ptr %102, align 1, !tbaa !25
+  %103 = zext i8 %.val17.i to i64
+  %104 = shl nuw nsw i64 %103, 8
+  %105 = zext i8 %.val.i110 to i64
   %cond.i = icmp eq i16 %.016.val.i, 21589
-  br i1 %cond.i, label %107, label %110
+  br i1 %cond.i, label %106, label %109
 
-107:                                              ; preds = %.lr.ph.i
-  %108 = load i8, ptr %101, align 1, !tbaa !25
-  %109 = and i8 %108, 1
-  %.not.i111 = icmp eq i8 %109, 0
-  br i1 %.not.i111, label %110, label %.thread
+106:                                              ; preds = %.lr.ph.i
+  %107 = load i8, ptr %100, align 1, !tbaa !25
+  %108 = and i8 %107, 1
+  %.not.i111 = icmp eq i8 %108, 0
+  br i1 %.not.i111, label %109, label %.thread161
 
-110:                                              ; preds = %107, %.lr.ph.i
-  %111 = getelementptr inbounds nuw i8, ptr %101, i64 %105
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %106
-  %113 = icmp ult ptr %112, %99
-  br i1 %113, label %.lr.ph.i, label %zipfileScanExtra.exit, !llvm.loop !918
+109:                                              ; preds = %106, %.lr.ph.i
+  %110 = getelementptr inbounds nuw i8, ptr %100, i64 %104
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %105
+  %112 = icmp ult ptr %111, %98
+  br i1 %112, label %.lr.ph.i, label %zipfileScanExtra.exit, !llvm.loop !918
 
-.thread:                                          ; preds = %107
-  %114 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 5
-  %115 = load i32, ptr %114, align 1
-  store i32 %115, ptr %88, align 4, !tbaa !36
-  %116 = getelementptr inbounds nuw i8, ptr %101, i64 %105
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %106
-  %118 = icmp ult ptr %117, %99
-  br i1 %118, label %.lr.ph.i.outer, label %zipfileScanExtra.exit.thread160, !llvm.loop !918
+.thread161:                                       ; preds = %106
+  %113 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 5
+  %114 = load i32, ptr %113, align 1
+  store i32 %114, ptr %87, align 4, !tbaa !36
+  %115 = getelementptr inbounds nuw i8, ptr %100, i64 %104
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 %105
+  %117 = icmp ult ptr %116, %98
+  br i1 %117, label %.lr.ph.i.outer, label %zipfileScanExtra.exit.thread164, !llvm.loop !918
 
-zipfileScanExtra.exit:                            ; preds = %110
-  br i1 %100, label %zipfileScanExtra.exit.thread, label %zipfileScanExtra.exit.thread160
+zipfileScanExtra.exit:                            ; preds = %109
+  br i1 %99, label %zipfileScanExtra.exit.thread, label %zipfileScanExtra.exit.thread164
 
-zipfileScanExtra.exit.thread:                     ; preds = %96, %zipfileScanExtra.exit
-  %.val102 = load i16, ptr %51, align 8, !tbaa !879
-  %.val103 = load i16, ptr %53, align 2, !tbaa !878
-  %119 = zext i16 %.val103 to i32
-  %120 = lshr i32 %119, 9
-  %121 = lshr i32 %119, 5
-  %122 = and i32 %121, 15
-  %123 = icmp samesign ult i32 %122, 3
-  %124 = or disjoint i32 %122, 12
-  %.021.i = select i1 %123, i32 %124, i32 %122
-  %.0.v.i = select i1 %123, i32 1979, i32 1980
-  %.0.i112 = add nuw nsw i32 %.0.v.i, %120
-  %125 = zext i16 %.val102 to i32
-  %126 = lshr i32 %125, 11
-  %127 = lshr i32 %125, 5
-  %128 = and i32 %127, 63
-  %129 = shl nuw nsw i32 %125, 1
-  %130 = and i32 %129, 62
-  %131 = and i32 %119, 31
-  %132 = mul nuw nsw i32 %.0.i112, 36525
-  %133 = add nuw nsw i32 %132, 172251900
-  %134 = udiv i32 %133, 100
-  %135 = mul nuw nsw i32 %.021.i, 306001
-  %136 = add nuw nsw i32 %135, 306001
-  %137 = udiv i32 %136, 10000
+zipfileScanExtra.exit.thread:                     ; preds = %95, %zipfileScanExtra.exit
+  %.val102 = load i16, ptr %50, align 8, !tbaa !879
+  %.val103 = load i16, ptr %52, align 2, !tbaa !878
+  %118 = zext i16 %.val103 to i32
+  %119 = lshr i32 %118, 9
+  %120 = lshr i32 %118, 5
+  %121 = and i32 %120, 15
+  %122 = icmp samesign ult i32 %121, 3
+  %123 = or disjoint i32 %121, 12
+  %.021.i = select i1 %122, i32 %123, i32 %121
+  %.0.v.i = select i1 %122, i32 1979, i32 1980
+  %.0.i112 = add nuw nsw i32 %.0.v.i, %119
+  %124 = zext i16 %.val102 to i32
+  %125 = lshr i32 %124, 11
+  %126 = lshr i32 %124, 5
+  %127 = and i32 %126, 63
+  %128 = shl nuw nsw i32 %124, 1
+  %129 = and i32 %128, 62
+  %130 = and i32 %118, 31
+  %131 = mul nuw nsw i32 %.0.i112, 36525
+  %132 = add nuw nsw i32 %131, 172251900
+  %133 = udiv i32 %132, 100
+  %134 = mul nuw nsw i32 %.021.i, 306001
+  %135 = add nuw nsw i32 %134, 306001
+  %136 = udiv i32 %135, 10000
   %.lhs.trunc.i = trunc nuw nsw i32 %.0.i112 to i16
-  %138 = udiv i16 %.lhs.trunc.i, 100
-  %.zext.i = zext nneg i16 %138 to i32
-  %139 = udiv i16 %.lhs.trunc.i, 400
-  %.zext2.i = zext nneg i16 %139 to i32
-  %reass.sub.i = add nuw nsw i32 %131, 2
-  %140 = add nuw nsw i32 %reass.sub.i, %137
-  %141 = add nuw nsw i32 %140, %134
-  %142 = sub nuw nsw i32 %141, %.zext.i
-  %143 = add nuw nsw i32 %142, %.zext2.i
-  %144 = uitofp nneg i32 %143 to double
-  %145 = fadd double %144, -1.524500e+03
-  %146 = fmul double %145, 8.640000e+04
-  %147 = fptosi double %146 to i64
-  %148 = mul nuw nsw i32 %126, 3600
-  %149 = mul nuw nsw i32 %128, 60
-  %150 = trunc i64 %147 to i32
-  %151 = add nuw nsw i32 %148, -413362496
-  %152 = add nuw nsw i32 %151, %130
-  %153 = add nuw nsw i32 %152, %149
-  %154 = add i32 %153, %150
-  store i32 %154, ptr %88, align 8, !tbaa !866
-  br label %zipfileScanExtra.exit.thread160
+  %137 = udiv i16 %.lhs.trunc.i, 100
+  %.zext.i = zext nneg i16 %137 to i32
+  %138 = udiv i16 %.lhs.trunc.i, 400
+  %.zext2.i = zext nneg i16 %138 to i32
+  %reass.sub.i = add nuw nsw i32 %130, 2
+  %139 = add nuw nsw i32 %reass.sub.i, %136
+  %140 = add nuw nsw i32 %139, %133
+  %141 = sub nuw nsw i32 %140, %.zext.i
+  %142 = add nuw nsw i32 %141, %.zext2.i
+  %143 = uitofp nneg i32 %142 to double
+  %144 = fadd double %143, -1.524500e+03
+  %145 = fmul double %144, 8.640000e+04
+  %146 = fptosi double %145 to i64
+  %147 = mul nuw nsw i32 %125, 3600
+  %148 = mul nuw nsw i32 %127, 60
+  %149 = trunc i64 %146 to i32
+  %150 = add nuw nsw i32 %147, -413362496
+  %151 = add nuw nsw i32 %150, %129
+  %152 = add nuw nsw i32 %151, %148
+  %153 = add i32 %152, %149
+  store i32 %153, ptr %87, align 8, !tbaa !866
+  br label %zipfileScanExtra.exit.thread164
 
-zipfileScanExtra.exit.thread160:                  ; preds = %.thread, %zipfileScanExtra.exit.thread, %zipfileScanExtra.exit
+zipfileScanExtra.exit.thread164:                  ; preds = %.thread161, %zipfileScanExtra.exit.thread, %zipfileScanExtra.exit
   %.not94 = icmp eq ptr %2, null
-  %155 = load i32, ptr %75, align 8, !tbaa !885
-  %156 = zext i32 %155 to i64
-  br i1 %.not94, label %.thread134, label %157
+  %154 = load i32, ptr %74, align 8, !tbaa !885
+  %155 = zext i32 %154 to i64
+  br i1 %.not94, label %.thread137, label %156
 
-157:                                              ; preds = %zipfileScanExtra.exit.thread160
-  %158 = tail call i32 @fseek(ptr noundef nonnull %2, i64 noundef %156, i32 noundef 0)
-  %159 = tail call i64 @fread(ptr noundef %.1, i64 noundef 1, i64 noundef 30, ptr noundef nonnull %2)
-  %160 = and i64 %159, 4294967295
-  %.not.i113 = icmp eq i64 %160, 30
-  br i1 %.not.i113, label %.thread138, label %162
+156:                                              ; preds = %zipfileScanExtra.exit.thread164
+  %157 = tail call i32 @fseek(ptr noundef nonnull %2, i64 noundef %155, i32 noundef 0)
+  %158 = tail call i64 @fread(ptr noundef %.1, i64 noundef 1, i64 noundef 30, ptr noundef nonnull %2)
+  %159 = and i64 %158, 4294967295
+  %.not.i113 = icmp eq i64 %159, 30
+  br i1 %.not.i113, label %.thread141, label %161
 
-.thread134:                                       ; preds = %zipfileScanExtra.exit.thread160
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 %156
-  br label %.thread138
+.thread137:                                       ; preds = %zipfileScanExtra.exit.thread164
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 %155
+  br label %.thread141
 
-162:                                              ; preds = %157
-  %163 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.235) #43
-  store ptr %163, ptr %6, align 8, !tbaa !29
-  br label %185
+161:                                              ; preds = %156
+  %162 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.235) #43
+  store ptr %162, ptr %6, align 8, !tbaa !29
+  br label %184
 
-.thread138:                                       ; preds = %157, %.thread134
-  %.2137 = phi ptr [ %161, %.thread134 ], [ %.1, %157 ]
-  %164 = icmp eq ptr %.2137, null
-  br i1 %164, label %185, label %zipfileGetU32.exit.i116
+.thread141:                                       ; preds = %156, %.thread137
+  %.2140 = phi ptr [ %160, %.thread137 ], [ %.1, %156 ]
+  %163 = icmp eq ptr %.2140, null
+  br i1 %163, label %184, label %zipfileGetU32.exit.i116
 
-zipfileGetU32.exit.i116:                          ; preds = %.thread138
-  %165 = load i32, ptr %.2137, align 1
-  %.not.i117 = icmp eq i32 %165, 67324752
-  br i1 %.not.i117, label %166, label %185
+zipfileGetU32.exit.i116:                          ; preds = %.thread141
+  %164 = load i32, ptr %.2140, align 1
+  %.not.i117 = icmp eq i32 %164, 67324752
+  br i1 %.not.i117, label %165, label %184
 
-166:                                              ; preds = %zipfileGetU32.exit.i116
-  %167 = getelementptr inbounds nuw i8, ptr %.2137, i64 26
-  %.val35.i = load i16, ptr %167, align 1
-  %168 = getelementptr inbounds nuw i8, ptr %.2137, i64 28
-  %.val.i119 = load i16, ptr %168, align 1
-  %169 = load i32, ptr %75, align 8, !tbaa !885
-  %170 = add i32 %169, 30
-  %171 = zext i32 %170 to i64
-  %172 = getelementptr inbounds nuw i8, ptr %38, i64 72
-  %173 = zext i16 %.val35.i to i64
-  %174 = zext i16 %.val.i119 to i64
-  %175 = add nuw nsw i64 %174, %173
-  %176 = add nuw nsw i64 %175, %171
-  store i64 %176, ptr %172, align 8, !tbaa !871
-  br i1 %7, label %190, label %177
+165:                                              ; preds = %zipfileGetU32.exit.i116
+  %166 = getelementptr inbounds nuw i8, ptr %.2140, i64 26
+  %.val35.i = load i16, ptr %166, align 1
+  %167 = getelementptr inbounds nuw i8, ptr %.2140, i64 28
+  %.val.i119 = load i16, ptr %167, align 1
+  %168 = load i32, ptr %74, align 8, !tbaa !885
+  %169 = add i32 %168, 30
+  %170 = zext i32 %169 to i64
+  %171 = getelementptr inbounds nuw i8, ptr %37, i64 72
+  %172 = zext i16 %.val35.i to i64
+  %173 = zext i16 %.val.i119 to i64
+  %174 = add nuw nsw i64 %173, %172
+  %175 = add nuw nsw i64 %174, %170
+  store i64 %175, ptr %171, align 8, !tbaa !871
+  br i1 %7, label %189, label %176
 
-177:                                              ; preds = %166
-  %178 = load i32, ptr %59, align 8, !tbaa !881
-  %.not95 = icmp eq i32 %178, 0
-  br i1 %.not95, label %190, label %179
+176:                                              ; preds = %165
+  %177 = load i32, ptr %58, align 8, !tbaa !881
+  %.not95 = icmp eq i32 %177, 0
+  br i1 %.not95, label %189, label %178
 
-179:                                              ; preds = %177
-  %180 = load ptr, ptr %92, align 8, !tbaa !917
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %30
-  %182 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  store ptr %181, ptr %182, align 8, !tbaa !870
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 %176
-  %184 = zext i32 %178 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr nonnull align 1 %183, i64 %184, i1 false)
-  br label %190
+178:                                              ; preds = %176
+  %179 = load ptr, ptr %91, align 8, !tbaa !917
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 %29
+  %181 = getelementptr inbounds nuw i8, ptr %37, i64 80
+  store ptr %180, ptr %181, align 8, !tbaa !870
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 %175
+  %183 = zext i32 %177 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %180, ptr nonnull align 1 %182, i64 %183, i1 false)
+  br label %189
 
-185:                                              ; preds = %162, %zipfileGetU32.exit.i116, %.thread138
-  %186 = load i32, ptr %75, align 8, !tbaa !885
-  %187 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.234, i32 noundef %186) #43
-  br label %.thread151.sink.split
+184:                                              ; preds = %161, %zipfileGetU32.exit.i116, %.thread141
+  %185 = load i32, ptr %74, align 8, !tbaa !885
+  %186 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.234, i32 noundef %185) #43
+  br label %.thread154.sink.split
 
-.thread151.sink.split:                            ; preds = %185, %zipfileReadCDS.exit, %83
-  %.sink = phi ptr [ %84, %83 ], [ %41, %zipfileReadCDS.exit ], [ %187, %185 ]
+.thread154.sink.split:                            ; preds = %184, %zipfileReadCDS.exit, %82
+  %.sink = phi ptr [ %83, %82 ], [ %40, %zipfileReadCDS.exit ], [ %186, %184 ]
   store ptr %.sink, ptr %6, align 8, !tbaa !29
-  br label %.thread151
+  br label %.thread154
 
-.thread151:                                       ; preds = %.thread151.sink.split, %zipfileReadData.exit109
-  %.5153 = phi i32 [ 7, %zipfileReadData.exit109 ], [ 1, %.thread151.sink.split ]
-  %188 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %189 = load ptr, ptr %188, align 8, !tbaa !834
-  tail call void @sqlite3_free(ptr noundef %189) #43
-  tail call void @sqlite3_free(ptr noundef nonnull %38) #43
+.thread154:                                       ; preds = %.thread154.sink.split, %zipfileReadData.exit109
+  %.5156 = phi i32 [ 7, %zipfileReadData.exit109 ], [ 1, %.thread154.sink.split ]
+  %187 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %188 = load ptr, ptr %187, align 8, !tbaa !834
+  tail call void @sqlite3_free(ptr noundef %188) #43
+  tail call void @sqlite3_free(ptr noundef nonnull %37) #43
   br label %zipfileEntryFree.exit
 
-190:                                              ; preds = %166, %177, %179
-  store ptr %38, ptr %4, align 8, !tbaa !853
+189:                                              ; preds = %165, %176, %178
+  store ptr %37, ptr %4, align 8, !tbaa !853
   br label %zipfileEntryFree.exit
 
-zipfileEntryFree.exit:                            ; preds = %.thread151, %37, %zipfileReadData.exit, %190
-  %.183 = phi i32 [ 1, %zipfileReadData.exit ], [ 0, %190 ], [ %.5153, %.thread151 ], [ 7, %37 ]
+zipfileEntryFree.exit:                            ; preds = %.thread154, %36, %15, %189
+  %.183 = phi i32 [ 1, %15 ], [ 0, %189 ], [ %.5156, %.thread154 ], [ 7, %36 ]
   ret i32 %.183
 }
 
@@ -54054,10 +54054,10 @@ sub_1:                                            ; preds = %3
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %31
-  %indvars.iv130 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next131, %31 ]
+  %indvars.iv129 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next130, %31 ]
   %.0106.us = phi i32 [ 0, %.split.us.preheader ], [ %.1.us, %31 ]
   %.069105.us = phi i32 [ 0, %.split.us.preheader ], [ %.170.us, %31 ]
-  %15 = getelementptr inbounds nuw [211 x ptr], ptr @azHelp, i64 0, i64 %indvars.iv130
+  %15 = getelementptr inbounds nuw [211 x ptr], ptr @azHelp, i64 0, i64 %indvars.iv129
   %16 = load ptr, ptr %15, align 8, !tbaa !29
   %17 = load i8, ptr %16, align 1, !tbaa !25
   switch i8 %17, label %19 [
@@ -54095,15 +54095,15 @@ sub_1:                                            ; preds = %3
 
 31:                                               ; preds = %29, %25, %21
   %.170.us = phi i32 [ %28, %25 ], [ %.069105.us, %29 ], [ %.069105.us, %21 ]
-  %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %exitcond133.not = icmp eq i64 %indvars.iv.next131, 211
-  br i1 %exitcond133.not, label %.critedge, label %.split.us, !llvm.loop !1051
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %exitcond132.not = icmp eq i64 %indvars.iv.next130, 211
+  br i1 %exitcond132.not, label %.critedge, label %.split.us, !llvm.loop !1051
 
 .split:                                           ; preds = %2, %44
-  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %44 ], [ 0, %2 ]
+  %indvars.iv125 = phi i64 [ %indvars.iv.next126, %44 ], [ 0, %2 ]
   %.0106 = phi i32 [ %.1, %44 ], [ 0, %2 ]
   %.069105 = phi i32 [ %.170, %44 ], [ 0, %2 ]
-  %32 = getelementptr inbounds nuw [211 x ptr], ptr @azHelp, i64 0, i64 %indvars.iv126
+  %32 = getelementptr inbounds nuw [211 x ptr], ptr @azHelp, i64 0, i64 %indvars.iv125
   %33 = load ptr, ptr %32, align 8, !tbaa !29
   %34 = load i8, ptr %33, align 1, !tbaa !25
   switch i8 %34, label %36 [
@@ -54132,9 +54132,9 @@ sub_1:                                            ; preds = %3
 
 44:                                               ; preds = %38, %40
   %.170 = phi i32 [ %43, %40 ], [ %.069105, %38 ]
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next127, 211
-  br i1 %exitcond129.not, label %.critedge, label %.split, !llvm.loop !1051
+  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next126, 211
+  br i1 %exitcond128.not, label %.critedge, label %.split, !llvm.loop !1051
 
 45:                                               ; preds = %12
   %46 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1450, ptr noundef nonnull %1) #43
@@ -54215,88 +54215,88 @@ shell_check_oom.exit:                             ; preds = %shell_check_oom.exi
 shell_check_oom.exit92.preheader:                 ; preds = %70, %.critedge2
   %.5103 = phi i32 [ %.6, %.critedge2 ], [ 0, %70 ]
   %.374102 = phi i32 [ %.475, %.critedge2 ], [ %.172, %70 ]
-  %.280101 = phi i32 [ %102, %.critedge2 ], [ 0, %70 ]
+  %.280101 = phi i32 [ %103, %.critedge2 ], [ 0, %70 ]
   %74 = sext i32 %.280101 to i64
   %75 = getelementptr inbounds [211 x ptr], ptr @azHelp, i64 0, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !29
   %77 = load i8, ptr %76, align 1, !tbaa !25
-  switch i8 %77, label %84 [
+  switch i8 %77, label %85 [
     i8 44, label %.preheader
-    i8 46, label %83
+    i8 46, label %84
   ]
 
-.preheader:                                       ; preds = %shell_check_oom.exit92.preheader, %78
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %78 ], [ %74, %shell_check_oom.exit92.preheader ]
-  %exitcond121.not = icmp eq i64 %indvars.iv118, 210
-  br i1 %exitcond121.not, label %.critedge2.thread, label %78
+.preheader:                                       ; preds = %shell_check_oom.exit92.preheader, %79
+  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %79 ], [ %74, %shell_check_oom.exit92.preheader ]
+  %78 = icmp slt i64 %indvars.iv118, 210
+  br i1 %78, label %79, label %.critedge2.thread
 
-78:                                               ; preds = %.preheader
+79:                                               ; preds = %.preheader
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, 1
-  %79 = getelementptr inbounds [211 x ptr], ptr @azHelp, i64 0, i64 %indvars.iv.next119
-  %80 = load ptr, ptr %79, align 8, !tbaa !29
-  %81 = load i8, ptr %80, align 1, !tbaa !25
-  %82 = icmp eq i8 %81, 32
-  br i1 %82, label %.preheader, label %.critedge2.loopexit, !llvm.loop !1053
+  %80 = getelementptr inbounds [211 x ptr], ptr @azHelp, i64 0, i64 %indvars.iv.next119
+  %81 = load ptr, ptr %80, align 8, !tbaa !29
+  %82 = load i8, ptr %81, align 1, !tbaa !25
+  %83 = icmp eq i8 %82, 32
+  br i1 %83, label %.preheader, label %.critedge2.loopexit, !llvm.loop !1053
 
-83:                                               ; preds = %shell_check_oom.exit92.preheader
-  br label %84
+84:                                               ; preds = %shell_check_oom.exit92.preheader
+  br label %85
 
-84:                                               ; preds = %shell_check_oom.exit92.preheader, %83
-  %.576 = phi i32 [ %.280101, %83 ], [ %.374102, %shell_check_oom.exit92.preheader ]
-  %85 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %71, ptr noundef nonnull %76, i32 noundef 0) #43
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %.critedge2
+85:                                               ; preds = %shell_check_oom.exit92.preheader, %84
+  %.576 = phi i32 [ %.280101, %84 ], [ %.374102, %shell_check_oom.exit92.preheader ]
+  %86 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %71, ptr noundef nonnull %76, i32 noundef 0) #43
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %.critedge2
 
-87:                                               ; preds = %84
-  %88 = sext i32 %.576 to i64
-  %89 = getelementptr inbounds [211 x ptr], ptr @azHelp, i64 0, i64 %88
-  %90 = load ptr, ptr %89, align 8, !tbaa !29
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.310, ptr noundef %90) #43
-  %92 = icmp slt i32 %.576, 210
-  br i1 %92, label %.lr.ph, label %.critedge4
+88:                                               ; preds = %85
+  %89 = sext i32 %.576 to i64
+  %90 = getelementptr inbounds [211 x ptr], ptr @azHelp, i64 0, i64 %89
+  %91 = load ptr, ptr %90, align 8, !tbaa !29
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.310, ptr noundef %91) #43
+  %93 = icmp slt i32 %.576, 210
+  br i1 %93, label %.lr.ph, label %.critedge4
 
-.lr.ph:                                           ; preds = %87, %97
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %97 ], [ %88, %87 ]
-  %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
-  %93 = getelementptr inbounds [211 x ptr], ptr @azHelp, i64 0, i64 %indvars.iv.next123
-  %94 = load ptr, ptr %93, align 8, !tbaa !29
-  %95 = load i8, ptr %94, align 1, !tbaa !25
-  %96 = icmp eq i8 %95, 32
-  br i1 %96, label %97, label %.critedge4.loopexit.split.loop.exit144
+.lr.ph:                                           ; preds = %88, %98
+  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %98 ], [ %89, %88 ]
+  %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
+  %94 = getelementptr inbounds [211 x ptr], ptr @azHelp, i64 0, i64 %indvars.iv.next122
+  %95 = load ptr, ptr %94, align 8, !tbaa !29
+  %96 = load i8, ptr %95, align 1, !tbaa !25
+  %97 = icmp eq i8 %96, 32
+  br i1 %97, label %98, label %.critedge4.loopexit.split.loop.exit143
 
-97:                                               ; preds = %.lr.ph
-  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.310, ptr noundef nonnull %94) #43
-  %exitcond125.not = icmp eq i64 %indvars.iv.next123, 210
-  br i1 %exitcond125.not, label %.critedge4, label %.lr.ph, !llvm.loop !1054
+98:                                               ; preds = %.lr.ph
+  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.310, ptr noundef nonnull %95) #43
+  %exitcond124.not = icmp eq i64 %indvars.iv.next122, 210
+  br i1 %exitcond124.not, label %.critedge4, label %.lr.ph, !llvm.loop !1054
 
-.critedge4.loopexit.split.loop.exit144:           ; preds = %.lr.ph
-  %99 = trunc nsw i64 %indvars.iv122 to i32
+.critedge4.loopexit.split.loop.exit143:           ; preds = %.lr.ph
+  %100 = trunc nsw i64 %indvars.iv121 to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %97, %.critedge4.loopexit.split.loop.exit144, %87
-  %.677.lcssa = phi i32 [ %.576, %87 ], [ %99, %.critedge4.loopexit.split.loop.exit144 ], [ 210, %97 ]
-  %100 = add nsw i32 %.5103, 1
+.critedge4:                                       ; preds = %98, %.critedge4.loopexit.split.loop.exit143, %88
+  %.677.lcssa = phi i32 [ %.576, %88 ], [ %100, %.critedge4.loopexit.split.loop.exit143 ], [ 210, %98 ]
+  %101 = add nsw i32 %.5103, 1
   br label %.critedge2
 
-.critedge2.loopexit:                              ; preds = %78
-  %101 = trunc nsw i64 %indvars.iv118 to i32
+.critedge2.loopexit:                              ; preds = %79
+  %102 = trunc nsw i64 %indvars.iv118 to i32
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.loopexit, %84, %.critedge4
-  %.482 = phi i32 [ %.677.lcssa, %.critedge4 ], [ %.280101, %84 ], [ %101, %.critedge2.loopexit ]
-  %.475 = phi i32 [ %.677.lcssa, %.critedge4 ], [ %.576, %84 ], [ %.374102, %.critedge2.loopexit ]
-  %.6 = phi i32 [ %100, %.critedge4 ], [ %.5103, %84 ], [ %.5103, %.critedge2.loopexit ]
-  %102 = add nsw i32 %.482, 1
-  %103 = icmp slt i32 %.482, 210
-  br i1 %103, label %shell_check_oom.exit92.preheader, label %.critedge2.thread, !llvm.loop !1055
+.critedge2:                                       ; preds = %.critedge2.loopexit, %85, %.critedge4
+  %.482 = phi i32 [ %.677.lcssa, %.critedge4 ], [ %.280101, %85 ], [ %102, %.critedge2.loopexit ]
+  %.475 = phi i32 [ %.677.lcssa, %.critedge4 ], [ %.576, %85 ], [ %.374102, %.critedge2.loopexit ]
+  %.6 = phi i32 [ %101, %.critedge4 ], [ %.5103, %85 ], [ %.5103, %.critedge2.loopexit ]
+  %103 = add nsw i32 %.482, 1
+  %104 = icmp slt i32 %.482, 210
+  br i1 %104, label %shell_check_oom.exit92.preheader, label %.critedge2.thread, !llvm.loop !1055
 
 .critedge2.thread:                                ; preds = %.critedge2, %.preheader
-  %.6139 = phi i32 [ %.5103, %.preheader ], [ %.6, %.critedge2 ]
+  %.6138 = phi i32 [ %.5103, %.preheader ], [ %.6, %.critedge2 ]
   tail call void @sqlite3_free(ptr noundef nonnull %71) #43
   br label %.critedge
 
 .critedge:                                        ; preds = %67, %.preheader93, %31, %44, %.critedge2.thread, %59
-  %.083 = phi i32 [ %.4, %59 ], [ %.6139, %.critedge2.thread ], [ %.170, %44 ], [ %.170.us, %31 ], [ 1, %.preheader93 ], [ 1, %67 ]
+  %.083 = phi i32 [ %.4, %59 ], [ %.6138, %.critedge2.thread ], [ %.170, %44 ], [ %.170.us, %31 ], [ 1, %.preheader93 ], [ 1, %67 ]
   ret i32 %.083
 }
 
@@ -57696,10 +57696,10 @@ shell_check_oom.exit.i:                           ; preds = %62
   br i1 %.not68.i, label %shell_check_oom.exit70.i, label %78
 
 78:                                               ; preds = %.lr.ph.i
-  %79 = shl nsw i32 %.05884.i, 1
+  %79 = shl nuw nsw i32 %.05884.i, 1
   %80 = trunc i64 %indvars.iv.i to i32
   %81 = add i32 %80, 10
-  %82 = add i32 %81, %79
+  %82 = add nuw nsw i32 %81, %79
   %83 = shl i32 %82, 3
   %84 = call ptr @sqlite3_realloc(ptr noundef %.06182.i, i32 noundef %83) #43
   %85 = icmp eq ptr %84, null

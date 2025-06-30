@@ -980,7 +980,7 @@ define ptr @l_Std_Time_Year_Offset_toMonths(ptr noundef %0) local_unnamed_addr #
   br label %lean_int_mul.exit
 
 21:                                               ; preds = %8
-  %22 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %13) #6
+  %22 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %13) #6
   br label %lean_int_mul.exit
 
 .critedge.i:                                      ; preds = %5, %1
@@ -1028,7 +1028,7 @@ l_Std_Time_Year_Offset_toMonths.exit.thread5:     ; preds = %5
   br label %lean_dec.exit
 
 22:                                               ; preds = %9
-  %23 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %14) #6
+  %23 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %14) #6
   br label %lean_dec.exit
 
 24:                                               ; preds = %1
@@ -1717,7 +1717,7 @@ lean_int_ediv.exit.thread187:                     ; preds = %1
   br label %lean_int_ediv.exit.thread
 
 29:                                               ; preds = %13
-  %30 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i) #6
+  %30 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.016.i) #6
   br label %lean_int_ediv.exit.thread
 
 lean_int_ediv.exit:                               ; preds = %6
@@ -1749,7 +1749,7 @@ lean_int_ediv.exit.thread:                        ; preds = %29, %24, %9, %lean_
   br label %lean_int_add.exit
 
 47:                                               ; preds = %34
-  %48 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %39) #6
+  %48 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %39) #6
   br label %lean_int_add.exit
 
 .critedge.i98:                                    ; preds = %lean_int_ediv.exit.thread187, %lean_int_ediv.exit.thread
@@ -1824,7 +1824,7 @@ lean_dec.exit67:                                  ; preds = %57, %56, %54, %lean
   br label %lean_int_ediv.exit106
 
 82:                                               ; preds = %66
-  %83 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i103) #6
+  %83 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.016.i103) #6
   br label %lean_int_ediv.exit106
 
 .critedge.i105:                                   ; preds = %59, %lean_dec.exit67
@@ -1866,7 +1866,7 @@ lean_int_sub.exit.thread243:                      ; preds = %88
   br label %lean_dec.exit65
 
 103:                                              ; preds = %90
-  %104 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %95) #6
+  %104 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %95) #6
   br label %lean_dec.exit65
 
 lean_int_sub.exit:                                ; preds = %lean_int_ediv.exit106
@@ -1955,7 +1955,7 @@ lean_dec.exit65:                                  ; preds = %98, %103, %119, %11
   br label %lean_int_ediv.exit118
 
 144:                                              ; preds = %128
-  %145 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i115) #6
+  %145 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.016.i115) #6
   br label %lean_int_ediv.exit118
 
 .critedge.i117:                                   ; preds = %121, %lean_dec.exit65
@@ -1997,7 +1997,7 @@ lean_int_add.exit123.thread253:                   ; preds = %150
   br label %lean_dec.exit63
 
 165:                                              ; preds = %152
-  %166 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %157) #6
+  %166 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %157) #6
   br label %lean_dec.exit63
 
 lean_int_add.exit123:                             ; preds = %lean_int_ediv.exit118
@@ -2089,7 +2089,7 @@ lean_int_emod.exit.thread190:                     ; preds = %185
   br label %lean_dec.exit62
 
 206:                                              ; preds = %192
-  %207 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i125) #6
+  %207 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i125) #6
   br label %lean_dec.exit62
 
 208:                                              ; preds = %lean_dec.exit63
@@ -2182,7 +2182,7 @@ lean_dec.exit61:                                  ; preds = %229, %228, %226, %l
   br label %lean_int_sub.exit132
 
 248:                                              ; preds = %235
-  %249 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %240) #6
+  %249 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %240) #6
   br label %lean_int_sub.exit132
 
 .critedge.i131:                                   ; preds = %232, %230
@@ -2236,7 +2236,7 @@ lean_int_ediv.exit140.thread195:                  ; preds = %lean_int_sub.exit13
   br label %lean_int_ediv.exit140.thread
 
 276:                                              ; preds = %260
-  %277 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i137) #6
+  %277 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.016.i137) #6
   br label %lean_int_ediv.exit140.thread
 
 lean_int_ediv.exit140:                            ; preds = %254
@@ -2268,7 +2268,7 @@ lean_int_ediv.exit140.thread:                     ; preds = %276, %271, %256, %l
   br label %lean_int_add.exit145
 
 294:                                              ; preds = %281
-  %295 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %286) #6
+  %295 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %286) #6
   br label %lean_int_add.exit145
 
 .critedge.i144:                                   ; preds = %lean_int_ediv.exit140.thread195, %lean_int_ediv.exit140.thread
@@ -2342,7 +2342,7 @@ lean_dec.exit60:                                  ; preds = %304, %303, %301, %l
   br label %lean_int_ediv.exit153
 
 328:                                              ; preds = %312
-  %329 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i150) #6
+  %329 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.016.i150) #6
   br label %lean_int_ediv.exit153
 
 .critedge.i152:                                   ; preds = %305, %lean_dec.exit60
@@ -2384,7 +2384,7 @@ lean_int_sub.exit158.thread263:                   ; preds = %334
   br label %lean_dec.exit58
 
 349:                                              ; preds = %336
-  %350 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %341) #6
+  %350 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %341) #6
   br label %lean_dec.exit58
 
 lean_int_sub.exit158:                             ; preds = %lean_int_ediv.exit153
@@ -2476,7 +2476,7 @@ lean_int_ediv.exit166.thread198:                  ; preds = %366
   br label %lean_dec.exit57
 
 390:                                              ; preds = %374
-  %391 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.016.i163) #6
+  %391 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.016.i163) #6
   br label %lean_dec.exit57
 
 392:                                              ; preds = %lean_dec.exit58
@@ -2533,7 +2533,7 @@ lean_int_add.exit171.thread273:                   ; preds = %403
   br label %lean_dec.exit55
 
 418:                                              ; preds = %405
-  %419 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %410) #6
+  %419 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %410) #6
   br label %lean_dec.exit55
 
 lean_int_add.exit171:                             ; preds = %lean_dec.exit57
@@ -2624,7 +2624,7 @@ lean_int_emod.exit178.thread201:                  ; preds = %437
   br label %lean_dec.exit54
 
 458:                                              ; preds = %444
-  %459 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i175) #6
+  %459 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i175) #6
   br label %lean_dec.exit54
 
 460:                                              ; preds = %lean_dec.exit55
@@ -3231,7 +3231,7 @@ _init_l_Std_Time_Year_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Tim
   br label %_init_l_Std_Time_Year_Offset_days___closed__5.exit
 
 178:                                              ; preds = %168
-  %179 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %171) #6
+  %179 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %171) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__5.exit
 
 .critedge.i.i32:                                  ; preds = %_init_l_Std_Time_Year_instOrdOffset___closed__1.exit
@@ -3283,7 +3283,7 @@ _init_l_Std_Time_Year_Offset_days___closed__5.exit: ; preds = %173, %178, %.crit
   br label %_init_l_Std_Time_Year_Offset_days___closed__7.exit
 
 205:                                              ; preds = %191
-  %206 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i38) #6
+  %206 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i38) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__7.exit
 
 .critedge.i.i39:                                  ; preds = %185, %_init_l_Std_Time_Year_Offset_days___closed__5.exit
@@ -3325,7 +3325,7 @@ _init_l_Std_Time_Year_Offset_days___closed__7.exit: ; preds = %188, %200, %205, 
   br label %_init_l_Std_Time_Year_Offset_days___closed__8.exit
 
 228:                                              ; preds = %215
-  %229 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %220) #6
+  %229 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %220) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__8.exit
 
 .critedge.i.i43:                                  ; preds = %212, %_init_l_Std_Time_Year_Offset_days___closed__7.exit
@@ -3375,7 +3375,7 @@ _init_l_Std_Time_Year_Offset_days___closed__8.exit: ; preds = %223, %228, %.crit
   br label %_init_l_Std_Time_Year_Offset_days___closed__9.exit
 
 255:                                              ; preds = %241
-  %256 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i47) #6
+  %256 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i47) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__9.exit
 
 .critedge.i.i49:                                  ; preds = %235, %_init_l_Std_Time_Year_Offset_days___closed__8.exit
@@ -3407,7 +3407,7 @@ _init_l_Std_Time_Year_Offset_days___closed__9.exit: ; preds = %238, %250, %255, 
   br label %_init_l_Std_Time_Year_Offset_days___closed__10.exit
 
 271:                                              ; preds = %261
-  %272 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %264) #6
+  %272 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %264) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__10.exit
 
 .critedge.i.i53:                                  ; preds = %_init_l_Std_Time_Year_Offset_days___closed__9.exit
@@ -3457,7 +3457,7 @@ _init_l_Std_Time_Year_Offset_days___closed__10.exit: ; preds = %266, %271, %.cri
   br label %_init_l_Std_Time_Year_Offset_days___closed__11.exit
 
 298:                                              ; preds = %284
-  %299 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i57) #6
+  %299 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i57) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__11.exit
 
 .critedge.i.i59:                                  ; preds = %278, %_init_l_Std_Time_Year_Offset_days___closed__10.exit
@@ -3499,7 +3499,7 @@ _init_l_Std_Time_Year_Offset_days___closed__11.exit: ; preds = %281, %293, %298,
   br label %_init_l_Std_Time_Year_Offset_days___closed__12.exit
 
 321:                                              ; preds = %308
-  %322 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %313) #6
+  %322 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %313) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__12.exit
 
 .critedge.i.i63:                                  ; preds = %305, %_init_l_Std_Time_Year_Offset_days___closed__11.exit
@@ -3549,7 +3549,7 @@ _init_l_Std_Time_Year_Offset_days___closed__12.exit: ; preds = %316, %321, %.cri
   br label %_init_l_Std_Time_Year_Offset_days___closed__13.exit
 
 348:                                              ; preds = %334
-  %349 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i67) #6
+  %349 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %.0.i.i67) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__13.exit
 
 .critedge.i.i69:                                  ; preds = %328, %_init_l_Std_Time_Year_Offset_days___closed__12.exit
@@ -3581,7 +3581,7 @@ _init_l_Std_Time_Year_Offset_days___closed__13.exit: ; preds = %331, %343, %348,
   br label %_init_l_Std_Time_Year_Offset_days___closed__14.exit
 
 364:                                              ; preds = %354
-  %365 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %357) #6
+  %365 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, -9223372036854775808) %357) #6
   br label %_init_l_Std_Time_Year_Offset_days___closed__14.exit
 
 .critedge.i.i73:                                  ; preds = %_init_l_Std_Time_Year_Offset_days___closed__13.exit

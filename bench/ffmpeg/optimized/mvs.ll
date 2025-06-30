@@ -433,14 +433,14 @@ store_cp_mv.exit:                                 ; preds = %store_cp_mv.exit.lo
   %113 = sub nsw i32 %111, %112
   %.neg42.i = or disjoint i32 %.1.i.neg46.i, 7
   %114 = sub nsw i32 %.neg42.i, %108
-  %115 = shl i32 %113, %114
+  %115 = shl nsw i32 %113, %114
   store i32 %115, ptr %indvars.iv.sroa.phi, align 4, !tbaa !116
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 12
   %117 = load i32, ptr %116, align 4, !tbaa !9
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !9
   %120 = sub nsw i32 %117, %119
-  %121 = shl i32 %120, %114
+  %121 = shl nsw i32 %120, %114
   %122 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 4
   store i32 %121, ptr %122, align 4, !tbaa !118
   %123 = icmp eq i32 %100, 2
@@ -465,11 +465,11 @@ store_cp_mv.exit:                                 ; preds = %store_cp_mv.exit.lo
   %133 = sub nsw i32 %132, %112
   %.neg44.i = or disjoint i32 %.1.i41.neg47.i, 7
   %134 = sub nsw i32 %.neg44.i, %130
-  %135 = shl i32 %133, %134
+  %135 = shl nsw i32 %133, %134
   %136 = getelementptr inbounds nuw i8, ptr %109, i64 20
   %137 = load i32, ptr %136, align 4, !tbaa !9
   %138 = sub nsw i32 %137, %119
-  %139 = shl i32 %138, %134
+  %139 = shl nsw i32 %138, %134
   br label %142
 
 140:                                              ; preds = %store_cp_mv.exit
@@ -3398,7 +3398,7 @@ compare_pf_ref_idx.exit.thread.i94.i.i:           ; preds = %compare_pf_ref_idx.
   br i1 %540, label %.thread150.i.i, label %541
 
 541:                                              ; preds = %537
-  %542 = add nsw i32 %.155.i.i, 1
+  %542 = add nuw nsw i32 %.155.i.i, 1
   br label %affine_merge_const2.exit.thread.i.i
 
 affine_merge_const2.exit.thread.i.i:              ; preds = %541, %485, %473
@@ -3513,7 +3513,7 @@ compare_pf_ref_idx.exit.thread.i104.i.i:          ; preds = %compare_pf_ref_idx.
   br i1 %607, label %.thread150.i.i, label %608
 
 608:                                              ; preds = %604
-  %609 = add nsw i32 %.3.i.i, 1
+  %609 = add nuw nsw i32 %.3.i.i, 1
   br label %affine_merge_const3.exit.thread.i.i
 
 affine_merge_const3.exit.thread.i.i:              ; preds = %608, %552, %affine_merge_const2.exit.thread.i.i
@@ -3635,7 +3635,7 @@ compare_pf_ref_idx.exit.thread.i116.i.i:          ; preds = %compare_pf_ref_idx.
   store i32 2, ptr %26, align 4, !tbaa !110
   %.not170.i.i = icmp ne i32 %1, %.4.i.i
   %674 = zext i1 %.not170.i.i to i32
-  %spec.select69.i.i = add nsw i32 %.4.i.i, %674
+  %spec.select69.i.i = add nuw nsw i32 %.4.i.i, %674
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
   br i1 %.not170.i.i, label %derive_corner_mvf.exit86._crit_edge.i.i, label %affine_merge_const_candidates.exit.thread.i
 
@@ -3718,7 +3718,7 @@ compare_pf_ref_idx.exit.thread.i127.i.i:          ; preds = %compare_pf_ref_idx.
   br i1 %716, label %affine_merge_const_candidates.exit.thread.i, label %717
 
 717:                                              ; preds = %715
-  %718 = add nsw i32 %.054.i.i, 1
+  %718 = add nuw nsw i32 %.054.i.i, 1
   br label %affine_merge_const5.exit.thread.i.i
 
 affine_merge_const5.exit.thread.i.i:              ; preds = %717, %685, %derive_corner_mvf.exit86._crit_edge.i.i
@@ -6454,7 +6454,7 @@ derive_temporal_colocated_mvs.exit29:             ; preds = %120, %120, %120, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @affine_cps_from_nb(ptr readonly captures(none) %.4547736.val, ptr readonly captures(none) %.4580552.val, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef captures(none) initializes((0, 16)) %5, i32 noundef range(i32 -2147483647, -2147483648) %6) unnamed_addr #12 {
+define internal fastcc void @affine_cps_from_nb(ptr readonly captures(none) %.4547736.val, ptr readonly captures(none) %.4580552.val, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef captures(none) initializes((0, 16)) %5, i32 noundef range(i32 2, -2147483648) %6) unnamed_addr #12 {
   %8 = getelementptr inbounds nuw i8, ptr %.4547736.val, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !90
   %10 = getelementptr inbounds nuw i8, ptr %.4547736.val, i64 8
@@ -6574,11 +6574,11 @@ define internal fastcc void @affine_cps_from_nb(ptr readonly captures(none) %.45
   %99 = sub nsw i32 %98, %93
   %.neg2 = or disjoint i32 %.1.i155.neg8, 7
   %100 = sub nsw i32 %.neg2, %31
-  %101 = shl i32 %99, %100
+  %101 = shl nsw i32 %99, %100
   %102 = getelementptr inbounds nuw i8, ptr %.0145, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !9
   %104 = sub nsw i32 %103, %96
-  %105 = shl i32 %104, %100
+  %105 = shl nsw i32 %104, %100
   br i1 %or.cond, label %106, label %128
 
 106:                                              ; preds = %92
@@ -6599,11 +6599,11 @@ define internal fastcc void @affine_cps_from_nb(ptr readonly captures(none) %.45
   %121 = sub nsw i32 %120, %93
   %.neg4 = or disjoint i32 %.1.i.neg9, 7
   %122 = sub nsw i32 %.neg4, %37
-  %123 = shl i32 %121, %122
+  %123 = shl nsw i32 %121, %122
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 20
   %125 = load i32, ptr %124, align 4, !tbaa !9
   %126 = sub nsw i32 %125, %96
-  %127 = shl i32 %126, %122
+  %127 = shl nsw i32 %126, %122
   br label %130
 
 128:                                              ; preds = %92
@@ -6639,57 +6639,53 @@ define internal fastcc void @affine_cps_from_nb(ptr readonly captures(none) %.45
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %149, ptr %150, align 4, !tbaa !9
   %151 = icmp eq i32 %6, 3
-  br i1 %151, label %.thread, label %160
+  br i1 %151, label %152, label %161
 
-.thread:                                          ; preds = %130
-  %152 = add nsw i32 %15, %11
-  %153 = sub i32 %152, %spec.select149
-  %154 = mul nsw i32 %.0146, %153
-  %155 = add nsw i32 %154, %133
-  %156 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %155, ptr %156, align 4, !tbaa !4
-  %157 = mul nsw i32 %.0148, %153
-  %158 = add nsw i32 %157, %138
-  %159 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %158, ptr %159, align 4, !tbaa !9
-  br label %.lr.ph.preheader
+152:                                              ; preds = %130
+  %153 = add nsw i32 %15, %11
+  %154 = sub i32 %153, %spec.select149
+  %155 = mul nsw i32 %.0146, %154
+  %156 = add nsw i32 %155, %133
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %156, ptr %157, align 4, !tbaa !4
+  %158 = mul nsw i32 %.0148, %154
+  %159 = add nsw i32 %158, %138
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i32 %159, ptr %160, align 4, !tbaa !9
+  br label %161
 
-160:                                              ; preds = %130
-  %161 = icmp sgt i32 %6, 0
-  br i1 %161, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %.thread, %160
+161:                                              ; preds = %152, %130
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %.lr.ph
+  br label %163
 
-._crit_edge:                                      ; preds = %.lr.ph, %160
+162:                                              ; preds = %163
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %162 = getelementptr inbounds nuw %struct.Mv, ptr %5, i64 %indvars.iv
-  %163 = load i32, ptr %162, align 4, !tbaa !4
-  %164 = add nsw i32 %163, 64
-  %165 = icmp sgt i32 %163, -1
-  %.neg.i = sext i1 %165 to i32
-  %166 = add nsw i32 %164, %.neg.i
-  %167 = ashr i32 %166, 7
-  %168 = getelementptr inbounds nuw i8, ptr %162, i64 4
-  %169 = load i32, ptr %168, align 4, !tbaa !9
-  %170 = add nsw i32 %169, 64
-  %171 = icmp sgt i32 %169, -1
-  %.neg19.i = sext i1 %171 to i32
-  %172 = add nsw i32 %170, %.neg19.i
-  %173 = ashr i32 %172, 7
-  %174 = tail call i32 @llvm.smax.i32(i32 %167, i32 -131072)
-  %.0.i.i = tail call i32 @llvm.smin.i32(i32 %174, i32 131071)
-  store i32 %.0.i.i, ptr %162, align 4, !tbaa !4
-  %175 = tail call i32 @llvm.smax.i32(i32 %173, i32 -131072)
-  %.0.i5.i = tail call i32 @llvm.smin.i32(i32 %175, i32 131071)
-  store i32 %.0.i5.i, ptr %168, align 4, !tbaa !9
+163:                                              ; preds = %161, %163
+  %indvars.iv = phi i64 [ 0, %161 ], [ %indvars.iv.next, %163 ]
+  %164 = getelementptr inbounds nuw %struct.Mv, ptr %5, i64 %indvars.iv
+  %165 = load i32, ptr %164, align 4, !tbaa !4
+  %166 = add nsw i32 %165, 64
+  %167 = icmp sgt i32 %165, -1
+  %.neg.i = sext i1 %167 to i32
+  %168 = add nsw i32 %166, %.neg.i
+  %169 = ashr i32 %168, 7
+  %170 = getelementptr inbounds nuw i8, ptr %164, i64 4
+  %171 = load i32, ptr %170, align 4, !tbaa !9
+  %172 = add nsw i32 %171, 64
+  %173 = icmp sgt i32 %171, -1
+  %.neg19.i = sext i1 %173 to i32
+  %174 = add nsw i32 %172, %.neg19.i
+  %175 = ashr i32 %174, 7
+  %176 = tail call i32 @llvm.smax.i32(i32 %169, i32 -131072)
+  %.0.i.i = tail call i32 @llvm.smin.i32(i32 %176, i32 131071)
+  store i32 %.0.i.i, ptr %164, align 4, !tbaa !4
+  %177 = tail call i32 @llvm.smax.i32(i32 %175, i32 -131072)
+  %.0.i5.i = tail call i32 @llvm.smin.i32(i32 %177, i32 131071)
+  store i32 %.0.i5.i, ptr %170, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !231
+  br i1 %exitcond.not, label %162, label %163, !llvm.loop !231
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

@@ -147,7 +147,7 @@ define internal void @uninit(ptr noundef %0) #0 {
   %65 = uitofp i32 %60 to float
   %66 = tail call nsz float @llvm.fmuladd.f32(float %64, float %65, float %.05476.i)
   %67 = zext i32 %60 to i64
-  %68 = add nsw i64 %.078.i, %67
+  %68 = add nuw nsw i64 %.078.i, %67
   br label %69
 
 69:                                               ; preds = %61, %.lr.ph.i

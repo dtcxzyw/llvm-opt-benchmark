@@ -926,7 +926,7 @@ check.exit87:                                     ; preds = %350
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mp3_read_packet(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
+define internal range(i32 1, 0) i32 @mp3_read_packet(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32

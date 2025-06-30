@@ -186,7 +186,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef capture
   br label %77
 
 77:                                               ; preds = %74, %72
-  %78 = add nuw nsw i32 %.2202, 2
+  %78 = add nsw i32 %.2202, 2
   %79 = icmp eq i32 %66, %.4
   br i1 %79, label %99, label %80
 

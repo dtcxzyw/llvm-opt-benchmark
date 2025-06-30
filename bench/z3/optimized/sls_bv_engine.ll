@@ -4030,7 +4030,7 @@ _ZN11sls_tracker15get_random_boolEv.exit39:       ; preds = %._crit_edge.i34, %1
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i8, ptr %170, align 8, !tbaa !320
   %.not.i.i.i.i = icmp eq i8 %171, 0
-  switch i32 %spec.store.select, label %default.unreachable [
+  switch i32 %spec.store.select, label %default.unreachable241 [
     i32 0, label %172
     i32 1, label %272
     i32 2, label %352
@@ -4079,16 +4079,16 @@ _ZNK7bv_util11get_bv_sizeEPK4sort.exit:           ; preds = %172
 
 .preheader:                                       ; preds = %188, %185
   %.ph = phi i32 [ %.promoted10.i42.pre, %185 ], [ %190, %188 ]
-  %.ph301 = phi i32 [ %155, %185 ], [ %192, %188 ]
-  %.ph302 = phi i32 [ %152, %185 ], [ 15, %188 ]
+  %.ph302 = phi i32 [ %155, %185 ], [ %192, %188 ]
+  %.ph303 = phi i32 [ %152, %185 ], [ 15, %188 ]
   br label %193
 
 193:                                              ; preds = %.preheader, %208
   %194 = phi i32 [ %209, %208 ], [ %.ph, %.preheader ]
-  %195 = phi i32 [ %210, %208 ], [ %.ph301, %.preheader ]
+  %195 = phi i32 [ %210, %208 ], [ %.ph302, %.preheader ]
   %.in.i43 = phi i32 [ %197, %208 ], [ %186, %.preheader ]
   %.07.i44 = phi i32 [ %199, %208 ], [ 0, %.preheader ]
-  %196 = phi i32 [ %211, %208 ], [ %.ph302, %.preheader ]
+  %196 = phi i32 [ %211, %208 ], [ %.ph303, %.preheader ]
   %197 = add i32 %.in.i43, -1
   %198 = and i32 %195, 1
   %spec.select.i45 = or disjoint i32 %.07.i44, %198
@@ -4737,7 +4737,7 @@ _ZN11sls_tracker9get_valueEP9func_decl.exit182:   ; preds = %481, %489
   call void @_ZN11mpz_managerILb0EE11bitwise_notEjRK3mpzRS1_(ptr noundef nonnull align 8 dereferenceable(600) %497, i32 noundef %437, ptr noundef nonnull align 8 dereferenceable(16) %496, ptr noundef nonnull align 8 dereferenceable(16) %5)
   br label %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit
 
-default.unreachable:                              ; preds = %_ZN11sls_tracker15get_random_boolEv.exit39
+default.unreachable241:                           ; preds = %_ZN11sls_tracker15get_random_boolEv.exit39
   unreachable
 
 _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit:       ; preds = %431, %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i, %134, %132, %_ZN11sls_tracker9get_valueEP9func_decl.exit80, %_ZN10sls_engine6mk_incEjRK3mpzRS0_.exit, %_ZN11sls_tracker9get_valueEP9func_decl.exit182

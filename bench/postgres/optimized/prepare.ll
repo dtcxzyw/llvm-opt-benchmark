@@ -681,12 +681,12 @@ define noundef zeroext i1 @ecpg_auto_prepare(i32 noundef %0, ptr noundef %1, i32
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = add nuw nsw i64 %.01518.i.i, %16
-  %18 = shl nuw nsw i64 %17, 13
-  %19 = lshr i64 %17, 19
+  %17 = add nsw i64 %.01518.i.i, %16
+  %18 = shl nsw i64 %17, 13
+  %19 = lshr i64 %18, 32
   %20 = and i64 %19, 8191
   %21 = and i64 %18, 4294959104
-  %22 = or disjoint i64 %21, %20
+  %22 = or disjoint i64 %20, %21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
@@ -805,12 +805,12 @@ SearchStmtCache.exit.thread:                      ; preds = %35, %37, %5
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i49
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i64
-  %72 = add nuw nsw i64 %.01518.i.i50, %71
-  %73 = shl nuw nsw i64 %72, 13
-  %74 = lshr i64 %72, 19
+  %72 = add nsw i64 %.01518.i.i50, %71
+  %73 = shl nsw i64 %72, 13
+  %74 = lshr i64 %73, 32
   %75 = and i64 %74, 8191
   %76 = and i64 %73, 4294959104
-  %77 = or disjoint i64 %76, %75
+  %77 = or disjoint i64 %75, %76
   %indvars.iv.next.i.i51 = add nuw nsw i64 %indvars.iv.i.i49, 1
   %exitcond.not.i.i52 = icmp eq i64 %indvars.iv.next.i.i51, %wide.trip.count.i.i47
   br i1 %exitcond.not.i.i52, label %._crit_edge.loopexit.i.i53, label %.lr.ph.i.i48, !llvm.loop !10

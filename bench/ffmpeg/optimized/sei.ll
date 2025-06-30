@@ -1090,7 +1090,7 @@ decode_nal_sei_timecode.exit.i.i.us:              ; preds = %685, %451
   %710 = sub nsw i32 31, %709
   %711 = or disjoint i32 %.018.i.i.i.us, 2
   %712 = icmp samesign ugt i32 %709, 37
-  %..i.i.i.i.i.i.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %710, i32 %711)
+  %..i.i.i.i.i.i.us = call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %710, i32 %711)
   %713 = add nsw i32 %..i.i.i.i.i.i.us, 6
   %714 = select i1 %712, i32 0, i32 %713
   store i32 %714, ptr %26, align 8, !tbaa !4
@@ -1182,7 +1182,7 @@ get_ue_golomb_long.exit.i.i.i.us:                 ; preds = %742, %724
   %776 = sub nsw i32 0, %.sroa.46.0.copyload.i.i18.i.i.i.us
   %777 = sub nsw i32 %100, %.sroa.46.0.copyload.i.i18.i.i.i.us
   %778 = icmp slt i32 %775, %776
-  %..i.i.i27.i.i.i.us = call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %775, i32 %777)
+  %..i.i.i27.i.i.i.us = call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %775, i32 %777)
   %.0.i.i.i28.i.i.i.us = select i1 %778, i32 %776, i32 %..i.i.i27.i.i.i.us
   %779 = add nsw i32 %.0.i.i.i28.i.i.i.us, %.sroa.46.0.copyload.i.i18.i.i.i.us
   store i32 %779, ptr %26, align 8, !tbaa !4

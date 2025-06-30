@@ -562,7 +562,7 @@ lsf_restore_from_previous.exit:                   ; preds = %117, %lsf_decode.ex
   %256 = shl i32 %254, %255
   %257 = sub nsw i32 32, %249
   %258 = lshr i32 %256, %257
-  %259 = add nuw nsw i32 %.sroa.14.0339, %249
+  %259 = add nsw i32 %.sroa.14.0339, %249
   %260 = call i32 @llvm.umin.i32(i32 %86, i32 %259)
   br i1 %.not269, label %261, label %280
 

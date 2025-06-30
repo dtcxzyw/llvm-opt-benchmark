@@ -3383,7 +3383,7 @@ _ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = 
   br i1 %.not234, label %.preheader, label %657
 
 657:                                              ; preds = %656
-  %658 = add i32 %.4553, -1
+  %658 = add nsw i32 %.4553, -1
   br label %678
 
 .preheader:                                       ; preds = %656, %.thread

@@ -47,7 +47,7 @@ define hidden double @SDL_uclibc_sqrt(double noundef %0) local_unnamed_addr #0 {
 
 .preheader161.loopexit:                           ; preds = %.lr.ph
   %22 = lshr i32 %.1125164, 11
-  %23 = add i32 %.1133163, -20
+  %23 = add nsw i32 %.1133163, -20
   br label %.preheader161
 
 .preheader161:                                    ; preds = %.preheader161.loopexit, %.preheader162

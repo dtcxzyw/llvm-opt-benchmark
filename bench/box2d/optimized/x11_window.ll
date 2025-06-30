@@ -3115,7 +3115,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %51
-  %56 = add i64 %.127, -1
+  %56 = add nsw i64 %.127, -1
   %57 = getelementptr inbounds nuw [2 x i64], ptr %9, i64 0, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !94
   store i64 %58, ptr %52, align 8, !tbaa !94
@@ -3123,7 +3123,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
 
 59:                                               ; preds = %51, %55
   %.2 = phi i64 [ %56, %55 ], [ %.127, %51 ]
-  %60 = add nuw i64 %.028, 1
+  %60 = add nuw nsw i64 %.028, 1
   %61 = icmp ult i64 %60, %.2
   br i1 %61, label %51, label %._crit_edge
 
@@ -3141,7 +3141,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %68 = load i64, ptr %19, align 8, !tbaa !140
   %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !212
-  %70 = trunc i64 %.022.lcssa to i32
+  %70 = trunc nuw nsw i64 %.022.lcssa to i32
   %71 = call i32 %66(ptr noundef %67, i64 noundef %68, i64 noundef %69, i64 noundef 4, i32 noundef 32, i32 noundef 2, ptr noundef nonnull %9, i32 noundef %70) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17

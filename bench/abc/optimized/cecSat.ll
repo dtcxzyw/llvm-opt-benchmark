@@ -1711,8 +1711,8 @@ Cec2_ObjSimCo.exit:                               ; preds = %.lr.ph.i, %.lr.ph31
   %75 = trunc i64 %.424.i.i to i32
   %76 = and i32 %75, 1
   %77 = xor i32 %76, 1
-  %.5.i.i = add i32 %.4.i.i, %55
-  %78 = add i32 %.5.i.i, %77
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %55
+  %78 = add nuw nsw i32 %.5.i.i, %77
   br label %Abc_TtFindFirstBit2.exit
 
 79:                                               ; preds = %.lr.ph.i36

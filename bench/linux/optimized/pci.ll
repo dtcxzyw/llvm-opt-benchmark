@@ -3502,7 +3502,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pci_reenable_device(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @do_pci_enable_device(ptr noundef %0, i32 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @do_pci_enable_device(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #5 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #27
@@ -10766,7 +10766,7 @@ define dso_local void @pcie_print_link_status(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @pci_select_bars(ptr noundef readonly captures(none) %0, i64 noundef %1) #7 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @pci_select_bars(ptr noundef readonly captures(none) %0, i64 noundef %1) #7 align 16 {
   %3 = getelementptr i8, ptr %0, i64 944
   br label %4
 

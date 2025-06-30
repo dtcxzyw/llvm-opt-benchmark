@@ -1327,7 +1327,7 @@ define internal fastcc ptr @tmalloc_large(ptr noundef %0, i64 noundef range(i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sys_alloc(ptr noundef %0, i64 noundef range(i64 16, 0) %1) unnamed_addr #0 {
+define internal fastcc ptr @sys_alloc(ptr noundef %0, i64 noundef range(i64 -1, -105) %1) unnamed_addr #0 {
   %3 = load i64, ptr @mparams, align 8, !tbaa !3
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -1388,7 +1388,7 @@ define internal fastcc ptr @sys_alloc(ptr noundef %0, i64 noundef range(i64 16, 
   %31 = ptrtoint ptr %30 to i64
   %32 = sub i64 0, %31
   %33 = and i64 %32, 15
-  %34 = sub nuw i64 %18, %33
+  %34 = sub i64 %18, %33
   %35 = add i64 %34, -32
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 %33
   store i64 %33, ptr %36, align 8, !tbaa !25
@@ -11597,7 +11597,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #5
 declare i32 @sched_yield() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc nonnull ptr @prepend_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 16, 0) %3) unnamed_addr #4 {
+define internal fastcc nonnull ptr @prepend_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -1, -105) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = ptrtoint ptr %5 to i64
   %7 = sub i64 0, %6

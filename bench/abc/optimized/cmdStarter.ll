@@ -130,7 +130,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 
 28:                                               ; preds = %26
   %29 = add nuw nsw i32 %.0107.ph, 1
-  %30 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.0106.ph, i32 range(i32 -2147483647, -2147483648) %27)
+  %30 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 range(i32 -2147483647, -2147483648) %.0106.ph, i32 range(i32 -2147483647, -2147483648) %27)
   br label %.outer, !llvm.loop !14
 
 .outer:                                           ; preds = %18, %28
@@ -140,7 +140,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 
 31:                                               ; preds = %24
   %32 = add nuw nsw i32 %.0107.ph, 10
-  %reass.add = shl i32 %.0106.ph, 1
+  %reass.add = shl nuw i32 %.0106.ph, 1
   %33 = add i32 %reass.add, 100
   %.not123 = icmp eq ptr %1, null
   br i1 %.not123, label %37, label %34

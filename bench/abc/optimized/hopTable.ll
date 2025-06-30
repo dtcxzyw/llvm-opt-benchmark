@@ -388,7 +388,7 @@ Hop_TableFind.exit:                               ; preds = %36
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Hop_TableCountEntries(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Hop_TableCountEntries(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8, !tbaa !17
   %4 = icmp sgt i32 %3, 0

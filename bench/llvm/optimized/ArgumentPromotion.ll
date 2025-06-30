@@ -7674,15 +7674,15 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIlN12_GLOBAL__N_17Ar
   %.031.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.013.i.i.i, %34 ]
   %37 = shl i64 %.031.i.i.i.i, 1
   %38 = add i64 %37, 2
-  %39 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %38
   %gep.i.i.i.i = getelementptr %"struct.std::pair", ptr %15, i64 %37
   %.val.i.i.i.i = load i64, ptr %39, align 8, !tbaa !112
   %.val28.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !112
   %40 = icmp slt i64 %.val.i.i.i.i, %.val28.i.i.i.i
   %41 = or disjoint i64 %37, 1
   %spec.select.i.i.i.i = select i1 %40, i64 %41, i64 %38
-  %42 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
-  %43 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.031.i.i.i.i
+  %42 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
+  %43 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.031.i.i.i.i
   %44 = load i64, ptr %42, align 8, !tbaa !112
   store i64 %44, ptr %43, align 8, !tbaa !162
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -7712,7 +7712,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIlN12_GLOBAL__N_17Ar
   %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %55 ], [ %.127.i.i.i.i, %51 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %53 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.04.i.i.i.i.i
+  %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !112
   %54 = icmp slt i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
   br i1 %54, label %55, label %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i
@@ -7728,7 +7728,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIlN12_GLOBAL__N_17Ar
 
 _ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i: ; preds = %55, %.lr.ph.i.i.i.i.i, %51
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %51 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %55 ]
-  %60 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %60 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i64 %.sroa.02.0.copyload.i.i.i, ptr %60, align 8, !tbaa !162
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i.i, i64 24, i1 false)
@@ -7759,15 +7759,15 @@ _ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_I
   %.031.i.i.i25.i = phi i64 [ %spec.select.i.i.i29.i, %.lr.ph.i.i.i24.i ], [ 0, %.lr.ph.i6.i ]
   %71 = shl i64 %.031.i.i.i25.i, 1
   %72 = add i64 %71, 2
-  %73 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %72
+  %73 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %72
   %gep.i.i.i26.i = getelementptr %"struct.std::pair", ptr %15, i64 %71
   %.val.i.i.i27.i = load i64, ptr %73, align 8, !tbaa !112
   %.val28.i.i.i28.i = load i64, ptr %gep.i.i.i26.i, align 8, !tbaa !112
   %74 = icmp slt i64 %.val.i.i.i27.i, %.val28.i.i.i28.i
   %75 = or disjoint i64 %71, 1
   %spec.select.i.i.i29.i = select i1 %74, i64 %75, i64 %72
-  %76 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i29.i
-  %77 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.031.i.i.i25.i
+  %76 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i29.i
+  %77 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.031.i.i.i25.i
   %78 = load i64, ptr %76, align 8, !tbaa !112
   store i64 %78, ptr %77, align 8, !tbaa !162
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -7792,7 +7792,7 @@ _ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_I
   %88 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
   %89 = or disjoint i64 %88, 1
   %90 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %89
-  %91 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i11.i
+  %91 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i11.i
   %92 = load i64, ptr %90, align 8, !tbaa !112
   store i64 %92, ptr %91, align 8, !tbaa !162
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -7828,7 +7828,7 @@ _ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_I
 
 _ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i20.i: ; preds = %98, %.lr.ph.i.i.i.i15.i, %95
   %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %95 ], [ %.0133.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %98 ]
-  %102 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i21.i
+  %102 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i21.i
   store i64 %.sroa.02.0.copyload.i.i8.i, ptr %102, align 8, !tbaa !162
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i5.i, i64 24, i1 false)

@@ -5652,8 +5652,8 @@ define i32 @Supp_ComputePair1(ptr noundef readonly captures(none) %0, i32 nounde
   %59 = trunc i64 %.424.i.i to i32
   %60 = and i32 %59, 1
   %61 = xor i32 %60, 1
-  %.5.i.i = add i32 %.4.i.i, %39
-  %62 = add i32 %.5.i.i, %61
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %39
+  %62 = add nuw nsw i32 %.5.i.i, %61
   br label %Abc_TtFindFirstBit2.exit
 
 63:                                               ; preds = %.lr.ph.i
@@ -5768,8 +5768,8 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, 
   %121 = trunc i64 %.424.i.i67 to i32
   %122 = and i32 %121, 1
   %123 = xor i32 %122, 1
-  %.5.i.i69 = add i32 %.4.i.i68, %101
-  %124 = add i32 %.5.i.i69, %123
+  %.5.i.i69 = add nuw nsw i32 %.4.i.i68, %101
+  %124 = add nuw nsw i32 %.5.i.i69, %123
   br label %Abc_TtFindFirstBit2.exit72
 
 125:                                              ; preds = %.lr.ph.i56
@@ -5949,8 +5949,8 @@ define i32 @Supp_ComputePair(ptr noundef readonly captures(none) %0, i32 noundef
   %59 = trunc i64 %.424.i.i to i32
   %60 = and i32 %59, 1
   %61 = xor i32 %60, 1
-  %.5.i.i = add i32 %.4.i.i, %39
-  %62 = add i32 %.5.i.i, %61
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %39
+  %62 = add nuw nsw i32 %.5.i.i, %61
   br label %Abc_TtFindFirstBit2.exit
 
 63:                                               ; preds = %.lr.ph.i
@@ -6065,8 +6065,8 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, 
   %121 = trunc i64 %.424.i.i77 to i32
   %122 = and i32 %121, 1
   %123 = xor i32 %122, 1
-  %.5.i.i79 = add i32 %.4.i.i78, %101
-  %124 = add i32 %.5.i.i79, %123
+  %.5.i.i79 = add nuw nsw i32 %.4.i.i78, %101
+  %124 = add nuw nsw i32 %.5.i.i79, %123
   br label %Abc_TtFindFirstBit2.exit82
 
 125:                                              ; preds = %.lr.ph.i66
@@ -7049,8 +7049,8 @@ define range(i32 1000000001, 1000000000) i32 @Supp_FindNextDiv(ptr noundef reado
   %49 = trunc i64 %.424.i.i to i32
   %50 = and i32 %49, 1
   %51 = xor i32 %50, 1
-  %.5.i.i = add i32 %.4.i.i, %29
-  %52 = add i32 %.5.i.i, %51
+  %.5.i.i = add nuw nsw i32 %.4.i.i, %29
+  %52 = add nuw nsw i32 %.5.i.i, %51
   %53 = freeze i32 %52
   br label %.lr.ph.preheader.i33
 
@@ -7118,8 +7118,8 @@ Abc_TtFindFirstAndBit2.exit51:                    ; preds = %.lr.ph.i35
   %83 = trunc i64 %.424.i.i46 to i32
   %84 = and i32 %83, 1
   %85 = xor i32 %84, 1
-  %.5.i.i48 = add i32 %.4.i.i47, %63
-  %86 = add i32 %.5.i.i48, %85
+  %.5.i.i48 = add nuw nsw i32 %.4.i.i47, %63
+  %86 = add nuw nsw i32 %.5.i.i48, %85
   %87 = freeze i32 %86
   %88 = icmp eq i32 %.012.i, -1
   %spec.select = select i1 %88, i32 1000000000, i32 %.012.i

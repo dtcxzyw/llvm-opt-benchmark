@@ -2135,7 +2135,7 @@ cdf_copy_info.exit187:                            ; preds = %111
 
 ._crit_edge:                                      ; preds = %138, %128
   %.1127.lcssa = phi i64 [ %.0126212, %128 ], [ %148, %138 ]
-  %152 = add i64 %.1127.lcssa, -1
+  %152 = add nsw i64 %.1127.lcssa, -1
   br label %cdf_check_stream_offset.exit167
 
 153:                                              ; preds = %95

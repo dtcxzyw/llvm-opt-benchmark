@@ -81,7 +81,7 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nound
   %35 = or disjoint i32 %34, 2
   %36 = icmp ne i32 %5, 0
   %37 = icmp samesign ult i32 %7, 2
-  %38 = select i1 %36, i1 true, i1 %37
+  %38 = or i1 %36, %37
   %.neg.i = sext i1 %38 to i32
   %39 = add nsw i32 %34, -1
   %40 = add nsw i32 %39, %.neg.i
@@ -134,7 +134,7 @@ define dso_local i32 @float_to_shortest_decimal_bufn(float noundef %0, ptr nound
 
 80:                                               ; preds = %76
   %81 = add nsw i32 %44, -1
-  %82 = mul nuw nsw i32 %81, 1217359
+  %82 = mul nsw i32 %81, 1217359
   %83 = lshr i32 %82, 19
   %84 = zext nneg i32 %81 to i64
   %85 = getelementptr inbounds nuw [31 x i64], ptr @FLOAT_POW5_INV_SPLIT, i64 0, i64 %84
@@ -605,7 +605,7 @@ decimalLength.exit.i:                             ; preds = %236, %234, %232, %2
 
 331:                                              ; preds = %329
   %332 = zext nneg i32 %.2.i.i to i64
-  %333 = getelementptr inbounds nuw i8, ptr %245, i64 %332
+  %333 = getelementptr i8, ptr %245, i64 %332
   %334 = load i8, ptr %333, align 1
   %335 = getelementptr i8, ptr %333, i64 -1
   store i8 %334, ptr %335, align 1

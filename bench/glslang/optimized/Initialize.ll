@@ -73090,7 +73090,7 @@ define linkonce_odr void @_ZN7glslang12TSymbolTable21setFunctionExtensionsEPKciP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN7glslangL15BuiltInVariableEPKcS1_NS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 30, 134) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 {
+define internal fastcc void @_ZN7glslangL15BuiltInVariableEPKcS1_NS_16TBuiltInVariableERNS_12TSymbolTableE(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #1 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -73182,7 +73182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 
 .lr.ph:                                           ; preds = %32, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread ], [ 0, %32 ]
-  %49 = phi ptr [ %78, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread ], [ %42, %32 ]
+  %49 = phi ptr [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread ], [ %42, %32 ]
   %50 = getelementptr inbounds nuw %"struct.glslang::TTypeLoc", ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
@@ -73219,24 +73219,25 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7c
   %70 = call noundef nonnull align 8 dereferenceable(80) ptr %69(ptr noundef nonnull align 8 dereferenceable(152) %66) #16
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8
-  %73 = shl nuw nsw i32 %2, 7
-  %74 = zext nneg i32 %73 to i64
-  %75 = and i64 %72, -65409
-  %76 = or disjoint i64 %75, %74
-  store i64 %76, ptr %71, align 8
+  %73 = shl i32 %2, 7
+  %74 = and i32 %73, 65408
+  %75 = zext nneg i32 %74 to i64
+  %76 = and i64 %72, -65409
+  %77 = or disjoint i64 %76, %75
+  store i64 %77, ptr %71, align 8
   br label %.loopexit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load ptr, ptr %40, align 8
-  %78 = load ptr, ptr %39, align 8
-  %79 = ptrtoint ptr %77 to i64
+  %78 = load ptr, ptr %40, align 8
+  %79 = load ptr, ptr %39, align 8
   %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %sext = shl i64 %81, 27
-  %82 = ashr i64 %sext, 32
-  %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %.lr.ph, label %.loopexit, !llvm.loop !74
+  %81 = ptrtoint ptr %79 to i64
+  %82 = sub i64 %80, %81
+  %sext = shl i64 %82, 27
+  %83 = ashr i64 %sext, 32
+  %84 = icmp slt i64 %indvars.iv.next, %83
+  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE7compareEPKc.exit.thread, %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %63
   ret void

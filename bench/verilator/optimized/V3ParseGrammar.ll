@@ -3757,7 +3757,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noun
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z7yyparsev() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 3) i32 @_Z7yyparsev() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca [10000 x i16], align 16
   %2 = alloca [10000 x %struct.V3ParseBisonYYSType], align 16
   %.sroa.117 = alloca [3 x i8], align 1
@@ -94324,7 +94324,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN10V3ParseImp10bisonParseEv(ptr nonnull readnone align 8 captures(none) %0) #3 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN10V3ParseImp10bisonParseEv(ptr nonnull readnone align 8 captures(none) %0) #3 align 2 {
   %2 = tail call noundef i32 @_ZN10V3ParseImp10debugBisonEv()
   %3 = icmp sgt i32 %2, 8
   br i1 %3, label %4, label %5

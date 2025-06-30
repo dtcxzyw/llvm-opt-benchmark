@@ -108,7 +108,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_clmulrP11p
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = shl i64 %.1, 32
+  %26 = shl nuw i64 %.1, 32
   %27 = ashr exact i64 %26, 32
   %28 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %24
   store i64 %27, ptr %28, align 8, !tbaa !3
@@ -253,7 +253,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_clmulrP1
   br label %36
 
 23:                                               ; preds = %36
-  %24 = shl i64 %.1, 32
+  %24 = shl nuw i64 %.1, 32
   %25 = ashr exact i64 %24, 32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
@@ -555,7 +555,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_clmulrP11p
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %52
 
 52:                                               ; preds = %51
-  %53 = shl i64 %.130, 32
+  %53 = shl nuw i64 %.130, 32
   %54 = ashr exact i64 %53, 32
   %55 = getelementptr inbounds nuw [32 x i64], ptr %21, i64 0, i64 %38
   store i64 %54, ptr %55, align 8, !tbaa !3
@@ -777,7 +777,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_clmulrP1
   unreachable
 
 52:                                               ; preds = %37
-  %53 = shl i64 %.133, 32
+  %53 = shl nuw i64 %.133, 32
   %54 = ashr exact i64 %53, 32
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 3840
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14

@@ -3527,16 +3527,16 @@ bytestream2_put_byte.exit612.i:                   ; preds = %1504, %1498, %1492,
 1589:                                             ; preds = %1589, %1586
   %indvars.iv1743.i = phi i64 [ 0, %1586 ], [ %indvars.iv.next1744.i, %1589 ]
   %.21572.i = phi i32 [ %.14351576.i, %1586 ], [ %1598, %1589 ]
-  %1590 = sext i32 %.21572.i to i64
-  %1591 = getelementptr inbounds [8 x i32], ptr %9, i64 0, i64 %1590
+  %1590 = zext nneg i32 %.21572.i to i64
+  %1591 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %1590
   %1592 = load i32, ptr %1591, align 4, !tbaa !58
   %1593 = getelementptr inbounds nuw [8 x i32], ptr %1587, i64 0, i64 %indvars.iv1743.i
   store i32 %1592, ptr %1593, align 4, !tbaa !58
-  %1594 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 %1590
+  %1594 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %1590
   %1595 = load i32, ptr %1594, align 4, !tbaa !58
   %1596 = getelementptr inbounds nuw [8 x i32], ptr %1588, i64 0, i64 %indvars.iv1743.i
   store i32 %1595, ptr %1596, align 4, !tbaa !58
-  %1597 = add nsw i32 %.21572.i, 1
+  %1597 = add nuw nsw i32 %.21572.i, 1
   %1598 = and i32 %1597, 7
   %indvars.iv.next1744.i = add nuw nsw i64 %indvars.iv1743.i, 1
   %exitcond1747.not.i = icmp eq i64 %indvars.iv.next1744.i, 8

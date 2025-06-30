@@ -1290,7 +1290,7 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %544
   tail call void @free(ptr noundef nonnull %48) #11
   %545 = icmp eq i32 %.087, 0
   %spec.select = select i1 %545, i32 %.6.i, i32 %.079
-  %546 = icmp samesign ugt i32 %.081, %.6.i
+  %546 = icmp sgt i32 %.081, %.6.i
   br i1 %546, label %547, label %559
 
 547:                                              ; preds = %Abc_NtkRetimeTiming.exit

@@ -1253,7 +1253,7 @@ define hidden void @_ZN12typst_syntax5lexer5Lexer10take_error17hdfb13459d30dd525
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN12typst_syntax5lexer5Lexer4next17hf6d67c4b9b5a164bE(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 0, -125) i8 @_ZN12typst_syntax5lexer5Lexer4next17hf6d67c4b9b5a164bE(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { [2 x i32], { ptr, i64 }, { { { ptr, ptr, {} } }, i64 } }, align 8
   %4 = alloca [1 x { ptr, ptr }], align 8

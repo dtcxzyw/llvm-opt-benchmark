@@ -25058,7 +25058,7 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
   %171 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %169, ptr noundef %.0..0..0..0.150, i32 noundef %170, i32 noundef 4, i32 noundef 0)
   %172 = add i32 %170, 4
   %173 = load i32, ptr @hf_x11_vendor, align 4
-  %174 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %173, ptr noundef %.0..0..0..0.150, i32 noundef %172, i32 noundef %150, i32 noundef 0)
+  %174 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %173, ptr noundef %.0..0..0..0.150, i32 noundef %172, i32 noundef range(i32 0, 65536) %150, i32 noundef 0)
   %175 = add i32 %172, %150
   %176 = sub nsw i32 0, %150
   %177 = and i32 %176, 3
@@ -25270,7 +25270,7 @@ listOfDepth.exit.i.i:                             ; preds = %listOfVisualTypes.e
 310:                                              ; preds = %133
   %311 = load i32, ptr @hf_x11_reason, align 4
   %312 = load i32, ptr %5, align 4
-  %313 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %311, ptr noundef %.0..0..0..0.150, i32 noundef %312, i32 noundef %.0.i, i32 noundef 0)
+  %313 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %311, ptr noundef %.0..0..0..0.150, i32 noundef %312, i32 noundef range(i32 0, 65536) %.0.i, i32 noundef 0)
   %314 = add i32 %312, %.0.i
   br label %listOfScreen.exit.i
 
@@ -26539,7 +26539,7 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 
 173:                                              ; preds = %150
   %174 = load i32, ptr @hf_x11_authorization_protocol_name, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %174, ptr noundef %.0..0..0..0.26, i32 noundef %172, i32 noundef %166, i32 noundef 0)
+  %175 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %174, ptr noundef %.0..0..0..0.26, i32 noundef %172, i32 noundef range(i32 0, 65536) %166, i32 noundef 0)
   %176 = add nuw nsw i32 %166, 3
   %177 = add i32 %176, %172
   %178 = sdiv i32 %177, 4
@@ -26553,7 +26553,7 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 
 182:                                              ; preds = %180
   %183 = load i32, ptr @hf_x11_authorization_protocol_data, align 4
-  %184 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %183, ptr noundef %.0..0..0..0.26, i32 noundef %181, i32 noundef %168, i32 noundef 0)
+  %184 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %183, ptr noundef %.0..0..0..0.26, i32 noundef %181, i32 noundef range(i32 0, 65536) %168, i32 noundef 0)
   %185 = add nuw nsw i32 %168, 3
   %186 = add i32 %185, %181
   %187 = sdiv i32 %186, 4
@@ -26826,7 +26826,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @guess_byte_ordering(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 {
+define internal fastcc i32 @guess_byte_ordering(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 10332
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %6 [
@@ -32107,7 +32107,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %261 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %259, ptr noundef %0, i32 noundef %260, i32 noundef 2, i32 noundef 0)
   %262 = add i32 %260, 2
   %263 = load i32, ptr @hf_x11_name, align 4
-  %264 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %263, ptr noundef %0, i32 noundef %262, i32 noundef %258, i32 noundef 0)
+  %264 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %263, ptr noundef %0, i32 noundef %262, i32 noundef range(i32 0, 65536) %258, i32 noundef 0)
   %265 = add i32 %262, %258
   %266 = sub i32 %.02784, %265
   %267 = icmp sgt i32 %266, 0
@@ -32591,7 +32591,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %593 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %591, ptr noundef %0, i32 noundef %592, i32 noundef 2, i32 noundef 0)
   %594 = add i32 %592, 2
   %595 = load i32, ptr @hf_x11_name, align 4
-  %596 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %595, ptr noundef %0, i32 noundef %594, i32 noundef %590, i32 noundef 0)
+  %596 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %595, ptr noundef %0, i32 noundef %594, i32 noundef range(i32 0, 65536) %590, i32 noundef 0)
   %597 = add i32 %594, %590
   %598 = sub i32 %.02784, %597
   %599 = icmp sgt i32 %598, 0
@@ -32664,7 +32664,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %642 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %641, i32 noundef %5)
   %643 = load i32, ptr @hf_x11_pattern, align 4
   %644 = load i32, ptr %7, align 4
-  %645 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %643, ptr noundef %0, i32 noundef %644, i32 noundef %642, i32 noundef 0)
+  %645 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %643, ptr noundef %0, i32 noundef %644, i32 noundef range(i32 0, 65536) %642, i32 noundef 0)
   %646 = add i32 %644, %642
   %647 = sub i32 %.02784, %646
   %648 = icmp sgt i32 %647, 0
@@ -32690,7 +32690,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %660 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %659, i32 noundef %5)
   %661 = load i32, ptr @hf_x11_pattern, align 4
   %662 = load i32, ptr %7, align 4
-  %663 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %661, ptr noundef %0, i32 noundef %662, i32 noundef %660, i32 noundef 0)
+  %663 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %661, ptr noundef %0, i32 noundef %662, i32 noundef range(i32 0, 65536) %660, i32 noundef 0)
   %664 = add i32 %662, %660
   %665 = sub i32 %.02784, %664
   %666 = icmp sgt i32 %665, 0
@@ -33194,7 +33194,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1046 = call fastcc i32 @field16(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1045, i32 noundef %5)
   %1047 = load i32, ptr @hf_x11_string, align 4
   %1048 = load i32, ptr %7, align 4
-  %1049 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1047, ptr noundef %0, i32 noundef %1048, i32 noundef %1037, i32 noundef 0)
+  %1049 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1047, ptr noundef %0, i32 noundef %1048, i32 noundef range(i32 0, 65536) %1037, i32 noundef 0)
   %1050 = add i32 %1048, %1037
   %1051 = sub i32 %.02784, %1050
   %1052 = icmp sgt i32 %1051, 0
@@ -33337,7 +33337,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1150 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1148, ptr noundef %0, i32 noundef %1149, i32 noundef 2, i32 noundef 0)
   %1151 = add i32 %1149, 2
   %1152 = load i32, ptr @hf_x11_name, align 4
-  %1153 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1152, ptr noundef %0, i32 noundef %1151, i32 noundef %1147, i32 noundef 0)
+  %1153 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1152, ptr noundef %0, i32 noundef %1151, i32 noundef range(i32 0, 65536) %1147, i32 noundef 0)
   %1154 = add i32 %1151, %1147
   %1155 = sub i32 %.02784, %1154
   %1156 = icmp sgt i32 %1155, 0
@@ -33425,7 +33425,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1218 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1216, ptr noundef %0, i32 noundef %1217, i32 noundef 2, i32 noundef 0)
   %1219 = add i32 %1217, 2
   %1220 = load i32, ptr @hf_x11_name, align 4
-  %1221 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1220, ptr noundef %0, i32 noundef %1219, i32 noundef %1215, i32 noundef 0)
+  %1221 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1220, ptr noundef %0, i32 noundef %1219, i32 noundef range(i32 0, 65536) %1215, i32 noundef 0)
   %1222 = add i32 %1219, %1215
   %1223 = sub i32 %.02784, %1222
   %1224 = icmp sgt i32 %1223, 0
@@ -33469,7 +33469,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1250 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1248, ptr noundef %0, i32 noundef %1249, i32 noundef 2, i32 noundef 0)
   %1251 = add i32 %1249, 2
   %1252 = load i32, ptr @hf_x11_name, align 4
-  %1253 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1252, ptr noundef %0, i32 noundef %1251, i32 noundef %1247, i32 noundef 0)
+  %1253 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1252, ptr noundef %0, i32 noundef %1251, i32 noundef range(i32 0, 65536) %1247, i32 noundef 0)
   %1254 = add i32 %1251, %1247
   %1255 = sub i32 %.02784, %1254
   %1256 = icmp sgt i32 %1255, 0
@@ -33596,7 +33596,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1355 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1353, ptr noundef %0, i32 noundef %1354, i32 noundef 2, i32 noundef 0)
   %1356 = add i32 %1354, 2
   %1357 = load i32, ptr @hf_x11_name, align 4
-  %1358 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1357, ptr noundef %0, i32 noundef %1356, i32 noundef %1352, i32 noundef 0)
+  %1358 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %1357, ptr noundef %0, i32 noundef %1356, i32 noundef range(i32 0, 65536) %1352, i32 noundef 0)
   %1359 = add i32 %1356, %1352
   %1360 = sub i32 %.02784, %1359
   %1361 = icmp sgt i32 %1360, 0

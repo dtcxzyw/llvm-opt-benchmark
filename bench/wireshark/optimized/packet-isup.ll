@@ -8764,7 +8764,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   %23 = zext i8 %21 to i32
   %24 = call ptr @val_to_str_ext_const(i32 noundef %23, ptr noundef nonnull @isup_carrier_info_category_vals_ext, ptr noundef nonnull @.str.867)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.1975, ptr noundef %24, i32 noundef %23)
-  %25 = add i32 %.0131176, 1
+  %25 = add nuw i32 %.0131176, 1
   %26 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %25)
   %27 = trunc i32 %25 to i8
   %28 = add i8 %26, %27

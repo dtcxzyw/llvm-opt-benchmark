@@ -1148,13 +1148,13 @@ status_with_payload.exit.i:                       ; preds = %98
   br i1 %spec.select.i.i, label %status_with_payload.exit.thread.i, label %.sink.split
 
 status_with_payload.exit.thread.i:                ; preds = %status_with_payload.exit.i, %98
-  %101 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
+  %101 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 8, -2147483616) %.1)
   %.not.i = icmp eq i32 %101, 0
   br i1 %.not.i, label %.sink.split, label %102
 
 102:                                              ; preds = %status_with_payload.exit.thread.i
   %103 = load i32, ptr @hf_gvsp_payloaddata, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %103, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0)
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %103, ptr noundef %0, i32 noundef range(i32 8, -2147483616) %.1, i32 noundef -1, i32 noundef 0)
   br label %.sink.split
 
 105:                                              ; preds = %97
@@ -1168,13 +1168,13 @@ status_with_payload.exit.i119:                    ; preds = %105
   br i1 %spec.select.i.i121, label %status_with_payload.exit.thread.i122, label %.sink.split
 
 status_with_payload.exit.thread.i122:             ; preds = %status_with_payload.exit.i119, %105
-  %108 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
+  %108 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef range(i32 8, 65) %.1)
   %.not.i123 = icmp eq i32 %108, 0
   br i1 %.not.i123, label %.sink.split, label %109
 
 109:                                              ; preds = %status_with_payload.exit.thread.i122
   %110 = load i32, ptr @hf_gvsp_timestamp, align 4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %110, ptr noundef %0, i32 noundef %.1, i32 noundef 8, i32 noundef 0)
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %110, ptr noundef %0, i32 noundef range(i32 8, 65) %.1, i32 noundef 8, i32 noundef 0)
   %112 = load i32, ptr @hf_gvsp_payloaddata, align 4
   %113 = add nuw nsw i32 %.1, 8
   %114 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %112, ptr noundef %0, i32 noundef %113, i32 noundef -1, i32 noundef 0)
@@ -1700,7 +1700,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_packet_payload_multizone(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_packet_payload_multizone(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 8, 77) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 0
@@ -1720,15 +1720,15 @@ status_with_payload.exit.thread:                  ; preds = %4, %status_with_pay
   br i1 %.not, label %23, label %12
 
 12:                                               ; preds = %status_with_payload.exit.thread
-  %13 = add i32 %2, 1
+  %13 = add nuw nsw i32 %2, 1
   %14 = load i32, ptr @hf_gvsp_zoneinfo, align 4
   %15 = load i32, ptr @ett_gvsp_zoneinfo, align 4
   %16 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef nonnull @zoneinfo_fields, i32 noundef 0)
   %17 = load i32, ptr @hf_gvsp_addressoffset, align 4
-  %18 = add i32 %2, 2
+  %18 = add nuw nsw i32 %2, 2
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %17, ptr noundef %1, i32 noundef %18, i32 noundef 6, i32 noundef 0)
   %20 = load i32, ptr @hf_gvsp_payloaddata, align 4
-  %21 = add i32 %2, 8
+  %21 = add nuw nsw i32 %2, 8
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef -1, i32 noundef 0)
   br label %23
 
@@ -1796,13 +1796,13 @@ status_with_payload.exit.i:                       ; preds = %23
   br i1 %spec.select.i.i, label %status_with_payload.exit.thread.i, label %dissect_packet_payload.exit
 
 status_with_payload.exit.thread.i:                ; preds = %status_with_payload.exit.i, %23
-  %30 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0)
+  %30 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.0)
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %dissect_packet_payload.exit, label %31
 
 31:                                               ; preds = %status_with_payload.exit.thread.i
   %32 = load i32, ptr @hf_gvsp_payloaddata, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %.0, i32 noundef -1, i32 noundef 0)
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.0, i32 noundef -1, i32 noundef 0)
   br label %dissect_packet_payload.exit
 
 34:                                               ; preds = %4
@@ -1848,13 +1848,13 @@ status_with_payload.exit.i178:                    ; preds = %56
   br i1 %spec.select.i.i180, label %status_with_payload.exit.thread.i181, label %dissect_packet_payload.exit
 
 status_with_payload.exit.thread.i181:             ; preds = %status_with_payload.exit.i178, %56
-  %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.1)
+  %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.1)
   %.not.i182 = icmp eq i32 %63, 0
   br i1 %.not.i182, label %dissect_packet_payload.exit, label %64
 
 64:                                               ; preds = %status_with_payload.exit.thread.i181
   %65 = load i32, ptr @hf_gvsp_payloaddata, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef %.1, i32 noundef -1, i32 noundef 0)
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.1, i32 noundef -1, i32 noundef 0)
   br label %dissect_packet_payload.exit
 
 67:                                               ; preds = %4
@@ -1910,13 +1910,13 @@ status_with_payload.exit.i184:                    ; preds = %97
   br i1 %spec.select.i.i186, label %status_with_payload.exit.thread.i187, label %dissect_packet_payload.exit
 
 status_with_payload.exit.thread.i187:             ; preds = %status_with_payload.exit.i184, %97
-  %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.2)
+  %104 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.2)
   %.not.i188 = icmp eq i32 %104, 0
   br i1 %.not.i188, label %dissect_packet_payload.exit, label %105
 
 105:                                              ; preds = %status_with_payload.exit.thread.i187
   %106 = load i32, ptr @hf_gvsp_payloaddata, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %106, ptr noundef %1, i32 noundef %.2, i32 noundef -1, i32 noundef 0)
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %106, ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.2, i32 noundef -1, i32 noundef 0)
   br label %dissect_packet_payload.exit
 
 108:                                              ; preds = %4
@@ -1962,13 +1962,13 @@ status_with_payload.exit.i190:                    ; preds = %130
   br i1 %spec.select.i.i192, label %status_with_payload.exit.thread.i193, label %dissect_packet_payload.exit
 
 status_with_payload.exit.thread.i193:             ; preds = %status_with_payload.exit.i190, %130
-  %137 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.3)
+  %137 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.3)
   %.not.i194 = icmp eq i32 %137, 0
   br i1 %.not.i194, label %dissect_packet_payload.exit, label %138
 
 138:                                              ; preds = %status_with_payload.exit.thread.i193
   %139 = load i32, ptr @hf_gvsp_payloaddata, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %139, ptr noundef %1, i32 noundef %.3, i32 noundef -1, i32 noundef 0)
+  %140 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %139, ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.3, i32 noundef -1, i32 noundef 0)
   br label %dissect_packet_payload.exit
 
 141:                                              ; preds = %4
@@ -2015,13 +2015,13 @@ status_with_payload.exit.i196:                    ; preds = %163
   br i1 %spec.select.i.i198, label %status_with_payload.exit.thread.i199, label %dissect_packet_payload.exit
 
 status_with_payload.exit.thread.i199:             ; preds = %status_with_payload.exit.i196, %163
-  %170 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.4)
+  %170 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.4)
   %.not.i200 = icmp eq i32 %170, 0
   br i1 %.not.i200, label %dissect_packet_payload.exit, label %171
 
 171:                                              ; preds = %status_with_payload.exit.thread.i199
   %172 = load i32, ptr @hf_gvsp_payloaddata, align 4
-  %173 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %172, ptr noundef %1, i32 noundef %.4, i32 noundef -1, i32 noundef 0)
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %172, ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.4, i32 noundef -1, i32 noundef 0)
   br label %dissect_packet_payload.exit
 
 174:                                              ; preds = %4, %4
@@ -2059,13 +2059,13 @@ status_with_payload.exit.i202:                    ; preds = %187
   br i1 %spec.select.i.i204, label %status_with_payload.exit.thread.i205, label %dissect_packet_payload.exit
 
 status_with_payload.exit.thread.i205:             ; preds = %status_with_payload.exit.i202, %187
-  %194 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.5)
+  %194 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.5)
   %.not.i206 = icmp eq i32 %194, 0
   br i1 %.not.i206, label %dissect_packet_payload.exit, label %195
 
 195:                                              ; preds = %status_with_payload.exit.thread.i205
   %196 = load i32, ptr @hf_gvsp_payloaddata, align 4
-  %197 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %196, ptr noundef %1, i32 noundef %.5, i32 noundef -1, i32 noundef 0)
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %196, ptr noundef %1, i32 noundef range(i32 8, -2147483616) %.5, i32 noundef -1, i32 noundef 0)
   br label %dissect_packet_payload.exit
 
 198:                                              ; preds = %4
@@ -2119,13 +2119,13 @@ status_with_payload.exit.i208:                    ; preds = %227
   br i1 %spec.select.i.i210, label %status_with_payload.exit.thread.i211, label %dissect_packet_payload.exit
 
 status_with_payload.exit.thread.i211:             ; preds = %status_with_payload.exit.i208, %227
-  %234 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.6)
+  %234 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef range(i32 8, 65) %.6)
   %.not.i212 = icmp eq i32 %234, 0
   br i1 %.not.i212, label %dissect_packet_payload.exit, label %235
 
 235:                                              ; preds = %status_with_payload.exit.thread.i211
   %236 = load i32, ptr @hf_gvsp_timestamp, align 4
-  %237 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %236, ptr noundef %1, i32 noundef %.6, i32 noundef 8, i32 noundef 0)
+  %237 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %236, ptr noundef %1, i32 noundef range(i32 8, 65) %.6, i32 noundef 8, i32 noundef 0)
   %238 = load i32, ptr @hf_gvsp_payloaddata, align 4
   %239 = add nuw nsw i32 %.6, 8
   %240 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %238, ptr noundef %1, i32 noundef %239, i32 noundef -1, i32 noundef 0)

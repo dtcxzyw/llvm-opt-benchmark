@@ -14640,7 +14640,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %.0133.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %60 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %52 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
+  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !894
   %53 = load ptr, ptr %.val.i.i.i.i.i, align 8, !tbaa !756
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -14661,7 +14661,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
 
 "_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %60, %51, %47
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %47 ], [ %.0133.i.i.i.i.i, %51 ], [ %.04.i.i.i.i.i, %60 ]
-  %63 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %25, ptr %63, align 8, !tbaa !894
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
   %64 = add nsw i64 %.014.i.i.i, -1
@@ -14765,7 +14765,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
 
 "_ZSt10__pop_heapIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_RT0_.exit.i18.i": ; preds = %114, %105, %102
   %.013.lcssa.i.i.i.i19.i = phi i64 [ 0, %102 ], [ %.0133.i.i.i.i12.i, %105 ], [ 0, %114 ]
-  %116 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i19.i
+  %116 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.i.i19.i
   store ptr %66, ptr %116, align 8, !tbaa !894
   %117 = icmp sgt i64 %69, 8
   br i1 %117, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPKN5clang4DeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !1185

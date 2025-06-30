@@ -216,7 +216,7 @@ userdiff_find_by_namelen.exit._crit_edge:         ; preds = %userdiff_find_by_na
   br i1 %30, label %31, label %st_mult.exit
 
 31:                                               ; preds = %24
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.11, i64 noundef 128, i64 noundef range(i64 -2147483648, 2147483648) %29) #11
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.11, i64 noundef 128, i64 noundef range(i64 -1073741824, 2147483648) %29) #11
   unreachable
 
 st_mult.exit:                                     ; preds = %24

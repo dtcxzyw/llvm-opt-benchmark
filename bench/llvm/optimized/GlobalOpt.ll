@@ -21863,7 +21863,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm8FunctionElS2_N9__gnu_
   %.0133.i = phi i64 [ %.04.i, %46 ], [ %.128, %38 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %40, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -21887,7 +21887,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm8FunctionElS2_N9__gnu_
 
 "_ZSt11__push_heapIPPN4llvm8FunctionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL24OptimizeNonTrivialIFuncsRNS0_6ModuleENS0_12function_refIFRNS0_19TargetTransformInfoERS1_EEEE3$_1EEEvT_T0_SI_T1_RT2_.exit": ; preds = %.lr.ph.i, %46, %38
   %.013.lcssa.i = phi i64 [ %.128, %38 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %46 ]
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %50, align 8, !tbaa !123
   ret void
 }
@@ -23520,7 +23520,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm8FunctionElS2_N9__gnu_
   %.0133.i = phi i64 [ %.04.i, %46 ], [ %.128, %38 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %40, align 8, !tbaa !123
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -23544,7 +23544,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm8FunctionElS2_N9__gnu_
 
 "_ZSt11__push_heapIPPN4llvm8FunctionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL24OptimizeNonTrivialIFuncsRNS0_6ModuleENS0_12function_refIFRNS0_19TargetTransformInfoERS1_EEEE3$_2EEEvT_T0_SI_T1_RT2_.exit": ; preds = %.lr.ph.i, %46, %38
   %.013.lcssa.i = phi i64 [ %.128, %38 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %46 ]
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %50, align 8, !tbaa !123
   ret void
 }

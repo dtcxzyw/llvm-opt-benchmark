@@ -91,7 +91,7 @@ define i32 @u_printf_parse_77(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %14, !llvm.loop !17
 
 36:                                               ; preds = %15
-  %37 = zext i32 %.0174.i to i64
+  %37 = zext nneg i32 %.0174.i to i64
   %38 = shl nuw nsw i64 %37, 2
   %39 = tail call noalias ptr @uprv_malloc_77(i64 noundef %38) #10
   %40 = tail call noalias ptr @uprv_malloc_77(i64 noundef %37) #10

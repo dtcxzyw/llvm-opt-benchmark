@@ -129317,10 +129317,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %20 = icmp ugt i8 %19, 7
   %21 = load i8, ptr %4, align 1, !tbaa !1471
   %22 = icmp slt i8 %21, 0
-  br i1 %20, label %23, label %36
+  br i1 %20, label %23, label %35
 
 23:                                               ; preds = %18
-  br i1 %22, label %51, label %24
+  br i1 %22, label %50, label %24
 
 24:                                               ; preds = %23
   %.not.i.i.i.i = icmp eq i8 %21, 0
@@ -129344,45 +129344,44 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
   %.0.i.i.i.i = phi i32 [ 8, %24 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %31 = trunc i32 %.0.i.i.i.i to i8
+  %31 = trunc nuw i32 %.0.i.i.i.i to i8
   store i8 %31, ptr %3, align 1, !tbaa !461
   %32 = zext nneg i8 %21 to i32
-  %33 = and i32 %.0.i.i.i.i, 255
-  %34 = shl i32 %32, %33
-  %35 = trunc i32 %34 to i8
-  br label %51
+  %33 = shl i32 %32, %.0.i.i.i.i
+  %34 = trunc i32 %33 to i8
+  br label %50
 
-36:                                               ; preds = %18
-  br i1 %22, label %37, label %46
+35:                                               ; preds = %18
+  br i1 %22, label %36, label %45
 
-37:                                               ; preds = %36
-  %38 = icmp eq i8 %21, -128
-  br i1 %38, label %51, label %39
+36:                                               ; preds = %35
+  %37 = icmp eq i8 %21, -128
+  br i1 %37, label %50, label %38
 
-39:                                               ; preds = %37
-  %40 = sub nsw i8 0, %21
-  %41 = zext nneg i8 %40 to i32
-  %42 = zext nneg i8 %19 to i32
-  %43 = shl nuw nsw i32 %41, %42
-  %44 = trunc i32 %43 to i8
-  %45 = sub i8 0, %44
-  br label %51
+38:                                               ; preds = %36
+  %39 = sub nsw i8 0, %21
+  %40 = zext nneg i8 %39 to i32
+  %41 = zext nneg i8 %19 to i32
+  %42 = shl nuw nsw i32 %40, %41
+  %43 = trunc i32 %42 to i8
+  %44 = sub i8 0, %43
+  br label %50
 
-46:                                               ; preds = %36
-  %47 = zext nneg i8 %21 to i32
-  %48 = zext nneg i8 %19 to i32
-  %49 = shl nuw nsw i32 %47, %48
-  %50 = trunc i32 %49 to i8
-  br label %51
+45:                                               ; preds = %35
+  %46 = zext nneg i8 %21 to i32
+  %47 = zext nneg i8 %19 to i32
+  %48 = shl nuw nsw i32 %46, %47
+  %49 = trunc i32 %48 to i8
+  br label %50
 
-51:                                               ; preds = %46, %39, %37, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, %23
-  %.sroa.063.0.i = phi i8 [ %35, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i ], [ %45, %39 ], [ %50, %46 ], [ 0, %23 ], [ 0, %37 ]
-  %52 = load ptr, ptr %5, align 8, !tbaa !488
-  %53 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %52, i64 noundef 8) #20
-  store i8 %.sroa.063.0.i, ptr %53, align 1, !tbaa !461
+50:                                               ; preds = %45, %38, %36, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, %23
+  %.sroa.063.0.i = phi i8 [ %34, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i ], [ %44, %38 ], [ %49, %45 ], [ 0, %23 ], [ 0, %36 ]
+  %51 = load ptr, ptr %5, align 8, !tbaa !488
+  %52 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef 8) #20
+  store i8 %.sroa.063.0.i, ptr %52, align 1, !tbaa !461
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj8ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj8ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %51
+_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj8ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #20
   ret i1 %17
@@ -129449,10 +129448,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %20 = icmp ugt i16 %19, 7
   %21 = load i8, ptr %4, align 1, !tbaa !1471
   %22 = icmp slt i8 %21, 0
-  br i1 %20, label %23, label %36
+  br i1 %20, label %23, label %35
 
 23:                                               ; preds = %18
-  br i1 %22, label %51, label %24
+  br i1 %22, label %50, label %24
 
 24:                                               ; preds = %23
   %.not.i.i.i.i = icmp eq i8 %21, 0
@@ -129476,45 +129475,44 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
   %.0.i.i.i.i = phi i32 [ 8, %24 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %31 = trunc i32 %.0.i.i.i.i to i16
+  %31 = trunc nuw nsw i32 %.0.i.i.i.i to i16
   store i16 %31, ptr %3, align 2, !tbaa !726
   %32 = zext nneg i8 %21 to i32
-  %33 = and i32 %.0.i.i.i.i, 255
-  %34 = shl i32 %32, %33
-  %35 = trunc i32 %34 to i8
-  br label %51
+  %33 = shl i32 %32, %.0.i.i.i.i
+  %34 = trunc i32 %33 to i8
+  br label %50
 
-36:                                               ; preds = %18
-  br i1 %22, label %37, label %46
+35:                                               ; preds = %18
+  br i1 %22, label %36, label %45
 
-37:                                               ; preds = %36
-  %38 = icmp eq i8 %21, -128
-  br i1 %38, label %51, label %39
+36:                                               ; preds = %35
+  %37 = icmp eq i8 %21, -128
+  br i1 %37, label %50, label %38
 
-39:                                               ; preds = %37
-  %40 = sub nsw i8 0, %21
-  %41 = zext nneg i16 %19 to i32
-  %42 = zext nneg i8 %40 to i32
-  %43 = shl nuw nsw i32 %42, %41
-  %44 = trunc i32 %43 to i8
-  %45 = sub i8 0, %44
-  br label %51
+38:                                               ; preds = %36
+  %39 = sub nsw i8 0, %21
+  %40 = zext nneg i16 %19 to i32
+  %41 = zext nneg i8 %39 to i32
+  %42 = shl nuw nsw i32 %41, %40
+  %43 = trunc i32 %42 to i8
+  %44 = sub i8 0, %43
+  br label %50
 
-46:                                               ; preds = %36
-  %47 = zext nneg i16 %19 to i32
-  %48 = zext nneg i8 %21 to i32
-  %49 = shl nuw nsw i32 %48, %47
-  %50 = trunc i32 %49 to i8
-  br label %51
+45:                                               ; preds = %35
+  %46 = zext nneg i16 %19 to i32
+  %47 = zext nneg i8 %21 to i32
+  %48 = shl nuw nsw i32 %47, %46
+  %49 = trunc i32 %48 to i8
+  br label %50
 
-51:                                               ; preds = %46, %39, %37, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, %23
-  %.sroa.063.0.i = phi i8 [ %35, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i ], [ %45, %39 ], [ %50, %46 ], [ 0, %23 ], [ 0, %37 ]
-  %52 = load ptr, ptr %5, align 8, !tbaa !488
-  %53 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %52, i64 noundef 8) #20
-  store i8 %.sroa.063.0.i, ptr %53, align 1, !tbaa !461
+50:                                               ; preds = %45, %38, %36, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, %23
+  %.sroa.063.0.i = phi i8 [ %34, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i ], [ %44, %38 ], [ %49, %45 ], [ 0, %23 ], [ 0, %36 ]
+  %51 = load ptr, ptr %5, align 8, !tbaa !488
+  %52 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef 8) #20
+  store i8 %.sroa.063.0.i, ptr %52, align 1, !tbaa !461
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj16ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj16ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %51
+_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj16ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #20
   ret i1 %17
@@ -129581,10 +129579,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %20 = icmp ugt i32 %19, 7
   %21 = load i8, ptr %4, align 1, !tbaa !1471
   %22 = icmp slt i8 %21, 0
-  br i1 %20, label %23, label %35
+  br i1 %20, label %23, label %34
 
 23:                                               ; preds = %18
-  br i1 %22, label %48, label %24
+  br i1 %22, label %47, label %24
 
 24:                                               ; preds = %23
   %.not.i.i.i.i = icmp eq i8 %21, 0
@@ -129610,40 +129608,39 @@ _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.pr
   %.0.i.i.i.i = phi i32 [ 8, %24 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
   store i32 %.0.i.i.i.i, ptr %3, align 4, !tbaa !467
   %31 = zext nneg i8 %21 to i32
-  %32 = and i32 %.0.i.i.i.i, 255
-  %33 = shl i32 %31, %32
-  %34 = trunc i32 %33 to i8
-  br label %48
+  %32 = shl i32 %31, %.0.i.i.i.i
+  %33 = trunc i32 %32 to i8
+  br label %47
 
-35:                                               ; preds = %18
-  br i1 %22, label %36, label %44
+34:                                               ; preds = %18
+  br i1 %22, label %35, label %43
 
-36:                                               ; preds = %35
-  %37 = icmp eq i8 %21, -128
-  br i1 %37, label %48, label %38
+35:                                               ; preds = %34
+  %36 = icmp eq i8 %21, -128
+  br i1 %36, label %47, label %37
 
-38:                                               ; preds = %36
-  %39 = sub nsw i8 0, %21
-  %40 = zext nneg i8 %39 to i32
-  %41 = shl nuw nsw i32 %40, %19
-  %42 = trunc i32 %41 to i8
-  %43 = sub i8 0, %42
-  br label %48
+37:                                               ; preds = %35
+  %38 = sub nsw i8 0, %21
+  %39 = zext nneg i8 %38 to i32
+  %40 = shl nuw nsw i32 %39, %19
+  %41 = trunc i32 %40 to i8
+  %42 = sub i8 0, %41
+  br label %47
 
-44:                                               ; preds = %35
-  %45 = zext nneg i8 %21 to i32
-  %46 = shl nuw nsw i32 %45, %19
-  %47 = trunc i32 %46 to i8
-  br label %48
+43:                                               ; preds = %34
+  %44 = zext nneg i8 %21 to i32
+  %45 = shl nuw nsw i32 %44, %19
+  %46 = trunc i32 %45 to i8
+  br label %47
 
-48:                                               ; preds = %44, %38, %36, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, %23
-  %.sroa.063.0.i = phi i8 [ %34, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i ], [ %43, %38 ], [ %47, %44 ], [ 0, %23 ], [ 0, %36 ]
-  %49 = load ptr, ptr %5, align 8, !tbaa !488
-  %50 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %49, i64 noundef 8) #20
-  store i8 %.sroa.063.0.i, ptr %50, align 1, !tbaa !461
+47:                                               ; preds = %43, %37, %35, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, %23
+  %.sroa.063.0.i = phi i8 [ %33, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i ], [ %42, %37 ], [ %46, %43 ], [ 0, %23 ], [ 0, %35 ]
+  %48 = load ptr, ptr %5, align 8, !tbaa !488
+  %49 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef 8) #20
+  store i8 %.sroa.063.0.i, ptr %49, align 1, !tbaa !461
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %48
+_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %47
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
   ret i1 %17
@@ -129710,10 +129707,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %20 = icmp ugt i64 %19, 7
   %21 = load i8, ptr %4, align 1, !tbaa !1471
   %22 = icmp slt i8 %21, 0
-  br i1 %20, label %23, label %36
+  br i1 %20, label %23, label %35
 
 23:                                               ; preds = %18
-  br i1 %22, label %51, label %24
+  br i1 %22, label %50, label %24
 
 24:                                               ; preds = %23
   %.not.i.i.i.i = icmp eq i8 %21, 0
@@ -129737,45 +129734,44 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
   %.0.i.i.i.i = phi i32 [ 8, %24 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %31 = zext i32 %.0.i.i.i.i to i64
+  %31 = zext nneg i32 %.0.i.i.i.i to i64
   store i64 %31, ptr %3, align 8, !tbaa !629
   %32 = zext nneg i8 %21 to i32
-  %33 = and i32 %.0.i.i.i.i, 255
-  %34 = shl i32 %32, %33
-  %35 = trunc i32 %34 to i8
-  br label %51
+  %33 = shl i32 %32, %.0.i.i.i.i
+  %34 = trunc i32 %33 to i8
+  br label %50
 
-36:                                               ; preds = %18
-  br i1 %22, label %37, label %46
+35:                                               ; preds = %18
+  br i1 %22, label %36, label %45
 
-37:                                               ; preds = %36
-  %38 = icmp eq i8 %21, -128
-  br i1 %38, label %51, label %39
+36:                                               ; preds = %35
+  %37 = icmp eq i8 %21, -128
+  br i1 %37, label %50, label %38
 
-39:                                               ; preds = %37
-  %40 = sub nsw i8 0, %21
-  %41 = trunc nuw nsw i64 %19 to i32
-  %42 = zext nneg i8 %40 to i32
-  %43 = shl nuw nsw i32 %42, %41
-  %44 = trunc i32 %43 to i8
-  %45 = sub i8 0, %44
-  br label %51
+38:                                               ; preds = %36
+  %39 = sub nsw i8 0, %21
+  %40 = trunc nuw nsw i64 %19 to i32
+  %41 = zext nneg i8 %39 to i32
+  %42 = shl nuw nsw i32 %41, %40
+  %43 = trunc i32 %42 to i8
+  %44 = sub i8 0, %43
+  br label %50
 
-46:                                               ; preds = %36
-  %47 = trunc nuw nsw i64 %19 to i32
-  %48 = zext nneg i8 %21 to i32
-  %49 = shl nuw nsw i32 %48, %47
-  %50 = trunc i32 %49 to i8
-  br label %51
+45:                                               ; preds = %35
+  %46 = trunc nuw nsw i64 %19 to i32
+  %47 = zext nneg i8 %21 to i32
+  %48 = shl nuw nsw i32 %47, %46
+  %49 = trunc i32 %48 to i8
+  br label %50
 
-51:                                               ; preds = %46, %39, %37, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, %23
-  %.sroa.063.0.i = phi i8 [ %35, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i ], [ %45, %39 ], [ %50, %46 ], [ 0, %23 ], [ 0, %37 ]
-  %52 = load ptr, ptr %5, align 8, !tbaa !488
-  %53 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %52, i64 noundef 8) #20
-  store i8 %.sroa.063.0.i, ptr %53, align 1, !tbaa !461
+50:                                               ; preds = %45, %38, %36, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i, %23
+  %.sroa.063.0.i = phi i8 [ %34, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i ], [ %44, %38 ], [ %49, %45 ], [ 0, %23 ], [ 0, %36 ]
+  %51 = load ptr, ptr %5, align 8, !tbaa !488
+  %52 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef 8) #20
+  store i8 %.sroa.063.0.i, ptr %52, align 1, !tbaa !461
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %51
+_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb1EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   ret i1 %17
@@ -129927,7 +129923,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %19 = load i8, ptr %3, align 1, !tbaa !1466
   %20 = icmp ugt i8 %19, 7
   %21 = load i8, ptr %4, align 1, !tbaa !461
-  br i1 %20, label %22, label %33
+  br i1 %20, label %22, label %32
 
 22:                                               ; preds = %18
   %.not.i.i.i.i = icmp eq i8 %21, 0
@@ -129951,28 +129947,27 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
   %.0.i.i.i.i = phi i32 [ 8, %22 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %29 = trunc i32 %.0.i.i.i.i to i8
+  %29 = trunc nuw i32 %.0.i.i.i.i to i8
   store i8 %29, ptr %3, align 1, !tbaa !461
   %30 = zext i8 %21 to i32
-  %31 = and i32 %.0.i.i.i.i, 255
-  %32 = shl i32 %30, %31
-  br label %37
+  %31 = shl i32 %30, %.0.i.i.i.i
+  br label %36
 
-33:                                               ; preds = %18
-  %34 = zext i8 %21 to i32
-  %35 = zext nneg i8 %19 to i32
-  %36 = shl nuw nsw i32 %34, %35
-  br label %37
+32:                                               ; preds = %18
+  %33 = zext i8 %21 to i32
+  %34 = zext nneg i8 %19 to i32
+  %35 = shl nuw nsw i32 %33, %34
+  br label %36
 
-37:                                               ; preds = %33, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i
-  %.sroa.063.0.in.i = phi i32 [ %32, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i ], [ %36, %33 ]
+36:                                               ; preds = %32, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i
+  %.sroa.063.0.in.i = phi i32 [ %31, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i ], [ %35, %32 ]
   %.sroa.063.0.i = trunc i32 %.sroa.063.0.in.i to i8
-  %38 = load ptr, ptr %5, align 8, !tbaa !488
-  %39 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef 8) #20
-  store i8 %.sroa.063.0.i, ptr %39, align 1, !tbaa !461
+  %37 = load ptr, ptr %5, align 8, !tbaa !488
+  %38 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef 8) #20
+  store i8 %.sroa.063.0.i, ptr %38, align 1, !tbaa !461
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEES3_LNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEES3_LNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %37
+_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEES3_LNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %36
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #20
   ret i1 %17
@@ -130038,7 +130033,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %19 = load i16, ptr %3, align 2, !tbaa !1476
   %20 = icmp ugt i16 %19, 7
   %21 = load i8, ptr %4, align 1, !tbaa !461
-  br i1 %20, label %22, label %33
+  br i1 %20, label %22, label %30
 
 22:                                               ; preds = %18
   %.not.i.i.i.i = icmp eq i8 %21, 0
@@ -130062,28 +130057,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
   %.0.i.i.i.i = phi i32 [ 8, %22 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %29 = trunc i32 %.0.i.i.i.i to i16
+  %29 = trunc nuw nsw i32 %.0.i.i.i.i to i16
   store i16 %29, ptr %3, align 2, !tbaa !726
-  %30 = zext i8 %21 to i32
-  %31 = and i32 %.0.i.i.i.i, 255
-  %32 = shl i32 %30, %31
-  br label %37
+  br label %32
 
-33:                                               ; preds = %18
-  %34 = zext nneg i16 %19 to i32
-  %35 = zext i8 %21 to i32
-  %36 = shl nuw nsw i32 %35, %34
-  br label %37
+30:                                               ; preds = %18
+  %31 = zext nneg i16 %19 to i32
+  br label %32
 
-37:                                               ; preds = %33, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i
-  %.sroa.063.0.in.i = phi i32 [ %32, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i ], [ %36, %33 ]
-  %.sroa.063.0.i = trunc i32 %.sroa.063.0.in.i to i8
-  %38 = load ptr, ptr %5, align 8, !tbaa !488
-  %39 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef 8) #20
-  store i8 %.sroa.063.0.i, ptr %39, align 1, !tbaa !461
+32:                                               ; preds = %30, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i
+  %.sink67.i = phi i32 [ %31, %30 ], [ %.0.i.i.i.i, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i ]
+  %33 = zext i8 %21 to i32
+  %34 = shl i32 %33, %.sink67.i
+  %.sroa.063.0.i = trunc i32 %34 to i8
+  %35 = load ptr, ptr %5, align 8, !tbaa !488
+  %36 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %35, i64 noundef 8) #20
+  store i8 %.sroa.063.0.i, ptr %36, align 1, !tbaa !461
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEENS2_ILj16ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEENS2_ILj16ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %37
+_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEENS2_ILj16ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #20
   ret i1 %17
@@ -130149,7 +130141,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %19 = load i32, ptr %3, align 4, !tbaa !891
   %20 = icmp ugt i32 %19, 7
   %21 = load i8, ptr %4, align 1, !tbaa !461
-  br i1 %20, label %22, label %32
+  br i1 %20, label %22, label %29
 
 22:                                               ; preds = %18
   %.not.i.i.i.i = icmp eq i8 %21, 0
@@ -130174,25 +130166,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
   %.0.i.i.i.i = phi i32 [ 8, %22 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
   store i32 %.0.i.i.i.i, ptr %3, align 4, !tbaa !467
-  %29 = zext i8 %21 to i32
-  %30 = and i32 %.0.i.i.i.i, 255
-  %31 = shl i32 %29, %30
-  br label %35
+  br label %29
 
-32:                                               ; preds = %18
-  %33 = zext i8 %21 to i32
-  %34 = shl nuw nsw i32 %33, %19
-  br label %35
-
-35:                                               ; preds = %32, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i
-  %.sroa.063.0.in.i = phi i32 [ %31, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i ], [ %34, %32 ]
-  %.sroa.063.0.i = trunc i32 %.sroa.063.0.in.i to i8
-  %36 = load ptr, ptr %5, align 8, !tbaa !488
-  %37 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 noundef 8) #20
-  store i8 %.sroa.063.0.i, ptr %37, align 1, !tbaa !461
+29:                                               ; preds = %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i, %18
+  %.sink67.i = phi i32 [ %.0.i.i.i.i, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i ], [ %19, %18 ]
+  %30 = zext i8 %21 to i32
+  %31 = shl i32 %30, %.sink67.i
+  %.sroa.063.0.i = trunc i32 %31 to i8
+  %32 = load ptr, ptr %5, align 8, !tbaa !488
+  %33 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef 8) #20
+  store i8 %.sroa.063.0.i, ptr %33, align 1, !tbaa !461
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %35
+_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
   ret i1 %17
@@ -130258,7 +130244,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %19 = load i64, ptr %3, align 8, !tbaa !895
   %20 = icmp ugt i64 %19, 7
   %21 = load i8, ptr %4, align 1, !tbaa !461
-  br i1 %20, label %22, label %33
+  br i1 %20, label %22, label %30
 
 22:                                               ; preds = %18
   %.not.i.i.i.i = icmp eq i8 %21, 0
@@ -130282,28 +130268,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
   %.0.i.i.i.i = phi i32 [ 8, %22 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %29 = zext i32 %.0.i.i.i.i to i64
+  %29 = zext nneg i32 %.0.i.i.i.i to i64
   store i64 %29, ptr %3, align 8, !tbaa !629
-  %30 = zext i8 %21 to i32
-  %31 = and i32 %.0.i.i.i.i, 255
-  %32 = shl i32 %30, %31
-  br label %37
+  br label %32
 
-33:                                               ; preds = %18
-  %34 = trunc nuw nsw i64 %19 to i32
-  %35 = zext i8 %21 to i32
-  %36 = shl nuw nsw i32 %35, %34
-  br label %37
+30:                                               ; preds = %18
+  %31 = trunc nuw nsw i64 %19 to i32
+  br label %32
 
-37:                                               ; preds = %33, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i
-  %.sroa.063.0.in.i = phi i32 [ %32, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i ], [ %36, %33 ]
-  %.sroa.063.0.i = trunc i32 %.sroa.063.0.in.i to i8
-  %38 = load ptr, ptr %5, align 8, !tbaa !488
-  %39 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef 8) #20
-  store i8 %.sroa.063.0.i, ptr %39, align 1, !tbaa !461
+32:                                               ; preds = %30, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i
+  %.sink67.i = phi i32 [ %31, %30 ], [ %.0.i.i.i.i, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i ]
+  %33 = zext i8 %21 to i32
+  %34 = shl i32 %33, %.sink67.i
+  %.sroa.063.0.i = trunc i32 %34 to i8
+  %35 = load ptr, ptr %5, align 8, !tbaa !488
+  %36 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %35, i64 noundef 8) #20
+  store i8 %.sroa.063.0.i, ptr %36, align 1, !tbaa !461
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %37
+_ZN5clang6interp7DoShiftINS0_8IntegralILj8ELb0EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   ret i1 %17
@@ -130588,10 +130571,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %20 = icmp ugt i16 %19, 15
   %21 = load i16, ptr %4, align 2, !tbaa !1481
   %22 = icmp slt i16 %21, 0
-  br i1 %20, label %23, label %36
+  br i1 %20, label %23, label %35
 
 23:                                               ; preds = %18
-  br i1 %22, label %51, label %24
+  br i1 %22, label %50, label %24
 
 24:                                               ; preds = %23
   %.not.i.i.i.i = icmp eq i16 %21, 0
@@ -130615,45 +130598,44 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
   %.0.i.i.i.i = phi i32 [ 16, %24 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %31 = trunc i32 %.0.i.i.i.i to i16
+  %31 = trunc nuw i32 %.0.i.i.i.i to i16
   store i16 %31, ptr %3, align 2, !tbaa !726
   %32 = zext nneg i16 %21 to i32
-  %33 = and i32 %.0.i.i.i.i, 65535
-  %34 = shl i32 %32, %33
-  %35 = trunc i32 %34 to i16
-  br label %51
+  %33 = shl i32 %32, %.0.i.i.i.i
+  %34 = trunc i32 %33 to i16
+  br label %50
 
-36:                                               ; preds = %18
-  br i1 %22, label %37, label %46
+35:                                               ; preds = %18
+  br i1 %22, label %36, label %45
 
-37:                                               ; preds = %36
-  %38 = icmp eq i16 %21, -32768
-  br i1 %38, label %51, label %39
+36:                                               ; preds = %35
+  %37 = icmp eq i16 %21, -32768
+  br i1 %37, label %50, label %38
 
-39:                                               ; preds = %37
-  %40 = sub nsw i16 0, %21
-  %41 = zext nneg i16 %40 to i32
-  %42 = zext nneg i16 %19 to i32
-  %43 = shl nuw nsw i32 %41, %42
-  %44 = trunc i32 %43 to i16
-  %45 = sub i16 0, %44
-  br label %51
+38:                                               ; preds = %36
+  %39 = sub nsw i16 0, %21
+  %40 = zext nneg i16 %39 to i32
+  %41 = zext nneg i16 %19 to i32
+  %42 = shl nuw nsw i32 %40, %41
+  %43 = trunc i32 %42 to i16
+  %44 = sub i16 0, %43
+  br label %50
 
-46:                                               ; preds = %36
-  %47 = zext nneg i16 %21 to i32
-  %48 = zext nneg i16 %19 to i32
-  %49 = shl nuw nsw i32 %47, %48
-  %50 = trunc i32 %49 to i16
-  br label %51
+45:                                               ; preds = %35
+  %46 = zext nneg i16 %21 to i32
+  %47 = zext nneg i16 %19 to i32
+  %48 = shl nuw nsw i32 %46, %47
+  %49 = trunc i32 %48 to i16
+  br label %50
 
-51:                                               ; preds = %46, %39, %37, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, %23
-  %.sroa.063.0.i = phi i16 [ %35, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i ], [ %45, %39 ], [ %50, %46 ], [ 0, %23 ], [ 0, %37 ]
-  %52 = load ptr, ptr %5, align 8, !tbaa !488
-  %53 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %52, i64 noundef 8) #20
-  store i16 %.sroa.063.0.i, ptr %53, align 2, !tbaa !726
+50:                                               ; preds = %45, %38, %36, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, %23
+  %.sroa.063.0.i = phi i16 [ %34, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i ], [ %44, %38 ], [ %49, %45 ], [ 0, %23 ], [ 0, %36 ]
+  %51 = load ptr, ptr %5, align 8, !tbaa !488
+  %52 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef 8) #20
+  store i16 %.sroa.063.0.i, ptr %52, align 2, !tbaa !726
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb1EEENS2_ILj16ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb1EEENS2_ILj16ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %51
+_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb1EEENS2_ILj16ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %50
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #20
   ret i1 %17
@@ -130720,10 +130702,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %20 = icmp ugt i32 %19, 15
   %21 = load i16, ptr %4, align 2, !tbaa !1481
   %22 = icmp slt i16 %21, 0
-  br i1 %20, label %23, label %35
+  br i1 %20, label %23, label %34
 
 23:                                               ; preds = %18
-  br i1 %22, label %48, label %24
+  br i1 %22, label %47, label %24
 
 24:                                               ; preds = %23
   %.not.i.i.i.i = icmp eq i16 %21, 0
@@ -130749,40 +130731,39 @@ _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.p
   %.0.i.i.i.i = phi i32 [ 16, %24 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
   store i32 %.0.i.i.i.i, ptr %3, align 4, !tbaa !467
   %31 = zext nneg i16 %21 to i32
-  %32 = and i32 %.0.i.i.i.i, 65535
-  %33 = shl i32 %31, %32
-  %34 = trunc i32 %33 to i16
-  br label %48
+  %32 = shl i32 %31, %.0.i.i.i.i
+  %33 = trunc i32 %32 to i16
+  br label %47
 
-35:                                               ; preds = %18
-  br i1 %22, label %36, label %44
+34:                                               ; preds = %18
+  br i1 %22, label %35, label %43
 
-36:                                               ; preds = %35
-  %37 = icmp eq i16 %21, -32768
-  br i1 %37, label %48, label %38
+35:                                               ; preds = %34
+  %36 = icmp eq i16 %21, -32768
+  br i1 %36, label %47, label %37
 
-38:                                               ; preds = %36
-  %39 = sub nsw i16 0, %21
-  %40 = zext nneg i16 %39 to i32
-  %41 = shl nuw nsw i32 %40, %19
-  %42 = trunc i32 %41 to i16
-  %43 = sub i16 0, %42
-  br label %48
+37:                                               ; preds = %35
+  %38 = sub nsw i16 0, %21
+  %39 = zext nneg i16 %38 to i32
+  %40 = shl nuw nsw i32 %39, %19
+  %41 = trunc i32 %40 to i16
+  %42 = sub i16 0, %41
+  br label %47
 
-44:                                               ; preds = %35
-  %45 = zext nneg i16 %21 to i32
-  %46 = shl nuw nsw i32 %45, %19
-  %47 = trunc i32 %46 to i16
-  br label %48
+43:                                               ; preds = %34
+  %44 = zext nneg i16 %21 to i32
+  %45 = shl nuw nsw i32 %44, %19
+  %46 = trunc i32 %45 to i16
+  br label %47
 
-48:                                               ; preds = %44, %38, %36, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, %23
-  %.sroa.063.0.i = phi i16 [ %34, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i ], [ %43, %38 ], [ %47, %44 ], [ 0, %23 ], [ 0, %36 ]
-  %49 = load ptr, ptr %5, align 8, !tbaa !488
-  %50 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %49, i64 noundef 8) #20
-  store i16 %.sroa.063.0.i, ptr %50, align 2, !tbaa !726
+47:                                               ; preds = %43, %37, %35, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, %23
+  %.sroa.063.0.i = phi i16 [ %33, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i ], [ %42, %37 ], [ %46, %43 ], [ 0, %23 ], [ 0, %35 ]
+  %48 = load ptr, ptr %5, align 8, !tbaa !488
+  %49 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef 8) #20
+  store i16 %.sroa.063.0.i, ptr %49, align 2, !tbaa !726
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb1EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb1EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %48
+_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb1EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %47
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
   ret i1 %17
@@ -130849,10 +130830,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %20 = icmp ugt i64 %19, 15
   %21 = load i16, ptr %4, align 2, !tbaa !1481
   %22 = icmp slt i16 %21, 0
-  br i1 %20, label %23, label %36
+  br i1 %20, label %23, label %35
 
 23:                                               ; preds = %18
-  br i1 %22, label %51, label %24
+  br i1 %22, label %50, label %24
 
 24:                                               ; preds = %23
   %.not.i.i.i.i = icmp eq i16 %21, 0
@@ -130876,45 +130857,44 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %24
   %.0.i.i.i.i = phi i32 [ 16, %24 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %31 = zext i32 %.0.i.i.i.i to i64
+  %31 = zext nneg i32 %.0.i.i.i.i to i64
   store i64 %31, ptr %3, align 8, !tbaa !629
   %32 = zext nneg i16 %21 to i32
-  %33 = and i32 %.0.i.i.i.i, 65535
-  %34 = shl i32 %32, %33
-  %35 = trunc i32 %34 to i16
-  br label %51
+  %33 = shl i32 %32, %.0.i.i.i.i
+  %34 = trunc i32 %33 to i16
+  br label %50
 
-36:                                               ; preds = %18
-  br i1 %22, label %37, label %46
+35:                                               ; preds = %18
+  br i1 %22, label %36, label %45
 
-37:                                               ; preds = %36
-  %38 = icmp eq i16 %21, -32768
-  br i1 %38, label %51, label %39
+36:                                               ; preds = %35
+  %37 = icmp eq i16 %21, -32768
+  br i1 %37, label %50, label %38
 
-39:                                               ; preds = %37
-  %40 = sub nsw i16 0, %21
-  %41 = trunc nuw nsw i64 %19 to i32
-  %42 = zext nneg i16 %40 to i32
-  %43 = shl nuw nsw i32 %42, %41
-  %44 = trunc i32 %43 to i16
-  %45 = sub i16 0, %44
-  br label %51
+38:                                               ; preds = %36
+  %39 = sub nsw i16 0, %21
+  %40 = trunc nuw nsw i64 %19 to i32
+  %41 = zext nneg i16 %39 to i32
+  %42 = shl nuw nsw i32 %41, %40
+  %43 = trunc i32 %42 to i16
+  %44 = sub i16 0, %43
+  br label %50
 
-46:                                               ; preds = %36
-  %47 = trunc nuw nsw i64 %19 to i32
-  %48 = zext nneg i16 %21 to i32
-  %49 = shl nuw nsw i32 %48, %47
-  %50 = trunc i32 %49 to i16
-  br label %51
+45:                                               ; preds = %35
+  %46 = trunc nuw nsw i64 %19 to i32
+  %47 = zext nneg i16 %21 to i32
+  %48 = shl nuw nsw i32 %47, %46
+  %49 = trunc i32 %48 to i16
+  br label %50
 
-51:                                               ; preds = %46, %39, %37, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, %23
-  %.sroa.063.0.i = phi i16 [ %35, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i ], [ %45, %39 ], [ %50, %46 ], [ 0, %23 ], [ 0, %37 ]
-  %52 = load ptr, ptr %5, align 8, !tbaa !488
-  %53 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %52, i64 noundef 8) #20
-  store i16 %.sroa.063.0.i, ptr %53, align 2, !tbaa !726
+50:                                               ; preds = %45, %38, %36, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i, %23
+  %.sroa.063.0.i = phi i16 [ %34, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i ], [ %44, %38 ], [ %49, %45 ], [ 0, %23 ], [ 0, %36 ]
+  %51 = load ptr, ptr %5, align 8, !tbaa !488
+  %52 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef 8) #20
+  store i16 %.sroa.063.0.i, ptr %52, align 2, !tbaa !726
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb1EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb1EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %51
+_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb1EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %50
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   ret i1 %17
@@ -131177,7 +131157,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %19 = load i16, ptr %3, align 2, !tbaa !1476
   %20 = icmp ugt i16 %19, 15
   %21 = load i16, ptr %4, align 2, !tbaa !726
-  br i1 %20, label %22, label %33
+  br i1 %20, label %22, label %32
 
 22:                                               ; preds = %18
   %.not.i.i.i.i = icmp eq i16 %21, 0
@@ -131201,28 +131181,27 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
   %.0.i.i.i.i = phi i32 [ 16, %22 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %29 = trunc i32 %.0.i.i.i.i to i16
+  %29 = trunc nuw i32 %.0.i.i.i.i to i16
   store i16 %29, ptr %3, align 2, !tbaa !726
   %30 = zext i16 %21 to i32
-  %31 = and i32 %.0.i.i.i.i, 65535
-  %32 = shl i32 %30, %31
-  br label %37
+  %31 = shl i32 %30, %.0.i.i.i.i
+  br label %36
 
-33:                                               ; preds = %18
-  %34 = zext i16 %21 to i32
-  %35 = zext nneg i16 %19 to i32
-  %36 = shl nuw nsw i32 %34, %35
-  br label %37
+32:                                               ; preds = %18
+  %33 = zext i16 %21 to i32
+  %34 = zext nneg i16 %19 to i32
+  %35 = shl nuw nsw i32 %33, %34
+  br label %36
 
-37:                                               ; preds = %33, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i
-  %.sroa.063.0.in.i = phi i32 [ %32, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i ], [ %36, %33 ]
+36:                                               ; preds = %32, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i
+  %.sroa.063.0.in.i = phi i32 [ %31, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i ], [ %35, %32 ]
   %.sroa.063.0.i = trunc i32 %.sroa.063.0.in.i to i16
-  %38 = load ptr, ptr %5, align 8, !tbaa !488
-  %39 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef 8) #20
-  store i16 %.sroa.063.0.i, ptr %39, align 2, !tbaa !726
+  %37 = load ptr, ptr %5, align 8, !tbaa !488
+  %38 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef 8) #20
+  store i16 %.sroa.063.0.i, ptr %38, align 2, !tbaa !726
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb0EEES3_LNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb0EEES3_LNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %37
+_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb0EEES3_LNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %36
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #20
   ret i1 %17
@@ -131288,7 +131267,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %19 = load i32, ptr %3, align 4, !tbaa !891
   %20 = icmp ugt i32 %19, 15
   %21 = load i16, ptr %4, align 2, !tbaa !726
-  br i1 %20, label %22, label %32
+  br i1 %20, label %22, label %29
 
 22:                                               ; preds = %18
   %.not.i.i.i.i = icmp eq i16 %21, 0
@@ -131313,25 +131292,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
   %.0.i.i.i.i = phi i32 [ 16, %22 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
   store i32 %.0.i.i.i.i, ptr %3, align 4, !tbaa !467
-  %29 = zext i16 %21 to i32
-  %30 = and i32 %.0.i.i.i.i, 65535
-  %31 = shl i32 %29, %30
-  br label %35
+  br label %29
 
-32:                                               ; preds = %18
-  %33 = zext i16 %21 to i32
-  %34 = shl nuw nsw i32 %33, %19
-  br label %35
-
-35:                                               ; preds = %32, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i
-  %.sroa.063.0.in.i = phi i32 [ %31, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i ], [ %34, %32 ]
-  %.sroa.063.0.i = trunc i32 %.sroa.063.0.in.i to i16
-  %36 = load ptr, ptr %5, align 8, !tbaa !488
-  %37 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 noundef 8) #20
-  store i16 %.sroa.063.0.i, ptr %37, align 2, !tbaa !726
+29:                                               ; preds = %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i, %18
+  %.sink67.i = phi i32 [ %.0.i.i.i.i, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i ], [ %19, %18 ]
+  %30 = zext i16 %21 to i32
+  %31 = shl i32 %30, %.sink67.i
+  %.sroa.063.0.i = trunc i32 %31 to i16
+  %32 = load ptr, ptr %5, align 8, !tbaa !488
+  %33 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef 8) #20
+  store i16 %.sroa.063.0.i, ptr %33, align 2, !tbaa !726
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb0EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb0EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %35
+_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb0EEENS2_ILj32ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %29
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
   ret i1 %17
@@ -131397,7 +131370,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   %19 = load i64, ptr %3, align 8, !tbaa !895
   %20 = icmp ugt i64 %19, 15
   %21 = load i16, ptr %4, align 2, !tbaa !726
-  br i1 %20, label %22, label %33
+  br i1 %20, label %22, label %30
 
 22:                                               ; preds = %18
   %.not.i.i.i.i = icmp eq i16 %21, 0
@@ -131421,28 +131394,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.preheader.i.i.i.i, %22
   %.0.i.i.i.i = phi i32 [ 16, %22 ], [ %.1.i.i.i.i, %.preheader.i.i.i.i ]
-  %29 = zext i32 %.0.i.i.i.i to i64
+  %29 = zext nneg i32 %.0.i.i.i.i to i64
   store i64 %29, ptr %3, align 8, !tbaa !629
-  %30 = zext i16 %21 to i32
-  %31 = and i32 %.0.i.i.i.i, 65535
-  %32 = shl i32 %30, %31
-  br label %37
+  br label %32
 
-33:                                               ; preds = %18
-  %34 = trunc nuw nsw i64 %19 to i32
-  %35 = zext i16 %21 to i32
-  %36 = shl nuw nsw i32 %35, %34
-  br label %37
+30:                                               ; preds = %18
+  %31 = trunc nuw nsw i64 %19 to i32
+  br label %32
 
-37:                                               ; preds = %33, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i
-  %.sroa.063.0.in.i = phi i32 [ %32, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i ], [ %36, %33 ]
-  %.sroa.063.0.i = trunc i32 %.sroa.063.0.in.i to i16
-  %38 = load ptr, ptr %5, align 8, !tbaa !488
-  %39 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef 8) #20
-  store i16 %.sroa.063.0.i, ptr %39, align 2, !tbaa !726
+32:                                               ; preds = %30, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i
+  %.sink67.i = phi i32 [ %31, %30 ], [ %.0.i.i.i.i, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i ]
+  %33 = zext i16 %21 to i32
+  %34 = shl i32 %33, %.sink67.i
+  %.sroa.063.0.i = trunc i32 %34 to i16
+  %35 = load ptr, ptr %5, align 8, !tbaa !488
+  %36 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %35, i64 noundef 8) #20
+  store i16 %.sroa.063.0.i, ptr %36, align 2, !tbaa !726
   br label %_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb0EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit
 
-_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb0EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %37
+_ZN5clang6interp7DoShiftINS0_8IntegralILj16ELb0EEENS2_ILj64ELb0EEELNS0_8ShiftDirE0EEEbRNS0_11InterpStateENS0_7CodePtrERT_RT0_.exit: ; preds = %16, %32
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   ret i1 %17
@@ -198669,21 +198639,21 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %88
+  br label %87
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj8ELb1EEES4_EEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 8)
-  br i1 %50, label %51, label %88
+  br i1 %50, label %51, label %87
 
 51:                                               ; preds = %49
   %52 = load i8, ptr %3, align 1, !tbaa !1471
   %53 = icmp sgt i8 %52, 7
   %54 = load i8, ptr %2, align 1, !tbaa !1471
   %55 = icmp slt i8 %54, 0
-  br i1 %53, label %56, label %69
+  br i1 %53, label %56, label %68
 
 56:                                               ; preds = %51
-  br i1 %55, label %84, label %57
+  br i1 %55, label %83, label %57
 
 57:                                               ; preds = %56
   %.not.i.i.i = icmp eq i8 %54, 0
@@ -198707,48 +198677,47 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %57
   %.0.i.i.i = phi i32 [ 8, %57 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %64 = trunc i32 %.0.i.i.i to i8
+  %64 = trunc nuw i32 %.0.i.i.i to i8
   store i8 %64, ptr %3, align 1, !tbaa !461
   %.sroa.014.0.copyload = load i8, ptr %2, align 1, !tbaa !461
   %65 = zext i8 %.sroa.014.0.copyload to i32
-  %66 = and i32 %.0.i.i.i, 255
-  %67 = shl i32 %65, %66
-  %68 = trunc i32 %67 to i8
-  br label %84
+  %66 = shl i32 %65, %.0.i.i.i
+  %67 = trunc i32 %66 to i8
+  br label %83
 
-69:                                               ; preds = %51
-  br i1 %55, label %70, label %79
+68:                                               ; preds = %51
+  br i1 %55, label %69, label %78
 
-70:                                               ; preds = %69
-  %71 = icmp eq i8 %54, -128
-  br i1 %71, label %84, label %72
+69:                                               ; preds = %68
+  %70 = icmp eq i8 %54, -128
+  br i1 %70, label %83, label %71
 
-72:                                               ; preds = %70
-  %73 = sub nsw i8 0, %54
-  %74 = zext nneg i8 %73 to i32
-  %75 = zext nneg i8 %52 to i32
-  %76 = shl i32 %74, %75
-  %77 = trunc i32 %76 to i8
-  %78 = sub i8 0, %77
-  br label %84
+71:                                               ; preds = %69
+  %72 = sub nsw i8 0, %54
+  %73 = zext nneg i8 %72 to i32
+  %74 = zext nneg i8 %52 to i32
+  %75 = shl i32 %73, %74
+  %76 = trunc i32 %75 to i8
+  %77 = sub i8 0, %76
+  br label %83
 
-79:                                               ; preds = %69
-  %80 = zext nneg i8 %54 to i32
-  %81 = zext nneg i8 %52 to i32
-  %82 = shl i32 %80, %81
-  %83 = trunc i32 %82 to i8
-  br label %84
+78:                                               ; preds = %68
+  %79 = zext nneg i8 %54 to i32
+  %80 = zext nneg i8 %52 to i32
+  %81 = shl i32 %79, %80
+  %82 = trunc i32 %81 to i8
+  br label %83
 
-84:                                               ; preds = %70, %56, %79, %72, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit
-  %.sroa.063.0 = phi i8 [ %68, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit ], [ %78, %72 ], [ %83, %79 ], [ 0, %56 ], [ 0, %70 ]
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %86 = load ptr, ptr %85, align 8, !tbaa !488
-  %87 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %86, i64 noundef 8) #20
-  store i8 %.sroa.063.0, ptr %87, align 1, !tbaa !461
-  br label %88
+83:                                               ; preds = %69, %56, %78, %71, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit
+  %.sroa.063.0 = phi i8 [ %67, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit ], [ %77, %71 ], [ %82, %78 ], [ 0, %56 ], [ 0, %69 ]
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %85 = load ptr, ptr %84, align 8, !tbaa !488
+  %86 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %85, i64 noundef 8) #20
+  store i8 %.sroa.063.0, ptr %86, align 1, !tbaa !461
+  br label %87
 
-88:                                               ; preds = %49, %84, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %84 ], [ false, %49 ]
+87:                                               ; preds = %49, %83, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %83 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -199706,21 +199675,21 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %90
+  br label %89
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj8ELb1EEENS3_ILj16ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 2 dereferenceable(2) %3, i32 noundef 8)
-  br i1 %50, label %51, label %90
+  br i1 %50, label %51, label %89
 
 51:                                               ; preds = %49
   %52 = load i16, ptr %3, align 2, !tbaa !1481
   %53 = icmp sgt i16 %52, 7
   %54 = load i8, ptr %2, align 1, !tbaa !1471
   %55 = icmp slt i8 %54, 0
-  br i1 %53, label %56, label %69
+  br i1 %53, label %56, label %68
 
 56:                                               ; preds = %51
-  br i1 %55, label %86, label %57
+  br i1 %55, label %85, label %57
 
 57:                                               ; preds = %56
   %.not.i.i.i = icmp eq i8 %54, 0
@@ -199744,50 +199713,49 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %57
   %.0.i.i.i = phi i32 [ 8, %57 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %64 = trunc i32 %.0.i.i.i to i16
+  %64 = trunc nuw nsw i32 %.0.i.i.i to i16
   store i16 %64, ptr %3, align 2, !tbaa !726
   %.sroa.014.0.copyload = load i8, ptr %2, align 1, !tbaa !461
   %65 = zext i8 %.sroa.014.0.copyload to i32
-  %66 = and i32 %.0.i.i.i, 255
-  %67 = shl i32 %65, %66
-  %68 = trunc i32 %67 to i8
-  br label %86
+  %66 = shl i32 %65, %.0.i.i.i
+  %67 = trunc i32 %66 to i8
+  br label %85
 
-69:                                               ; preds = %51
-  br i1 %55, label %70, label %80
+68:                                               ; preds = %51
+  br i1 %55, label %69, label %79
 
-70:                                               ; preds = %69
-  %71 = icmp eq i8 %54, -128
-  br i1 %71, label %86, label %72
+69:                                               ; preds = %68
+  %70 = icmp eq i8 %54, -128
+  br i1 %70, label %85, label %71
 
-72:                                               ; preds = %70
-  %73 = sub nsw i8 0, %54
-  %74 = zext nneg i8 %73 to i32
-  %75 = and i16 %52, 255
-  %76 = zext nneg i16 %75 to i32
-  %77 = shl i32 %74, %76
-  %78 = trunc i32 %77 to i8
-  %79 = sub i8 0, %78
-  br label %86
+71:                                               ; preds = %69
+  %72 = sub nsw i8 0, %54
+  %73 = zext nneg i8 %72 to i32
+  %74 = and i16 %52, 255
+  %75 = zext nneg i16 %74 to i32
+  %76 = shl i32 %73, %75
+  %77 = trunc i32 %76 to i8
+  %78 = sub i8 0, %77
+  br label %85
 
-80:                                               ; preds = %69
-  %81 = zext nneg i8 %54 to i32
-  %82 = and i16 %52, 255
-  %83 = zext nneg i16 %82 to i32
-  %84 = shl i32 %81, %83
-  %85 = trunc i32 %84 to i8
-  br label %86
+79:                                               ; preds = %68
+  %80 = zext nneg i8 %54 to i32
+  %81 = and i16 %52, 255
+  %82 = zext nneg i16 %81 to i32
+  %83 = shl i32 %80, %82
+  %84 = trunc i32 %83 to i8
+  br label %85
 
-86:                                               ; preds = %70, %56, %80, %72, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit
-  %.sroa.063.0 = phi i8 [ %68, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit ], [ %79, %72 ], [ %85, %80 ], [ 0, %56 ], [ 0, %70 ]
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %88 = load ptr, ptr %87, align 8, !tbaa !488
-  %89 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %88, i64 noundef 8) #20
-  store i8 %.sroa.063.0, ptr %89, align 1, !tbaa !461
-  br label %90
+85:                                               ; preds = %69, %56, %79, %71, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit
+  %.sroa.063.0 = phi i8 [ %67, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit ], [ %78, %71 ], [ %84, %79 ], [ 0, %56 ], [ 0, %69 ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %87 = load ptr, ptr %86, align 8, !tbaa !488
+  %88 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %87, i64 noundef 8) #20
+  store i8 %.sroa.063.0, ptr %88, align 1, !tbaa !461
+  br label %89
 
-90:                                               ; preds = %49, %86, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %86 ], [ false, %49 ]
+89:                                               ; preds = %49, %85, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %85 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -200746,21 +200714,21 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %87
+  br label %86
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj8ELb1EEENS3_ILj32ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 8)
-  br i1 %50, label %51, label %87
+  br i1 %50, label %51, label %86
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %3, align 4, !tbaa !1489
   %53 = icmp sgt i32 %52, 7
   %54 = load i8, ptr %2, align 1, !tbaa !1471
   %55 = icmp slt i8 %54, 0
-  br i1 %53, label %56, label %68
+  br i1 %53, label %56, label %67
 
 56:                                               ; preds = %51
-  br i1 %55, label %83, label %57
+  br i1 %55, label %82, label %57
 
 57:                                               ; preds = %56
   %.not.i.i.i = icmp eq i8 %54, 0
@@ -200787,44 +200755,43 @@ _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preh
   store i32 %.0.i.i.i, ptr %3, align 4, !tbaa !467
   %.sroa.014.0.copyload = load i8, ptr %2, align 1, !tbaa !461
   %64 = zext i8 %.sroa.014.0.copyload to i32
-  %65 = and i32 %.0.i.i.i, 255
-  %66 = shl i32 %64, %65
-  %67 = trunc i32 %66 to i8
-  br label %83
+  %65 = shl i32 %64, %.0.i.i.i
+  %66 = trunc i32 %65 to i8
+  br label %82
 
-68:                                               ; preds = %51
-  br i1 %55, label %69, label %78
+67:                                               ; preds = %51
+  br i1 %55, label %68, label %77
 
-69:                                               ; preds = %68
-  %70 = icmp eq i8 %54, -128
-  br i1 %70, label %83, label %71
+68:                                               ; preds = %67
+  %69 = icmp eq i8 %54, -128
+  br i1 %69, label %82, label %70
 
-71:                                               ; preds = %69
-  %72 = sub nsw i8 0, %54
-  %73 = zext nneg i8 %72 to i32
-  %74 = and i32 %52, 255
-  %75 = shl i32 %73, %74
-  %76 = trunc i32 %75 to i8
-  %77 = sub i8 0, %76
-  br label %83
+70:                                               ; preds = %68
+  %71 = sub nsw i8 0, %54
+  %72 = zext nneg i8 %71 to i32
+  %73 = and i32 %52, 255
+  %74 = shl i32 %72, %73
+  %75 = trunc i32 %74 to i8
+  %76 = sub i8 0, %75
+  br label %82
 
-78:                                               ; preds = %68
-  %79 = zext nneg i8 %54 to i32
-  %80 = and i32 %52, 255
-  %81 = shl i32 %79, %80
-  %82 = trunc i32 %81 to i8
-  br label %83
+77:                                               ; preds = %67
+  %78 = zext nneg i8 %54 to i32
+  %79 = and i32 %52, 255
+  %80 = shl i32 %78, %79
+  %81 = trunc i32 %80 to i8
+  br label %82
 
-83:                                               ; preds = %69, %56, %78, %71, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit
-  %.sroa.063.0 = phi i8 [ %67, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit ], [ %77, %71 ], [ %82, %78 ], [ 0, %56 ], [ 0, %69 ]
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %85 = load ptr, ptr %84, align 8, !tbaa !488
-  %86 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %85, i64 noundef 8) #20
-  store i8 %.sroa.063.0, ptr %86, align 1, !tbaa !461
-  br label %87
+82:                                               ; preds = %68, %56, %77, %70, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit
+  %.sroa.063.0 = phi i8 [ %66, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit ], [ %76, %70 ], [ %81, %77 ], [ 0, %56 ], [ 0, %68 ]
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %84 = load ptr, ptr %83, align 8, !tbaa !488
+  %85 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %84, i64 noundef 8) #20
+  store i8 %.sroa.063.0, ptr %85, align 1, !tbaa !461
+  br label %86
 
-87:                                               ; preds = %49, %83, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %83 ], [ false, %49 ]
+86:                                               ; preds = %49, %82, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %82 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -201775,21 +201742,21 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 47:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %43
   %.0 = phi i1 [ %46, %43 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %89
+  br label %88
 
 48:                                               ; preds = %.thread, %13
   %49 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj8ELb1EEENS3_ILj64ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 8)
-  br i1 %49, label %50, label %89
+  br i1 %49, label %50, label %88
 
 50:                                               ; preds = %48
   %51 = load i64, ptr %3, align 8, !tbaa !893
   %52 = icmp sgt i64 %51, 7
   %53 = load i8, ptr %2, align 1, !tbaa !1471
   %54 = icmp slt i8 %53, 0
-  br i1 %52, label %55, label %68
+  br i1 %52, label %55, label %67
 
 55:                                               ; preds = %50
-  br i1 %54, label %85, label %56
+  br i1 %54, label %84, label %56
 
 56:                                               ; preds = %55
   %.not.i.i.i = icmp eq i8 %53, 0
@@ -201813,50 +201780,49 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %56
   %.0.i.i.i = phi i32 [ 8, %56 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %63 = zext i32 %.0.i.i.i to i64
+  %63 = zext nneg i32 %.0.i.i.i to i64
   store i64 %63, ptr %3, align 8, !tbaa !629
   %.sroa.014.0.copyload = load i8, ptr %2, align 1, !tbaa !461
   %64 = zext i8 %.sroa.014.0.copyload to i32
-  %65 = and i32 %.0.i.i.i, 255
-  %66 = shl i32 %64, %65
-  %67 = trunc i32 %66 to i8
-  br label %85
+  %65 = shl i32 %64, %.0.i.i.i
+  %66 = trunc i32 %65 to i8
+  br label %84
 
-68:                                               ; preds = %50
-  br i1 %54, label %69, label %79
+67:                                               ; preds = %50
+  br i1 %54, label %68, label %78
 
-69:                                               ; preds = %68
-  %70 = icmp eq i8 %53, -128
-  br i1 %70, label %85, label %71
+68:                                               ; preds = %67
+  %69 = icmp eq i8 %53, -128
+  br i1 %69, label %84, label %70
 
-71:                                               ; preds = %69
-  %72 = sub nsw i8 0, %53
-  %73 = trunc i64 %51 to i32
-  %74 = zext nneg i8 %72 to i32
-  %75 = and i32 %73, 255
-  %76 = shl i32 %74, %75
-  %77 = trunc i32 %76 to i8
-  %78 = sub i8 0, %77
-  br label %85
+70:                                               ; preds = %68
+  %71 = sub nsw i8 0, %53
+  %72 = trunc i64 %51 to i32
+  %73 = zext nneg i8 %71 to i32
+  %74 = and i32 %72, 255
+  %75 = shl i32 %73, %74
+  %76 = trunc i32 %75 to i8
+  %77 = sub i8 0, %76
+  br label %84
 
-79:                                               ; preds = %68
-  %80 = trunc i64 %51 to i32
-  %81 = zext nneg i8 %53 to i32
-  %82 = and i32 %80, 255
-  %83 = shl i32 %81, %82
-  %84 = trunc i32 %83 to i8
-  br label %85
+78:                                               ; preds = %67
+  %79 = trunc i64 %51 to i32
+  %80 = zext nneg i8 %53 to i32
+  %81 = and i32 %79, 255
+  %82 = shl i32 %80, %81
+  %83 = trunc i32 %82 to i8
+  br label %84
 
-85:                                               ; preds = %69, %55, %79, %71, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit
-  %.sroa.063.0 = phi i8 [ %67, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit ], [ %78, %71 ], [ %84, %79 ], [ 0, %55 ], [ 0, %69 ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %87 = load ptr, ptr %86, align 8, !tbaa !488
-  %88 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %87, i64 noundef 8) #20
-  store i8 %.sroa.063.0, ptr %88, align 1, !tbaa !461
-  br label %89
+84:                                               ; preds = %68, %55, %78, %70, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit
+  %.sroa.063.0 = phi i8 [ %66, %_ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit ], [ %77, %70 ], [ %83, %78 ], [ 0, %55 ], [ 0, %68 ]
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %86 = load ptr, ptr %85, align 8, !tbaa !488
+  %87 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %86, i64 noundef 8) #20
+  store i8 %.sroa.063.0, ptr %87, align 1, !tbaa !461
+  br label %88
 
-89:                                               ; preds = %48, %85, %47
-  %.1 = phi i1 [ %.0, %47 ], [ true, %85 ], [ false, %48 ]
+88:                                               ; preds = %48, %84, %47
+  %.1 = phi i1 [ %.0, %47 ], [ true, %84 ], [ false, %48 ]
   ret i1 %.1
 }
 
@@ -205267,17 +205233,17 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %74
+  br label %73
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj8ELb0EEENS3_ILj8ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef 8)
-  br i1 %50, label %51, label %74
+  br i1 %50, label %51, label %73
 
 51:                                               ; preds = %49
   %52 = load i8, ptr %3, align 1, !tbaa !1471
   %53 = icmp sgt i8 %52, 7
   %54 = load i8, ptr %2, align 1, !tbaa !461
-  br i1 %53, label %55, label %66
+  br i1 %53, label %55, label %65
 
 55:                                               ; preds = %51
   %.not.i.i.i = icmp eq i8 %54, 0
@@ -205301,31 +205267,30 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
   %.0.i.i.i = phi i32 [ 8, %55 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %62 = trunc i32 %.0.i.i.i to i8
+  %62 = trunc nuw i32 %.0.i.i.i to i8
   store i8 %62, ptr %3, align 1, !tbaa !461
   %.sroa.014.0.copyload = load i8, ptr %2, align 1, !tbaa !461
   %63 = zext i8 %.sroa.014.0.copyload to i32
-  %64 = and i32 %.0.i.i.i, 255
-  %65 = shl i32 %63, %64
-  br label %70
+  %64 = shl i32 %63, %.0.i.i.i
+  br label %69
 
-66:                                               ; preds = %51
-  %67 = zext i8 %54 to i32
-  %68 = zext nneg i8 %52 to i32
-  %69 = shl i32 %67, %68
-  br label %70
+65:                                               ; preds = %51
+  %66 = zext i8 %54 to i32
+  %67 = zext nneg i8 %52 to i32
+  %68 = shl i32 %66, %67
+  br label %69
 
-70:                                               ; preds = %66, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit
-  %.sroa.063.0.in = phi i32 [ %65, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ], [ %69, %66 ]
+69:                                               ; preds = %65, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit
+  %.sroa.063.0.in = phi i32 [ %64, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ], [ %68, %65 ]
   %.sroa.063.0 = trunc i32 %.sroa.063.0.in to i8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %72 = load ptr, ptr %71, align 8, !tbaa !488
-  %73 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %72, i64 noundef 8) #20
-  store i8 %.sroa.063.0, ptr %73, align 1, !tbaa !461
-  br label %74
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %71 = load ptr, ptr %70, align 8, !tbaa !488
+  %72 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef 8) #20
+  store i8 %.sroa.063.0, ptr %72, align 1, !tbaa !461
+  br label %73
 
-74:                                               ; preds = %49, %70, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %70 ], [ false, %49 ]
+73:                                               ; preds = %49, %69, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %69 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -206057,17 +206022,17 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %75
+  br label %74
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj8ELb0EEENS3_ILj16ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 2 dereferenceable(2) %3, i32 noundef 8)
-  br i1 %50, label %51, label %75
+  br i1 %50, label %51, label %74
 
 51:                                               ; preds = %49
   %52 = load i16, ptr %3, align 2, !tbaa !1481
   %53 = icmp sgt i16 %52, 7
   %54 = load i8, ptr %2, align 1, !tbaa !461
-  br i1 %53, label %55, label %66
+  br i1 %53, label %55, label %65
 
 55:                                               ; preds = %51
   %.not.i.i.i = icmp eq i8 %54, 0
@@ -206091,32 +206056,31 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
   %.0.i.i.i = phi i32 [ 8, %55 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %62 = trunc i32 %.0.i.i.i to i16
+  %62 = trunc nuw nsw i32 %.0.i.i.i to i16
   store i16 %62, ptr %3, align 2, !tbaa !726
   %.sroa.014.0.copyload = load i8, ptr %2, align 1, !tbaa !461
   %63 = zext i8 %.sroa.014.0.copyload to i32
-  %64 = and i32 %.0.i.i.i, 255
-  %65 = shl i32 %63, %64
-  br label %71
+  %64 = shl i32 %63, %.0.i.i.i
+  br label %70
 
-66:                                               ; preds = %51
-  %67 = zext i8 %54 to i32
-  %68 = and i16 %52, 255
-  %69 = zext nneg i16 %68 to i32
-  %70 = shl i32 %67, %69
-  br label %71
+65:                                               ; preds = %51
+  %66 = zext i8 %54 to i32
+  %67 = and i16 %52, 255
+  %68 = zext nneg i16 %67 to i32
+  %69 = shl i32 %66, %68
+  br label %70
 
-71:                                               ; preds = %66, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit
-  %.sroa.063.0.in = phi i32 [ %65, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ], [ %70, %66 ]
+70:                                               ; preds = %65, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit
+  %.sroa.063.0.in = phi i32 [ %64, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ], [ %69, %65 ]
   %.sroa.063.0 = trunc i32 %.sroa.063.0.in to i8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %73 = load ptr, ptr %72, align 8, !tbaa !488
-  %74 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %73, i64 noundef 8) #20
-  store i8 %.sroa.063.0, ptr %74, align 1, !tbaa !461
-  br label %75
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %72 = load ptr, ptr %71, align 8, !tbaa !488
+  %73 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %72, i64 noundef 8) #20
+  store i8 %.sroa.063.0, ptr %73, align 1, !tbaa !461
+  br label %74
 
-75:                                               ; preds = %49, %71, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %71 ], [ false, %49 ]
+74:                                               ; preds = %49, %70, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %70 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -206849,17 +206813,17 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %69
+  br label %72
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj8ELb0EEENS3_ILj32ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 8)
-  br i1 %50, label %51, label %69
+  br i1 %50, label %51, label %72
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %3, align 4, !tbaa !1489
   %53 = icmp sgt i32 %52, 7
   %54 = load i8, ptr %2, align 1, !tbaa !461
-  br i1 %53, label %55, label %62
+  br i1 %53, label %55, label %64
 
 55:                                               ; preds = %51
   %.not.i.i.i = icmp eq i8 %54, 0
@@ -206885,23 +206849,27 @@ _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preh
   %.0.i.i.i = phi i32 [ 8, %55 ], [ %.1.i.i.i, %.preheader.i.i.i ]
   store i32 %.0.i.i.i, ptr %3, align 4, !tbaa !467
   %.sroa.014.0.copyload = load i8, ptr %2, align 1, !tbaa !461
-  br label %62
+  %62 = zext i8 %.sroa.014.0.copyload to i32
+  %63 = shl i32 %62, %.0.i.i.i
+  br label %68
 
-62:                                               ; preds = %51, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit
-  %.sink70 = phi i8 [ %.sroa.014.0.copyload, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ], [ %54, %51 ]
-  %.sink69 = phi i32 [ %.0.i.i.i, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ], [ %52, %51 ]
-  %63 = zext i8 %.sink70 to i32
-  %64 = and i32 %.sink69, 255
-  %65 = shl i32 %63, %64
-  %.sroa.063.0 = trunc i32 %65 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %67 = load ptr, ptr %66, align 8, !tbaa !488
-  %68 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef 8) #20
-  store i8 %.sroa.063.0, ptr %68, align 1, !tbaa !461
-  br label %69
+64:                                               ; preds = %51
+  %65 = zext i8 %54 to i32
+  %66 = and i32 %52, 255
+  %67 = shl i32 %65, %66
+  br label %68
 
-69:                                               ; preds = %49, %62, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %62 ], [ false, %49 ]
+68:                                               ; preds = %64, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit
+  %.sroa.063.0.in = phi i32 [ %63, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ], [ %67, %64 ]
+  %.sroa.063.0 = trunc i32 %.sroa.063.0.in to i8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %70 = load ptr, ptr %69, align 8, !tbaa !488
+  %71 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 noundef 8) #20
+  store i8 %.sroa.063.0, ptr %71, align 1, !tbaa !461
+  br label %72
+
+72:                                               ; preds = %49, %68, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %68 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -207628,17 +207596,17 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 47:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %43
   %.0 = phi i1 [ %46, %43 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %71
+  br label %73
 
 48:                                               ; preds = %.thread, %13
   %49 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj8ELb0EEENS3_ILj64ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 8)
-  br i1 %49, label %50, label %71
+  br i1 %49, label %50, label %73
 
 50:                                               ; preds = %48
   %51 = load i64, ptr %3, align 8, !tbaa !893
   %52 = icmp sgt i64 %51, 7
   %53 = load i8, ptr %2, align 1, !tbaa !461
-  br i1 %52, label %54, label %62
+  br i1 %52, label %54, label %64
 
 54:                                               ; preds = %50
   %.not.i.i.i = icmp eq i8 %53, 0
@@ -207662,30 +207630,31 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %54
   %.0.i.i.i = phi i32 [ 8, %54 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %61 = zext i32 %.0.i.i.i to i64
+  %61 = zext nneg i32 %.0.i.i.i to i64
   store i64 %61, ptr %3, align 8, !tbaa !629
   %.sroa.014.0.copyload = load i8, ptr %2, align 1, !tbaa !461
-  br label %64
+  %62 = zext i8 %.sroa.014.0.copyload to i32
+  %63 = shl i32 %62, %.0.i.i.i
+  br label %69
 
-62:                                               ; preds = %50
-  %63 = trunc i64 %51 to i32
-  br label %64
+64:                                               ; preds = %50
+  %65 = trunc i64 %51 to i32
+  %66 = zext i8 %53 to i32
+  %67 = and i32 %65, 255
+  %68 = shl i32 %66, %67
+  br label %69
 
-64:                                               ; preds = %62, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit
-  %.sink70 = phi i8 [ %53, %62 ], [ %.sroa.014.0.copyload, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ]
-  %.sink69 = phi i32 [ %63, %62 ], [ %.0.i.i.i, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ]
-  %65 = zext i8 %.sink70 to i32
-  %66 = and i32 %.sink69, 255
-  %67 = shl i32 %65, %66
-  %.sroa.063.0 = trunc i32 %67 to i8
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %69 = load ptr, ptr %68, align 8, !tbaa !488
-  %70 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %69, i64 noundef 8) #20
-  store i8 %.sroa.063.0, ptr %70, align 1, !tbaa !461
-  br label %71
+69:                                               ; preds = %64, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit
+  %.sroa.063.0.in = phi i32 [ %63, %_ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit ], [ %68, %64 ]
+  %.sroa.063.0 = trunc i32 %.sroa.063.0.in to i8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %71 = load ptr, ptr %70, align 8, !tbaa !488
+  %72 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef 8) #20
+  store i8 %.sroa.063.0, ptr %72, align 1, !tbaa !461
+  br label %73
 
-71:                                               ; preds = %48, %64, %47
-  %.1 = phi i1 [ %.0, %47 ], [ true, %64 ], [ false, %48 ]
+73:                                               ; preds = %48, %69, %47
+  %.1 = phi i1 [ %.0, %47 ], [ true, %69 ], [ false, %48 ]
   ret i1 %.1
 }
 
@@ -211065,21 +211034,21 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %88
+  br label %87
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj16ELb1EEES4_EEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2, ptr noundef nonnull align 2 dereferenceable(2) %3, i32 noundef 16)
-  br i1 %50, label %51, label %88
+  br i1 %50, label %51, label %87
 
 51:                                               ; preds = %49
   %52 = load i16, ptr %3, align 2, !tbaa !1481
   %53 = icmp sgt i16 %52, 15
   %54 = load i16, ptr %2, align 2, !tbaa !1481
   %55 = icmp slt i16 %54, 0
-  br i1 %53, label %56, label %69
+  br i1 %53, label %56, label %68
 
 56:                                               ; preds = %51
-  br i1 %55, label %84, label %57
+  br i1 %55, label %83, label %57
 
 57:                                               ; preds = %56
   %.not.i.i.i = icmp eq i16 %54, 0
@@ -211103,48 +211072,47 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %57
   %.0.i.i.i = phi i32 [ 16, %57 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %64 = trunc i32 %.0.i.i.i to i16
+  %64 = trunc nuw i32 %.0.i.i.i to i16
   store i16 %64, ptr %3, align 2, !tbaa !726
   %.sroa.014.0.copyload = load i16, ptr %2, align 2, !tbaa !726
   %65 = zext i16 %.sroa.014.0.copyload to i32
-  %66 = and i32 %.0.i.i.i, 65535
-  %67 = shl i32 %65, %66
-  %68 = trunc i32 %67 to i16
-  br label %84
+  %66 = shl i32 %65, %.0.i.i.i
+  %67 = trunc i32 %66 to i16
+  br label %83
 
-69:                                               ; preds = %51
-  br i1 %55, label %70, label %79
+68:                                               ; preds = %51
+  br i1 %55, label %69, label %78
 
-70:                                               ; preds = %69
-  %71 = icmp eq i16 %54, -32768
-  br i1 %71, label %84, label %72
+69:                                               ; preds = %68
+  %70 = icmp eq i16 %54, -32768
+  br i1 %70, label %83, label %71
 
-72:                                               ; preds = %70
-  %73 = sub nsw i16 0, %54
-  %74 = zext nneg i16 %73 to i32
-  %75 = zext nneg i16 %52 to i32
-  %76 = shl i32 %74, %75
-  %77 = trunc i32 %76 to i16
-  %78 = sub i16 0, %77
-  br label %84
+71:                                               ; preds = %69
+  %72 = sub nsw i16 0, %54
+  %73 = zext nneg i16 %72 to i32
+  %74 = zext nneg i16 %52 to i32
+  %75 = shl i32 %73, %74
+  %76 = trunc i32 %75 to i16
+  %77 = sub i16 0, %76
+  br label %83
 
-79:                                               ; preds = %69
-  %80 = zext nneg i16 %54 to i32
-  %81 = zext nneg i16 %52 to i32
-  %82 = shl i32 %80, %81
-  %83 = trunc i32 %82 to i16
-  br label %84
+78:                                               ; preds = %68
+  %79 = zext nneg i16 %54 to i32
+  %80 = zext nneg i16 %52 to i32
+  %81 = shl i32 %79, %80
+  %82 = trunc i32 %81 to i16
+  br label %83
 
-84:                                               ; preds = %70, %56, %79, %72, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit
-  %.sroa.063.0 = phi i16 [ %68, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit ], [ %78, %72 ], [ %83, %79 ], [ 0, %56 ], [ 0, %70 ]
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %86 = load ptr, ptr %85, align 8, !tbaa !488
-  %87 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %86, i64 noundef 8) #20
-  store i16 %.sroa.063.0, ptr %87, align 2, !tbaa !726
-  br label %88
+83:                                               ; preds = %69, %56, %78, %71, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit
+  %.sroa.063.0 = phi i16 [ %67, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit ], [ %77, %71 ], [ %82, %78 ], [ 0, %56 ], [ 0, %69 ]
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %85 = load ptr, ptr %84, align 8, !tbaa !488
+  %86 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %85, i64 noundef 8) #20
+  store i16 %.sroa.063.0, ptr %86, align 2, !tbaa !726
+  br label %87
 
-88:                                               ; preds = %49, %84, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %84 ], [ false, %49 ]
+87:                                               ; preds = %49, %83, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %83 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -212102,21 +212070,21 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %87
+  br label %86
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj16ELb1EEENS3_ILj32ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 16)
-  br i1 %50, label %51, label %87
+  br i1 %50, label %51, label %86
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %3, align 4, !tbaa !1489
   %53 = icmp sgt i32 %52, 15
   %54 = load i16, ptr %2, align 2, !tbaa !1481
   %55 = icmp slt i16 %54, 0
-  br i1 %53, label %56, label %68
+  br i1 %53, label %56, label %67
 
 56:                                               ; preds = %51
-  br i1 %55, label %83, label %57
+  br i1 %55, label %82, label %57
 
 57:                                               ; preds = %56
   %.not.i.i.i = icmp eq i16 %54, 0
@@ -212142,44 +212110,43 @@ _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit: ; preds = %.pre
   %.0.i.i.i = phi i32 [ 16, %57 ], [ %.1.i.i.i, %.preheader.i.i.i ]
   store i32 %.0.i.i.i, ptr %3, align 4, !tbaa !467
   %64 = zext nneg i16 %54 to i32
-  %65 = and i32 %.0.i.i.i, 65535
-  %66 = shl i32 %64, %65
-  %67 = trunc i32 %66 to i16
-  br label %83
+  %65 = shl i32 %64, %.0.i.i.i
+  %66 = trunc i32 %65 to i16
+  br label %82
 
-68:                                               ; preds = %51
-  br i1 %55, label %69, label %78
+67:                                               ; preds = %51
+  br i1 %55, label %68, label %77
 
-69:                                               ; preds = %68
-  %70 = icmp eq i16 %54, -32768
-  br i1 %70, label %83, label %71
+68:                                               ; preds = %67
+  %69 = icmp eq i16 %54, -32768
+  br i1 %69, label %82, label %70
 
-71:                                               ; preds = %69
-  %72 = sub nsw i16 0, %54
-  %73 = zext nneg i16 %72 to i32
-  %74 = and i32 %52, 65535
-  %75 = shl i32 %73, %74
-  %76 = trunc i32 %75 to i16
-  %77 = sub i16 0, %76
-  br label %83
+70:                                               ; preds = %68
+  %71 = sub nsw i16 0, %54
+  %72 = zext nneg i16 %71 to i32
+  %73 = and i32 %52, 65535
+  %74 = shl i32 %72, %73
+  %75 = trunc i32 %74 to i16
+  %76 = sub i16 0, %75
+  br label %82
 
-78:                                               ; preds = %68
-  %79 = zext nneg i16 %54 to i32
-  %80 = and i32 %52, 65535
-  %81 = shl i32 %79, %80
-  %82 = trunc i32 %81 to i16
-  br label %83
+77:                                               ; preds = %67
+  %78 = zext nneg i16 %54 to i32
+  %79 = and i32 %52, 65535
+  %80 = shl i32 %78, %79
+  %81 = trunc i32 %80 to i16
+  br label %82
 
-83:                                               ; preds = %69, %56, %78, %71, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit
-  %.sroa.063.0 = phi i16 [ %67, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit ], [ %77, %71 ], [ %82, %78 ], [ 0, %56 ], [ 0, %69 ]
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %85 = load ptr, ptr %84, align 8, !tbaa !488
-  %86 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %85, i64 noundef 8) #20
-  store i16 %.sroa.063.0, ptr %86, align 2, !tbaa !726
-  br label %87
+82:                                               ; preds = %68, %56, %77, %70, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit
+  %.sroa.063.0 = phi i16 [ %66, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit ], [ %76, %70 ], [ %81, %77 ], [ 0, %56 ], [ 0, %68 ]
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %84 = load ptr, ptr %83, align 8, !tbaa !488
+  %85 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %84, i64 noundef 8) #20
+  store i16 %.sroa.063.0, ptr %85, align 2, !tbaa !726
+  br label %86
 
-87:                                               ; preds = %49, %83, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %83 ], [ false, %49 ]
+86:                                               ; preds = %49, %82, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %82 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -213130,21 +213097,21 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 47:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %43
   %.0 = phi i1 [ %46, %43 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %89
+  br label %88
 
 48:                                               ; preds = %.thread, %13
   %49 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj16ELb1EEENS3_ILj64ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 16)
-  br i1 %49, label %50, label %89
+  br i1 %49, label %50, label %88
 
 50:                                               ; preds = %48
   %51 = load i64, ptr %3, align 8, !tbaa !893
   %52 = icmp sgt i64 %51, 15
   %53 = load i16, ptr %2, align 2, !tbaa !1481
   %54 = icmp slt i16 %53, 0
-  br i1 %52, label %55, label %68
+  br i1 %52, label %55, label %67
 
 55:                                               ; preds = %50
-  br i1 %54, label %85, label %56
+  br i1 %54, label %84, label %56
 
 56:                                               ; preds = %55
   %.not.i.i.i = icmp eq i16 %53, 0
@@ -213168,49 +213135,48 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %56
   %.0.i.i.i = phi i32 [ 16, %56 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %63 = zext i32 %.0.i.i.i to i64
+  %63 = zext nneg i32 %.0.i.i.i to i64
   store i64 %63, ptr %3, align 8, !tbaa !629
   %64 = zext nneg i16 %53 to i32
-  %65 = and i32 %.0.i.i.i, 65535
-  %66 = shl i32 %64, %65
-  %67 = trunc i32 %66 to i16
-  br label %85
+  %65 = shl i32 %64, %.0.i.i.i
+  %66 = trunc i32 %65 to i16
+  br label %84
 
-68:                                               ; preds = %50
-  br i1 %54, label %69, label %79
+67:                                               ; preds = %50
+  br i1 %54, label %68, label %78
 
-69:                                               ; preds = %68
-  %70 = icmp eq i16 %53, -32768
-  br i1 %70, label %85, label %71
+68:                                               ; preds = %67
+  %69 = icmp eq i16 %53, -32768
+  br i1 %69, label %84, label %70
 
-71:                                               ; preds = %69
-  %72 = sub nsw i16 0, %53
-  %73 = trunc i64 %51 to i32
-  %74 = zext nneg i16 %72 to i32
-  %75 = and i32 %73, 65535
-  %76 = shl i32 %74, %75
-  %77 = trunc i32 %76 to i16
-  %78 = sub i16 0, %77
-  br label %85
+70:                                               ; preds = %68
+  %71 = sub nsw i16 0, %53
+  %72 = trunc i64 %51 to i32
+  %73 = zext nneg i16 %71 to i32
+  %74 = and i32 %72, 65535
+  %75 = shl i32 %73, %74
+  %76 = trunc i32 %75 to i16
+  %77 = sub i16 0, %76
+  br label %84
 
-79:                                               ; preds = %68
-  %80 = trunc i64 %51 to i32
-  %81 = zext nneg i16 %53 to i32
-  %82 = and i32 %80, 65535
-  %83 = shl i32 %81, %82
-  %84 = trunc i32 %83 to i16
-  br label %85
+78:                                               ; preds = %67
+  %79 = trunc i64 %51 to i32
+  %80 = zext nneg i16 %53 to i32
+  %81 = and i32 %79, 65535
+  %82 = shl i32 %80, %81
+  %83 = trunc i32 %82 to i16
+  br label %84
 
-85:                                               ; preds = %69, %55, %79, %71, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit
-  %.sroa.063.0 = phi i16 [ %67, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit ], [ %78, %71 ], [ %84, %79 ], [ 0, %55 ], [ 0, %69 ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %87 = load ptr, ptr %86, align 8, !tbaa !488
-  %88 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %87, i64 noundef 8) #20
-  store i16 %.sroa.063.0, ptr %88, align 2, !tbaa !726
-  br label %89
+84:                                               ; preds = %68, %55, %78, %70, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit
+  %.sroa.063.0 = phi i16 [ %66, %_ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit ], [ %77, %70 ], [ %83, %78 ], [ 0, %55 ], [ 0, %68 ]
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %86 = load ptr, ptr %85, align 8, !tbaa !488
+  %87 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %86, i64 noundef 8) #20
+  store i16 %.sroa.063.0, ptr %87, align 2, !tbaa !726
+  br label %88
 
-89:                                               ; preds = %48, %85, %47
-  %.1 = phi i1 [ %.0, %47 ], [ true, %85 ], [ false, %48 ]
+88:                                               ; preds = %48, %84, %47
+  %.1 = phi i1 [ %.0, %47 ], [ true, %84 ], [ false, %48 ]
   ret i1 %.1
 }
 
@@ -217237,17 +217203,17 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %74
+  br label %73
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj16ELb0EEENS3_ILj16ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2, ptr noundef nonnull align 2 dereferenceable(2) %3, i32 noundef 16)
-  br i1 %50, label %51, label %74
+  br i1 %50, label %51, label %73
 
 51:                                               ; preds = %49
   %52 = load i16, ptr %3, align 2, !tbaa !1481
   %53 = icmp sgt i16 %52, 15
   %54 = load i16, ptr %2, align 2, !tbaa !726
-  br i1 %53, label %55, label %66
+  br i1 %53, label %55, label %65
 
 55:                                               ; preds = %51
   %.not.i.i.i = icmp eq i16 %54, 0
@@ -217271,31 +217237,30 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
   %.0.i.i.i = phi i32 [ 16, %55 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %62 = trunc i32 %.0.i.i.i to i16
+  %62 = trunc nuw i32 %.0.i.i.i to i16
   store i16 %62, ptr %3, align 2, !tbaa !726
   %.sroa.014.0.copyload = load i16, ptr %2, align 2, !tbaa !726
   %63 = zext i16 %.sroa.014.0.copyload to i32
-  %64 = and i32 %.0.i.i.i, 65535
-  %65 = shl i32 %63, %64
-  br label %70
+  %64 = shl i32 %63, %.0.i.i.i
+  br label %69
 
-66:                                               ; preds = %51
-  %67 = zext i16 %54 to i32
-  %68 = zext nneg i16 %52 to i32
-  %69 = shl i32 %67, %68
-  br label %70
+65:                                               ; preds = %51
+  %66 = zext i16 %54 to i32
+  %67 = zext nneg i16 %52 to i32
+  %68 = shl i32 %66, %67
+  br label %69
 
-70:                                               ; preds = %66, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit
-  %.sroa.063.0.in = phi i32 [ %65, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit ], [ %69, %66 ]
+69:                                               ; preds = %65, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit
+  %.sroa.063.0.in = phi i32 [ %64, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit ], [ %68, %65 ]
   %.sroa.063.0 = trunc i32 %.sroa.063.0.in to i16
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %72 = load ptr, ptr %71, align 8, !tbaa !488
-  %73 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %72, i64 noundef 8) #20
-  store i16 %.sroa.063.0, ptr %73, align 2, !tbaa !726
-  br label %74
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %71 = load ptr, ptr %70, align 8, !tbaa !488
+  %72 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef 8) #20
+  store i16 %.sroa.063.0, ptr %72, align 2, !tbaa !726
+  br label %73
 
-74:                                               ; preds = %49, %70, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %70 ], [ false, %49 ]
+73:                                               ; preds = %49, %69, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %69 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -218027,17 +217992,17 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 48:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %44
   %.0 = phi i1 [ %47, %44 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %69
+  br label %72
 
 49:                                               ; preds = %.thread, %13
   %50 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj16ELb0EEENS3_ILj32ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 16)
-  br i1 %50, label %51, label %69
+  br i1 %50, label %51, label %72
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %3, align 4, !tbaa !1489
   %53 = icmp sgt i32 %52, 15
   %54 = load i16, ptr %2, align 2, !tbaa !726
-  br i1 %53, label %55, label %62
+  br i1 %53, label %55, label %64
 
 55:                                               ; preds = %51
   %.not.i.i.i = icmp eq i16 %54, 0
@@ -218062,22 +218027,27 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %55
   %.0.i.i.i = phi i32 [ 16, %55 ], [ %.1.i.i.i, %.preheader.i.i.i ]
   store i32 %.0.i.i.i, ptr %3, align 4, !tbaa !467
-  br label %62
+  %62 = zext i16 %54 to i32
+  %63 = shl i32 %62, %.0.i.i.i
+  br label %68
 
-62:                                               ; preds = %51, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit
-  %.sink69 = phi i32 [ %.0.i.i.i, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit ], [ %52, %51 ]
-  %63 = zext i16 %54 to i32
-  %64 = and i32 %.sink69, 65535
-  %65 = shl i32 %63, %64
-  %.sroa.063.0 = trunc i32 %65 to i16
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %67 = load ptr, ptr %66, align 8, !tbaa !488
-  %68 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef 8) #20
-  store i16 %.sroa.063.0, ptr %68, align 2, !tbaa !726
-  br label %69
+64:                                               ; preds = %51
+  %65 = zext i16 %54 to i32
+  %66 = and i32 %52, 65535
+  %67 = shl i32 %65, %66
+  br label %68
 
-69:                                               ; preds = %49, %62, %48
-  %.1 = phi i1 [ %.0, %48 ], [ true, %62 ], [ false, %49 ]
+68:                                               ; preds = %64, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit
+  %.sroa.063.0.in = phi i32 [ %63, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit ], [ %67, %64 ]
+  %.sroa.063.0 = trunc i32 %.sroa.063.0.in to i16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %70 = load ptr, ptr %69, align 8, !tbaa !488
+  %71 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 noundef 8) #20
+  store i16 %.sroa.063.0, ptr %71, align 2, !tbaa !726
+  br label %72
+
+72:                                               ; preds = %49, %68, %48
+  %.1 = phi i1 [ %.0, %48 ], [ true, %68 ], [ false, %49 ]
   ret i1 %.1
 }
 
@@ -218804,17 +218774,17 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 47:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %43
   %.0 = phi i1 [ %46, %43 ], [ false, %_ZN4llvm5APIntD2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
-  br label %71
+  br label %73
 
 48:                                               ; preds = %.thread, %13
   %49 = tail call noundef zeroext i1 @_ZN5clang6interp10CheckShiftILNS0_8ShiftDirE0ENS0_8IntegralILj16ELb0EEENS3_ILj64ELb1EEEEEbRNS0_11InterpStateENS0_7CodePtrERKT0_RKT1_j(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, ptr noundef nonnull align 2 dereferenceable(2) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 16)
-  br i1 %49, label %50, label %71
+  br i1 %49, label %50, label %73
 
 50:                                               ; preds = %48
   %51 = load i64, ptr %3, align 8, !tbaa !893
   %52 = icmp sgt i64 %51, 15
   %53 = load i16, ptr %2, align 2, !tbaa !726
-  br i1 %52, label %54, label %62
+  br i1 %52, label %54, label %64
 
 54:                                               ; preds = %50
   %.not.i.i.i = icmp eq i16 %53, 0
@@ -218838,28 +218808,30 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %15, %_ZN5clang18Opt
 
 _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit: ; preds = %.preheader.i.i.i, %54
   %.0.i.i.i = phi i32 [ 16, %54 ], [ %.1.i.i.i, %.preheader.i.i.i ]
-  %61 = zext i32 %.0.i.i.i to i64
+  %61 = zext nneg i32 %.0.i.i.i to i64
   store i64 %61, ptr %3, align 8, !tbaa !629
-  br label %64
+  %62 = zext i16 %53 to i32
+  %63 = shl i32 %62, %.0.i.i.i
+  br label %69
 
-62:                                               ; preds = %50
-  %63 = trunc i64 %51 to i32
-  br label %64
+64:                                               ; preds = %50
+  %65 = trunc i64 %51 to i32
+  %66 = zext i16 %53 to i32
+  %67 = and i32 %65, 65535
+  %68 = shl i32 %66, %67
+  br label %69
 
-64:                                               ; preds = %62, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit
-  %.sink69 = phi i32 [ %63, %62 ], [ %.0.i.i.i, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit ]
-  %65 = zext i16 %53 to i32
-  %66 = and i32 %.sink69, 65535
-  %67 = shl i32 %65, %66
-  %.sroa.063.0 = trunc i32 %67 to i16
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %69 = load ptr, ptr %68, align 8, !tbaa !488
-  %70 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %69, i64 noundef 8) #20
-  store i16 %.sroa.063.0, ptr %70, align 2, !tbaa !726
-  br label %71
+69:                                               ; preds = %64, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit
+  %.sroa.063.0.in = phi i32 [ %63, %_ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit ], [ %68, %64 ]
+  %.sroa.063.0 = trunc i32 %.sroa.063.0.in to i16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %71 = load ptr, ptr %70, align 8, !tbaa !488
+  %72 = tail call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef 8) #20
+  store i16 %.sroa.063.0, ptr %72, align 2, !tbaa !726
+  br label %73
 
-71:                                               ; preds = %48, %64, %47
-  %.1 = phi i1 [ %.0, %47 ], [ true, %64 ], [ false, %48 ]
+73:                                               ; preds = %48, %69, %47
+  %.1 = phi i1 [ %.0, %47 ], [ true, %69 ], [ false, %48 ]
   ret i1 %.1
 }
 

@@ -17665,7 +17665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN5cmsys11SystemTools16GetTerminalWidthEv() local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -1, 65536) i32 @_ZN5cmsys11SystemTools16GetTerminalWidthEv() local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct.winsize, align 2
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca ptr, align 8

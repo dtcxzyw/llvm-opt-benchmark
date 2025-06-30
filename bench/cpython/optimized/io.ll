@@ -646,10 +646,10 @@ define hidden ptr @mpd_to_sci(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 192) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @mpd_isspecial(ptr noundef %1) #18
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %57, label %6
+  br i1 %.not, label %56, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i32 @mpd_isnan(ptr noundef %1) #18
@@ -676,7 +676,7 @@ define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) 
 
 19:                                               ; preds = %16
   store ptr null, ptr %0, align 8, !tbaa !26
-  br label %184
+  br label %182
 
 20:                                               ; preds = %16
   %21 = tail call i32 @mpd_isnegative(ptr noundef %1) #18
@@ -689,342 +689,340 @@ define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) 
   br i1 %.not116, label %24, label %.sink.split
 
 24:                                               ; preds = %22
-  %25 = and i32 %2, 128
-  %.not117 = icmp eq i32 %25, 0
-  br i1 %.not117, label %27, label %.sink.split
+  %.not117 = icmp samesign ult i32 %2, 128
+  br i1 %.not117, label %26, label %.sink.split
 
 .sink.split:                                      ; preds = %24, %22, %20
   %.sink = phi i8 [ 45, %20 ], [ 32, %22 ], [ 43, %24 ]
-  %26 = getelementptr i8, ptr %17, i64 1
+  %25 = getelementptr i8, ptr %17, i64 1
   store i8 %.sink, ptr %17, align 1, !tbaa !11
-  br label %27
+  br label %26
 
-27:                                               ; preds = %.sink.split, %24
-  %.096 = phi ptr [ %17, %24 ], [ %26, %.sink.split ]
-  %28 = tail call i32 @mpd_isnan(ptr noundef %1) #18
-  %.not118 = icmp eq i32 %28, 0
-  br i1 %.not118, label %52, label %29
+26:                                               ; preds = %.sink.split, %24
+  %.096 = phi ptr [ %17, %24 ], [ %25, %.sink.split ]
+  %27 = tail call i32 @mpd_isnan(ptr noundef %1) #18
+  %.not118 = icmp eq i32 %27, 0
+  br i1 %.not118, label %51, label %28
 
-29:                                               ; preds = %27
-  %30 = tail call i32 @mpd_isqnan(ptr noundef %1) #18
-  %.not120 = icmp eq i32 %30, 0
-  br i1 %.not120, label %32, label %31
+28:                                               ; preds = %26
+  %29 = tail call i32 @mpd_isqnan(ptr noundef %1) #18
+  %.not120 = icmp eq i32 %29, 0
+  br i1 %.not120, label %31, label %30
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   store i32 5136718, ptr %.096, align 1
-  br label %33
+  br label %32
 
-32:                                               ; preds = %29
+31:                                               ; preds = %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.096, ptr noundef nonnull align 1 dereferenceable(5) @.str.17, i64 5, i1 false) #18
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %31
-  %.sink160 = phi i64 [ 4, %32 ], [ 3, %31 ]
-  %34 = getelementptr i8, ptr %.096, i64 %.sink160
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %36 = load i64, ptr %35, align 8, !tbaa !3
-  %37 = icmp sgt i64 %36, 0
-  br i1 %37, label %38, label %coeff_to_string.exit
+32:                                               ; preds = %31, %30
+  %.sink160 = phi i64 [ 4, %31 ], [ 3, %30 ]
+  %33 = getelementptr i8, ptr %.096, i64 %.sink160
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %35 = load i64, ptr %34, align 8, !tbaa !3
+  %36 = icmp sgt i64 %35, 0
+  br i1 %36, label %37, label %coeff_to_string.exit
 
-38:                                               ; preds = %33
-  %39 = tail call i64 @mpd_msword(ptr noundef nonnull %1) #18
-  %40 = tail call i32 @mpd_word_digits(i64 noundef %39) #18
-  %41 = tail call fastcc ptr @word_to_string(ptr noundef %34, i64 noundef %39, i32 noundef %40, ptr noundef null)
-  %42 = load i64, ptr %35, align 8, !tbaa !3
-  %43 = add i64 %42, -2
-  %44 = icmp sgt i64 %43, -1
-  br i1 %44, label %.lr.ph.i, label %coeff_to_string.exit
+37:                                               ; preds = %32
+  %38 = tail call i64 @mpd_msword(ptr noundef nonnull %1) #18
+  %39 = tail call i32 @mpd_word_digits(i64 noundef %38) #18
+  %40 = tail call fastcc ptr @word_to_string(ptr noundef %33, i64 noundef %38, i32 noundef %39, ptr noundef null)
+  %41 = load i64, ptr %34, align 8, !tbaa !3
+  %42 = add i64 %41, -2
+  %43 = icmp sgt i64 %42, -1
+  br i1 %43, label %.lr.ph.i, label %coeff_to_string.exit
 
-.lr.ph.i:                                         ; preds = %38
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %46
+.lr.ph.i:                                         ; preds = %37
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br label %45
 
-46:                                               ; preds = %46, %.lr.ph.i
-  %.013.i = phi i64 [ %43, %.lr.ph.i ], [ %51, %46 ]
-  %.01112.i = phi ptr [ %41, %.lr.ph.i ], [ %50, %46 ]
-  %47 = load ptr, ptr %45, align 8, !tbaa !28
-  %48 = getelementptr i64, ptr %47, i64 %.013.i
-  %49 = load i64, ptr %48, align 8, !tbaa !29
-  %50 = tail call fastcc ptr @word_to_string(ptr noundef %.01112.i, i64 noundef %49, i32 noundef 19, ptr noundef null)
-  %51 = add nsw i64 %.013.i, -1
+45:                                               ; preds = %45, %.lr.ph.i
+  %.013.i = phi i64 [ %42, %.lr.ph.i ], [ %50, %45 ]
+  %.01112.i = phi ptr [ %40, %.lr.ph.i ], [ %49, %45 ]
+  %46 = load ptr, ptr %44, align 8, !tbaa !28
+  %47 = getelementptr i64, ptr %46, i64 %.013.i
+  %48 = load i64, ptr %47, align 8, !tbaa !29
+  %49 = tail call fastcc ptr @word_to_string(ptr noundef %.01112.i, i64 noundef %48, i32 noundef 19, ptr noundef null)
+  %50 = add nsw i64 %.013.i, -1
   %.not.i = icmp eq i64 %.013.i, 0
-  br i1 %.not.i, label %coeff_to_string.exit, label %46, !llvm.loop !34
+  br i1 %.not.i, label %coeff_to_string.exit, label %45, !llvm.loop !34
 
-52:                                               ; preds = %27
-  %53 = tail call i32 @mpd_isinfinite(ptr noundef %1) #18
-  %.not119 = icmp eq i32 %53, 0
-  br i1 %.not119, label %56, label %54
+51:                                               ; preds = %26
+  %52 = tail call i32 @mpd_isinfinite(ptr noundef %1) #18
+  %.not119 = icmp eq i32 %52, 0
+  br i1 %.not119, label %55, label %53
 
-54:                                               ; preds = %52
+53:                                               ; preds = %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.096, ptr noundef nonnull align 1 dereferenceable(9) @.str.18, i64 9, i1 false) #18
-  %55 = getelementptr i8, ptr %.096, i64 8
+  %54 = getelementptr i8, ptr %.096, i64 8
   br label %coeff_to_string.exit
 
-56:                                               ; preds = %52
+55:                                               ; preds = %51
   tail call void @abort() #20
   unreachable
 
-57:                                               ; preds = %4
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %59 = load i64, ptr %58, align 8, !tbaa !33
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %61 = load i64, ptr %60, align 8, !tbaa !10
-  %62 = add i64 %61, %59
-  %63 = and i32 %2, 8
-  %.not103 = icmp ne i32 %63, 0
-  br i1 %.not103, label %88, label %64
+56:                                               ; preds = %4
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %58 = load i64, ptr %57, align 8, !tbaa !33
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !10
+  %61 = add i64 %60, %58
+  %62 = and i32 %2, 8
+  %.not103 = icmp ne i32 %62, 0
+  br i1 %.not103, label %87, label %63
 
-64:                                               ; preds = %57
-  %65 = and i32 %2, 16
-  %.not104 = icmp eq i32 %65, 0
-  br i1 %.not104, label %66, label %88
+63:                                               ; preds = %56
+  %64 = and i32 %2, 16
+  %.not104 = icmp eq i32 %64, 0
+  br i1 %.not104, label %65, label %87
 
-66:                                               ; preds = %64
-  %67 = icmp slt i64 %61, 1
-  %68 = icmp sgt i64 %62, -6
-  %or.cond = select i1 %67, i1 %68, i1 false
-  br i1 %or.cond, label %88, label %69
+65:                                               ; preds = %63
+  %66 = icmp slt i64 %60, 1
+  %67 = icmp sgt i64 %61, -6
+  %or.cond = select i1 %66, i1 %67, i1 false
+  br i1 %or.cond, label %87, label %68
 
-69:                                               ; preds = %66
-  %70 = and i32 %2, 4
-  %.not105 = icmp eq i32 %70, 0
-  br i1 %.not105, label %88, label %71
+68:                                               ; preds = %65
+  %69 = and i32 %2, 4
+  %.not105 = icmp eq i32 %69, 0
+  br i1 %.not105, label %87, label %70
 
-71:                                               ; preds = %69
-  %72 = tail call i32 @mpd_iszero(ptr noundef nonnull %1) #18
-  %.not106 = icmp eq i32 %72, 0
-  br i1 %.not106, label %81, label %73
+70:                                               ; preds = %68
+  %71 = tail call i32 @mpd_iszero(ptr noundef nonnull %1) #18
+  %.not106 = icmp eq i32 %71, 0
+  br i1 %.not106, label %80, label %72
 
-73:                                               ; preds = %71
-  %74 = load i64, ptr %60, align 8, !tbaa !10
-  %75 = add i64 %74, 2
-  %76 = srem i64 %75, 3
-  %77 = icmp slt i64 %76, 0
-  %78 = add nsw i64 %76, 3
-  %79 = select i1 %77, i64 %78, i64 %76
-  %80 = add nsw i64 %79, -1
-  br label %88
+72:                                               ; preds = %70
+  %73 = load i64, ptr %59, align 8, !tbaa !10
+  %74 = add i64 %73, 2
+  %75 = srem i64 %74, 3
+  %76 = icmp slt i64 %75, 0
+  %77 = add nsw i64 %75, 3
+  %78 = select i1 %76, i64 %77, i64 %75
+  %79 = add nsw i64 %78, -1
+  br label %87
 
-81:                                               ; preds = %71
-  %82 = add i64 %62, -1
-  %83 = srem i64 %82, 3
-  %84 = icmp slt i64 %83, 0
-  %85 = add nsw i64 %83, 3
-  %86 = select i1 %84, i64 %85, i64 %83
-  %87 = add i64 %86, %3
-  br label %88
+80:                                               ; preds = %70
+  %81 = add i64 %61, -1
+  %82 = srem i64 %81, 3
+  %83 = icmp slt i64 %82, 0
+  %84 = add nsw i64 %82, 3
+  %85 = select i1 %83, i64 %84, i64 %82
+  %86 = add i64 %85, %3
+  br label %87
 
-88:                                               ; preds = %64, %66, %73, %81, %69, %57
-  %.099 = phi i64 [ %3, %57 ], [ %80, %73 ], [ %87, %81 ], [ %3, %69 ], [ %62, %66 ], [ %62, %64 ]
-  %89 = sub i64 0, %.099
-  %90 = icmp slt i64 %.099, 1
-  %91 = load i64, ptr %58, align 8, !tbaa !33
-  br i1 %90, label %92, label %94
+87:                                               ; preds = %63, %65, %72, %80, %68, %56
+  %.099 = phi i64 [ %3, %56 ], [ %79, %72 ], [ %86, %80 ], [ %3, %68 ], [ %61, %65 ], [ %61, %63 ]
+  %88 = sub i64 0, %.099
+  %89 = icmp slt i64 %.099, 1
+  %90 = load i64, ptr %57, align 8, !tbaa !33
+  br i1 %89, label %91, label %93
 
-92:                                               ; preds = %88
-  %reass.sub = sub i64 %91, %.099
-  %93 = add i64 %reass.sub, 2
-  br label %95
+91:                                               ; preds = %87
+  %reass.sub = sub i64 %90, %.099
+  %92 = add i64 %reass.sub, 2
+  br label %94
 
-94:                                               ; preds = %88
-  %..099 = tail call i64 @llvm.smax.i64(i64 %.099, i64 %91)
-  br label %95
+93:                                               ; preds = %87
+  %..099 = tail call i64 @llvm.smax.i64(i64 %.099, i64 %90)
+  br label %94
 
-95:                                               ; preds = %94, %92
-  %.194 = phi i64 [ %93, %92 ], [ %..099, %94 ]
-  %96 = add i64 %.194, 26
-  %97 = tail call ptr @mpd_alloc(i64 noundef %96, i64 noundef 1) #18
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %99, label %100
+94:                                               ; preds = %93, %91
+  %.194 = phi i64 [ %92, %91 ], [ %..099, %93 ]
+  %95 = add i64 %.194, 26
+  %96 = tail call ptr @mpd_alloc(i64 noundef %95, i64 noundef 1) #18
+  %97 = icmp eq ptr %96, null
+  br i1 %97, label %98, label %99
 
-99:                                               ; preds = %95
+98:                                               ; preds = %94
   store ptr null, ptr %0, align 8, !tbaa !26
-  br label %184
+  br label %182
 
-100:                                              ; preds = %95
-  %101 = tail call i32 @mpd_isnegative(ptr noundef nonnull %1) #18
-  %.not108 = icmp eq i32 %101, 0
-  br i1 %.not108, label %102, label %.sink.split161
+99:                                               ; preds = %94
+  %100 = tail call i32 @mpd_isnegative(ptr noundef nonnull %1) #18
+  %.not108 = icmp eq i32 %100, 0
+  br i1 %.not108, label %101, label %.sink.split161
 
-102:                                              ; preds = %100
-  %103 = and i32 %2, 64
-  %.not109 = icmp eq i32 %103, 0
-  br i1 %.not109, label %104, label %.sink.split161
+101:                                              ; preds = %99
+  %102 = and i32 %2, 64
+  %.not109 = icmp eq i32 %102, 0
+  br i1 %.not109, label %103, label %.sink.split161
 
-104:                                              ; preds = %102
-  %105 = and i32 %2, 128
-  %.not110 = icmp eq i32 %105, 0
-  br i1 %.not110, label %107, label %.sink.split161
+103:                                              ; preds = %101
+  %.not110 = icmp samesign ult i32 %2, 128
+  br i1 %.not110, label %105, label %.sink.split161
 
-.sink.split161:                                   ; preds = %104, %102, %100
-  %.sink162 = phi i8 [ 45, %100 ], [ 32, %102 ], [ 43, %104 ]
-  %106 = getelementptr i8, ptr %97, i64 1
-  store i8 %.sink162, ptr %97, align 1, !tbaa !11
-  br label %107
+.sink.split161:                                   ; preds = %103, %101, %99
+  %.sink162 = phi i8 [ 45, %99 ], [ 32, %101 ], [ 43, %103 ]
+  %104 = getelementptr i8, ptr %96, i64 1
+  store i8 %.sink162, ptr %96, align 1, !tbaa !11
+  br label %105
 
-107:                                              ; preds = %.sink.split161, %104
-  %.3 = phi ptr [ %97, %104 ], [ %106, %.sink.split161 ]
-  br i1 %90, label %108, label %127
+105:                                              ; preds = %.sink.split161, %103
+  %.3 = phi ptr [ %96, %103 ], [ %104, %.sink.split161 ]
+  br i1 %89, label %106, label %125
 
-108:                                              ; preds = %107
-  %109 = getelementptr i8, ptr %.3, i64 1
+106:                                              ; preds = %105
+  %107 = getelementptr i8, ptr %.3, i64 1
   store i8 48, ptr %.3, align 1, !tbaa !11
-  %110 = getelementptr i8, ptr %.3, i64 2
-  store i8 46, ptr %109, align 1, !tbaa !11
-  %111 = icmp sgt i64 %89, 0
-  br i1 %111, label %.lr.ph145.preheader, label %._crit_edge
+  %108 = getelementptr i8, ptr %.3, i64 2
+  store i8 46, ptr %107, align 1, !tbaa !11
+  %109 = icmp sgt i64 %88, 0
+  br i1 %109, label %.lr.ph145.preheader, label %._crit_edge
 
-.lr.ph145.preheader:                              ; preds = %108
-  tail call void @llvm.memset.p0.i64(ptr align 1 %110, i8 48, i64 %89, i1 false), !tbaa !11
-  %112 = sub i64 2, %.099
-  %scevgep = getelementptr i8, ptr %.3, i64 %112
+.lr.ph145.preheader:                              ; preds = %106
+  tail call void @llvm.memset.p0.i64(ptr align 1 %108, i8 48, i64 %88, i1 false), !tbaa !11
+  %110 = sub i64 2, %.099
+  %scevgep = getelementptr i8, ptr %.3, i64 %110
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph145.preheader, %108
-  %.4.lcssa = phi ptr [ %110, %108 ], [ %scevgep, %.lr.ph145.preheader ]
-  %113 = tail call i64 @mpd_msword(ptr noundef nonnull %1) #18
-  %114 = tail call i32 @mpd_word_digits(i64 noundef %113) #18
-  %115 = tail call fastcc ptr @word_to_string(ptr noundef %.4.lcssa, i64 noundef %113, i32 noundef %114, ptr noundef null)
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %117 = load i64, ptr %116, align 8, !tbaa !3
-  %118 = add i64 %117, -2
-  %119 = icmp sgt i64 %118, -1
-  br i1 %119, label %.lr.ph.i123, label %coeff_to_string.exit127
+._crit_edge:                                      ; preds = %.lr.ph145.preheader, %106
+  %.4.lcssa = phi ptr [ %108, %106 ], [ %scevgep, %.lr.ph145.preheader ]
+  %111 = tail call i64 @mpd_msword(ptr noundef nonnull %1) #18
+  %112 = tail call i32 @mpd_word_digits(i64 noundef %111) #18
+  %113 = tail call fastcc ptr @word_to_string(ptr noundef %.4.lcssa, i64 noundef %111, i32 noundef %112, ptr noundef null)
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %115 = load i64, ptr %114, align 8, !tbaa !3
+  %116 = add i64 %115, -2
+  %117 = icmp sgt i64 %116, -1
+  br i1 %117, label %.lr.ph.i123, label %coeff_to_string.exit127
 
 .lr.ph.i123:                                      ; preds = %._crit_edge
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %121
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br label %119
 
-121:                                              ; preds = %121, %.lr.ph.i123
-  %.013.i124 = phi i64 [ %118, %.lr.ph.i123 ], [ %126, %121 ]
-  %.01112.i125 = phi ptr [ %115, %.lr.ph.i123 ], [ %125, %121 ]
-  %122 = load ptr, ptr %120, align 8, !tbaa !28
-  %123 = getelementptr i64, ptr %122, i64 %.013.i124
-  %124 = load i64, ptr %123, align 8, !tbaa !29
-  %125 = tail call fastcc ptr @word_to_string(ptr noundef %.01112.i125, i64 noundef %124, i32 noundef 19, ptr noundef null)
-  %126 = add nsw i64 %.013.i124, -1
+119:                                              ; preds = %119, %.lr.ph.i123
+  %.013.i124 = phi i64 [ %116, %.lr.ph.i123 ], [ %124, %119 ]
+  %.01112.i125 = phi ptr [ %113, %.lr.ph.i123 ], [ %123, %119 ]
+  %120 = load ptr, ptr %118, align 8, !tbaa !28
+  %121 = getelementptr i64, ptr %120, i64 %.013.i124
+  %122 = load i64, ptr %121, align 8, !tbaa !29
+  %123 = tail call fastcc ptr @word_to_string(ptr noundef %.01112.i125, i64 noundef %122, i32 noundef 19, ptr noundef null)
+  %124 = add nsw i64 %.013.i124, -1
   %.not.i126 = icmp eq i64 %.013.i124, 0
-  br i1 %.not.i126, label %coeff_to_string.exit127, label %121, !llvm.loop !34
+  br i1 %.not.i126, label %coeff_to_string.exit127, label %119, !llvm.loop !34
 
-127:                                              ; preds = %107
-  %128 = load i64, ptr %58, align 8, !tbaa !33
-  %.not111 = icmp slt i64 %.099, %128
-  br i1 %.not111, label %152, label %129
+125:                                              ; preds = %105
+  %126 = load i64, ptr %57, align 8, !tbaa !33
+  %.not111 = icmp slt i64 %.099, %126
+  br i1 %.not111, label %150, label %127
 
-129:                                              ; preds = %127
-  %130 = tail call i64 @mpd_msword(ptr noundef nonnull %1) #18
-  %131 = tail call i32 @mpd_word_digits(i64 noundef %130) #18
-  %132 = tail call fastcc ptr @word_to_string(ptr noundef %.3, i64 noundef %130, i32 noundef %131, ptr noundef null)
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %134 = load i64, ptr %133, align 8, !tbaa !3
-  %135 = add i64 %134, -2
-  %136 = icmp sgt i64 %135, -1
-  br i1 %136, label %.lr.ph.i129, label %coeff_to_string.exit133
+127:                                              ; preds = %125
+  %128 = tail call i64 @mpd_msword(ptr noundef nonnull %1) #18
+  %129 = tail call i32 @mpd_word_digits(i64 noundef %128) #18
+  %130 = tail call fastcc ptr @word_to_string(ptr noundef %.3, i64 noundef %128, i32 noundef %129, ptr noundef null)
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %132 = load i64, ptr %131, align 8, !tbaa !3
+  %133 = add i64 %132, -2
+  %134 = icmp sgt i64 %133, -1
+  br i1 %134, label %.lr.ph.i129, label %coeff_to_string.exit133
 
-.lr.ph.i129:                                      ; preds = %129
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %138
+.lr.ph.i129:                                      ; preds = %127
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br label %136
 
-138:                                              ; preds = %138, %.lr.ph.i129
-  %.013.i130 = phi i64 [ %135, %.lr.ph.i129 ], [ %143, %138 ]
-  %.01112.i131 = phi ptr [ %132, %.lr.ph.i129 ], [ %142, %138 ]
-  %139 = load ptr, ptr %137, align 8, !tbaa !28
-  %140 = getelementptr i64, ptr %139, i64 %.013.i130
-  %141 = load i64, ptr %140, align 8, !tbaa !29
-  %142 = tail call fastcc ptr @word_to_string(ptr noundef %.01112.i131, i64 noundef %141, i32 noundef 19, ptr noundef null)
-  %143 = add nsw i64 %.013.i130, -1
+136:                                              ; preds = %136, %.lr.ph.i129
+  %.013.i130 = phi i64 [ %133, %.lr.ph.i129 ], [ %141, %136 ]
+  %.01112.i131 = phi ptr [ %130, %.lr.ph.i129 ], [ %140, %136 ]
+  %137 = load ptr, ptr %135, align 8, !tbaa !28
+  %138 = getelementptr i64, ptr %137, i64 %.013.i130
+  %139 = load i64, ptr %138, align 8, !tbaa !29
+  %140 = tail call fastcc ptr @word_to_string(ptr noundef %.01112.i131, i64 noundef %139, i32 noundef 19, ptr noundef null)
+  %141 = add nsw i64 %.013.i130, -1
   %.not.i132 = icmp eq i64 %.013.i130, 0
-  br i1 %.not.i132, label %coeff_to_string.exit133, label %138, !llvm.loop !34
+  br i1 %.not.i132, label %coeff_to_string.exit133, label %136, !llvm.loop !34
 
-coeff_to_string.exit133:                          ; preds = %138, %129
-  %.011.lcssa.i128 = phi ptr [ %132, %129 ], [ %142, %138 ]
-  %144 = load i64, ptr %58, align 8, !tbaa !33
-  %145 = sub i64 %.099, %144
-  %146 = icmp sgt i64 %145, 0
-  br i1 %146, label %.lr.ph, label %coeff_to_string.exit127
+coeff_to_string.exit133:                          ; preds = %136, %127
+  %.011.lcssa.i128 = phi ptr [ %130, %127 ], [ %140, %136 ]
+  %142 = load i64, ptr %57, align 8, !tbaa !33
+  %143 = sub i64 %.099, %142
+  %144 = icmp sgt i64 %143, 0
+  br i1 %144, label %.lr.ph, label %coeff_to_string.exit127
 
 .lr.ph:                                           ; preds = %coeff_to_string.exit133, %.lr.ph
-  %.1142 = phi i64 [ %148, %.lr.ph ], [ 0, %coeff_to_string.exit133 ]
-  %.6141 = phi ptr [ %147, %.lr.ph ], [ %.011.lcssa.i128, %coeff_to_string.exit133 ]
-  %147 = getelementptr i8, ptr %.6141, i64 1
+  %.1142 = phi i64 [ %146, %.lr.ph ], [ 0, %coeff_to_string.exit133 ]
+  %.6141 = phi ptr [ %145, %.lr.ph ], [ %.011.lcssa.i128, %coeff_to_string.exit133 ]
+  %145 = getelementptr i8, ptr %.6141, i64 1
   store i8 48, ptr %.6141, align 1, !tbaa !11
-  %148 = add nuw nsw i64 %.1142, 1
-  %149 = load i64, ptr %58, align 8, !tbaa !33
-  %150 = sub i64 %.099, %149
-  %151 = icmp slt i64 %148, %150
-  br i1 %151, label %.lr.ph, label %coeff_to_string.exit127, !llvm.loop !35
+  %146 = add nuw nsw i64 %.1142, 1
+  %147 = load i64, ptr %57, align 8, !tbaa !33
+  %148 = sub i64 %.099, %147
+  %149 = icmp slt i64 %146, %148
+  br i1 %149, label %.lr.ph, label %coeff_to_string.exit127, !llvm.loop !35
 
-152:                                              ; preds = %127
-  %153 = getelementptr i8, ptr %.3, i64 %.099
-  %154 = tail call i64 @mpd_msword(ptr noundef nonnull %1) #18
-  %155 = tail call i32 @mpd_word_digits(i64 noundef %154) #18
-  %156 = tail call fastcc ptr @word_to_string(ptr noundef %.3, i64 noundef %154, i32 noundef %155, ptr noundef readnone %153)
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %158 = load i64, ptr %157, align 8, !tbaa !3
-  %159 = add i64 %158, -2
-  %160 = icmp sgt i64 %159, -1
-  br i1 %160, label %.lr.ph.i134, label %coeff_to_string.exit127
+150:                                              ; preds = %125
+  %151 = getelementptr i8, ptr %.3, i64 %.099
+  %152 = tail call i64 @mpd_msword(ptr noundef nonnull %1) #18
+  %153 = tail call i32 @mpd_word_digits(i64 noundef %152) #18
+  %154 = tail call fastcc ptr @word_to_string(ptr noundef %.3, i64 noundef %152, i32 noundef %153, ptr noundef readnone %151)
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %156 = load i64, ptr %155, align 8, !tbaa !3
+  %157 = add i64 %156, -2
+  %158 = icmp sgt i64 %157, -1
+  br i1 %158, label %.lr.ph.i134, label %coeff_to_string.exit127
 
-.lr.ph.i134:                                      ; preds = %152
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %162
+.lr.ph.i134:                                      ; preds = %150
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br label %160
 
-162:                                              ; preds = %162, %.lr.ph.i134
-  %.015.i = phi i64 [ %159, %.lr.ph.i134 ], [ %167, %162 ]
-  %.01314.i = phi ptr [ %156, %.lr.ph.i134 ], [ %166, %162 ]
-  %163 = load ptr, ptr %161, align 8, !tbaa !28
-  %164 = getelementptr i64, ptr %163, i64 %.015.i
-  %165 = load i64, ptr %164, align 8, !tbaa !29
-  %166 = tail call fastcc ptr @word_to_string(ptr noundef %.01314.i, i64 noundef %165, i32 noundef 19, ptr noundef readnone %153)
-  %167 = add nsw i64 %.015.i, -1
+160:                                              ; preds = %160, %.lr.ph.i134
+  %.015.i = phi i64 [ %157, %.lr.ph.i134 ], [ %165, %160 ]
+  %.01314.i = phi ptr [ %154, %.lr.ph.i134 ], [ %164, %160 ]
+  %161 = load ptr, ptr %159, align 8, !tbaa !28
+  %162 = getelementptr i64, ptr %161, i64 %.015.i
+  %163 = load i64, ptr %162, align 8, !tbaa !29
+  %164 = tail call fastcc ptr @word_to_string(ptr noundef %.01314.i, i64 noundef %163, i32 noundef 19, ptr noundef readnone %151)
+  %165 = add nsw i64 %.015.i, -1
   %.not.i135 = icmp eq i64 %.015.i, 0
-  br i1 %.not.i135, label %coeff_to_string.exit127, label %162, !llvm.loop !36
+  br i1 %.not.i135, label %coeff_to_string.exit127, label %160, !llvm.loop !36
 
-coeff_to_string.exit127:                          ; preds = %.lr.ph, %162, %121, %coeff_to_string.exit133, %152, %._crit_edge
-  %.5 = phi ptr [ %115, %._crit_edge ], [ %156, %152 ], [ %.011.lcssa.i128, %coeff_to_string.exit133 ], [ %125, %121 ], [ %166, %162 ], [ %147, %.lr.ph ]
-  %.not112 = icmp ne i64 %62, %.099
+coeff_to_string.exit127:                          ; preds = %.lr.ph, %160, %119, %coeff_to_string.exit133, %150, %._crit_edge
+  %.5 = phi ptr [ %113, %._crit_edge ], [ %154, %150 ], [ %.011.lcssa.i128, %coeff_to_string.exit133 ], [ %123, %119 ], [ %164, %160 ], [ %145, %.lr.ph ]
+  %.not112 = icmp ne i64 %61, %.099
   %brmerge = or i1 %.not103, %.not112
-  br i1 %brmerge, label %168, label %coeff_to_string.exit
+  br i1 %brmerge, label %166, label %coeff_to_string.exit
 
-168:                                              ; preds = %coeff_to_string.exit127
-  %169 = and i32 %2, 1
-  %.not113 = icmp eq i32 %169, 0
-  %170 = select i1 %.not113, i8 101, i8 69
-  %171 = getelementptr i8, ptr %.5, i64 1
-  store i8 %170, ptr %.5, align 1, !tbaa !11
-  %172 = sub i64 %62, %.099
-  %173 = icmp slt i64 %172, 0
-  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %172, i1 false)
-  %spec.select8.i = select i1 %173, i8 45, i8 43
-  %174 = getelementptr i8, ptr %.5, i64 2
-  store i8 %spec.select8.i, ptr %171, align 1, !tbaa !11
-  %175 = tail call i32 @mpd_word_digits(i64 noundef %spec.select.i) #18
-  %176 = tail call fastcc noundef ptr @word_to_string(ptr noundef %174, i64 noundef %spec.select.i, i32 noundef %175, ptr noundef null)
+166:                                              ; preds = %coeff_to_string.exit127
+  %167 = and i32 %2, 1
+  %.not113 = icmp eq i32 %167, 0
+  %168 = select i1 %.not113, i8 101, i8 69
+  %169 = getelementptr i8, ptr %.5, i64 1
+  store i8 %168, ptr %.5, align 1, !tbaa !11
+  %170 = sub i64 %61, %.099
+  %171 = icmp slt i64 %170, 0
+  %spec.select.i = tail call i64 @llvm.abs.i64(i64 %170, i1 false)
+  %spec.select8.i = select i1 %171, i8 45, i8 43
+  %172 = getelementptr i8, ptr %.5, i64 2
+  store i8 %spec.select8.i, ptr %169, align 1, !tbaa !11
+  %173 = tail call i32 @mpd_word_digits(i64 noundef %spec.select.i) #18
+  %174 = tail call fastcc noundef ptr @word_to_string(ptr noundef %172, i64 noundef %spec.select.i, i32 noundef %173, ptr noundef null)
   br label %coeff_to_string.exit
 
-coeff_to_string.exit:                             ; preds = %46, %38, %coeff_to_string.exit127, %168, %54, %33
-  %.098 = phi ptr [ %17, %33 ], [ %17, %54 ], [ %97, %168 ], [ %97, %coeff_to_string.exit127 ], [ %17, %38 ], [ %17, %46 ]
-  %.2 = phi ptr [ %34, %33 ], [ %55, %54 ], [ %176, %168 ], [ %.5, %coeff_to_string.exit127 ], [ %41, %38 ], [ %50, %46 ]
-  %177 = and i32 %2, 32
-  %.not121 = icmp eq i32 %177, 0
-  br i1 %.not121, label %180, label %178
+coeff_to_string.exit:                             ; preds = %45, %37, %coeff_to_string.exit127, %166, %53, %32
+  %.098 = phi ptr [ %17, %32 ], [ %17, %53 ], [ %96, %166 ], [ %96, %coeff_to_string.exit127 ], [ %17, %37 ], [ %17, %45 ]
+  %.2 = phi ptr [ %33, %32 ], [ %54, %53 ], [ %174, %166 ], [ %.5, %coeff_to_string.exit127 ], [ %40, %37 ], [ %49, %45 ]
+  %175 = and i32 %2, 32
+  %.not121 = icmp eq i32 %175, 0
+  br i1 %.not121, label %178, label %176
 
-178:                                              ; preds = %coeff_to_string.exit
-  %179 = getelementptr i8, ptr %.2, i64 1
+176:                                              ; preds = %coeff_to_string.exit
+  %177 = getelementptr i8, ptr %.2, i64 1
   store i8 37, ptr %.2, align 1, !tbaa !11
-  br label %180
+  br label %178
 
-180:                                              ; preds = %178, %coeff_to_string.exit
-  %.7 = phi ptr [ %179, %178 ], [ %.2, %coeff_to_string.exit ]
+178:                                              ; preds = %176, %coeff_to_string.exit
+  %.7 = phi ptr [ %177, %176 ], [ %.2, %coeff_to_string.exit ]
   store i8 0, ptr %.7, align 1, !tbaa !11
   store ptr %.098, ptr %0, align 8, !tbaa !26
-  %181 = ptrtoint ptr %.7 to i64
-  %182 = ptrtoint ptr %.098 to i64
-  %183 = sub i64 %181, %182
-  br label %184
+  %179 = ptrtoint ptr %.7 to i64
+  %180 = ptrtoint ptr %.098 to i64
+  %181 = sub i64 %179, %180
+  br label %182
 
-184:                                              ; preds = %180, %99, %19
-  %.095 = phi i64 [ -1, %19 ], [ %183, %180 ], [ -1, %99 ]
+182:                                              ; preds = %178, %98, %19
+  %.095 = phi i64 [ -1, %19 ], [ %181, %178 ], [ -1, %98 ]
   ret i64 %.095
 }
 

@@ -1082,9 +1082,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us: ; preds = %82, %80, %74
   br i1 %.not58.i.us, label %91, label %_ZN6icu_7712_GLOBAL__N_19scfStringERKNS_13UnicodeStringERS1_.exit.thread65.us
 
 91:                                               ; preds = %.loopexit.i.thread.us
-  %92 = add nsw i32 %.040.i.us, 1
-  %93 = sext i32 %.040.i.us to i64
-  %94 = getelementptr inbounds i16, ptr %.0.i.i.us, i64 %93
+  %92 = add nuw nsw i32 %.040.i.us, 1
+  %93 = zext nneg i32 %.040.i.us to i64
+  %94 = getelementptr inbounds nuw i16, ptr %.0.i.i.us, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !57
   %96 = zext i16 %95 to i32
   %97 = and i32 %96, 64512
@@ -1094,8 +1094,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us: ; preds = %82, %80, %74
   br i1 %or.cond.i.us, label %111, label %99
 
 99:                                               ; preds = %91
-  %100 = sext i32 %92 to i64
-  %101 = getelementptr inbounds i16, ptr %.0.i.i.us, i64 %100
+  %100 = zext nneg i32 %92 to i64
+  %101 = getelementptr inbounds nuw i16, ptr %.0.i.i.us, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !57
   %103 = zext i16 %102 to i32
   %104 = and i32 %103, 64512
@@ -1103,7 +1103,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.i.us: ; preds = %82, %80, %74
   br i1 %105, label %106, label %111
 
 106:                                              ; preds = %99
-  %107 = add nsw i32 %.040.i.us, 2
+  %107 = add nuw nsw i32 %.040.i.us, 2
   %108 = shl nuw nsw i32 %96, 10
   %109 = add nsw i32 %108, -56613888
   %110 = add nuw nsw i32 %109, %103

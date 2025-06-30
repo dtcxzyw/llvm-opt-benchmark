@@ -1765,7 +1765,7 @@ set_metadata_frame2.exit:                         ; preds = %315, %ng_read_bytes
   %335 = getelementptr i8, ptr %4, i64 296
   %.val124 = load i64, ptr %335, align 8
   %336 = getelementptr i8, ptr %.val123, i64 %.val124
-  %337 = call fastcc zeroext i1 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef %336, i32 noundef %318, i1 noundef zeroext %1, ptr noundef %5, ptr noundef %6)
+  %337 = call fastcc zeroext i1 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef %336, i32 noundef range(i32 0, 65537) %318, i1 noundef zeroext %1, ptr noundef %5, ptr noundef %6)
   br i1 %337, label %ng_read_bytes.exit130, label %338
 
 338:                                              ; preds = %325
@@ -1979,7 +1979,7 @@ define internal fastcc zeroext i1 @ng_skip_bytes_seq(ptr noundef readonly captur
 ng_read_bytes.exit:                               ; preds = %17, %19
   %.02122 = phi i32 [ %1, %17 ], [ %20, %19 ]
   %..021 = tail call i32 @llvm.umin.i32(i32 %.02122, i32 65536)
-  %21 = tail call fastcc zeroext i1 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef %18, i32 noundef %..021, i1 noundef zeroext false, ptr noundef %2, ptr noundef %3)
+  %21 = tail call fastcc zeroext i1 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef %18, i32 noundef range(i32 0, 65537) %..021, i1 noundef zeroext false, ptr noundef %2, ptr noundef %3)
   br i1 %21, label %19, label %22
 
 22:                                               ; preds = %ng_read_bytes.exit
@@ -2005,7 +2005,7 @@ ng_read_bytes.exit:                               ; preds = %17, %19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 65537) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2023,7 +2023,7 @@ define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef read
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %13
-  %16 = zext i32 %2 to i64
+  %16 = zext nneg i32 %2 to i64
   %17 = getelementptr inbounds nuw i8, ptr %.0103, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %16

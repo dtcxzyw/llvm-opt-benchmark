@@ -1871,7 +1871,7 @@ define i32 @evdns_server_request_get_requesting_addr(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evdns_base_count_nameservers(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @evdns_base_count_nameservers(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1913,7 +1913,7 @@ define i32 @evdns_base_count_nameservers(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @evdns_count_nameservers() local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @evdns_count_nameservers() local_unnamed_addr #2 {
   %1 = load ptr, ptr @current_base, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %3 = load ptr, ptr %2, align 8

@@ -4272,7 +4272,7 @@ s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %279, %277
 
 352:                                              ; preds = %325
   %353 = load i32, ptr @hf_s7comm_userdata_data, align 4
-  %354 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %353, ptr noundef %.0172.i, i32 noundef %.3.i, i32 noundef range(i32 1, 0) %322, i32 noundef 0)
+  %354 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %353, ptr noundef %.0172.i, i32 noundef range(i32 0, 65560) %.3.i, i32 noundef range(i32 1, 0) %322, i32 noundef 0)
   br label %s7comm_decode_ud_data.exit
 
 355:                                              ; preds = %325
@@ -4289,7 +4289,7 @@ s7comm_decode_ud_cpu_ar_send_pre_reass.exit.i:    ; preds = %279, %277
 
 361:                                              ; preds = %325
   %362 = load i32, ptr @hf_s7comm_data_drr_data, align 4
-  %363 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %362, ptr noundef %.0172.i, i32 noundef %.3.i, i32 noundef range(i32 1, 0) %322, i32 noundef 0)
+  %363 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %362, ptr noundef %.0172.i, i32 noundef range(i32 0, 65560) %.3.i, i32 noundef range(i32 1, 0) %322, i32 noundef 0)
   br label %s7comm_decode_ud_data.exit
 
 s7comm_decode_ud_data.exit:                       ; preds = %212, %215, %319, %325, %326, %328, %330, %333, %335, %339, %341, %343, %345, %347, %349, %352, %355, %357, %359, %361
@@ -6130,22 +6130,22 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @s7comm_decode_ud_tis_subfunc(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 4) %2, i8 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_ud_tis_subfunc(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 4) %2, i8 noundef zeroext %3, i32 noundef range(i32 0, 65560) %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %4)
   %7 = load i32, ptr @hf_s7comm_tis_parametersize, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0)
-  %9 = add i32 %4, 2
+  %9 = add nuw nsw i32 %4, 2
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %9)
   %11 = load i32, ptr @hf_s7comm_tis_datasize, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0)
-  %13 = add i32 %4, 4
+  %13 = add nuw nsw i32 %4, 4
   %14 = tail call fastcc i32 @s7comm_decode_ud_tis_param(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %6, i32 noundef %13)
   %15 = tail call fastcc i32 @s7comm_decode_ud_tis_data(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i16 noundef zeroext %10, i32 noundef %14)
   ret i32 %15
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 4) %4, i8 noundef zeroext %5, i32 noundef range(i32 1, 0) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 4) %4, i8 noundef zeroext %5, i32 noundef range(i32 1, 0) %6, i32 noundef range(i32 0, 65560) %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -6169,22 +6169,22 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   br label %18
 
 18:                                               ; preds = %12, %14, %8, %8
-  %19 = add i32 %7, 1
+  %19 = add nuw nsw i32 %7, 1
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %19)
   %21 = load i32, ptr @hf_s7comm_param_itemcount, align 4
   %22 = zext i8 %20 to i32
   %23 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %21, ptr noundef %0, i32 noundef %7, i32 noundef 2, i32 noundef %22)
-  %24 = add i32 %7, 2
+  %24 = add nuw nsw i32 %7, 2
   %25 = icmp eq i8 %4, 1
   br i1 %25, label %26, label %41
 
 26:                                               ; preds = %18
   %27 = load i32, ptr @hf_s7comm_cycl_interval_timebase, align 4
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %27, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef 0)
-  %29 = add i32 %7, 3
+  %29 = add nuw nsw i32 %7, 3
   %30 = load i32, ptr @hf_s7comm_cycl_interval_time, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef 0)
-  %32 = add i32 %7, 4
+  %32 = add nuw nsw i32 %7, 4
   %.not86 = icmp eq i8 %20, 0
   br i1 %.not86, label %.thread, label %.lr.ph
 
@@ -6230,7 +6230,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
 49:                                               ; preds = %48
   %50 = load i32, ptr @hf_s7comm_cycl_function, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %50, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0)
-  %52 = add i32 %7, 1
+  %52 = add nuw nsw i32 %7, 1
   %53 = load i32, ptr @hf_s7comm_cycl_jobid, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0)
   %55 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %52)
@@ -6238,7 +6238,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   %57 = load ptr, ptr %56, align 8
   %58 = zext i8 %55 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.2401, i32 noundef %58)
-  %59 = add i32 %7, 2
+  %59 = add nuw nsw i32 %7, 2
   br label %.thread
 
 60:                                               ; preds = %48
@@ -6259,13 +6259,13 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
 
 65:                                               ; preds = %64
   %66 = load i32, ptr @hf_s7comm_rdrec_reserved1, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %66, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0)
-  %68 = add i32 %7, 1
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %66, ptr noundef %0, i32 noundef range(i32 0, 65560) %7, i32 noundef 1, i32 noundef 0)
+  %68 = add nuw nsw i32 %7, 1
   %69 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %68)
   %70 = load i32, ptr @hf_s7comm_param_itemcount, align 4
   %71 = zext i8 %69 to i32
   %72 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %70, ptr noundef %0, i32 noundef %68, i32 noundef 1, i32 noundef %71)
-  %73 = add i32 %7, 2
+  %73 = add nuw nsw i32 %7, 2
   %.not59.i = icmp eq i8 %69, 0
   br i1 %.not59.i, label %s7comm_decode_ud_readrec.exit, label %74
 
@@ -6275,20 +6275,20 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
 
 76:                                               ; preds = %64
   %77 = load i32, ptr @hf_s7comm_rdrec_reserved1, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0)
-  %79 = add i32 %7, 1
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %77, ptr noundef %0, i32 noundef range(i32 0, 65560) %7, i32 noundef 1, i32 noundef 0)
+  %79 = add nuw nsw i32 %7, 1
   %80 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %79)
   %81 = load i32, ptr @hf_s7comm_param_itemcount, align 4
   %82 = zext i8 %80 to i32
   %83 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %81, ptr noundef %0, i32 noundef %79, i32 noundef 1, i32 noundef %82)
-  %84 = add i32 %7, 2
+  %84 = add nuw nsw i32 %7, 2
   %.not.i = icmp eq i8 %80, 0
   br i1 %.not.i, label %s7comm_decode_ud_readrec.exit, label %85
 
 85:                                               ; preds = %76
   %86 = load i32, ptr @hf_s7comm_data_returncode, align 4
   %87 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %86, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
-  %88 = add i32 %7, 3
+  %88 = add nuw nsw i32 %7, 3
   %89 = load i32, ptr %9, align 4
   %90 = icmp eq i32 %89, 255
   br i1 %90, label %91, label %95
@@ -6296,7 +6296,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
 91:                                               ; preds = %85
   %92 = load i32, ptr @hf_s7comm_data_transport_size, align 4
   %93 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %92, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0)
-  %94 = add i32 %7, 4
+  %94 = add nuw nsw i32 %7, 4
   br label %95
 
 95:                                               ; preds = %91, %85
@@ -6308,7 +6308,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   br i1 %.not57.i, label %105, label %99
 
 99:                                               ; preds = %95
-  %100 = add i32 %.1.i, 1
+  %100 = add nuw nsw i32 %.1.i, 1
   %101 = load i32, ptr @hf_s7comm_rdrec_statusdata, align 4
   %102 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %101, ptr noundef %0, i32 noundef %100, i32 noundef %98, i32 noundef 0)
   %103 = load i32, ptr %10, align 4
@@ -6316,7 +6316,7 @@ define internal fastcc i32 @s7comm_decode_ud_cyclic_subfunc(ptr noundef %0, ptr 
   br label %107
 
 105:                                              ; preds = %95
-  %106 = add i32 %.1.i, 2
+  %106 = add nuw nsw i32 %.1.i, 2
   br label %107
 
 107:                                              ; preds = %105, %99
@@ -6359,7 +6359,7 @@ s7comm_decode_ud_readrec.exit:                    ; preds = %64, %65, %74, %76, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef range(i32 1, 0) %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_ud_block_subfunc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef range(i32 1, 0) %7, i32 noundef range(i32 0, 65560) %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca [30 x i8], align 16
   %12 = alloca [10 x i8], align 1
@@ -6428,7 +6428,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.2403, ptr noundef %43)
   %44 = tail call ptr @val_to_str(i32 noundef %39, ptr noundef nonnull @blocktype_names, ptr noundef nonnull @.str.2174)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2127, ptr noundef %44)
-  %45 = add i32 %8, 2
+  %45 = add nuw nsw i32 %8, 2
   br label %.thread
 
 46:                                               ; preds = %33
@@ -6482,7 +6482,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   %71 = zext i16 %68 to i32
   %72 = tail call ptr @val_to_str(i32 noundef %71, ptr noundef nonnull @blocktype_names, ptr noundef nonnull @.str.2174)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.2172, ptr noundef %72)
-  %73 = add i32 %8, 2
+  %73 = add nuw nsw i32 %8, 2
   %74 = load i32, ptr @hf_s7comm_ud_blockinfo_block_num_ascii, align 4
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %76 = load ptr, ptr %75, align 8
@@ -6513,13 +6513,13 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   br label %91
 
 91:                                               ; preds = %88, %84
-  %92 = add i32 %8, 7
+  %92 = add nuw nsw i32 %8, 7
   %93 = load i32, ptr @hf_s7comm_ud_blockinfo_filesys, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef 0)
   %95 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %92)
   %96 = call ptr @char_val_to_str(i8 noundef signext %95, ptr noundef nonnull @blocktype_attribute2_names, ptr noundef nonnull @.str.2179)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %94, ptr noundef nonnull @.str.2172, ptr noundef %96)
-  %97 = add i32 %8, 8
+  %97 = add nuw nsw i32 %8, 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
   br label %.thread
 
@@ -6534,30 +6534,30 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   %104 = zext i16 %103 to i32
   %105 = tail call ptr @val_to_str(i32 noundef %104, ptr noundef nonnull @blocktype_names, ptr noundef nonnull @.str.2174)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %102, ptr noundef nonnull @.str.2172, ptr noundef %105)
-  %106 = add i32 %8, 2
+  %106 = add nuw nsw i32 %8, 2
   %107 = load i32, ptr @hf_s7comm_ud_blockinfo_res_infolength, align 4
   %108 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %107, ptr noundef %0, i32 noundef %106, i32 noundef 2, i32 noundef 0)
-  %109 = add i32 %8, 4
+  %109 = add nuw nsw i32 %8, 4
   %110 = load i32, ptr @hf_s7comm_ud_blockinfo_res_unknown2, align 4
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %110, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0)
-  %112 = add i32 %8, 6
+  %112 = add nuw nsw i32 %8, 6
   %113 = load i32, ptr @hf_s7comm_ud_blockinfo_res_const3, align 4
   %114 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %113, ptr noundef %0, i32 noundef %112, i32 noundef 2, i32 noundef 0)
-  %115 = add i32 %8, 8
+  %115 = add nuw nsw i32 %8, 8
   %116 = load i32, ptr @hf_s7comm_ud_blockinfo_res_unknown, align 4
   %117 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %116, ptr noundef %0, i32 noundef %115, i32 noundef 1, i32 noundef 0)
-  %118 = add i32 %8, 9
+  %118 = add nuw nsw i32 %8, 9
   %119 = load i32, ptr @hf_s7comm_userdata_blockinfo_flags, align 4
   %120 = load i32, ptr @ett_s7comm_userdata_blockinfo_flags, align 4
   %121 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %118, i32 noundef %119, i32 noundef %120, ptr noundef nonnull @s7comm_userdata_blockinfo_flags_fields, i32 noundef 0)
-  %122 = add i32 %8, 10
+  %122 = add nuw nsw i32 %8, 10
   %123 = load i32, ptr @hf_s7comm_ud_blockinfo_block_lang, align 4
   %124 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %123, ptr noundef %0, i32 noundef %122, i32 noundef 1, i32 noundef 0)
-  %125 = add i32 %8, 11
+  %125 = add nuw nsw i32 %8, 11
   %126 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %125)
   %127 = load i32, ptr @hf_s7comm_ud_blockinfo_subblk_type, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef %125, i32 noundef 1, i32 noundef 0)
-  %129 = add i32 %8, 12
+  %129 = add nuw nsw i32 %8, 12
   %130 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %129)
   %131 = load i32, ptr @hf_s7comm_ud_blockinfo_block_num, align 4
   %132 = zext i16 %130 to i32
@@ -6569,42 +6569,42 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %135, i32 noundef 25, ptr noundef nonnull @.str.2406, ptr noundef %137, i32 noundef %132)
   %138 = tail call ptr @val_to_str(i32 noundef %136, ptr noundef nonnull @subblktype_names, ptr noundef nonnull @.str.2361)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2407, ptr noundef %138, i32 noundef %132)
-  %139 = add i32 %8, 14
+  %139 = add nuw nsw i32 %8, 14
   %140 = load i32, ptr @hf_s7comm_ud_blockinfo_load_mem_len, align 4
   %141 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %140, ptr noundef %0, i32 noundef %139, i32 noundef 4, i32 noundef 0)
-  %142 = add i32 %8, 18
+  %142 = add nuw nsw i32 %8, 18
   %143 = load i32, ptr @hf_s7comm_ud_blockinfo_blocksecurity, align 4
   %144 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %143, ptr noundef %0, i32 noundef %142, i32 noundef 4, i32 noundef 0)
-  %145 = add i32 %8, 22
+  %145 = add nuw nsw i32 %8, 22
   call fastcc void @s7comm_get_timestring_from_s7time(ptr noundef %0, i32 noundef %145, ptr noundef nonnull %11)
   %146 = load i32, ptr @hf_s7comm_ud_blockinfo_code_timestamp, align 4
   %147 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %146, ptr noundef %0, i32 noundef %145, i32 noundef 6, ptr noundef nonnull %11)
-  %148 = add i32 %8, 28
+  %148 = add nuw nsw i32 %8, 28
   call fastcc void @s7comm_get_timestring_from_s7time(ptr noundef %0, i32 noundef %148, ptr noundef nonnull %11)
   %149 = load i32, ptr @hf_s7comm_ud_blockinfo_interface_timestamp, align 4
   %150 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef 6, ptr noundef nonnull %11)
-  %151 = add i32 %8, 34
+  %151 = add nuw nsw i32 %8, 34
   %152 = load i32, ptr @hf_s7comm_ud_blockinfo_ssb_len, align 4
   %153 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %152, ptr noundef %0, i32 noundef %151, i32 noundef 2, i32 noundef 0)
-  %154 = add i32 %8, 36
+  %154 = add nuw nsw i32 %8, 36
   %155 = load i32, ptr @hf_s7comm_ud_blockinfo_add_len, align 4
   %156 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 2, i32 noundef 0)
-  %157 = add i32 %8, 38
+  %157 = add nuw nsw i32 %8, 38
   %158 = load i32, ptr @hf_s7comm_ud_blockinfo_localdata_len, align 4
   %159 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %158, ptr noundef %0, i32 noundef %157, i32 noundef 2, i32 noundef 0)
-  %160 = add i32 %8, 40
+  %160 = add nuw nsw i32 %8, 40
   %161 = load i32, ptr @hf_s7comm_ud_blockinfo_mc7_len, align 4
   %162 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %161, ptr noundef %0, i32 noundef %160, i32 noundef 2, i32 noundef 0)
-  %163 = add i32 %8, 42
+  %163 = add nuw nsw i32 %8, 42
   %164 = load i32, ptr @hf_s7comm_ud_blockinfo_author, align 4
   %165 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 8, i32 noundef 0)
-  %166 = add i32 %8, 50
+  %166 = add nuw nsw i32 %8, 50
   %167 = load i32, ptr @hf_s7comm_ud_blockinfo_family, align 4
   %168 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %167, ptr noundef %0, i32 noundef %166, i32 noundef 8, i32 noundef 0)
-  %169 = add i32 %8, 58
+  %169 = add nuw nsw i32 %8, 58
   %170 = load i32, ptr @hf_s7comm_ud_blockinfo_headername, align 4
   %171 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %170, ptr noundef %0, i32 noundef %169, i32 noundef 8, i32 noundef 0)
-  %172 = add i32 %8, 66
+  %172 = add nuw nsw i32 %8, 66
   %173 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %172)
   %174 = lshr i8 %173, 4
   %175 = zext nneg i8 %174 to i32
@@ -6614,19 +6614,19 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
   %179 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %12, i64 noundef 10, i32 noundef 2, i64 noundef 10, ptr noundef nonnull @.str.2408, i32 noundef %175, i32 noundef %178)
   %180 = load i32, ptr @hf_s7comm_ud_blockinfo_headerversion, align 4
   %181 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %180, ptr noundef %0, i32 noundef %172, i32 noundef 1, ptr noundef nonnull %12)
-  %182 = add i32 %8, 67
+  %182 = add nuw nsw i32 %8, 67
   %183 = load i32, ptr @hf_s7comm_ud_blockinfo_res_unknown, align 4
   %184 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %183, ptr noundef %0, i32 noundef %182, i32 noundef 1, i32 noundef 0)
-  %185 = add i32 %8, 68
+  %185 = add nuw nsw i32 %8, 68
   %186 = load i32, ptr @hf_s7comm_ud_blockinfo_checksum, align 4
   %187 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %185, i32 noundef %186, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %188 = add i32 %8, 70
+  %188 = add nuw nsw i32 %8, 70
   %189 = load i32, ptr @hf_s7comm_ud_blockinfo_reserved1, align 4
   %190 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %188, i32 noundef 4, i32 noundef 0)
-  %191 = add i32 %8, 74
+  %191 = add nuw nsw i32 %8, 74
   %192 = load i32, ptr @hf_s7comm_ud_blockinfo_reserved2, align 4
   %193 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef 4, i32 noundef 0)
-  %194 = add i32 %8, 78
+  %194 = add nuw nsw i32 %8, 78
   br label %.thread
 
 195:                                              ; preds = %14, %9, %33, %65
@@ -6647,7 +6647,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_block_subfunc(ptr noundef %
 declare i32 @s7comm_decode_ud_cpu_szl_subfunc(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i32 noundef range(i32 0, 65560) %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_s7comm_cpu_alarm_message_item, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %5, i32 noundef 0, i32 noundef 0)
   %9 = load i32, ptr @ett_s7comm_cpu_alarm_message, align 4
@@ -6665,7 +6665,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
 11:                                               ; preds = %6
   %12 = load i32, ptr @hf_s7comm_cpu_alarm_message_scan_unknown1, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %12, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef 0)
-  %14 = add i32 %5, 2
+  %14 = add nuw nsw i32 %5, 2
   %15 = load i32, ptr @hf_s7comm_cpu_alarm_message_timestamp_coming, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 8, i32 noundef 0)
   %17 = load i32, ptr @ett_s7comm_cpu_alarm_message_timestamp, align 4
@@ -6959,30 +6959,30 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_main(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_query_response(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_query_response(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65560) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_s7comm_cpu_alarm_message_item, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %2, i32 noundef 0, i32 noundef 0)
   %6 = load i32, ptr @ett_s7comm_cpu_alarm_message, align 4
   %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6)
   %8 = load i32, ptr @hf_s7comm_cpu_alarm_message_function, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef 0)
-  %10 = add i32 %2, 1
+  %10 = add nuw nsw i32 %2, 1
   %11 = load i32, ptr @hf_s7comm_cpu_alarm_message_nr_objects, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 1, i32 noundef 0)
-  %13 = add i32 %2, 2
+  %13 = add nuw nsw i32 %2, 2
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %13)
   %15 = load i32, ptr @hf_s7comm_data_returncode, align 4
   %16 = zext i8 %14 to i32
   %17 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %15, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %16)
-  %18 = add i32 %2, 3
+  %18 = add nuw nsw i32 %2, 3
   %19 = load i32, ptr @hf_s7comm_data_transport_size, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0)
-  %21 = add i32 %2, 4
+  %21 = add nuw nsw i32 %2, 4
   %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21)
   %23 = load i32, ptr @hf_s7comm_cpu_alarm_query_completelen, align 4
   %24 = zext i16 %22 to i32
   %25 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %23, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef %24)
-  %26 = add i32 %2, 6
+  %26 = add nuw nsw i32 %2, 6
   %27 = icmp eq i8 %14, -1
   br i1 %27, label %.preheader, label %.loopexit
 
@@ -7087,7 +7087,7 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_alarm_query_response(ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i32 noundef range(i32 1, 0) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_message_service(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i32 noundef range(i32 1, 0) %4, i32 noundef range(i32 0, 65560) %5) unnamed_addr #0 {
   %7 = alloca [42 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 42, ptr nonnull %7) #8
   switch i8 %3, label %105 [
@@ -7100,10 +7100,10 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
   %10 = load i32, ptr @hf_s7comm_cpu_msgservice_subscribe_events, align 4
   %11 = load i32, ptr @ett_s7comm_cpu_msgservice_subscribe_events, align 4
   %12 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %5, i32 noundef %10, i32 noundef %11, ptr noundef nonnull @s7comm_cpu_msgservice_subscribe_events_fields, i32 noundef 0)
-  %13 = add i32 %5, 1
+  %13 = add nuw nsw i32 %5, 1
   %14 = load i32, ptr @hf_s7comm_cpu_msgservice_req_reserved1, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0)
-  %16 = add i32 %5, 2
+  %16 = add nuw nsw i32 %5, 2
   %17 = call i64 @g_strlcpy(ptr noundef nonnull %7, ptr noundef nonnull @.str.2124, i64 noundef 42)
   %18 = zext i8 %9 to i32
   %19 = and i32 %18, 1
@@ -7193,7 +7193,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.2428, ptr noundef nonnull %7)
   %59 = load i32, ptr @hf_s7comm_cpu_msgservice_username, align 4
   %60 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef %16, i32 noundef 8, i32 noundef 0)
-  %61 = add i32 %5, 10
+  %61 = add nuw nsw i32 %5, 10
   %62 = icmp ugt i32 %4, 10
   %or.cond = and i1 %62, %47
   br i1 %or.cond, label %63, label %105
@@ -7206,7 +7206,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
   %68 = zext i8 %64 to i32
   %69 = call ptr @val_to_str(i32 noundef %68, ptr noundef nonnull @cpu_msgservice_almtype_names, ptr noundef nonnull @.str.2350)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.2429, ptr noundef %69)
-  %70 = add i32 %5, 11
+  %70 = add nuw nsw i32 %5, 11
   %71 = and i8 %64, -2
   %or.cond4 = icmp eq i8 %71, 6
   br i1 %or.cond4, label %72, label %74
@@ -7218,16 +7218,16 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
 74:                                               ; preds = %63
   %75 = load i32, ptr @hf_s7comm_cpu_msgservice_req_reserved2, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef 0)
-  %77 = add i32 %5, 12
+  %77 = add nuw nsw i32 %5, 12
   br label %105
 
 78:                                               ; preds = %6
   %79 = load i32, ptr @hf_s7comm_cpu_msgservice_res_result, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
-  %81 = add i32 %5, 1
+  %81 = add nuw nsw i32 %5, 1
   %82 = load i32, ptr @hf_s7comm_cpu_msgservice_res_reserved1, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef 0)
-  %84 = add i32 %5, 2
+  %84 = add nuw nsw i32 %5, 2
   %85 = icmp ugt i32 %4, 2
   br i1 %85, label %86, label %105
 
@@ -7240,7 +7240,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
   %92 = zext i8 %87 to i32
   %93 = tail call ptr @val_to_str(i32 noundef %92, ptr noundef nonnull @cpu_msgservice_almtype_names, ptr noundef nonnull @.str.2350)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.2429, ptr noundef %93)
-  %94 = add i32 %5, 3
+  %94 = add nuw nsw i32 %5, 3
   %95 = and i8 %87, -2
   %or.cond7 = icmp eq i8 %95, 6
   br i1 %or.cond7, label %96, label %98
@@ -7252,10 +7252,10 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
 98:                                               ; preds = %86
   %99 = load i32, ptr @hf_s7comm_cpu_msgservice_res_reserved2, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %99, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0)
-  %101 = add i32 %5, 4
+  %101 = add nuw nsw i32 %5, 4
   %102 = load i32, ptr @hf_s7comm_cpu_msgservice_res_reserved3, align 4
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %102, ptr noundef %0, i32 noundef %101, i32 noundef 1, i32 noundef 0)
-  %104 = add i32 %5, 5
+  %104 = add nuw nsw i32 %5, 5
   br label %105
 
 105:                                              ; preds = %78, %98, %96, %56, %74, %72, %6
@@ -7265,12 +7265,12 @@ define internal fastcc noundef i32 @s7comm_decode_message_service(ptr noundef %0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @s7comm_decode_ud_cpu_ar_send(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_ud_cpu_ar_send(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 65560) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   %5 = load i32, ptr @hf_s7comm_pbc_arsend_len, align 4
   %6 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %4)
-  %7 = add i32 %2, 2
+  %7 = add nuw nsw i32 %2, 2
   %8 = load i32, ptr @hf_s7comm_userdata_data, align 4
   %9 = load i32, ptr %4, align 4
   %10 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %7, i32 noundef %9, i32 noundef 0)
@@ -7281,11 +7281,11 @@ define internal fastcc i32 @s7comm_decode_ud_cpu_ar_send(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @s7comm_decode_ud_pbc_bsend_subfunc(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @s7comm_decode_ud_pbc_bsend_subfunc(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef range(i32 0, 65560) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @hf_s7comm_pbc_bsend_len, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0)
-  %10 = add i32 %3, 2
+  %10 = add nuw nsw i32 %3, 2
   %11 = load i32, ptr @hf_s7comm_userdata_data, align 4
   %12 = add i32 %2, -2
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef %12, i32 noundef 0)
@@ -7314,7 +7314,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_pbc_bsend_subfunc(ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @s7comm_decode_ud_time_subfunc(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 4) %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef range(i32 1, 0) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @s7comm_decode_ud_time_subfunc(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 4) %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i32 noundef range(i32 1, 0) %5, i32 noundef range(i32 0, 65560) %6) unnamed_addr #0 {
   switch i8 %3, label %20 [
     i8 1, label %8
     i8 3, label %8
@@ -7360,7 +7360,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_time_subfunc(ptr noundef %0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i32 noundef range(i32 1, 0) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext %4, i32 noundef range(i32 1, 0) %5, i32 noundef range(i32 0, 65560) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
   %9 = icmp ugt i32 %5, 1
@@ -7392,10 +7392,10 @@ define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %
 24:                                               ; preds = %22
   %25 = load i32, ptr @hf_s7comm_data_ncprg_unackcount, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0)
-  %27 = add i32 %6, 1
+  %27 = add nuw nsw i32 %6, 1
   %28 = load i32, ptr @hf_s7comm_data_blockcontrol_unknown1, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0)
-  %30 = add i32 %6, 2
+  %30 = add nuw nsw i32 %6, 2
   %31 = add i32 %5, -2
   %32 = load i32, ptr @hf_s7comm_data_blockcontrol_filename, align 4
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -7416,10 +7416,10 @@ define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %
 42:                                               ; preds = %40
   %43 = load i32, ptr @hf_s7comm_data_ncprg_unackcount, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0)
-  %45 = add i32 %6, 1
+  %45 = add nuw nsw i32 %6, 1
   %46 = load i32, ptr @hf_s7comm_data_blockcontrol_unknown1, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef 0)
-  %48 = add i32 %6, 2
+  %48 = add nuw nsw i32 %6, 2
   br label %92
 
 49:                                               ; preds = %40
@@ -7437,10 +7437,10 @@ define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %
 51:                                               ; preds = %50, %50
   %52 = load i32, ptr @hf_s7comm_data_ncprg_unackcount, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef 0)
-  %54 = add i32 %6, 1
+  %54 = add nuw nsw i32 %6, 1
   %55 = load i32, ptr @hf_s7comm_data_blockcontrol_unknown1, align 4
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0)
-  %57 = add i32 %6, 2
+  %57 = add nuw nsw i32 %6, 2
   br label %92
 
 58:                                               ; preds = %50, %49
@@ -7454,10 +7454,10 @@ define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %
 60:                                               ; preds = %58, %58, %58
   %61 = load i32, ptr @hf_s7comm_data_ncprg_filelength, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %6, i32 noundef 8, i32 noundef 0)
-  %63 = add i32 %6, 8
+  %63 = add nuw nsw i32 %6, 8
   %64 = load i32, ptr @hf_s7comm_data_ncprg_filetime, align 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 16, i32 noundef 0)
-  %66 = add i32 %6, 24
+  %66 = add nuw nsw i32 %6, 24
   %67 = icmp ugt i32 %5, 24
   br i1 %67, label %68, label %92
 
@@ -7489,7 +7489,7 @@ define internal fastcc noundef i32 @s7comm_decode_ud_ncprg_subfunc(ptr noundef %
 82:                                               ; preds = %49, %58
   %83 = load i32, ptr @hf_s7comm_data_blockcontrol_unknown1, align 4
   %84 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 0)
-  %85 = add i32 %6, 2
+  %85 = add nuw nsw i32 %6, 2
   %86 = add i32 %5, -2
   %87 = icmp ugt i32 %86, 3
   br i1 %87, label %88, label %92
@@ -9096,11 +9096,11 @@ define internal fastcc i32 @s7comm_decode_ud_tis_item_value(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @s7comm_get_timestring_from_s7time(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 1)) %2) unnamed_addr #0 {
+define internal fastcc void @s7comm_get_timestring_from_s7time(ptr noundef %0, i32 noundef range(i32 22, 65588) %1, ptr noundef initializes((0, 1)) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1)
-  %6 = add i32 %1, 4
+  %6 = add nuw nsw i32 %1, 4
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6)
   %8 = zext i16 %7 to i64
   %9 = mul nuw nsw i64 %8, 86400
@@ -9152,14 +9152,14 @@ declare ptr @gmtime(ptr noundef) local_unnamed_addr #6
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @s7comm_decode_message_service_ar_send_args(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i32 noundef range(i32 3, 65571) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
   %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
   %8 = load i32, ptr @hf_s7comm_param_itemcount, align 4
   %9 = zext i8 %7 to i32
   %10 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %9)
-  %11 = add i32 %4, 1
+  %11 = add nuw nsw i32 %4, 1
   %.not68 = icmp eq i8 %7, 0
   br i1 %.not68, label %._crit_edge.thread, label %.lr.ph
 
@@ -9179,16 +9179,16 @@ define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(p
   %16 = call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = load i32, ptr @hf_s7comm_item_varspec, align 4
   %18 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %.05660.us, i32 noundef 1, i32 noundef 0)
-  %19 = add i32 %.05660.us, 1
+  %19 = add nuw nsw i32 %.05660.us, 1
   %20 = load i32, ptr @hf_s7comm_item_varspec_length, align 4
   %21 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 1, i32 noundef 0)
-  %22 = add i32 %.05660.us, 2
+  %22 = add nuw nsw i32 %.05660.us, 2
   %23 = load i32, ptr @hf_s7comm_item_syntax_id, align 4
   %24 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0)
-  %25 = add i32 %.05660.us, 3
+  %25 = add nuw nsw i32 %.05660.us, 3
   %26 = load i32, ptr @hf_s7comm_pbc_arsend_unknown, align 4
   %27 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
-  %28 = add i32 %.05660.us, 4
+  %28 = add nuw nsw i32 %.05660.us, 4
   %29 = load i32, ptr @hf_s7comm_pbc_arsend_ar_id, align 4
   %30 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6)
   %31 = load ptr, ptr %12, align 8
@@ -9199,7 +9199,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(p
   %35 = add nuw nsw i32 %indvars.iv73, 1
   %36 = load i32, ptr %6, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.2433, i32 noundef %35, i32 noundef %36)
-  %37 = add i32 %.05660.us, 8
+  %37 = add nuw nsw i32 %.05660.us, 8
   %exitcond77.not = icmp eq i32 %35, %9
   br i1 %exitcond77.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !37
 
@@ -9214,7 +9214,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(p
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.2353, i32 noundef %42)
   %43 = load i32, ptr @hf_s7comm_pbc_arsend_ret, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %43, ptr noundef %0, i32 noundef %.05660.us64, i32 noundef 1, i32 noundef 0)
-  %45 = add i32 %.05660.us64, 1
+  %45 = add nuw nsw i32 %.05660.us64, 1
   %exitcond.not = icmp eq i32 %42, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us62, !llvm.loop !37
 

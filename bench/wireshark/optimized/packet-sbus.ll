@@ -788,13 +788,13 @@ is_sbus_pdu.exit:                                 ; preds = %20
 92:                                               ; preds = %90
   %93 = call ptr @wmem_file_scope()
   %94 = call noalias dereferenceable_or_null(2) ptr @wmem_alloc(ptr noundef %93, i64 noundef 2) #7
-  %95 = add nuw nsw i32 %.02628.i, 1
+  %95 = add nsw i32 %.02628.i, 1
   %96 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %95)
   %97 = zext i8 %96 to i32
   %98 = add nsw i32 %.02628.i, 2
   %99 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %98)
   store i8 %99, ptr %94, align 1
-  %100 = add nuw nsw i32 %.02628.i, 3
+  %100 = add nsw i32 %.02628.i, 3
   %101 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %100)
   %102 = add i8 %101, 1
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 1

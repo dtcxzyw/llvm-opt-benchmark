@@ -347,9 +347,9 @@ _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
   br label %47
 
 35:                                               ; preds = %27
-  %36 = add nsw i32 %.02867, 1
-  %37 = sext i32 %.02867 to i64
-  %38 = getelementptr inbounds [2 x %"class.mitsuba::ref.9"], ptr %.ptr34, i64 0, i64 %37
+  %36 = add nuw nsw i32 %.02867, 1
+  %37 = zext nneg i32 %.02867 to i64
+  %38 = getelementptr inbounds nuw [2 x %"class.mitsuba::ref.9"], ptr %.ptr34, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, %26
   br i1 %.not.i, label %_ZN7mitsuba3refINS_4BSDFIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEEaSIS7_EERS8_PS7_.exit, label %40

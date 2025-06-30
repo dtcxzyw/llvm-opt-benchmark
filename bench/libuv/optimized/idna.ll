@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @uv__idna_toascii_label.alphabet = internal unnamed_addr constant [37 x i8] c"abcdefghijklmnopqrstuvwxyz0123456789\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1114112) i32 @uv__utf8_decode1(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -730,7 +730,7 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
 
 ._crit_edge222:                                   ; preds = %uv__utf8_decode1.exit171, %.preheader202
   %.0116.lcssa = phi i32 [ -1, %.preheader202 ], [ %.1117, %uv__utf8_decode1.exit171 ]
-  %210 = sub i32 %.0116.lcssa, %.0118239
+  %210 = sub nsw i32 %.0116.lcssa, %.0118239
   %211 = add i32 %.2122238, 1
   %212 = xor i32 %.0106241, -1
   %213 = udiv i32 %212, %211

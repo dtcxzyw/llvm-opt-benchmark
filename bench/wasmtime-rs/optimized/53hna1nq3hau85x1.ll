@@ -25994,7 +25994,7 @@ _ZN9regalloc27Operand4vreg17hfc8010cac40dece7E.exit286.i: ; preds = %1980
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit310.thread.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7369e363519665eaE.exit.thread.i55"
   %2145 = trunc nuw i8 %.2219.i to i1
   %2146 = trunc nuw i8 %.2215.i to i1
-  %2147 = trunc i8 %.2.i to i1
+  %2147 = trunc nuw i8 %.2.i to i1
   br i1 %2145, label %2149, label %2148
 
 2148:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit310.thread.i"
@@ -26155,7 +26155,7 @@ _ZN9regalloc27Operand4vreg17hfc8010cac40dece7E.exit286.i: ; preds = %1980
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7369e363519665eaE.exit.thread.i55": ; preds = %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit284.thread.i, %2205
   %.2219.i = phi i8 [ 1, %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit284.thread.i ], [ %.1218.i, %2205 ]
   %.2215.i = phi i8 [ 1, %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit284.thread.i ], [ %.1214.i, %2205 ]
-  %.2.i = phi i8 [ %2223, %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit284.thread.i ], [ %.1.i52, %2205 ]
+  %.2.i = phi i8 [ 1, %_ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit284.thread.i ], [ %.1.i52, %2205 ]
   %2211 = icmp eq ptr %2140, %2135
   br i1 %2211, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit310.thread.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75815233107ad094E.exit310.i"
 
@@ -26197,7 +26197,7 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit284.thread.i: ; preds 
   %.3216368378.i = phi i8 [ %.1214.i, %2222 ], [ %.1214.i, %2212 ], [ %.1214.i, %2216 ], [ %.1214.i, %2216 ], [ %spec.select278.i, %2219 ]
   %2223 = phi i8 [ 1, %2222 ], [ %.1.i52, %2212 ], [ %.1.i52, %2216 ], [ %.1.i52, %2216 ], [ %.1.i52, %2219 ]
   %2224 = trunc nuw i8 %.3220366379.i to i1
-  %2225 = trunc i8 %2223 to i1
+  %2225 = trunc nuw i8 %2223 to i1
   %or.cond.i54 = select i1 %2224, i1 %2225, i1 false
   %2226 = trunc nuw i8 %.3216368378.i to i1
   %or.cond4.i = select i1 %or.cond.i54, i1 %2226, i1 false

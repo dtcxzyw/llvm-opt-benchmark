@@ -805,7 +805,7 @@ define void @_ZN11duckdb_zstd18ZSTD_buildFSETableEPNS_14ZSTD_seqSymbolEPKsjPKjPK
 .lr.ph18.i:                                       ; preds = %77, %.lr.ph18.preheader.i
   %.0114.i16.i = phi i32 [ %78, %77 ], [ 0, %.lr.ph18.preheader.i ]
   %.1116.i15.i = phi i32 [ %.2.i.i, %77 ], [ %.0115.i22.i, %.lr.ph18.preheader.i ]
-  %74 = zext i32 %.1116.i15.i to i64
+  %74 = zext nneg i32 %.1116.i15.i to i64
   %.idx.i.i = shl nuw nsw i64 %74, 3
   %gep14.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i.i
   store i32 %73, ptr %gep14.i, align 4, !tbaa !50
@@ -813,7 +813,7 @@ define void @_ZN11duckdb_zstd18ZSTD_buildFSETableEPNS_14ZSTD_seqSymbolEPKsjPKjPK
 
 75:                                               ; preds = %75, %.lr.ph18.i
   %.1116.pn.i.i = phi i32 [ %.1116.i15.i, %.lr.ph18.i ], [ %.2.i.i, %75 ]
-  %.pn.i.i = add i32 %67, %.1116.pn.i.i
+  %.pn.i.i = add nuw i32 %67, %.1116.pn.i.i
   %.2.i.i = and i32 %.pn.i.i, %16
   %76 = icmp ugt i32 %.2.i.i, %.1.i.i
   br i1 %76, label %75, label %77, !prof !57, !llvm.loop !58
@@ -1037,7 +1037,7 @@ define internal fastcc void @_ZN11duckdb_zstdL28ZSTD_buildFSETable_body_bmi2EPNS
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %76
   %.0114.i16 = phi i32 [ %77, %76 ], [ 0, %.lr.ph18.preheader ]
   %.1116.i15 = phi i32 [ %.2.i, %76 ], [ %.0115.i22, %.lr.ph18.preheader ]
-  %73 = zext i32 %.1116.i15 to i64
+  %73 = zext nneg i32 %.1116.i15 to i64
   %.idx.i = shl nuw nsw i64 %73, 3
   %gep14 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx.i
   store i32 %72, ptr %gep14, align 4, !tbaa !50
@@ -1045,7 +1045,7 @@ define internal fastcc void @_ZN11duckdb_zstdL28ZSTD_buildFSETable_body_bmi2EPNS
 
 74:                                               ; preds = %74, %.lr.ph18
   %.1116.pn.i = phi i32 [ %.1116.i15, %.lr.ph18 ], [ %.2.i, %74 ]
-  %.pn.i = add i32 %66, %.1116.pn.i
+  %.pn.i = add nuw i32 %66, %.1116.pn.i
   %.2.i = and i32 %.pn.i, %12
   %75 = icmp ugt i32 %.2.i, %.1.i
   br i1 %75, label %74, label %76, !prof !57, !llvm.loop !58

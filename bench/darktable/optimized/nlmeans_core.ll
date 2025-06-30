@@ -1059,7 +1059,7 @@ pixel_difference.exit457:                         ; preds = %574
   br i1 %594, label %.lr.ph502, label %.loopexit
 
 .loopexit:                                        ; preds = %pixel_difference.exit457, %diff_of_pixels_diff.exit, %pixel_difference.exit453, %568, %522, %489, %566
-  %indvars.iv.next580 = add nsw i64 %indvars.iv579, 1
+  %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
   %595 = icmp slt i64 %indvars.iv.next580, %384
   br i1 %595, label %388, label %._crit_edge511
 

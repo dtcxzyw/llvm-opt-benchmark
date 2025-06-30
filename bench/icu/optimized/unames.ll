@@ -576,7 +576,7 @@ _ZN6icu_77L15expandGroupNameEPNS_10UCharNamesEPKtt15UCharNameChoicePct.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef range(i32 -2147483648, 2147483647) %0, ptr noundef writeonly captures(none) %1, i16 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %0, ptr noundef writeonly captures(none) %1, i16 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp sgt i32 %0, 64975
   br i1 %4, label %5, label %11
 
@@ -592,7 +592,7 @@ define internal fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 nou
   br i1 %or.cond.i.i, label %_ZN6icu_77L10getCharCatEi.exit.thread.i, label %11
 
 11:                                               ; preds = %7, %3
-  %12 = tail call signext i8 @u_charType_77(i32 noundef range(i32 -2147483648, 2147483647) %0)
+  %12 = tail call signext i8 @u_charType_77(i32 noundef %0)
   %13 = icmp eq i8 %12, 18
   %14 = and i32 %0, -1024
   %15 = icmp eq i32 %14, 55296
@@ -2006,7 +2006,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L12enumAlgNa
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @uprv_getMaxCharNameLength_77() local_unnamed_addr #0 {
+define i32 @uprv_getMaxCharNameLength_77() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #12
   store i32 0, ptr %1, align 4, !tbaa !3

@@ -76,7 +76,7 @@ define internal noundef i32 @b_pack(ptr noundef %0) #0 {
 gettoalign.exit:                                  ; preds = %13
   %.val = load i32, ptr %10, align 4
   %21 = sext i32 %.val to i64
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 %21)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 range(i64 -2147483648, 2147483600) %18, i64 %21)
   %22 = add nsw i64 %spec.select.i, -1
   %23 = and i64 %22, %.03958
   %24 = sub i64 %spec.select.i, %23
@@ -143,14 +143,14 @@ gettoalign.exit:                                  ; preds = %13
   br i1 %48, label %.lr.ph.preheader.i, label %putinteger.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader23.i
-  %49 = and i64 %18, 2147483647
+  %49 = and i64 %18, 4294967295
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %40
   br i1 %48, label %.lr.ph29.preheader.i, label %putinteger.exit
 
 .lr.ph29.preheader.i:                             ; preds = %.preheader.i
-  %wide.trip.count.i = and i64 %18, 2147483647
+  %wide.trip.count.i = and i64 %18, 4294967295
   br label %.lr.ph29.i
 
 .lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
@@ -210,7 +210,7 @@ putinteger.exit:                                  ; preds = %.lr.ph.i, %.lr.ph29
   br i1 %or.cond.i42, label %.lr.ph.preheader.i43, label %correctbytes.exit
 
 .lr.ph.preheader.i43:                             ; preds = %65
-  %71 = and i64 %18, 2147483647
+  %71 = and i64 %18, 4294967295
   %72 = add nsw i64 %71, -1
   br label %.lr.ph.i44
 
@@ -245,7 +245,7 @@ correctbytes.exit:                                ; preds = %.lr.ph.i44, %65
   br i1 %or.cond.i48, label %.lr.ph.preheader.i49, label %correctbytes.exit55
 
 .lr.ph.preheader.i49:                             ; preds = %78
-  %83 = and i64 %18, 2147483647
+  %83 = and i64 %18, 4294967295
   %84 = add nsw i64 %83, -1
   br label %.lr.ph.i50
 
@@ -379,7 +379,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @b_unpack(ptr noundef %0
 23:                                               ; preds = %.lr.ph
   %.val = load i32, ptr %13, align 4
   %24 = sext i32 %.val to i64
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %20, i64 %24)
+  %spec.select.i = call i64 @llvm.umin.i64(i64 range(i64 -2147483648, 2147483600) %20, i64 %24)
   %25 = add nsw i64 %spec.select.i, -1
   %26 = and i64 %25, %.0108
   %27 = sub i64 %spec.select.i, %26
@@ -668,7 +668,7 @@ define internal noundef i32 @b_size(ptr noundef %0) #0 {
 14:                                               ; preds = %.lr.ph
   %.val = load i32, ptr %5, align 4
   %15 = sext i32 %.val to i64
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %15)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 -2147483648, 2147483600) %11, i64 %15)
   %16 = add nsw i64 %spec.select.i, -1
   %17 = and i64 %16, %.022
   %18 = sub i64 %spec.select.i, %17
@@ -731,7 +731,7 @@ declare void @lua_pushnil(ptr noundef) local_unnamed_addr #1
 declare void @luaL_buffinit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @optsize(ptr noundef %0, i8 noundef signext %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483600) i64 @optsize(ptr noundef %0, i8 noundef signext %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   switch i8 %1, label %74 [
     i8 66, label %getnum.exit
     i8 98, label %getnum.exit

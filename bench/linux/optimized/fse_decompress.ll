@@ -182,7 +182,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
 109:                                              ; preds = %118, %107
   %110 = phi i32 [ 0, %107 ], [ %119, %118 ]
   %111 = phi i32 [ %103, %107 ], [ %116, %118 ]
-  %112 = zext i32 %111 to i64
+  %112 = zext nneg i32 %111 to i64
   %.idx11 = shl nuw nsw i64 %112, 2
   %gep20 = getelementptr i8, ptr %invariant.gep, i64 %.idx11
   store i8 %108, ptr %gep20, align 2
@@ -190,7 +190,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
 
 113:                                              ; preds = %113, %109
   %114 = phi i32 [ %111, %109 ], [ %116, %113 ]
-  %115 = add i32 %100, %114
+  %115 = add nuw i32 %100, %114
   %116 = and i32 %115, %13
   %117 = icmp ugt i32 %116, %45
   br i1 %117, label %113, label %118, !llvm.loop !12

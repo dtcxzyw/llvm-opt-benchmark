@@ -282,7 +282,7 @@ define void @transpose32a(ptr noundef captures(none) %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Fra_ClausProcessClausesCut(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
+define range(i32 0, -2147483648) i32 @Fra_ClausProcessClausesCut(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
   %5 = alloca [32 x i32], align 16
   %6 = alloca [16 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #23
@@ -468,7 +468,7 @@ transpose32a.exit:                                ; preds = %68
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Fra_ClausProcessClausesCut2(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
+define range(i32 0, -2147483648) i32 @Fra_ClausProcessClausesCut2(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
   %5 = alloca [16 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #23
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20

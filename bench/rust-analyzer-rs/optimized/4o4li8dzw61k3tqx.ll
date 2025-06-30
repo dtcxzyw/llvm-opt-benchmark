@@ -20807,7 +20807,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define i64 @"_ZN3hir7from_id94_$LT$impl$u20$core..convert..From$LT$hir..GenericDef$GT$$u20$for$u20$hir_def..GenericDefId$GT$4from17hb35a41f0843d3e71E"(i64 %0) unnamed_addr #12 {
+define range(i64 0, -4294967280) i64 @"_ZN3hir7from_id94_$LT$impl$u20$core..convert..From$LT$hir..GenericDef$GT$$u20$for$u20$hir_def..GenericDefId$GT$4from17hb35a41f0843d3e71E"(i64 %0) unnamed_addr #12 {
   %.sroa.09.0.extract.trunc = trunc i64 %0 to i32
   %2 = add i32 %.sroa.09.0.extract.trunc, -3
   %3 = icmp ult i32 %2, 8

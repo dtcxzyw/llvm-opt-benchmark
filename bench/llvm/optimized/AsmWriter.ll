@@ -32575,7 +32575,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9
   %.01317.i = phi i64 [ %.018.i, %41 ], [ %.1, %37 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %39 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.018.i
+  %39 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.018.i
   %.val.i = load ptr, ptr %39, align 8, !tbaa !445
   %40 = call fastcc noundef zeroext i1 @"_ZZL24predictValueUseListOrderPKN4llvm5ValueEjRKNS_9MapVectorIS2_jNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEEENK3$_0clERKSC_IPKNS_3UseEjESO_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %5, ptr %.val.i, ptr %3)
   br i1 %40, label %41, label %"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit"
@@ -32593,7 +32593,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9
 
 "_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit": ; preds = %.lr.ph.i, %41, %37
   %.013.lcssa.i = phi i64 [ %.1, %37 ], [ %.01317.i, %.lr.ph.i ], [ %.018.i, %41 ]
-  %48 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.013.lcssa.i
+  %48 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.013.lcssa.i
   store ptr %3, ptr %48, align 8, !tbaa !445
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 %4, ptr %49, align 8, !tbaa !447

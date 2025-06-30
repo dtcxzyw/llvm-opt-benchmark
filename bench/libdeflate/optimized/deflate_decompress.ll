@@ -430,8 +430,8 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
 
 170:                                              ; preds = %.loopexit899
   %171 = trunc nuw nsw i32 %168 to i8
-  %172 = add i32 %.2646, 1
-  %173 = zext i32 %.2646 to i64
+  %172 = add nuw nsw i32 %.2646, 1
+  %173 = zext nneg i32 %.2646 to i64
   %174 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %173
   store i8 %171, ptr %174, align 1, !tbaa !21
   br label %249
@@ -448,7 +448,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   br i1 %.not751, label %.thread836, label %177, !prof !20
 
 177:                                              ; preds = %176
-  %178 = add i32 %.2646, -1
+  %178 = add nsw i32 %.2646, -1
   %179 = zext i32 %178 to i64
   %180 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %179
   %181 = load i8, ptr %180, align 1, !tbaa !21
@@ -457,27 +457,27 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %184 = add nuw nsw i32 %183, 3
   %185 = lshr i64 %166, 2
   %186 = add i32 %167, -2
-  %187 = zext i32 %.2646 to i64
+  %187 = zext nneg i32 %.2646 to i64
   %188 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %187
   store i8 %181, ptr %188, align 1, !tbaa !21
-  %189 = add i32 %.2646, 1
-  %190 = zext i32 %189 to i64
+  %189 = add nuw nsw i32 %.2646, 1
+  %190 = zext nneg i32 %189 to i64
   %191 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %190
   store i8 %181, ptr %191, align 1, !tbaa !21
-  %192 = add i32 %.2646, 2
-  %193 = zext i32 %192 to i64
+  %192 = add nuw nsw i32 %.2646, 2
+  %193 = zext nneg i32 %192 to i64
   %194 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %193
   store i8 %181, ptr %194, align 1, !tbaa !21
-  %195 = add i32 %.2646, 3
-  %196 = zext i32 %195 to i64
+  %195 = add nuw nsw i32 %.2646, 3
+  %196 = zext nneg i32 %195 to i64
   %197 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %196
   store i8 %181, ptr %197, align 1, !tbaa !21
-  %198 = add i32 %.2646, 4
-  %199 = zext i32 %198 to i64
+  %198 = add nuw nsw i32 %.2646, 4
+  %199 = zext nneg i32 %198 to i64
   %200 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %199
   store i8 %181, ptr %200, align 1, !tbaa !21
-  %201 = add i32 %.2646, 5
-  %202 = zext i32 %201 to i64
+  %201 = add nuw nsw i32 %.2646, 5
+  %202 = zext nneg i32 %201 to i64
   %203 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %202
   store i8 %181, ptr %203, align 1, !tbaa !21
   br label %248
@@ -488,43 +488,43 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %207 = add nuw nsw i32 %206, 3
   %208 = lshr i64 %166, 3
   %209 = add i32 %167, -3
-  %210 = zext i32 %.2646 to i64
+  %210 = zext nneg i32 %.2646 to i64
   %211 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %210
   store i8 0, ptr %211, align 1, !tbaa !21
-  %212 = add i32 %.2646, 1
-  %213 = zext i32 %212 to i64
+  %212 = add nuw nsw i32 %.2646, 1
+  %213 = zext nneg i32 %212 to i64
   %214 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %213
   store i8 0, ptr %214, align 1, !tbaa !21
-  %215 = add i32 %.2646, 2
-  %216 = zext i32 %215 to i64
+  %215 = add nuw nsw i32 %.2646, 2
+  %216 = zext nneg i32 %215 to i64
   %217 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %216
   store i8 0, ptr %217, align 1, !tbaa !21
-  %218 = add i32 %.2646, 3
-  %219 = zext i32 %218 to i64
+  %218 = add nuw nsw i32 %.2646, 3
+  %219 = zext nneg i32 %218 to i64
   %220 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %219
   store i8 0, ptr %220, align 1, !tbaa !21
-  %221 = add i32 %.2646, 4
-  %222 = zext i32 %221 to i64
+  %221 = add nuw nsw i32 %.2646, 4
+  %222 = zext nneg i32 %221 to i64
   %223 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %222
   store i8 0, ptr %223, align 1, !tbaa !21
-  %224 = add i32 %.2646, 5
-  %225 = zext i32 %224 to i64
+  %224 = add nuw nsw i32 %.2646, 5
+  %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %225
   store i8 0, ptr %226, align 1, !tbaa !21
-  %227 = add i32 %.2646, 6
-  %228 = zext i32 %227 to i64
+  %227 = add nuw nsw i32 %.2646, 6
+  %228 = zext nneg i32 %227 to i64
   %229 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %228
   store i8 0, ptr %229, align 1, !tbaa !21
-  %230 = add i32 %.2646, 7
-  %231 = zext i32 %230 to i64
+  %230 = add nuw nsw i32 %.2646, 7
+  %231 = zext nneg i32 %230 to i64
   %232 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %231
   store i8 0, ptr %232, align 1, !tbaa !21
-  %233 = add i32 %.2646, 8
-  %234 = zext i32 %233 to i64
+  %233 = add nuw nsw i32 %.2646, 8
+  %234 = zext nneg i32 %233 to i64
   %235 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %234
   store i8 0, ptr %235, align 1, !tbaa !21
-  %236 = add i32 %.2646, 9
-  %237 = zext i32 %236 to i64
+  %236 = add nuw nsw i32 %.2646, 9
+  %237 = zext nneg i32 %236 to i64
   %238 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %237
   store i8 0, ptr %238, align 1, !tbaa !21
   br label %248
@@ -535,7 +535,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %242 = add nuw nsw i32 %241, 11
   %243 = lshr i64 %166, 7
   %244 = add i32 %167, -7
-  %245 = zext i32 %.2646 to i64
+  %245 = zext nneg i32 %.2646 to i64
   %246 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %245
   %247 = zext nneg i32 %242 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %246, i8 0, i64 %247, i1 false)
@@ -545,7 +545,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %.11660 = phi i32 [ %186, %177 ], [ %209, %204 ], [ %244, %239 ]
   %.pn = phi i32 [ %184, %177 ], [ %207, %204 ], [ %242, %239 ]
   %.14628 = phi i64 [ %185, %177 ], [ %208, %204 ], [ %243, %239 ]
-  %.4648 = add i32 %.pn, %.2646
+  %.4648 = add nuw nsw i32 %.pn, %.2646
   br label %249
 
 249:                                              ; preds = %170, %248
@@ -1631,8 +1631,8 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
 
 170:                                              ; preds = %.loopexit899
   %171 = trunc nuw nsw i32 %168 to i8
-  %172 = add i32 %.2646, 1
-  %173 = zext i32 %.2646 to i64
+  %172 = add nuw nsw i32 %.2646, 1
+  %173 = zext nneg i32 %.2646 to i64
   %174 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %173
   store i8 %171, ptr %174, align 1, !tbaa !21
   br label %249
@@ -1649,7 +1649,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   br i1 %.not751, label %.thread836, label %177, !prof !20
 
 177:                                              ; preds = %176
-  %178 = add i32 %.2646, -1
+  %178 = add nsw i32 %.2646, -1
   %179 = zext i32 %178 to i64
   %180 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %179
   %181 = load i8, ptr %180, align 1, !tbaa !21
@@ -1658,27 +1658,27 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %184 = add nuw nsw i32 %183, 3
   %185 = lshr i64 %166, 2
   %186 = add i32 %167, -2
-  %187 = zext i32 %.2646 to i64
+  %187 = zext nneg i32 %.2646 to i64
   %188 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %187
   store i8 %181, ptr %188, align 1, !tbaa !21
-  %189 = add i32 %.2646, 1
-  %190 = zext i32 %189 to i64
+  %189 = add nuw nsw i32 %.2646, 1
+  %190 = zext nneg i32 %189 to i64
   %191 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %190
   store i8 %181, ptr %191, align 1, !tbaa !21
-  %192 = add i32 %.2646, 2
-  %193 = zext i32 %192 to i64
+  %192 = add nuw nsw i32 %.2646, 2
+  %193 = zext nneg i32 %192 to i64
   %194 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %193
   store i8 %181, ptr %194, align 1, !tbaa !21
-  %195 = add i32 %.2646, 3
-  %196 = zext i32 %195 to i64
+  %195 = add nuw nsw i32 %.2646, 3
+  %196 = zext nneg i32 %195 to i64
   %197 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %196
   store i8 %181, ptr %197, align 1, !tbaa !21
-  %198 = add i32 %.2646, 4
-  %199 = zext i32 %198 to i64
+  %198 = add nuw nsw i32 %.2646, 4
+  %199 = zext nneg i32 %198 to i64
   %200 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %199
   store i8 %181, ptr %200, align 1, !tbaa !21
-  %201 = add i32 %.2646, 5
-  %202 = zext i32 %201 to i64
+  %201 = add nuw nsw i32 %.2646, 5
+  %202 = zext nneg i32 %201 to i64
   %203 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %202
   store i8 %181, ptr %203, align 1, !tbaa !21
   br label %248
@@ -1689,43 +1689,43 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %207 = add nuw nsw i32 %206, 3
   %208 = lshr i64 %166, 3
   %209 = add i32 %167, -3
-  %210 = zext i32 %.2646 to i64
+  %210 = zext nneg i32 %.2646 to i64
   %211 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %210
   store i8 0, ptr %211, align 1, !tbaa !21
-  %212 = add i32 %.2646, 1
-  %213 = zext i32 %212 to i64
+  %212 = add nuw nsw i32 %.2646, 1
+  %213 = zext nneg i32 %212 to i64
   %214 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %213
   store i8 0, ptr %214, align 1, !tbaa !21
-  %215 = add i32 %.2646, 2
-  %216 = zext i32 %215 to i64
+  %215 = add nuw nsw i32 %.2646, 2
+  %216 = zext nneg i32 %215 to i64
   %217 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %216
   store i8 0, ptr %217, align 1, !tbaa !21
-  %218 = add i32 %.2646, 3
-  %219 = zext i32 %218 to i64
+  %218 = add nuw nsw i32 %.2646, 3
+  %219 = zext nneg i32 %218 to i64
   %220 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %219
   store i8 0, ptr %220, align 1, !tbaa !21
-  %221 = add i32 %.2646, 4
-  %222 = zext i32 %221 to i64
+  %221 = add nuw nsw i32 %.2646, 4
+  %222 = zext nneg i32 %221 to i64
   %223 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %222
   store i8 0, ptr %223, align 1, !tbaa !21
-  %224 = add i32 %.2646, 5
-  %225 = zext i32 %224 to i64
+  %224 = add nuw nsw i32 %.2646, 5
+  %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %225
   store i8 0, ptr %226, align 1, !tbaa !21
-  %227 = add i32 %.2646, 6
-  %228 = zext i32 %227 to i64
+  %227 = add nuw nsw i32 %.2646, 6
+  %228 = zext nneg i32 %227 to i64
   %229 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %228
   store i8 0, ptr %229, align 1, !tbaa !21
-  %230 = add i32 %.2646, 7
-  %231 = zext i32 %230 to i64
+  %230 = add nuw nsw i32 %.2646, 7
+  %231 = zext nneg i32 %230 to i64
   %232 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %231
   store i8 0, ptr %232, align 1, !tbaa !21
-  %233 = add i32 %.2646, 8
-  %234 = zext i32 %233 to i64
+  %233 = add nuw nsw i32 %.2646, 8
+  %234 = zext nneg i32 %233 to i64
   %235 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %234
   store i8 0, ptr %235, align 1, !tbaa !21
-  %236 = add i32 %.2646, 9
-  %237 = zext i32 %236 to i64
+  %236 = add nuw nsw i32 %.2646, 9
+  %237 = zext nneg i32 %236 to i64
   %238 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %237
   store i8 0, ptr %238, align 1, !tbaa !21
   br label %248
@@ -1736,7 +1736,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %242 = add nuw nsw i32 %241, 11
   %243 = lshr i64 %166, 7
   %244 = add i32 %167, -7
-  %245 = zext i32 %.2646 to i64
+  %245 = zext nneg i32 %.2646 to i64
   %246 = getelementptr inbounds nuw [457 x i8], ptr %0, i64 0, i64 %245
   %247 = zext nneg i32 %242 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %246, i8 0, i64 %247, i1 false)
@@ -1746,7 +1746,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %.11660 = phi i32 [ %186, %177 ], [ %209, %204 ], [ %244, %239 ]
   %.pn = phi i32 [ %184, %177 ], [ %207, %204 ], [ %242, %239 ]
   %.14628 = phi i64 [ %185, %177 ], [ %208, %204 ], [ %243, %239 ]
-  %.4648 = add i32 %.pn, %.2646
+  %.4648 = add nuw nsw i32 %.pn, %.2646
   br label %249
 
 249:                                              ; preds = %170, %248

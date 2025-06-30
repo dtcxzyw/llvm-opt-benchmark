@@ -686,7 +686,7 @@ gxf_write_media_preamble.exit:                    ; preds = %75, %126, %127, %12
   %132 = load i32, ptr %36, align 8, !tbaa !87
   tail call void @avio_write(ptr noundef %6, ptr noundef %131, i32 noundef %132) #10
   %133 = sext i32 %.042 to i64
-  tail call void @ffio_fill(ptr noundef %6, i32 noundef 0, i64 noundef range(i64 -2147418111, 2147483648) %133) #10
+  tail call void @ffio_fill(ptr noundef %6, i32 noundef 0, i64 noundef range(i64 -2147483643, 2147483648) %133) #10
   %134 = load ptr, ptr %18, align 8, !tbaa !46
   %135 = load i32, ptr %134, align 8, !tbaa !51
   %136 = icmp eq i32 %135, 0
@@ -1471,7 +1471,7 @@ define internal fastcc i64 @update_packet_size(ptr noundef %0, i64 noundef %1) u
 7:                                                ; preds = %2
   %8 = sub nsw i32 4, %6
   %9 = zext nneg i32 %8 to i64
-  tail call void @ffio_fill(ptr noundef %0, i32 noundef 0, i64 noundef range(i64 -2147418111, 2147483648) %9) #10
+  tail call void @ffio_fill(ptr noundef %0, i32 noundef 0, i64 noundef range(i64 -2147483643, 2147483648) %9) #10
   %10 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #10
   %11 = sub nsw i64 %10, %1
   %12 = trunc i64 %11 to i32

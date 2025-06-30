@@ -28,17 +28,17 @@ define hidden range(i32 -1, 16777216) i32 @_glfwKeySym2Unicode(i32 noundef %0) l
 .preheader:                                       ; preds = %4, %26
   %.02230 = phi i32 [ %.1, %26 ], [ 827, %4 ]
   %.02329 = phi i32 [ %.124, %26 ], [ 0, %4 ]
-  %9 = add nsw i32 %.02230, %.02329
-  %10 = sdiv i32 %9, 2
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds [828 x %struct.codepair], ptr @keysymtab, i64 0, i64 %11
+  %9 = add nuw nsw i32 %.02230, %.02329
+  %10 = lshr i32 %9, 1
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds nuw [828 x %struct.codepair], ptr @keysymtab, i64 0, i64 %11
   %13 = load i16, ptr %12, align 4, !tbaa !3
   %14 = zext i16 %13 to i32
   %15 = icmp ugt i32 %0, %14
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.preheader
-  %17 = add nsw i32 %10, 1
+  %17 = add nuw nsw i32 %10, 1
   br label %26
 
 18:                                               ; preds = %.preheader
@@ -50,7 +50,7 @@ define hidden range(i32 -1, 16777216) i32 @_glfwKeySym2Unicode(i32 noundef %0) l
   br label %26
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds [828 x %struct.codepair], ptr @keysymtab, i64 0, i64 %11, i32 1
+  %23 = getelementptr inbounds nuw [828 x %struct.codepair], ptr @keysymtab, i64 0, i64 %11, i32 1
   %24 = load i16, ptr %23, align 2, !tbaa !8
   %25 = zext i16 %24 to i32
   br label %.loopexit

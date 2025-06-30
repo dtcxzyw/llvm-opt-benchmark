@@ -936,7 +936,6 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   br label %281
 
 281:                                              ; preds = %280, %._crit_edge
-  %.044 = phi i8 [ 1, %280 ], [ 0, %._crit_edge ]
   %282 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %283 = add i64 %276, 500
   %284 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -950,7 +949,7 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
 
 291:                                              ; preds = %281, %347
   %indvars.iv = phi i64 [ 0, %281 ], [ %indvars.iv.next, %347 ]
-  %.14581 = phi i8 [ %.044, %281 ], [ %.2, %347 ]
+  %.14581 = phi i1 [ %or.cond.not, %281 ], [ %.2, %347 ]
   %292 = getelementptr inbounds nuw [8 x ptr], ptr %282, i64 0, i64 %indvars.iv
   %293 = load ptr, ptr %292, align 8
   %.not54 = icmp eq ptr %293, null
@@ -976,64 +975,63 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
 
 302:                                              ; preds = %301, %297, %294
   %303 = phi i8 [ 0, %301 ], [ %296, %297 ], [ 0, %294 ]
-  %304 = trunc nuw i8 %.14581 to i1
-  br i1 %304, label %.thread, label %305
+  br i1 %.14581, label %329, label %304
 
-305:                                              ; preds = %302
-  %306 = getelementptr inbounds nuw i8, ptr %293, i64 56
-  %307 = load i32, ptr %306, align 8
-  %308 = icmp eq i32 %307, 3
-  br i1 %308, label %309, label %.thread97
+304:                                              ; preds = %302
+  %305 = getelementptr inbounds nuw i8, ptr %293, i64 56
+  %306 = load i32, ptr %305, align 8
+  %307 = icmp eq i32 %306, 3
+  br i1 %307, label %308, label %.thread
 
-309:                                              ; preds = %305
-  %310 = getelementptr inbounds nuw i8, ptr %293, i64 64
-  %311 = load i64, ptr %310, align 8
-  %.not57 = icmp ult i64 %276, %311
+308:                                              ; preds = %304
+  %309 = getelementptr inbounds nuw i8, ptr %293, i64 64
+  %310 = load i64, ptr %309, align 8
+  %.not57 = icmp ult i64 %276, %310
   %.not58 = icmp eq i8 %303, 4
   %or.cond = or i1 %.not57, %.not58
-  br i1 %or.cond, label %.thread97, label %312
+  br i1 %or.cond, label %.thread, label %311
 
-312:                                              ; preds = %309
-  %313 = getelementptr inbounds nuw i8, ptr %293, i64 72
-  %314 = load i32, ptr %313, align 8
-  %315 = icmp slt i32 %314, 3
-  br i1 %315, label %316, label %.thread
+311:                                              ; preds = %308
+  %312 = getelementptr inbounds nuw i8, ptr %293, i64 72
+  %313 = load i32, ptr %312, align 8
+  %314 = icmp slt i32 %313, 3
+  br i1 %314, label %315, label %329
 
-316:                                              ; preds = %312
+315:                                              ; preds = %311
   call void (i32, ptr, ...) @SDL_LogWarn_REAL(i32 noundef 7, ptr noundef nonnull @.str.9) #10
-  %317 = load i32, ptr %313, align 8
-  %318 = add nsw i32 %317, 1
-  store i32 %318, ptr %313, align 8
-  store i64 %283, ptr %310, align 8
-  %319 = load ptr, ptr %293, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  %321 = load i8, ptr %320, align 8
-  %322 = or i8 %321, 32
-  %323 = getelementptr inbounds nuw i8, ptr %293, i64 216
-  %324 = load i8, ptr %323, align 8
-  %325 = add i8 %324, 1
-  %.not27.i.i = icmp eq i8 %324, 0
-  %spec.store.select30.i.i = select i1 %.not27.i.i, i8 2, i8 %325
-  store i8 %spec.store.select30.i.i, ptr %323, align 8
-  %spec.select.i.i = call i8 @llvm.umax.i8(i8 %324, i8 1)
+  %316 = load i32, ptr %312, align 8
+  %317 = add nsw i32 %316, 1
+  store i32 %317, ptr %312, align 8
+  store i64 %283, ptr %309, align 8
+  %318 = load ptr, ptr %293, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  %320 = load i8, ptr %319, align 8
+  %321 = or i8 %320, 32
+  %322 = getelementptr inbounds nuw i8, ptr %293, i64 216
+  %323 = load i8, ptr %322, align 8
+  %324 = add i8 %323, 1
+  %.not27.i.i = icmp eq i8 %323, 0
+  %spec.store.select30.i.i = select i1 %.not27.i.i, i8 2, i8 %324
+  store i8 %spec.store.select30.i.i, ptr %322, align 8
+  %spec.select.i.i = call i8 @llvm.umax.i8(i8 %323, i8 1)
   call void @llvm.lifetime.start.p0(i64 2054, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2054) %4, i8 0, i64 2054, i1 false)
   store i8 4, ptr %4, align 16
-  store i8 %322, ptr %284, align 1
+  store i8 %321, ptr %284, align 1
   store i8 %spec.select.i.i, ptr %285, align 2
-  %326 = load ptr, ptr %319, align 8
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 128
-  %328 = load ptr, ptr %327, align 8
-  %329 = call i32 @SDL_hid_write_REAL(ptr noundef %328, ptr noundef nonnull %4, i64 noundef 4) #10
+  %325 = load ptr, ptr %318, align 8
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 128
+  %327 = load ptr, ptr %326, align 8
+  %328 = call i32 @SDL_hid_write_REAL(ptr noundef %327, ptr noundef nonnull %4, i64 noundef 4) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %4) #10
-  br label %.thread97
+  br label %.thread
 
-.thread:                                          ; preds = %302, %312
+329:                                              ; preds = %302, %311
   %330 = load i8, ptr %286, align 1, !range !3, !noundef !4
   %331 = trunc nuw i8 %330 to i1
   br i1 %331, label %332, label %344
 
-332:                                              ; preds = %.thread
+332:                                              ; preds = %329
   %333 = getelementptr inbounds nuw i8, ptr %293, i64 8
   %334 = load i8, ptr %333, align 8
   %335 = load ptr, ptr %293, align 8
@@ -1057,19 +1055,19 @@ GIP_ReceivePacket.exit:                           ; preds = %33, %GIP_DecodeLeng
   %342 = load ptr, ptr %341, align 8
   %343 = call i32 @SDL_hid_write_REAL(ptr noundef %342, ptr noundef nonnull %3, i64 noundef 5) #10
   call void @llvm.lifetime.end.p0(i64 2054, ptr nonnull %3) #10
-  br label %.thread97
+  br label %.thread
 
-344:                                              ; preds = %.thread
+344:                                              ; preds = %329
   call fastcc void @GIP_SetMetadataDefaults(ptr noundef nonnull %293)
   %345 = call fastcc zeroext i1 @GIP_SendInitSequence(ptr noundef nonnull %293)
-  br label %.thread97
+  br label %.thread
 
-.thread97:                                        ; preds = %305, %309, %316, %332, %344
+.thread:                                          ; preds = %304, %308, %315, %332, %344
   %346 = call fastcc zeroext i1 @HIDAPI_DriverGIP_UpdateRumble(ptr noundef %293)
   br label %347
 
-347:                                              ; preds = %291, %.thread97
-  %.2 = phi i8 [ 0, %.thread97 ], [ %.14581, %291 ]
+347:                                              ; preds = %291, %.thread
+  %.2 = phi i1 [ false, %.thread ], [ %.14581, %291 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %348, label %291, !llvm.loop !10

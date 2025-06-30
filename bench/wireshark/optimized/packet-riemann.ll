@@ -563,7 +563,7 @@ riemann_dissect_string.exit.i.i:                  ; preds = %144, %142
   %.059.i.i = phi i32 [ %156, %riemann_dissect_string.exit.i.i ], [ 0, %157 ]
   %168 = add i32 %.059.i.i, %167
   %169 = zext i32 %.059.i.i to i64
-  %170 = add nsw i64 %166, %169
+  %170 = add nuw nsw i64 %166, %169
   %171 = sub i64 %.03967.i.i, %170
   %172 = icmp sgt i64 %171, 0
   br i1 %172, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !6
@@ -1200,7 +1200,7 @@ riemann_dissect_string.exit60.i.i.i:              ; preds = %444, %442
   %.066.i.i.i = phi i32 [ 0, %457 ], [ %436, %riemann_dissect_string.exit.i.i.i ], [ %456, %riemann_dissect_string.exit60.i.i.i ]
   %468 = add i32 %.066.i.i.i, %467
   %469 = zext i32 %.066.i.i.i to i64
-  %470 = add nsw i64 %466, %469
+  %470 = add nuw nsw i64 %466, %469
   %471 = sub i64 %.04273.i.i.i, %470
   %472 = icmp sgt i64 %471, 0
   br i1 %472, label %.preheader.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !8
@@ -1348,7 +1348,7 @@ riemann_verify_wire_format.exit244.i.i:           ; preds = %522, %521
   %.1.i97.i = phi i1 [ %.0125266.i.i, %527 ], [ %.0125266.i.i, %riemann_dissect_int64.exit.i.i ], [ %.0125266.i.i, %riemann_dissect_string.exit.i99.i ], [ true, %riemann_dissect_string.exit162.i.i ], [ true, %riemann_dissect_string.exit181.i.i ], [ %.0125266.i.i, %riemann_dissect_string.exit192.i.i ], [ %.0125266.i.i, %riemann_dissect_string.exit203.i.i ], [ %.0125266.i.i, %riemann_verify_wire_format.exit206.i.i ], [ %.0125266.i.i, %riemann_dissect_attribute.exit.i.i ], [ %.0125266.i.i, %riemann_dissect_int64.exit227.i.i ], [ %.0125266.i.i, %riemann_dissect_sint64.exit.i.i ], [ %.0125266.i.i, %riemann_verify_wire_format.exit241.i.i ], [ %.0125266.i.i, %riemann_verify_wire_format.exit244.i.i ]
   %538 = add i32 %.0250.i.i, %537
   %539 = zext i32 %.0250.i.i to i64
-  %540 = add i64 %536, %539
+  %540 = add nuw nsw i64 %536, %539
   %541 = sub i64 %.0126265.i.i, %540
   %542 = icmp sgt i64 %541, 0
   br i1 %542, label %.lr.ph.i.i, label %._crit_edge.i94.i, !llvm.loop !9
@@ -1829,7 +1829,7 @@ riemann_verify_wire_format.exit180.i.i:           ; preds = %750, %749
   %.1.i123.i = phi i1 [ %.096195.i.i, %755 ], [ %.096195.i.i, %riemann_dissect_int64.exit.i133.i ], [ true, %riemann_dissect_string.exit.i125.i ], [ true, %riemann_dissect_string.exit141.i.i ], [ %.096195.i.i, %riemann_dissect_string.exit152.i.i ], [ %.096195.i.i, %riemann_dissect_string.exit163.i.i ], [ %.096195.i.i, %riemann_verify_wire_format.exit166.i.i ], [ %.096195.i.i, %riemann_dissect_string.exit177.i.i ], [ %.096195.i.i, %riemann_verify_wire_format.exit180.i.i ]
   %766 = add i32 %.0186.i.i, %765
   %767 = zext i32 %.0186.i.i to i64
-  %768 = add i64 %764, %767
+  %768 = add nuw nsw i64 %764, %767
   %769 = sub i64 %.097194.i.i, %768
   %770 = icmp sgt i64 %769, 0
   br i1 %770, label %.lr.ph.i121.i, label %._crit_edge.i119.i, !llvm.loop !10
@@ -1869,7 +1869,7 @@ riemann_dissect_state.exit.i:                     ; preds = %773, %._crit_edge.i
   %.1.i = phi i8 [ %.0177.i, %778 ], [ %.0177.i, %riemann_verify_wire_format.exit.i ], [ %.0177.i, %riemann_dissect_string.exit.i ], [ 1, %riemann_dissect_query.exit.i ], [ 1, %riemann_dissect_event.exit.i ], [ 1, %riemann_dissect_state.exit.i ]
   %789 = add i32 %.0138.i, %788
   %790 = zext i32 %.0138.i to i64
-  %791 = add i64 %787, %790
+  %791 = add nuw nsw i64 %787, %790
   %792 = sub i64 %.067175.i, %791
   %793 = icmp sgt i64 %792, 0
   br i1 %793, label %.preheader.i13, label %._crit_edge.i, !llvm.loop !11

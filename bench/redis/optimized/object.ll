@@ -4551,7 +4551,7 @@ define dso_local ptr @getMemoryDoctorReport() local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !129
   %4 = icmp ult i64 %3, 5242880
-  br i1 %4, label %88, label %5
+  br i1 %4, label %87, label %5
 
 5:                                                ; preds = %0
   %6 = load i64, ptr %1, align 8, !tbaa !133
@@ -4666,94 +4666,93 @@ define dso_local ptr @getMemoryDoctorReport() local_unnamed_addr #0 {
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %80 = load i64, ptr %79, align 8, !tbaa !50
   %81 = add i64 %80, %77
-  %82 = icmp ugt i64 %81, 1000
-  %83 = zext i1 %82 to i32
-  %84 = or i32 %.757, %83
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %90
+  %82 = icmp ult i64 %81, 1001
+  %83 = icmp eq i32 %.757, 0
+  %84 = select i1 %82, i1 %83, i1 false
+  br i1 %84, label %85, label %89
 
-86:                                               ; preds = %73
-  %87 = tail call ptr @sdsnew(ptr noundef nonnull @.str.40) #17
-  br label %117
+85:                                               ; preds = %73
+  %86 = tail call ptr @sdsnew(ptr noundef nonnull @.str.40) #17
+  br label %116
 
-88:                                               ; preds = %0
-  %89 = tail call ptr @sdsnew(ptr noundef nonnull @.str.41) #17
-  br label %117
+87:                                               ; preds = %0
+  %88 = tail call ptr @sdsnew(ptr noundef nonnull @.str.41) #17
+  br label %116
 
-90:                                               ; preds = %73
-  %91 = tail call ptr @sdsnew(ptr noundef nonnull @.str.42) #17
-  br i1 %10, label %92, label %94
+89:                                               ; preds = %73
+  %90 = tail call ptr @sdsnew(ptr noundef nonnull @.str.42) #17
+  br i1 %10, label %91, label %93
 
-92:                                               ; preds = %90
-  %93 = tail call ptr @sdscat(ptr noundef %91, ptr noundef nonnull @.str.43) #17
-  br label %94
+91:                                               ; preds = %89
+  %92 = tail call ptr @sdscat(ptr noundef %90, ptr noundef nonnull @.str.43) #17
+  br label %93
 
-94:                                               ; preds = %92, %90
-  %.1 = phi ptr [ %93, %92 ], [ %91, %90 ]
-  br i1 %21, label %97, label %95
+93:                                               ; preds = %91, %89
+  %.1 = phi ptr [ %92, %91 ], [ %90, %89 ]
+  br i1 %21, label %96, label %94
 
-95:                                               ; preds = %94
-  %96 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.1, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #17
-  br label %97
+94:                                               ; preds = %93
+  %95 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.1, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45) #17
+  br label %96
 
-97:                                               ; preds = %95, %94
-  %.2 = phi ptr [ %96, %95 ], [ %.1, %94 ]
-  br i1 %32, label %100, label %98
+96:                                               ; preds = %94, %93
+  %.2 = phi ptr [ %95, %94 ], [ %.1, %93 ]
+  br i1 %32, label %99, label %97
 
-98:                                               ; preds = %97
-  %99 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.2, ptr noundef nonnull @.str.46) #17
-  br label %100
+97:                                               ; preds = %96
+  %98 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.2, ptr noundef nonnull @.str.46) #17
+  br label %99
 
-100:                                              ; preds = %98, %97
-  %.3 = phi ptr [ %99, %98 ], [ %.2, %97 ]
-  br i1 %43, label %103, label %101
+99:                                               ; preds = %97, %96
+  %.3 = phi ptr [ %98, %97 ], [ %.2, %96 ]
+  br i1 %43, label %102, label %100
 
-101:                                              ; preds = %100
-  %102 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.3, ptr noundef nonnull @.str.47) #17
-  br label %103
+100:                                              ; preds = %99
+  %101 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.3, ptr noundef nonnull @.str.47) #17
+  br label %102
 
-103:                                              ; preds = %101, %100
-  %.4 = phi ptr [ %102, %101 ], [ %.3, %100 ]
-  br i1 %54, label %106, label %104
+102:                                              ; preds = %100, %99
+  %.4 = phi ptr [ %101, %100 ], [ %.3, %99 ]
+  br i1 %54, label %105, label %103
 
-104:                                              ; preds = %103
-  %105 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.4, ptr noundef nonnull @.str.48) #17
-  br label %106
+103:                                              ; preds = %102
+  %104 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.4, ptr noundef nonnull @.str.48) #17
+  br label %105
 
-106:                                              ; preds = %104, %103
-  %.5 = phi ptr [ %105, %104 ], [ %.4, %103 ]
-  br i1 %74, label %109, label %107
+105:                                              ; preds = %103, %102
+  %.5 = phi ptr [ %104, %103 ], [ %.4, %102 ]
+  br i1 %74, label %108, label %106
 
-107:                                              ; preds = %106
-  %108 = tail call ptr @sdscat(ptr noundef %.5, ptr noundef nonnull @.str.49) #17
-  br label %109
+106:                                              ; preds = %105
+  %107 = tail call ptr @sdscat(ptr noundef %.5, ptr noundef nonnull @.str.49) #17
+  br label %108
 
-109:                                              ; preds = %107, %106
-  %.6 = phi ptr [ %108, %107 ], [ %.5, %106 ]
-  br i1 %65, label %110, label %112
+108:                                              ; preds = %106, %105
+  %.6 = phi ptr [ %107, %106 ], [ %.5, %105 ]
+  br i1 %65, label %109, label %111
 
-110:                                              ; preds = %109
-  %111 = tail call ptr @sdscat(ptr noundef %.6, ptr noundef nonnull @.str.50) #17
-  br label %112
+109:                                              ; preds = %108
+  %110 = tail call ptr @sdscat(ptr noundef %.6, ptr noundef nonnull @.str.50) #17
+  br label %111
 
-112:                                              ; preds = %110, %109
-  %.7 = phi ptr [ %111, %110 ], [ %.6, %109 ]
-  br i1 %82, label %113, label %115
+111:                                              ; preds = %109, %108
+  %.7 = phi ptr [ %110, %109 ], [ %.6, %108 ]
+  br i1 %82, label %114, label %112
 
-113:                                              ; preds = %112
-  %114 = tail call ptr @sdscat(ptr noundef %.7, ptr noundef nonnull @.str.51) #17
-  br label %115
+112:                                              ; preds = %111
+  %113 = tail call ptr @sdscat(ptr noundef %.7, ptr noundef nonnull @.str.51) #17
+  br label %114
 
-115:                                              ; preds = %113, %112
-  %.8 = phi ptr [ %114, %113 ], [ %.7, %112 ]
-  %116 = tail call ptr @sdscat(ptr noundef %.8, ptr noundef nonnull @.str.52) #17
-  br label %117
+114:                                              ; preds = %112, %111
+  %.8 = phi ptr [ %113, %112 ], [ %.7, %111 ]
+  %115 = tail call ptr @sdscat(ptr noundef %.8, ptr noundef nonnull @.str.52) #17
+  br label %116
 
-117:                                              ; preds = %88, %115, %86
-  %.0 = phi ptr [ %87, %86 ], [ %89, %88 ], [ %116, %115 ]
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %119 = load ptr, ptr %118, align 8, !tbaa !126
-  tail call void @zfree(ptr noundef %119) #17
+116:                                              ; preds = %87, %114, %85
+  %.0 = phi ptr [ %86, %85 ], [ %88, %87 ], [ %115, %114 ]
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %118 = load ptr, ptr %117, align 8, !tbaa !126
+  tail call void @zfree(ptr noundef %118) #17
   tail call void @zfree(ptr noundef nonnull %1) #17
   ret ptr %.0
 }

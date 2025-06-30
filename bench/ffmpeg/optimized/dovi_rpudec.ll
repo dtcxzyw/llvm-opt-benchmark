@@ -1900,7 +1900,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @get_bits_long(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -2147483615, -2147483647) %1) unnamed_addr #5 {
+define internal fastcc i32 @get_bits_long(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -247, 256) %1) unnamed_addr #5 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %40, label %3
 
@@ -2073,7 +2073,7 @@ define internal fastcc i32 @get_ue_golomb_long(ptr noundef nonnull captures(none
   %30 = sub nsw i32 0, %.sroa.46.0.copyload.i
   %31 = sub nsw i32 %.sroa.77.0.copyload.i, %.sroa.46.0.copyload.i
   %32 = icmp slt i32 %29, %30
-  %..i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %29, i32 %31)
+  %..i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %29, i32 %31)
   %.0.i.i = select i1 %32, i32 %30, i32 %..i.i
   %33 = add nsw i32 %.0.i.i, %.sroa.46.0.copyload.i
   store i32 %33, ptr %.sroa.46.0..sroa_idx.i, align 8, !tbaa !47
@@ -2183,7 +2183,7 @@ define internal fastcc i64 @get_se_coef(ptr noundef nonnull captures(none) %0, p
   %34 = sub nsw i32 0, %.sroa.46.0.copyload.i.i.i
   %35 = sub nsw i32 %.sroa.77.0.copyload.i.i.i, %.sroa.46.0.copyload.i.i.i
   %36 = icmp slt i32 %33, %34
-  %..i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %33, i32 %35)
+  %..i.i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %33, i32 %35)
   %.0.i.i.i.i = select i1 %36, i32 %34, i32 %..i.i.i.i
   %37 = add nsw i32 %.0.i.i.i.i, %.sroa.46.0.copyload.i.i.i
   store i32 %37, ptr %.sroa.46.0..sroa_idx.i.i.i, align 8, !tbaa !47
@@ -2392,7 +2392,7 @@ define internal fastcc i64 @get_ue_coef(ptr noundef nonnull captures(none) %0, p
   %34 = sub nsw i32 0, %.sroa.46.0.copyload.i.i
   %35 = sub nsw i32 %.sroa.77.0.copyload.i.i, %.sroa.46.0.copyload.i.i
   %36 = icmp slt i32 %33, %34
-  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483616, -2147483648) %33, i32 %35)
+  %..i.i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -248, 32) %33, i32 %35)
   %.0.i.i.i = select i1 %36, i32 %34, i32 %..i.i.i
   %37 = add nsw i32 %.0.i.i.i, %.sroa.46.0.copyload.i.i
   store i32 %37, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !47

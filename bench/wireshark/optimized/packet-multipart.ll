@@ -852,7 +852,7 @@ dissect_kerberos_encrypted_message.exit.i:        ; preds = %302
   %.8252.i = phi i8 [ %.9.i, %322 ], [ %.0244127.i, %.loopexit.i ]
   %.7214.i = phi ptr [ %.8.i, %322 ], [ %.0207112.i, %.loopexit.i ]
   %.0197.i = phi ptr [ %.1198.i, %322 ], [ %297, %.loopexit.i ]
-  %324 = trunc nuw i8 %.8252.i to i1
+  %324 = trunc i8 %.8252.i to i1
   %325 = icmp eq ptr %.7214.i, null
   %or.cond9.not.i = select i1 %324, i1 true, i1 %325
   br i1 %or.cond9.not.i, label %368, label %326
