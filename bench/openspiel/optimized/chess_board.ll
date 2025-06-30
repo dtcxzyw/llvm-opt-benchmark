@@ -7395,49 +7395,45 @@ define void @_ZNK10open_spiel5chess10ChessBoard26BreachingMoveToCaptureMoveEPNS0
   %12 = sext i8 %11 to i32
   %13 = load i8, ptr %1, align 4
   %14 = sext i8 %13 to i32
-  %15 = sub nsw i32 %12, %14
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %17 = load i8, ptr %16, align 1
-  %18 = sext i8 %17 to i32
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = sext i8 %20 to i32
-  %22 = sub nsw i32 %18, %21
-  %.sroa.speculated38 = tail call i32 @llvm.smax.i32(i32 %15, i32 -1)
-  %.sroa.speculated34 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated38, i32 1)
-  %.sroa.speculated30 = tail call i32 @llvm.smax.i32(i32 %22, i32 -1)
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated30, i32 1)
-  %23 = trunc nsw i32 %.sroa.speculated34 to i8
-  %24 = trunc nsw i32 %.sroa.speculated to i8
-  %25 = load i32, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  br label %27
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %16 = load i8, ptr %15, align 1
+  %17 = sext i8 %16 to i32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = sext i8 %19 to i32
+  %.sroa.speculated34 = tail call i32 @llvm.scmp.i32.i32(i32 %12, i32 %14)
+  %.sroa.speculated = tail call i32 @llvm.scmp.i32.i32(i32 %17, i32 %20)
+  %21 = trunc nsw i32 %.sroa.speculated34 to i8
+  %22 = trunc nsw i32 %.sroa.speculated to i8
+  %23 = load i32, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  br label %25
 
-27:                                               ; preds = %30, %9
-  %.pn = phi i8 [ %20, %9 ], [ %.sroa.6.0, %30 ]
-  %.pn50 = phi i8 [ %13, %9 ], [ %.sroa.0.0, %30 ]
-  %.sroa.0.0 = add i8 %.pn50, %23
-  %.sroa.6.0 = add i8 %.pn, %24
-  %28 = icmp ne i8 %.sroa.0.0, %11
-  %29 = icmp ne i8 %.sroa.6.0, %17
-  %.not3.i = select i1 %28, i1 true, i1 %29
-  br i1 %.not3.i, label %30, label %38
+25:                                               ; preds = %28, %9
+  %.pn = phi i8 [ %19, %9 ], [ %.sroa.6.0, %28 ]
+  %.pn50 = phi i8 [ %13, %9 ], [ %.sroa.0.0, %28 ]
+  %.sroa.0.0 = add i8 %.pn50, %21
+  %.sroa.6.0 = add i8 %.pn, %22
+  %26 = icmp ne i8 %.sroa.0.0, %11
+  %27 = icmp ne i8 %.sroa.6.0, %16
+  %.not3.i = select i1 %26, i1 true, i1 %27
+  br i1 %.not3.i, label %28, label %36
 
-30:                                               ; preds = %27
-  %31 = sext i8 %.sroa.6.0 to i32
-  %32 = mul nsw i32 %25, %31
-  %33 = sext i8 %.sroa.0.0 to i32
-  %34 = add nsw i32 %32, %33
-  %35 = sext i32 %34 to i64
-  %.idx = shl nsw i64 %35, 1
-  %36 = getelementptr i8, ptr %26, i64 %.idx
-  %37 = load i8, ptr %36, align 1
-  %.not11 = icmp eq i8 %37, 0
-  br i1 %.not11, label %27, label %38, !llvm.loop !42
+28:                                               ; preds = %25
+  %29 = sext i8 %.sroa.6.0 to i32
+  %30 = mul nsw i32 %23, %29
+  %31 = sext i8 %.sroa.0.0 to i32
+  %32 = add nsw i32 %30, %31
+  %33 = sext i32 %32 to i64
+  %.idx = shl nsw i64 %33, 1
+  %34 = getelementptr i8, ptr %24, i64 %.idx
+  %35 = load i8, ptr %34, align 1
+  %.not11 = icmp eq i8 %35, 0
+  br i1 %.not11, label %25, label %36, !llvm.loop !42
 
-38:                                               ; preds = %30, %27
-  %.sroa.0.0.lcssa = phi i8 [ %.sroa.0.0, %30 ], [ %11, %27 ]
-  %.sroa.6.0.lcssa = phi i8 [ %.sroa.6.0, %30 ], [ %17, %27 ]
+36:                                               ; preds = %28, %25
+  %.sroa.0.0.lcssa = phi i8 [ %.sroa.0.0, %28 ], [ %11, %25 ]
+  %.sroa.6.0.lcssa = phi i8 [ %.sroa.6.0, %28 ], [ %16, %25 ]
   %.sroa.6.0.insert.ext20 = zext i8 %.sroa.6.0.lcssa to i16
   %.sroa.6.0.insert.shift21 = shl nuw i16 %.sroa.6.0.insert.ext20, 8
   %.sroa.0.0.insert.ext17 = zext i8 %.sroa.0.0.lcssa to i16
@@ -19049,7 +19045,7 @@ declare i64 @llvm.umax.i64(i64, i64) #30
 declare void @llvm.assume(i1 noundef) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #30
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #30
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
