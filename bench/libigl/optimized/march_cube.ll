@@ -104,8 +104,8 @@ define weak_odr dso_local void @_ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6Mat
   br label %19
 
 15:                                               ; preds = %19
-  %16 = sext i32 %.1 to i64
-  %17 = getelementptr inbounds [256 x i32], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.aiCubeEdgeFlags, i64 0, i64 %16
+  %16 = zext nneg i32 %.1 to i64
+  %17 = getelementptr inbounds nuw [256 x i32], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.aiCubeEdgeFlags, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !15
   switch i32 %.1, label %26 [
     i32 255, label %122
@@ -213,7 +213,7 @@ define weak_odr dso_local void @_ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6Mat
 87:                                               ; preds = %.preheader, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEEEcmERKi.exit73
   %indvars.iv156 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next157, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEEEcmERKi.exit73 ]
   %88 = mul nuw nsw i64 %indvars.iv156, 3
-  %89 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %88
+  %89 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !15
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %121, label %92
@@ -244,7 +244,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELi1ELi
   %104 = load i32, ptr %103, align 4, !tbaa !15
   store i32 %104, ptr %101, align 4, !tbaa !15, !noalias !39
   %105 = add nuw nsw i64 %88, 1
-  %106 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %105
+  %106 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !15
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i32, ptr %11, i64 %108
@@ -252,7 +252,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELi1ELi
   %111 = getelementptr i8, ptr %101, i64 4
   store i32 %110, ptr %111, align 4, !tbaa !15
   %112 = add nuw nsw i64 %88, 2
-  %113 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %112
+  %113 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !15
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i32, ptr %11, i64 %115
@@ -471,8 +471,8 @@ define weak_odr dso_local void @_ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6Mat
   br label %19
 
 15:                                               ; preds = %19
-  %16 = sext i32 %.1 to i64
-  %17 = getelementptr inbounds [256 x i32], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.aiCubeEdgeFlags, i64 0, i64 %16
+  %16 = zext nneg i32 %.1 to i64
+  %17 = getelementptr inbounds nuw [256 x i32], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.aiCubeEdgeFlags, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !15
   switch i32 %.1, label %26 [
     i32 255, label %122
@@ -580,7 +580,7 @@ define weak_odr dso_local void @_ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6Mat
 87:                                               ; preds = %.preheader, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEEEcmERKi.exit73
   %indvars.iv154 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next155, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELi1ELi3ELb1EEEEcmERKi.exit73 ]
   %88 = mul nuw nsw i64 %indvars.iv154, 3
-  %89 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %88
+  %89 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !15
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %121, label %92
@@ -611,7 +611,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELi1ELi
   %104 = load i32, ptr %103, align 4, !tbaa !15
   store i32 %104, ptr %101, align 4, !tbaa !15, !noalias !86
   %105 = add nuw nsw i64 %88, 1
-  %106 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %105
+  %106 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !15
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds i32, ptr %11, i64 %108
@@ -619,7 +619,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELi3ELi1ELin1ELi3EEELi1ELi
   %111 = getelementptr i8, ptr %101, i64 4
   store i32 %110, ptr %111, align 4, !tbaa !15
   %112 = add nuw nsw i64 %88, 2
-  %113 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %112
+  %113 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !15
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i32, ptr %11, i64 %115
@@ -830,8 +830,8 @@ define weak_odr dso_local void @_ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6Mat
   br label %19
 
 15:                                               ; preds = %19
-  %16 = sext i32 %.1 to i64
-  %17 = getelementptr inbounds [256 x i32], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.aiCubeEdgeFlags, i64 0, i64 %16
+  %16 = zext nneg i32 %.1 to i64
+  %17 = getelementptr inbounds nuw [256 x i32], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.aiCubeEdgeFlags, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !15
   switch i32 %.1, label %26 [
     i32 255, label %129
@@ -933,7 +933,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 79:                                               ; preds = %.preheader, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit71
   %indvars.iv155 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next156, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit71 ]
   %80 = mul nuw nsw i64 %indvars.iv155, 3
-  %81 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %80
+  %81 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %128, label %84
@@ -965,7 +965,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1E
   %100 = trunc i64 %99 to i32
   store i32 %100, ptr %95, align 4, !tbaa !15, !noalias !116
   %101 = add nuw nsw i64 %80, 1
-  %102 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %101
+  %102 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !15
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds i64, ptr %11, i64 %104
@@ -979,7 +979,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1E
   %112 = getelementptr i32, ptr %111, i64 %.sroa.6.0
   store i32 %107, ptr %112, align 4, !tbaa !15
   %113 = add nuw nsw i64 %80, 2
-  %114 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %113
+  %114 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !15
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i64, ptr %11, i64 %116
@@ -1200,8 +1200,8 @@ define weak_odr dso_local void @_ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6Mat
   br label %19
 
 15:                                               ; preds = %19
-  %16 = sext i32 %.1 to i64
-  %17 = getelementptr inbounds [256 x i32], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.aiCubeEdgeFlags, i64 0, i64 %16
+  %16 = zext nneg i32 %.1 to i64
+  %17 = getelementptr inbounds nuw [256 x i32], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.aiCubeEdgeFlags, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !15
   switch i32 %.1, label %26 [
     i32 255, label %130
@@ -1306,7 +1306,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
 82:                                               ; preds = %.preheader, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit71
   %indvars.iv155 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next156, %_ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEcmERKi.exit71 ]
   %83 = mul nuw nsw i64 %indvars.iv155, 3
-  %84 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %83
+  %84 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !15
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %129, label %87
@@ -1339,7 +1339,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1E
   %102 = load i32, ptr %101, align 4, !tbaa !15
   store i32 %102, ptr %98, align 4, !tbaa !15, !noalias !135
   %103 = add nuw nsw i64 %83, 1
-  %104 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %103
+  %104 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !15
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds i32, ptr %11, i64 %106
@@ -1352,7 +1352,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1E
   %113 = getelementptr i32, ptr %112, i64 %.sroa.6.0
   store i32 %108, ptr %113, align 4, !tbaa !15
   %114 = add nuw nsw i64 %83, 2
-  %115 = getelementptr inbounds [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %114
+  %115 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @__const._ZN3igl10march_cubeIN5Eigen10MatrixBaseINS1_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEEdjS4_NS3_IiLin1ELin1ELi0ELin1ELin1EEEEEvRKT_RKNS3_IT0_Li8ELi1ELi0ELi8ELi1EEERKNS3_IT1_Li8ELi1ELi0ELi8ELi1EEERKSA_RNS1_15PlainObjectBaseIT2_EERSE_RNSK_IT3_EESO_RSt13unordered_mapIliSt4hashIlESt8equal_toIlESaISt4pairIKliEEE.a2fConnectionTable, i64 0, i64 %16, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !15
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds i32, ptr %11, i64 %117

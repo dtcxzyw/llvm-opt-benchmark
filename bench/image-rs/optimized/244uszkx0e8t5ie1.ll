@@ -16620,7 +16620,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit71: ; pr
   %148 = sub nsw i32 0, %105
   %spec.select = select i1 %.not.i63.not, i32 %105, i32 %148
   %149 = getelementptr inbounds nuw [0 x i32], ptr %1, i64 0, i64 %143
-  %150 = mul i32 %spec.select, %147
+  %150 = mul nsw i32 %spec.select, %147
   store i32 %150, ptr %149, align 4
   br label %.backedge
 
@@ -24156,103 +24156,96 @@ define void @_ZN5image6codecs4webp3vp814predict_dcpred17hbe3e5dcddc10978eE(ptr n
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 1)
   br label %.lr.ph78
 
-._crit_edge:                                      ; preds = %41, %.preheader69
-  %.2.lcssa = phi i32 [ 0, %.preheader69 ], [ %45, %41 ]
+._crit_edge:                                      ; preds = %38, %.preheader69
+  %.2.lcssa = phi i32 [ 0, %.preheader69 ], [ %42, %38 ]
   %10 = add nuw nsw i32 %., 1
   br label %8
 
-.lr.ph:                                           ; preds = %.preheader69, %41
-  %.sroa.01.075 = phi i64 [ %11, %41 ], [ 0, %.preheader69 ]
-  %.274 = phi i32 [ %45, %41 ], [ 0, %.preheader69 ]
+.lr.ph:                                           ; preds = %.preheader69, %38
+  %.sroa.01.075 = phi i64 [ %11, %38 ], [ 0, %.preheader69 ]
+  %.274 = phi i32 [ %42, %38 ], [ 0, %.preheader69 ]
   %11 = add nuw i64 %.sroa.01.075, 1
   %12 = mul i64 %11, %3
   %13 = icmp ult i64 %12, %1
-  br i1 %13, label %41, label %46, !prof !837
+  br i1 %13, label %38, label %43, !prof !837
 
 14:                                               ; preds = %._crit_edge79, %8
-  %.236 = phi i32 [ %15, %._crit_edge79 ], [ %.135, %8 ]
+  %.236 = phi i32 [ %20, %._crit_edge79 ], [ %.135, %8 ]
   %.1 = phi i32 [ %.3.lcssa, %._crit_edge79 ], [ %.033, %8 ]
   %brmerge = or i1 %4, %5
-  br i1 %brmerge, label %17, label %24
-
-._crit_edge79:                                    ; preds = %35, %.preheader
-  %.3.lcssa = phi i32 [ %.033, %.preheader ], [ %39, %35 ]
-  %15 = add nuw nsw i32 %.135, 1
-  br label %14
-
-.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %35
-  %.sroa.07.077 = phi i64 [ %16, %35 ], [ 0, %.lr.ph78.preheader ]
-  %.376 = phi i32 [ %39, %35 ], [ %.033, %.lr.ph78.preheader ]
-  %16 = add nuw i64 %.sroa.07.077, 1
-  %exitcond95.not = icmp eq i64 %.sroa.07.077, %9
-  br i1 %exitcond95.not, label %40, label %35, !prof !91
-
-17:                                               ; preds = %14
-  %18 = add nuw nsw i32 %.236, 31
-  %19 = and i32 %18, 31
-  %20 = shl nuw nsw i32 1, %19
-  %21 = add i32 %20, %.1
-  %22 = lshr i32 %21, %.236
-  %23 = trunc i32 %22 to i8
-  br label %24
-
-24:                                               ; preds = %14, %17
-  %.0 = phi i8 [ %23, %17 ], [ -128, %14 ]
+  %15 = add nsw i32 %.236, -1
+  %16 = shl nuw nsw i32 1, %15
+  %17 = add i32 %16, %.1
+  %18 = lshr i32 %17, %.236
+  %19 = trunc i32 %18 to i8
+  %.0 = select i1 %brmerge, i8 %19, i8 -128
   %.not87 = icmp eq i64 %2, 0
   br i1 %.not87, label %._crit_edge85, label %.lr.ph84
 
-.loopexit:                                        ; preds = %31
-  %exitcond98.not = icmp eq i64 %25, %2
+._crit_edge79:                                    ; preds = %32, %.preheader
+  %.3.lcssa = phi i32 [ %.033, %.preheader ], [ %36, %32 ]
+  %20 = add nuw nsw i32 %.135, 1
+  br label %14
+
+.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %32
+  %.sroa.07.077 = phi i64 [ %21, %32 ], [ 0, %.lr.ph78.preheader ]
+  %.376 = phi i32 [ %36, %32 ], [ %.033, %.lr.ph78.preheader ]
+  %21 = add nuw i64 %.sroa.07.077, 1
+  %exitcond95.not = icmp eq i64 %.sroa.07.077, %9
+  br i1 %exitcond95.not, label %37, label %32, !prof !91
+
+.loopexit:                                        ; preds = %28
+  %exitcond98.not = icmp eq i64 %22, %2
   br i1 %exitcond98.not, label %._crit_edge85, label %.lr.ph84
 
-.lr.ph84:                                         ; preds = %24, %.loopexit
-  %.sroa.021.082 = phi i64 [ %25, %.loopexit ], [ 0, %24 ]
-  %25 = add nuw i64 %.sroa.021.082, 1
-  %26 = mul i64 %25, %3
-  %27 = add i64 %26, 1
-  br label %28
+.lr.ph84:                                         ; preds = %14, %.loopexit
+  %.sroa.021.082 = phi i64 [ %22, %.loopexit ], [ 0, %14 ]
+  %22 = add nuw i64 %.sroa.021.082, 1
+  %23 = mul i64 %22, %3
+  %24 = add i64 %23, 1
+  br label %25
 
-._crit_edge85:                                    ; preds = %.loopexit, %24
+._crit_edge85:                                    ; preds = %.loopexit, %14
   ret void
 
-28:                                               ; preds = %.lr.ph84, %31
-  %.sroa.028.081 = phi i64 [ 0, %.lr.ph84 ], [ %32, %31 ]
-  %29 = add nuw i64 %27, %.sroa.028.081
-  %30 = icmp ult i64 %29, %1
-  br i1 %30, label %31, label %34, !prof !837
+25:                                               ; preds = %.lr.ph84, %28
+  %.sroa.028.081 = phi i64 [ 0, %.lr.ph84 ], [ %29, %28 ]
+  %26 = add nuw i64 %24, %.sroa.028.081
+  %27 = icmp ult i64 %26, %1
+  br i1 %27, label %28, label %31, !prof !837
 
-31:                                               ; preds = %28
-  %32 = add nuw i64 %.sroa.028.081, 1
-  %33 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %29
-  store i8 %.0, ptr %33, align 1
-  %exitcond97.not = icmp eq i64 %32, %2
-  br i1 %exitcond97.not, label %.loopexit, label %28
+28:                                               ; preds = %25
+  %29 = add nuw i64 %.sroa.028.081, 1
+  %30 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %26
+  store i8 %.0, ptr %30, align 1
+  %exitcond97.not = icmp eq i64 %29, %2
+  br i1 %exitcond97.not, label %.loopexit, label %25
 
-34:                                               ; preds = %28
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %29, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.407) #34
+31:                                               ; preds = %25
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %26, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.407) #34
   unreachable
 
-35:                                               ; preds = %.lr.ph78
-  %36 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %16
-  %37 = load i8, ptr %36, align 1, !noundef !7
-  %38 = zext i8 %37 to i32
-  %39 = add i32 %.376, %38
-  %exitcond96.not = icmp eq i64 %16, %2
+32:                                               ; preds = %.lr.ph78
+  %33 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %21
+  %34 = load i8, ptr %33, align 1, !noundef !7
+  %35 = zext i8 %34 to i32
+  %36 = add i32 %.376, %35
+  %exitcond96.not = icmp eq i64 %21, %2
   br i1 %exitcond96.not, label %._crit_edge79, label %.lr.ph78
 
-40:                                               ; preds = %.lr.ph78
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %16, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.408) #34
+37:                                               ; preds = %.lr.ph78
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %21, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.408) #34
   unreachable
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %12
-  %43 = load i8, ptr %42, align 1, !noundef !7
-  %44 = zext i8 %43 to i32
-  %45 = add i32 %.274, %44
+38:                                               ; preds = %.lr.ph
+  %39 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %12
+  %40 = load i8, ptr %39, align 1, !noundef !7
+  %41 = zext i8 %40 to i32
+  %42 = add i32 %.274, %41
   %exitcond.not = icmp eq i64 %11, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-46:                                               ; preds = %.lr.ph
+43:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %12, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4b579c9d043b721191b412a2a5c930c7.409) #34
   unreachable
 }

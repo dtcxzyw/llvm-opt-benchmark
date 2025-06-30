@@ -2645,7 +2645,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i48.i: ; preds = %91, %8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load i64, ptr %107, align 8, !tbaa !141
   %109 = load ptr, ptr %100, align 8, !noalias !131
-  %110 = add nuw nsw i64 %.03180.i, 1
+  %110 = add nsw i64 %.03180.i, 1
   %smax.i = call i64 @llvm.smax.i64(i64 %13, i64 %110)
   br label %111
 
@@ -2672,7 +2672,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i48.i: ; preds = %91, %8
   br i1 %126, label %.critedge2.us.i, label %.critedge.i
 
 .critedge2.us.i:                                  ; preds = %121, %111
-  %127 = add nuw nsw i64 %.079.us.i, 1
+  %127 = add nsw i64 %.079.us.i, 1
   %128 = icmp slt i64 %127, %13
   br i1 %128, label %111, label %.critedge.i, !llvm.loop !142
 
@@ -2752,7 +2752,7 @@ _ZNK5arrow5Array7IsValidEl.exit.i:                ; preds = %143
   br i1 %164, label %.critedge2.i, label %.critedge.i
 
 .critedge2.i:                                     ; preds = %158, %_ZNK5arrow5Array7IsValidEl.exit.i, %.noexc51.i, %.noexc50.i, %.noexc.i, %131
-  %165 = add nuw nsw i64 %.079.i, 1
+  %165 = add nsw i64 %.079.i, 1
   %166 = icmp slt i64 %165, %13
   br i1 %166, label %.preheader.splitthread-pre-split.i, label %.critedge.i, !llvm.loop !144
 
@@ -2770,10 +2770,10 @@ _ZNK5arrow5Array7IsValidEl.exit.i:                ; preds = %143
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22, !noalias !131
   %171 = load ptr, ptr %4, align 8, !tbaa !59, !noalias !131
   %172 = load ptr, ptr %100, align 8, !tbaa !134, !noalias !131
-  %173 = getelementptr inbounds nuw i32, ptr %172, i64 %.03180.i
+  %173 = getelementptr inbounds i32, ptr %172, i64 %.03180.i
   %174 = load i32, ptr %173, align 4, !tbaa !96
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds nuw i32, ptr %172, i64 %.us-phi.i
+  %176 = getelementptr inbounds i32, ptr %172, i64 %.us-phi.i
   %177 = load i32, ptr %176, align 4, !tbaa !96
   %178 = sext i32 %177 to i64
   %179 = sub nsw i64 %178, %175
@@ -2873,7 +2873,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit60.i: ;
   br label %316
 
 215:                                              ; preds = %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit60.i, %.critedge.i
-  %216 = add nuw nsw i64 %.us-phi.i, 1
+  %216 = add nsw i64 %.us-phi.i, 1
   %217 = icmp slt i64 %216, %13
   br i1 %217, label %.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !150
 
@@ -3494,7 +3494,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i48.i: ; preds = %89, %8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %106 = load i64, ptr %105, align 8, !tbaa !141
   %107 = load ptr, ptr %98, align 8, !noalias !155
-  %108 = add nuw nsw i64 %.03180.i, 1
+  %108 = add nsw i64 %.03180.i, 1
   %smax.i = call i64 @llvm.smax.i64(i64 %13, i64 %108)
   br label %109
 
@@ -3521,7 +3521,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i48.i: ; preds = %89, %8
   br i1 %124, label %.critedge2.us.i, label %.critedge.i
 
 .critedge2.us.i:                                  ; preds = %119, %109
-  %125 = add nuw nsw i64 %.079.us.i, 1
+  %125 = add nsw i64 %.079.us.i, 1
   %126 = icmp slt i64 %125, %13
   br i1 %126, label %109, label %.critedge.i, !llvm.loop !163
 
@@ -3601,7 +3601,7 @@ _ZNK5arrow5Array7IsValidEl.exit.i:                ; preds = %141
   br i1 %162, label %.critedge2.i, label %.critedge.i
 
 .critedge2.i:                                     ; preds = %156, %_ZNK5arrow5Array7IsValidEl.exit.i, %.noexc51.i, %.noexc50.i, %.noexc.i, %129
-  %163 = add nuw nsw i64 %.079.i, 1
+  %163 = add nsw i64 %.079.i, 1
   %164 = icmp slt i64 %163, %13
   br i1 %164, label %.preheader.splitthread-pre-split.i, label %.critedge.i, !llvm.loop !164
 
@@ -3619,9 +3619,9 @@ _ZNK5arrow5Array7IsValidEl.exit.i:                ; preds = %141
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #22, !noalias !155
   %169 = load ptr, ptr %4, align 8, !tbaa !59, !noalias !155
   %170 = load ptr, ptr %98, align 8, !tbaa !158, !noalias !155
-  %171 = getelementptr inbounds nuw i64, ptr %170, i64 %.03180.i
+  %171 = getelementptr inbounds i64, ptr %170, i64 %.03180.i
   %172 = load i64, ptr %171, align 8, !tbaa !162
-  %173 = getelementptr inbounds nuw i64, ptr %170, i64 %.us-phi.i
+  %173 = getelementptr inbounds i64, ptr %170, i64 %.us-phi.i
   %174 = load i64, ptr %173, align 8, !tbaa !162
   %175 = sub nsw i64 %174, %172
   invoke void @_ZNK5arrow5Array5SliceEll(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %169, i64 noundef %172, i64 noundef %175)
@@ -3720,7 +3720,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit60.i: ;
   br label %312
 
 211:                                              ; preds = %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit60.i, %.critedge.i
-  %212 = add nuw nsw i64 %.us-phi.i, 1
+  %212 = add nsw i64 %.us-phi.i, 1
   %213 = icmp slt i64 %212, %13
   br i1 %213, label %.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !165
 

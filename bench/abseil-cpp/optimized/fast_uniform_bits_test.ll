@@ -17596,7 +17596,7 @@ _ZN7testing15AssertionResultD2Ev.exit47:          ; preds = %86, %_ZNKSt14defaul
 
 99:                                               ; preds = %99, %.preheader17.i.i
   %100 = phi i64 [ %.lcssa192122.i.i, %.preheader17.i.i ], [ %102, %99 ]
-  %101 = mul nsw i64 %100, 48271
+  %101 = mul nuw nsw i64 %100, 48271
   %102 = urem i64 %101, 2147483647
   %103 = add nsw i64 %102, -1
   %104 = icmp ugt i64 %103, 2145386495

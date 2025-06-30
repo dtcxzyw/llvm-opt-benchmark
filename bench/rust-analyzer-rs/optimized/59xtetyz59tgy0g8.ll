@@ -3186,10 +3186,12 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$11inspect_err1
 
 10:                                               ; preds = %2
   %11 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
-  %12 = icmp samesign ult i64 %11, 5
-  br i1 %12, label %13, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf3ac06c4855eaf53E.exit"
+  %.not.i = icmp eq i64 %11, 5
+  br i1 %.not.i, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf3ac06c4855eaf53E.exit", label %12
 
-13:                                               ; preds = %10
+12:                                               ; preds = %10
+  %13 = icmp samesign ult i64 %11, 5
+  tail call void @llvm.assume(i1 %13)
   %14 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd85cf14b875f1b8fE", i64 16) monotonic, align 8
   switch i8 %14, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf3ac06c4855eaf53E.exit"
@@ -3197,13 +3199,13 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$11inspect_err1
     i8 2, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
   ]
 
-_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i: ; preds = %13
+_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i: ; preds = %12
   %15 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h8dcfce8925f7caa6E(ptr noundef nonnull align 8 @"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd85cf14b875f1b8fE"), !range !834
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf3ac06c4855eaf53E.exit", label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
 
-_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i: ; preds = %13, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i, %13
-  %.0.i6.i = phi i8 [ %15, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i ], [ %14, %13 ], [ %14, %13 ]
+_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i: ; preds = %12, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i, %12
+  %.0.i6.i = phi i8 [ %15, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i ], [ %14, %12 ], [ %14, %12 ]
   %17 = load ptr, ptr @"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17hd85cf14b875f1b8fE", align 8, !nonnull !212, !align !378, !noundef !212
   %18 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17hc13899c385d0edd3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %17, i8 noundef %.0.i6.i)
   br i1 %18, label %19, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf3ac06c4855eaf53E.exit"
@@ -3220,8 +3222,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %28 = load ptr, ptr %27, align 8, !nonnull !212, !align !378, !noundef !212
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %29, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit.i"
+  %.not10.i = icmp eq i64 %24, 0
+  br i1 %.not10.i, label %29, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit.i"
 
 29:                                               ; preds = %19
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.d7fdd12e8222bef38308d17493fce316.159, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d7fdd12e8222bef38308d17493fce316.165) #35
@@ -3265,7 +3267,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf3ac06c4855eaf53E.exit"
 
-"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf3ac06c4855eaf53E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit.i", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i, %13, %10, %2
+"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf3ac06c4855eaf53E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit.i", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i, %12, %10, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
@@ -3283,10 +3285,12 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$11inspect_err1
 
 10:                                               ; preds = %2
   %11 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
-  %12 = icmp samesign ult i64 %11, 5
-  br i1 %12, label %13, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3f2cedf7a3d37133E.exit"
+  %.not.i = icmp eq i64 %11, 5
+  br i1 %.not.i, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3f2cedf7a3d37133E.exit", label %12
 
-13:                                               ; preds = %10
+12:                                               ; preds = %10
+  %13 = icmp samesign ult i64 %11, 5
+  tail call void @llvm.assume(i1 %13)
   %14 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h437aba7dba83c197E", i64 16) monotonic, align 8
   switch i8 %14, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i [
     i8 0, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3f2cedf7a3d37133E.exit"
@@ -3294,13 +3298,13 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$11inspect_err1
     i8 2, label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
   ]
 
-_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i: ; preds = %13
+_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i: ; preds = %12
   %15 = tail call noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h8dcfce8925f7caa6E(ptr noundef nonnull align 8 @"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h437aba7dba83c197E"), !range !834
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3f2cedf7a3d37133E.exit", label %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i
 
-_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i: ; preds = %13, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i, %13
-  %.0.i6.i = phi i8 [ %15, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i ], [ %14, %13 ], [ %14, %13 ]
+_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i: ; preds = %12, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i, %12
+  %.0.i6.i = phi i8 [ %15, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i ], [ %14, %12 ], [ %14, %12 ]
   %17 = load ptr, ptr @"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h437aba7dba83c197E", align 8, !nonnull !212, !align !378, !noundef !212
   %18 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17hc13899c385d0edd3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %17, i8 noundef %.0.i6.i)
   br i1 %18, label %19, label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3f2cedf7a3d37133E.exit"
@@ -3317,8 +3321,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %28 = load ptr, ptr %27, align 8, !nonnull !212, !align !378, !noundef !212
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %29, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit.i"
+  %.not10.i = icmp eq i64 %24, 0
+  br i1 %.not10.i, label %29, label %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit.i"
 
 29:                                               ; preds = %19
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.d7fdd12e8222bef38308d17493fce316.159, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d7fdd12e8222bef38308d17493fce316.161) #35
@@ -3362,7 +3366,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3f2cedf7a3d37133E.exit"
 
-"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3f2cedf7a3d37133E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit.i", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i, %13, %10, %2
+"_ZN3hir11diagnostics13AnyDiagnostic20inference_diagnostic28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3f2cedf7a3d37133E.exit": ; preds = %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit.i", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread.i, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i, %12, %10, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }

@@ -279,7 +279,7 @@ list_options_for_command.exit:                    ; preds = %list_options_for_co
     i32 1601, label %127
   ]
 
-.loopexit:                                        ; preds = %list_options_for_command.exit, %741, %129
+.loopexit:                                        ; preds = %list_options_for_command.exit, %739, %129
   %23 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %24 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %23, ptr noundef nonnull @.str.82, ptr noundef %21) #6
   br label %.loopexit365
@@ -1894,114 +1894,112 @@ list_engines.exit.thread:                         ; preds = %.thread352
 
 693:                                              ; preds = %list_engines.exit.thread, %.thread635, %list_engines.exit
   %.25 = phi i32 [ 1, %.thread635 ], [ %.24, %list_engines.exit ], [ 1, %list_engines.exit.thread ]
-  %694 = and i32 %.sroa.0.0, 67108864
-  %.not153 = icmp eq i32 %694, 0
-  br i1 %.not153, label %741, label %696
+  %.not153 = icmp ult i32 %.sroa.0.0, 67108864
+  br i1 %.not153, label %739, label %694
 
 .thread638:                                       ; preds = %list_engines.exit.thread631
-  %695 = and i32 %.sroa.0.0, 67108864
-  %.not153640 = icmp eq i32 %695, 0
-  br i1 %.not153640, label %741, label %.thread642
+  %.not153640 = icmp ult i32 %.sroa.0.0, 67108864
+  br i1 %.not153640, label %739, label %.thread642
 
-696:                                              ; preds = %693
+694:                                              ; preds = %693
   %.not154 = icmp eq i32 %.25, 0
-  br i1 %.not154, label %.thread642, label %697
+  br i1 %.not154, label %.thread642, label %695
 
-697:                                              ; preds = %696
-  %698 = load ptr, ptr @bio_out, align 8, !tbaa !4
-  %699 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %698, ptr noundef nonnull @.str.83) #6
+695:                                              ; preds = %694
+  %696 = load ptr, ptr @bio_out, align 8, !tbaa !4
+  %697 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %696, ptr noundef nonnull @.str.83) #6
   br label %.thread642
 
-.thread642:                                       ; preds = %.thread638, %697, %696
-  %700 = call i32 @OBJ_new_nid(i32 noundef 0) #6
-  %701 = icmp sgt i32 %700, 1
-  br i1 %701, label %.lr.ph.i193, label %list_objects.exit
+.thread642:                                       ; preds = %.thread638, %695, %694
+  %698 = call i32 @OBJ_new_nid(i32 noundef 0) #6
+  %699 = icmp sgt i32 %698, 1
+  br i1 %699, label %.lr.ph.i193, label %list_objects.exit
 
-.lr.ph.i193:                                      ; preds = %.thread642, %739
-  %.02947.i = phi i32 [ %740, %739 ], [ 1, %.thread642 ]
-  %.03046.i = phi ptr [ %.2.ph.i, %739 ], [ null, %.thread642 ]
-  %.03145.i = phi i32 [ %.132.ph.i, %739 ], [ 0, %.thread642 ]
-  %702 = call ptr @OBJ_nid2obj(i32 noundef %.02947.i) #6
-  %703 = call ptr @OBJ_nid2sn(i32 noundef %.02947.i) #6
-  %704 = call ptr @OBJ_nid2ln(i32 noundef %.02947.i) #6
+.lr.ph.i193:                                      ; preds = %.thread642, %737
+  %.02947.i = phi i32 [ %738, %737 ], [ 1, %.thread642 ]
+  %.03046.i = phi ptr [ %.2.ph.i, %737 ], [ null, %.thread642 ]
+  %.03145.i = phi i32 [ %.132.ph.i, %737 ], [ 0, %.thread642 ]
+  %700 = call ptr @OBJ_nid2obj(i32 noundef %.02947.i) #6
+  %701 = call ptr @OBJ_nid2sn(i32 noundef %.02947.i) #6
+  %702 = call ptr @OBJ_nid2ln(i32 noundef %.02947.i) #6
   call void @ERR_clear_error() #6
-  %705 = call i32 @OBJ_obj2nid(ptr noundef %702) #6
-  %706 = icmp eq i32 %705, 0
-  br i1 %706, label %739, label %707
+  %703 = call i32 @OBJ_obj2nid(ptr noundef %700) #6
+  %704 = icmp eq i32 %703, 0
+  br i1 %704, label %737, label %705
 
-707:                                              ; preds = %.lr.ph.i193
-  %708 = call i32 @OBJ_obj2txt(ptr noundef null, i32 noundef 0, ptr noundef %702, i32 noundef 1) #6
-  %709 = icmp eq i32 %708, 0
-  br i1 %709, label %710, label %713
+705:                                              ; preds = %.lr.ph.i193
+  %706 = call i32 @OBJ_obj2txt(ptr noundef null, i32 noundef 0, ptr noundef %700, i32 noundef 1) #6
+  %707 = icmp eq i32 %706, 0
+  br i1 %707, label %708, label %711
 
-710:                                              ; preds = %707
-  %711 = load ptr, ptr @bio_out, align 8, !tbaa !4
-  %712 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %711, ptr noundef nonnull @.str.181, ptr noundef %703, ptr noundef %704) #6
-  br label %739
+708:                                              ; preds = %705
+  %709 = load ptr, ptr @bio_out, align 8, !tbaa !4
+  %710 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %709, ptr noundef nonnull @.str.181, ptr noundef %701, ptr noundef %702) #6
+  br label %737
 
-713:                                              ; preds = %707
-  %714 = icmp slt i32 %708, 0
-  br i1 %714, label %list_objects.exit, label %715
+711:                                              ; preds = %705
+  %712 = icmp slt i32 %706, 0
+  br i1 %712, label %list_objects.exit, label %713
+
+713:                                              ; preds = %711
+  %714 = icmp sgt i32 %706, %.03145.i
+  br i1 %714, label %715, label %723
 
 715:                                              ; preds = %713
-  %716 = icmp sgt i32 %708, %.03145.i
-  br i1 %716, label %717, label %725
+  %716 = add nuw nsw i32 %706, 1
+  %717 = zext nneg i32 %716 to i64
+  %718 = call ptr @CRYPTO_realloc(ptr noundef %.03046.i, i64 noundef %717, ptr noundef nonnull @.str.135, i32 noundef 1107) #6
+  %719 = icmp eq ptr %718, null
+  br i1 %719, label %720, label %723
 
-717:                                              ; preds = %715
-  %718 = add nuw nsw i32 %708, 1
-  %719 = zext nneg i32 %718 to i64
-  %720 = call ptr @CRYPTO_realloc(ptr noundef %.03046.i, i64 noundef %719, ptr noundef nonnull @.str.135, i32 noundef 1107) #6
-  %721 = icmp eq ptr %720, null
-  br i1 %721, label %722, label %725
-
-722:                                              ; preds = %717
-  %723 = load ptr, ptr @bio_err, align 8, !tbaa !4
-  %724 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %723, ptr noundef nonnull @.str.99) #6
+720:                                              ; preds = %715
+  %721 = load ptr, ptr @bio_err, align 8, !tbaa !4
+  %722 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %721, ptr noundef nonnull @.str.99) #6
   br label %list_objects.exit
 
-725:                                              ; preds = %717, %715
-  %.233.i = phi i32 [ %.03145.i, %715 ], [ %718, %717 ]
-  %.3.i = phi ptr [ %.03046.i, %715 ], [ %720, %717 ]
-  %726 = call i32 @OBJ_obj2txt(ptr noundef %.3.i, i32 noundef %.233.i, ptr noundef %702, i32 noundef 1) #6
-  %727 = icmp slt i32 %726, 0
-  br i1 %727, label %list_objects.exit, label %728
+723:                                              ; preds = %715, %713
+  %.233.i = phi i32 [ %.03145.i, %713 ], [ %716, %715 ]
+  %.3.i = phi ptr [ %.03046.i, %713 ], [ %718, %715 ]
+  %724 = call i32 @OBJ_obj2txt(ptr noundef %.3.i, i32 noundef %.233.i, ptr noundef %700, i32 noundef 1) #6
+  %725 = icmp slt i32 %724, 0
+  br i1 %725, label %list_objects.exit, label %726
 
-728:                                              ; preds = %725
-  %729 = icmp eq ptr %704, null
-  br i1 %729, label %733, label %730
+726:                                              ; preds = %723
+  %727 = icmp eq ptr %702, null
+  br i1 %727, label %731, label %728
 
-730:                                              ; preds = %728
-  %731 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %703, ptr noundef nonnull dereferenceable(1) %704) #7
-  %732 = icmp eq i32 %731, 0
-  br i1 %732, label %733, label %736
+728:                                              ; preds = %726
+  %729 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %701, ptr noundef nonnull dereferenceable(1) %702) #7
+  %730 = icmp eq i32 %729, 0
+  br i1 %730, label %731, label %734
 
-733:                                              ; preds = %730, %728
-  %734 = load ptr, ptr @bio_out, align 8, !tbaa !4
-  %735 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %734, ptr noundef nonnull @.str.182, ptr noundef %703, ptr noundef %.3.i) #6
-  br label %739
+731:                                              ; preds = %728, %726
+  %732 = load ptr, ptr @bio_out, align 8, !tbaa !4
+  %733 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %732, ptr noundef nonnull @.str.182, ptr noundef %701, ptr noundef %.3.i) #6
+  br label %737
 
-736:                                              ; preds = %730
-  %737 = load ptr, ptr @bio_out, align 8, !tbaa !4
-  %738 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %737, ptr noundef nonnull @.str.183, ptr noundef nonnull %703, ptr noundef nonnull %704, ptr noundef %.3.i) #6
-  br label %739
+734:                                              ; preds = %728
+  %735 = load ptr, ptr @bio_out, align 8, !tbaa !4
+  %736 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %735, ptr noundef nonnull @.str.183, ptr noundef nonnull %701, ptr noundef nonnull %702, ptr noundef %.3.i) #6
+  br label %737
 
-739:                                              ; preds = %736, %733, %710, %.lr.ph.i193
-  %.132.ph.i = phi i32 [ %.233.i, %733 ], [ %.233.i, %736 ], [ %.03145.i, %.lr.ph.i193 ], [ %.03145.i, %710 ]
-  %.2.ph.i = phi ptr [ %.3.i, %733 ], [ %.3.i, %736 ], [ %.03046.i, %.lr.ph.i193 ], [ %.03046.i, %710 ]
-  %740 = add nuw nsw i32 %.02947.i, 1
-  %exitcond.not.i194 = icmp eq i32 %740, %700
+737:                                              ; preds = %734, %731, %708, %.lr.ph.i193
+  %.132.ph.i = phi i32 [ %.233.i, %731 ], [ %.233.i, %734 ], [ %.03145.i, %.lr.ph.i193 ], [ %.03145.i, %708 ]
+  %.2.ph.i = phi ptr [ %.3.i, %731 ], [ %.3.i, %734 ], [ %.03046.i, %.lr.ph.i193 ], [ %.03046.i, %708 ]
+  %738 = add nuw nsw i32 %.02947.i, 1
+  %exitcond.not.i194 = icmp eq i32 %738, %698
   br i1 %exitcond.not.i194, label %list_objects.exit, label %.lr.ph.i193, !llvm.loop !36
 
-list_objects.exit:                                ; preds = %713, %725, %739, %.thread642, %722
-  %.1.i = phi ptr [ null, %722 ], [ null, %.thread642 ], [ %.03046.i, %713 ], [ %.3.i, %725 ], [ %.2.ph.i, %739 ]
+list_objects.exit:                                ; preds = %711, %723, %737, %.thread642, %720
+  %.1.i = phi ptr [ null, %720 ], [ null, %.thread642 ], [ %.03046.i, %711 ], [ %.3.i, %723 ], [ %.2.ph.i, %737 ]
   call void @CRYPTO_free(ptr noundef %.1.i, ptr noundef nonnull @.str.135, i32 noundef 1122) #6
-  br label %741
+  br label %739
 
-741:                                              ; preds = %.thread638, %list_objects.exit, %693
+739:                                              ; preds = %.thread638, %list_objects.exit, %693
   br i1 %.not155, label %.loopexit, label %.loopexit365
 
-.loopexit365:                                     ; preds = %127, %741, %25, %.loopexit
-  %.099 = phi i32 [ 1, %.loopexit ], [ 0, %25 ], [ 0, %741 ], [ 1, %127 ]
+.loopexit365:                                     ; preds = %127, %739, %25, %.loopexit
+  %.099 = phi i32 [ 1, %.loopexit ], [ 0, %25 ], [ 0, %739 ], [ 1, %127 ]
   ret i32 %.099
 }
 

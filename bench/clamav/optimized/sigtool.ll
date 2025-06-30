@@ -5303,9 +5303,9 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   br i1 %or.cond, label %143, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call i32 @llvm.smax.i32(i32 %.0152, i32 %15)
+  %19 = tail call i32 @llvm.umax.i32(i32 %.0152, i32 %15)
   %20 = add nuw nsw i32 %19, 1
-  %21 = sext i32 %20 to i64
+  %21 = zext nneg i32 %20 to i64
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #29
   %.not179 = icmp eq ptr %22, null
   br i1 %.not179, label %23, label %24
@@ -5336,7 +5336,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
   br label %143
 
 30:                                               ; preds = %27
-  %31 = icmp sgt i32 %19, 32767
+  %31 = icmp samesign ugt i32 %19, 32767
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
@@ -5359,12 +5359,12 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
 
 39:                                               ; preds = %35
   %40 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.208)
-  %41 = sext i32 %19 to i64
-  %42 = getelementptr inbounds i8, ptr %28, i64 %41
-  %43 = tail call i32 @llvm.smin.i32(i32 %19, i32 16)
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %28, i64 %44
-  %46 = getelementptr inbounds i8, ptr %22, i64 %44
+  %41 = zext nneg i32 %19 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 %41
+  %43 = tail call i32 @llvm.umin.i32(i32 %19, i32 16)
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 %44
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %39
@@ -5625,7 +5625,7 @@ define internal fastcc range(i32 -1, 1) i32 @compare(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @maxlinelen(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @maxlinelen(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #24
   %3 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0) #24
@@ -5671,7 +5671,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @maxlinelen(ptr n
   br i1 %exitcond.not, label %.loopexit, label %13
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %19 = add nsw i32 %.3, 1
+  %19 = add nuw nsw i32 %.3, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader23
@@ -8782,6 +8782,12 @@ declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #23
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

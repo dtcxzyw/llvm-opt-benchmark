@@ -77515,6 +77515,7 @@ select.unfold.sink.split:                         ; preds = %61, %57
   br label %select.unfold
 
 select.unfold:                                    ; preds = %64, %select.unfold.sink.split
+  %.457127138 = phi i8 [ 1, %select.unfold.sink.split ], [ %.457127, %64 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #28
   br label %.loopexit
 
@@ -77526,7 +77527,7 @@ select.unfold:                                    ; preds = %64, %select.unfold.
 
 .loopexit:                                        ; preds = %.thread103, %10, %select.unfold
   %.not120 = phi i1 [ false, %select.unfold ], [ true, %10 ], [ true, %.thread103 ]
-  %.154 = phi i8 [ %.457127, %select.unfold ], [ 0, %10 ], [ %.255106, %.thread103 ]
+  %.154 = phi i8 [ %.457127138, %select.unfold ], [ 0, %10 ], [ %.255106, %.thread103 ]
   %72 = trunc nuw i8 %.154 to i1
   %.8 = select i1 %.not120, i1 %72, i1 false
   br label %73

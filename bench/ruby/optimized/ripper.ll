@@ -7828,7 +7828,7 @@ default.unreachable7586:                          ; preds = %3676
   %3717 = icmp ne i8 %3715, 32
   %3718 = add nsw i32 %3716, -14
   %3719 = icmp ult i32 %3718, -5
-  %narrow.i.not = and i1 %3717, %3719
+  %narrow.i.not = select i1 %3717, i1 %3719, i1 false
   br i1 %narrow.i.not, label %.critedge, label %3720
 
 3720:                                             ; preds = %.lr.ph
@@ -34717,7 +34717,7 @@ parser_set_lex_state.exit.i:                      ; preds = %154, %heredoc_resto
   %199 = icmp ne i8 %197, 32
   %200 = add nsw i32 %198, -14
   %201 = icmp ult i32 %200, -5
-  %narrow.i.not.i.i = and i1 %199, %201
+  %narrow.i.not.i.i = select i1 %199, i1 %201, i1 false
   br i1 %narrow.i.not.i.i, label %whole_match_p.exit.i, label %202
 
 202:                                              ; preds = %.lr.ph.i.i
@@ -35130,7 +35130,7 @@ nextc0.exit241.i:                                 ; preds = %.critedge.i234.i
   %384 = icmp ne i8 %382, 32
   %385 = add nsw i32 %383, -14
   %386 = icmp ult i32 %385, -5
-  %narrow.i.not.i251.i = and i1 %384, %386
+  %narrow.i.not.i251.i = select i1 %384, i1 %386, i1 false
   br i1 %narrow.i.not.i251.i, label %.critedge.i247.i, label %387
 
 387:                                              ; preds = %.lr.ph.i249.i
@@ -35568,7 +35568,7 @@ tokadd.exit277.i:                                 ; preds = %534, %nextc0.exit27
   %596 = icmp ne i8 %594, 32
   %597 = add nsw i32 %595, -14
   %598 = icmp ult i32 %597, -5
-  %narrow.i.not.i296.i = and i1 %596, %598
+  %narrow.i.not.i296.i = select i1 %596, i1 %598, i1 false
   br i1 %narrow.i.not.i296.i, label %.critedge.i292.i, label %599
 
 599:                                              ; preds = %.lr.ph.i294.i
@@ -35915,7 +35915,7 @@ nextc0.exit120.i:                                 ; preds = %759, %757, %751, %.
   %763 = icmp eq i32 %.011.i115.i, 32
   %764 = add nsw i32 %.011.i115.i, -9
   %765 = icmp ult i32 %764, 5
-  %narrow.i121.i = or i1 %763, %765
+  %narrow.i121.i = select i1 %763, i1 true, i1 %765
   %766 = icmp ne i32 %.011.i115.i, 10
   %or.cond3.i = and i1 %766, %narrow.i121.i
   br i1 %or.cond3.i, label %741, label %.critedge.i851, !llvm.loop !511
@@ -36002,7 +36002,7 @@ pushback.exit.i856:                               ; preds = %794, %790, %787, %7
   %802 = load ptr, ptr %0, align 8, !tbaa !18
   store i32 %801, ptr %802, align 8, !tbaa !6
   %803 = tail call fastcc i32 @regx_options(ptr noundef nonnull %0)
-  %804 = sext i32 %803 to i64
+  %804 = zext nneg i32 %803 to i64
   %805 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i64 %804, ptr %805, align 8, !tbaa !47
   %.val.i.i.i857 = load ptr, ptr %15, align 8, !tbaa !48
@@ -36879,7 +36879,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1156, %1148, %magic
   %1190 = icmp ne i8 %1187, 32
   %1191 = add nsw i32 %1189, -14
   %1192 = icmp ult i32 %1191, -5
-  %narrow.i.not.i = and i1 %1190, %1192
+  %narrow.i.not.i = select i1 %1190, i1 %1192, i1 false
   br i1 %narrow.i.not.i, label %.lr.ph.i882.preheader, label %1193
 
 1193:                                             ; preds = %1188, %1186, %1186, %1186, %1186
@@ -36907,7 +36907,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1156, %1148, %magic
   %1200 = icmp ne i8 %1197, 32
   %1201 = add nsw i32 %1199, -14
   %1202 = icmp ult i32 %1201, -5
-  %narrow.i232.not.i = and i1 %1200, %1202
+  %narrow.i232.not.i = select i1 %1200, i1 %1202, i1 false
   br i1 %narrow.i232.not.i, label %1203, label %.lr.ph347.i.preheader
 
 1203:                                             ; preds = %1198
@@ -36924,7 +36924,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1156, %1148, %magic
   %1209 = icmp ne i8 %1207, 32
   %1210 = add nsw i32 %1208, -14
   %1211 = icmp ult i32 %1210, -5
-  %narrow.i233.not.i = and i1 %1209, %1211
+  %narrow.i233.not.i = select i1 %1209, i1 %1211, i1 false
   br i1 %narrow.i233.not.i, label %.critedge2.thread.i, label %1212
 
 1212:                                             ; preds = %.lr.ph347.i
@@ -36959,7 +36959,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1156, %1148, %magic
   %1224 = icmp ne i8 %1222, 32
   %1225 = add nsw i32 %1223, -14
   %1226 = icmp ult i32 %1225, -5
-  %narrow.i234.not.i = and i1 %1224, %1226
+  %narrow.i234.not.i = select i1 %1224, i1 %1226, i1 false
   br i1 %narrow.i234.not.i, label %.critedge4.thread.i, label %.preheader294.i, !llvm.loop !520
 
 .critedge4.i:                                     ; preds = %.preheader294.i
@@ -37039,7 +37039,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1156, %1148, %magic
   %1250 = icmp ne i8 %1247, 32
   %1251 = add nsw i32 %1249, -14
   %1252 = icmp ult i32 %1251, -5
-  %narrow.i235.not.i = and i1 %1250, %1252
+  %narrow.i235.not.i = select i1 %1250, i1 %1252, i1 false
   br i1 %narrow.i235.not.i, label %1253, label %.critedge8.i
 
 1253:                                             ; preds = %1248
@@ -37082,7 +37082,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1156, %1148, %magic
   %1262 = icmp ne i8 %1258, 32
   %1263 = add nsw i32 %1261, -14
   %1264 = icmp ult i32 %1263, -5
-  %narrow.i236.not.i = and i1 %1262, %1264
+  %narrow.i236.not.i = select i1 %1262, i1 %1264, i1 false
   br i1 %narrow.i236.not.i, label %.critedge10.i, label %.critedge12.i
 
 .critedge12.i:                                    ; preds = %1260, %.lr.ph373.i
@@ -37099,7 +37099,7 @@ magic_comment_marker.exit.thread.i:               ; preds = %1156, %1148, %magic
   %1270 = icmp ne i8 %1268, 32
   %1271 = add nsw i32 %1269, -14
   %1272 = icmp ult i32 %1271, -5
-  %narrow.i237.not.i = and i1 %1270, %1272
+  %narrow.i237.not.i = select i1 %1270, i1 %1272, i1 false
   br i1 %narrow.i237.not.i, label %.loopexit, label %1273
 
 1273:                                             ; preds = %.lr.ph381.i
@@ -37406,7 +37406,7 @@ comment_at_top.exit:                              ; preds = %.loopexit
   %1379 = icmp ne i8 %1363, 32
   %1380 = add nsw i32 %1378, -14
   %1381 = icmp ult i32 %1380, -5
-  %narrow.i.not.i903 = and i1 %1379, %1381
+  %narrow.i.not.i903 = select i1 %1379, i1 %1381, i1 false
   br i1 %narrow.i.not.i903, label %.backedge.i894, label %1382
 
 1382:                                             ; preds = %1377, %.lr.ph.i893, %.lr.ph.i893
@@ -37432,7 +37432,7 @@ comment_at_top.exit:                              ; preds = %.loopexit
   %1391 = icmp ne i8 %1389, 32
   %1392 = add nsw i32 %1390, -14
   %1393 = icmp ult i32 %1392, -5
-  %narrow.i53.not.i = and i1 %1391, %1393
+  %narrow.i53.not.i = select i1 %1391, i1 %1393, i1 false
   br i1 %narrow.i53.not.i, label %1394, label %1386, !llvm.loop !547
 
 1394:                                             ; preds = %1388
@@ -40734,7 +40734,7 @@ parser_cr.exit:                                   ; preds = %26, %23, %21, %15, 
 declare ptr @rb_parser_set_location(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pushback(ptr noundef captures(none) %0, i32 noundef range(i32 -1, 256) %1) unnamed_addr #20 {
+define internal fastcc void @pushback(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #20 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %22, label %4
 
@@ -45321,7 +45321,7 @@ define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.72.val, ptr %.88
   %32 = icmp ne i8 %30, 32
   %33 = add nsw i32 %31, -14
   %34 = icmp ult i32 %33, -5
-  %narrow.i.not = and i1 %32, %34
+  %narrow.i.not = select i1 %32, i1 %34, i1 false
   br i1 %narrow.i.not, label %.critedge, label %35
 
 35:                                               ; preds = %.lr.ph
@@ -49541,7 +49541,7 @@ rb_long2int_inline.exit59:                        ; preds = %rb_parser_str_buf_c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @regx_options(ptr noundef initializes((136, 140)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 131072) i32 @regx_options(ptr noundef initializes((136, 140)) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %2, align 8, !tbaa !505
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -50180,19 +50180,20 @@ define internal void @parser_set_shareable_constant_value(ptr noundef captures(n
 define internal void @parser_set_token_info(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc i32 @parser_get_bool(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = icmp sgt i32 %4, -1
-  br i1 %5, label %6, label %13
+  br i1 %5, label %6, label %14
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %8 = trunc nuw nsw i32 %4 to i16
   %9 = load i16, ptr %7, align 8
   %10 = shl nuw nsw i16 %8, 8
-  %11 = and i16 %9, -257
-  %12 = or i16 %11, %10
-  store i16 %12, ptr %7, align 8
-  br label %13
+  %11 = and i16 %10, 256
+  %12 = and i16 %9, -257
+  %13 = or disjoint i16 %12, %11
+  store i16 %13, ptr %7, align 8
+  br label %14
 
-13:                                               ; preds = %6, %3
+14:                                               ; preds = %6, %3
   ret void
 }
 

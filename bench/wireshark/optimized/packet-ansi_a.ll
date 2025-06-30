@@ -2381,88 +2381,84 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
-  %8 = icmp slt i32 %3, 0
-  br i1 %8, label %12, label %9
+define internal fastcc zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 92) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
+  %8 = load i32, ptr @ansi_a_elem_1_max, align 4
+  %9 = add nsw i32 %8, -1
+  %.not = icmp ult i32 %3, %9
+  br i1 %.not, label %13, label %10
 
-9:                                                ; preds = %7
-  %10 = load i32, ptr @ansi_a_elem_1_max, align 4
-  %11 = add nsw i32 %10, -1
-  %.not = icmp ult i32 %3, %11
-  br i1 %.not, label %15, label %12
+10:                                               ; preds = %7
+  %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %4)
+  %12 = trunc i32 %11 to i16
+  br label %59
 
-12:                                               ; preds = %9, %7
-  %13 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %4)
-  %14 = trunc i32 %13 to i16
-  br label %61
+13:                                               ; preds = %7
+  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
+  %15 = zext i8 %14 to i32
+  %16 = load ptr, ptr @ansi_a_elem_1_strings, align 8
+  %17 = zext nneg i32 %3 to i64
+  %18 = getelementptr %struct.ext_value_string_t, ptr %16, i64 %17
+  %19 = load i32, ptr %18, align 8
+  %20 = trunc i32 %19 to i8
+  %21 = icmp eq i8 %14, %20
+  br i1 %21, label %22, label %59
 
-15:                                               ; preds = %9
-  %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %4)
-  %17 = zext i8 %16 to i32
-  %18 = load ptr, ptr @ansi_a_elem_1_strings, align 8
-  %19 = zext nneg i32 %3 to i64
-  %20 = getelementptr %struct.ext_value_string_t, ptr %18, i64 %19
-  %21 = load i32, ptr %20, align 8
-  %22 = trunc i32 %21 to i8
-  %23 = icmp eq i8 %16, %22
-  br i1 %23, label %24, label %61
+22:                                               ; preds = %13
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %24 = load i32, ptr %23, align 8
+  %25 = add i32 %4, 1
+  %26 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %25)
+  %27 = zext i8 %26 to i32
+  %28 = add nuw nsw i32 %27, 2
+  %29 = getelementptr [92 x i32], ptr @ett_ansi_elem_1, i64 0, i64 %17
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %32 = load ptr, ptr @ansi_a_elem_1_strings, align 8
+  %33 = getelementptr %struct.ext_value_string_t, ptr %32, i64 %17, i32 1
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %5, null
+  br i1 %35, label %39, label %36
 
-24:                                               ; preds = %15
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %26 = load i32, ptr %25, align 8
-  %27 = add i32 %4, 1
-  %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %27)
-  %29 = zext i8 %28 to i32
-  %30 = add nuw nsw i32 %29, 2
-  %31 = getelementptr [92 x i32], ptr @ett_ansi_elem_1, i64 0, i64 %19
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %34 = load ptr, ptr @ansi_a_elem_1_strings, align 8
-  %35 = getelementptr %struct.ext_value_string_t, ptr %34, i64 %19, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %5, null
-  br i1 %37, label %41, label %38
+36:                                               ; preds = %22
+  %37 = load i8, ptr %5, align 1
+  %38 = icmp eq i8 %37, 0
+  %spec.select = select i1 %38, ptr @.str.282, ptr %5
+  br label %39
 
-38:                                               ; preds = %24
-  %39 = load i8, ptr %5, align 1
-  %40 = icmp eq i8 %39, 0
-  %spec.select = select i1 %40, ptr @.str.282, ptr %5
-  br label %41
+39:                                               ; preds = %36, %22
+  %40 = phi ptr [ @.str.282, %22 ], [ %spec.select, %36 ]
+  %41 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %4, i32 noundef %28, i32 noundef %30, ptr noundef nonnull %31, ptr noundef nonnull @.str.1003, ptr noundef %34, ptr noundef %40)
+  %42 = load i32, ptr @hf_ansi_a_elem_id, align 4
+  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %15)
+  %44 = load i32, ptr @hf_ansi_a_length, align 4
+  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %41, i32 noundef %44, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef %27)
+  %.not53 = icmp eq i8 %26, 0
+  br i1 %.not53, label %56, label %46
 
-41:                                               ; preds = %38, %24
-  %42 = phi ptr [ @.str.282, %24 ], [ %spec.select, %38 ]
-  %43 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %4, i32 noundef %30, i32 noundef %32, ptr noundef nonnull %33, ptr noundef nonnull @.str.1003, ptr noundef %36, ptr noundef %42)
-  %44 = load i32, ptr @hf_ansi_a_elem_id, align 4
-  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %43, i32 noundef %44, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %17)
-  %46 = load i32, ptr @hf_ansi_a_length, align 4
-  %47 = tail call ptr @proto_tree_add_uint(ptr noundef %43, i32 noundef %46, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef %29)
-  %.not53 = icmp eq i8 %28, 0
-  br i1 %.not53, label %58, label %48
+46:                                               ; preds = %39
+  %47 = sext i32 %24 to i64
+  %48 = getelementptr [92 x ptr], ptr @elem_1_fcn, i64 0, i64 %47
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp eq ptr %49, null
+  %51 = add i32 %4, 2
+  br i1 %50, label %52, label %54
 
-48:                                               ; preds = %41
-  %49 = sext i32 %26 to i64
-  %50 = getelementptr [92 x ptr], ptr @elem_1_fcn, i64 0, i64 %49
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  %53 = add i32 %4, 2
-  br i1 %52, label %54, label %56
+52:                                               ; preds = %46
+  %53 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_no_tlv_elem_diss, ptr noundef %0, i32 noundef %51, i32 noundef %27, ptr noundef nonnull @.str.1004)
+  br label %56
 
-54:                                               ; preds = %48
-  %55 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %43, ptr noundef %1, ptr noundef nonnull @ei_ansi_a_no_tlv_elem_diss, ptr noundef %0, i32 noundef %53, i32 noundef %29, ptr noundef nonnull @.str.1004)
-  br label %58
+54:                                               ; preds = %46
+  %55 = tail call zeroext i8 %49(ptr noundef %0, ptr noundef %1, ptr noundef %41, i32 noundef %51, i32 noundef %27, ptr noundef %6)
+  br label %56
 
-56:                                               ; preds = %48
-  %57 = tail call zeroext i8 %51(ptr noundef %0, ptr noundef %1, ptr noundef %43, i32 noundef %53, i32 noundef %29, ptr noundef %6)
-  br label %58
+56:                                               ; preds = %52, %54, %39
+  %.1.shrunk = phi i8 [ %26, %52 ], [ %55, %54 ], [ 0, %39 ]
+  %57 = zext i8 %.1.shrunk to i16
+  %58 = add nuw nsw i16 %57, 2
+  br label %59
 
-58:                                               ; preds = %54, %56, %41
-  %.1.shrunk = phi i8 [ %28, %54 ], [ %57, %56 ], [ 0, %41 ]
-  %59 = zext i8 %.1.shrunk to i16
-  %60 = add nuw nsw i16 %59, 2
-  br label %61
-
-61:                                               ; preds = %15, %58, %12
-  %.0 = phi i16 [ %14, %12 ], [ %60, %58 ], [ 0, %15 ]
+59:                                               ; preds = %13, %56, %10
+  %.0 = phi i16 [ %12, %10 ], [ %58, %56 ], [ 0, %13 ]
   ret i16 %.0
 }
 

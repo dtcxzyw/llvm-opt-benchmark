@@ -94,9 +94,10 @@ define internal range(i32 -2147483648, 1) i32 @clv_decode_init(ptr noundef %0) #
   store i32 %28, ptr %29, align 4, !tbaa !38
   %30 = shl nuw i32 1, %28
   %.not61 = icmp ne i32 %30, %.sink
-  %31 = add nsw i32 %28, -31
-  %32 = icmp ult i32 %31, -30
-  %or.cond65 = or i1 %.not61, %32
+  %31 = icmp eq i32 %28, 0
+  %or.cond = or i1 %31, %.not61
+  %32 = icmp samesign ugt i32 %28, 30
+  %or.cond65 = select i1 %or.cond, i1 true, i1 %32
   br i1 %or.cond65, label %33, label %34
 
 33:                                               ; preds = %18

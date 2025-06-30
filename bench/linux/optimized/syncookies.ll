@@ -48,101 +48,102 @@ define dso_local i32 @__cookie_v6_init_sequence(ptr noundef readonly captures(no
   %12 = getelementptr [4 x i16], ptr @msstab, i64 0, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = icmp ult i16 %8, %13
-  br i1 %14, label %15, label %18
+  br i1 %14, label %15, label %split
 
 15:                                               ; preds = %9
   %16 = add nsw i32 %10, -1
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %9, !llvm.loop !5
+  br i1 %17, label %._crit_edge, label %9, !llvm.loop !5
 
-18:                                               ; preds = %15, %9
-  %19 = phi i32 [ %10, %9 ], [ 0, %15 ]
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr [4 x i16], ptr @msstab, i64 0, i64 %20
-  %22 = load i16, ptr %21, align 2
-  store i16 %22, ptr %2, align 2
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i16, ptr %1, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %27 = load i16, ptr %26, align 2
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %29 = load i32, ptr %28, align 4
-  %30 = load volatile i64, ptr @jiffies, align 64
-  %31 = udiv i64 %30, 60000
-  %32 = trunc i64 %31 to i32
+._crit_edge:                                      ; preds = %15
+  br label %split, !llvm.loop !5
+
+split:                                            ; preds = %9, %._crit_edge
+  %18 = phi i16 [ 1220, %._crit_edge ], [ %13, %9 ]
+  %19 = phi i32 [ 0, %._crit_edge ], [ %10, %9 ]
+  store i16 %18, ptr %2, align 2
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %22 = load i16, ptr %1, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %24 = load i16, ptr %23, align 2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = load volatile i64, ptr @jiffies, align 64
+  %28 = udiv i64 %27, 60000
+  %29 = trunc i64 %28 to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 0, ptr %34, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i16 %25, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 38
-  store i16 %27, ptr %36, align 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 0, ptr %31, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  store i16 %22, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 38
+  store i16 %24, ptr %33, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
-          to label %41 [label %37], !srcloc !8
+          to label %38 [label %34], !srcloc !8
 
-37:                                               ; preds = %18
+34:                                               ; preds = %split
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   store i64 0, ptr %7, align 8, !annotation !9
-  %38 = call zeroext i1 @__do_once_start(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull %7) #6
-  br i1 %38, label %39, label %40, !prof !10
+  %35 = call zeroext i1 @__do_once_start(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull %7) #6
+  br i1 %35, label %36, label %37, !prof !10
 
-39:                                               ; preds = %37
+36:                                               ; preds = %34
   call void @get_random_bytes(ptr noundef nonnull @syncookie6_secret, i64 noundef 32) #6
   call void @__do_once_done(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull @cookie_hash.___once_key, ptr noundef nonnull %7, ptr noundef null) #6
-  br label %40
+  br label %37
 
-40:                                               ; preds = %39, %37
+37:                                               ; preds = %36, %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
-  br label %41
+  br label %38
 
-41:                                               ; preds = %40, %18
-  %42 = call i64 @__siphash_unaligned(ptr noundef nonnull %6, i64 noundef 40, ptr noundef nonnull @syncookie6_secret) #6
+38:                                               ; preds = %37, %split
+  %39 = call i64 @__siphash_unaligned(ptr noundef nonnull %6, i64 noundef 40, ptr noundef nonnull @syncookie6_secret) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false)
-  store i32 %32, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i16 %25, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 38
-  store i16 %27, ptr %46, align 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false)
+  store i32 %29, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i16 %22, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 38
+  store i16 %24, ptr %43, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
-          to label %51 [label %47], !srcloc !8
+          to label %48 [label %44], !srcloc !8
 
-47:                                               ; preds = %41
+44:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store i64 0, ptr %5, align 8, !annotation !9
-  %48 = call zeroext i1 @__do_once_start(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull %5) #6
-  br i1 %48, label %49, label %50, !prof !10
+  %45 = call zeroext i1 @__do_once_start(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull %5) #6
+  br i1 %45, label %46, label %47, !prof !10
 
-49:                                               ; preds = %47
+46:                                               ; preds = %44
   call void @get_random_bytes(ptr noundef nonnull @syncookie6_secret, i64 noundef 32) #6
   call void @__do_once_done(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull @cookie_hash.___once_key, ptr noundef nonnull %5, ptr noundef null) #6
-  br label %50
+  br label %47
 
-50:                                               ; preds = %49, %47
+47:                                               ; preds = %46, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  br label %51
+  br label %48
 
-51:                                               ; preds = %50, %41
-  %52 = call i32 @llvm.bswap.i32(i32 %29)
-  %53 = trunc i64 %42 to i32
-  %54 = shl i32 %32, 24
-  %55 = call i64 @__siphash_unaligned(ptr noundef nonnull %4, i64 noundef 40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @syncookie6_secret, i64 16)) #6
-  %56 = trunc i64 %55 to i32
+48:                                               ; preds = %47, %38
+  %49 = call i32 @llvm.bswap.i32(i32 %26)
+  %50 = trunc i64 %39 to i32
+  %51 = shl i32 %29, 24
+  %52 = call i64 @__siphash_unaligned(ptr noundef nonnull %4, i64 noundef 40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @syncookie6_secret, i64 16)) #6
+  %53 = trunc i64 %52 to i32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
-  %57 = add i32 %19, %56
-  %58 = and i32 %57, 16777215
-  %59 = add i32 %54, %52
-  %60 = add i32 %59, %53
-  %61 = add i32 %60, %58
-  ret i32 %61
+  %54 = add i32 %19, %53
+  %55 = and i32 %54, 16777215
+  %56 = add i32 %51, %49
+  %57 = add i32 %56, %50
+  %58 = add i32 %57, %55
+  ret i32 %58
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

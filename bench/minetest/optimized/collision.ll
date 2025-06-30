@@ -1157,9 +1157,9 @@ for.cond223.preheader:                            ; preds = %for.cond223.for.inc
   %97 = insertelement <4 x float> %94, float %mul2.i1416, i64 1
   %98 = insertelement <2 x float> poison, float %mul2.i1416, i64 0
   %invariant.op = or disjoint i48 %p2.sroa.19.0.insert.shift2019, %p.sroa.0.0.insert.ext2064
-  %invariant.op117 = or disjoint i48 %p2.sroa.19.0.insert.shift2015, %p.sroa.0.0.insert.ext2064
-  %invariant.op365 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
-  %invariant.op366 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
+  %invariant.op112 = or disjoint i48 %p2.sroa.19.0.insert.shift2015, %p.sroa.0.0.insert.ext2064
+  %invariant.op331 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
+  %invariant.op332 = or disjoint i48 %p.sroa.0.0.insert.ext2064, %p.sroa.20.0.insert.shift2075
   br label %for.body229
 
 for.body229:                                      ; preds = %cleanup348, %for.cond223.preheader
@@ -1396,8 +1396,8 @@ invoke.cont255:                                   ; preds = %lor.lhs.false.i.i.i
   br i1 %cmp.i.i.i1354, label %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge, label %if.then.i.i1355
 
 invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge: ; preds = %invoke.cont255
-  %.pre162 = load i64, ptr %_M_string_length.i.i.i.i1343, align 8, !tbaa !11
-  %138 = icmp ult i64 %.pre162, 16
+  %.pre152 = load i64, ptr %_M_string_length.i.i.i.i1343, align 8, !tbaa !11
+  %138 = icmp ult i64 %.pre152, 16
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356: ; preds = %for.inc.i, %invoke.cont255._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1356_crit_edge, %if.then.i1733
@@ -1435,7 +1435,7 @@ call.i.noexc1362:                                 ; preds = %if.then266
 call3.i.noexc:                                    ; preds = %call.i.noexc1362
   %spec.select = zext i1 %call3.i1364 to i8
   %agg.tmp272.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !113
-  %p2.sroa.0.0.insert.insert1988.reass = or disjoint i48 %p.sroa.29.0.insert.shift2086, %invariant.op117
+  %p2.sroa.0.0.insert.insert1988.reass = or disjoint i48 %p.sroa.29.0.insert.shift2086, %invariant.op112
   %call.i1369 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %call, i48 %p2.sroa.0.0.insert.insert1988.reass, ptr noundef null)
           to label %call.i.noexc1368 unwind label %lpad269
 
@@ -1450,7 +1450,7 @@ call3.i.noexc1370:                                ; preds = %call.i.noexc1368
   %agg.tmp276.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !113
   %p2.sroa.23.0.insert.ext2041 = zext i16 %dec275 to i48
   %p2.sroa.23.0.insert.shift2042 = shl nuw i48 %p2.sroa.23.0.insert.ext2041, 32
-  %p2.sroa.0.0.insert.insert1985.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2042, %invariant.op365
+  %p2.sroa.0.0.insert.insert1985.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2042, %invariant.op331
   %call.i1377 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %call, i48 %p2.sroa.0.0.insert.insert1985.reass.reass.reass, ptr noundef null)
           to label %call.i.noexc1376 unwind label %lpad269
 
@@ -1477,7 +1477,7 @@ call3.i.noexc1386:                                ; preds = %call.i.noexc1384
   %agg.tmp284.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !113
   %p2.sroa.23.0.insert.ext2033 = zext i16 %inc283 to i48
   %p2.sroa.23.0.insert.shift2034 = shl nuw i48 %p2.sroa.23.0.insert.ext2033, 32
-  %p2.sroa.0.0.insert.insert1979.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2034, %invariant.op366
+  %p2.sroa.0.0.insert.insert1979.reass.reass.reass = or disjoint i48 %p2.sroa.23.0.insert.shift2034, %invariant.op332
   %call.i1393 = invoke i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144) %call, i48 %p2.sroa.0.0.insert.insert1979.reass.reass.reass, ptr noundef null)
           to label %call.i.noexc1392 unwind label %lpad269
 
@@ -2559,12 +2559,12 @@ if.end569:                                        ; preds = %while.body
   br i1 %cmp5802188.not, label %if.end569.if.end775.thread_crit_edge, label %for.body582
 
 if.end569.if.end775.thread_crit_edge:             ; preds = %if.end569
-  %.pre164 = load float, ptr %Z.i1179, align 4, !tbaa !59
+  %.pre154 = load float, ptr %Z.i1179, align 4, !tbaa !59
   br label %if.end775.thread
 
 for.cond.cleanup581:                              ; preds = %cleanup602
   %cmp611 = icmp eq i32 %nearest_collided.2, -1
-  %.pre165 = load float, ptr %Z.i1179, align 4, !tbaa !59
+  %.pre155 = load float, ptr %Z.i1179, align 4, !tbaa !59
   br i1 %cmp611, label %if.end775.thread, label %if.else626
 
 for.body582:                                      ; preds = %if.end569, %cleanup602
@@ -2614,7 +2614,7 @@ cleanup602:                                       ; preds = %cleanup598, %for.bo
   br i1 %cmp580, label %for.body582, label %for.cond.cleanup581, !llvm.loop !214
 
 if.end775.thread:                                 ; preds = %for.cond.cleanup581, %if.end569.if.end775.thread_crit_edge
-  %279 = phi float [ %.pre164, %if.end569.if.end775.thread_crit_edge ], [ %.pre165, %for.cond.cleanup581 ]
+  %279 = phi float [ %.pre154, %if.end569.if.end775.thread_crit_edge ], [ %.pre155, %for.cond.cleanup581 ]
   %mul3.i1597 = fmul nsz float %dtime.addr.12209, %279
   %mul.i9.i1608 = fmul nsz float %mul3.i1597, 1.000000e+02
   %280 = call nsz float @llvm.trunc.f32(float %mul.i9.i1608)
@@ -2640,10 +2640,10 @@ if.else626:                                       ; preds = %for.cond.cleanup581
   %290 = extractelement <4 x float> %272, i64 0
   %291 = call nsz float @llvm.fmuladd.f32(float %289, float %dtime.addr.12209, float %290)
   %292 = extractelement <4 x float> %272, i64 2
-  %293 = call nsz float @llvm.fmuladd.f32(float %.pre165, float %dtime.addr.12209, float %292)
+  %293 = call nsz float @llvm.fmuladd.f32(float %.pre155, float %dtime.addr.12209, float %292)
   %294 = extractelement <4 x float> %272, i64 3
   %295 = call nsz float @llvm.fmuladd.f32(float %289, float %dtime.addr.12209, float %294)
-  %296 = call nsz float @llvm.fmuladd.f32(float %.pre165, float %dtime.addr.12209, float %add6.i1591)
+  %296 = call nsz float @llvm.fmuladd.f32(float %.pre155, float %dtime.addr.12209, float %add6.i1591)
   %cmp642.not = icmp eq i32 %nearest_collided.2, 1
   br i1 %cmp642.not, label %land.end, label %land.lhs.true643
 
@@ -2717,7 +2717,7 @@ land.end.thread:                                  ; preds = %if.end.i1628
   br i1 %cmp66373, label %invoke.cont703, label %invoke.cont690
 
 if.then666:                                       ; preds = %land.end
-  switch i32 %nearest_collided.2, label %default.unreachable [
+  switch i32 %nearest_collided.2, label %invoke.cont703 [
     i32 0, label %if.then668
     i32 1, label %if.then673
     i32 2, label %if.then678
@@ -2735,7 +2735,7 @@ if.then673:                                       ; preds = %if.then666
   br label %invoke.cont703
 
 if.then678:                                       ; preds = %if.then666
-  %309 = call nsz float @llvm.fmuladd.f32(float %.pre165, float %nearest_dtime.2, float %268)
+  %309 = call nsz float @llvm.fmuladd.f32(float %.pre155, float %nearest_dtime.2, float %268)
   store float %309, ptr %Z.i1197, align 4, !tbaa !59
   br label %invoke.cont703
 
@@ -2743,7 +2743,7 @@ invoke.cont690:                                   ; preds = %land.end.thread, %l
   %div75 = phi float [ %div72, %land.end.thread ], [ %div, %land.end ]
   %310 = phi i1 [ true, %land.end.thread ], [ false, %land.end ]
   %311 = load float, ptr %Y.i1178, align 4, !tbaa !60
-  %mul3.i1634 = fmul nsz float %nearest_dtime.2, %.pre165
+  %mul3.i1634 = fmul nsz float %nearest_dtime.2, %.pre155
   %mul.i9.i1645 = fmul nsz float %mul3.i1634, 1.000000e+02
   %312 = call nsz float @llvm.trunc.f32(float %mul.i9.i1645)
   %div.i10.i1646 = fdiv nsz float %312, 1.000000e+02
@@ -2762,13 +2762,10 @@ invoke.cont690:                                   ; preds = %land.end.thread, %l
   %sub697 = fsub nsz float %dtime.addr.12209, %nearest_dtime.2
   br label %invoke.cont703
 
-default.unreachable:                              ; preds = %if.then666
-  unreachable
-
-invoke.cont703:                                   ; preds = %land.end.thread, %invoke.cont690, %if.then678, %if.then673, %if.then668
-  %div74 = phi float [ %div, %if.then678 ], [ %div, %if.then673 ], [ %div75, %invoke.cont690 ], [ %div, %if.then668 ], [ %div72, %land.end.thread ]
-  %322 = phi i1 [ false, %if.then678 ], [ false, %if.then673 ], [ %310, %invoke.cont690 ], [ false, %if.then668 ], [ true, %land.end.thread ]
-  %dtime.addr.2 = phi float [ %dtime.addr.12209, %if.then678 ], [ %dtime.addr.12209, %if.then673 ], [ %sub697, %invoke.cont690 ], [ %dtime.addr.12209, %if.then668 ], [ %dtime.addr.12209, %land.end.thread ]
+invoke.cont703:                                   ; preds = %land.end.thread, %invoke.cont690, %if.then678, %if.then673, %if.then668, %if.then666
+  %div74 = phi float [ %div, %if.then678 ], [ %div, %if.then673 ], [ %div75, %invoke.cont690 ], [ %div, %if.then668 ], [ %div, %if.then666 ], [ %div72, %land.end.thread ]
+  %322 = phi i1 [ false, %if.then678 ], [ false, %if.then673 ], [ %310, %invoke.cont690 ], [ false, %if.then668 ], [ false, %if.then666 ], [ true, %land.end.thread ]
+  %dtime.addr.2 = phi float [ %dtime.addr.12209, %if.then678 ], [ %dtime.addr.12209, %if.then673 ], [ %sub697, %invoke.cont690 ], [ %dtime.addr.12209, %if.then668 ], [ %dtime.addr.12209, %if.then666 ], [ %dtime.addr.12209, %land.end.thread ]
   %323 = load i8, ptr %add.ptr.i1621, align 8, !tbaa !118, !range !63, !noundef !64
   %spec.store.select = xor i8 %323, 1
   %obj.i = getelementptr inbounds nuw i8, ptr %add.ptr.i1621, i64 8

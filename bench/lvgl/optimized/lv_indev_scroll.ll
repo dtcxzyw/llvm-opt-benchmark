@@ -809,13 +809,12 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
 
 142:                                              ; preds = %.loopexit
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %144 = and i16 %.1115, 255
-  %145 = load i16, ptr %143, align 4
-  %146 = and i16 %145, -16
-  %147 = or i16 %146, %144
-  store i16 %147, ptr %143, align 4
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store ptr %.1, ptr %148, align 8, !tbaa !23
+  %144 = load i16, ptr %143, align 4
+  %145 = and i16 %144, -16
+  %146 = or i16 %145, %.1115
+  store i16 %146, ptr %143, align 4
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store ptr %.1, ptr %147, align 8, !tbaa !23
   store i32 0, ptr %15, align 8, !tbaa !43
   store i32 0, ptr %20, align 4, !tbaa !42
   br label %.loopexit.thread

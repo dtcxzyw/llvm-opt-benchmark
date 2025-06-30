@@ -1132,7 +1132,7 @@ BrotliBuildMetaBlockGreedyInternal.exit:          ; preds = %BlockSplitterAddSym
   br i1 %.not92.i, label %146, label %144, !llvm.loop !118
 
 146:                                              ; preds = %144
-  %147 = shl i64 %.082.i44, 2
+  %147 = shl nuw nsw i64 %.082.i44, 2
   %148 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %147) #10
   %149 = load i64, ptr %140, align 8, !tbaa !117
   %.not93.i = icmp eq i64 %149, 0
@@ -1566,7 +1566,7 @@ define internal fastcc void @InitBlockSplitterLiteral(ptr noundef %0, ptr nounde
   br i1 %.not85, label %39, label %37, !llvm.loop !138
 
 39:                                               ; preds = %37
-  %40 = shl i64 %.075, 2
+  %40 = shl nuw nsw i64 %.075, 2
   %41 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %40) #10
   %42 = load i64, ptr %33, align 8, !tbaa !117
   %.not86 = icmp eq i64 %42, 0

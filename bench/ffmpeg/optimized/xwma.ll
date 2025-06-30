@@ -365,15 +365,16 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
   br label %.loopexit
 
 153:                                              ; preds = %145
-  %154 = zext nneg i32 %.0155229 to i64
-  %155 = getelementptr i32, ptr %.0157228, i64 %154
-  %156 = getelementptr i8, ptr %155, i64 -4
+  %154 = add nsw i32 %.0155229, -1
+  %155 = zext i32 %154 to i64
+  %156 = getelementptr inbounds nuw i32, ptr %.0157228, i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !59
   %158 = udiv i32 %157, %151
   %159 = zext i32 %158 to i64
   %160 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i64 %159, ptr %160, align 8, !tbaa !64
   %161 = call i64 @avio_seek(ptr noundef nonnull %4, i64 noundef 0, i32 noundef 1) #7
+  %wide.trip.count270 = zext nneg i32 %.0155229 to i64
   br label %162
 
 162:                                              ; preds = %153, %162
@@ -391,7 +392,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
   %172 = udiv i32 %171, %151
   %173 = zext i32 %172 to i64
   %174 = call i32 @av_add_index_entry(ptr noundef nonnull %15, i64 noundef %169, i64 noundef %173, i32 noundef %165, i32 noundef 0, i32 noundef 1) #7
-  %exitcond271.not = icmp eq i64 %indvars.iv.next262, %154
+  %exitcond271.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count270
   br i1 %exitcond271.not, label %.loopexit, label %162, !llvm.loop !66
 
 175:                                              ; preds = %141

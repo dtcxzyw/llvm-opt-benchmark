@@ -159,7 +159,7 @@ define dso_local range(i32 1, 4) i32 @lre_case_conv(ptr noundef writeonly captur
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
-define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef range(i32 0, 131198) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i32], align 4
   %8 = alloca [3 x i32], align 4
@@ -204,33 +204,33 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
   br i1 %or.cond, label %28, label %160
 
 28:                                               ; preds = %25, %22
-  %29 = sub i32 %1, %21
+  %29 = sub nsw i32 %1, %21
   %30 = zext nneg i32 %20 to i64
   %31 = getelementptr inbounds nuw [370 x i32], ptr @case_conv_table1, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !7
   %33 = lshr i32 %32, 15
-  %34 = add i32 %29, %33
+  %34 = add nsw i32 %29, %33
   br label %160
 
 35:                                               ; preds = %5
-  %36 = sub i32 %1, %21
+  %36 = sub nsw i32 %1, %21
   %37 = trunc i32 %36 to i1
   %38 = xor i1 %11, %37
   br i1 %38, label %39, label %160
 
 39:                                               ; preds = %35
   %40 = xor i32 %36, 1
-  %41 = add i32 %40, %21
+  %41 = add nsw i32 %40, %21
   br label %160
 
 42:                                               ; preds = %5
-  %43 = sub i32 %1, %21
+  %43 = sub nsw i32 %1, %21
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %42
   %46 = select i1 %11, i32 1, i32 -1
-  %47 = add i32 %46, %1
+  %47 = add nsw i32 %46, %1
   br label %160
 
 48:                                               ; preds = %42
@@ -240,11 +240,11 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
 
 51:                                               ; preds = %48
   %52 = select i1 %11, i32 2, i32 -2
-  %53 = add i32 %52, %1
+  %53 = add nsw i32 %52, %1
   br label %160
 
 54:                                               ; preds = %5
-  %55 = sub i32 %1, %21
+  %55 = sub nsw i32 %1, %21
   br i1 %11, label %64, label %56
 
 56:                                               ; preds = %54
@@ -253,7 +253,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
   %59 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !14
   %61 = zext i16 %60 to i32
-  %62 = add i32 %55, %61
+  %62 = add nsw i32 %55, %61
   store i32 %62, ptr %0, align 4, !tbaa !7
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 921, ptr %63, align 4, !tbaa !7
@@ -265,7 +265,7 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
   %67 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !14
   %69 = zext i16 %68 to i32
-  %70 = add i32 %55, %69
+  %70 = add nsw i32 %55, %69
   br label %160
 
 71:                                               ; preds = %5
@@ -309,13 +309,13 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
   br i1 %11, label %96, label %160
 
 96:                                               ; preds = %95
-  %97 = sub i32 %1, %21
+  %97 = sub nsw i32 %1, %21
   %98 = lshr i32 %20, 6
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !14
   %102 = zext i16 %101 to i32
-  %103 = add i32 %97, %102
+  %103 = add nsw i32 %97, %102
   store i32 %103, ptr %0, align 4, !tbaa !7
   %104 = and i32 %19, 63
   %105 = zext nneg i32 %104 to i64
@@ -331,13 +331,13 @@ define internal fastcc range(i32 1, 4) i32 @lre_case_conv_entry(ptr noundef writ
   br i1 %111, label %160, label %112
 
 112:                                              ; preds = %110
-  %113 = sub i32 %1, %21
+  %113 = sub nsw i32 %1, %21
   %114 = lshr i32 %20, 6
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds nuw [58 x i16], ptr @case_conv_ext, i64 0, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !14
   %118 = zext i16 %117 to i32
-  %119 = add i32 %113, %118
+  %119 = add nsw i32 %113, %118
   store i32 %119, ptr %0, align 4, !tbaa !7
   %120 = and i32 %19, 63
   %121 = zext nneg i32 %120 to i64
@@ -478,7 +478,7 @@ define dso_local i32 @lre_canonicalize(i32 noundef %0, i32 noundef %1) local_unn
   br i1 %.not.i, label %37, label %28
 
 28:                                               ; preds = %27
-  %29 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef %0, i32 noundef 2, i32 noundef %13, i32 noundef %16)
+  %29 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %0, i32 noundef 2, i32 noundef %13, i32 noundef %16)
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %31, label %33
 
@@ -501,7 +501,7 @@ define dso_local i32 @lre_canonicalize(i32 noundef %0, i32 noundef %1) local_unn
   br label %lre_case_folding_entry.exit
 
 37:                                               ; preds = %27
-  %38 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef %0, i32 noundef 0, i32 noundef %13, i32 noundef %16)
+  %38 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %0, i32 noundef 0, i32 noundef %13, i32 noundef %16)
   %39 = icmp eq i32 %38, 1
   %40 = load i32, ptr %3, align 4
   %41 = icmp ugt i32 %40, 127
@@ -2773,7 +2773,7 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr noundef captur
   %.168105 = phi i32 [ %.269.lcssa, %cr_add_interval.exit ], [ %.067127, %89 ]
   %99 = phi i32 [ %147, %cr_add_interval.exit ], [ %.promoted, %89 ]
   %.not7898 = icmp uge i32 %.056109, %.161107
-  %100 = add i32 %.161107, %.168105
+  %100 = add nuw nsw i32 %.161107, %.168105
   %101 = icmp ult i32 %.056109, %100
   %or.cond99 = select i1 %.not7898, i1 %101, i1 false
   br i1 %or.cond99, label %._crit_edge, label %.lr.ph
@@ -2802,7 +2802,7 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr noundef captur
   br i1 %.not, label %120, label %111
 
 111:                                              ; preds = %._crit_edge
-  %112 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef %.056109, i32 noundef 2, i32 noundef %.265.lcssa, i32 noundef %.259.lcssa)
+  %112 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %.056109, i32 noundef 2, i32 noundef %.265.lcssa, i32 noundef %.259.lcssa)
   %113 = icmp eq i32 %112, 1
   br i1 %113, label %114, label %116
 
@@ -2825,7 +2825,7 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr noundef captur
   br label %lre_case_folding_entry.exit
 
 120:                                              ; preds = %._crit_edge
-  %121 = icmp ult i32 %.056109, 128
+  %121 = icmp samesign ult i32 %.056109, 128
   br i1 %121, label %122, label %125, !prof !50
 
 122:                                              ; preds = %120
@@ -2836,7 +2836,7 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr noundef captur
   br label %lre_case_folding_entry.exit
 
 125:                                              ; preds = %120
-  %126 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef %.056109, i32 noundef 0, i32 noundef %.265.lcssa, i32 noundef %.259.lcssa)
+  %126 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %.056109, i32 noundef 0, i32 noundef %.265.lcssa, i32 noundef %.259.lcssa)
   %127 = icmp eq i32 %126, 1
   %128 = load i32, ptr %3, align 4
   %129 = icmp ugt i32 %128, 127
@@ -4426,7 +4426,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare i32 @dbuf_put(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc range(i32 -21, -2147483648) i32 @unicode_decomp_entry(ptr noundef nonnull writeonly captures(none) %0, i32 noundef range(i32 0, 262270) %1, i32 noundef range(i32 -1073741824, 1073741824) %2, i32 noundef range(i32 0, 262144) %3, i32 noundef range(i32 0, 128) %4, i32 noundef range(i32 0, 64) %5) unnamed_addr #13 {
+define internal fastcc range(i32 -20, -2147483648) i32 @unicode_decomp_entry(ptr noundef nonnull writeonly captures(none) %0, i32 noundef range(i32 0, 262270) %1, i32 noundef range(i32 -1073741824, 1073741824) %2, i32 noundef range(i32 0, 262144) %3, i32 noundef range(i32 0, 128) %4, i32 noundef range(i32 0, 64) %5) unnamed_addr #13 {
   %7 = icmp eq i32 %5, 0
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [699 x i16], ptr @unicode_decomp_table2, i64 0, i64 %8

@@ -4958,9 +4958,10 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17
   %11 = call ptr @Abc_NtkToDar(ptr noundef %0, i32 noundef 0, i32 noundef 1) #17
   %12 = call i32 @IPdr_ManSolve(ptr noundef %11, ptr noundef %1)
-  switch i32 %12, label %25 [
+  switch i32 %12, label %default.unreachable34 [
     i32 1, label %.sink.split
     i32 0, label %13
+    i32 -1, label %25
   ]
 
 13:                                               ; preds = %Abc_Clock.exit
@@ -4983,6 +4984,9 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 
 25:                                               ; preds = %Abc_Clock.exit
   br label %.sink.split
+
+default.unreachable34:                            ; preds = %Abc_Clock.exit
+  unreachable
 
 .sink.split:                                      ; preds = %17, %13, %Abc_Clock.exit, %25
   %.str.32.sink = phi ptr [ @.str.33, %25 ], [ @.str.29, %Abc_Clock.exit ], [ @.str.30, %13 ], [ @.str.32, %17 ]
