@@ -14568,7 +14568,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
   %.pre.i.i.i.i.i = load i64, ptr %202, align 8, !noalias !578
   %218 = add i64 %.pre.i.i.i.i.i, 1
   store i64 %218, ptr %202, align 8, !noalias !578
-  %.not.i.i.i.i.i.i = icmp eq ptr %216, %201
+  %.not.i.i.i.i.i.i = icmp eq i64 %203, 1
   br i1 %.not.i.i.i.i.i.i, label %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i, label %219, !prof !46
 
 219:                                              ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i.i
@@ -40026,7 +40026,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
   %.pre.i.i.i.i.i = load i64, ptr %323, align 8, !noalias !1144
   %364 = add i64 %.pre.i.i.i.i.i, 1
   store i64 %364, ptr %323, align 8, !noalias !1144
-  %.not.i.i.i.i.i.i = icmp eq ptr %362, %350
+  %.not.i.i.i.i.i.i = icmp eq i64 %351, 1
   br i1 %.not.i.i.i.i.i.i, label %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i, label %365, !prof !46
 
 365:                                              ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i.i
@@ -53198,7 +53198,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
   %.pre.i.i.i.i.i = load i64, ptr %1225, align 8, !noalias !1488
   %1244 = add i64 %.pre.i.i.i.i.i, 1
   store i64 %1244, ptr %1225, align 8, !noalias !1488
-  %.not.i.i.i.i.i.i205 = icmp eq ptr %1242, %1230
+  %.not.i.i.i.i.i.i205 = icmp eq i64 %1231, 1
   br i1 %.not.i.i.i.i.i.i205, label %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i, label %1245, !prof !46
 
 1245:                                             ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i.i
@@ -58393,7 +58393,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
   %.pre.i.i.i.i.i247.i = load i64, ptr %757, align 8, !noalias !1594
   %838 = add i64 %.pre.i.i.i.i.i247.i, 1
   store i64 %838, ptr %757, align 8, !noalias !1594
-  %.not.i.i.i.i.i.i249.i = icmp eq ptr %836, %781
+  %.not.i.i.i.i.i.i249.i = icmp eq i64 %782, 1
   br i1 %.not.i.i.i.i.i.i249.i, label %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i250.i, label %839, !prof !46
 
 839:                                              ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i.i248.i
@@ -58827,7 +58827,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
   %.pre.i.i.i.i.i.i = load i64, ptr %940, align 8, !noalias !1617
   %992 = add i64 %.pre.i.i.i.i.i.i, 1
   store i64 %992, ptr %940, align 8, !noalias !1617
-  %.not.i.i.i.i.i.i231.i = icmp eq ptr %990, %939
+  %.not.i.i.i.i.i.i231.i = icmp eq i64 %941, 1
   br i1 %.not.i.i.i.i.i.i231.i, label %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i.i, label %993, !prof !46
 
 993:                                              ; preds = %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIvEvEEPjS5_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_S9_E4typeERT_S8_S8_S9_.exit.i.i.i.i.i.i

@@ -43411,26 +43411,22 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !199
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i79, align 8, !tbaa !46
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i79, i64 8
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont55.thread177, label %invoke.cont55
-
-invoke.cont55.thread177:                          ; preds = %call5.i.i.i.i2.i.i.noexc
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !200
-  br label %for.body62.lr.ph
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body62.lr.ph, label %invoke.cont55
 
 invoke.cont55:                                    ; preds = %call5.i.i.i.i2.i.i.noexc
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %32, i1 false), !tbaa !46
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !200
-  %cmp60171.not = icmp eq ptr %add.ptr.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i79
-  br i1 %cmp60171.not, label %for.cond.cleanup61, label %for.body62.lr.ph
+  br label %for.body62.lr.ph
 
-for.body62.lr.ph:                                 ; preds = %invoke.cont55.thread177, %invoke.cont55
+for.body62.lr.ph:                                 ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont55
+  %storemerge = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont55 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+  store ptr %storemerge, ptr %_M_finish.i.i7.i, align 8, !tbaa !200
   %sub = fsub double %.sroa.speculated.i69, %.sroa.speculated.i
   %50 = fneg double %49
   %fneg = fmul double %49, %50
   br label %for.body62
 
-for.cond.cleanup61:                               ; preds = %invoke.cont80, %invoke.cont55.thread, %invoke.cont55
+for.cond.cleanup61:                               ; preds = %invoke.cont80, %invoke.cont55.thread
   %51 = load ptr, ptr %volCubeBySabr, align 8, !tbaa !67
   %cmp.not.i85 = icmp eq ptr %51, null
   br i1 %cmp.not.i85, label %cond.false.i86, label %invoke.cont90, !prof !20
@@ -44298,26 +44294,22 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !199
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i81, align 8, !tbaa !46
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i81, i64 8
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont55.thread178, label %invoke.cont55
-
-invoke.cont55.thread178:                          ; preds = %call5.i.i.i.i2.i.i.noexc
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !200
-  br label %for.body62.lr.ph
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body62.lr.ph, label %invoke.cont55
 
 invoke.cont55:                                    ; preds = %call5.i.i.i.i2.i.i.noexc
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %32, i1 false), !tbaa !46
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !200
-  %cmp60172.not = icmp eq ptr %add.ptr.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i81
-  br i1 %cmp60172.not, label %for.cond.cleanup61, label %for.body62.lr.ph
+  br label %for.body62.lr.ph
 
-for.body62.lr.ph:                                 ; preds = %invoke.cont55.thread178, %invoke.cont55
+for.body62.lr.ph:                                 ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont55
+  %storemerge = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont55 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+  store ptr %storemerge, ptr %_M_finish.i.i7.i, align 8, !tbaa !200
   %sub = fsub double %.sroa.speculated.i71, %.sroa.speculated.i
   %52 = fneg double %51
   %fneg = fmul double %51, %52
   br label %for.body62
 
-for.cond.cleanup61:                               ; preds = %invoke.cont80, %invoke.cont55.thread, %invoke.cont55
+for.cond.cleanup61:                               ; preds = %invoke.cont80, %invoke.cont55.thread
   %53 = load ptr, ptr %volCubeBySabr, align 8, !tbaa !67
   %cmp.not.i87 = icmp eq ptr %53, null
   br i1 %cmp.not.i87, label %cond.false.i88, label %invoke.cont90, !prof !20

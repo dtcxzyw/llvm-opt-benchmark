@@ -3005,7 +3005,7 @@ define dso_local noundef ptr @sdstrim(ptr noundef returned %0, ptr noundef reado
   %5 = load i8, ptr %4, align 1, !tbaa !13
   %6 = zext i8 %5 to i32
   %7 = and i32 %6, 7
-  switch i32 %7, label %sdslen.exit [
+  switch i32 %7, label %.critedge2.thread [
     i32 0, label %8
     i32 1, label %11
     i32 2, label %15
@@ -3041,11 +3041,11 @@ define dso_local noundef ptr @sdstrim(ptr noundef returned %0, ptr noundef reado
   %25 = load i64, ptr %24, align 1, !tbaa !11
   br label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %2, %8, %11, %15, %19, %23
-  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ], [ 0, %2 ]
+sdslen.exit:                                      ; preds = %8, %11, %15, %19, %23
+  %.0.i = phi i64 [ %10, %8 ], [ %14, %11 ], [ %18, %15 ], [ %22, %19 ], [ %25, %23 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i
   %27 = getelementptr inbounds i8, ptr %26, i64 -1
-  %.not31 = icmp ugt ptr %0, %27
+  %.not31 = icmp slt i64 %.0.i, 1
   br i1 %.not31, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %sdslen.exit, %31
@@ -3096,14 +3096,15 @@ sdslen.exit:                                      ; preds = %2, %8, %11, %15, %1
   %42 = sub i64 %41, %.0.lcssa40.pre-phi
   %43 = add nsw i64 %42, 1
   %.not30 = icmp eq ptr %0, %.0.lcssa
-  br i1 %.not30, label %45, label %44
+  br i1 %.not30, label %.critedge2.thread, label %44
 
 44:                                               ; preds = %.critedge2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %.0.lcssa, i64 %43, i1 false)
-  br label %45
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %.0.lcssa, i64 %43, i1 false)
+  br label %.critedge2.thread
 
-45:                                               ; preds = %44, %.critedge2
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %43
+.critedge2.thread:                                ; preds = %2, %44, %.critedge2
+  %45 = phi i64 [ %43, %44 ], [ %43, %.critedge2 ], [ 0, %2 ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
   store i8 0, ptr %46, align 1, !tbaa !13
   %47 = load i8, ptr %4, align 1, !tbaa !13
   %48 = and i8 %47, 7
@@ -3115,36 +3116,36 @@ sdslen.exit:                                      ; preds = %2, %8, %11, %15, %1
     i8 4, label %60
   ]
 
-49:                                               ; preds = %45
-  %.tr.i = trunc i64 %43 to i8
+49:                                               ; preds = %.critedge2.thread
+  %.tr.i = trunc i64 %45 to i8
   %50 = shl i8 %.tr.i, 3
   store i8 %50, ptr %4, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-51:                                               ; preds = %45
-  %52 = trunc i64 %43 to i8
+51:                                               ; preds = %.critedge2.thread
+  %52 = trunc i64 %45 to i8
   %53 = getelementptr inbounds i8, ptr %0, i64 -3
   store i8 %52, ptr %53, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-54:                                               ; preds = %45
-  %55 = trunc i64 %43 to i16
+54:                                               ; preds = %.critedge2.thread
+  %55 = trunc i64 %45 to i16
   %56 = getelementptr inbounds i8, ptr %0, i64 -5
   store i16 %55, ptr %56, align 1, !tbaa !14
   br label %sdssetlen.exit
 
-57:                                               ; preds = %45
-  %58 = trunc i64 %43 to i32
+57:                                               ; preds = %.critedge2.thread
+  %58 = trunc i64 %45 to i32
   %59 = getelementptr inbounds i8, ptr %0, i64 -9
   store i32 %58, ptr %59, align 1, !tbaa !16
   br label %sdssetlen.exit
 
-60:                                               ; preds = %45
+60:                                               ; preds = %.critedge2.thread
   %61 = getelementptr inbounds i8, ptr %0, i64 -17
-  store i64 %43, ptr %61, align 1, !tbaa !11
+  store i64 %45, ptr %61, align 1, !tbaa !11
   br label %sdssetlen.exit
 
-sdssetlen.exit:                                   ; preds = %45, %49, %51, %54, %57, %60
+sdssetlen.exit:                                   ; preds = %.critedge2.thread, %49, %51, %54, %57, %60
   ret ptr %0
 }
 

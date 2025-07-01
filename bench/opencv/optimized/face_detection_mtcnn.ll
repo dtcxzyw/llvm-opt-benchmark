@@ -55733,8 +55733,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i:       ; preds = %.noexc87.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %86, i8 0, i64 %89, i1 false), !tbaa !42, !noalias !1142
   %.idx.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %87, 2
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i
-  %.not5.i.i.i.i.i = icmp eq ptr %84, %90
-  br i1 %.not5.i.i.i.i.i, label %._crit_edge103.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
+  br label %.lr.ph.i.preheader.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i:                       ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i, %.noexc87.i.i.i.i
   %.0.i.i.i.i.i120.i.i.i.i = phi ptr [ %90, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i ], [ %86, %.noexc87.i.i.i.i ]
@@ -55941,8 +55940,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit110.i.thread.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %reass.sub = sub i32 %156, %147
   %172 = add i32 %reass.sub, 1
   %173 = sitofp i32 %172 to float
-  %reass.sub41 = sub i32 %161, %152
-  %174 = add i32 %reass.sub41, 1
+  %reass.sub44 = sub i32 %161, %152
+  %174 = add i32 %reass.sub44, 1
   %175 = sitofp i32 %174 to float
   %176 = fmul float %173, %175
   br i1 %34, label %177, label %179
@@ -56038,11 +56037,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   tail call void @_ZdlPv(ptr noundef nonnull %121) #36, !noalias !1142
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit110.i.i.i.i
 
-._crit_edge103.i.i.i.i:                           ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread.i.i.i.i, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i
-  %.sroa.0.3.i.i.i = phi ptr [ %.sroa.0.1.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i ], [ %.sroa.0.1.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i ]
-  %.sroa.10.2.i.i.i = phi ptr [ %.sroa.10.1.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i ], [ %.sroa.10.1.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i ]
-  %.sroa.14.2.i.i.i = phi ptr [ %.sroa.14.1.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i ], [ %.sroa.14.1.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i ]
-  %.sroa.025.1.lcssa.i.i.i.i = phi ptr [ %.sroa.025.1101.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread.i.i.i.i ], [ %84, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i.i.i.i ], [ %.sroa.025.4.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i ]
+._crit_edge103.i.i.i.i:                           ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread.i.i.i.i
+  %.sroa.025.1.lcssa.i.i.i.i = phi ptr [ %.sroa.025.1101.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread.i.i.i.i ], [ %.sroa.025.4.i.i.i.i, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.025.1.lcssa.i.i.i.i) #36, !noalias !1142
   br label %_ZN6custom12_GLOBAL__N_14Face6runNMSERSt6vectorIS1_SaIS1_EEfb.exit.i.i.i
 
@@ -56060,15 +56056,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit110.i.i.i.i:         ; preds = %206, %.loopexit.spl
 
 _ZN6custom12_GLOBAL__N_14Face6runNMSERSt6vectorIS1_SaIS1_EEfb.exit.i.i.i: ; preds = %._crit_edge103.i.i.i.i, %_ZN2cv6detail6get_inIbE3getERNS_11GCPUContextEi.exit.i
   %208 = phi ptr [ %44, %._crit_edge103.i.i.i.i ], [ null, %_ZN2cv6detail6get_inIbE3getERNS_11GCPUContextEi.exit.i ]
-  %.sroa.0.5.i.i.i = phi ptr [ %.sroa.0.3.i.i.i, %._crit_edge103.i.i.i.i ], [ null, %_ZN2cv6detail6get_inIbE3getERNS_11GCPUContextEi.exit.i ]
-  %.sroa.10.3.i.i.i = phi ptr [ %.sroa.10.2.i.i.i, %._crit_edge103.i.i.i.i ], [ null, %_ZN2cv6detail6get_inIbE3getERNS_11GCPUContextEi.exit.i ]
-  %.sroa.14.3.i.i.i = phi ptr [ %.sroa.14.2.i.i.i, %._crit_edge103.i.i.i.i ], [ null, %_ZN2cv6detail6get_inIbE3getERNS_11GCPUContextEi.exit.i ]
+  %.sroa.0.4.i.i.i = phi ptr [ %.sroa.0.1.i.i.i, %._crit_edge103.i.i.i.i ], [ null, %_ZN2cv6detail6get_inIbE3getERNS_11GCPUContextEi.exit.i ]
+  %.sroa.10.2.i.i.i = phi ptr [ %.sroa.10.1.i.i.i, %._crit_edge103.i.i.i.i ], [ null, %_ZN2cv6detail6get_inIbE3getERNS_11GCPUContextEi.exit.i ]
+  %.sroa.14.2.i.i.i = phi ptr [ %.sroa.14.1.i.i.i, %._crit_edge103.i.i.i.i ], [ null, %_ZN2cv6detail6get_inIbE3getERNS_11GCPUContextEi.exit.i ]
   %209 = load ptr, ptr %35, align 8, !tbaa !529
   %210 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %211 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %.sroa.0.5.i.i.i, ptr %35, align 8, !tbaa !529
-  store ptr %.sroa.10.3.i.i.i, ptr %210, align 8, !tbaa !532
-  store ptr %.sroa.14.3.i.i.i, ptr %211, align 8, !tbaa !988
+  store ptr %.sroa.0.4.i.i.i, ptr %35, align 8, !tbaa !529
+  store ptr %.sroa.10.2.i.i.i, ptr %210, align 8, !tbaa !532
+  store ptr %.sroa.14.2.i.i.i, ptr %211, align 8, !tbaa !988
   %.not.i.i.i.i.i13.i.i.i = icmp eq ptr %209, null
   br i1 %.not.i.i.i.i.i13.i.i.i, label %_ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EED2Ev.exit.i.i.i, label %212
 

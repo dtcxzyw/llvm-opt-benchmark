@@ -641,82 +641,78 @@ define noundef zeroext i1 @_ZN9grpc_core14WorkSerializer18WorkSerializerImpl6Ref
   switch i32 %3, label %default.unreachable3 [
     i32 0, label %4
     i32 1, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
-    i32 2, label %33
+    i32 2, label %32
   ]
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 16, !tbaa !35
-  %7 = and i64 %6, 1
-  %.not.i.i = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 16
-  %10 = select i1 %.not.i.i, ptr %8, ptr %9
-  %11 = shl nuw nsw i64 %6, 4
-  %.idx = and i64 %11, 9223372036854775776
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  %13 = icmp samesign eq i64 %.idx, 0
-  br i1 %13, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit, label %.preheader.i.i
+  %7 = shl nuw nsw i64 %6, 4
+  %.idx = and i64 %7, 9223372036854775776
+  %8 = icmp samesign ugt i64 %.idx, 32
+  br i1 %8, label %.lr.ph.i.i, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
 
-.preheader.i.i:                                   ; preds = %4
-  %.012.i.i = getelementptr inbounds i8, ptr %12, i64 -32
-  %14 = icmp ult ptr %10, %.012.i.i
-  br i1 %14, label %.lr.ph.i.i, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
+.lr.ph.i.i:                                       ; preds = %4
+  %9 = and i64 %6, 1
+  %.not.i.i = icmp eq i64 %9, 0
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 16
+  %12 = select i1 %.not.i.i, ptr %10, ptr %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
+  %.012.i.i = getelementptr inbounds i8, ptr %13, i64 -32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  br label %16
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %17
-
-17:                                               ; preds = %17, %.lr.ph.i.i
-  %.015.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.0.i.i, %17 ]
-  %.pn14.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %.015.i.i, %17 ]
-  %.0913.i.i = phi ptr [ %10, %.lr.ph.i.i ], [ %31, %17 ]
+16:                                               ; preds = %16, %.lr.ph.i.i
+  %.015.i.i = phi ptr [ %.012.i.i, %.lr.ph.i.i ], [ %.0.i.i, %16 ]
+  %.pn14.i.i = phi ptr [ %13, %.lr.ph.i.i ], [ %.015.i.i, %16 ]
+  %.0913.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %30, %16 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #25
-  %18 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
-  %19 = load ptr, ptr %18, align 16, !tbaa !41
-  call void %19(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i, ptr noundef nonnull align 16 dereferenceable(32) %2) #25
-  %20 = load ptr, ptr %18, align 16, !tbaa !41
-  store ptr %20, ptr %15, align 16, !tbaa !41
-  %21 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !43
-  store ptr %22, ptr %16, align 8, !tbaa !43
-  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %18, align 16, !tbaa !41
-  store ptr null, ptr %21, align 8, !tbaa !43
-  %23 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -16
-  %24 = load ptr, ptr %23, align 16, !tbaa !41
-  call void %24(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i) #25
-  %25 = load ptr, ptr %23, align 16, !tbaa !41
-  store ptr %25, ptr %18, align 16, !tbaa !41
-  %26 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -8
-  %27 = load ptr, ptr %26, align 8, !tbaa !43
-  store ptr %27, ptr %21, align 8, !tbaa !43
-  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %23, align 16, !tbaa !41
-  store ptr null, ptr %26, align 8, !tbaa !43
-  %28 = load ptr, ptr %15, align 16, !tbaa !41
-  call void %28(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i) #25
-  %29 = load ptr, ptr %15, align 16, !tbaa !41
-  store ptr %29, ptr %23, align 16, !tbaa !41
-  %30 = load ptr, ptr %16, align 8, !tbaa !43
-  store ptr %30, ptr %26, align 8, !tbaa !43
+  %17 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 16
+  %18 = load ptr, ptr %17, align 16, !tbaa !41
+  call void %18(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i, ptr noundef nonnull align 16 dereferenceable(32) %2) #25
+  %19 = load ptr, ptr %17, align 16, !tbaa !41
+  store ptr %19, ptr %14, align 16, !tbaa !41
+  %20 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !43
+  store ptr %21, ptr %15, align 8, !tbaa !43
+  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %17, align 16, !tbaa !41
+  store ptr null, ptr %20, align 8, !tbaa !43
+  %22 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -16
+  %23 = load ptr, ptr %22, align 16, !tbaa !41
+  call void %23(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i, ptr noundef nonnull align 16 dereferenceable(32) %.0913.i.i) #25
+  %24 = load ptr, ptr %22, align 16, !tbaa !41
+  store ptr %24, ptr %17, align 16, !tbaa !41
+  %25 = getelementptr inbounds i8, ptr %.pn14.i.i, i64 -8
+  %26 = load ptr, ptr %25, align 8, !tbaa !43
+  store ptr %26, ptr %20, align 8, !tbaa !43
+  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %22, align 16, !tbaa !41
+  store ptr null, ptr %25, align 8, !tbaa !43
+  %27 = load ptr, ptr %14, align 16, !tbaa !41
+  call void %27(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull align 16 dereferenceable(32) %.015.i.i) #25
+  %28 = load ptr, ptr %14, align 16, !tbaa !41
+  store ptr %28, ptr %22, align 16, !tbaa !41
+  %29 = load ptr, ptr %15, align 8, !tbaa !43
+  store ptr %29, ptr %25, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #25
-  %31 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 32
   %.0.i.i = getelementptr inbounds i8, ptr %.015.i.i, i64 -32
-  %32 = icmp ult ptr %31, %.0.i.i
-  br i1 %32, label %17, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit, !llvm.loop !70
+  %31 = icmp ult ptr %30, %.0.i.i
+  br i1 %31, label %16, label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit, !llvm.loop !70
 
-33:                                               ; preds = %1
-  %34 = load ptr, ptr %0, align 16, !tbaa !33
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 16 dereferenceable(176) %0) #25
+32:                                               ; preds = %1
+  %33 = load ptr, ptr %0, align 16, !tbaa !33
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8
+  tail call void %35(ptr noundef nonnull align 16 dereferenceable(176) %0) #25
   br label %_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit
 
 default.unreachable3:                             ; preds = %1
   unreachable
 
-_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit: ; preds = %17, %.preheader.i.i, %4, %1, %33
-  %.0 = phi i1 [ false, %33 ], [ false, %1 ], [ true, %4 ], [ true, %.preheader.i.i ], [ true, %17 ]
+_ZSt7reverseIPN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEvT_S5_.exit: ; preds = %16, %4, %1, %32
+  %.0 = phi i1 [ false, %32 ], [ false, %1 ], [ true, %4 ], [ true, %16 ]
   ret i1 %.0
 }
 

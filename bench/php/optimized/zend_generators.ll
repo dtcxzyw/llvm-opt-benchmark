@@ -226,58 +226,60 @@ define dso_local ptr @zend_generator_freeze_call_stack(ptr noundef captures(none
   br label %16
 
 16:                                               ; preds = %zend_vm_stack_free_call_frame_ex.exit, %12
-  %.062 = phi ptr [ null, %12 ], [ %23, %zend_vm_stack_free_call_frame_ex.exit ]
-  %.161 = phi ptr [ %15, %12 ], [ %28, %zend_vm_stack_free_call_frame_ex.exit ]
-  %.1 = phi i64 [ %9, %12 ], [ %25, %zend_vm_stack_free_call_frame_ex.exit ]
+  %.062 = phi ptr [ null, %12 ], [ %22, %zend_vm_stack_free_call_frame_ex.exit ]
+  %.161 = phi ptr [ %15, %12 ], [ %27, %zend_vm_stack_free_call_frame_ex.exit ]
+  %.1 = phi i64 [ %9, %12 ], [ %24, %zend_vm_stack_free_call_frame_ex.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %.161, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !24
   %19 = add i32 %18, 5
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw %struct._zval_struct, ptr %14, i64 %.1
-  %22 = sub nsw i64 0, %20
-  %23 = getelementptr inbounds %struct._zval_struct, ptr %21, i64 %22
-  %24 = shl nuw nsw i64 %20, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %.161, i64 %24, i1 false)
-  %25 = sub i64 %.1, %20
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store ptr %.062, ptr %26, align 8, !tbaa !55
-  %27 = getelementptr inbounds nuw i8, ptr %.161, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !55
-  %29 = getelementptr inbounds nuw i8, ptr %.161, i64 40
-  %30 = load i32, ptr %29, align 8, !tbaa !24
-  %31 = and i32 %30, 262144
-  %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %41, label %32, !prof !58
+  %.neg = mul nsw i64 %20, -16
+  %22 = getelementptr inbounds i8, ptr %21, i64 %.neg
+  %23 = shl nuw nsw i64 %20, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %22, ptr align 8 %.161, i64 %23, i1 false)
+  %24 = sub i64 %.1, %20
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  store ptr %.062, ptr %25, align 8, !tbaa !55
+  %26 = getelementptr inbounds nuw i8, ptr %.161, i64 48
+  %27 = load ptr, ptr %26, align 8, !tbaa !55
+  %28 = getelementptr inbounds nuw i8, ptr %.161, i64 40
+  %29 = load i32, ptr %28, align 8, !tbaa !24
+  %30 = and i32 %29, 262144
+  %.not.i = icmp eq i32 %30, 0
+  br i1 %.not.i, label %40, label %31, !prof !58
 
-32:                                               ; preds = %16
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8, !tbaa !59
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !60
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %37 = icmp eq ptr %.161, %36
-  tail call void @llvm.assume(i1 %37)
-  %38 = load ptr, ptr %35, align 8, !tbaa !62
-  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 480), align 8, !tbaa !27
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !63
-  store ptr %40, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8, !tbaa !53
-  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8, !tbaa !59
-  tail call void @_efree(ptr noundef %33) #11
+31:                                               ; preds = %16
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8, !tbaa !59
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !60
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %36 = icmp eq ptr %.161, %35
+  tail call void @llvm.assume(i1 %36)
+  %37 = load ptr, ptr %34, align 8, !tbaa !62
+  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 480), align 8, !tbaa !27
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !63
+  store ptr %39, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8, !tbaa !53
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 496), align 8, !tbaa !59
+  tail call void @_efree(ptr noundef %32) #11
   br label %zend_vm_stack_free_call_frame_ex.exit
 
-41:                                               ; preds = %16
+40:                                               ; preds = %16
   store ptr %.161, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 480), align 8, !tbaa !27
   br label %zend_vm_stack_free_call_frame_ex.exit
 
-zend_vm_stack_free_call_frame_ex.exit:            ; preds = %32, %41
-  %.not64 = icmp eq ptr %28, null
-  br i1 %.not64, label %42, label %16
+zend_vm_stack_free_call_frame_ex.exit:            ; preds = %31, %40
+  %.not64 = icmp eq ptr %27, null
+  br i1 %.not64, label %41, label %16
 
-42:                                               ; preds = %zend_vm_stack_free_call_frame_ex.exit
+41:                                               ; preds = %zend_vm_stack_free_call_frame_ex.exit
+  %.idx = shl nuw nsw i64 %.1, 4
   store ptr null, ptr %2, align 8, !tbaa !57
-  %43 = icmp eq ptr %23, %14
+  %42 = sub nsw i64 0, %.neg
+  %43 = icmp eq i64 %.idx, %42
   tail call void @llvm.assume(i1 %43)
-  ret ptr %14
+  ret ptr %22
 }
 
 declare noalias ptr @_emalloc_56() local_unnamed_addr #3

@@ -6237,11 +6237,7 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPmS4_ImSaImEEEEZN6cmList11RemoveItemsEOS6_E3$_0ET0_T_SG_SF_T1_.exit", label %.lr.ph.i, !llvm.loop !267
 
 "_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPmS4_ImSaImEEEEZN6cmList11RemoveItemsEOS6_E3$_0ET0_T_SG_SF_T1_.exit": ; preds = %.noexc28
-  %.not.i.i = icmp eq ptr %13, %.0.i.i.i.i.i.ptr
-  %.pre = ptrtoint ptr %13 to i64
-  br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit, label %21
-
-21:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPmS4_ImSaImEEEEZN6cmList11RemoveItemsEOS6_E3$_0ET0_T_SG_SF_T1_.exit"
+  %21 = ptrtoint ptr %13 to i64
   %22 = add nuw i64 %.0.i.i.i.i.i.idx, 8
   %23 = ashr exact i64 %22, 3
   %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 true)
@@ -6251,9 +6247,9 @@ _ZNSt6vectorImSaImEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPmmmET_
   %27 = icmp sgt i64 %22, 128
   br i1 %27, label %.lr.ph.i.i.i.i, label %45
 
-.lr.ph.i.i.i.i:                                   ; preds = %21, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN6cmList11RemoveItemsEOS3_IlSaIlEEE3$_1EEEvT_T0_.exit.i.i.i.i"
-  %.sroa.0.019.i.idx.i.i.i = phi i64 [ %.sroa.0.019.i.add.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN6cmList11RemoveItemsEOS3_IlSaIlEEE3$_1EEEvT_T0_.exit.i.i.i.i" ], [ 8, %21 ]
-  %.pn18.i.i.i.i = phi ptr [ %.sroa.0.019.i.ptr.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN6cmList11RemoveItemsEOS3_IlSaIlEEE3$_1EEEvT_T0_.exit.i.i.i.i" ], [ %13, %21 ]
+.lr.ph.i.i.i.i:                                   ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPmS4_ImSaImEEEEZN6cmList11RemoveItemsEOS6_E3$_0ET0_T_SG_SF_T1_.exit", %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN6cmList11RemoveItemsEOS3_IlSaIlEEE3$_1EEEvT_T0_.exit.i.i.i.i"
+  %.sroa.0.019.i.idx.i.i.i = phi i64 [ %.sroa.0.019.i.add.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN6cmList11RemoveItemsEOS3_IlSaIlEEE3$_1EEEvT_T0_.exit.i.i.i.i" ], [ 8, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPmS4_ImSaImEEEEZN6cmList11RemoveItemsEOS6_E3$_0ET0_T_SG_SF_T1_.exit" ]
+  %.pn18.i.i.i.i = phi ptr [ %.sroa.0.019.i.ptr.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIZN6cmList11RemoveItemsEOS3_IlSaIlEEE3$_1EEEvT_T0_.exit.i.i.i.i" ], [ %13, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPmS4_ImSaImEEEEZN6cmList11RemoveItemsEOS6_E3$_0ET0_T_SG_SF_T1_.exit" ]
   %.sroa.0.019.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.0.019.i.idx.i.i.i
   %28 = load i64, ptr %.sroa.0.019.i.ptr.i.i.i, align 8, !tbaa !4
   %29 = load i64, ptr %13, align 8, !tbaa !4
@@ -6316,7 +6312,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %.not.i14.i.i.i = icmp eq ptr %44, %.0.i.i.i.i.i.ptr
   br i1 %.not.i14.i.i.i, label %.preheader.i.i.i.preheader, label %.lr.ph.i12.i.i.i, !llvm.loop !270
 
-45:                                               ; preds = %21
+45:                                               ; preds = %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPmS4_ImSaImEEEEZN6cmList11RemoveItemsEOS6_E3$_0ET0_T_SG_SF_T1_.exit"
   %.not17.i21.i.i.i = icmp eq i64 %.0.i.i.i.i.i.idx, 0
   br i1 %.not17.i21.i.i.i, label %.preheader.i.i.i.preheader, label %.lr.ph.i22.i.i.i
 
@@ -6331,7 +6327,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i33.i.i.i: ; preds = %.lr.ph.i22.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.pn18.i24.i.i.i, i64 16
   %50 = ptrtoint ptr %.sroa.0.019.i23.i.i.i to i64
-  %51 = sub i64 %50, %.pre
+  %51 = sub i64 %50, %21
   %52 = ashr exact i64 %51, 3
   %53 = sub nsw i64 0, %52
   %54 = getelementptr inbounds i64, ptr %49, i64 %53
@@ -6407,12 +6403,12 @@ _ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.exit: 
 
 ._crit_edge.i.i32:                                ; preds = %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.exit
   %76 = ptrtoint ptr %75 to i64
-  %77 = sub i64 %76, %.pre
+  %77 = sub i64 %76, %21
   %78 = getelementptr inbounds i8, ptr %13, i64 %77
   br label %_ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit
 
-_ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit: ; preds = %.preheader.i.i.i, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPmS4_ImSaImEEEEZN6cmList11RemoveItemsEOS6_E3$_0ET0_T_SG_SF_T1_.exit", %._crit_edge.i.i32, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.exit
-  %.sroa.13.0 = phi ptr [ %.0.i.i.i.i.i.ptr, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.exit ], [ %78, %._crit_edge.i.i32 ], [ %.0.i.i.i.i.i.ptr, %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEENS1_IPmS4_ImSaImEEEEZN6cmList11RemoveItemsEOS6_E3$_0ET0_T_SG_SF_T1_.exit" ], [ %.0.i.i.i.i.i.ptr, %.preheader.i.i.i ]
+_ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EES6_.exit: ; preds = %.preheader.i.i.i, %._crit_edge.i.i32, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.exit
+  %.sroa.13.0 = phi ptr [ %.0.i.i.i.i.i.ptr, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.exit ], [ %78, %._crit_edge.i.i32 ], [ %.0.i.i.i.i.i.ptr, %.preheader.i.i.i ]
   %.not68 = icmp eq ptr %13, %.sroa.13.0
   br i1 %.not68, label %._crit_edge, label %.lr.ph
 

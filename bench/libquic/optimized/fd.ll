@@ -173,32 +173,32 @@ fd_write.exit:                                    ; preds = %2, %10, %bio_fd_sho
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @fd_gets(ptr noundef %0, ptr noundef %1, i32 noundef %2) #2 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr i8, ptr %1, i64 %4
-  %6 = getelementptr i8, ptr %5, i64 -1
+  %5 = getelementptr inbounds i8, ptr %1, i64 %4
+  %6 = getelementptr inbounds i8, ptr %5, i64 -1
   %7 = icmp slt i32 %2, 1
   br i1 %7, label %27, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %8 = icmp ult ptr %1, %6
-  br i1 %8, label %.lr.ph, label %.critedge
+  %.not20 = icmp eq i32 %2, 1
+  br i1 %.not20, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %21
-  %.01316 = phi ptr [ %1, %.lr.ph ], [ %22, %21 ]
-  %11 = load i32, ptr %9, align 8, !tbaa !10
-  %12 = tail call i64 @read(i32 noundef %11, ptr noundef %.01316, i64 noundef 1) #10
-  %13 = trunc i64 %12 to i32
+9:                                                ; preds = %.lr.ph, %20
+  %.01316 = phi ptr [ %1, %.lr.ph ], [ %21, %20 ]
+  %10 = load i32, ptr %8, align 8, !tbaa !10
+  %11 = tail call i64 @read(i32 noundef %10, ptr noundef %.01316, i64 noundef 1) #10
+  %12 = trunc i64 %11 to i32
   tail call void @BIO_clear_retry_flags(ptr noundef %0) #10
-  %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %fd_read.exit
+  %13 = icmp eq i32 %12, -1
+  br i1 %13, label %14, label %fd_read.exit
 
-15:                                               ; preds = %10
-  %16 = tail call ptr @__errno_location() #9
-  %17 = load i32, ptr %16, align 4, !tbaa !6
-  switch i32 %17, label %.critedge [
+14:                                               ; preds = %9
+  %15 = tail call ptr @__errno_location() #9
+  %16 = load i32, ptr %15, align 4, !tbaa !6
+  switch i32 %16, label %.critedge [
     i32 115, label %bio_fd_should_retry.exit.i
     i32 114, label %bio_fd_should_retry.exit.i
     i32 107, label %bio_fd_should_retry.exit.i
@@ -207,26 +207,26 @@ define internal noundef i32 @fd_gets(ptr noundef %0, ptr noundef %1, i32 noundef
     i32 4, label %bio_fd_should_retry.exit.i
   ]
 
-bio_fd_should_retry.exit.i:                       ; preds = %15, %15, %15, %15, %15, %15
+bio_fd_should_retry.exit.i:                       ; preds = %14, %14, %14, %14, %14, %14
   tail call void @BIO_set_retry_read(ptr noundef nonnull %0) #10
   br label %.critedge
 
-fd_read.exit:                                     ; preds = %10
-  %18 = icmp sgt i32 %13, 0
-  br i1 %18, label %19, label %.critedge
+fd_read.exit:                                     ; preds = %9
+  %17 = icmp sgt i32 %12, 0
+  br i1 %17, label %18, label %.critedge
 
-19:                                               ; preds = %fd_read.exit
-  %20 = load i8, ptr %.01316, align 1, !tbaa !17
-  %.not = icmp eq i8 %20, 10
-  br i1 %.not, label %.critedge, label %21
+18:                                               ; preds = %fd_read.exit
+  %19 = load i8, ptr %.01316, align 1, !tbaa !17
+  %.not = icmp eq i8 %19, 10
+  br i1 %.not, label %.critedge, label %20
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %.01316, i64 1
-  %exitcond.not = icmp eq ptr %22, %6
-  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !18
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %.01316, i64 1
+  %22 = icmp ult ptr %21, %6
+  br i1 %22, label %9, label %.critedge, !llvm.loop !18
 
-.critedge:                                        ; preds = %19, %21, %fd_read.exit, %.preheader, %bio_fd_should_retry.exit.i, %15
-  %.01315 = phi ptr [ %.01316, %bio_fd_should_retry.exit.i ], [ %.01316, %15 ], [ %1, %.preheader ], [ %.01316, %19 ], [ %6, %21 ], [ %.01316, %fd_read.exit ]
+.critedge:                                        ; preds = %18, %20, %fd_read.exit, %.preheader, %bio_fd_should_retry.exit.i, %14
+  %.01315 = phi ptr [ %.01316, %bio_fd_should_retry.exit.i ], [ %.01316, %14 ], [ %1, %.preheader ], [ %.01316, %18 ], [ %21, %20 ], [ %.01316, %fd_read.exit ]
   store i8 0, ptr %.01315, align 1, !tbaa !17
   %23 = ptrtoint ptr %.01315 to i64
   %24 = ptrtoint ptr %1 to i64

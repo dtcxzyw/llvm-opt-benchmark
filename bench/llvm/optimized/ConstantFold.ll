@@ -6147,15 +6147,18 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11GEPOperator17hasAllZer
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 134217727
+  %.not20 = icmp eq i32 %4, 1
+  br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %1
   %5 = zext nneg i32 %4 to i64
   %6 = sub nsw i64 0, %5
   %7 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %6
   %.01119 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.not20 = icmp eq ptr %.01119, %0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %20
-  %.01121 = phi ptr [ %.011, %20 ], [ %.01119, %1 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %.01121 = phi ptr [ %.011, %20 ], [ %.01119, %.lr.ph.preheader ]
   %8 = load ptr, ptr %.01121, align 8, !tbaa !12
   %9 = load i8, ptr %8, align 8, !tbaa !3
   %.not18 = icmp eq i8 %9, 17

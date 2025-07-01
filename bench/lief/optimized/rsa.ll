@@ -3290,56 +3290,57 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   %64 = and i8 %62, %63
   store i8 %64, ptr %9, align 16, !tbaa !23
   %65 = getelementptr inbounds i8, ptr %52, i64 -2
-  %66 = icmp ult ptr %spec.select, %65
-  br i1 %66, label %.lr.ph, label %.critedgethread-pre-split
+  %66 = sub nsw i64 %spec.select88, %31
+  %67 = icmp sgt i64 %66, 2
+  br i1 %67, label %.lr.ph, label %.critedgethread-pre-split
 
-.lr.ph:                                           ; preds = %57, %69
-  %.16794 = phi ptr [ %70, %69 ], [ %spec.select, %57 ]
-  %67 = load i8, ptr %.16794, align 1, !tbaa !23
-  %68 = icmp eq i8 %67, 0
-  br i1 %68, label %69, label %.critedge
+.lr.ph:                                           ; preds = %57, %70
+  %.16794 = phi ptr [ %71, %70 ], [ %spec.select, %57 ]
+  %68 = load i8, ptr %.16794, align 1, !tbaa !23
+  %69 = icmp eq i8 %68, 0
+  br i1 %69, label %70, label %.critedge
 
-69:                                               ; preds = %.lr.ph
-  %70 = getelementptr inbounds nuw i8, ptr %.16794, i64 1
-  %exitcond.not = icmp eq ptr %70, %65
-  br i1 %exitcond.not, label %.critedgethread-pre-split, label %.lr.ph, !llvm.loop !34
+70:                                               ; preds = %.lr.ph
+  %71 = getelementptr inbounds nuw i8, ptr %.16794, i64 1
+  %72 = icmp ult ptr %71, %65
+  br i1 %72, label %.lr.ph, label %.critedgethread-pre-split, !llvm.loop !34
 
-.critedgethread-pre-split:                        ; preds = %69, %57
-  %.167.lcssa = phi ptr [ %spec.select, %57 ], [ %65, %69 ]
+.critedgethread-pre-split:                        ; preds = %70, %57
+  %.167.lcssa = phi ptr [ %spec.select, %57 ], [ %71, %70 ]
   %.pr = load i8, ptr %.167.lcssa, align 1, !tbaa !23
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedgethread-pre-split
   %.16793 = phi ptr [ %.167.lcssa, %.critedgethread-pre-split ], [ %.16794, %.lr.ph ]
-  %71 = phi i8 [ %.pr, %.critedgethread-pre-split ], [ %67, %.lr.ph ]
-  %72 = getelementptr inbounds nuw i8, ptr %.16793, i64 1
-  %.not81 = icmp eq i8 %71, 1
-  br i1 %.not81, label %73, label %.critedge87
+  %73 = phi i8 [ %.pr, %.critedgethread-pre-split ], [ %68, %.lr.ph ]
+  %74 = getelementptr inbounds nuw i8, ptr %.16793, i64 1
+  %.not81 = icmp eq i8 %73, 1
+  br i1 %.not81, label %75, label %.critedge87
 
-73:                                               ; preds = %.critedge
-  %74 = ptrtoint ptr %53 to i64
-  %75 = ptrtoint ptr %72 to i64
-  %76 = sub i64 %74, %75
+75:                                               ; preds = %.critedge
+  %76 = ptrtoint ptr %53 to i64
+  %77 = ptrtoint ptr %74 to i64
+  %78 = sub i64 %76, %77
   %.not82 = icmp eq i32 %5, -1
-  %77 = sext i32 %5 to i64
-  %.not83 = icmp eq i64 %76, %77
+  %79 = sext i32 %5 to i64
+  %.not83 = icmp eq i64 %78, %79
   %or.cond89 = select i1 %.not82, i1 true, i1 %.not83
-  br i1 %or.cond89, label %78, label %.critedge87
+  br i1 %or.cond89, label %80, label %.critedge87
 
-78:                                               ; preds = %73
-  %79 = zext i32 %2 to i64
-  %80 = call fastcc i32 @hash_mprime(ptr noundef %3, i64 noundef %79, ptr noundef nonnull %72, i64 noundef %76, ptr noundef nonnull %8, i32 noundef %4)
-  %.not84 = icmp eq i32 %80, 0
-  br i1 %.not84, label %81, label %.critedge87
+80:                                               ; preds = %75
+  %81 = zext i32 %2 to i64
+  %82 = call fastcc i32 @hash_mprime(ptr noundef %3, i64 noundef %81, ptr noundef nonnull %74, i64 noundef %78, ptr noundef nonnull %8, i32 noundef %4)
+  %.not84 = icmp eq i32 %82, 0
+  br i1 %.not84, label %83, label %.critedge87
 
-81:                                               ; preds = %78
+83:                                               ; preds = %80
   %bcmp = call i32 @bcmp(ptr nonnull %53, ptr nonnull %8, i64 %31)
   %.not85 = icmp eq i32 %bcmp, 0
   %.90 = select i1 %.not85, i32 0, i32 -17280
   br label %.critedge87
 
-.critedge87:                                      ; preds = %23, %81, %78, %73, %.critedge, %49, %44, %33, %28, %18, %16, %12, %7
-  %.0 = phi i32 [ -16512, %7 ], [ -16512, %12 ], [ %17, %16 ], [ -16640, %18 ], [ -16512, %28 ], [ -16512, %33 ], [ -16512, %44 ], [ %56, %49 ], [ -16640, %.critedge ], [ -16640, %73 ], [ %80, %78 ], [ %.90, %81 ], [ -16512, %23 ]
+.critedge87:                                      ; preds = %23, %83, %80, %75, %.critedge, %49, %44, %33, %28, %18, %16, %12, %7
+  %.0 = phi i32 [ -16512, %7 ], [ -16512, %12 ], [ %17, %16 ], [ -16640, %18 ], [ -16512, %28 ], [ -16512, %33 ], [ -16512, %44 ], [ %56, %49 ], [ -16640, %.critedge ], [ -16640, %75 ], [ %82, %80 ], [ %.90, %83 ], [ -16512, %23 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #14
   ret i32 %.0

@@ -15816,24 +15816,19 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %210
   %224 = getelementptr i8, ptr %222, i64 8
   %225 = add nsw i64 %218, -1
   %226 = icmp eq i64 %225, 0
-  br i1 %226, label %.thread157, label %227
-
-.thread157:                                       ; preds = %.noexc92
-  store ptr %224, ptr %173, align 8, !tbaa !36
-  br label %.lr.ph128
+  br i1 %226, label %.lr.ph128, label %227
 
 227:                                              ; preds = %.noexc92
   %228 = add nsw i64 %217, -8
   call void @llvm.memset.p0.i64(ptr align 8 %224, i8 0, i64 %228, i1 false), !tbaa !78
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %225, 3
   %229 = getelementptr inbounds nuw i8, ptr %224, i64 %.idx.i.i.i.i.i.i.i
-  store ptr %229, ptr %173, align 8, !tbaa !36
-  %.not137 = icmp eq ptr %229, %222
-  br i1 %.not137, label %._crit_edge129, label %.lr.ph128
+  br label %.lr.ph128
 
-.lr.ph128:                                        ; preds = %.thread157, %227
-  %.0.i.i.i.i.i160 = phi ptr [ %224, %.thread157 ], [ %229, %227 ]
-  %230 = ptrtoint ptr %.0.i.i.i.i.i160 to i64
+.lr.ph128:                                        ; preds = %.noexc92, %227
+  %storemerge = phi ptr [ %229, %227 ], [ %224, %.noexc92 ]
+  store ptr %storemerge, ptr %173, align 8, !tbaa !36
+  %230 = ptrtoint ptr %storemerge to i64
   %231 = ptrtoint ptr %222 to i64
   %232 = sub i64 %230, %231
   %233 = ashr exact i64 %232, 3
@@ -15846,7 +15841,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %210
   %240 = ashr exact i64 %239, 3
   br label %243
 
-._crit_edge129:                                   ; preds = %247, %.thread, %227
+._crit_edge129:                                   ; preds = %247, %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #29
   invoke void @_ZN6casadi11GenericTypeC1ERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %254 unwind label %269

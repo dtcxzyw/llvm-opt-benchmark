@@ -75204,26 +75204,27 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
 _ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit: ; preds = %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit
   %168 = phi i32 [ %167, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit ], [ %148, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit ]
   %169 = phi ptr [ %163, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit ], [ %145, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE5emptyEv.exit ]
-  %170 = zext i32 %168 to i64
-  %171 = shl nuw nsw i64 %170, 3
-  %172 = getelementptr inbounds nuw i8, ptr %169, i64 %171
-  %173 = icmp ne i32 %168, 0
-  %.012.i.i = getelementptr inbounds i8, ptr %172, i64 -8
-  %174 = icmp ult ptr %169, %.012.i.i
-  %or.cond.i.i = select i1 %173, i1 %174, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i53, label %_ZSt7reverseIPPN10polynomial10polynomialEEvT_S4_.exit
+  %170 = icmp ugt i32 %168, 1
+  br i1 %170, label %.lr.ph.i.i53.preheader, label %_ZSt7reverseIPPN10polynomial10polynomialEEvT_S4_.exit
 
-.lr.ph.i.i53:                                     ; preds = %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit, %.lr.ph.i.i53
-  %.014.i.i = phi ptr [ %.0.i.i54, %.lr.ph.i.i53 ], [ %.012.i.i, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit ]
-  %.0913.i.i = phi ptr [ %177, %.lr.ph.i.i53 ], [ %169, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit ]
-  %175 = load ptr, ptr %.0913.i.i, align 8, !tbaa !47
-  %176 = load ptr, ptr %.014.i.i, align 8, !tbaa !47
-  store ptr %176, ptr %.0913.i.i, align 8, !tbaa !47
-  store ptr %175, ptr %.014.i.i, align 8, !tbaa !47
-  %177 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
+.lr.ph.i.i53.preheader:                           ; preds = %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit
+  %171 = zext i32 %168 to i64
+  %172 = shl nuw nsw i64 %171, 3
+  %173 = getelementptr inbounds nuw i8, ptr %169, i64 %172
+  %.012.i.i = getelementptr inbounds i8, ptr %173, i64 -8
+  br label %.lr.ph.i.i53
+
+.lr.ph.i.i53:                                     ; preds = %.lr.ph.i.i53.preheader, %.lr.ph.i.i53
+  %.014.i.i = phi ptr [ %.0.i.i54, %.lr.ph.i.i53 ], [ %.012.i.i, %.lr.ph.i.i53.preheader ]
+  %.0913.i.i = phi ptr [ %176, %.lr.ph.i.i53 ], [ %169, %.lr.ph.i.i53.preheader ]
+  %174 = load ptr, ptr %.0913.i.i, align 8, !tbaa !47
+  %175 = load ptr, ptr %.014.i.i, align 8, !tbaa !47
+  store ptr %175, ptr %.0913.i.i, align 8, !tbaa !47
+  store ptr %174, ptr %.014.i.i, align 8, !tbaa !47
+  %176 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 8
   %.0.i.i54 = getelementptr inbounds i8, ptr %.014.i.i, i64 -8
-  %178 = icmp ult ptr %177, %.0.i.i54
-  br i1 %178, label %.lr.ph.i.i53, label %_ZSt7reverseIPPN10polynomial10polynomialEEvT_S4_.exit, !llvm.loop !581
+  %177 = icmp ult ptr %176, %.0.i.i54
+  br i1 %177, label %.lr.ph.i.i53, label %_ZSt7reverseIPPN10polynomial10polynomialEEvT_S4_.exit, !llvm.loop !581
 
 _ZSt7reverseIPPN10polynomial10polynomialEEvT_S4_.exit: ; preds = %.lr.ph.i.i53, %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit
   ret void

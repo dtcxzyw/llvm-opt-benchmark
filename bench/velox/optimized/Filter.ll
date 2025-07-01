@@ -45919,7 +45919,7 @@ invoke.cont20:                                    ; preds = %.noexc
   %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %conv.i.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -32
   call void @llvm.assume(i1 %cmp.not.i.i.i)
-  %cmp.i714.i.i = icmp eq ptr %add.ptr2.i.i.i, %6
+  %cmp.i714.i.i = icmp eq i32 %5, 1
   br i1 %cmp.i714.i.i, label %invoke.cont22, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %invoke.cont20
@@ -45947,7 +45947,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerItera
   br i1 %cmp.i7.i.i, label %invoke.cont22, label %while.body.i.i, !llvm.loop !996
 
 invoke.cont22:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i, %invoke.cont20
-  %retval.sroa.0.0.i.i = phi ptr [ %6, %invoke.cont20 ], [ %retval.sroa.0.2.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %add.ptr2.i.i.i, %invoke.cont20 ], [ %retval.sroa.0.2.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i ]
   %call27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.i.i)
           to label %invoke.cont35 unwind label %lpad.loopexit.split-lp
 
@@ -45959,7 +45959,7 @@ invoke.cont35:                                    ; preds = %invoke.cont22
   %add.ptr.i.i.i16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %conv.i.i.i14
   %add.ptr2.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr.i.i.i16, i64 -32
   call void @llvm.assume(i1 %cmp.not.i.i.i15)
-  %cmp.i714.i.i23 = icmp eq ptr %add.ptr2.i.i.i17, %10
+  %cmp.i714.i.i23 = icmp eq i32 %9, 1
   br i1 %cmp.i714.i.i23, label %invoke.cont37, label %while.body.i.i27.preheader
 
 while.body.i.i27.preheader:                       ; preds = %invoke.cont35
@@ -45987,7 +45987,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerItera
   br i1 %cmp.i7.i.i38, label %invoke.cont37, label %while.body.i.i27, !llvm.loop !997
 
 invoke.cont37:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34, %invoke.cont35
-  %retval.sroa.0.0.i.i42 = phi ptr [ %10, %invoke.cont35 ], [ %retval.sroa.0.2.i.i36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34 ]
+  %retval.sroa.0.0.i.i42 = phi ptr [ %add.ptr2.i.i.i17, %invoke.cont35 ], [ %retval.sroa.0.2.i.i36, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIN5folly3f146detail23VectorContainerIteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_EEbT_T0_.exit.i.i34 ]
   %call42 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %upper_, ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.i.i42)
           to label %invoke.cont41 unwind label %lpad.loopexit.split-lp
 
@@ -47740,14 +47740,16 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %if.else.i.i.i.i.i.i
 _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i, %if.then4
   %add.i.i.i21 = add nsw i64 %__n, %conv3.i.i.i.i.i.i
   %div.i.i.i22 = sdiv i64 %add.i.i.i21, 64
+  %add.ptr.i.i.i23.idx = shl nsw i64 %div.i.i.i22, 3
   %add.ptr.i.i.i23 = getelementptr inbounds i64, ptr %__position.coerce0, i64 %div.i.i.i22
   %9 = and i64 %add.i.i.i21, -9223372036854775745
   %cmp.i.i.i24 = icmp ugt i64 %9, -9223372036854775808
+  %storemerge.idx.i.i.i25.neg = select i1 %cmp.i.i.i24, i64 8, i64 0
   %storemerge.idx.i.i.i25 = select i1 %cmp.i.i.i24, i64 -8, i64 0
   %storemerge.i.i.i26 = getelementptr inbounds i8, ptr %add.ptr.i.i.i23, i64 %storemerge.idx.i.i.i25
   %10 = trunc i64 %add.i.i.i21 to i32
   %conv4.i.i.i27 = and i32 %10, 63
-  %cmp.not.i.i.i = icmp eq ptr %__position.coerce0, %storemerge.i.i.i26
+  %cmp.not.i.i.i = icmp eq i64 %add.ptr.i.i.i23.idx, %storemerge.idx.i.i.i25.neg
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
@@ -47937,14 +47939,16 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   %conv.i.i.i55 = zext i32 %__result.sroa.5.0.lcssa.i.i.i.i.i.i to i64
   %add.i.i.i56 = add nsw i64 %__n, %conv.i.i.i55
   %div.i.i.i57 = sdiv i64 %add.i.i.i56, 64
+  %add.ptr.i.i.i58.idx = shl nsw i64 %div.i.i.i57, 3
   %add.ptr.i.i.i58 = getelementptr inbounds i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, i64 %div.i.i.i57
   %27 = and i64 %add.i.i.i56, -9223372036854775745
   %cmp.i.i.i59 = icmp ugt i64 %27, -9223372036854775808
+  %storemerge.idx.i.i.i60.neg = select i1 %cmp.i.i.i59, i64 8, i64 0
   %storemerge.idx.i.i.i60 = select i1 %cmp.i.i.i59, i64 -8, i64 0
   %storemerge.i.i.i61 = getelementptr inbounds i8, ptr %add.ptr.i.i.i58, i64 %storemerge.idx.i.i.i60
   %28 = trunc i64 %add.i.i.i56 to i32
   %conv4.i.i.i62 = and i32 %28, 63
-  %cmp.not.i.i.i65 = icmp eq ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i, %storemerge.i.i.i61
+  %cmp.not.i.i.i65 = icmp eq i64 %add.ptr.i.i.i58.idx, %storemerge.idx.i.i.i60.neg
   br i1 %cmp.not.i.i.i65, label %if.else.i.i.i98, label %if.then.i.i.i66
 
 if.then.i.i.i66:                                  ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit

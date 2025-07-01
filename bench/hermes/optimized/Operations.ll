@@ -6220,18 +6220,19 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit75: ; preds = %while.
 
 while.end70:                                      ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit75, %while.cond58thread-pre-split.while.end70_crit_edge
   %31 = phi i32 [ %.pre130, %while.cond58thread-pre-split.while.end70_crit_edge ], [ %add.i74, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit75 ]
+  %cmp19.i.i = icmp ugt i32 %31, 1
+  br i1 %cmp19.i.i, label %while.body.i.i.preheader, label %if.end73
+
+while.body.i.i.preheader:                         ; preds = %while.end70
   %32 = load ptr, ptr %result, align 8
   %conv.i77 = zext i32 %31 to i64
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %32, i64 %conv.i77
-  %cmp.i.i = icmp ne i32 %31, 0
   %__last.addr.08.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -1
-  %cmp19.i.i = icmp ult ptr %32, %__last.addr.08.i.i
-  %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp19.i.i, i1 false
-  br i1 %or.cond.i.i, label %while.body.i.i, label %if.end73
+  br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.end70, %while.body.i.i
-  %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %__last.addr.08.i.i, %while.end70 ]
-  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %32, %while.end70 ]
+while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
+  %__last.addr.011.i.i = phi ptr [ %__last.addr.0.i.i, %while.body.i.i ], [ %__last.addr.08.i.i, %while.body.i.i.preheader ]
+  %__first.addr.010.i.i = phi ptr [ %incdec.ptr2.i.i, %while.body.i.i ], [ %32, %while.body.i.i.preheader ]
   %33 = load i8, ptr %__first.addr.010.i.i, align 1
   %34 = load i8, ptr %__last.addr.011.i.i, align 1
   store i8 %34, ptr %__first.addr.010.i.i, align 1

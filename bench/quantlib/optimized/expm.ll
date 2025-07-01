@@ -1567,26 +1567,22 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt6vectorIdSaIdE
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i5.i.i.i, i64 8
   %sub.i.i.i.i.i.i.i.i = add nsw i64 %1, -1
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.thread12.i.i.i, label %invoke.cont.i.i.i
-
-invoke.cont.thread12.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i.i.i
-  store ptr %incdec.ptr.i.i.i.i.i.i.i.i, ptr %2, align 8, !tbaa !73, !alias.scope !98
-  br label %for.body.lr.ph.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i.i.i.i.i.i
   %3 = add nsw i64 %mul.i.i.i.i.i.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i.i.i, i8 0, i64 %3, i1 false), !tbaa !72, !noalias !98
   %add.ptr.idx.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i.i.i.i
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %2, align 8, !tbaa !73, !alias.scope !98
   %sub.ptr.sub.i.i.i.i = add nuw nsw i64 %add.ptr.idx.i.i.i.i.i.i.i.i.i.i, 8
   %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i.i, 3
-  %cmp1.not.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i5.i.i.i
-  br i1 %cmp1.not.i.i.i, label %_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit, label %for.body.lr.ph.i.i.i
+  br label %for.body.lr.ph.i.i.i
 
-for.body.lr.ph.i.i.i:                             ; preds = %invoke.cont.i.i.i, %invoke.cont.thread12.i.i.i
-  %sub.ptr.div.i21.i.i.i = phi i64 [ 1, %invoke.cont.thread12.i.i.i ], [ %sub.ptr.div.i.i.i.i, %invoke.cont.i.i.i ]
-  %sub.ptr.sub.i20.i.i.i = phi i64 [ 8, %invoke.cont.thread12.i.i.i ], [ %sub.ptr.sub.i.i.i.i, %invoke.cont.i.i.i ]
+for.body.lr.ph.i.i.i:                             ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.sink.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ]
+  %sub.ptr.div.i21.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i, %invoke.cont.i.i.i ], [ 1, %if.then.i.i.i.i.i.i.i.i ]
+  %sub.ptr.sub.i20.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i, %invoke.cont.i.i.i ], [ 8, %if.then.i.i.i.i.i.i.i.i ]
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.sink.i.i, ptr %2, align 8, !tbaa !73, !alias.scope !98
   %4 = load ptr, ptr %__functor.val, align 8, !tbaa !65, !noalias !98
   %columns_.i.i.i.i = getelementptr inbounds nuw i8, ptr %__functor.val, i64 16
   %5 = load i64, ptr %columns_.i.i.i.i, align 8, !tbaa !15, !noalias !98
@@ -1622,7 +1618,7 @@ _ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES3_dET1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i21.i.i.i
   br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit, label %for.body.i.i.i, !llvm.loop !100
 
-_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES3_dET1_T_S9_T0_S8_.exit.loopexit.i.i.i, %invoke.cont.thread.i.i.i, %invoke.cont.i.i.i, %for.body.us.preheader.i.i.i
+_ZSt10__invoke_rISt6vectorIdSaIdEERN8QuantLib12_GLOBAL__N_122MatrixVectorProductFctEJdRKS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit: ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES3_dET1_T_S9_T0_S8_.exit.loopexit.i.i.i, %invoke.cont.thread.i.i.i, %for.body.us.preheader.i.i.i
   ret void
 }
 

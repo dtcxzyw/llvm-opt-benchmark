@@ -6443,50 +6443,49 @@ _ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.thread: ; preds = %.sink.split
   %47 = zext i1 %46 to i32
   %48 = or i32 %40, %47
   %.not27 = icmp eq i32 %48, 0
-  br i1 %.not27, label %.loopexit, label %49
+  br i1 %.not27, label %.loopexit, label %.lr.ph.preheader
 
-49:                                               ; preds = %43
-  %50 = load i16, ptr %7, align 8, !tbaa !3
-  %51 = and i16 %50, 2
-  %.not.i28 = icmp eq i16 %51, 0
-  %52 = load ptr, ptr %21, align 8
-  %53 = select i1 %.not.i28, ptr %52, ptr %20
-  %54 = getelementptr inbounds i16, ptr %53, i64 %24
-  %55 = getelementptr inbounds nuw i16, ptr %54, i64 %26
-  %56 = getelementptr inbounds i8, ptr %55, i64 -2
-  %57 = icmp ult ptr %54, %56
-  br i1 %57, label %.lr.ph, label %.loopexit
+.lr.ph.preheader:                                 ; preds = %43
+  %49 = load i16, ptr %7, align 8, !tbaa !3
+  %50 = and i16 %49, 2
+  %.not.i28 = icmp eq i16 %50, 0
+  %51 = load ptr, ptr %21, align 8
+  %52 = select i1 %.not.i28, ptr %51, ptr %20
+  %53 = getelementptr inbounds i16, ptr %52, i64 %24
+  %54 = getelementptr inbounds nuw i16, ptr %53, i64 %26
+  %55 = getelementptr inbounds i8, ptr %54, i64 -2
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %49, %70
-  %.140 = phi ptr [ %.2, %70 ], [ %54, %49 ]
-  %58 = load i16, ptr %.140, align 2, !tbaa !10
-  %59 = and i16 %58, -1024
-  %60 = icmp eq i16 %59, -9216
-  br i1 %60, label %61, label %68
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
+  %.140 = phi ptr [ %.2, %68 ], [ %53, %.lr.ph.preheader ]
+  %56 = load i16, ptr %.140, align 2, !tbaa !10
+  %57 = and i16 %56, -1024
+  %58 = icmp eq i16 %57, -9216
+  br i1 %58, label %59, label %66
 
-61:                                               ; preds = %.lr.ph
-  %62 = getelementptr inbounds nuw i8, ptr %.140, i64 2
-  %63 = load i16, ptr %62, align 2, !tbaa !10
-  %64 = and i16 %63, -1024
-  %65 = icmp eq i16 %64, -10240
-  br i1 %65, label %66, label %68
+59:                                               ; preds = %.lr.ph
+  %60 = getelementptr inbounds nuw i8, ptr %.140, i64 2
+  %61 = load i16, ptr %60, align 2, !tbaa !10
+  %62 = and i16 %61, -1024
+  %63 = icmp eq i16 %62, -10240
+  br i1 %63, label %64, label %66
 
-66:                                               ; preds = %61
-  store i16 %63, ptr %.140, align 2, !tbaa !10
-  %67 = getelementptr inbounds nuw i8, ptr %.140, i64 4
-  store i16 %58, ptr %62, align 2, !tbaa !10
-  br label %70
+64:                                               ; preds = %59
+  store i16 %61, ptr %.140, align 2, !tbaa !10
+  %65 = getelementptr inbounds nuw i8, ptr %.140, i64 4
+  store i16 %56, ptr %60, align 2, !tbaa !10
+  br label %68
 
-68:                                               ; preds = %61, %.lr.ph
-  %69 = getelementptr inbounds nuw i8, ptr %.140, i64 2
-  br label %70
+66:                                               ; preds = %59, %.lr.ph
+  %67 = getelementptr inbounds nuw i8, ptr %.140, i64 2
+  br label %68
 
-70:                                               ; preds = %68, %66
-  %.2 = phi ptr [ %67, %66 ], [ %69, %68 ]
-  %71 = icmp ult ptr %.2, %56
-  br i1 %71, label %.lr.ph, label %.loopexit, !llvm.loop !34
+68:                                               ; preds = %66, %64
+  %.2 = phi ptr [ %65, %64 ], [ %67, %66 ]
+  %69 = icmp ult ptr %.2, %55
+  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %70, %49, %43, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit, %3, %5
+.loopexit:                                        ; preds = %68, %43, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit, %3, %5
   ret ptr %0
 }
 

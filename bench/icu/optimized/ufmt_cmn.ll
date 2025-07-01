@@ -130,15 +130,18 @@ define void @_Z13ufmt_64tou_77PDsPimhai(ptr noundef captures(address) %0, ptr no
 
 .critedge:                                        ; preds = %23, %26, %.split46.us
   %.1 = phi i32 [ %.us-phi, %.split46.us ], [ %indvars, %26 ], [ %24, %23 ]
-  %29 = sext i32 %.1 to i64
-  %30 = getelementptr inbounds i16, ptr %0, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 -2
-  %32 = icmp ult ptr %0, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge
+  %29 = icmp sgt i32 %.1, 1
+  br i1 %29, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.critedge, %.lr.ph
-  %33 = phi ptr [ %37, %.lr.ph ], [ %31, %.critedge ]
-  %.03548 = phi ptr [ %36, %.lr.ph ], [ %0, %.critedge ]
+.lr.ph.preheader:                                 ; preds = %.critedge
+  %30 = zext nneg i32 %.1 to i64
+  %31 = getelementptr inbounds nuw i16, ptr %0, i64 %30
+  %32 = getelementptr inbounds i8, ptr %31, i64 -2
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %33 = phi ptr [ %37, %.lr.ph ], [ %32, %.lr.ph.preheader ]
+  %.03548 = phi ptr [ %36, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %34 = load i16, ptr %.03548, align 2, !tbaa !3
   %35 = load i16, ptr %33, align 2, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %.03548, i64 2

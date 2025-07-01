@@ -39,51 +39,51 @@ define i32 @dtstrhash(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %18 = ptrtoint ptr %0 to i64
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
-  br label %43
+  br label %42
 
 21:                                               ; preds = %2
   %22 = zext nneg i32 %1 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -1
-  %25 = icmp ult ptr %0, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  %.not41 = icmp eq i32 %1, 1
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
-  %.132 = phi ptr [ %35, %.lr.ph ], [ %0, %21 ]
-  %.231 = phi i32 [ %34, %.lr.ph ], [ 0, %21 ]
-  %26 = load i8, ptr %.132, align 1, !tbaa !3
-  %27 = zext i8 %26 to i32
-  %28 = shl nuw nsw i32 %27, 8
-  %29 = add i32 %28, %.231
-  %30 = getelementptr inbounds nuw i8, ptr %.132, i64 1
-  %31 = load i8, ptr %30, align 1, !tbaa !3
-  %32 = zext i8 %31 to i32
-  %33 = add i32 %29, %32
-  %34 = mul i32 %33, 17109811
-  %35 = getelementptr inbounds nuw i8, ptr %.132, i64 2
-  %36 = icmp ult ptr %35, %24
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %.132 = phi ptr [ %34, %.lr.ph ], [ %0, %21 ]
+  %.231 = phi i32 [ %33, %.lr.ph ], [ 0, %21 ]
+  %25 = load i8, ptr %.132, align 1, !tbaa !3
+  %26 = zext i8 %25 to i32
+  %27 = shl nuw nsw i32 %26, 8
+  %28 = add i32 %27, %.231
+  %29 = getelementptr inbounds nuw i8, ptr %.132, i64 1
+  %30 = load i8, ptr %29, align 1, !tbaa !3
+  %31 = zext i8 %30 to i32
+  %32 = add i32 %28, %31
+  %33 = mul i32 %32, 17109811
+  %34 = getelementptr inbounds nuw i8, ptr %.132, i64 2
+  %35 = icmp ult ptr %34, %24
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
-  %.2.lcssa = phi i32 [ 0, %21 ], [ %34, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %0, %21 ], [ %35, %.lr.ph ]
+  %.2.lcssa = phi i32 [ 0, %21 ], [ %33, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %21 ], [ %34, %.lr.ph ]
   %.not = icmp ugt ptr %.1.lcssa, %24
-  br i1 %.not, label %43, label %37
+  br i1 %.not, label %42, label %36
 
-37:                                               ; preds = %._crit_edge
-  %38 = load i8, ptr %.1.lcssa, align 1, !tbaa !3
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 8
-  %41 = add i32 %40, %.2.lcssa
-  %42 = mul i32 %41, 17109811
-  br label %43
+36:                                               ; preds = %._crit_edge
+  %37 = load i8, ptr %.1.lcssa, align 1, !tbaa !3
+  %38 = zext i8 %37 to i32
+  %39 = shl nuw nsw i32 %38, 8
+  %40 = add i32 %39, %.2.lcssa
+  %41 = mul i32 %40, 17109811
+  br label %42
 
-43:                                               ; preds = %._crit_edge, %37, %._crit_edge38
-  %.125 = phi i32 [ %.024.lcssa, %._crit_edge38 ], [ %42, %37 ], [ %.2.lcssa, %._crit_edge ]
-  %.0 = phi i32 [ %20, %._crit_edge38 ], [ %1, %37 ], [ %1, %._crit_edge ]
-  %44 = add i32 %.0, %.125
-  %45 = mul i32 %44, 17109811
-  ret i32 %45
+42:                                               ; preds = %._crit_edge, %36, %._crit_edge38
+  %.125 = phi i32 [ %.024.lcssa, %._crit_edge38 ], [ %41, %36 ], [ %.2.lcssa, %._crit_edge ]
+  %.0 = phi i32 [ %20, %._crit_edge38 ], [ %1, %36 ], [ %1, %._crit_edge ]
+  %43 = add i32 %.0, %.125
+  %44 = mul i32 %43, 17109811
+  ret i32 %44
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

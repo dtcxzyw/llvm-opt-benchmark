@@ -2491,8 +2491,8 @@ _ZN6marisa8grimoire4trie5State19reverse_lookup_initEv.exit: ; preds = %13, %.pre
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %_ZSt7reverseIPcEvT_S1_.exit42.sink.split
 
-47:                                               ; preds = %.preheader, %137
-  %48 = phi i64 [ %29, %.preheader ], [ %142, %137 ]
+47:                                               ; preds = %.preheader, %136
+  %48 = phi i64 [ %29, %.preheader ], [ %141, %136 ]
   %49 = and i64 %48, 4294967295
   %50 = lshr i64 %49, 6
   %51 = load ptr, ptr %34, align 8, !tbaa !87
@@ -2639,38 +2639,39 @@ _ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %_ZNK6m
   %125 = zext i32 %124 to i64
   %126 = load i64, ptr %44, align 8, !tbaa !109
   %.not31 = icmp ult i64 %126, %125
-  br i1 %.not31, label %137, label %127
+  br i1 %.not31, label %136, label %127
 
 127:                                              ; preds = %_ZSt7reverseIPcEvT_S1_.exit
   %128 = load ptr, ptr %42, align 8, !tbaa !133
   %129 = load i64, ptr %17, align 8, !tbaa !131
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 %129
-  %131 = icmp samesign ne i64 %129, 0
-  %.012.i.i36 = getelementptr inbounds i8, ptr %130, i64 -1
-  %132 = icmp ult ptr %128, %.012.i.i36
-  %or.cond.i.i37 = select i1 %131, i1 %132, i1 false
-  br i1 %or.cond.i.i37, label %.lr.ph.i.i38, label %_ZSt7reverseIPcEvT_S1_.exit42
+  %130 = icmp sgt i64 %129, 1
+  br i1 %130, label %.lr.ph.i.i38.preheader, label %_ZSt7reverseIPcEvT_S1_.exit42
 
-.lr.ph.i.i38:                                     ; preds = %127, %.lr.ph.i.i38
-  %.014.i.i39 = phi ptr [ %.0.i.i41, %.lr.ph.i.i38 ], [ %.012.i.i36, %127 ]
-  %.0913.i.i40 = phi ptr [ %135, %.lr.ph.i.i38 ], [ %128, %127 ]
-  %133 = load i8, ptr %.0913.i.i40, align 1, !tbaa !58
-  %134 = load i8, ptr %.014.i.i39, align 1, !tbaa !58
-  store i8 %134, ptr %.0913.i.i40, align 1, !tbaa !58
-  store i8 %133, ptr %.014.i.i39, align 1, !tbaa !58
-  %135 = getelementptr inbounds nuw i8, ptr %.0913.i.i40, i64 1
+.lr.ph.i.i38.preheader:                           ; preds = %127
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %129
+  %.012.i.i36 = getelementptr inbounds i8, ptr %131, i64 -1
+  br label %.lr.ph.i.i38
+
+.lr.ph.i.i38:                                     ; preds = %.lr.ph.i.i38.preheader, %.lr.ph.i.i38
+  %.014.i.i39 = phi ptr [ %.0.i.i41, %.lr.ph.i.i38 ], [ %.012.i.i36, %.lr.ph.i.i38.preheader ]
+  %.0913.i.i40 = phi ptr [ %134, %.lr.ph.i.i38 ], [ %128, %.lr.ph.i.i38.preheader ]
+  %132 = load i8, ptr %.0913.i.i40, align 1, !tbaa !58
+  %133 = load i8, ptr %.014.i.i39, align 1, !tbaa !58
+  store i8 %133, ptr %.0913.i.i40, align 1, !tbaa !58
+  store i8 %132, ptr %.014.i.i39, align 1, !tbaa !58
+  %134 = getelementptr inbounds nuw i8, ptr %.0913.i.i40, i64 1
   %.0.i.i41 = getelementptr inbounds i8, ptr %.014.i.i39, i64 -1
-  %136 = icmp ult ptr %135, %.0.i.i41
-  br i1 %136, label %.lr.ph.i.i38, label %_ZSt7reverseIPcEvT_S1_.exit42.sink.split, !llvm.loop !135
+  %135 = icmp ult ptr %134, %.0.i.i41
+  br i1 %135, label %.lr.ph.i.i38, label %_ZSt7reverseIPcEvT_S1_.exit42.sink.split, !llvm.loop !135
 
-137:                                              ; preds = %_ZSt7reverseIPcEvT_S1_.exit
-  %138 = tail call noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef nonnull align 8 dereferenceable(208) %0, i64 noundef %125)
-  %139 = load i32, ptr %31, align 8, !tbaa !113
-  %140 = zext i32 %139 to i64
-  %141 = xor i64 %140, -1
-  %142 = add i64 %138, %141
-  %143 = trunc i64 %142 to i32
-  store i32 %143, ptr %31, align 8, !tbaa !113
+136:                                              ; preds = %_ZSt7reverseIPcEvT_S1_.exit
+  %137 = tail call noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr noundef nonnull align 8 dereferenceable(208) %0, i64 noundef %125)
+  %138 = load i32, ptr %31, align 8, !tbaa !113
+  %139 = zext i32 %138 to i64
+  %140 = xor i64 %139, -1
+  %141 = add i64 %137, %140
+  %142 = trunc i64 %141 to i32
+  store i32 %142, ptr %31, align 8, !tbaa !113
   br label %47, !llvm.loop !137
 
 _ZSt7reverseIPcEvT_S1_.exit42.sink.split:         ; preds = %.lr.ph.i.i38, %45
@@ -2682,15 +2683,15 @@ _ZSt7reverseIPcEvT_S1_.exit42.sink.split:         ; preds = %.lr.ph.i.i38, %45
 _ZSt7reverseIPcEvT_S1_.exit42:                    ; preds = %_ZSt7reverseIPcEvT_S1_.exit42.sink.split, %127
   %.sink = phi ptr [ %128, %127 ], [ %.sink.ph, %_ZSt7reverseIPcEvT_S1_.exit42.sink.split ]
   %.sink49 = phi i64 [ %129, %127 ], [ %.pre45, %_ZSt7reverseIPcEvT_S1_.exit42.sink.split ]
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %.sink, ptr %144, align 8, !tbaa !52
-  %145 = trunc i64 %.sink49 to i32
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %145, ptr %146, align 8, !tbaa !54
-  %147 = load i64, ptr %3, align 8, !tbaa !130
-  %148 = trunc i64 %147 to i32
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %148, ptr %149, align 4, !tbaa !58
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %.sink, ptr %143, align 8, !tbaa !52
+  %144 = trunc i64 %.sink49 to i32
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 %144, ptr %145, align 8, !tbaa !54
+  %146 = load i64, ptr %3, align 8, !tbaa !130
+  %147 = trunc i64 %146 to i32
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store i32 %147, ptr %148, align 4, !tbaa !58
   ret void
 }
 

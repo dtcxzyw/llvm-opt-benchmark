@@ -1773,11 +1773,13 @@ _ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 
 _ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread: ; preds = %33, %18, %_ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit, %10
   %45 = sext i32 %7 to i64
+  %.idx = shl nsw i64 %45, 1
   %46 = getelementptr inbounds i16, ptr %11, i64 %45
   %47 = sext i32 %2 to i64
-  %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds i16, ptr %46, i64 %48
-  %.not40 = icmp ult ptr %11, %49
+  %.neg = mul nsw i64 %47, -2
+  %48 = getelementptr inbounds i8, ptr %46, i64 %.neg
+  %49 = add nsw i64 %.idx, %.neg
+  %.not40 = icmp sgt i64 %49, 0
   br i1 %.not40, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread
@@ -1839,7 +1841,7 @@ _ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 
 _ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %68, %61, %_ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit15.us
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.041.us, i64 4
-  %.not.us = icmp ult ptr %80, %49
+  %.not.us = icmp ult ptr %80, %48
   br i1 %.not.us, label %.lr.ph.split.us, label %.critedge, !llvm.loop !60
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5ZXing11PatternView8skipPairEv.exit
@@ -1900,7 +1902,7 @@ _ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 
 _ZN5ZXing11PatternView8skipPairEv.exit:           ; preds = %93, %_ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit15
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.041, i64 4
-  %.not = icmp ult ptr %104, %49
+  %.not = icmp ult ptr %104, %48
   br i1 %.not, label %.lr.ph.split, label %.critedge, !llvm.loop !60
 
 .critedge:                                        ; preds = %_ZN5ZXing11PatternView8skipPairEv.exit, %_ZN5ZXing11PatternView8skipPairEv.exit.us, %_ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatternIXT_EXT0_EXT1_EEEdENKUlS3_iE_clES3_i.exit.thread

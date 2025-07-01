@@ -25265,32 +25265,33 @@ _ZNSt17_Temporary_bufferIPPN4pkpy8PyObjectES2_EC2ES3_l.exit.i.i21.i: ; preds = %
   br i1 %35, label %36, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit"
 
 36:                                               ; preds = %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i"
-  %37 = load ptr, ptr %11, align 8
-  %38 = load i32, ptr %5, align 8
-  %39 = sext i32 %38 to i64
-  %.idx.i.i = shl nsw i64 %39, 3
-  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx.i.i
-  %41 = icmp ne i32 %38, 0
-  %.012.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 -8
-  %42 = icmp ult ptr %37, %.012.i.i.i.i
-  %or.cond.i.i.i.i = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond.i.i.i.i, label %.lr.ph.i.i.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit"
+  %37 = load i32, ptr %5, align 8
+  %38 = icmp sgt i32 %37, 1
+  br i1 %38, label %.lr.ph.i.i.preheader.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit"
 
-.lr.ph.i.i.i.i:                                   ; preds = %36, %.lr.ph.i.i.i.i
-  %.014.i.i.i.i = phi ptr [ %.0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.012.i.i.i.i, %36 ]
-  %.0913.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %37, %36 ]
-  %43 = load ptr, ptr %.0913.i.i.i.i, align 8
-  %44 = load ptr, ptr %.014.i.i.i.i, align 8
-  store ptr %44, ptr %.0913.i.i.i.i, align 8
-  store ptr %43, ptr %.014.i.i.i.i, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
+.lr.ph.i.i.preheader.i.i:                         ; preds = %36
+  %39 = load ptr, ptr %11, align 8
+  %40 = zext nneg i32 %37 to i64
+  %.idx.i.i = shl nuw nsw i64 %40, 3
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i.i
+  %.012.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 -8
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
+  %.014.i.i.i.i = phi ptr [ %.0.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.012.i.i.i.i, %.lr.ph.i.i.preheader.i.i ]
+  %.0913.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %39, %.lr.ph.i.i.preheader.i.i ]
+  %42 = load ptr, ptr %.0913.i.i.i.i, align 8
+  %43 = load ptr, ptr %.014.i.i.i.i, align 8
+  store ptr %43, ptr %.0913.i.i.i.i, align 8
+  store ptr %42, ptr %.014.i.i.i.i, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
   %.0.i.i.i.i = getelementptr inbounds i8, ptr %.014.i.i.i.i, i64 -8
-  %46 = icmp ult ptr %45, %.0.i.i.i.i
-  br i1 %46, label %.lr.ph.i.i.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit", !llvm.loop !97
+  %45 = icmp ult ptr %44, %.0.i.i.i.i
+  br i1 %45, label %.lr.ph.i.i.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit", !llvm.loop !97
 
 "_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_110clES1_NS_8ArgsViewE.exit": ; preds = %.lr.ph.i.i.i.i, %"_ZSt11stable_sortIPPN4pkpy8PyObjectEZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES5_NS0_8ArgsViewEEUlS2_S2_E_EvT_S9_T0_.exit.i", %36
-  %47 = load ptr, ptr %8, align 8
-  ret ptr %47
+  %46 = load ptr, ptr %8, align 8
+  ret ptr %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25628,57 +25629,58 @@ _ZSt4moveIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %29, %32
 
 47:                                               ; preds = %24
   %48 = icmp eq i64 %25, 1
-  %49 = getelementptr inbounds ptr, ptr %.053, i64 %.076
-  br i1 %48, label %50, label %58
+  br i1 %48, label %49, label %58
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %49, i64 -8
+49:                                               ; preds = %47
+  %.idx = shl nsw i64 %.076, 3
+  %50 = getelementptr inbounds i8, ptr %.053, i64 %.idx
+  %51 = getelementptr inbounds i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8
-  %.not.i.i.i.i.i59 = icmp eq ptr %51, %.053
+  %.not.i.i.i.i.i59 = icmp eq i64 %.076, 1
   br i1 %.not.i.i.i.i.i59, label %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, label %53
 
-53:                                               ; preds = %50
-  %.idx = shl nsw i64 %.076, 3
+53:                                               ; preds = %49
   %54 = add nsw i64 %.idx, -8
   %55 = ashr exact i64 %54, 3
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds ptr, ptr %49, i64 %56
+  %57 = getelementptr inbounds ptr, ptr %50, i64 %56
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %.053, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
 
-_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %50, %53
+_ZSt13move_backwardIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit: ; preds = %49, %53
   store ptr %52, ptr %.053, align 8
   br label %_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit
 
 58:                                               ; preds = %47
-  %59 = sub i64 0, %25
-  %60 = getelementptr inbounds ptr, ptr %49, i64 %59
-  %61 = icmp sgt i64 %.074, 0
-  br i1 %61, label %.lr.ph, label %._crit_edge
+  %59 = getelementptr inbounds ptr, ptr %.053, i64 %.076
+  %60 = sub i64 0, %25
+  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %62 = icmp sgt i64 %.074, 0
+  br i1 %62, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %58, %.lr.ph
-  %.086 = phi i64 [ %66, %.lr.ph ], [ 0, %58 ]
-  %.04985 = phi ptr [ %63, %.lr.ph ], [ %49, %58 ]
-  %.384 = phi ptr [ %62, %.lr.ph ], [ %60, %58 ]
-  %62 = getelementptr inbounds i8, ptr %.384, i64 -8
-  %63 = getelementptr inbounds i8, ptr %.04985, i64 -8
-  %64 = load ptr, ptr %62, align 8
+  %.086 = phi i64 [ %67, %.lr.ph ], [ 0, %58 ]
+  %.04985 = phi ptr [ %64, %.lr.ph ], [ %59, %58 ]
+  %.384 = phi ptr [ %63, %.lr.ph ], [ %61, %58 ]
+  %63 = getelementptr inbounds i8, ptr %.384, i64 -8
+  %64 = getelementptr inbounds i8, ptr %.04985, i64 -8
   %65 = load ptr, ptr %63, align 8
-  store ptr %65, ptr %62, align 8
-  store ptr %64, ptr %63, align 8
-  %66 = add nuw nsw i64 %.086, 1
-  %exitcond.not = icmp eq i64 %66, %.074
+  %66 = load ptr, ptr %64, align 8
+  store ptr %66, ptr %63, align 8
+  store ptr %65, ptr %64, align 8
+  %67 = add nuw nsw i64 %.086, 1
+  %exitcond.not = icmp eq i64 %67, %.074
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58
-  %.3.lcssa = phi ptr [ %60, %58 ], [ %.053, %.lr.ph ]
-  %67 = srem i64 %.076, %25
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, label %.backedge
+  %.3.lcssa = phi ptr [ %61, %58 ], [ %.053, %.lr.ph ]
+  %68 = srem i64 %.076, %25
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %_ZSt11swap_rangesIPPN4pkpy8PyObjectES3_ET0_T_S5_S4_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.076.be = phi i64 [ %.074, %45 ], [ %25, %._crit_edge ]
-  %.074.be = phi i64 [ %46, %45 ], [ %67, %._crit_edge ]
+  %.074.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !105
 
@@ -28851,34 +28853,35 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EE9push_backIRS2_EEvOT_.exit.i: ; preds = 
 define internal noundef ptr @"_ZZN4pkpy15__init_builtinsEPNS_2VMEEN5$_1228__invokeES1_NS_8ArgsViewE"(ptr noundef readonly captures(none) %0, ptr readonly captures(none) %1, ptr readnone captures(none) %2) #24 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %7 = load ptr, ptr %6, align 8
-  %8 = load i32, ptr %5, align 8
-  %9 = sext i32 %8 to i64
-  %.idx.i = shl nsw i64 %9, 3
-  %10 = getelementptr inbounds i8, ptr %7, i64 %.idx.i
-  %11 = icmp ne i32 %8, 0
-  %.012.i.i.i = getelementptr inbounds i8, ptr %10, i64 -8
-  %12 = icmp ult ptr %7, %.012.i.i.i
-  %or.cond.i.i.i = select i1 %11, i1 %12, i1 false
-  br i1 %or.cond.i.i.i, label %.lr.ph.i.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_122clES1_NS_8ArgsViewE.exit"
+  %6 = load i32, ptr %5, align 8
+  %7 = icmp sgt i32 %6, 1
+  br i1 %7, label %.lr.ph.i.i.preheader.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_122clES1_NS_8ArgsViewE.exit"
 
-.lr.ph.i.i.i:                                     ; preds = %3, %.lr.ph.i.i.i
-  %.014.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i.i, %3 ]
-  %.0913.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %7, %3 ]
-  %13 = load ptr, ptr %.0913.i.i.i, align 8
-  %14 = load ptr, ptr %.014.i.i.i, align 8
-  store ptr %14, ptr %.0913.i.i.i, align 8
-  store ptr %13, ptr %.014.i.i.i, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i, i64 8
+.lr.ph.i.i.preheader.i:                           ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %10 = zext nneg i32 %6 to i64
+  %.idx.i = shl nuw nsw i64 %10, 3
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
+  %.012.i.i.i = getelementptr inbounds i8, ptr %11, i64 -8
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.preheader.i
+  %.014.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i.i, %.lr.ph.i.i.preheader.i ]
+  %.0913.i.i.i = phi ptr [ %14, %.lr.ph.i.i.i ], [ %9, %.lr.ph.i.i.preheader.i ]
+  %12 = load ptr, ptr %.0913.i.i.i, align 8
+  %13 = load ptr, ptr %.014.i.i.i, align 8
+  store ptr %13, ptr %.0913.i.i.i, align 8
+  store ptr %12, ptr %.014.i.i.i, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i, i64 8
   %.0.i.i.i = getelementptr inbounds i8, ptr %.014.i.i.i, i64 -8
-  %16 = icmp ult ptr %15, %.0.i.i.i
-  br i1 %16, label %.lr.ph.i.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_122clES1_NS_8ArgsViewE.exit", !llvm.loop !97
+  %15 = icmp ult ptr %14, %.0.i.i.i
+  br i1 %15, label %.lr.ph.i.i.i, label %"_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_122clES1_NS_8ArgsViewE.exit", !llvm.loop !97
 
 "_ZZN4pkpy15__init_builtinsEPNS_2VMEENK5$_122clES1_NS_8ArgsViewE.exit": ; preds = %.lr.ph.i.i.i, %3
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 264520
-  %18 = load ptr, ptr %17, align 8
-  ret ptr %18
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 264520
+  %17 = load ptr, ptr %16, align 8
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress uwtable

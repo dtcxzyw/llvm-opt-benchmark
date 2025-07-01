@@ -4929,7 +4929,7 @@ define dso_local noundef i32 @_Z17ImTextStrFromUtf8PtiPKcS1_PS1_(ptr noundef %0,
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i16, ptr %0, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -2
-  %10 = icmp ult ptr %0, %9
+  %10 = icmp sgt i32 %1, 1
   br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5
@@ -5148,7 +5148,7 @@ define dso_local noundef i32 @_Z15ImTextStrToUtf8PciPKtS1_(ptr noundef %0, i32 n
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
-  %8 = icmp ult ptr %0, %7
+  %8 = icmp sgt i32 %1, 1
   br i1 %8, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %4

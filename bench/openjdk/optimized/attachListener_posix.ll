@@ -376,7 +376,8 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %51
-  %58 = icmp ult ptr %3, %54
+  %notsub = add i64 %.147, -3101
+  %58 = icmp slt i64 %notsub, -1
   br i1 %58, label %59, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
 59:                                               ; preds = %57

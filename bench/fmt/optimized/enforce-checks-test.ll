@@ -29258,7 +29258,7 @@ _ZN3fmt3v116detail7to_utf8IDiNS0_19basic_memory_bufferIcLm128ENS1_9allocatorIcEE
   %46 = load i64, ptr %21, align 8, !tbaa !42
   %47 = getelementptr i8, ptr %45, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -1
-  %.not24.i.i = icmp eq ptr %45, %48
+  %.not24.i.i = icmp eq i64 %46, 1
   br i1 %.not24.i.i, label %_ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit, label %.lr.ph27.i.i
 
 .lr.ph27.i.i:                                     ; preds = %41
@@ -31356,7 +31356,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail18for_each_codepointIZNS1_11f
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %8 = getelementptr inbounds i8, ptr %7, i64 -3
-  %.not3053 = icmp ult ptr %0, %8
+  %.not3053 = icmp sgt i64 %1, 3
   br i1 %.not3053, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %_ZZN3fmt3v116detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit
@@ -34120,7 +34120,8 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail9copy_unitINS0_14basic_appende
   %8 = load i64, ptr %7, align 8, !tbaa !49
   %9 = getelementptr i32, ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -4
-  %.not24.i.i = icmp eq ptr %6, %10
+  %.idx.mask = and i64 %8, 4611686018427387903
+  %.not24.i.i = icmp eq i64 %.idx.mask, 1
   br i1 %.not24.i.i, label %_ZN3fmt3v116detail4copyIwPKwNS0_14basic_appenderIwEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit, label %.lr.ph27.i.i
 
 .lr.ph27.i.i:                                     ; preds = %4
