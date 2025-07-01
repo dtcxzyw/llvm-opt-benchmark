@@ -1318,7 +1318,7 @@ define internal void @_piwigo_album_changed(ptr readnone captures(none) %0, ptr 
   %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = tail call ptr @dt_bauhaus_combobox_get_text(ptr noundef %4) #16
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %31, label %7
+  br i1 %6, label %32, label %7
 
 7:                                                ; preds = %2
   %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #16
@@ -1335,7 +1335,7 @@ define internal void @_piwigo_album_changed(ptr readnone captures(none) %0, ptr 
   %16 = load ptr, ptr %11, align 8, !tbaa !104
   %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %13) #16
   tail call void @gtk_widget_show_all(ptr noundef %17) #16
-  br label %31
+  br label %32
 
 18:                                               ; preds = %7
   tail call void @gtk_widget_hide(ptr noundef %14) #16
@@ -1349,40 +1349,40 @@ define internal void @_piwigo_album_changed(ptr readnone captures(none) %0, ptr 
   %26 = icmp ne i8 %25, 41
   %.not28 = icmp eq i64 %22, 1
   %or.cond = or i1 %26, %.not28
-  br i1 %or.cond, label %.critedge.thread33, label %.lr.ph.preheader
+  br i1 %or.cond, label %31, label %.lr.ph.preheader
 
 .lr.phthread-pre-split:                           ; preds = %.lr.ph.preheader
-  %.pr32 = load i8, ptr %27, align 1, !tbaa !6
-  %.not24 = icmp eq i8 %.pr32, 40
+  %.pr31 = load i8, ptr %27, align 1, !tbaa !6
+  %.not24 = icmp eq i8 %.pr31, 40
   br i1 %.not24, label %.critedge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %18, %.lr.phthread-pre-split
-  %.02938 = phi ptr [ %27, %.lr.phthread-pre-split ], [ %24, %18 ]
-  %27 = getelementptr inbounds i8, ptr %.02938, i64 -1
+  %.02934 = phi ptr [ %27, %.lr.phthread-pre-split ], [ %24, %18 ]
+  %27 = getelementptr inbounds i8, ptr %.02934, i64 -1
   %.not = icmp eq ptr %27, %21
   br i1 %.not, label %.critedge, label %.lr.phthread-pre-split
 
 .critedge:                                        ; preds = %.lr.ph.preheader
-  %.pr.pre = load i8, ptr %21, align 1, !tbaa !6
-  %28 = icmp eq i8 %.pr.pre, 40
-  br i1 %28, label %.critedge.thread, label %.critedge.thread33
+  %.pr = load i8, ptr %21, align 1, !tbaa !6
+  %28 = icmp eq i8 %.pr, 40
+  br i1 %28, label %.critedge.thread, label %31
 
 .critedge.thread:                                 ; preds = %.lr.phthread-pre-split, %.critedge
   %.027 = phi ptr [ %21, %.critedge ], [ %27, %.lr.phthread-pre-split ]
   %29 = getelementptr inbounds i8, ptr %.027, i64 -1
   %.not25 = icmp ult ptr %29, %21
-  br i1 %.not25, label %.critedge.thread33, label %30
+  br i1 %.not25, label %31, label %30
 
 30:                                               ; preds = %.critedge.thread
   store i8 0, ptr %29, align 1, !tbaa !6
-  br label %.critedge.thread33
-
-.critedge.thread33:                               ; preds = %.critedge, %30, %.critedge.thread, %18
-  tail call void @dt_conf_set_string(ptr noundef nonnull @.str, ptr noundef nonnull %21) #16
-  tail call void @g_free(ptr noundef nonnull %21) #16
   br label %31
 
-31:                                               ; preds = %15, %.critedge.thread33, %2
+31:                                               ; preds = %.critedge, %30, %.critedge.thread, %18
+  tail call void @dt_conf_set_string(ptr noundef nonnull @.str, ptr noundef nonnull %21) #16
+  tail call void @g_free(ptr noundef nonnull %21) #16
+  br label %32
+
+32:                                               ; preds = %15, %31, %2
   ret void
 }
 

@@ -10269,7 +10269,7 @@ zend_parse_arg_str_ex.exit.i:                     ; preds = %27
   %.079110 = phi i32 [ 4, %37 ], [ 0, %zend_parse_arg_long_ex.exit ], [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %9 ]
   %.081109 = phi i32 [ 9, %37 ], [ 9, %zend_parse_arg_long_ex.exit ], [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %9 ]
   call void @zend_wrong_parameter_error(i32 noundef %.081109, i32 noundef %.0112, ptr noundef null, i32 noundef %.079110, ptr noundef %.078111) #28
-  br label %98
+  br label %95
 
 .critedge:                                        ; preds = %26, %17, %.thread126
   %.094125 = phi ptr [ %34, %.thread126 ], [ @.str.15, %17 ], [ @.str.15, %26 ]
@@ -10283,7 +10283,7 @@ zend_parse_arg_str_ex.exit.i:                     ; preds = %27
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
   %42 = icmp ne ptr %41, null
   call void @llvm.assume(i1 %42)
-  br label %98
+  br label %95
 
 43:                                               ; preds = %.critedge
   %44 = load ptr, ptr %4, align 8, !tbaa !13
@@ -10317,78 +10317,78 @@ zend_parse_arg_str_ex.exit.i:                     ; preds = %27
   store ptr %51, ptr %1, align 8, !tbaa !10
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %63, align 8, !tbaa !10
-  br label %98
+  br label %95
 
 64:                                               ; preds = %43
-  %65 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %66 = udiv i64 %46, %38
-  %67 = mul i64 %66, %38
+  %.ptr = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %65 = udiv i64 %46, %38
+  %66 = mul i64 %65, %38
   %.recomposed = urem i64 %46, %38
-  %.not.i90 = icmp ne i64 %46, %67
-  %68 = zext i1 %.not.i90 to i64
-  %spec.select.i = add i64 %66, %68
-  %69 = and i64 %46, -8
-  %70 = add i64 %69, 32
-  %71 = call noalias ptr @_safe_emalloc(i64 noundef %spec.select.i, i64 noundef %.095124, i64 noundef %70) #28
-  store i32 1, ptr %71, align 4, !tbaa !21
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store i32 22, ptr %72, align 4, !tbaa !10
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i64 0, ptr %73, align 8, !tbaa !22
-  %74 = mul i64 %spec.select.i, %.095124
-  %75 = add i64 %74, %46
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i64 %75, ptr %76, align 8, !tbaa !16
-  %77 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %.not.i90 = icmp ne i64 %46, %66
+  %67 = zext i1 %.not.i90 to i64
+  %spec.select.i = add i64 %65, %67
+  %68 = and i64 %46, -8
+  %69 = add i64 %68, 32
+  %70 = call noalias ptr @_safe_emalloc(i64 noundef %spec.select.i, i64 noundef %.095124, i64 noundef %69) #28
+  store i32 1, ptr %70, align 4, !tbaa !21
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store i32 22, ptr %71, align 4, !tbaa !10
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store i64 0, ptr %72, align 8, !tbaa !22
+  %73 = mul i64 %spec.select.i, %.095124
+  %74 = add i64 %73, %46
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  store i64 %74, ptr %75, align 8, !tbaa !16
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 %46
   %79 = sub nsw i64 0, %38
-  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  %.ptr136 = getelementptr inbounds i8, ptr %78, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %.not41.i = icmp slt i64 %46, %38
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %64, %.lr.ph.i
-  %.039.i = phi ptr [ %83, %.lr.ph.i ], [ %77, %64 ]
-  %.03538.i = phi ptr [ %84, %.lr.ph.i ], [ %65, %64 ]
+  %.039.i = phi ptr [ %80, %.lr.ph.i ], [ %76, %64 ]
+  %.03538.i = phi ptr [ %81, %.lr.ph.i ], [ %.ptr, %64 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.039.i, ptr noundef nonnull align 1 dereferenceable(1) %.03538.i, i64 noundef range(i64 1, -9223372036854775808) %38, i1 false) #28
-  %82 = getelementptr inbounds nuw i8, ptr %.039.i, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %82, ptr noundef nonnull readonly align 1 %.094125, i64 noundef %.095124, i1 false) #28
-  %83 = getelementptr inbounds i8, ptr %82, i64 %.095124
-  %84 = getelementptr inbounds nuw i8, ptr %.03538.i, i64 %38
-  %85 = icmp ult ptr %84, %81
-  br i1 %85, label %.lr.ph.i, label %._crit_edge.i
+  %79 = getelementptr inbounds nuw i8, ptr %.039.i, i64 %38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %79, ptr noundef nonnull readonly align 1 %.094125, i64 noundef %.095124, i1 false) #28
+  %80 = getelementptr inbounds i8, ptr %79, i64 %.095124
+  %81 = getelementptr inbounds nuw i8, ptr %.03538.i, i64 %38
+  %82 = icmp ult ptr %81, %81
+  br i1 %82, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %64
-  %.035.lcssa.i = phi ptr [ %65, %64 ], [ %84, %.lr.ph.i ]
-  %.0.lcssa.i = phi ptr [ %77, %64 ], [ %83, %.lr.ph.i ]
-  br i1 %.not.i90, label %86, label %php_chunk_split.exit
+  %.035.lcssa.i = phi ptr [ %.ptr, %64 ], [ %81, %.lr.ph.i ]
+  %.0.lcssa.i = phi ptr [ %76, %64 ], [ %80, %.lr.ph.i ]
+  br i1 %.not.i90, label %83, label %php_chunk_split.exit
 
-86:                                               ; preds = %._crit_edge.i
+83:                                               ; preds = %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.0.lcssa.i, ptr noundef align 1 %.035.lcssa.i, i64 noundef %.recomposed, i1 false) #28
-  %87 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 %.recomposed
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %87, ptr noundef nonnull readonly align 1 %.094125, i64 noundef %.095124, i1 false) #28
-  %88 = getelementptr inbounds i8, ptr %87, i64 %.095124
+  %84 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 %.recomposed
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %84, ptr noundef nonnull readonly align 1 %.094125, i64 noundef %.095124, i1 false) #28
+  %85 = getelementptr inbounds i8, ptr %84, i64 %.095124
   br label %php_chunk_split.exit
 
-php_chunk_split.exit:                             ; preds = %._crit_edge.i, %86
-  %.1.i = phi ptr [ %88, %86 ], [ %.0.lcssa.i, %._crit_edge.i ]
+php_chunk_split.exit:                             ; preds = %._crit_edge.i, %83
+  %.1.i = phi ptr [ %85, %86 ], [ %.0.lcssa.i, %._crit_edge.i ]
   store i8 0, ptr %.1.i, align 1, !tbaa !10
-  %89 = ptrtoint ptr %.1.i to i64
-  %90 = ptrtoint ptr %77 to i64
-  %91 = sub i64 %89, %90
-  %92 = load i64, ptr %76, align 8, !tbaa !16
-  %93 = icmp eq i64 %91, %92
-  call void @llvm.assume(i1 %93)
-  store ptr %71, ptr %1, align 8, !tbaa !10
-  %94 = load i32, ptr %72, align 4, !tbaa !10
-  %95 = and i32 %94, 64
-  %.not86 = icmp eq i32 %95, 0
-  %96 = select i1 %.not86, i32 262, i32 6
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %96, ptr %97, align 8, !tbaa !10
-  br label %98
+  %86 = ptrtoint ptr %.1.i to i64
+  %87 = ptrtoint ptr %76 to i64
+  %88 = sub i64 %86, %87
+  %89 = load i64, ptr %75, align 8, !tbaa !16
+  %90 = icmp eq i64 %88, %89
+  call void @llvm.assume(i1 %90)
+  store ptr %70, ptr %1, align 8, !tbaa !10
+  %91 = load i32, ptr %71, align 4, !tbaa !10
+  %92 = and i32 %91, 64
+  %.not86 = icmp eq i32 %92, 0
+  %93 = select i1 %.not86, i32 262, i32 6
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %93, ptr %94, align 8, !tbaa !10
+  br label %95
 
-98:                                               ; preds = %.thread, %php_chunk_split.exit, %48, %40
+95:                                               ; preds = %.thread, %php_chunk_split.exit, %48, %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
   ret void

@@ -8198,9 +8198,9 @@ _ZSt4moveIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %29, %32
 
 47:                                               ; preds = %24
   %48 = icmp eq i64 %25, 1
-  br i1 %48, label %49, label %58
+  br i1 %48, label %50, label %58
 
-49:                                               ; preds = %47
+50:                                               ; preds = %47
   %.idx = shl nsw i64 %.076, 2
   %50 = getelementptr inbounds i8, ptr %.053, i64 %.idx
   %51 = getelementptr inbounds i8, ptr %50, i64 -4
@@ -8208,7 +8208,7 @@ _ZSt4moveIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %29, %32
   %.not.i.i.i.i.i59 = icmp eq i64 %.076, 1
   br i1 %.not.i.i.i.i.i59, label %_ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit, label %53
 
-53:                                               ; preds = %49
+53:                                               ; preds = %50
   %54 = add nsw i64 %.idx, -4
   %55 = ashr exact i64 %54, 2
   %56 = sub nsw i64 0, %55
@@ -8216,7 +8216,7 @@ _ZSt4moveIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %29, %32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %57, ptr nonnull align 4 %.053, i64 %54, i1 false)
   br label %_ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit
 
-_ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %49, %53
+_ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %50, %53
   store i32 %52, ptr %.053, align 4
   br label %_ZSt11swap_rangesIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit
 
@@ -8229,10 +8229,10 @@ _ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %49, %53
 
 .lr.ph:                                           ; preds = %58, %.lr.ph
   %.086 = phi i64 [ %67, %.lr.ph ], [ 0, %58 ]
-  %.04985 = phi ptr [ %64, %.lr.ph ], [ %59, %58 ]
-  %.384 = phi ptr [ %63, %.lr.ph ], [ %61, %58 ]
-  %63 = getelementptr inbounds i8, ptr %.384, i64 -4
-  %64 = getelementptr inbounds i8, ptr %.04985, i64 -4
+  %.04985 = phi ptr [ %63, %.lr.ph ], [ %59, %58 ]
+  %.384 = phi ptr [ %62, %.lr.ph ], [ %61, %58 ]
+  %62 = getelementptr inbounds i8, ptr %.384, i64 -4
+  %63 = getelementptr inbounds i8, ptr %.04985, i64 -4
   %65 = load i32, ptr %63, align 4
   %66 = load i32, ptr %64, align 4
   store i32 %66, ptr %63, align 4
@@ -8243,13 +8243,13 @@ _ZSt13move_backwardIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit: ; preds = %49, %53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %58
   %.3.lcssa = phi ptr [ %61, %58 ], [ %.053, %.lr.ph ]
-  %68 = srem i64 %.076, %25
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %_ZSt11swap_rangesIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit, label %.backedge
+  %67 = srem i64 %.076, %25
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %_ZSt11swap_rangesIPN9Stockfish6SquareES2_ET0_T_S4_S3_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
   %.076.be = phi i64 [ %.074, %45 ], [ %25, %._crit_edge ]
-  %.074.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
+  %.074.be = phi i64 [ %46, %45 ], [ %67, %._crit_edge ]
   %.053.be = phi ptr [ %.1.lcssa, %45 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !178
 

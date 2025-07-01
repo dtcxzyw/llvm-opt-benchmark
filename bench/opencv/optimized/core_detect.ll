@@ -3383,8 +3383,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %17
   br i1 %.not.i.i.i67, label %39, label %32
 
 32:                                               ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
-  %.idx390 = shl nsw i64 %26, 3
-  %33 = add nsw i64 %.idx390, %storemerge.idx.i.i.i.i.i.i
+  %.idx = shl nsw i64 %26, 3
+  %33 = add nsw i64 %.idx, %storemerge.idx.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %21, i8 -1, i64 %33, i1 false)
   %.not27.i.i.i = icmp eq i32 %31, 0
   br i1 %.not27.i.i.i, label %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit, label %_ZSt14__fill_bvectorPmjjb.exit29.i.i.i

@@ -28,25 +28,25 @@ define void @ff_rtp_send_amr(ptr noundef %0, ptr noundef readonly captures(none)
 
 22:                                               ; preds = %3
   %23 = icmp eq i32 %21, %10
-  br i1 %23, label %.thread58, label %28
+  br i1 %23, label %24, label %28
 
-.thread58:                                        ; preds = %22
+24:                                               ; preds = %22
   %24 = sext i32 %11 to i64
   %25 = getelementptr inbounds i8, ptr %15, i64 %24
   %narrow = xor i32 %10, -1
   %26 = sext i32 %narrow to i64
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  br label %58
+  br label %54
 
-28:                                               ; preds = %22
+30:                                               ; preds = %22
   %29 = add i32 %2, -1
   %30 = add i32 %29, %19
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %32 = load i32, ptr %31, align 8, !tbaa !33
-  %33 = icmp sgt i32 %30, %32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %34 = load i32, ptr %33, align 8, !tbaa !33
+  %33 = icmp sgt i32 %30, %34
   br i1 %33, label %48, label %34
 
-34:                                               ; preds = %28
+34: ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %36 = load i32, ptr %35, align 4, !tbaa !34
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -61,86 +61,86 @@ define void @ff_rtp_send_amr(ptr noundef %0, ptr noundef readonly captures(none)
   %46 = tail call i32 @av_compare_ts(i64 noundef %40, i64 %45, i64 noundef %44, i64 4294967296000001) #3
   %47 = icmp sgt i32 %46, -1
   %.pre = load i32, ptr %20, align 4, !tbaa !32
-  br i1 %47, label %._crit_edge, label %65
+  br i1 %47, label %._crit_edge, label %60
 
 ._crit_edge:                                      ; preds = %34
   %.pre53 = load ptr, ptr %14, align 8, !tbaa !31
-  br label %48
+  br label %44
 
-48:                                               ; preds = %._crit_edge, %28
-  %49 = phi ptr [ %.pre53, %._crit_edge ], [ %15, %28 ]
-  %50 = phi i32 [ %.pre, %._crit_edge ], [ %21, %28 ]
-  %51 = add nsw i32 %50, 1
-  %52 = sext i32 %11 to i64
-  %53 = getelementptr inbounds i8, ptr %49, i64 %52
-  %54 = sext i32 %51 to i64
-  %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds i8, ptr %53, i64 %55
+44:                                               ; preds = %._crit_edge, %28
+  %45 = phi ptr [ %.pre53, %._crit_edge ], [ %15, %28 ]
+  %46 = phi i32 [ %.pre, %._crit_edge ], [ %21, %28 ]
+  %47 = add nsw i32 %46, 1
+  %48 = sext i32 %11 to i64
+  %49 = getelementptr inbounds i8, ptr %45, i64 %48
+  %50 = sext i32 %47 to i64
+  %51 = sub nsw i64 0, %50
+  %52 = getelementptr inbounds i8, ptr %49, i64 %51
   %.not50 = icmp eq i32 %10, %50
-  br i1 %.not50, label %58, label %57
+  br i1 %.not50, label %54, label %53
 
-57:                                               ; preds = %48
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %56, ptr align 1 %49, i64 %54, i1 false)
-  br label %58
+53:                                               ; preds = %44
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %52, ptr align 1 %45, i64 %50, i1 false)
+  br label %54
 
-58:                                               ; preds = %.thread58, %57, %48
+54:                                               ; preds = %24, %53, %44
   %59 = phi ptr [ %27, %.thread58 ], [ %56, %57 ], [ %56, %48 ]
   %60 = load ptr, ptr %12, align 8, !tbaa !30
-  %61 = ptrtoint ptr %60 to i64
+  %57 = ptrtoint ptr %60 to i64
   %62 = ptrtoint ptr %59 to i64
-  %63 = sub i64 %61, %62
+  %63 = sub i64 %57, %62
   %64 = trunc i64 %63 to i32
   tail call void @ff_rtp_send_data(ptr noundef nonnull %0, ptr noundef %59, i32 noundef %64, i32 noundef 1) #3
   store i32 0, ptr %20, align 4, !tbaa !32
   %.pre54 = load ptr, ptr %14, align 8, !tbaa !31
   br label %.thread
 
-65:                                               ; preds = %34
+60:                                               ; preds = %34
   %.not51 = icmp eq i32 %.pre, 0
   %.pre55 = load ptr, ptr %14, align 8, !tbaa !31
-  br i1 %.not51, label %.thread, label %73
+  br i1 %.not51, label %.thread, label %68
 
-.thread:                                          ; preds = %3, %58, %65
-  %66 = phi ptr [ %15, %3 ], [ %.pre54, %58 ], [ %.pre55, %65 ]
-  store i8 -16, ptr %66, align 1, !tbaa !37
-  %67 = load ptr, ptr %14, align 8, !tbaa !31
-  %68 = sext i32 %11 to i64
-  %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  store ptr %69, ptr %12, align 8, !tbaa !30
-  %70 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  %71 = load i32, ptr %70, align 4, !tbaa !34
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store i32 %71, ptr %72, align 4, !tbaa !35
+.thread:                                          ; preds = %3, %54, %60
+  %61 = phi ptr [ %15, %3 ], [ %.pre54, %58 ], [ %.pre55, %65 ]
+  store i8 -16, ptr %61, align 1, !tbaa !37
+  %62 = load ptr, ptr %14, align 8, !tbaa !31
+  %63 = sext i32 %11 to i64
+  %64 = getelementptr inbounds i8, ptr %62, i64 %63
+  store ptr %64, ptr %12, align 8, !tbaa !30
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  %66 = load i32, ptr %65, align 4, !tbaa !34
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  store i32 %66, ptr %67, align 4, !tbaa !35
   %.pre57 = add nsw i32 %2, -1
-  br label %78
+  br label %73
 
-73:                                               ; preds = %65
-  %74 = sext i32 %.pre to i64
-  %75 = getelementptr inbounds i8, ptr %.pre55, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !37
-  %77 = or i8 %76, -128
-  store i8 %77, ptr %75, align 1, !tbaa !37
+68:                                               ; preds = %60
+  %69 = sext i32 %.pre to i64
+  %70 = getelementptr inbounds i8, ptr %.pre55, i64 %69
+  %71 = load i8, ptr %70, align 1, !tbaa !37
+  %72 = or i8 %71, -128
+  store i8 %72, ptr %70, align 1, !tbaa !37
   %.pre56 = load ptr, ptr %14, align 8, !tbaa !31
-  br label %78
+  br label %73
 
-78:                                               ; preds = %73, %.thread
+73:                                               ; preds = %68, %.thread
   %.pre-phi = phi i32 [ %29, %73 ], [ %.pre57, %.thread ]
-  %79 = phi ptr [ %.pre56, %73 ], [ %67, %.thread ]
-  %80 = load i8, ptr %1, align 1, !tbaa !37
-  %81 = and i8 %80, 124
-  %82 = load i32, ptr %20, align 4, !tbaa !32
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %20, align 4, !tbaa !32
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %79, i64 %84
-  store i8 %81, ptr %85, align 1, !tbaa !37
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %87 = load ptr, ptr %12, align 8, !tbaa !30
-  %88 = sext i32 %.pre-phi to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %87, ptr nonnull align 1 %86, i64 %88, i1 false)
-  %89 = load ptr, ptr %12, align 8, !tbaa !30
-  %90 = getelementptr inbounds i8, ptr %89, i64 %88
-  store ptr %90, ptr %12, align 8, !tbaa !30
+  %74 = phi ptr [ %.pre56, %73 ], [ %62, %.thread ]
+  %75 = load i8, ptr %1, align 1, !tbaa !37
+  %76 = and i8 %75, 124
+  %77 = load i32, ptr %20, align 4, !tbaa !32
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %20, align 4, !tbaa !32
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %74, i64 %79
+  store i8 %76, ptr %80, align 1, !tbaa !37
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %82 = load ptr, ptr %12, align 8, !tbaa !30
+  %83 = sext i32 %.pre-phi to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr nonnull align 1 %81, i64 %83, i1 false)
+  %84 = load ptr, ptr %12, align 8, !tbaa !30
+  %85 = getelementptr inbounds i8, ptr %84, i64 %83
+  store ptr %85, ptr %12, align 8, !tbaa !30
   ret void
 }
 

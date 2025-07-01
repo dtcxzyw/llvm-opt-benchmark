@@ -57852,11 +57852,11 @@ define internal void @stbir__fancy_alpha_weight_4ch(ptr noundef %0, i32 noundef 
   %6 = getelementptr inbounds float, ptr %0, i64 %5
   %7 = sext i32 %1 to i64
   %.neg = mul nsw i64 %7, -4
-  %8 = getelementptr inbounds i8, ptr %6, i64 %.neg
+  %9 = getelementptr inbounds i8, ptr %6, i64 %.neg
   %.not44 = icmp slt i32 %1, 8
-  br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %2
+.lr.ph:                                           ; preds = %2
   %.04043 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %.lr.ph
 
@@ -57865,42 +57865,42 @@ define internal void @stbir__fancy_alpha_weight_4ch(ptr noundef %0, i32 noundef 
   %.046 = phi ptr [ %19, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.pn45 = phi ptr [ %.04047, %.lr.ph ], [ %8, %.lr.ph.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.04047) #54, !srcloc !349
-  %9 = load <4 x float>, ptr %.pn45, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %.pn45, i64 16
-  %11 = load <4 x float>, ptr %10, align 1
-  %12 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %13 = shufflevector <4 x float> %11, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %14 = fmul <4 x float> %9, %12
-  %15 = fmul <4 x float> %11, %13
-  store <4 x float> %9, ptr %.046, align 1
-  %16 = getelementptr inbounds nuw i8, ptr %.046, i64 16
-  store <4 x float> %14, ptr %16, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %.046, i64 28
-  store <4 x float> %11, ptr %17, align 1
-  %18 = getelementptr inbounds nuw i8, ptr %.046, i64 44
-  store <4 x float> %15, ptr %18, align 1
-  %19 = getelementptr inbounds nuw i8, ptr %.046, i64 56
+  %10 = load <4 x float>, ptr %.pn45, align 1
+  %11 = getelementptr inbounds nuw i8, ptr %.pn45, i64 16
+  %12 = load <4 x float>, ptr %11, align 1
+  %13 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %14 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %15 = fmul <4 x float> %10, %13
+  %16 = fmul <4 x float> %12, %14
+  store <4 x float> %10, ptr %.046, align 1
+  %17 = getelementptr inbounds nuw i8, ptr %.046, i64 16
+  store <4 x float> %15, ptr %17, align 1
+  %18 = getelementptr inbounds nuw i8, ptr %.046, i64 28
+  store <4 x float> %12, ptr %18, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %.046, i64 44
+  store <4 x float> %16, ptr %19, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %.046, i64 56
   %.040 = getelementptr inbounds nuw i8, ptr %.04047, i64 32
   %.not = icmp ugt ptr %.040, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !350
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.pn.lcssa = phi ptr [ %8, %2 ], [ %.04047, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %19, %.lr.ph ]
-  %20 = icmp ult ptr %.pn.lcssa, %6
-  br i1 %20, label %21, label %26
+  %.pn.lcssa = phi ptr [ %9, %2 ], [ %.04047, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %0, %2 ], [ %20, %.lr.ph ]
+  %21 = icmp ult ptr %.pn.lcssa, %6
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %._crit_edge
+22:                                               ; preds = %._crit_edge
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.pn.lcssa) #54, !srcloc !351
-  %22 = load <4 x float>, ptr %.pn.lcssa, align 1
-  %23 = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %24 = fmul <4 x float> %22, %23
-  store <4 x float> %22, ptr %.0.lcssa, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
-  store <4 x float> %24, ptr %25, align 1
-  br label %26
+  %23 = load <4 x float>, ptr %.pn.lcssa, align 1
+  %24 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %25 = fmul <4 x float> %23, %24
+  store <4 x float> %23, ptr %.0.lcssa, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
+  store <4 x float> %25, ptr %26, align 1
+  br label %27
 
-26:                                               ; preds = %21, %._crit_edge
+27:                                               ; preds = %22, %._crit_edge
   ret void
 }
 

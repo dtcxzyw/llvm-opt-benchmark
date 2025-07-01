@@ -5229,10 +5229,10 @@ st_mult.exit32:                                   ; preds = %st_mult.exit23
   unreachable
 
 check_pack_index_ptr.exit:                        ; preds = %st_mult.exit32
-  %51 = load i8, ptr %43, align 1, !tbaa !12
-  %52 = zext i8 %51 to i64
-  %53 = shl nuw nsw i64 %52, 24
-  %54 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  %56 = load i8, ptr %43, align 1, !tbaa !12
+  %57 = zext i8 %56 to i64
+  %58 = shl nuw nsw i64 %57, 24
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %55 = load i8, ptr %54, align 1, !tbaa !12
   %56 = zext i8 %55 to i64
   %57 = shl nuw nsw i64 %56, 16
@@ -5268,7 +5268,7 @@ check_pack_index_ptr.exit:                        ; preds = %st_mult.exit32
   %87 = or disjoint i64 %86, %84
   br label %88
 
-88:                                               ; preds = %36, %check_pack_index_ptr.exit, %st_mult.exit
+88:; preds = %36, %check_pack_index_ptr.exit, %st_mult.exit
   %.0 = phi i64 [ %22, %st_mult.exit ], [ %87, %check_pack_index_ptr.exit ], [ %37, %36 ]
   ret i64 %.0
 }

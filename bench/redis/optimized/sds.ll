@@ -3096,13 +3096,13 @@ sdslen.exit:                                      ; preds = %8, %11, %15, %19, %
   %42 = sub i64 %41, %.0.lcssa40.pre-phi
   %43 = add nsw i64 %42, 1
   %.not30 = icmp eq ptr %0, %.0.lcssa
-  br i1 %.not30, label %.critedge2.thread, label %44
+  br i1 %.not30, label %45, label %44
 
 44:                                               ; preds = %.critedge2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %.0.lcssa, i64 %43, i1 false)
-  br label %.critedge2.thread
+  br label %45
 
-.critedge2.thread:                                ; preds = %2, %44, %.critedge2
+45:                                               ; preds = %2, %44, %.critedge2
   %45 = phi i64 [ %43, %44 ], [ %43, %.critedge2 ], [ 0, %2 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
   store i8 0, ptr %46, align 1, !tbaa !13
@@ -3116,36 +3116,36 @@ sdslen.exit:                                      ; preds = %8, %11, %15, %19, %
     i8 4, label %60
   ]
 
-49:                                               ; preds = %.critedge2.thread
+49:                                               ; preds = %45
   %.tr.i = trunc i64 %45 to i8
   %50 = shl i8 %.tr.i, 3
   store i8 %50, ptr %4, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-51:                                               ; preds = %.critedge2.thread
+51:                                               ; preds = %45
   %52 = trunc i64 %45 to i8
   %53 = getelementptr inbounds i8, ptr %0, i64 -3
   store i8 %52, ptr %53, align 1, !tbaa !13
   br label %sdssetlen.exit
 
-54:                                               ; preds = %.critedge2.thread
+54:                                               ; preds = %45
   %55 = trunc i64 %45 to i16
   %56 = getelementptr inbounds i8, ptr %0, i64 -5
   store i16 %55, ptr %56, align 1, !tbaa !14
   br label %sdssetlen.exit
 
-57:                                               ; preds = %.critedge2.thread
+57:                                               ; preds = %45
   %58 = trunc i64 %45 to i32
   %59 = getelementptr inbounds i8, ptr %0, i64 -9
   store i32 %58, ptr %59, align 1, !tbaa !16
   br label %sdssetlen.exit
 
-60:                                               ; preds = %.critedge2.thread
+60:                                               ; preds = %45
   %61 = getelementptr inbounds i8, ptr %0, i64 -17
   store i64 %45, ptr %61, align 1, !tbaa !11
   br label %sdssetlen.exit
 
-sdssetlen.exit:                                   ; preds = %.critedge2.thread, %49, %51, %54, %57, %60
+sdssetlen.exit:                                   ; preds = %45, %49, %51, %54, %57, %60
   ret ptr %0
 }
 

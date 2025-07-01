@@ -1260,7 +1260,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_read_data_skip_st
   %52 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 16, ptr noundef nonnull %4) #21
   %53 = load i64, ptr %4, align 8, !tbaa !69
   %54 = icmp slt i64 %53, 16
-  br i1 %54, label %._crit_edge85, label %.lr.ph.preheader
+  br i1 %54, label %._crit_edge85, label %.preheader79
 
 .preheader:                                       ; preds = %48, %56
   %55 = load i8, ptr %13, align 2, !tbaa !74
@@ -1276,7 +1276,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_read_data_skip_st
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
   br i1 %.not72, label %.preheader, label %.critedge, !llvm.loop !93
 
-.lr.ph.preheader:                                 ; preds = %.preheader80, %._crit_edge
+.preheader79:                                     ; preds = %.preheader80, %._crit_edge
   %58 = phi i64 [ %100, %._crit_edge ], [ %53, %.preheader80 ]
   %59 = phi ptr [ %99, %._crit_edge ], [ %52, %.preheader80 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %58
@@ -1287,7 +1287,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_read_data_skip_st
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.40) #21
   br label %.thread75
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %94
+.lr.ph:                                           ; preds = %.preheader79, %94
   %.05884 = phi ptr [ %.159, %94 ], [ %59, %.lr.ph.preheader ]
   %62 = getelementptr inbounds nuw i8, ptr %.05884, i64 3
   %63 = load i8, ptr %62, align 1, !tbaa !36
@@ -1368,7 +1368,7 @@ define internal range(i32 -30, 1) i32 @archive_read_format_zip_read_data_skip_st
   %99 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 16, ptr noundef nonnull %4) #21
   %100 = load i64, ptr %4, align 8, !tbaa !69
   %101 = icmp slt i64 %100, 16
-  br i1 %101, label %._crit_edge85, label %.lr.ph.preheader
+  br i1 %101, label %._crit_edge85, label %.preheader79
 
 .critedge:                                        ; preds = %.preheader, %56, %.thread75, %.thread, %46, %26, %12, %1
   %.0 = phi i32 [ -30, %1 ], [ 0, %12 ], [ %., %26 ], [ %.060, %46 ], [ %37, %.thread ], [ %.6.ph, %.thread75 ], [ 0, %.preheader ], [ %57, %56 ]

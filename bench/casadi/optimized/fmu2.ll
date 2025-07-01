@@ -15826,8 +15826,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %210
   br label %.lr.ph128
 
 .lr.ph128:                                        ; preds = %.noexc92, %227
-  %storemerge = phi ptr [ %229, %227 ], [ %224, %.noexc92 ]
-  store ptr %storemerge, ptr %173, align 8, !tbaa !36
+  %.0.i.i.i.i.i160 = phi ptr [ %229, %227 ], [ %224, %.noexc92 ]
+  store ptr %.0.i.i.i.i.i160, ptr %173, align 8, !tbaa !36
   %230 = ptrtoint ptr %storemerge to i64
   %231 = ptrtoint ptr %222 to i64
   %232 = sub i64 %230, %231

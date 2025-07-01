@@ -1712,9 +1712,9 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   %29 = getelementptr inbounds i8, ptr %.091192, i64 -1
   %30 = add nuw nsw i32 %.089193, 1
   %.not128 = icmp eq ptr %29, %18
-  br i1 %.not128, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph
+  br i1 %.not128, label %._crit_edge, label %.lr.ph
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %28
+._crit_edge:                                      ; preds = %28
   %.pre.pre = load i8, ptr %18, align 1, !tbaa !3
   br label %._crit_edge
 
@@ -1766,8 +1766,8 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   %48 = icmp ult i16 %2, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next, 152
-  %or.cond258 = select i1 %48, i1 true, i1 %exitcond223.not
-  br i1 %or.cond258, label %.thread136, label %.preheader168
+  %or.cond253 = select i1 %48, i1 true, i1 %exitcond223.not
+  br i1 %or.cond253, label %.thread136, label %.preheader168
 
 49:                                               ; preds = %.preheader168
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 8

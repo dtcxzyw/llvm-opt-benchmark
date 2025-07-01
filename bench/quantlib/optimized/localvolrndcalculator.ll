@@ -9707,7 +9707,7 @@ invoke.cont195.thread:                            ; preds = %invoke.cont182, %in
   %199 = call double @llvm.fabs.f64(double %198)
   br label %invoke.cont205
 
-while.body.preheader.i.i296:                      ; preds = %invoke.cont182
+while.body.i.i298:                                ; preds = %invoke.cont182
   %.pre.i.i297 = load double, ptr %add.ptr192, align 8, !tbaa !105
   br label %while.body.i.i298
 

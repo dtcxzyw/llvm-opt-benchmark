@@ -15625,13 +15625,13 @@ _ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1E
 29:                                               ; preds = %18
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %68
 
 31:                                               ; preds = %.noexc, %25
   %32 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #23
-  br label %67
+  br label %68
 
 33:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #23
@@ -15665,7 +15665,7 @@ _ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1E
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #23
-  br label %67
+  br label %68
 
 42:                                               ; preds = %_ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi6ELb1EEEEEEvT_SB_T0_.exit, %_ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1ELi1ELi6EEELi1ELi1ELb0EEEEEEvT_SB_T0_.exit
   %.pre85 = load ptr, ptr %6, align 8
@@ -15678,11 +15678,11 @@ _ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1E
 
 .lr.ph.i.i.preheader:                             ; preds = %43
   %.idx71 = shl nsw i64 %44, 2
-  %46 = getelementptr inbounds nuw i8, ptr %.pre85, i64 %.idx71
+  %45 = getelementptr inbounds nuw i8, ptr %.pre85, i64 %.idx71
   %.012.i.i = getelementptr inbounds i8, ptr %46, i64 -4
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
+.lr.ph.i.i:; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %.lr.ph.i.i.preheader ]
   %.0913.i.i = phi ptr [ %49, %.lr.ph.i.i ], [ %.pre85, %.lr.ph.i.i.preheader ]
   %47 = load i32, ptr %.0913.i.i, align 4, !tbaa !23
@@ -15691,55 +15691,55 @@ _ZSt4sortIPiN3igl19IndexVectorLessThanIKN5Eigen5BlockIKNS3_6MatrixIiLi1ELi6ELi1E
   store i32 %47, ptr %.014.i.i, align 4, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 4
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -4
-  %50 = icmp ult ptr %49, %.0.i.i
-  br i1 %50, label %.lr.ph.i.i, label %_ZSt7reverseIPiEvT_S1_.exit.loopexit, !llvm.loop !522
+  %51 = icmp ult ptr %49, %.0.i.i
+  br i1 %51, label %.lr.ph.i.i, label %_ZSt7reverseIPiEvT_S1_.exit.loopexit, !llvm.loop !522
 
 _ZSt7reverseIPiEvT_S1_.exit.loopexit:             ; preds = %.lr.ph.i.i
   %.pre = load ptr, ptr %6, align 8
   br label %_ZSt7reverseIPiEvT_S1_.exit
 
 _ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %_ZSt7reverseIPiEvT_S1_.exit.loopexit, %43, %42
-  %51 = phi ptr [ %.pre, %_ZSt7reverseIPiEvT_S1_.exit.loopexit ], [ %.pre85, %43 ], [ %.pre85, %42 ]
+  %52 = phi ptr [ %.pre, %_ZSt7reverseIPiEvT_S1_.exit.loopexit ], [ %.pre85, %43 ], [ %.pre85, %42 ]
   br i1 %9, label %_ZSt7reverseIPiEvT_S1_.exit.split.us, label %_ZSt7reverseIPiEvT_S1_.exit.split
 
 _ZSt7reverseIPiEvT_S1_.exit.split.us:             ; preds = %_ZSt7reverseIPiEvT_S1_.exit
-  %52 = getelementptr i32, ptr %4, i64 %indvars.iv82
-  %53 = getelementptr i32, ptr %3, i64 %indvars.iv82
-  %54 = getelementptr i32, ptr %0, i64 %indvars.iv82
-  %55 = load i32, ptr %54, align 4, !tbaa !23
-  store i32 %55, ptr %53, align 4, !tbaa !23
-  %56 = load i32, ptr %51, align 4, !tbaa !23
-  store i32 %56, ptr %52, align 4, !tbaa !23
+  %53 = getelementptr i32, ptr %4, i64 %indvars.iv82
+  %54 = getelementptr i32, ptr %3, i64 %indvars.iv82
+  %55 = getelementptr i32, ptr %0, i64 %indvars.iv82
+  %56 = load i32, ptr %55, align 4, !tbaa !23
+  store i32 %56, ptr %54, align 4, !tbaa !23
+  %57 = load i32, ptr %52, align 4, !tbaa !23
+  store i32 %57, ptr %53, align 4, !tbaa !23
   br label %.split.us
 
 .split.us:                                        ; preds = %_ZSt7reverseIPiEvT_S1_.exit.split, %_ZSt7reverseIPiEvT_S1_.exit.split.us
-  call void @free(ptr noundef nonnull %51) #23
+  call void @free(ptr noundef nonnull %52) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %57 = icmp samesign ult i64 %indvars.iv82, 5
-  %58 = select i1 %9, i1 %57, i1 false
-  br i1 %58, label %18, label %_ZN3igl5sort2IN5Eigen6MatrixIiLi1ELi6ELi1ELi1ELi6EEES3_S3_EEvRKNS1_9DenseBaseIT_EEibRNS1_15PlainObjectBaseIT0_EERNS9_IT1_EE.exit, !llvm.loop !523
+  %58 = icmp samesign ult i64 %indvars.iv82, 5
+  %59 = select i1 %9, i1 %58, i1 false
+  br i1 %59, label %18, label %_ZN3igl5sort2IN5Eigen6MatrixIiLi1ELi6ELi1ELi1ELi6EEES3_S3_EEvRKNS1_9DenseBaseIT_EEibRNS1_15PlainObjectBaseIT0_EERNS9_IT1_EE.exit, !llvm.loop !523
 
 _ZSt7reverseIPiEvT_S1_.exit.split:                ; preds = %_ZSt7reverseIPiEvT_S1_.exit, %_ZSt7reverseIPiEvT_S1_.exit.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZSt7reverseIPiEvT_S1_.exit.split ], [ 0, %_ZSt7reverseIPiEvT_S1_.exit ]
-  %59 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
-  %60 = load i32, ptr %59, align 4, !tbaa !23
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr i32, ptr %0, i64 %61
-  %63 = load i32, ptr %62, align 4, !tbaa !23
-  %64 = getelementptr i32, ptr %3, i64 %indvars.iv
-  store i32 %63, ptr %64, align 4, !tbaa !23
-  %65 = load i32, ptr %59, align 4, !tbaa !23
-  %66 = getelementptr i32, ptr %4, i64 %indvars.iv
-  store i32 %65, ptr %66, align 4, !tbaa !23
+  %60 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %61 = load i32, ptr %60, align 4, !tbaa !23
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr i32, ptr %0, i64 %62
+  %64 = load i32, ptr %63, align 4, !tbaa !23
+  %65 = getelementptr i32, ptr %3, i64 %indvars.iv
+  store i32 %64, ptr %65, align 4, !tbaa !23
+  %66 = load i32, ptr %60, align 4, !tbaa !23
+  %67 = getelementptr i32, ptr %4, i64 %indvars.iv
+  store i32 %66, ptr %67, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %.split.us, label %_ZSt7reverseIPiEvT_S1_.exit.split, !llvm.loop !524
 
-67:                                               ; preds = %40, %31, %29
+68:                                               ; preds = %40, %31, %29
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ], [ %41, %40 ]
-  %68 = load ptr, ptr %6, align 8, !tbaa !34
-  call void @free(ptr noundef %68) #23
+  %69 = load ptr, ptr %6, align 8, !tbaa !34
+  call void @free(ptr noundef %69) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
   resume { ptr, i32 } %.pn
 

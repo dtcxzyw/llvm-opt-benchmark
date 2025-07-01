@@ -2216,13 +2216,13 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.lr.ph.split
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.07.012.i.i, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.05.013.i.i, i64 4
   %.not.i.i = icmp eq ptr %42, %15
-  br i1 %.not.i.i, label %.lr.ph.i.preheader, label %.lr.ph.i.i, !llvm.loop !53
+  br i1 %.not.i.i, label %_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_.exit, label %.lr.ph.i.i, !llvm.loop !53
 
-.lr.ph.i.preheader:                               ; preds = %.lr.ph.i.i
+_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_.exit: ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i.i.i.i.i
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %_ZN3gmx12_GLOBAL__N_117linearCombinationEfNS_8ArrayRefIKfEEfS3_.exit, %.lr.ph.i
   %.07.i = phi float [ %47, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.i.preheader ]
   %.sroa.02.06.i = phi ptr [ %48, %.lr.ph.i ], [ %37, %.lr.ph.i.preheader ]
   %46 = load float, ptr %.sroa.02.06.i, align 4, !tbaa !11

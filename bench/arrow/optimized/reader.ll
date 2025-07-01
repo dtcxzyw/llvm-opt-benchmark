@@ -98069,7 +98069,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
   br label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.noexc4.i, %24
-  %storemerge = phi ptr [ %26, %24 ], [ %21, %.noexc4.i ]
+  %.0.i.i.i.i.i10.i = phi ptr [ %26, %24 ], [ %21, %.noexc4.i ]
   store ptr %storemerge, ptr %16, align 8, !tbaa !97, !alias.scope !3166
   br label %.lr.ph.i.i
 
@@ -98079,7 +98079,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %9
   store i32 %.07.i.i, ptr %.sroa.02.06.i.i, align 4, !tbaa !81, !noalias !3166
   %27 = add nuw nsw i32 %.07.i.i, 1
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 4
-  %.not.i.i = icmp eq ptr %28, %storemerge
+  %.not.i.i = icmp eq ptr %28, %.0.i.i.i.i.i10.i
   br i1 %.not.i.i, label %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit, label %.lr.ph.i.i, !llvm.loop !3169
 
 _ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit: ; preds = %.lr.ph.i.i, %.thread.i

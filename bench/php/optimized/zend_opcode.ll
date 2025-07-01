@@ -3348,25 +3348,25 @@ keeps_op1_alive.exit.thread:                      ; preds = %57, %57, %57, %57, 
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %93 = load i32, ptr %92, align 8, !tbaa !163
   %94 = icmp sgt i32 %93, 1
-  br i1 %94, label %.lr.ph151.preheader, label %.loopexit
+  br i1 %94, label %95, label %.loopexit
 
-.lr.ph151.preheader:                              ; preds = %._crit_edge
-  %95 = load ptr, ptr %25, align 8, !tbaa !56
-  %96 = zext nneg i32 %93 to i64
-  %.idx = mul nuw nsw i64 %96, 12
-  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx
+95:                                               ; preds = %._crit_edge
+  %96 = load ptr, ptr %25, align 8, !tbaa !56
+  %97 = zext nneg i32 %93 to i64
+  %.idx = mul nuw nsw i64 %97, 12
+  %.0146 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx
   %.0146 = getelementptr inbounds i8, ptr %97, i64 -12
   br label %.lr.ph151
 
-.lr.ph151:                                        ; preds = %.lr.ph151.preheader, %.lr.ph151
+.lr.ph151:                                        ; preds = %95, %.lr.ph151
   %.0149 = phi ptr [ %.0, %.lr.ph151 ], [ %.0146, %.lr.ph151.preheader ]
   %.pn148 = phi ptr [ %.0149, %.lr.ph151 ], [ %97, %.lr.ph151.preheader ]
-  %.0122147 = phi ptr [ %108, %.lr.ph151 ], [ %95, %.lr.ph151.preheader ]
-  %98 = load i32, ptr %.0122147, align 4, !tbaa !169
-  %99 = load i32, ptr %.0149, align 4, !tbaa !169
-  store i32 %99, ptr %.0122147, align 4, !tbaa !169
-  store i32 %98, ptr %.0149, align 4, !tbaa !169
-  %100 = getelementptr inbounds nuw i8, ptr %.0122147, i64 4
+  %.0122147 = phi ptr [ %108, %.lr.ph151 ], [ %96, %.lr.ph151.preheader ]
+  %100 = load i32, ptr %.0122147, align 4, !tbaa !169
+  %101 = load i32, ptr %.0149, align 4, !tbaa !169
+  store i32 %101, ptr %.0122147, align 4, !tbaa !169
+  store i32 %100, ptr %.0149, align 4, !tbaa !169
+  %102 = getelementptr inbounds nuw i8, ptr %.0122147, i64 4
   %101 = load i32, ptr %100, align 4, !tbaa !171
   %102 = getelementptr inbounds i8, ptr %.pn148, i64 -8
   %103 = load i32, ptr %102, align 4, !tbaa !171
@@ -3380,11 +3380,11 @@ keeps_op1_alive.exit.thread:                      ; preds = %57, %57, %57, %57, 
   store i32 %105, ptr %106, align 4, !tbaa !172
   %108 = getelementptr inbounds nuw i8, ptr %.0122147, i64 12
   %.0 = getelementptr inbounds i8, ptr %.0149, i64 -12
-  %109 = icmp ult ptr %108, %.0
-  br i1 %109, label %.lr.ph151, label %.lr.ph155.preheader
+  %111 = icmp ult ptr %108, %.0
+  br i1 %111, label %.lr.ph151, label %.lr.ph155
 
-.lr.ph155.preheader:                              ; preds = %.lr.ph151
-  %110 = getelementptr inbounds nuw %struct._zend_live_range, ptr %95, i64 %96
+.lr.ph155:                                        ; preds = %.lr.ph151
+  %110 = getelementptr inbounds nuw %struct._zend_live_range, ptr %96, i64 %96
   %111 = getelementptr inbounds i8, ptr %110, i64 -12
   br label %.lr.ph155
 

@@ -5170,26 +5170,26 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %.lr.ph.i.preheader, label %32
 
-32:                                               ; preds = %.noexc6
+.thread9:                                         ; preds = %.noexc6
   %33 = add nsw i64 %25, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %29, i8 0, i64 %33, i1 false)
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %30, 3
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i.i.i
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.noexc6, %32
-  %.sink = phi ptr [ %34, %32 ], [ %29, %.noexc6 ]
+  %.0.i.i.i.i.i12 = phi ptr [ %34, %32 ], [ %29, %.noexc6 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %35, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.sroa.02.06.i = phi ptr [ %36, %.lr.ph.i ], [ %26, %.lr.ph.i.preheader ]
+  %.sroa.02.06.i = phi ptr [ %37, %.lr.ph.i ], [ %26, %.lr.ph.i.preheader ]
   store i64 %indvars.iv.i, ptr %.sroa.02.06.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
-  %.not.i = icmp eq ptr %36, %.sink
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
+  %.not.i = icmp eq ptr %37, %.0.i.i.i.i.i12
   br i1 %.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit, label %.lr.ph.i, !llvm.loop !49
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit: ; preds = %.lr.ph.i, %.thread, %10, %8
